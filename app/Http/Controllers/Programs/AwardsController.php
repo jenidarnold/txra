@@ -1,12 +1,9 @@
 <?php namespace App\Http\Controllers\Programs;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
-
 class AwardsController extends Controller {
-
 	/**
 	 * Create a new controller instance.
 	 *
@@ -14,7 +11,7 @@ class AwardsController extends Controller {
 	 */
 	public function __construct()
 	{
-		//$this->middleware('auth');
+		$this->middleware('auth');
 	}
 	
 	/**
@@ -26,5 +23,4 @@ class AwardsController extends Controller {
 	{
 		return view('programs/awards/index');
 	}
-
 }
