@@ -56,7 +56,7 @@
 			<li>Limited Event</li>
 			<li>1 Year Membership</li>
 		</ul>
-		<a href="#" class="btn btn-primary">SIGN UP</a>
+		<a href="http://www.usaracquetballevents.com/cartCategory.asp?productGroupID=45&categoryID=184&cartID=" class="btn btn-primary" target="new">SIGN UP</a>
 	</div>
 
 	<div class="col-md-5th price-table">
