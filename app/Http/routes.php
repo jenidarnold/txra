@@ -68,8 +68,15 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	Route::get('matches', array('as' => 'members.matches', 'uses' => 'MemberController@matches'));	
 	Route::get('rankings', array('as' => 'members.rankings', 'uses' => 'MemberController@rankings'));
 	Route::get('gallery', array('as' => 'members.gallery.index', 'uses' => 'GalleryController@index'));
-	Route::put('addphoto', array('as' => 'members.gallery.create', 'uses' => 'GalleryController@create'));		
+	Route::put('addphoto', array('as' => 'members.gallery.create', 'uses' => 'GalleryController@create'));	
+
+
+	Route::get('membership', array('as' => 'members.membership', 'uses' => 'MemberController@membership'));		
+
+
+
 });
+
 
 Route::group(['namespace' => 'Events', 'prefix' =>'events'], function()
 {

@@ -96,4 +96,16 @@ class MemberController extends Controller {
 
 		return view('members/rankings');
 	}
+
+
+	/**
+	 * Display index of memberships.
+	 *
+	 * @return Response
+	 */
+	public function membership(Request $request)
+	{
+
+		return view('memberships/index');
+	}
 }

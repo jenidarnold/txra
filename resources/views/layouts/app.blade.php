@@ -49,7 +49,7 @@
 						<p>"Not only is racquetball a blast to play, but also the sport offers a great deal of physical and mental health benefits. Racquetball is a cinch to learn, and there is a minimal amount of game equipment to buy. The game is fast-paced, so it offers an impressive workout for your entire body in a short amount of time. Racquetball isnt a game for slackers, but you will be having so much fun you wont even notice how much energy you are exerting." <a href="http://woman.thenest.com/benefits-playing-racquetball-13166.html"> Read More</a></p>
 					</div>
 
-					<div class="col-md-4">
+					<!--div class="col-md-4">
 						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
 						<ul class="list-unstyled">
 							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
@@ -58,9 +58,9 @@
 							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
 							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
 						</ul>
-					</div>
+					</div-->
 
-					<div class="col-md-4">
+					<div class="col-md-5">
 						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
 						<ul class="list-unstyled">
 							<li><b>Address:</b> PO Box 21132, Here Weare St, <br />Dallas, Texas 75007 USA</li>
@@ -270,8 +270,8 @@
 												</a>
 												<ul class="dropdown-menu">
 													<li><a href="portfolio-single-parallax.html">MEMBER BENEFITS</a></li>
-													<li><a href="portfolio-single-parallax.html">FREE eMembership</a></li>
-													<li><a href="portfolio-single-extended.html">COMPETITVE MEMBERSHIP</a></li>
+													<li><a href="portfolio-single-parallax.html">FREE e-Membership</a></li>
+													<li><a href="{{route('members.membership')}}">COMPETITVE MEMBERSHIPS</a></li>
 												</ul>
 											</li>
 										</ul>
