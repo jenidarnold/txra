@@ -26,24 +26,25 @@
 							<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": 2, "autoPlay": 3000, "autoHeight": false, "navigation": false, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
 								<div>
 									<img class="img-responsive" src="{{ asset('images/board/julie_arnold.png') }}" alt="">
+								</div>	
+								<div>
+									<img class="img-responsive" src="{{ asset('images/board/tom_doughty.png') }}" alt="">
 								</div>
 								<div>
-									<img class="img-responsive" src="{{ asset('images/board/mike_griz.png') }}" alt="">
-								</div>					
-								<div>
-									<img class="img-responsive" src="{{ asset('images/board/tom_d.png') }}" alt="">
+									<img class="img-responsive" src="{{ asset('images/board/brad_giezentanner.png') }}" alt="">
 								</div>
-																<div>
-									<img class="img-responsive" src="{{ asset('images/board/brad_g.png') }}" alt="">
+								<div>
+									<img class="img-responsive" src="{{ asset('images/board/mike_grisz.png') }}" alt="">
+								</div>	
+								<div>
+									<img class="img-responsive" src="{{ asset('images/board/john_oneill.png') }}" alt="">
 								</div>								
 								<div>
-									<img class="img-responsive" src="{{ asset('images/board/mitch_mcoy.png') }}" alt="">
+									<img class="img-responsive" src="{{ asset('images/board/mitchell_mccoy.png') }}" alt="">
 								</div>
+							
 								<div>
-									<img class="img-responsive" src="{{ asset('images/board/john_oneil.png') }}" alt="">
-								</div>
-								<div>
-									<img class="img-responsive" src="{{ asset('images/board/michael_sorenson.png') }}" alt="">
+									<img class="img-responsive" src="{{ asset('images/board/mike_sorensen.png') }}" alt="">
 								</div>
 							</div>
 							<!-- /OWL SLIDER -->
@@ -53,7 +54,7 @@
 							<p>Additional vacancies were filled by the Board. Mitchel McCoy, Michael Sorenson, & John O'Niel</p>
 							</p>We want to thank the outgoing Board members who also served and volunteered.</p>
 
-							<a href="blog-single-default.html" class="btn btn-reveal btn-default">
+							<a href="#" class="btn btn-reveal btn-default">
 								<i class="fa fa-plus"></i>
 								<span>Read More</span>
 							</a>
@@ -143,11 +144,11 @@
 								</li>
 							</ul>
 
-							<blockquote class="blockquote">
+							<blockquote class="blockquote1">
 								<p>A dinky-doo is a twist of the wrist in the middle of a swing. It is subtle. An exaggerated dinky doo is called twisty wristy. Fix a dinky doo by flattening out the forehand and backhand throughout the swing. If you have a dinky doo you have increased chances for error. Note: You won’t find these terms anywhere else!</p>
 								<footer class="blockquote-footer">Coach Jim Winterton <cite title="Source Title"><a href="http://www.irt-tour.com/coach-jim-winterton-s-top-racquetball-tips/">irt-tour.com</a></cite></footer>
 							</blockquote>
-							<a href="blog-single-default.html" class="btn btn-reveal btn-default">
+							<a href="#" class="btn btn-reveal btn-default">
 								<i class="fa fa-plus"></i>
 								<span>Read More</span>
 							</a>

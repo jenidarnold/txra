@@ -24,7 +24,7 @@
 							.owl-padding-20
 					-->
 					<div class="text-center">
-						<div class="owl-carousel owl-padding-1 nomargin buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "6", "autoPlay": 3500, "navigation": true, "pagination": false}'>
+						<div class="owl-carousel owl-padding-1 nomargin buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "3", "autoPlay": 3500, "navigation": true, "pagination": false}'>
 
 							<!-- item -->
 							<div class="item-box">
@@ -46,13 +46,13 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/21674_small.jpg') }}" width="200" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/21674_large.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>Crazy Craigs Celebration Tournament</h3>
-									<ul class="nomargin" style="list-style: none;">
-										<li>6/06/2017 - 6/07/2017</li>
+									<ul class="list-inline categories nomargin">
+										<li>4/21/2017 - 4/23/2017</li>
 										<li>Round Rock, TX</li>
 										<li>
 											<a href="r2sports.com/?TID=21674">Tournament Information</a>
@@ -83,13 +83,13 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/mav.jpg') }}" width="200" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/mav.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>2017 Maverick May Racquetball Shootout</h3>
-									<ul class="list  nomargin" style="list-style: none;">
-										<li>6/11/2017 - 6/13/2017</li>
+									<ul class="list-inline categories nomargin">
+										<li>5/13/2017 - 5/13/2017</li>
 										<li>Maverick Athletic Club. ARLINGTON, TX</li>
 										<li>
 											<a href="#">Tournament Information</a>
@@ -152,12 +152,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/mav.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/mav.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>2017 Maverick May Racquetball Shootout</h3>
-									<ul class=" nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>5/13/2017 - 5/13/2017</li>
 										<li>Maverick Athletic Club. ARLINGTON, TX</li>
 										<li>
@@ -189,12 +189,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/ccac.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/ccac.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>CC ATHLETIC CLUB ARMED FORCES DAY RACQUETBALL SHOOTOUT</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>5/20/2017 - 5/20/2017</li>
 										<li>Corpus Christi Athletic Club. Corpus Christi, TX</li>
 										<li>
@@ -226,12 +226,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>2017 June Triple Crown Racquetball Shootout</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>6/10/2017 - 6/11/2017</li>
 										<li>Maverick Athletic Club. ARLINGTON, TX</li>
 										<li>
@@ -263,12 +263,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>2017 July Triple Crown Racquetball Shootout</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>7/08/2017 - 7/09/2017</li>
 										<li>Maverick Athletic Club. ARLINGTON, TX</li>
 										<li>
@@ -300,12 +300,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/ccac.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/ccac.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>CC ATHLETIC CLUB ARMED FORCES DAY RACQUETBALL SHOOTOUT</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>7/21/2017 - 8/13/2017</li>
 										<li>Corpus Christi Athletic Club. Corpus Christi, TX</li>
 										<li>
@@ -337,12 +337,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>2017 August Triple Crown Racquetball Shootout</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>8/12/2017 - 8/13/2017</li>
 										<li>Maverick Athletic Club. ARLINGTON, TX</li>
 										<li>
@@ -374,12 +374,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/triplecrown.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>2017 September Triple Crown Racquetball Shootout</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>9/09/2017 - 9/10/2017</li>
 										<li>Maverick Athletic Club. ARLINGTON, TX</li>
 										<li>
@@ -440,12 +440,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/alamo.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/alamo.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>2017 Battle at the Alamo Regional Tournament</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>4/21/2017 - 4/23/2017</li>
 										<li>YMCA, Thousand Oaks. San Antonio, TX</li>
 										<li>
@@ -477,12 +477,12 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src="{{ asset('images/tournaments/logos/tsu.jpg') }}" width="200" height="399" alt="">
+									<img class="img-responsive" src="{{ asset('images/tournaments/logos/tsu.jpg') }}" width="600" height="399" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>Texas State University Shootout</h3>
-									<ul class="list-inline categories nomargin" style="list-style: none;">
+									<ul class="list-inline categories nomargin">
 										<li>4/08/2017 - 4/09/2017</li>
 										<li>Texas State University Student Rec Center. San Marcos, TX</li>
 										<li>

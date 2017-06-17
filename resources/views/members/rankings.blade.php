@@ -20,7 +20,7 @@
 	<!-- /PAGE HEADER -->
 
 	<!-- -->
-	<section class="dark">
+	<section class="dark1">
 		<div class="container">
 			<div id="portfolio" class="portfolio-gutter">
 				<ul class="nav nav-pills mix-filter margin-bottom-10">
@@ -52,18 +52,18 @@
 										</a>
 
 										<!-- details -->
-										<a class="ico-rounded" href="portfolio-single-slider.html">
+										<a class="ico-rounded" href="#">
 											<span class="glyphicon glyphicon-option-horizontal size-20"></span>
 										</a>
 									</span>
 								</span>
 								<!-- overlay title -->
 								<div class="item-box-overlay-title">
-									<h3><sup>#</sup>1 Kane Waselenchuk</h3>									
+									<h3><sup>#</sup>26 Mike Grisz</h3>									
 								</div><!-- /overlay title -->
 						
 								<!--Random player -->
-								<img class="img-responsive" src="{{ asset('images/members/8220/profile.png')}}" width="600" height="399" alt="">
+								<img class="img-responsive" src="{{ asset('images/members/7/profile.png')}}" width="600" height="399" alt="">
 							</figure>
 					
 							<div class="item-box-desc">
@@ -114,11 +114,11 @@
 								</span>
 								<!-- overlay title -->
 								<div class="item-box-overlay-title">
-									<h3><sup>#</sup>1 Kane Waselenchuk</h3>									
+									<h3><sup>#</sup>100 Troy Warigon</h3>									
 								</div><!-- /overlay title -->
 						
 								<!--Random player -->
-								<img class="img-responsive" src="{{ asset('images/members/8220/profile.png')}}" width="600" height="399" alt="">
+								<img class="img-responsive" src="{{ asset('images/members/14/profile.png')}}" width="600" height="399" alt="">
 							</figure>
 
 					
@@ -131,14 +131,14 @@
 										<span class="size-11 text-muted">Austin, TX</span>
 									</div><!-- /post item -->
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/12298/profile.png')}}" width="60" height="60" alt="" />
-										<h4 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>2 Alejandro Landa</a></h4>
-										<span class="size-11 text-muted">El Paso, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/8/profile.png')}}" width="60" height="60" alt="" />
+										<h4 class="size-13 nomargin noborder nopadding"><a href="#"><sup>#</sup>2 Rocky Carson</a></h4>
+										<span class="size-11 text-muted">Ladera Ranch, CA USA</span>
 									</div><!-- /post item -->
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/169/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>3 <smaller>Jansen Allen</smaller></a></h3>
-										<span class="size-11 text-muted">Austin, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/9/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+										<h3 class="size-13 nomargin noborder nopadding"><a href="#"><sup>#</sup>3 <smaller>Alvaro Beltran</smaller></a></h3>
+										<span class="size-11 text-muted">Tijuana, BC MEX</span>
 									</div><!-- /post item -->
 								</div>
 
@@ -171,30 +171,30 @@
 								</span>
 								<!-- overlay title -->
 								<div class="item-box-overlay-title">
-									<h3><sup>#</sup>1 Kane Waselenchuk</h3>									
+									<h3><sup>#</sup>9 Terry Latham</h3>									
 								</div><!-- /overlay title -->
 						
 								<!--Random player -->
-								<img class="img-responsive" src="{{ asset('images/members/8220/profile.png')}}" width="600" height="399" alt="">
+								<img class="img-responsive" src="{{ asset('images/members/12/profile.png')}}" width="600" height="399" alt="">
 							</figure>
 
 							<div class="item-box-desc">
 								<div class="height-250 " data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4">
 										
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/8220/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>1 <smaller>Kane Waselenchuk</smaller></a></h3>
-										<span class="size-11 text-muted">Austin, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/10/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>1 <smaller>Da'Monique Davis</smaller></a></h3>
+										<span class="size-11 text-muted">San Antonio, TX</span>
 									</div><!-- /post item -->
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/12298/profile.png')}}" width="60" height="60" alt="" />
-										<h4 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>2 Alejandro Landa</a></h4>
-										<span class="size-11 text-muted">El Paso, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/11/profile.png')}}" width="60" height="60" alt="" />
+										<h4 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>2 Briana Jacquet</a></h4>
+										<span class="size-11 text-muted">Port Arther, TX</span>
 									</div><!-- /post item -->
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/169/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>3 <smaller>Jansen Allen</smaller></a></h3>
-										<span class="size-11 text-muted">Austin, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/13/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>3 <smaller>Brittany Click</smaller></a></h3>
+										<span class="size-11 text-muted">Arlington, TX</span>
 									</div><!-- /post item -->
 								</div>
 
@@ -226,30 +226,30 @@
 								</span>
 								<!-- overlay title -->
 								<div class="item-box-overlay-title">
-									<h3><sup>#</sup>1 Kane Waselenchuk</h3>									
+									<h3><sup>#</sup>35 Nancy Enriquez</h3>									
 								</div><!-- /overlay title -->
 						
 								<!--Random player -->
-								<img class="img-responsive" src="{{ asset('images/members/8220/profile.png')}}" width="600" height="399" alt="">
+								<img class="img-responsive" src="{{ asset('images/members/18/profile.png')}}" width="600" height="399" alt="">
 							</figure>
 				
 							<div class="item-box-desc">
 								<div class="height-250 " data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4">
 										
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/8220/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>1 <smaller>Kane Waselenchuk</smaller></a></h3>
-										<span class="size-11 text-muted">Austin, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/15/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>1 <smaller>Paola Longoria</smaller></a></h3>
+										<span class="size-11 text-muted">Monterrey, NL MEX</span>
 									</div><!-- /post item -->
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/12298/profile.png')}}" width="60" height="60" alt="" />
-										<h4 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>2 Alejandro Landa</a></h4>
-										<span class="size-11 text-muted">El Paso, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/16/profile.png')}}" width="60" height="60" alt="" />
+										<h4 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>2 Maria Jose Vargas</a></h4>
+										<span class="size-11 text-muted">Caba Buenos Aires, Buenos Aires ARG</span>
 									</div><!-- /post item -->
 									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/169/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>3 <smaller>Jansen Allen</smaller></a></h3>
-										<span class="size-11 text-muted">Austin, TX</span>
+										<img class="thumbnail pull-left" src="{{ asset('images/members/17/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>3 <smaller>Jessica Parrilla</smaller></a></h3>
+										<span class="size-11 text-muted">San Luis Potosi, San Luis Potosi MEX</span>
 									</div><!-- /post item -->
 								</div>
 

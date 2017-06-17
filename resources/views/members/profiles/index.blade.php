@@ -18,10 +18,11 @@
 
 					<!-- page tabs -->
 					<ul class="page-header-tabs list-inline mix-filter">
-						<li data-filter="all" class="filter active"><a href="#">All Players</a></li>
-						<li data-filter="maile" class="filter"><a href="#">Male Players</a></li>
-						<li data-filter="female" class="filter"><a href="#">Female Players</a></li>
-						<li data-filter="instructors" class="filter"><a href="#">Instructors</a></li>
+						<li data-filter="all" class="filter active"><a href="#">All</a></li>
+						<li data-filter="male" class="filter"><a href="#">Male</a></li>
+						<li data-filter="female" class="filter"><a href="#">Female</a></li>
+						<li data-filter="junior" class="filter"><a href="#">Juniors</a></li>
+						<li data-filter="pro" class="filter"><a href="#">Pros</a></li>
 					</ul><!-- /page tabs -->
 
 				</div>
@@ -36,6 +37,54 @@
 				<div id="portfolio" class="portfolio-nogutter">
 
 					<div class="row mix-grid">
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-3 mix male pro">
+
+							<div class="item-box">
+								<div class="item-box-desc">
+									<h3 class="text-center">Jansen Allen</h3>
+								</div>
+								<figure>
+									<span class="item-hover">
+										<span class="overlay dark-5"></span>
+										<span class="inner">
+
+											<!-- lightbox -->
+											<a class="ico-rounded lightbox" href="{{ asset('images/members/169/profile.png')}}" data-plugin-options='{"type":"image"}'>
+												<span class="fa fa-plus size-20"></span>
+											</a>
+
+											<!-- details -->
+											<a class="ico-rounded" href="{{ route('members.show', 1)}}">
+												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+											</a>
+
+										</span>
+									</span>
+
+									<!-- carousel -->
+									<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
+										<div>
+											<img class="img-responsive" src="{{ asset('images/members/169/profile.png')}}" width="600" height="399" alt="">
+										</div>
+										<div style="padding-top:40px">
+											<h4>Skill: PRO</h4>
+										</div>
+										<div style="padding-top:40px">
+											<h4>Singles Rank: </h4>
+											<h4>Doubles Rank: </h4>
+											<h4>Mixed Doubles Rank: </h4>
+										</div>
+									</div>
+									<!-- /carousel -->
+
+								</figure>
+							</div>
+
+						</div>
+						<!-- /item -->	
+
 						<!-- item -->
 						<div class="col-md-3 col-sm-3 mix female">
 							<div class="item-box">
@@ -52,7 +101,7 @@
 											</a>
 
 											<!-- details -->
-											<a class="ico-rounded" href="{{ route('members.show', 192412)}}">
+											<a class="ico-rounded" href="{{ route('members.show', 1)}}">
 												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
 											</a>
 
@@ -82,25 +131,24 @@
 
 						</div>
 						<!-- /item -->
-											<!-- item -->
-						<div class="col-md-3 col-sm-3 mix female">
 
+						<!-- item -->
+						<div class="col-md-3 col-sm-3 mix female junior">
 							<div class="item-box">
 								<div class="item-box-desc">
-									<h3 class="text-center">Jane Doe</h3>
+									<h3 class="text-center">Shane Diaz</h3>
 								</div>
 								<figure>
 									<span class="item-hover">
-										<span class="overlay dark-5"></span>
 										<span class="inner">
 
 											<!-- lightbox -->
-											<a class="ico-rounded lightbox" href="{{ asset('images/members/1/profile.png')}}" data-plugin-options='{"type":"image"}'>
+											<a class="ico-rounded lightbox" href="{{ asset('images/members/6/profile.png')}}" data-plugin-options='{"type":"image"}'>
 												<span class="fa fa-plus size-20"></span>
 											</a>
 
 											<!-- details -->
-											<a class="ico-rounded" href="portfolio-single-slider.html">
+											<a class="ico-rounded" href="{{ route('members.show', 1)}}">
 												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
 											</a>
 
@@ -110,15 +158,17 @@
 									<!-- carousel -->
 									<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
 										<div>
-											<img class="img-responsive" src="{{ asset('images/members/1/profile.png')}}" width="600" height="399" alt="">
+											<img class="img-responsive" src="{{ asset('images/members/6/profile.png')}}" width="600" height="399" alt="">
 										</div>
 										<div style="padding-top:40px">
-											<h4>Hometown: Carrollton, TX</h4>
+											<h4>Hometown: </h4>
+											<h4>Skill: Junior</h4>
 										</div>
 										<div style="padding-top:40px">
-											<h4>Singles Rank: #3</h4>
-											<h4>Doubles Rank: #25</h4>
-											<h4>Mixed Doubles Rank: #15</h4>
+											<h4>Texas Rank: </h4>
+											<h4>National Rank: </h4>
+											<h4>TX Doubles Rank: </h4>
+											<h4>TX Mixed Doubles Rank: </h4>
 										</div>
 									</div>
 									<!-- /carousel -->
@@ -127,7 +177,148 @@
 							</div>
 
 						</div>
-						<!-- /item -->						
+						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-3 mix male" >
+							<div class="item-box">
+								<div class="item-box-desc">
+									<h3 class="text-center">Richard Eisemann</h3>
+								</div>
+								<figure>
+									<span class="item-hover">
+										<span class="inner">
+
+											<!-- lightbox -->
+											<a class="ico-rounded lightbox" href="{{ asset('images/members/4/profile.png')}}" data-plugin-options='{"type":"image"}'>
+												<span class="fa fa-plus size-20"></span>
+											</a>
+
+											<!-- details -->
+											<a class="ico-rounded" href="{{ route('members.show', 1)}}">
+												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+											</a>
+
+										</span>
+									</span>
+
+									<!-- carousel -->
+									<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
+										<div>
+											<img class="img-responsive" src="{{ asset('images/members/4/profile.png')}}" width="600" height="399" alt="">
+										</div>
+										<div style="padding-top:40px">
+											<h4>Hometown: </h4>
+											<h4>Skill: Open</h4>
+										</div>
+										<div style="padding-top:40px">
+											<h4>Texas Rank: </h4>
+											<h4>National Rank: </h4>
+											<h4>TX Doubles Rank: </h4>
+											<h4>TX Mixed Doubles Rank: </h4>
+										</div>
+									</div>
+									<!-- /carousel -->
+
+								</figure>
+							</div>
+
+						</div>
+						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-3 mix female pro">
+
+							<div class="item-box">
+								<div class="item-box-desc">
+									<h3 class="text-center">Adriana Riveros</h3>
+								</div>
+								<figure>
+									<span class="item-hover">
+										<span class="overlay dark-5"></span>
+										<span class="inner">
+
+											<!-- lightbox -->
+											<a class="ico-rounded lightbox" href="{{ asset('images/members/3/profile.png')}}" data-plugin-options='{"type":"image"}'>
+												<span class="fa fa-plus size-20"></span>
+											</a>
+
+											<!-- details -->
+											<a class="ico-rounded" href="{{ route('members.show', 1)}}">
+												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+											</a>
+
+										</span>
+									</span>
+
+									<!-- carousel -->
+									<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
+										<div>
+											<img class="img-responsive" src="{{ asset('images/members/3/profile.png')}}" width="600" height="399" alt="">
+										</div>
+										<div style="padding-top:40px">
+											<h4>Skill: PRO</h4>
+										</div>
+										<div style="padding-top:40px">
+											<h4>Singles Rank: </h4>
+											<h4>Doubles Rank: </h4>
+											<h4>Mixed Doubles Rank: </h4>
+										</div>
+									</div>
+									<!-- /carousel -->
+
+								</figure>
+							</div>
+
+						</div>
+						<!-- /item -->	
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-3 mix male junior">
+							<div class="item-box">
+								<div class="item-box-desc">
+									<h3 class="text-center">Brady Yelverton</h3>
+								</div>
+								<figure>
+									<span class="item-hover">
+										<span class="inner">
+
+											<!-- lightbox -->
+											<a class="ico-rounded lightbox" href="{{ asset('images/members/5/profile.png')}}" data-plugin-options='{"type":"image"}'>
+												<span class="fa fa-plus size-20"></span>
+											</a>
+
+											<!-- details -->
+											<a class="ico-rounded" href="{{ route('members.show', 1)}}">
+												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+											</a>
+
+										</span>
+									</span>
+
+									<!-- carousel -->
+									<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
+										<div>
+											<img class="img-responsive" src="{{ asset('images/members/5/profile.png')}}" width="600" height="399" alt="">
+										</div>
+										<div style="padding-top:40px">
+											<h4>Hometown: </h4>
+											<h4>Skill: Junior</h4>
+										</div>
+										<div style="padding-top:40px">
+											<h4>Texas Rank: </h4>
+											<h4>National Rank: </h4>
+											<h4>TX Doubles Rank: </h4>
+											<h4>TX Mixed Doubles Rank: </h4>
+										</div>
+									</div>
+									<!-- /carousel -->
+
+								</figure>
+							</div>
+
+						</div>
+						<!-- /item -->
 					</div>
 
 
