@@ -47,10 +47,15 @@ class MemberController extends Controller {
 	 */
 	public function home(Request $request)
 	{
-		if(\Auth::check()){
-			return redirect()->route('members.show', ['id' =>  \Auth::user()->id ]);
 
-		}else{
+		if(\Auth::check()){
+			if (\Auth::user()->id == 0 ) {
+				return view('welcome');
+			} else {
+				return redirect()->route('members.show', ['id' =>  \Auth::user()->id ]);
+			}
+
+		}else{			
 			return view('auth/login');
 		}
 

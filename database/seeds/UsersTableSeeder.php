@@ -22,6 +22,15 @@ class UsersTableSeeder extends Seeder
 			'email' => 'julie.enid@gmail.com',
 			'password' => Hash::make('ruph'),
 		]);
+
+		User::create([
+			'id' => '0',
+			'first_name' => 'Guest',
+			'last_name' => 'Member',
+			'middle_name' => '',
+			'email' => 'guest@txra.org',
+			'password' => Hash::make('guest1234'),
+		]);
 		
     }
 }

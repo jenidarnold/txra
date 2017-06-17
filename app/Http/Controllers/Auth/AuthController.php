@@ -29,6 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
+    
     protected $redirectTo = '/members/home';
 
     /**
@@ -76,6 +77,7 @@ class AuthController extends Controller
 
         \Auth::login($this->create($request->all()));
         /*\Event::fire(new UserWasRegistered($data)); */
+        
         return redirect($this->redirectPath());
 
     }
