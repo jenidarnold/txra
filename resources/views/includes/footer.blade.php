@@ -9,7 +9,7 @@
 				<img src="{{ asset('images/R.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				-->
-				<img src="{{ asset('images/logo_2017.png')}}" style="height:100px;display:inline; opacity:.7" alt="" />
+				<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline; opacity:.7" alt="" />
 
 				<!-- Small Description -->
 				<!--p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p-->
@@ -18,12 +18,12 @@
 				<address>
 					<ul class="list-unstyled">
 						<li class="footer-sprite address">
-							PO Box 21132<br>
-							Here Weare St, Texas<br>
+							PO Box 111<br>
+							Down Ln, Texas<br>
 							75007 USA<br>
 						</li>
 						<li class="footer-sprite phone">
-							Phone: 1-800-565-2390
+							Phone: 1-800-000-0000
 						</li>
 						<li class="footer-sprite email">
 							<a href="mailto:support@txra.org">support@txra.org</a>
@@ -41,15 +41,15 @@
 				<ul class="footer-posts list-unstyled">
 					<li>
 						<a href="#">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue</a>
-						<small>29 June 2015</small>
+						<small>29 June 2017</small>
 					</li>
 					<li>
 						<a href="#">Nullam id dolor id nibh ultricies</a>
-						<small>29 June 2015</small>
+						<small>29 June 2017</small>
 					</li>
 					<li>
 						<a href="#">Duis mollis, est non commodo luctus</a>
-						<small>29 June 2015</small>
+						<small>29 June 2017</small>
 					</li>
 				</ul>
 				<!-- /Latest Blog Post -->

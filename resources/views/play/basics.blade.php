@@ -28,31 +28,39 @@
 
 	<section>
 		<div class="container">
-
-					<h1 class="blog-post-title">HOW TO PLAY RACQUETBALL</h1>
-					<ul class="blog-post-info list-inline">
-						<li>
-							<a href="#">
-								<i class="fa fa-clock-o"></i> 
-								<span class="font-lato">June 29, 2017</span>
-							</a>
-						</li>								
-						<li>
-							<a href="#">
-								<i class="fa fa-user"></i> 
-								<span class="font-lato">John Doe</span>
-							</a>
-						</li>
-					</ul>
-
-					<img class="img-responsive pull-right" src="{{asset('images/play/court.jpg')}}" width="300" alt="zones" />
-					
-
+			<div class"row">
+				<h1 class="blog-post-title">HOW TO PLAY RACQUETBALL</h1>
+				<ul class="blog-post-info list-inline">
+					<li>
+						<a href="#">
+							<i class="fa fa-clock-o"></i> 
+							<span class="font-lato">June 15, 2017</span>
+						</a>
+					</li>								
+					<li>
+						<a href="#">
+							<i class="fa fa-user"></i> 
+							<span class="font-lato">John Doe</span>
+						</a>
+					</li>
+				</ul>
+				
+				<div class="col-md-6 col-sm-12">
 					<!-- article content -->
 					<p>Racquetball is easy and fun to play, although it may take a few games to figure out the basics such as scoring, serving and some simple rules. Racquetball can be played indoors and outdoors, but most Texas courts can be found indoors at private/public health clubs, and all sorts of local recreation centers. The game can be played as 'singles', between two players, or 'doubles' between two teams of two players each. There is also a game, 'cut-throat' which involves three players. Each player has his/her own racquet and one ball is used.
 					</p>
 					<p>Matches are typically two games to 15 points and a tie-breaker to 11 points if needed. For the basics let's get started with a few so you can enjoy your racquetball experience. The serve-Play begins with the server standing in the Service Zone and serving the ball to his/her opponent(s) who is standing in the Receiving Zone. To serve, the server must first bounce the ball and then strike it with the racquet.
 					</p>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<!--img class="img-responsive pull-right" src="{{asset('images/play/court.jpg')}}" width="300" alt="zones" /-->
+
+					<div class="img-responsive pull-right">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/H2Z6A2iNSUM" frameborder="0" allowfullscreen></iframe>
+						<p class="text text-info">Video courtesy of Johnny Boyd</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 

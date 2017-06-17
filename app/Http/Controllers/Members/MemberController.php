@@ -49,7 +49,7 @@ class MemberController extends Controller {
 	{
 
 		if(\Auth::check()){
-			if (\Auth::user()->first_name == 'Guest' ) {
+			if (\Auth::user()->last_name == 'Member' ) {
 				return view('welcome');
 			} else {
 				return redirect()->route('members.show', ['id' =>  \Auth::user()->id ]);

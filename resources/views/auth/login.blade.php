@@ -8,7 +8,7 @@
            
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="/">Welcome</a></li>
+                <li><a href="/welcome">Welcome</a></li>
                 <li class="active">LOGIN</li>
             </ol><!-- /breadcrumbs -->
 

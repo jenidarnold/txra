@@ -88,7 +88,7 @@
 						</ul>
 
 						<!-- Logo -->
-						<a href="/"><img src="{{ asset('images/logo_2017.png')}}" style="height:100px;display:inline;" alt="" /></a>
+						<a href="/"><img src="{{ asset('images/logo/txra_logo.png')}}" style="height:100px;display:inline;" alt="" /></a>
 
 					</div>
 				</header>
