@@ -22,7 +22,8 @@ class CreateClubsTable extends Migration
             $table->string('phone');
             $table->float('lat', 10, 6);  
             $table->float('lng', 10, 6);  
-            $table->string('type');  
+            $table->string('type'); 
+            $table->int('courts');   
             $table->string('info');  
             $table->timestamps();
         });
