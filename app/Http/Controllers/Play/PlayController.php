@@ -76,6 +76,12 @@ class PlayController extends Controller {
 			->get()
 			;
 
+		$i = 1;
+		foreach($clubs as $club) {
+			$club->ico="../images/mapicons/number_".$i.".png";
+			$i++;
+		}	
+
 		return view('play/map', compact('clubs'));
 	}
 

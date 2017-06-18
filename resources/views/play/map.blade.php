@@ -2,7 +2,7 @@
 @section('style')
     <style type="text/css">
     	 #map {
-        	height: 400px;
+        	height: 600px;
         	width: 100%;
        	}       	
     </style>
@@ -39,7 +39,13 @@
 					<h4 class="text-center">Legend</h4>
 					<ul style="list-style: none;">					
 					@foreach($clubs as $club)
-						<li><a hreh="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > {{  $club->name }}</a></li>
+						<li>
+							<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > {{  $club->name }}</a>
+							<address>
+								{{ $club->address }}, {{ $club->city }}  {{ $club->zip}} <br/>
+								<i class="fa fa-phone"></i> {{ $club->phone }} <a href="{{ $club->url}}" target="new"><i class="fa fa-globe"></i> Website</a> 
+							</address>
+						</li>
 					@endforeach
 					</ul>
 				</div>
@@ -59,33 +65,29 @@
 
 
         	map = new google.maps.Map(document.getElementById('map'), {
-          		zoom: 5,
+          		zoom: 6,
           		center: mav
 	    	});       
         
-	        //Hardcoded markers
-	         var marker = new google.maps.Marker({
-	          position: mav,
-	          map: map
-	        });
-	        
-			             
+	      			             
 	        // TODO: Get from Datatabase
 			var clubs = {!! json_encode($clubs->toArray()) !!};
 
 			// Create markers.
 	    	clubs.forEach(function(club) {
 	    		var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
+	    		var ico = club.ico;
 	     	    var marker = new google.maps.Marker({
 	     	       position: c,
 	     	      //icon: icons[feature.type].icon,
-	     	       map: map
+	     	       map: map,
+	     	       icon: ico
 	     	    });
 	     	});
 	    }
 
     </script>
-     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap">
 	</script>
 
 

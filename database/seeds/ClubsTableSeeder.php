@@ -27,6 +27,7 @@ class ClubsTableSeeder extends Seeder {
 			'type'			=>	'recreational',
 			'courts'		=>	4,
 			'info'			=>	'',
+			'url'			=>	'https://www.roundrocktexas.gov/departments/parks-and-recreation/facilities/cmrc/',
 		]);
 
 		Club::create([
@@ -41,8 +42,27 @@ class ClubsTableSeeder extends Seeder {
 			'lng'			=>	-97.1373552,
 			'type'			=>	'private',
 			'courts'		=>	10,
-			'info'			=>	'Visitor fee is only $5 per person'
+			'info'			=>	'Visitor fee is only $5 per person',
+			'url'			=>	'http://themav.com/',
 		]);
+
+
+		Club::create([
+			'id' 			=> 	3,
+			'name'		    =>	'Thousand Oaks Family YMCA',
+			'address' 		=>	'16101 Henderson Pass',
+			'city' 			=> 	'San Antonio',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'78232',	
+			'phone'			=>	'210-494-5292',
+			'lat'			=>  29.5882997,
+			'lng'			=>	-98.4500583,
+			'type'			=>	'ymca',
+			'courts'		=>	5,
+			'info'			=>	'',
+			'url'			=>	'http://www.ymcasatx.org/toaks',
+		]);
+
 	}
 
 }

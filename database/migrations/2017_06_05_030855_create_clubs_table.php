@@ -25,6 +25,7 @@ class CreateClubsTable extends Migration
             $table->string('type'); 
             $table->integer('courts');   
             $table->string('info');  
+            $table->string('url');  
             $table->timestamps();
         });
     }
