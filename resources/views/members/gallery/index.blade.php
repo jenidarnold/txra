@@ -26,16 +26,18 @@
 			<li class="filter active"><a data-filter="*" href="#">Public</a></li>
 			<li class="filter"><a data-filter=".development" href="#">My Gallery</a></li>
 			<li class="filter"><a data-filter=".photography" href="#">Just Me</a></li>
-		<!-- input name, return images of those members tagged; search button 
-		   image items contain member name for filter
-		   not sure how images stored. member uploads to their gallery
-		  -->
-		<div class="input-group col-md-4">
-			<input type="text" placeholder="Search" class="form-control">
-			<span class="input-group-btn">
-				<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-			</span>
-		</div>
+
+			<!-- input name, return images of those members tagged; search button 
+			   image items contain member name for filter
+			   not sure how images stored. member uploads to their gallery
+			  -->
+			<div class="input-group col-md-4">
+				<input type="text" placeholder="Search" class="form-control">
+				<span class="input-group-btn">
+					<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+				</span>
+			</div>
+		</ul>
 		<div id="portfolio" class="clearfix portfolio-isotope portfolio-isotope-6">
 
 			<div class="portfolio-item julienne arnold"><!-- item -->

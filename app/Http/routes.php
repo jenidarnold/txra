@@ -94,6 +94,8 @@ Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 	Route::get('committees', array('as' => 'committees.index', 'uses' => 'LeadershipController@committees'));
 	Route::get('volunteer', array('as' => 'volunteer.index', 'uses' => 'LeadershipController@volunteer'));
 	Route::get('election/process', array('as' => 'election.index', 'uses' => 'LeadershipController@election'));	
+	Route::get('ethics', array('as' => 'about.ethics', 'uses' => 'LeadershipController@ethics'));	
+	Route::get('mission', array('as' => 'about.mission', 'uses' => 'LeadershipController@mission'));	
 });
 
 Route::group(['namespace' => 'Donate', 'prefix' =>'donate'], function()

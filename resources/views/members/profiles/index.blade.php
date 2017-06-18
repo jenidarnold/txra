@@ -4,30 +4,28 @@
     </style>
 @stop
 @section('content')		
-		<section class="page-header page-header-xs">
-				<div class="container">
-
-					<h1>TXRA MEMBERS</h1>
-
-					<!-- breadcrumbs -->
-					<!--ol class="breadcrumb">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Profiles</a></li>
-						<li class="active">Full Container Layout</li>
-					</ol><!-- /breadcrumbs -->
-
-					<!-- page tabs -->
-					<ul class="page-header-tabs list-inline mix-filter">
-						<li data-filter="all" class="filter active"><a href="#">All</a></li>
-						<li data-filter="male" class="filter"><a href="#">Male</a></li>
-						<li data-filter="female" class="filter"><a href="#">Female</a></li>
-						<li data-filter="junior" class="filter"><a href="#">Juniors</a></li>
-						<li data-filter="pro" class="filter"><a href="#">Pros</a></li>
-					</ul><!-- /page tabs -->
-
-				</div>
-			</section>
-			<!-- /PAGE HEADER -->
+	<section class="page-header page-header-xs">		
+		<div class="container">
+			<h1>TXRA MEMBERS</h1>					
+		</div>
+	</section>
+	<!-- /PAGE HEADER -->
+	<div class="container">	    
+		<ul id="portfolio_filter" class="nav nav-pills margin-top-10  margin-bottom-10">
+			<li data-filter="all" class="filter active"><a href="#">All</a></li>
+			<li data-filter="male" class="filter"><a href="#">Male</a></li>
+			<li data-filter="female" class="filter"><a href="#">Female</a></li>
+			<li data-filter="junior" class="filter"><a href="#">Juniors</a></li>
+			<li data-filter="pro" class="filter"><a href="#">Pros</a></li>
+			
+			<div class="input-group col-md-4">
+				<input type="text" placeholder="Search" class="form-control">
+				<span class="input-group-btn">
+					<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+				</span>
+			</div>	
+		</ul>
+	</div>
 
 			<!-- -->
 			<section>

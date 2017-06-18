@@ -60,4 +60,26 @@ class LeadershipController extends Controller {
 
 		return view('about/election');
 	}
+
+	/**
+	 * Display member profile.
+	 *
+	 * @return Response
+	 */
+	public function mission(Request $request)
+	{
+
+		return view('about/mission');
+	}
+
+	/**
+	 * Display member profile.
+	 *
+	 * @return Response
+	 */
+	public function ethics(Request $request)
+	{
+
+		return view('about/ethics');
+	}
 }

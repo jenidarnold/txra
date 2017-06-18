@@ -25,8 +25,9 @@ class MemberController extends Controller {
 	 */
 	public function index(Request $request)
 	{
+		$members = User::orderBy('name');
 
-		return view('members/profiles/index');
+		return view('members/profiles/index', compact('members'));
 	}
 
 	/**
