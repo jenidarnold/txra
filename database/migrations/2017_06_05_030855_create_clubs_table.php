@@ -23,6 +23,7 @@ class CreateClubsTable extends Migration
             $table->float('lat', 10, 6);  
             $table->float('long', 10, 6);  
             $table->string('type');  
+            $table->string('info');  
             $table->timestamps();
         });
     }
