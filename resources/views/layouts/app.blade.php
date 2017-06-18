@@ -181,9 +181,9 @@
 													WHERE TO PLAY
 												</a>
 												<ul class="dropdown-menu">
-													<li><a href="recreational">RECREATIONAL</a></li>
-													<li><a href="leagues">LEAGUES</a></li>
-													<li><a href="tournaments">TOURNAMENTS</a></li>
+													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
+													<li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li>
+													<li><a href="{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>
 												</ul>
 											</li>
 
@@ -444,5 +444,7 @@
 		  ga('create', 'UA-61761895-4', 'auto');
 		  ga('send', 'pageview');
 		</script>
+
+		@yield('script')
 </body>
 </html>

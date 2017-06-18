@@ -57,4 +57,21 @@ class PlayController extends Controller {
 	{
 		return view('play/instructors');
 	}
+
+
+	/**
+	 * Display map of locations .
+	 *
+	 * @return Response
+	 */
+	public function map(Request $request)
+	{
+
+        $clubs =  (object) [ 
+          'position' =>  '{lat: 32.7098963, lng: -97.1373552 }',           
+        ];
+
+		return view('play/map', compact('clubs'));
+	}
+
 }

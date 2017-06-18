@@ -18,8 +18,11 @@ class CreateClubsTable extends Migration
             $table->string('address');  
             $table->string('city'); 
             $table->string('state'); 
-            $table->string('zip');  
-            $table->string('phone');  
+            $table->string('zip');              
+            $table->string('phone');
+            $table->float('lat', 10, 6);  
+            $table->float('long', 10, 6);  
+            $table->string('type');  
             $table->timestamps();
         });
     }

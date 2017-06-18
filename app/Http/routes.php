@@ -14,6 +14,7 @@ Route::get('/', function () {
     return view('coming-soon');
 });
 
+Route::get('/sitemap.xml', 'SitemapController@index');
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -43,6 +44,8 @@ Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 	Route::get('rules', array('as' => 'play.rules', 'uses' => 'PlayController@rules'));	
 	Route::get('levels', array('as' => 'play.levels', 'uses' => 'PlayController@levels'));	
 	Route::get('instructors', array('as' => 'play.instructors', 'uses' => 'PlayController@instructors'));	
+	Route::get('map', array('as' => 'play.map', 'uses' => 'PlayController@map'));	
+	Route::get('leagues', array('as' => 'play.leagues.index', 'uses' => 'LeaguesController@index'));	
 });
 
 Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
@@ -70,10 +73,7 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	Route::get('gallery', array('as' => 'members.gallery.index', 'uses' => 'GalleryController@index'));
 	Route::put('addphoto', array('as' => 'members.gallery.create', 'uses' => 'GalleryController@create'));	
 
-
 	Route::get('membership', array('as' => 'members.membership', 'uses' => 'MemberController@membership'));		
-
-
 
 });
 
