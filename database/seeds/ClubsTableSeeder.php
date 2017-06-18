@@ -25,7 +25,7 @@ class ClubsTableSeeder extends Seeder {
 			'lat'			=>  30.4971805,
 			'lng'			=>	-97.6608585,
 			'type'			=>	'recreational',
-			'courts'		=>	4
+			'courts'		=>	4,
 			'info'			=>	'',
 		]);
 
