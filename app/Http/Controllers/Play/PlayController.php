@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
+use App\Club;
 
 class PlayController extends Controller {
 
@@ -67,9 +68,13 @@ class PlayController extends Controller {
 	public function map(Request $request)
 	{
 
-        $clubs =  (object) [ 
-          'position' =>  '{lat: 32.7098963, lng: -97.1373552 }',           
-        ];
+        //$clubs =  (object) [ 
+        //  'position' =>  '{lat: 32.7098963, lng: -97.1373552 }',           
+        //];
+
+		$clubs = Club::orderBy('name')
+			->get()
+			;
 
 		return view('play/map', compact('clubs'));
 	}
