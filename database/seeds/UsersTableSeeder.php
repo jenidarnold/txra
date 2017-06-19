@@ -53,9 +53,9 @@ class UsersTableSeeder extends Seeder
 		User::create([
 			'id' => '170599',
 			'first_name' => 'Mike',
-			'last_name' => 'Sorenson',
+			'last_name' => 'Sorensen',
 			'middle_name' => '',
-			'email' => 'sorenson@txra.org',
+			'email' => 'sorensen@txra.org',
 			'password' => Hash::make('board'),
 		]);
     }
