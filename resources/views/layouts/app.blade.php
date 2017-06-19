@@ -365,11 +365,11 @@
 										<a class="dropdown" href="/login">
 											<span class="btn btn-sm btn-primary">LOGIN</span>
 										</a>								
-									<li class="dropdown">
+									<!--li class="dropdown">
 										<a class="dropdown" href="/register">
 											<span class="btn btn-sm btn-default">REGISTER</span>
 										</a>
-									</li>
+									</li-->
 									@else
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
