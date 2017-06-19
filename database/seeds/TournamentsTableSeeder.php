@@ -29,6 +29,68 @@ class TournamentsTableSeeder extends Seeder {
 			'url' 			=> 	'http://www.r2sports.com/tourney/home.asp?TID=21596',
 			'logo' 			=> 	'triplecrown.jpg',
 		]);
+
+
+		Tournament::create([
+			'id' 			=> 	'1',
+			'name' 			=>	'2017 June Triple Crown Racquetball Shootout',	
+			'start_date' 	=> 	'2017-06-10',
+			'end_date' 		=> 	'2017-06-11',
+			'url' 			=> 	'http://www.r2sports.com/tourney/home.asp?TID=21596',
+			'logo' 			=> 	'triplecrown.jpg',
+		]);
+
+
+		Tournament::create([
+			'id' 			=> 	'2',
+			'name' 			=>	'2017 June Triple Crown Racquetball Shootout',	
+			'start_date' 	=> 	'2017-06-10',
+			'end_date' 		=> 	'2017-06-11',
+			'url' 			=> 	'http://www.r2sports.com/tourney/home.asp?TID=21596',
+			'logo' 			=> 	'triplecrown.jpg',
+		]);
+
+
+		Tournament::create([
+			'id' 			=> 	'3',
+			'name' 			=>	'2017 June Triple Crown Racquetball Shootout',	
+			'start_date' 	=> 	'2017-06-10',
+			'end_date' 		=> 	'2017-06-11',
+			'url' 			=> 	'http://www.r2sports.com/tourney/home.asp?TID=21596',
+			'logo' 			=> 	'triplecrown.jpg',
+		]);
+
+
+		Tournament::create([
+			'id' 			=> 	'4',
+			'name' 			=>	'2017 June Triple Crown Racquetball Shootout',	
+			'start_date' 	=> 	'2017-06-10',
+			'end_date' 		=> 	'2017-06-11',
+			'url' 			=> 	'http://www.r2sports.com/tourney/home.asp?TID=21596',
+			'logo' 			=> 	'triplecrown.jpg',
+		]);
+
+
+		Tournament::create([
+			'id' 			=> 	'5',
+			'name' 			=>	'2017 June Triple Crown Racquetball Shootout',	
+			'start_date' 	=> 	'2017-06-10',
+			'end_date' 		=> 	'2017-06-11',
+			'url' 			=> 	'http://www.r2sports.com/tourney/home.asp?TID=21596',
+			'logo' 			=> 	'triplecrown.jpg',
+		]);
+
+
+		Tournament::create([
+			'id' 			=> 	'6',
+			'name' 			=>	'2017 June Triple Crown Racquetball Shootout',	
+			'start_date' 	=> 	'2017-06-10',
+			'end_date' 		=> 	'2017-06-11',
+			'url' 			=> 	'http://www.r2sports.com/tourney/home.asp?TID=21596',
+			'logo' 			=> 	'triplecrown.jpg',
+		]);
+
+
 	}
 
 }

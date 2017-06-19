@@ -17,7 +17,8 @@ Route::get('/', function () {
 Route::get('/sitemap.xml', 'SitemapController@index');
 
 Route::get('/welcome', function () {
-    return view('welcome');
+	$tournaments = App\Tournament::all();
+    return view('welcome', compact('tournaments'));
 });
 
 	

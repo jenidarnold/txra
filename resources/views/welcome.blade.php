@@ -231,6 +231,6 @@
         <!-- /EVENT SLIDER -->
 
         <!-- EVENT SLIDER-->
-        @include('includes.eventslider', array('event_type' => 'LIVE'))        
+        @include('includes.eventslider', array('event_type' => 'FUTURE'))        
         <!-- /EVENT SLIDER -->
 @stop

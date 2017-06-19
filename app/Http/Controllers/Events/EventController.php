@@ -26,7 +26,11 @@ class EventController extends Controller {
 	public function index($type)
 	{
 
-		return view('events/index', compact('events'));
+		$tournaments = Tournament::all();
+		$page = (object) [ 
+			'title' => 'Index' 
+			];
+		return view('events/index', compact('tournaments', 'page'));
 	}
 
 		

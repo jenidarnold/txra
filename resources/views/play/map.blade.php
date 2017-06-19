@@ -25,6 +25,7 @@
 	</section>
 	<!-- /PAGE HEADER -->
 
+	<!-- http://www.mapcoordinates.net/en -->
 	<section>
 		<div class="container">
 			<div class="row">
@@ -40,8 +41,10 @@
 					<ul style="list-style: none;">					
 					@foreach($clubs as $club)
 						<li>
-							<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > {{  $club->name }}</a>
-							<address>
+							<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
+								<img style="height:28px" src={{asset($club->ico)}} />	{{  $club->name }}
+							</a>
+							<address style="padding-left:28px">
 								{{ $club->address }}, {{ $club->city }}  {{ $club->zip}} <br/>
 								<i class="fa fa-phone"></i> {{ $club->phone }} <a href="{{ $club->url}}" target="new"><i class="fa fa-globe"></i> Website</a> 
 							</address>
