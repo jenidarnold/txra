@@ -146,10 +146,112 @@ class ClubsTableSeeder extends Seeder {
 			'url'			=>	'http://www.goldsgym.com/san-antonio-hill-country-village/',
 		]);
 
-/*
+
 		Club::create([
 			'id' 			=> 	9,
-			'name'		    =>	'',
+			'name'		    =>	'Landmark Club at Park Central',
+			'address' 		=>	'12740 Merit Dr',
+			'city' 			=> 	'Dallas',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'75251',	
+			'phone'			=>	'972-392-1500',
+			'lat'			=>  32.9222405,
+			'lng'			=>	-96.770967,
+			'type'			=>	'club',
+			'courts'		=>	6,
+			'info'			=>	'',
+			'url'			=>	'http://www.landmarkclub.com/',
+		]);
+
+
+		Club::create([
+			'id' 			=> 	10,
+			'name'		    =>	'Lockheed Martin Rec Center - CERA',
+			'address' 		=>	'3400 Bryant Irvin Rd',
+			'city' 			=> 	'Fort Worth',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'76109',	
+			'phone'			=>	'817-732-7731',
+			'lat'			=>  32.7003487,
+			'lng'			=>	-97.4137353,
+			'type'			=>	'bus',
+			'courts'		=>	3,
+			'info'			=>	'',
+			'url'			=>	'http://cera-fw.org/fitness-center/',
+		]);
+
+
+
+		Club::create([
+			'id' 			=> 	11,
+			'name'		    =>	'Omni Bayfront Corpus Christi Hotel',
+			'address' 		=>	'900 N Shoreline Blvd',
+			'city' 			=> 	'Corpus Christi',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'78401',	
+			'phone'			=>	'361-887-1600',
+			'lat'			=>  27.8003898,
+			'lng'			=>	-97.3922176,
+			'type'			=>	'hotel',
+			'courts'		=>	1,
+			'info'			=>	'',
+			'url'			=>	'https://www.omnihotels.com/hotels/corpus-christi/wellness/fitness-center',
+		]);
+
+
+
+		Club::create([
+			'id' 			=> 	12,
+			'name'		    =>	'Parke Way Family Fitness Center',
+			'address' 		=>	'2628 Bill Owens Pkwy',
+			'city' 			=> 	'Longview',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'75604',	
+			'phone'			=>	'903-297-0090',
+			'lat'			=>  32.5343519,
+			'lng'			=>	-94.7663237,
+			'type'			=>	'center',
+			'courts'		=>	4,
+			'info'			=>	'',
+			'url'			=>	'',
+		]);
+
+		Club::create([
+			'id' 			=> 	13,
+			'name'		    =>	'QBI',
+			'address' 		=>	'712 S Robinson Dr',
+			'city' 			=> 	'Robinson',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'76706',	
+			'phone'			=>	'254-644-0120',
+			'lat'			=>  31.464042,
+			'lng'			=>	-97.110124,
+			'type'			=>	'',
+			'courts'		=>	2,
+			'info'			=>	'',
+			'url'			=>	'',
+		]);
+
+		Club::create([
+			'id' 			=> 	14,
+			'name'		    =>	'Rambler Fitness Center',
+			'address' 		=>	'1751 1st St. E',
+			'city' 			=> 	'Randolph Air Force Base',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'78150',	
+			'phone'			=>	'210-652-7263',
+			'lat'			=>  29.5421227,
+			'lng'			=>	-98.2873419,
+			'type'			=>	'base',
+			'courts'		=>	3,
+			'info'			=>	'',
+			'url'			=>	'',
+		]);
+
+
+		Club::create([
+			'id' 			=> 	15,
+			'name'		    =>	'Rambler Fitness Center',
 			'address' 		=>	'',
 			'city' 			=> 	'',
 			'state' 		=> 	'Texas',
@@ -163,9 +265,40 @@ class ClubsTableSeeder extends Seeder {
 			'url'			=>	'',
 		]);
 
+		Club::create([
+			'id' 			=> 	16,
+			'name'		    =>	'San Antonio College Chandler Physical Education Center',
+			'address' 		=>	'1300 San Pedro',
+			'city' 			=> 	'San Antonio',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'78212',	
+			'phone'			=>	'210-494-5292',
+			'lat'			=>  29.4461815,
+			'lng'			=>	-98.496824,
+			'type'			=>	'college',
+			'courts'		=>	10,
+			'info'			=>	'',
+			'url'			=>	'',
+		]);
 
 		Club::create([
-			'id' 			=> 	10,
+			'id' 			=> 	17,
+			'name'		    =>	'Sweetwater Country Club',
+			'address' 		=>	'4400 Palm Royale Blvd',
+			'city' 			=> 	'Sugarland',
+			'state' 		=> 	'Texas',
+			'zip' 			=> 	'77479',	
+			'phone'			=>	'281-980-4100',
+			'lat'			=>  29.56842,
+			'lng'			=>	-95.6112815,
+			'type'			=>	'club',
+			'courts'		=>	5,
+			'info'			=>	'',
+			'url'			=>	'',
+		]);
+/*
+		Club::create([
+			'id' 			=> 	17,
 			'name'		    =>	'',
 			'address' 		=>	'',
 			'city' 			=> 	'',
@@ -178,8 +311,8 @@ class ClubsTableSeeder extends Seeder {
 			'courts'		=>	4,
 			'info'			=>	'',
 			'url'			=>	'',
-		]);*/
-
+		]);
+*/
 	}
 
 }
