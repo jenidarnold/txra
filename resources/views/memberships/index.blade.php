@@ -43,7 +43,7 @@
 			<li>Limited Event</li>
 			<li>Collegiate and Junior</li>
 		</ul>
-		<a href="http://www.usaracquetballevents.com/cartCategory.asp?cartID=&productGroupID=45&categoryID=129&brandID=102&TID=&userLoginID=&UID=" class="btn btn-primary" target="new">SIGN UP</a>
+		<a href="http://www.usaracquetballevents.com/cartCategory.asp?cartID=&productGroupID=45&categoryID=129&brandID=102&TID=&userLoginID=&UID=" class="btn btn-primary" target="new">LEARN MORE</a>
 	</div>
 
 	<div class="col-md-5th price-table">
@@ -56,7 +56,7 @@
 			<li>Military players only</li>
 			<li>&nbsp;</li>
 		</ul>
-		<a href="http://www.usaracquetballevents.com/cartCategory.asp?cartID=&productGroupID=45&categoryID=135&brandID=102&TID=&userLoginID=&UID=" class="btn btn-primary" target="new">SIGN UP</a>
+		<a href="http://www.usaracquetballevents.com/cartCategory.asp?cartID=&productGroupID=45&categoryID=135&brandID=102&TID=&userLoginID=&UID=" class="btn btn-primary" target="new">LEARN MORE</a>
 	</div>
 
 	<div class="col-md-5th price-table">
@@ -69,7 +69,7 @@
 			<li>1 Year Membership</li>
 			<li>Limited Event</li>
 		</ul>
-		<a href="http://www.usaracquetballevents.com/cartCategory.asp?productGroupID=45&categoryID=184&cartID=" class="btn btn-primary" target="new">SIGN UP</a>
+		<a href="http://www.usaracquetballevents.com/cartCategory.asp?productGroupID=45&categoryID=184&cartID=" class="btn btn-primary" target="new">LEARN MORE</a>
 	</div>
 
 	<div class="col-md-5th price-table">
@@ -82,7 +82,7 @@
 			<li>&nbsp;</li>
 			<li>&nbsp;</li>
 		</ul>
-		<a href="http://www.usaracquetballevents.com/cartProduct.asp?productGroupID=45&categoryID=130&brandID=0&modelID=746&cartID=" class="btn btn-primary" target="new">SIGN UP</a>
+		<a href="http://www.usaracquetballevents.com/cartProduct.asp?productGroupID=45&categoryID=130&brandID=0&modelID=746&cartID=" class="btn btn-primary" target="new">LEARN MORE</a>
 	</div>
 
 	<div class="col-md-5th price-table">
@@ -95,7 +95,7 @@
 			<li>&nbsp;</li>
 			<li>&nbsp;</li>			
 		</ul>
-		<a href="http://www.usaracquetballevents.com/cartCategory.asp?productGroupID=45&categoryID=172&cartID=" class="btn btn-primary" target="new">SIGN UP</a>
+		<a href="http://www.usaracquetballevents.com/cartCategory.asp?productGroupID=45&categoryID=172&cartID=" class="btn btn-primary" target="new">LEARN MORE</a>
 	</div>
 
 </div>

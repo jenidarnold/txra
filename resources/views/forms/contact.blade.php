@@ -27,7 +27,7 @@
 					<div class="row">
 
 						<!-- FORM -->
-						<div class="col-md-8 col-sm-8">
+						<div class="col-md-12">
 
 							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
 
@@ -84,40 +84,47 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-4">
-												<label for="contact:name">Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+												<label for="contact:name">Your Full Name (required)</label>
+												<input required type="text" value="{{$from->first_name.' '.$from->last_name}}" class="form-control" name="contact[name][required]" id="contact:name">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:email">E-mail Address *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+												<label for="contact:email">Your E-mail Address (required)</label>
+												<input required type="email" value="{{$from->email}}" class="form-control" name="contact[email][required]" id="contact:email">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:phone">Phone</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+												<label for="contact:phone">Your Phone (optional)</label>
+												<input type="text" value="{{$from->phone}}" class="form-control" name="contact[phone]" id="contact:phone">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-8">
-												<label for="contact:subject">Subject *</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+											<div class="col-md-4">
+												<label for="contact:toname">To (optional) </label>
+												<input type="text" value="{{$toname}}" class="form-control" name="contact[toname][]" id="contact:toname">
 											</div>
 											<div class="col-md-4">
-												<label for="contact_department">Department</label>
-												<select class="form-control pointer" name="contact[department]">
+												<label for="contact:committee">Committee (optional)</label>
+												<select class="form-control pointer" name="contact[committee]">
 													<option value="">--- Select ---</option>
-													<option value="Marketing">Marketing</option>
-													<option value="Webdesign">Webdesign</option>
-													<option value="Architecture">Architecture</option>
+													<option value="1">Awards</option>
+													<option value="2">Communications</option>
+													<option value="3">Finance</option>
+													<option value="4">Governance</option>
+													<option value="5">Strategic Planning</option>
+													<option value="6">Youth and Collegiate</option>
 												</select>
+											</div>
+											<div class="col-md-12">
+												<label for="contact:subject">Subject (required)</label>
+												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label for="contact:message">Message *</label>
+												<label for="contact:message">Message (required)</label>
 												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
 											</div>
 										</div>
@@ -147,38 +154,6 @@
 						</div>
 						<!-- /FORM -->
 
-
-						<!-- INFO -->
-						<div class="col-md-4 col-sm-4">
-
-							<h2>Visit Us</h2>
-
-							<!-- 
-							Available heights
-								height-100
-								height-150
-								height-200
-								height-250
-								height-300
-								height-350
-								height-400
-								height-450
-								height-500
-								height-550
-								height-600
-							-->
-							<div id="map2" class="height-400 grayscale"></div>
-
-							<hr />
-
-							<p>
-								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> Street Name, City Name, Country</span>
-								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">1800-555-1234</a></span>
-								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">mail@yourdomain.com</a></span>
-							</p>
-
-						</div>
-						<!-- /INFO -->
 
 					</div>
 

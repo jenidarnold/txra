@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
 			'last_name' => 'Member',
 			'middle_name' => '',
 			'email' => 'guest@txra.org',
-			'password' => Hash::make('guest1234'),
+			'password' => Hash::make('guest'),
 		]);
 
 		User::create([

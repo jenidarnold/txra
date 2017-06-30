@@ -24,7 +24,14 @@ class ContactController extends Controller {
 	 */
 	public function index(Request $request)
 	{
+		$toname = $request->to;
 
-		return view('forms/contact');
+		if(\Auth::check()){
+			$fromname = \Auth::user()->first_name . ' ' . \Auth::user()->last_name; 
+			$from = \Auth::user();
+		}
+
+		return view('forms/contact', compact('toname', 'from'));
+		
 	}
 }

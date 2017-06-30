@@ -1,6 +1,20 @@
 @extends('layouts.app')
 @section('style')
     <style type="text/css">
+    .social-twitter {
+    	display: none;
+    }
+    .box-flip {
+    	margin-bottom: 10px;
+    	min-height: 260px;
+    }
+
+    ul,li { list-style-type: none;
+        list-style-position:inside;
+        margin:0;
+        padding:0; 
+        font-size: 8pt;
+    }
     </style>
 @stop
 @section('content')		
@@ -27,11 +41,8 @@
 					<p class="lead">The Board of the Texas Racquetball Association is committed to our members and the growth of racquetball in Texas from recreational play to international competition.</p>
 					<p>Our mission is to provide racquetball opportunities for all levels of participation. We promote the sport with various marketing efforts. We expand our membership by recruiting at the grassroot level. We strive to provide many services our members</p>
 
-					<div class="row">
-					
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
-
 							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 								<div class="front">
 									<div class="box1 box-default">
@@ -47,12 +58,13 @@
 									<div class="box2 box-default">
 										<h4 class="nomargin">Michael Kaplan</h4>
 										<small>PRESIDENT</small>
+										<ul>
+											<li></li>
+											<li>All committees</li>
+											<li></li>
+										</ul>
 
-										<hr />
-
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
-
-										<hr />
+										<hr>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -62,7 +74,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Michael Kaplan'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -90,13 +102,13 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Sean Arnold</h4>
-										<small>VICE PRESIDENT</small>
+										<ul>
+											<li>Governance</li>
+											<li>Strategic Planning</li>
+											<li></li>
+										</ul>
 
-										<hr />
-
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
-
-										<hr />
+										<hr>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -106,7 +118,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Sean Arnold'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -133,14 +145,13 @@
 
 								<div class="back">
 									<div class="box2 box-default">
-										<h4 class="nomargin">Mike Grisz</h4>
-										<small>TREASURER</small>
-
-										<hr />
-
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
-
-										<hr />
+										<h4 class="nomargin">Mike Grisz</h4>									
+										<ul>
+											<li>Finance (Chair)</li>
+											<li>Strategic Planning</li>
+											<li>Youth and Collegiate</li>
+										</ul>
+										<hr>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -150,7 +161,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Mike Grisz'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -178,13 +189,11 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Mitchell McCoy</h4>
-										<small>SECRETARY</small>
-
-										<hr />
-
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
-
-										<hr />
+										<ul>
+											<li>Finance</li>
+											<li></li>
+											<li></li>
+										</ul>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -194,7 +203,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Mitchell McCoy'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -204,10 +213,6 @@
 
 						</div>
 						<!-- /item -->
-					</div>
-					<br/>
-					<!-- ROW 2 -->
-					<div class="row">
 					
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
@@ -226,12 +231,12 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Wendy Akins</h4>
-										<small>COMMITTEES</small>
-
-										<hr />
-										<small>Junior's Committee (Chair)</small><br/>
-										<small>Women's Committee</small>
-										<hr />
+										<ul>
+											<li>Awards</li>
+											<li>Strategic Planning</li>
+											<li>Youth and Collegiate</li>
+										</ul>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -241,7 +246,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Wendy Akins'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -269,13 +274,14 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Julienne Arnold</h4>
-										<small>COMMITTEES</small>										
-										<hr />
-										<small>SOCIAL MEDIA</small><br/>
-										<small>WOMEN'S PROGRAM</small>
-										
-										<hr />
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<ul>
+											<li>Awards</li>
+											<li>Communications (Chair)</li>
+											<li></li>
+										</ul>
+										<hr/>
+
+										<a href="http://m.me/julienne.arnold"  target="_blank" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -283,7 +289,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Julienne Arnold'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -311,11 +317,97 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Tom Doughtry</h4>
-										<small>COMMITTEES</small>
+										<ul>
+											<li>Governance</li>
+											<li></li>
+											<li></li>
+										</ul>
+										<hr/>
+
+										<a href="#" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="{{ route('contact',array('to' => 'Tom Doughtry'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/brad_giezentanner.png')}}" alt="" />
+											<h2>Brad Giezentanner</h2>
+											<small>BOARD MEMBER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-default">
+										<h4 class="nomargin">Brad Giezentanner</h4>
+										<ul>
+											<li>Communications</li>
+											<li>Youth and Collegiate</li>
+											<li></li>
+										</ul>
+										<hr/>
+
+										<a href="#" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="{{ route('contact',array('to' => 'Brad Giezentanner'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/lance_gilliam.png')}}" alt="" />
+											<h2>Lance Gilliam</h2>
+											<small>BOARD MEMBER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-default">
+										<h4 class="nomargin">Lance Gilliam</h4>
+										<small>BOARD MEMBER</small>
 
 										<hr />
 
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
+										<p></p>
 
 										<hr />
 
@@ -327,7 +419,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Lance Gilliam'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -355,7 +447,7 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Dale Gosser</h4>
-										<small>COMMITTEES</small>
+										<small>BOARD MEMBER</small>
 
 										<hr />
 										<small>SOCIAL MEDIA</small></br>
@@ -371,55 +463,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-					</div>
-					<br/>
-					<!-- ROW 3 -->
-					<div class="row">
-
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/lance_gilliam.png')}}" alt="" />
-											<h2>Lance Gilliam</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-default">
-										<h4 class="nomargin">Lance Gilliam</h4>
-										<small>BOARD MEMBER</small>
-
-										<hr />
-
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
-
-										<hr />
-
-										<a href="#" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Dale Gosser'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -451,7 +495,7 @@
 
 										<hr />
 
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
+										<p></p>
 
 										<hr />
 
@@ -463,7 +507,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'John O\'Neill'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -482,7 +526,7 @@
 									<div class="box1 box-default">
 										<div class="box-icon-title">
 											<img class="img-responsive" src="{{ asset('images/board/mike_sorensen.png')}}" alt="" />
-											<h2>Mike Sorenson</h2>
+											<h2>Mike Sorensen</h2>
 											<small>BOARD MEMBER</small>
 										</div>
 									</div>
@@ -495,7 +539,7 @@
 
 										<hr />
 
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
+										<p></p>
 
 										<hr />
 
@@ -507,7 +551,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Mike Sorensen'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -525,8 +569,8 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/brad_giezentanner.png')}}" alt="" />
-											<h2>Brad Giezentanner</h2>
+											<img class="img-responsive" src="{{ asset('images/board/terry_wenetschlaeger.png')}}" alt="" />
+											<h2>Terry Wenetschlaeger</h2>
 											<small>BOARD MEMBER</small>
 										</div>
 									</div>
@@ -534,12 +578,12 @@
 
 								<div class="back">
 									<div class="box2 box-default">
-										<h4 class="nomargin">Brad Giezentanner</h4>
+										<h4 class="nomargin">Brad Wenetschlaeger</h4>
 										<small>BOARD MEMBER</small>
 
 										<hr />
 
-										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
+										<p></p>
 
 										<hr />
 
@@ -551,7 +595,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Terry Wenetschlaeger'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -561,7 +605,6 @@
 
 						</div>
 						<!-- /item -->
-					</div>
 
 				</div>
 			</section>

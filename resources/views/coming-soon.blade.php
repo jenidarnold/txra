@@ -31,6 +31,18 @@
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="{{ asset('css/header-1.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('css/color_scheme/green.css') }}" rel="stylesheet" type="text/css" id="color_scheme" />
+
+		<style>
+			.credit {
+				color: #fff;
+				opacity: .8;
+				position: absolute; 
+				bottom: 0;
+				padding-left:10px;
+				font-size: 8pt;
+			}
+
+		</style>
 	</head>
 
 	<!--
@@ -99,7 +111,7 @@
 
 
 			<!-- -->
-			<section id="slider" class="fullheight" style="height:800px; background:url('{{asset('images/racquets/restring.jpg')}}');">
+			<section id="slider" class="fullheight" style="height:800px; background:url('{{asset('images/landing/restrung_bw.jpg')}}');">
 				<div class="overlay dark-5"><!-- dark overlay [0 to 9 opacity] --></div>
 
 				<div class="display-table">
@@ -107,7 +119,8 @@
 						<div class="container text-center">
 
 							<h1 class="margin-bottom-20 size-40 margin-top-80">TEXAS RACQUETBALL ASSOCIATION</h1>
-							<p class="size-20 font-lato text-muted">This site is being restrung. Please, check back again.</p>
+							<h4 class="size-30 font-lato text-muted"><i>This site is currently being Restrung.</h4>
+							<h4 class="size-30 font-lato text-muted"><i>Subscribe for updates. Come back soon!</i></h4>
 
 							
 						<!-- Bordered Theme Style Countdown -->
@@ -130,7 +143,7 @@
 								</form>
 
 							</div>
-
+						
 						</div>
 					</div>
 
@@ -139,7 +152,10 @@
 			</section>
 			<!-- / -->
 
-
+			<!-- Photo Credit -->
+			<div class="credit">
+				<p class="text smaller">Photo courtesy of Eddie Vann a.k.a. String King</p>
+			</div>
 
 
 			<!-- MODAL -->
