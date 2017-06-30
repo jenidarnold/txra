@@ -251,18 +251,18 @@ class ClubsTableSeeder extends Seeder {
 
 		Club::create([
 			'id' 			=> 	15,
-			'name'		    =>	'Rambler Fitness Center',
-			'address' 		=>	'',
-			'city' 			=> 	'',
+			'name'		    =>	'T Boone Pickens YMCA Downtown Dallas',
+			'address' 		=>	'601 N Akard St',
+			'city' 			=> 	'Dallas',
 			'state' 		=> 	'Texas',
-			'zip' 			=> 	'',	
-			'phone'			=>	'',
-			'lat'			=>  ,
-			'lng'			=>	,
-			'type'			=>	'',
-			'courts'		=>	4,
+			'zip' 			=> 	'75201',	
+			'phone'			=>	'214-954-0500',
+			'lat'			=>  32.7849543,
+			'lng'			=>	-96.8010787,
+			'type'			=>	'ymca',
+			'courts'		=>	6,
 			'info'			=>	'',
-			'url'			=>	'',
+			'url'			=>	'https://www.ymcadallas.org/locations/tboone_pickens/',
 		]);
 
 		Club::create([
