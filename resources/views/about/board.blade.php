@@ -39,7 +39,7 @@
 				<div class="container">
 					
 					<p class="lead">The Board of the Texas Racquetball Association is committed to our members and the growth of racquetball in Texas from recreational play to international competition.</p>
-					<p>Our mission is to provide racquetball opportunities for all levels of participation. We promote the sport with various marketing efforts. We expand our membership by recruiting at the grassroot level. We strive to provide many services our members</p>
+					<p>Our mission is to provide racquetball opportunities for all levels of participation. We promote the sport with various marketing efforts. We expand our membership by recruiting at the grassroot level. We strive to provide many services for our members</p>
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
@@ -60,11 +60,10 @@
 										<small>PRESIDENT</small>
 										<ul>
 											<li></li>
-											<li>All committees</li>
+											<li>Strategic Planning</li>
 											<li></li>
 										</ul>
-
-										<hr>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -194,6 +193,7 @@
 											<li></li>
 											<li></li>
 										</ul>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -319,7 +319,7 @@
 										<h4 class="nomargin">Tom Doughtry</h4>
 										<ul>
 											<li>Governance</li>
-											<li></li>
+											<li>Communications</li>
 											<li></li>
 										</ul>
 										<hr/>
@@ -403,13 +403,12 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Lance Gilliam</h4>
-										<small>BOARD MEMBER</small>
-
-										<hr />
-
-										<p></p>
-
-										<hr />
+										<ul>
+											<li>Finance</li>
+											<li>Governance</li>
+											<li></li>
+										</ul>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -447,13 +446,12 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Dale Gosser</h4>
-										<small>BOARD MEMBER</small>
-
-										<hr />
-										<small>SOCIAL MEDIA</small></br>
-										<small></small></br>
-
-										<hr />
+										<ul>
+											<li>Communications</li>
+											<li></li>
+											<li></li>
+										</ul>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -491,13 +489,12 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">John O'Neill</h4>
-										<small>BOARD MEMBER</small>
-
-										<hr />
-
-										<p></p>
-
-										<hr />
+										<ul>
+											<li>Governance</li>
+											<li>Strategic Planning</li>
+											<li></li>
+										</ul>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -535,13 +532,12 @@
 								<div class="back">
 									<div class="box2 box-default">
 										<h4 class="nomargin">Mike Sorensen</h4>
-										<small>BOARD MEMBER</small>
-
-										<hr />
-
-										<p></p>
-
-										<hr />
+										<ul>
+											<li>Awards</li>
+											<li>Communications</li>
+											<li></li>
+										</ul>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -578,14 +574,13 @@
 
 								<div class="back">
 									<div class="box2 box-default">
-										<h4 class="nomargin">Brad Wenetschlaeger</h4>
-										<small>BOARD MEMBER</small>
-
-										<hr />
-
-										<p></p>
-
-										<hr />
+										<h4 class="nomargin">Terry Wenetschlaeger</h4>
+										<ul>
+											<li>Strategic Planning</li>
+											<li>Youth and Collegiate</li>
+											<li></li>
+										</ul>
+										<hr/>
 
 										<a href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
@@ -623,7 +618,7 @@
 						</div>
 
 						<div class="col-md-3"><!-- button -->
-							<a href="page-careers.html" class="btn btn-primary btn-lg">Join Our Team</a>
+							<a href="{{ route('committees.index')}}" class="btn btn-primary btn-lg">Join Our Team</a>
 						</div>
 
 					</div>
