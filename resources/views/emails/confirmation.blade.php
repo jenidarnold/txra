@@ -22,7 +22,12 @@
 			#header {
 				height: 60px !important;
 				color: #fff;
+				background: #313131;
 			}
+			#footer {
+    			color: rgba(255,255,255,0.6);
+				background: #313131;
+    		}
 		</style>
 
 	</head>
@@ -35,7 +40,7 @@
 		<div id="wrapper">
 
 			<!-- HEADER -->
-			<div id="header" class="dark clearfix text-center header-lg">
+			<div id="header" class="">
 
 				<!-- Logo 
 				<a href="/"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" /></a>
