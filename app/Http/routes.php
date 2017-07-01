@@ -10,6 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+Route::get('/emails/confirmation', function () {
+    return view('emails.confirmation');
+});
+
 Route::get('/', function () {
     return view('coming-soon');
 });
