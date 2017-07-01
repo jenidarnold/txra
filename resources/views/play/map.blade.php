@@ -84,13 +84,23 @@
 	    	clubs.forEach(function(club) {
 	    		var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
 	    		var ico = club.ico;
+	    		var data = club.info;
+	    		var infowindow = new google.maps.InfoWindow({
+      				content: data
+    			});
 	     	    var marker = new google.maps.Marker({
 	     	       position: c,
 	     	      //icon: icons[feature.type].icon,
 	     	       map: map,
-	     	       icon: ico
+	     	       icon: ico,
+	     	       title: club.name
 	     	    });
+	     	    google.maps.event.addListener(marker, 'click', function() {
+      				infowindow.open(map,marker);
+    			});
 	     	});
+
+	     	
 	    }
 
     </script>

@@ -78,7 +78,16 @@ class PlayController extends Controller {
 
 		$i = 1;
 		foreach($clubs as $club) {
-			$club->ico="../images/mapicons/number_".$i.".png";
+			$club->ico = "../images/mapicons/number_".$i.".png";
+			$club->info = "<div class='clubInfo'>"
+			        ."<h6>".$club->name . "</h6>"
+                    ."<address>"
+                    . $club->address . "<br/>"
+                    . $club->city .", " . $club->state . " " . $club->zip. "<br/>"
+                    . $club->phone . "<br/>"
+                    ."Courts: " . $club->courts . "<br/>"
+                    ."</div>"
+			;
 			$i++;
 		}	
 
