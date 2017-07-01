@@ -65,7 +65,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/michael.kaplan1" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -109,7 +109,7 @@
 
 										<hr>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/sean.arnold.5817" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -152,7 +152,7 @@
 										</ul>
 										<hr>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/bonnie.grisz" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -195,7 +195,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/mitchell.mcoy.52" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -238,7 +238,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/wendy.s.akins.1" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -281,7 +281,7 @@
 										</ul>
 										<hr/>
 
-										<a href="http://m.me/julienne.arnold"  target="_blank" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/julienne.arnold"  target="_blank" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -324,7 +324,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -367,7 +367,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/brad.giezentanner" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -410,7 +410,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/lance.a.gilliam" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -453,7 +453,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/dale.gosser" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -496,7 +496,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/john.oneill.56211" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -539,7 +539,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/ShakeItForLife" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -582,7 +582,7 @@
 										</ul>
 										<hr/>
 
-										<a href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/terry.wenetschlaeger" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>

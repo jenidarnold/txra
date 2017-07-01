@@ -25,18 +25,22 @@
 	</section>
 	<!-- /PAGE HEADER -->
 
+	<!-- Find Google Maps coordinates - fast and easy! -->
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
 		<div class="container">
 			<div class="row">
-			<p>This is a list of racquetball clubs and facilities in Texas that sanction and support events with USA Racquetball and the Texas Racquetball Association. Please use this map as a guide to find and play at clubs that support racquetball in Texas.</p>
+				<div class="col-md-12 margin-bottom-20">
+					This map consists of Racquetball Clubs and Facilities in Texas that sanction and support events with <b>USA Racquetball</b> and the <b>Texas Racquetball Association</b>. <br/>Please use this map as a guide to find and play at clubs that support racquetball in Texas. 
+					<cite class="text small">[Verified by Bob Sullins, 2017]
+				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-8 col-sm-12 clearfix margin-bottom-60">
-					<div id="map"></div>
+					<div id="map" class="thumbnail"></div>
 				</div>
-				<div id="legend" class="col-md-4 col-sm-12">
+				<div id="legend" class="col-md-4 col-sm-12" style="height:600px; overflow:auto">
 					<h4 class="text-center">Legend</h4>
 					<ul style="list-style: none;">					
 					@foreach($clubs as $club)
