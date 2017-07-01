@@ -1,0 +1,1 @@
+You are now enrolled to receive TXRA updates and  newsletters

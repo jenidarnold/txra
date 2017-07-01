@@ -16,7 +16,8 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    /*'driver' => env('MAIL_DRIVER', 'smtp'),*/
+    'driver' => 'smtp',
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    /*'host' => env('MAIL_HOST', 'smtp.mailgun.org'), */
+    'host' => 'smtp.mailtrap.io',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,8 +44,8 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
-
+    /*'port' => env('MAIL_PORT', 587),*/
+    'port' => env('MAIL_PORT', 465),
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -55,8 +57,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
-
+    'from' => ['address' => 'julie.enid@gmail.com', 'name' => 'TXRA'],    
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
@@ -81,7 +82,8 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    /*'username' => env('MAIL_USERNAME'), */
+    'username' => '75a2ad6666b55e',
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +96,8 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    /*'password' => env('MAIL_PASSWORD'),*/
+    'password' => '6cc4f8ba6e7bb0',
 
     /*
     |--------------------------------------------------------------------------

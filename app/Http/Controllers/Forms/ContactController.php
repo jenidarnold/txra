@@ -7,6 +7,8 @@ use Redirect;
 
 class ContactController extends Controller {
 
+	/** https://app.mailgun.com/app/domains/mg.texasracquetball.org/verify */
+	
 	/**
 	 * Create a new controller instance.
 	 *

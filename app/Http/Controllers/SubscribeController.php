@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Subscriber;
+use Mail;
 
 class SubscribeController extends Controller
 {
@@ -49,8 +50,14 @@ class SubscribeController extends Controller
         	$subscriber->enabled = true;
         	$subscriber->save();
 
-        	\Session::flash('message', 'Successfully scribed to newsletter');
+            $subscriber->name ="New Subscriber";
 
+        	\Session::flash('message', 'Successfully subscribed to newsletter');
+            Mail::send('emails.confirmation', ['subscriber' => $subscriber], function($m) use ($subscriber) {
+                $subject = 'You are now enrolled to receive TXRA updates and  newsletters';
+                $m->from('julie.enid@gmail.com', 'TXRA');
+                $m->to($subscriber->email, $subscriber->name)->subject($subject);
+            });
         }
 
     }
