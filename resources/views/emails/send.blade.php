@@ -41,12 +41,10 @@
 
 			<!-- HEADER -->
 			<div id="header" class="">
-
-				<!-- Logo 
-				<a href="/"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" /></a>
-  				-->
-  				<h1> <center>TEXAS RACQUETBALL ASSOCIATION</center></h1>
-  			
+				<center>
+					<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" />		
+  					<h1>TEXAS RACQUETBALL ASSOCIATION</h1>
+				</center>
 			</div>
 			<!-- /HEADER -->
 
@@ -56,13 +54,11 @@
 				<div class="container text-center">
 					<center>
 						<h2 class="margin-bottom-20 size-30">
-							<center>Thank you for signing up!</center>
+						Subject: {{$subject}}
 						</h2>
 
 						<div style="max-width:550px; margin:auto; margin-top:60px;">
-							
-							<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" />
-
+						Message: {{$content}}
 						</div>
 					</center>
 				</div>
@@ -84,8 +80,6 @@
 				</div>
 			</section>
 			<!-- / -->
-
-
 
 
 

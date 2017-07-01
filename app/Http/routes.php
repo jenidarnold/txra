@@ -114,6 +114,7 @@ Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 	Route::get('election/nominate', array('as' => 'election.nominate', 'uses' => 'NominationController@election'));	
 	Route::get('awards/nominate', array('as' => 'awards.nominate', 'uses' => 'NominationController@awards'));	
 	Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));	
+	Route::post('contact', array('as' => 'contact', 'uses' => 'ContactController@send'));	
 });
 
 Route::get('/terms-of-use', function () {

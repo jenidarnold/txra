@@ -30,8 +30,7 @@
 						<div class="col-md-12">
 
 							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
-
-							
+						
 							<!--
 								MESSAGES
 								
@@ -77,35 +76,43 @@
 							</div><!-- /Alert Mandatory -->
 
 
-							<form action="php/contact.php" method="post" enctype="multipart/form-data">
+							<!--form action="php/contact.php" method="post" enctype="multipart/form-data"-->
+							<form action="{{route('contact')}}" method="post" enctype="multipart/form-data">
+								{{ csrf_field() }}
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-4">
-												<label for="contact:name">Your Full Name (required)</label>
-												<input required type="text" value="{{$from->first_name.' '.$from->last_name}}" class="form-control" name="contact[name][required]" id="contact:name">
+											<div class="col-md-6">
+												<label for="from_first_name">Your First Name (required)</label>
+												<input required type="text" value="{{$from->first_name}}" class="form-control" name="from_first_name" id="contact:first_name">
 											</div>
-											<div class="col-md-4">
-												<label for="contact:email">Your E-mail Address (required)</label>
-												<input required type="email" value="{{$from->email}}" class="form-control" name="contact[email][required]" id="contact:email">
+											<div class="col-md-6">
+												<label for="from_last_name">Your Last Name (required)</label>
+												<input required type="text" value="{{$from->last_name}}" class="form-control" name="from_last_name" id="contact:last_name">
 											</div>
-											<div class="col-md-4">
+										</div>
+										<div class="form-group">
+											<div class="col-md-6">
+												<label for="from_email">Your E-mail Address (required)</label>
+												<input required type="email" value="{{$from->email}}" class="form-control" name="from_email" id="contact:email">
+											</div>
+											<div class="col-md-6">
 												<label for="contact:phone">Your Phone (optional)</label>
-												<input type="text" value="{{$from->phone}}" class="form-control" name="contact[phone]" id="contact:phone">
+												<input type="text" value="{{$from->phone}}" class="form-control" name="from_phone" id="contact:phone">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-4">
-												<label for="contact:toname">To (optional) </label>
-												<input type="text" value="{{$toname}}" class="form-control" name="contact[toname][]" id="contact:toname">
+											<div class="col-md-6">
+												<label for="to_full_name">To (optional) </label>
+												<input type="text" value="{{$to->full_name}}" class="form-control" name="to_full_name" id="toname">
 											</div>
-											<div class="col-md-4">
-												<label for="contact:committee">Committee (optional)</label>
-												<select class="form-control pointer" name="contact[committee]">
+											<div class="col-md-6">
+												<label for="committee">Committee (optional)</label>
+												<select class="form-control pointer" name="committee">
 													<option value="">--- Select ---</option>
 													<option value="1">Awards</option>
 													<option value="2">Communications</option>
@@ -116,16 +123,16 @@
 												</select>
 											</div>
 											<div class="col-md-12">
-												<label for="contact:subject">Subject (required)</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+												<label for="subject">Subject (required)</label>
+												<input required type="text" value="" class="form-control" name="subject" id="subject">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label for="contact:message">Message (required)</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+												<label for="message">Message (required)</label>
+												<textarea required maxlength="10000" rows="8" class="form-control" name="message" id="message"></textarea>
 											</div>
 										</div>
 									</div>
