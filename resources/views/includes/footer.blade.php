@@ -9,7 +9,7 @@
 				<img src="{{ asset('images/R.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				-->
-				<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline; opacity:.7" alt="" />
+				<img src="{{ asset('images/logos/txra_flag.png')}}" style="height:100px;display:inline; opacity:.7" alt="" />
 
 				<!-- Small Description -->
 				<!--p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p-->

@@ -157,7 +157,7 @@
 							<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.4" alt="" />
 						</a>
 						-->
-						<a href="/"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-sm hidden-xs" style="height:80px;display:inline;" alt="" /></a>
+						<a href="/"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-sm hidden-xs" style="height:80px;display:inline;" alt="" /></a>
 						<a href="/"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="height:50px; padding-top:5px; display:inline;" alt="" /></a>
 						<!--
 							Top Nav
