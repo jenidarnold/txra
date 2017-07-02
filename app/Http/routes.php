@@ -59,6 +59,10 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 	Route::get('juniors', array('as' => 'juniors.index', 'uses' => 'JuniorsController@index'));
 	Route::get('juniors/welcome', array('as' => 'juniors.welcome', 'uses' => 'JuniorsController@welcome'));		
 	Route::get('juniors/team', array('as' => 'juniors.team', 'uses' => 'JuniorsController@team'));		
+
+	Route::get('collegiate/welcome', array('as' => 'collegiate.welcome', 'uses' => 'CollegiateController@welcome'));
+	Route::get('collegiate', array('as' => 'collegiate.index', 'uses' => 'CollegiateController@index'));
+
 	Route::get('instructors', array('as' => 'programs.instructors', 'uses' => 'InstructorsController@index'));	
 	Route::get('awards', array('as' => 'awards.index', 'uses' => 'AwardsController@index'));	
 	Route::get('referee', array('as' => 'referee.index', 'uses' => 'RefereeController@index'));		

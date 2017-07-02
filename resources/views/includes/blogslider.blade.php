@@ -1,3 +1,7 @@
+	<style>
+	.comment { display: none;}
+	</style>		
+
 			<section>
 				<div class="container">
 
@@ -15,7 +19,7 @@
 										<span class="font-lato">March 30, 2017</span>
 									</a>
 								</li>
-								<li>
+								<li class="comment">
 									<a href="#">
 										<i class="fa fa-comment-o"></i>
 										<span class="font-lato">28</span>
@@ -35,30 +39,33 @@
 								</div>
 								<div>
 									<img class="img-responsive" src="{{ asset('images/board/mike_grisz.png') }}" alt="">
-								</div>	
-								<div>
-									<img class="img-responsive" src="{{ asset('images/board/john_oneill.png') }}" alt="">
 								</div>								
 								<div>
 									<img class="img-responsive" src="{{ asset('images/board/mitchell_mccoy.png') }}" alt="">
 								</div>
-							
+								<div>
+									<img class="img-responsive" src="{{ asset('images/board/john_oneill.png') }}" alt="">
+								</div>	
 								<div>
 									<img class="img-responsive" src="{{ asset('images/board/mike_sorensen.png') }}" alt="">
+								</div>
+								<div>
+									<img class="img-responsive" src="{{ asset('images/board/terry_wenetschlaeger.png') }}" alt="">
 								</div>
 							</div>
 							<!-- /OWL SLIDER -->
 		
 
 							<p>The TXRA Board of Directors announced the results of the recent 2017 Board of Directors Election that filled the four vacancies. Congratulations to Julienne Arnold, Tom Doughty, Brad Giezentanner and Mike Grisz who were all elected by the members of the TXRA. 
-							<p>Additional vacancies were filled by the Board. Mitchel McCoy, Michael Sorenson, & John O'Niel</p>
-							</p>We want to thank the outgoing Board members who also served and volunteered.</p>
+							<p>Additional vacancies were filled by the Board:  John O'Neill, Mitchell McCoy, Michael Sorensen, and Terry Wenetschlaeger.</p>
+							<p>We want to thank the outgoing Board members who also served and volunteered.</p>
 
+							<!--
 							<a href="#" class="btn btn-reveal btn-default">
 								<i class="fa fa-plus"></i>
 								<span>Read More</span>
 							</a>
-
+							-->
 						</div>
 						<!-- /POST ITEM -->
 
@@ -74,7 +81,7 @@
 										<span class="font-lato">April 24, 2017</span>
 									</a>
 								</li>
-								<li>
+								<li class="comment">
 									<a href="#">
 										<i class="fa fa-comment-o"></i>
 										<span class="font-lato">28</span>
@@ -111,14 +118,14 @@
 							</div>
 							<!-- /OWL SLIDER -->
 
-
+							<!--
 							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable There are many.</p>
-
+							
 							<a href="{{route('awards.index')}}" class="btn btn-reveal btn-default">
 								<i class="fa fa-plus"></i>
 								<span>Read More</span>
 							</a>
-
+							-->
 						</div>
 						<!-- /POST ITEM -->
 
@@ -136,7 +143,7 @@
 										<span class="font-lato">May 1, 2017</span>
 									</a>
 								</li>
-								<li>
+								<li class="comment">
 									<a href="#">
 										<i class="fa fa-comment-o"></i>
 										<span class="font-lato">28</span>

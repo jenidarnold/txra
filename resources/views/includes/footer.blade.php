@@ -14,7 +14,7 @@
 				<!-- Small Description -->
 				<!--p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p-->
 
-				<!-- Contact Address -->
+				<!-- Contact Address 
 				<address>
 					<ul class="list-unstyled">
 						<li class="footer-sprite address">
@@ -30,10 +30,12 @@
 						</li>
 					</ul>
 				</address>
-				<!-- /Contact Address -->
+				/Contact Address -->
 
 			</div>
 
+
+			<!-- Latest Blog Post 
 			<div class="col-md-4">
 
 				<!-- Latest Blog Post 
@@ -52,10 +54,11 @@
 						<small>29 June 2017</small>
 					</li>
 				</ul>
-				<!-- /Latest Blog Post -->
 
 			</div>
-			<div class="col-md-5">
+			<!-- /Latest Blog Post -->
+
+			<div class="col-md-9">
 
 				<!-- Newsletter Form -->
 				<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>

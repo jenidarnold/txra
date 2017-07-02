@@ -54,9 +54,9 @@
 
 				<div class="row">
 
-					<div class="col-md-4">
-						<h6><i class="icon-heart"></i> WHY RACQUETBALL?</h6>
-						<p>"Not only is racquetball a blast to play, but also the sport offers a great deal of physical and mental health benefits. Racquetball is a cinch to learn, and there is a minimal amount of game equipment to buy. The game is fast-paced, so it offers an impressive workout for your entire body in a short amount of time. Racquetball isnt a game for slackers, but you will be having so much fun you wont even notice how much energy you are exerting." <a href="http://woman.thenest.com/benefits-playing-racquetball-13166.html"> Read More</a></p>
+					<div class="col-md-12">
+						<h6><i class="icon-heart text-danger"></i> WHY RACQUETBALL?</h6>
+						<p>"Not only is racquetball a blast to play, but also the sport offers a great deal of physical and mental health benefits. Racquetball is a cinch to learn, and there is a minimal amount of game equipment to buy. The game is fast-paced, so it offers an impressive workout for your entire body in a short amount of time. Racquetball isn't a game for slackers, but you will be having so much fun you wont even notice how much energy you are exerting." <a href="http://woman.thenest.com/benefits-playing-racquetball-13166.html" target="new"> Read More</a></p>
 					</div>
 
 					<!--div class="col-md-4">
@@ -70,6 +70,7 @@
 						</ul>
 					</div-->
 
+					<!--
 					<div class="col-md-5">
 						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
 						<ul class="list-unstyled">
@@ -78,6 +79,7 @@
 							<li><b>Email:</b> <a href="mailto:support@txra.org">support@txra.org</a></li>
 						</ul>
 					</div>
+					-->
 				</div>
 			</div>
 
@@ -153,7 +155,7 @@
 						</a>
 						-->
 						<a href="/"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-sm hidden-xs" style="height:80px;display:inline;" alt="" /></a>
-
+						<a href="/"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="height:50px; padding-top:5px; display:inline;" alt="" /></a>
 						<!--
 							Top Nav
 							AVAILABLE CLASSES:
@@ -217,17 +219,12 @@
 										</a>
 										<ul class="dropdown-menu">
 											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													JUNIOR PROGRAMS
+												<a href="{{route('juniors.welcome')}}">JUNIORS</a>												
+											</li>
+											<li class="dropdown">
+												<a href="{{route('collegiate.welcome')}}">
+													COLLEGIATE
 												</a>
-												<ul class="dropdown-menu">
-													<li>
-														<a href="{{route('juniors.welcome')}}">CITY PROGRAMS</a>
-													</li>
-													<li>
-														<a href="{{route('juniors.team')}}">TX JUNIOR RACQUETBALL TEAM</a>
-													</li>	
-												</ul>
 											</li>
 											<li class="dropdown">
 												<a class="dropdown" href="{{ route('referee.index')}}">
@@ -239,16 +236,11 @@
 													TEXAS INSTRUCTOR PROGRAM
 												</a>
 											</li>
-											<li class="dropdown" style="display:none">
+											<!--li class="dropdown" style="display:none">
 												<a class="dropdown-toggle" href="#">
 													AMBASSADOR PROGRAM
 												</a>
-											</li>
-											<li class="dropdown" style="display:none">
-												<a class="dropdown-toggle" href="#">
-													SCHOLARSHIPS
-												</a>
-											</li>
+											</li-->											
 											<li class="dropdown">
 												<a class="dropdown-toggle" href="#">
 													ANNUAL AWARDS
@@ -388,15 +380,7 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 											<img class="user-avatar" alt="{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}" src="{{ asset('images/members/'. Auth::user()->id .'/profile.png') }}" height="34" />
 										</a>
-										<ul class="dropdown-menu hold-on-click">
-											<li><!-- my calendar -->
-												<a href="calendar.html"><i class="fa fa-calendar"></i> Calendar</a>
-											</li>
-											<li><!-- my inbox -->
-												<a href="#"><i class="fa fa-envelope"></i> Inbox
-													<span class="pull-right label label-default">0</span>
-												</a>
-											</li>
+										<ul class="dropdown-menu hold-on-click">								
 											<li><!-- settings -->
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
@@ -421,7 +405,7 @@
 			@yield('content')
 		</div>
 
-		
+
 
 			<!-- MODAL -->
 			<div id="contactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
