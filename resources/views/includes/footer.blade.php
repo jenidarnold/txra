@@ -26,7 +26,7 @@
 							Phone: 1-800-000-0000
 						</li>
 						<li class="footer-sprite email">
-							<a href="mailto:support@txra.org">support@txra.org</a>
+							<a href="#" data-toggle="modal" data-target="#contactModal"  data-placement="bottom" title="Contact Us">support@txra.org</a>
 						</li>
 					</ul>
 				</address>
@@ -36,7 +36,7 @@
 
 			<div class="col-md-4">
 
-				<!-- Latest Blog Post -->
+				<!-- Latest Blog Post 
 				<h4 class="letter-spacing-1">LATEST NEWS</h4>
 				<ul class="footer-posts list-unstyled">
 					<li>
@@ -87,16 +87,15 @@
 						<i class="icon-twitter"></i>
 					</a>
 
-					<a href="#" class="social-icon social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
+					<!--a href="#" class="social-icon social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
 						<i class="icon-gplus"></i>
 						<i class="icon-gplus"></i>
-					</a>
+					</a-->
 
-					<a href="#" class="social-icon social-icon-border social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Instagram">
-						<i class="icon-instagram"></i>
-						<i class="icon-instagram"></i>
+					<a href="#" data-toggle="modal" data-target="#contactModal" class="social-icon social-icon-border pull-left" data-placement="bottom" title="Contact Us">
+						<i class="fa fa-envelope"></i>
+						<i class="fa fa-envelope"></i>
 					</a>
-
 				</div>
 				<!-- /Social Icons -->
 			</div>

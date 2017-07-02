@@ -32,6 +32,16 @@
 		.content {
 			padding-top: 100px;
 		}
+		.credit {
+				color: #fff;
+				opacity: .8;
+				position: absolute; 
+				bottom: 0;
+				padding-left:10px;
+				font-size: 8pt;
+		}
+
+		</style>
 	</style>
 @yield('style')
 
@@ -182,12 +192,14 @@
 												</a>
 												<ul class="dropdown-menu">
 													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
-													<li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li>
+													<!--li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li-->
 													<li><a href="{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>
 												</ul>
 											</li>
 
 											<li class="dropdown">
+												<a href="{{ route('play.instructors')}}">INSTRUCTORS</a>
+												<!--
 												<a class="dropdown-toggle" href="#">
 													IMPROVE YOUR GAME
 												</a>
@@ -195,6 +207,7 @@
 													<li><a href="{{ route('play.instructors')}}">INSTRUCTORS</a></li>
 													<li><a href="page-services-2.html">CLINICS</a></li>
 												</ul>
+												-->
 											</li>											
 										</ul>
 									</li>
@@ -209,10 +222,10 @@
 												</a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="#">LOCAL PROGRAMS</a>
+														<a href="{{route('juniors.welcome')}}">CITY PROGRAMS</a>
 													</li>
 													<li>
-														<a href="/juniorteam">TX JUNIOR RACQUETBALL TEAM</a>
+														<a href="{{route('juniors.team')}}">TX JUNIOR RACQUETBALL TEAM</a>
 													</li>	
 												</ul>
 											</li>
@@ -407,6 +420,94 @@
 		<div class='content'>
 			@yield('content')
 		</div>
+
+		
+
+			<!-- MODAL -->
+			<div id="contactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">CONTACT US</h4>
+						</div>
+
+						<!-- AJAX CONTACT FORM USING VALIDATE PLUGIN -->
+						<form class="validate nomargin" action="php/contact.php" method="post">
+
+							<!-- Modal Body -->
+							<div class="modal-body">
+
+								<fieldset>
+									<input type="hidden" name="action" value="contact_send" />
+
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-4">
+												<label for="contact:name">Full Name *</label>
+												<input type="text" value="" class="form-control required" name="contact[name][required]" id="contact:name">
+											</div>
+											<div class="col-md-4">
+												<label for="contact:email">E-mail Address *</label>
+												<input type="email" value="" class="form-control required" name="contact[email][required]" id="contact:email">
+											</div>
+											<div class="col-md-4">
+												<label for="contact:phone">Phone</label>
+												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-8">
+												<label for="contact:subject">Subject *</label>
+												<input type="text" value="" class="form-control required" name="contact[subject][required]" id="contact:subject">
+											</div>
+											<div class="col-md-4">
+												<label for="contact_department">Department</label>
+												<select class="form-control pointer" name="contact[department]">
+													<option value="">--- Select ---</option>
+													<option value="Board">Board</option>													
+													<option value="Marketing">Marketing</option>
+													<option value="Webdesign">Webdesign</option>
+													<option value="Other">Other</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label for="contact:message">Message *</label>
+												<textarea maxlength="10000" rows="8" class="form-control required" name="contact[message]" id="contact:message"></textarea>
+											</div>
+										</div>
+									</div>
+
+								</fieldset>
+
+								<div class="row">
+									<div class="col-md-12">
+										
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Modal Footer -->
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary pull-left"><i class="fa fa-check"></i> SEND MESSAGE</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- /MODAL -->
+
 		<!-- FOOTER -->
 		@include('includes.footer')    	
 		<!-- /FOOTER -->
