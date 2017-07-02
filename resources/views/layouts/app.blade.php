@@ -41,7 +41,10 @@
 				font-size: 8pt;
 		}
 
-		</style>
+		.comment { 
+			display: none;
+		}
+				
 	</style>
 @yield('style')
 
@@ -270,14 +273,14 @@
 												</a>
 											</li>											
 											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													MEMBERSHIP
-												</a>
+												<a href="{{route('members.membership')}}">MEMBERSHIPS</a>
+												<!--
 												<ul class="dropdown-menu">
 													<li><a href="portfolio-single-parallax.html">MEMBER BENEFITS</a></li>
 													<li><a href="portfolio-single-parallax.html">FREE e-Membership</a></li>
 													<li><a href="{{route('members.membership')}}">COMPETITVE MEMBERSHIPS</a></li>
 												</ul>
+												-->
 											</li>
 										</ul>
 									</li>

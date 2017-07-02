@@ -86,7 +86,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="#" class="social-icon social-icon-transparent social-icon-sm social-twitter pull-left" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+								<a href="https://twitter.com/TXRballAssoc" target="new" class="social-icon social-icon-transparent social-icon-sm social-twitter pull-left" data-toggle="tooltip" data-placement="bottom" title="Twitter">
 									<i class="icon-twitter"></i>
 									<i class="icon-twitter"></i>
 								</a>
@@ -99,9 +99,9 @@
 							</li>
 						</ul>
 
-						<!-- Logo -->
-						<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" /></a>
-
+						<!-- Logo --> 
+						<a href="/welcome" class="hidden-xs hidden-sm"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" /></a>
+						<a href="/"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="height:50px; padding-top:5px; display:inline;" alt="" /></a>
 					</div>
 				</header>
 

@@ -1,6 +1,3 @@
-	<style>
-	.comment { display: none;}
-	</style>		
 
 			<section>
 				<div class="container">
