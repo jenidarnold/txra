@@ -3,13 +3,15 @@
 
 		<div class="row">
 
-			<div class="col-md-3">
+			<div class="col-md-3 col-sm-2">
 				<!-- Footer Logo 
 				<img src="{{ asset('images/TX.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				<img src="{{ asset('images/R.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				-->
-				<img src="{{ asset('images/logos/txra_flag.png')}}" style="height:100px;display:inline; opacity:.7" alt="" />
+				<img class="responsive" src="{{ asset('images/logos/txra_flag.png')}}" style="display:inline; opacity:.7" alt="" />
+
+        		<!--@include('includes.txra_flag')    -->
 
 				<!-- Small Description -->
 				<!--p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p-->
@@ -58,7 +60,7 @@
 			</div>
 			<!-- /Latest Blog Post -->
 
-			<div class="col-md-9">
+			<div class="col-md-8 col-sm-10">
 
 				<!-- Newsletter Form -->
 				<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>

@@ -101,7 +101,7 @@
 
 						<!-- Logo --> 
 						<a href="/welcome" class="hidden-xs hidden-sm"><img src="{{ asset('images/logos/txra_flag.png')}}" style="height:100px;display:inline;" alt="" /></a>
-						<a href="/"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="height:50px; padding-top:5px; display:inline;" alt="" /></a>
+						<a href="/welcome"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="height:50px; padding-top:5px; display:inline;" alt="" /></a>
 					</div>
 				</header>
 
@@ -119,16 +119,15 @@
 						<div class="container text-center">
 
 							<h1 class="margin-bottom-20 size-40 margin-top-80">TEXAS RACQUETBALL ASSOCIATION</h1>
-							<h4 class="size-30 font-lato text-muted"><i>This site is currently being Restrung.</h4>
-							<h4 class="size-30 font-lato text-muted"><i>Subscribe for updates. Come back soon!</i></h4>
-
+							<h4 class="size-30 font-lato text-muted"><i>This site is being Restrung.</h4>
+							<h4 class="size-30 font-lato text-muted"><i>Come back soon!</i></h4>
 							
 						<!-- Bordered Theme Style Countdown -->
 							<div class="countdown circle" data-from="September 9, 2017 21:09:09"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
-
 							<h1></h1>
+							<h5 class="size-30 font-lato text-muted"><i>Subscribe for updates</i></h5>
 
-							<div style="max-width:500px; margin:auto;">
+							<div style="max-width:500px; margin:auto; padding-bottom:5px">
 
 								<form class="validate nomargin" action="{{ url('subscribe') }}" method="post" data-success="Subscribed! Thank you!" data-toastr-position="top-right">
 									<div class="input-group">

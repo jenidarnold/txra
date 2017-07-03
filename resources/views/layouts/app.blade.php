@@ -129,7 +129,7 @@
 						<!-- BUTTONS -->
 						<ul class="pull-right nav nav-pills nav-second-main">
 
-							<!-- SEARCH -->
+							<!-- SEARCH 
 							<li class="search">
 								<a href="javascript:;">
 									<i class="fa fa-search"></i>
@@ -145,7 +145,7 @@
 									</form>
 								</div>
 							</li>
-							<!-- /SEARCH -->						
+							/SEARCH -->						
 
 						</ul>
 						<!-- /BUTTONS -->
@@ -157,8 +157,10 @@
 							<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.4" alt="" />
 						</a>
 						-->
-						<a href="/"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-sm hidden-xs" style="height:80px;display:inline;" alt="" /></a>
-						<a href="/"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="height:50px; padding-top:5px; display:inline;" alt="" /></a>
+						<div class="col-md-2 col-lg-3">
+							<a href="/welcome"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-sm hidden-xs" style="padding-top:15px;" alt="" /></a>
+							<a href="/welcome"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
+						</div>
 						<!--
 							Top Nav
 							AVAILABLE CLASSES:
@@ -175,8 +177,39 @@
 										<a href="#">HOME</a>
 									</li>
 								-->
-								<ul id="topMain" class="nav nav-pills nav-main">									
-									<li class="dropdown"><!-- PLAY -->
+								<ul id="topMain" class="nav nav-pills nav-main">	
+
+								<!-- USER OPTIONS -->
+									@if( Auth::guest())
+									<li class="dropdown hidden-md hidden-lg">
+										<a class="dropdown" href="/login">
+											LOGIN
+										</a>								
+									<!--li class="dropdown">
+										<a class="dropdown" href="/register">
+											<span class="btn btn-sm btn-default">REGISTER</span>
+										</a>
+									</li-->
+									@else
+									<li class="dropdown hidden-md hidden-lg">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+											<img class="user-avatar" alt="{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}" src="{{ asset('images/members/'. Auth::user()->id .'/profile.png') }}" height="34" />
+										</a>
+										<ul class="dropdown-menu hold-on-click">								
+											<li><!-- settings -->
+												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
+											</li>
+
+											<li class="divider"></li>
+											<li><!-- logout -->
+												<a href="{{ url('/logout') }}"><i class="fa fa-power-off"></i> Log Out</a>
+											</li>
+										</ul>	
+									</li>						
+									@endif							
+									<!-- /USER OPTIONS -->								
+									<li class="dropdown">
+									<!-- PLAY -->
 										<a class="dropdown-toggle" href="#">
 											PLAY
 										</a>
@@ -365,12 +398,12 @@
 										<a class="dropdown" href="/donate">
 											DONATIONS
 										</a>
-									</li>
+									</li>									
 
 									<!-- USER OPTIONS -->
 									@if( Auth::guest())
-									<li class="dropdown">
-										<a class="dropdown" href="/login">
+									<li class="dropdown hidden-xs hidden-sm">
+										<a class="dropdown hidden-xs hidden-sm" href="/login">
 											<span class="btn btn-sm btn-primary">LOGIN</span>
 										</a>								
 									<!--li class="dropdown">
@@ -379,7 +412,7 @@
 										</a>
 									</li-->
 									@else
-									<li class="dropdown">
+									<li class="dropdown hidden-xs hidden-sm">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 											<img class="user-avatar" alt="{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}" src="{{ asset('images/members/'. Auth::user()->id .'/profile.png') }}" height="34" />
 										</a>
