@@ -157,10 +157,9 @@
 							<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.4" alt="" />
 						</a>
 						-->
-						<div class="col-md-2 col-lg-3">
+						
 							<a href="/welcome"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-sm hidden-xs" style="padding-top:15px;" alt="" /></a>
 							<a href="/welcome"><img src="{{ asset('images/logos/txra_flag.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
-						</div>
 						<!--
 							Top Nav
 							AVAILABLE CLASSES:
@@ -413,7 +412,7 @@
 									</li-->
 									@else
 									<li class="dropdown hidden-xs hidden-sm">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+										<a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 											<img class="user-avatar" alt="{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}" src="{{ asset('images/members/'. Auth::user()->id .'/profile.png') }}" height="34" />
 										</a>
 										<ul class="dropdown-menu hold-on-click">								
