@@ -87,7 +87,7 @@
 						<i class="icon-facebook"></i>
 					</a>
 
-					<a href="s" target="new" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
+					<a href="https://twitter.com/TXRballAssoc" target="new" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
 						<i class="icon-twitter"></i>
 						<i class="icon-twitter"></i>
 					</a>

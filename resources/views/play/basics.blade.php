@@ -38,26 +38,32 @@
 						</a>
 					</li>								
 					<li>
-						<a href="#">
+						<a href="http://www.rulesofsport.com/sports/racquetball.html" target="new">
 							<i class="fa fa-user"></i> 
-							<span class="font-lato">John Doe</span>
+							<span class="font-lato">Rules of Sport</span>
 						</a>
 					</li>
 				</ul>
 				
-				<div class="col-md-6 col-sm-12">
+				<div class="col-md-6 col-sm-6">
 					<!-- article content -->
-					<p>Racquetball is easy and fun to play, although it may take a few games to figure out the basics such as scoring, serving and some simple rules. Racquetball can be played indoors and outdoors, but most Texas courts can be found indoors at private/public health clubs, and all sorts of local recreation centers. The game can be played as 'singles', between two players, or 'doubles' between two teams of two players each. There is also a game, 'cut-throat' which involves three players. Each player has his/her own racquet and one ball is used.
-					</p>
-					<p>Matches are typically two games to 15 points and a tie-breaker to 11 points if needed. For the basics let's get started with a few so you can enjoy your racquetball experience. The serve-Play begins with the server standing in the Service Zone and serving the ball to his/her opponent(s) who is standing in the Receiving Zone. To serve, the server must first bounce the ball and then strike it with the racquet.
-					</p>
+					<h4>Object of the Game</h4>
+
+					<h4>Players & Equipment</h4>
+
+					<h4>Scoring</h4>
+
+					<h4>Winning the Game</h4>
+
+					<h4>Rules of the Game</h4>
+
 				</div>
-				<div class="col-md-6 col-sm-12">
+				<div class="col-md-6 col-sm-6">
 					<!--img class="img-responsive pull-right" src="{{asset('images/play/court.jpg')}}" width="300" alt="zones" /-->
 
 					<div class="img-responsive pull-right">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/H2Z6A2iNSUM" frameborder="0" allowfullscreen></iframe>
-						<p class="text text-info">Video courtesy of Johnny Boyd</p>
+						<p class="credit">Video courtesy of Johnny Boyd</p>
 					</div>
 				</div>
 			</div>
@@ -76,31 +82,31 @@
 			<div class="info-bar info-bar- info-bar-bordered">
 				<div class="container">
 					<div class="row">					
-						<div class="col-sm-5th">
+						<div class="col-md-5th col-sm-6 col-xs-10">
 							<img class="img-responsive" src="{{ asset('images/equipment/racquet_gb.jpg')}}" alt="">	
 							<h3>RACQUET</h3>
 							<p>Cost anywhere from $20-$200. Depends on budget, and willingness to pay for feel and technology.</p>	
 						</div>
 
-						<div class="col-sm-5th">
+						<div class="col-md-5th col-sm-6 col-xs-10">
 							<img class="img-responsive" src="{{ asset('images/equipment/eyewear.jpg')}}" alt="">	
 							<h3>EYEWEAR</h3>
 							<p>Recommended and important, helps reduce the risk of injury if you are hit in the eye</p>		
 						</div>
 
-						<div class="col-sm-5th">
+						<div class="col-md-5th col-sm-6 col-xs-10">
 							<img class="img-responsive" src="{{ asset('images/equipment/balls.jpg')}}" alt="">	
 							<h3>BALL</h3>
 							<p>Balls come in different colors such as blue, green, lavender and black. Any color will do.</p>
 						</div>
 
-						<div class="col-sm-5th">
+						<div class="col-md-5th col-sm-6 col-xs-10">
 							<img class="img-responsive" src="{{ asset('images/equipment/glove.jpg')}}" alt="">	
 							<h3>GLOVE</h3>
 							<p>Optional, this will help you keep a firm grip on the racquet during those fast rallies.</p>
 						</div>
 
-						<div class="col-sm-5th">
+						<div class="col-md-5th col-sm-6 col-xs-10">
 							<img class="img-responsive" src="{{ asset('images/equipment/shoes.jpg')}}" alt="">	
 							<h3>SHOES</h3>
 							<p>Any type of indoor court or tennis shoe, there are shoes designed specifically for racquetball</p>

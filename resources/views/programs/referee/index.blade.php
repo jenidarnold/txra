@@ -27,6 +27,8 @@
 	<section>
 		<div class="container">
 			<div class="row">
+
+				<!-- FREE -->
 				<div class="col-md-3 col-sm-3">
 					
 					<div class="price-clean">                                
@@ -36,13 +38,34 @@
 						<h5> LEVEL 1 </h5>
 						<hr />
 						<ul class="text-left">
-							<li>For indivuals who want a better understanding of the rules</li>
+							<li>For individuals who want a better understanding of the rules</li>
 							<li>Online rules clinic </li>
 						</ul>
 						<hr />						
 						<button type="button" class="btn btn-3d btn-teal" data-toggle="modal" data-target=".modal-free">Learn More</button>
 					</div>
-				
+					<!-- FREE Modal -->
+					<div class="modal fade modal-free" tabindex="-1" role="dialog" aria-labelledby="free" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+
+								<!-- header modal -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h3 class="modal-title" id="level1">FREE REFEREE CLINIC</h3>
+								</div>
+
+								<!-- body modal -->
+								<div class="modal-body">
+									<h4>Initial certification requirements:</h4>
+									<ul class="list-group">
+										<li class="list-group-item">Attend an online rules clinic</li>											
+									</ul>								
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /FREE Modal -->
 				</div>
 				<div class="col-md-3 col-sm-3">
 					
@@ -63,7 +86,7 @@
 						<hr />
 						<button type="button" class="btn btn-3d btn-primary" data-toggle="modal" data-target=".modal-level1">Learn More</button>
 					</div>		
-					<!-- Level 1 Modal >-->
+					<!-- Level 1 Modal -->
 					<div class="modal fade modal-level1" tabindex="-1" role="dialog" aria-labelledby="level1" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
@@ -126,6 +149,7 @@
 							</div>
 						</div>
 					</div>
+					<!-- /Level 1 Modal -->
 				</div>
 
 				<div class="col-md-3 col-sm-3">		
@@ -142,9 +166,74 @@
 						<hr />						
 						<button type="button" class="btn btn-3d btn-teal" data-toggle="modal" data-target=".modal-level2">Learn More</button>
 					</div>
-				
-				</div>
+					<!-- Level 2 Modal -->
+					<div class="modal fade modal-level2" tabindex="-1" role="dialog" aria-labelledby="level2" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
 
+								<!-- header modal -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h3 class="modal-title" id="level2">LEVEL 2 (NATIONAL LEVEL) REFEREE CERTIFICATION STANDARDS</h3>
+								</div>
+
+								<!-- body modal -->
+								<div class="modal-body">
+									<h4>Initial certification requirements:</h4>
+									<ul class="list-group">
+										<li class="list-group-item">Attend a rules clinic</li>	
+										<li class="list-group-item"> Pass a written test with at least a score of 86 or above (a closed book test)
+										<li class="list-group-item"> Referee 10 matches (8 matches at any level, plus 2 assessed matches)
+										<li class="list-group-item"> Pass two match assessments (one singles and one doubles) with a score of at least 90 on each.
+										These matches must be (1) a semi final or final match in the men’s B (or higher) singles, and (2) a
+										semi final or final match in the men’s C (or higher) doubles. The matches selected for these
+										assessments must be approved by assessor as being ones that offer a valid test of reffing skills.
+										<li class="list-group-item"> Pay a $10 fee
+										<li class="list-group-item"> Certification is valid for 3 years from the date of completion
+										<i><b> A person will only be allowed one attempt to pass the written test and/or match
+										assessment at each tournament. </b></i>
+									</ul>
+
+									<h4>Certified Referee Requirements:</h4>
+									<ul class="list-group">
+										<li class="list-group-item"> Attend at least one Referee Case Study clinic each year
+										<li class="list-group-item"> A yearly-unannounced observation by a state representative will be done on each certified referee
+										to ensure they are maintaining a high standard of refereeing skills.
+										<li class="list-group-item"> At the end of the 3-year certification, certified referees will be required to retake the written test
+										(minimum score of 86), attend either a rules or case study clinic, pass a match assessment
+										(minimum score of 90), and pay $10.00.
+									</ul>
+
+									<h4>Pending Certification</h4>
+									<ul class="list-group">
+										<li class="list-group-item"> Pass the written test with a score of at least 86.
+										<li class="list-group-item"> Attend a Rules Clinic
+										<li class="list-group-item"> Pay fee of $10.00
+										<li class="list-group-item"> Working on completing the required 10 matches
+										<li class="list-group-item"> All requirements to attain certification must be completed within 12 months. Failure to do so will
+										require the player to re-start the entire certification process from the beginning.
+									</ul>
+
+									<h4>The State Association will offer 2 types of clinics.</h4>
+									<ul class="list-group">
+										<li class="list-group-item"> Rules Clinic: This clinic will go over the basic rules of the game and what the referee’s
+										responsibilities are.
+										<li class="list-group-item"> Case Study Clinic: This clinic will go over rules interpretation and different play scenarios that
+										may occur while refereeing.
+									</ul>
+
+									The State Association has the right and responsibility to revoke or place a certification in pending
+									status in the best interest of the sport of racquetball. The State Association also has the right to
+									modify the requirements of this document, but must notify the program director of each change made.
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Level 2 Modal -->
+				</div>
+				<!-- LEVEL 2 -->
+
+				<!-- JUNIORS -->
 				<div class="col-md-3 col-sm-3">					
 					<div class="price-clean">                                
 						<h4>

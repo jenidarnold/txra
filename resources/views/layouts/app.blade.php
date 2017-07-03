@@ -44,6 +44,9 @@
 		.comment { 
 			display: none;
 		}
+		.breadcrumb {
+			display: none;
+		}
 				
 	</style>
 @yield('style')
