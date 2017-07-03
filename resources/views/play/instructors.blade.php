@@ -8,7 +8,7 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1>CERTIFIED RACQUETBALL INSTRUCTORS</h1>
+			<h1>USAR-IP CERTIFIED RACQUETBALL INSTRUCTORS IN TEXAS</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
@@ -21,78 +21,86 @@
 	</section>
 	<!-- /PAGE HEADER -->
 
-
-
-
 	<!-- -->
 	<section>
 		<div class="container">
 			
-			<p class="lead">Lorem ipsum dolor sit amet. Etharums your template rerum facilis dolores nemis omnis fugats vitaes you need this.</p>
-			<p>Lorem ipsum dolor sit amet. Etharums your template rerum facilis dolores nemis omnis fugats vitaes you need this totam rem aperiam, eaque ipsa qu ab illo inventore veritatis et quasi architectos beatae vitae dicta sunt explicabo. Nemo enim sadips ipsums dolores sit.Nemo enims sadips ipsums un inventore veritatis et quasi.</p>
+			<p class="lead">The following Texas Racquetball Instructors are certified by the <a href="{{ route('programs.instructors')}}">USAR-IP</a>. Click on the instructor's photo for an introduction and contact information.</a> </p>
+			<hr/>
 
 			<div class="row">
-			
 				<!-- item -->
-				<div class="col-md-3 col-sm-3">
+				<div class="col-md-3">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
-								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/JansenAllen.jpg')}}" alt="" />
+								<div class="box-icon-title">									
+									<img class="img-" src="{{ asset('images/instructors/JansenAllen.jpg')}}" alt="" />
 									<h2>JANSEN ALLEN</h2>
-									<small>Dallas, TX</small>
+									<small>Dallas, TX</small>								
 								</div>
-							</div>
+							</div>						
 						</div>
 
 						<div class="back">
 							<div class="box2 box-primary">
 								<h4 class="nomargin">JANSEN ALLEN</h4>
-								<small>IRT PRO</small>
-
+								<small>IRT PRO</small>									
 								<hr />
+								<blockquote class="text-left">
+									<p>I have always wanted to give back to the sport and become an instructor to help others.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<p>Since starting racquetball at the early age of 4 and becoming a top 8 professional player on tour, I have always wanted to give back to the sport and become an instructor to help others. The USA Racquetball Instructor Program was a great opportunity for me to become more familiar with teaching others and critiquing my coaching skills as well. <a>Read More</a></p>
-
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-2.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
 
+					<!-- Jansen Modal -->
+					<div id="modAllen" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modAllenLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="modAllenLabel">JANSEN ALLEN - Certified Instructor</h4>
+								</div>
+
+								<!-- Modal Body -->
+								<div class="modal-body">
+									<p>Since starting racquetball at the early age of 4 and becoming a top 8 professional player on tour, I have always wanted to give back to the sport and become an instructor to help others. The USA Racquetball Instructor Program was a great opportunity for me to become more familiar with teaching others and critiquing my coaching skills as well.  I enjoyed learning and successfully completing the Instructor Program with Fran Davis in San Antonio, Texas at the YMCA.  This is my first certification and I look forward to working with others to help improve their game.  Texas racquetball has always been the home of many great racquetball players and I hope to continue this trend by promoting the junior program and growing the sport.  I would recommend this great program to anyone who loves racquetball and teaching others.</p>
+								</div>
+							</div>
+						</div>	
+					</div>
 				</div>
 				<!-- /item -->
 
 				<!-- item -->
-				<div class="col-md-3 col-sm-3">
+				<div class="col-md-3 col-sm-6 col-xs-12">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
 								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/2015jessebaza.jpg')}}" alt="" />
+									<img class="img-" src="{{ asset('images/instructors/2015jessebaza.jpg')}}" alt="" />
 									<h2>JESSE BAZA</h2>
 									<small>San Antonio, TX</small>
 								</div>
@@ -103,48 +111,59 @@
 							<div class="box2 box-primary">
 								<h4 class="nomargin">JESSE BAZA</h4>
 								<small>aka DJ FAT BISCUIT </small>
+								<hr/>
+								<blockquote class="text-left">
+									<p> The certification gives validation and the credentials needed to inspire confidence to teach the game properly.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modBaza" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<hr />
-
-								<p>When I was at Texas A&M (many years ago when I had a full head of hair and 50 lbs. lighter) I took my first racquetball course and quickly got hooked on the game.  It was in this class that I met Lance Gilliam, also from San Antonio, who was kind enough to teach me a thing or two about the sport and we remain friends to this day.  <a>Read More</a></p>
-
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'JESSE BAZA'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-1.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
+					<!-- JESSE BAZA Modal -->
+					<div id="modBaza" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modBazaLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
 
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="modBazaLabel">JESSE BAZA - Certified Instructor</h4>
+								</div>
+
+								<!-- Modal Body -->
+								<div class="modal-body">
+									<p>When I was at Texas A&M (many years ago when I had a full head of hair and 50 lbs. lighter) I took my first racquetball course and quickly got hooked on the game.  It was in this class that I met Lance Gilliam, also from San Antonio, who was kind enough to teach me a thing or two about the sport and we remain friends to this day.  I later found out Lance was the Grand Puba of racquetball and continues to promote the sport in San Antonio.  Over the years I’ve also kept involved with the sport, became an Alamo City Racquetball instructor and began teaching beginners and juniors at several gyms.  However, I only recently completed my USAR-IP certification with Fran Davis at the YMCA Henderson Pass in August 2014.  The certification gives validation and the credentials needed to inspire confidence to teach the game properly.  Fran is a great coach/mentor who has taught me to be a better coach on how to teach, talk, demonstrate, reinforce and encourage students.  Her simple tips even improved my game tremendously!  I highly recommend taking this certification if you love racquetball and teaching.  It’s a great way to continually remind yourself of the basics which is the best foundation to the game.</p>
+								</div>
+							</div>
+						</div>	
+					</div>
 				</div>
 				<!-- /item -->
 
-					<!-- item -->
-				<div class="col-md-3 col-sm-3">
+				<!-- item -->
+				<div class="col-md-3 col-sm-6 col-xs-12">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
 								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/SandyLong.jpg')}}" alt="" />
+									<img class="img-" src="{{ asset('images/instructors/SandyLong.jpg')}}" alt="" />
 									<h2>SANDY LONG</h2>
 									<small>Fort Worth, Texas</small>
 								</div>
@@ -155,48 +174,41 @@
 							<div class="box2 box-primary">
 								<h4 class="nomargin">SANDY LONG</h4>
 								<small>Texas State Juniors' Coach</small>
-
 								<hr />
+								<blockquote class="text-left">
+									<p>I have always wanted to give back to the sport and become an instructor to help others.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<p>I completed the USAR’s instructor Program held at the Maverick Athletic Club in March. This is my first time as a certified instructor. I learned several new techniques to help me provide improved instruction in both individual and group instruction. I have implemented several of the new techniques with my current students and plan on continuing to grow as an instructor. <a>Read More</a></p>
-
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-1.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /item -->
 
 				<!-- item -->
-				<div class="col-md-3 col-sm-3">
+				<div class="col-md-3 col-sm-6 col-xs-12">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
 								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/2014diegoperez.png')}}" alt="" />
+									<img class="img-" src="{{ asset('images/instructors/2014diegoperez.png')}}" alt="" />
 									<h2>DIEGO PEREZ</h2>
 									<small>Tyler, TX</small>
 								</div>
@@ -210,48 +222,42 @@
 
 								<hr />
 
-								<p>Attending the clinic of Jim Winterton I can say I definitely learned plenty. He showed me a whole new side to racquetball I didn't see to help the skills of others. I plan on using what I learned at the clinic by using my knowledge to start a racquetball class in my local college to introduce this sport to new young athletes. I plan to help students discover this wonderful sport and show them just how fun it can be. <a>Read More</a></p>
+								<blockquote class="text-left">
+									<p>I have always wanted to give back to the sport and become an instructor to help others.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-1.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /item -->
-
 			</div>
-			<br/>
-			<div class="row">			
+			<hr/>
+			<div class="row">
 				<!-- item -->
-				<div class="col-md-3 col-sm-3">
+				<div class="col-md-3 col-sm-6 col-xs-12">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
 								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/JoannaReyes.jpg')}}" alt="" />
+									<img class="img-" src="{{ asset('images/instructors/JoannaReyes.jpg')}}" alt="" />
 									<h2>JOANNA REYES</h2>
 									<small>Corpus Christi, TX</small>
 								</div>
@@ -265,45 +271,40 @@
 
 								<hr />
 
-								<p>The Texas Instructor Program at the Maverick Athletic Club was an excellent opportunity to be taught and certified by Coach Jim Winterton-coach of the #1 player in the world.  The TXRA is always in the forefront in providing their members opportunities like these to further their racquetball play and skills via tournaments and clinics. The course consisted of online and hands on training. <a>Read More</a></p>
+								<blockquote class="text-left">
+									<p>I have always wanted to give back to the sport and become an instructor to help others.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-2.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /item -->
 
 				<!-- item -->
-				<div class="col-md-3 col-sm-3">
+				<div class="col-md-3 col-sm-6 col-xs-12">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
 								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/2014mikesorensen.png')}}" alt="" />
+									<img class="img-" src="{{ asset('images/instructors/2014mikesorensen.png')}}" alt="" />
 									<h2>MIKE SORENSEN</h2>
 									<small>Plano, TX</small>
 								</div>
@@ -317,45 +318,39 @@
 
 								<hr />
 
-								<p>Since being introduced to racquetball, there have been many people who have given me instruction, pointers and welcomed me into the community. I love the game and when I heard of the USAR-IP Instructor Program I jumped at the opportunity to become a certified instructor.  <a>Read More</a></p>
+								<blockquote class="text-left">
+									<p>I have always wanted to give back to the sport and become an instructor to help others.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-1.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /item -->
 
 					<!-- item -->
-				<div class="col-md-3 col-sm-3">
-
+				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
 								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/2014edievann.png')}}" alt="" />
+									<img class="img-" src="{{ asset('images/instructors/2014edievann.png')}}" alt="" />
 									<h2>EDDIE VANN</h2>
 									<small>Katy, Texas</small>
 								</div>
@@ -369,45 +364,40 @@
 
 								<hr />
 
-								<p>I have completed the USRA-IP with Jim Winterton on the 13th of March 2014. Upon completion of this program I am using the education I received to further my coaching of racquetball.  The students I am currently working  with will gain from my newfound knowledge as well as the ones I will be working with in the future. <a>Read More</a></p>
+								<blockquote class="text-left">
+									<p>I have always wanted to give back to the sport and become an instructor to help others.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-1.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /item -->
 
 				<!-- item -->
-				<div class="col-md-3 col-sm-3">
+				<div class="col-md-3 col-sm-6 col-xs-12">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
 								<div class="box-icon-title">
-									<img class="img-responsive" src="{{ asset('images/instructors/2016lLeoVasquez.jpg')}}" alt="" />
+									<img class="img-" src="{{ asset('images/instructors/2016lLeoVasquez.jpg')}}" alt="" />
 									<h2>LEO R VASQUEZ</h2>
 									<small>Arlington, TX</small>
 								</div>
@@ -420,39 +410,33 @@
 
 								<hr />
 
-								<p>I really enjoyed taking the new USA Racquetball Instructor Program course at the Maverick with Coach Jim Winterton. I have also been previously certified as an instructor for many years but let my certification expire and lost some interest in teaching and coaching.  <a>Read More</a></p>
+								<blockquote class="text-left">
+									<p>I have always wanted to give back to the sport and become an instructor to help others.</p>
+								</blockquote>
+								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+								<hr/>
 
-								<hr />
-
-								<a href="#" class="social-icon social-icon-sm social-facebook">
+								<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
 									<i class="fa fa-facebook"></i>
 									<i class="fa fa-facebook"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-twitter">
-									<i class="fa fa-twitter"></i>
-									<i class="fa fa-twitter"></i>
+							
+								<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<i class="fa fa-envelope"></i>
+									<i class="fa fa-envelope"></i>
 								</a>
 								<a href="#" class="social-icon social-icon-sm social-google">
-									<i class="fa fa-google-plus"></i>
-									<i class="fa fa-google-plus"></i>
+									<i class="fa fa-phone"></i>
+									<i class="fa fa-phone"></i>
 								</a>
-								<a href="#" class="social-icon social-icon-sm social-linkedin">
-									<i class="fa fa-linkedin"></i>
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-								<hr />
-
-								<a href="page-about-me-1.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /item -->
-
-			</div>
 			
+			</div>
 		</div>
 	</section>
 	<!-- / -->

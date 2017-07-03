@@ -24,13 +24,13 @@
 		<section>
 			<div class="container">
 
-				<p class="lead">The Texas Instructor Program (TIP) is a comprehensive reimbursement program designed to assist Texas racquetball instructors in providing quality racquetball programs in their communities for Texas women, men and children. This program is intended to encourage interested racquetball instructors to become nationally certified by reimbursing a portion of the cost of USAR-IP certification clinics offered by USAR.</p>
+				<p class="lead">The Texas Instructor Program (TIP) is a comprehensive reimbursement program designed to assist Texas racquetball instructors in providing quality racquetball programs in their communities for Texas women, men and children. This program is intended to encourage interested racquetball instructors to become nationally certified by reimbursing a portion of the cost of the <b>USAR-IP</b> certification clinics offered by USAR (described below).</p>
 				
 				<div class="divider divider-center divider-color"><!-- divider -->
 					<i class="fa fa-chevron-down"></i>
 				</div>
 				
-				<h3 class="nomargin1">The USAR Instructors Program</h3>
+				<h3 class="nomargin1">The USAR-IP (Instructors Program)</h3>
 				
 				<div>
 					The USAR-IP certification clinic conveys precise knowledge, skills and abilities required to teach racquetball efficiently; developing a clear comprehension and proficiency of the 10 Benchmarks of Instruction necessary to teach and train students; delivering an avenue for continuing education and advancement to assist qualified instructors in maintaining current informational skills; providing an evaluation process that facilitates consistency and quality control for instructional programs across the nation; and developing a high level of competence and confidence relative to primary instructional techniques. <a href='http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification' class='btn btn-xs btn-reveal btn-default' target="_blank"><i class='fa fa-plus'></i> Details</a>
@@ -39,7 +39,7 @@
 				<hr />
 
 				<header class="text-left">
-					<h3 class="nomargin">Benefits of the USAR Instructors Program</h3>
+					<h3 class="nomargin">Benefits of the USAR-IP</h3>
 					<p>No other instructor certification is recognized by the USOC or USA Racquetball.</p>
 				</header>
 				
