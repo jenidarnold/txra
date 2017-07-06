@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
 use App\Club;
+use App\Instructor;
 
 class PlayController extends Controller {
 
@@ -56,7 +57,9 @@ class PlayController extends Controller {
 	 */
 	public function instructors(Request $request)
 	{
-		return view('play/instructors');
+
+		$instructors = Instructor::all();
+		return view('play/instructors',compact('instructors'));
 	}
 
 

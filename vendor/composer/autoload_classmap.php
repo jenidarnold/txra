@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'ClubsTableSeeder' => $baseDir . '/database/seeds/ClubsTableSeeder.php',
     'CreateClubsTable' => $baseDir . '/database/migrations/2017_06_05_030855_create_clubs_table.php',
+    'CreateInstructorsTable' => $baseDir . '/database/migrations/2017_07_06_211124_create_instructors_table.php',
     'CreateMembersTable' => $baseDir . '/database/migrations/2017_05_28_221232_create_members_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateSubscribersTable' => $baseDir . '/database/migrations/2017_06_03_160557_create_subscribers_table.php',
@@ -88,6 +89,7 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+    'InstructorsTableSeeder' => $baseDir . '/database/seeds/InstructorsTableSeeder.php',
     'MembersTableSeeder' => $baseDir . '/database/seeds/MembersTableSeeder.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
     'PHPUnit\\Framework\\BaseTestListener' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',

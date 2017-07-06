@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
+use App\Instructor;
 
 class InstructorsController extends Controller {
 
@@ -25,7 +26,8 @@ class InstructorsController extends Controller {
 	public function index(Request $request)
 	{
 
-		return view('programs/instructors/index');
+		$instructors = Instructor::all();
+		return view('programs/instructors/index', compact('instructors'));
 	}
 
 	/**
