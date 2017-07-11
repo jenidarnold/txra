@@ -36,13 +36,17 @@
 
 				@foreach($instructors as $i)
 
-				<div class="col-md-3">
+				<div class="col-md-3" style="margin-bottom:20px">
 
 					<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 						<div class="front">
 							<div class="box1 box-default">
-								<div class="box-icon-title">									
-									<img class="img-" src="{{ asset('images/instructors/$i->logo')}}" alt="" />
+								<div class="box-icon-title">	
+								  	@if($i->logo == '')								
+										<img class="img-" src="{{ asset('images/instructors/profile.png')}}" style="height:200px" alt="" />
+									@else
+										<img class="img-" src="{{ asset('images/instructors/'.$i->logo)}}" alt="" />
+									@endif
 									<h2>{{ $i->first_name}} {{$i->last_name }}</h2>			
 									<small>{{ $i->city }}, {{ $i->state }}</small>								
 								</div>
@@ -58,7 +62,7 @@
 									<br/>
 									</p>
 						
-								<a href="#" data-toggle="modal" data-target="#modAllen" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
+								<a href="#" data-toggle="modal" data-target="{{'#mod'.$i->last_name}}" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
 								<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 
 								<div class="social">
@@ -67,7 +71,7 @@
 										<i class="fa fa-facebook"></i>
 									</a>
 								
-									<a href="{{ route('contact',array('to' => 'Jansen Allen'))}}" class="social-icon social-icon-sm social-linkedin">
+									<a href="{{ route('contact',array('to' => $i->first_name . ' '. $i->last_name))}}" class="social-icon social-icon-sm social-linkedin">
 										<i class="fa fa-envelope"></i>
 										<i class="fa fa-envelope"></i>
 									</a>
@@ -80,15 +84,15 @@
 						</div>
 					</div>
 
-					<!-- Jansen Modal -->
-					<div id="modAllen" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modAllenLabel" aria-hidden="true">
+					<!-- Read More Modal -->
+					<div id="{{'mod'.$i->last_name}}"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 
 								<!-- Modal Header -->
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="modAllenLabel">{{ $i->first_name }} {{$i->last_name}} - Certified Instructor</h4>
+									<h4 class="modal-title" id="modLabel">{{ $i->first_name }} {{$i->last_name}} - Certified Instructor</h4>
 								</div>
 
 								<!-- Modal Body -->
