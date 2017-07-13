@@ -28,7 +28,7 @@ class InstructorsTableSeeder extends Seeder {
 			'facebook'			=>	'',
 			'quote'				=>	'',
 			'blurb'				=>	'',
-			'logo'				=>	'',
+			'logo'				=>	'KaneWaselenchuk.jpg',
 		]);
 
 
@@ -65,7 +65,7 @@ class InstructorsTableSeeder extends Seeder {
 			'facebook'			=>	'',
 			'quote'				=>	'Certification gives validation and the credentials needed to inspire confidence to teach the game properly.  ',
 			'blurb'				=>	'When I was at Texas A&M (many years ago when I had a full head of hair and 50 lbs. lighter) I took my first racquetball course and quickly got hooked on the game.  It was in this class that I met Lance Gilliam, also from San Antonio, who was kind enough to teach me a thing or two about the sport and we remain friends to this day.  I later found out Lance was the Grand Puba of racquetball and continues to promote the sport in San Antonio.  Over the years I’ve also kept involved with the sport, became an Alamo City Racquetball instructor and began teaching beginners and juniors at several gyms.  However, I only recently completed my USAR-IP certification with Fran Davis at the YMCA Henderson Pass in August 2014.  The certification gives validation and the credentials needed to inspire confidence to teach the game properly.  Fran is a great coach/mentor who has taught me to be a better coach on how to teach, talk, demonstrate, reinforce and encourage students.  Her simple tips even improved my game tremendously!  I highly recommend taking this certification if you love racquetball and teaching.  It’s a great way to continually remind yourself of the basics which is the best foundation to the game.',
-			'logo'				=>	'2015jessebaza.jpg',
+			'logo'				=>	'JesseBaza.jpg',
 		]);
 
 		Instructor::create([
@@ -119,7 +119,7 @@ class InstructorsTableSeeder extends Seeder {
 			'facebook'			=>	'',
 			'quote'				=>	'',
 			'blurb'				=>	'',
-			'logo'				=>	'',
+			'logo'				=>	'BrianaJacquet.jpg',
 		]);
 
 		Instructor::create([
@@ -137,7 +137,7 @@ class InstructorsTableSeeder extends Seeder {
 			'facebook'			=>	'',
 			'quote'				=>	'',
 			'blurb'				=>	'',
-			'logo'				=>	'',
+			'logo'				=>	'MikeSorensen.jpg',
 		]);
 
 		Instructor::create([
@@ -155,7 +155,7 @@ class InstructorsTableSeeder extends Seeder {
 			'facebook'			=>	'',
 			'quote'				=>	'',
 			'blurb'				=>	'',
-			'logo'				=>	'',
+			'logo'				=>	'GeorgeWeller.jpg',
 		]);
 	}
 }

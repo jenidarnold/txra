@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('style')
     <style type="text/css">
+    	.hid-sm {
+    		display: none !important;
+    	}
     </style>
 @stop
 @section('content')		
@@ -9,7 +12,7 @@
 
 			<h1><i class="et-trophy"></i> ANNUAL AWARDS GALLERY</h1>
 
-			<!-- breadcrumbs -->
+			<!-- breadcrumbs
 			<ol class="breadcrumb">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Awards</a></li>
@@ -31,6 +34,7 @@
 				<li class="filter"><a data-filter=".2015" href="#">2015</a></li>
 				<li class="filter"><a data-filter=".2014" href="#">2014</a></li>
 			</ul>
+			<!-- TODO hidden-xs hidden-sm needs to override display block !important-->
 			<ul id="portfolio_filter" class="nav nav-pills margin-bottom-60">
 				<li class="filter"><a data-filter=".sportsmanship" href="#">A.G. Sportsmanship</a></li>
 				<li class="filter"><a data-filter=".contributor" href="#">Outstanding Contributor</a></li>
