@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('style')
     <style type="text/css">
-    	.hid-sm {
-    		display: none !important;
-    	}
+    
     </style>
 @stop
 @section('content')		
@@ -26,26 +24,30 @@
 <!-- -->
 	<section>
 		<div class="container">
+			<!-- Mobile Menu Button -->
+			<button class="btn btn-mobile hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
+				<i class="fa fa-bars"></i>
+			</button>
 
-			<ul id="portfolio_filter" class="nav nav-pills margin-bottom-0">
-				<li class="filter active"><a data-filter="*" href="#">All</a></li>
-				<li class="filter"><a data-filter=".2017" href="#">2017</a></li>
-				<li class="filter"><a data-filter=".2015" href="#">2015</a></li>
-				<li class="filter"><a data-filter=".2015" href="#">2015</a></li>
-				<li class="filter"><a data-filter=".2014" href="#">2014</a></li>
-			</ul>
-			<!-- TODO hidden-xs hidden-sm needs to override display block !important-->
-			<ul id="portfolio_filter" class="nav nav-pills margin-bottom-60">
-				<li class="filter"><a data-filter=".sportsmanship" href="#">A.G. Sportsmanship</a></li>
-				<li class="filter"><a data-filter=".contributor" href="#">Outstanding Contributor</a></li>
-				<li class="filter"><a data-filter=".male" href="#">Male Athlete</a></li>
-				<li class="filter"><a data-filter=".female" href="#">Female Athlete</a></li>
-				<li class="filter"><a data-filter=".jrmale13-18" href="#">Jr. Male Athlete (13-18)</a></li>
-				<li class="filter"><a data-filter=".jrfemale13-18" href="#">Jr. Female Athlete (13-18)</a></li>
-				<li class="filter"><a data-filter=".jrmaleunder13" href="#">Jr. Male Athlete (Under 13)</a></li>
-				<li class="filter"><a data-filter=".jrfemaleunder13" href="#">Jr. Female Athlete (Under 13)</a></li>
-			</ul>
-
+			<div class="collapse navbar-collapse nav-filter-collapse">
+				<ul id="portfolio_filter" class="nav nav-pills margin-bottom-0">
+					<li class="filter active"><a data-filter="*" href="#">All</a></li>
+					<li class="filter"><a data-filter=".2017" href="#">2017</a></li>
+					<li class="filter"><a data-filter=".2015" href="#">2015</a></li>
+					<li class="filter"><a data-filter=".2015" href="#">2015</a></li>
+					<li class="filter"><a data-filter=".2014" href="#">2014</a></li>
+				</ul>
+				<ul id="portfolio_filter" class="nav nav-pills nav-filter-collapse margin-bottom-60">
+					<li class="filter"><a data-filter=".sportsmanship" href="#">A.G. Sportsmanship</a></li>
+					<li class="filter"><a data-filter=".contributor" href="#">Outstanding Contributor</a></li>
+					<li class="filter"><a data-filter=".male" href="#">Male Athlete</a></li>
+					<li class="filter"><a data-filter=".female" href="#">Female Athlete</a></li>
+					<li class="filter"><a data-filter=".jrmale13-18" href="#">Jr. Male Athlete (13-18)</a></li>
+					<li class="filter"><a data-filter=".jrfemale13-18" href="#">Jr. Female Athlete (13-18)</a></li>
+					<li class="filter"><a data-filter=".jrmaleunder13" href="#">Jr. Male Athlete (Under 13)</a></li>
+					<li class="filter"><a data-filter=".jrfemaleunder13" href="#">Jr. Female Athlete (Under 13)</a></li>
+				</ul>
+			</div>	
 		</div>
 		<div class="container">
 
@@ -811,4 +813,11 @@
 		</div>		
 	</section>
 	<!-- / -->
+
+
+@stop
+@section('script')
+	<script>
+		
+	</script>
 @stop

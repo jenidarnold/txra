@@ -574,6 +574,14 @@
 		  ga('send', 'pageview');
 		</script>
 
+		<!-- collapse nav pill filters on click list item; for Mobile devices -->
+		<script>
+			$(document).on('click','.nav-filter-collapse.in',function(e) {
+			    if( $(e.target).is('a') ) {
+			        $(this).collapse('hide');
+			    }
+			});	
+			</script>
 		@yield('script')
 </body>
 </html>
