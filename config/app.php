@@ -132,6 +132,8 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        /*Canvas\CanvasServiceProvider::class,*/
+        Serverfireteam\Blog\BlogServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],
     /*
@@ -176,5 +178,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
+        'ConfigWriter' => Larapack\ConfigWriter\Repository::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 ];
