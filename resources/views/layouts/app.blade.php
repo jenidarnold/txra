@@ -17,6 +17,9 @@
 		<!-- CORE CSS -->
 		<link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
+
+		@yield('head')
+
 		<!-- LAYER SLIDER -->
 		<link href="{{ asset('plugins/slider.layerslider/css/layerslider.css') }}" rel="stylesheet" type="text/css" />
 
@@ -27,6 +30,7 @@
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="{{ asset('css/header-1.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('css/color_scheme/green.css') }}" rel="stylesheet" type="text/css" id="color_scheme" />
+
 	</head>
 	<style>
 		.content {
@@ -347,7 +351,7 @@
 										</ul>
 									</li>
 									<li class="dropdown"><!-- EVENTS -->
-										<a class="dropdown" href="/news">
+										<a class="dropdown" href="/blog">
 											NEWS
 										</a>
 									</li>
