@@ -1,5 +1,4 @@
-/vendor/*
-!/vendor/serverfireteam
+/vendor
 /node_modules
 /public/storage
 Homestead.yaml
