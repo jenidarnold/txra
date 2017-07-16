@@ -22,8 +22,7 @@ class BlogController extends \Serverfireteam\Panel\CrudController {
         $this->grid->add('socialPoint', 'social Point');
         $this->addStylesToGrid();
 
-        var_dump("hello");
-       // return $this->returnView();
+       return $this->returnView();
     }
 
     public function edit($entity) {

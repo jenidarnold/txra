@@ -1,8 +1,8 @@
 <?php
 
-namespace Serverfireteam\Panel;
+namespace App\Http\Controllers\Panel;
 
-use Serverfireteam\Panel\CrudController;
+use App\Http\Controllers\Panel\CrudController;
 
 class PermissionController extends CrudController {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Serverfireteam\Panel;
+namespace App\Http\Controllers\Panel;
 
 use Illuminate\Support\Facades\Session as session;
 use Illuminate\Routing\Controller;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Serverfireteam\Panel;
+namespace App\Http\Controllers\Panel;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-use Serverfireteam\Panel\CrudController;
+use App\Http\Controllers\Panel\CrudController;
 use \Illuminate\Http\Request;
 /**
  * Description of PagePanel

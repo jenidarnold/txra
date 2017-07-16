@@ -5,9 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-namespace Serverfireteam\Panel;
+namespace App\Http\Controllers\Panel;
 
-use \Serverfireteam\Panel\libs\PanelElements;
+use \App\Http\Controllers\Panel\libs\PanelElements;
 use Illuminate\Routing\Controller;
 
 class MainController extends Controller {

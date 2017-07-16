@@ -39,14 +39,14 @@ Route::controllers([
 ]);
 
 // config panel to load from our namespace for panel 
- if (\Request::is('panel/*'))
+ if (\Request::is('admin/*'))
 {
-   \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
+ //  \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
  
   //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 }
 
-Route::controller('/panel', 'Blog\panel\BlogController');
+Route::controller('/admin', 'Blog\panel\BlogController');
 
 //Route::controller('/blog', 'Blog\BlogController');
 

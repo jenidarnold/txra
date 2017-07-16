@@ -1,6 +1,6 @@
 <?php
 
-namespace Serverfireteam\Panel;
+namespace App\Http\Controllers\Panel;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
