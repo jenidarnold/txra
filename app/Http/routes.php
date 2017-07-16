@@ -29,7 +29,7 @@ Route::get('/welcome', function () {
 	
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
 //{
-	Route::get('/news', array('as' => 'blog.index', 'uses' => 'Blog\BlogController@getIndex'));		
+	Route::get('/news', array('as' => 'blog.index', 'uses' => 'Blog\BlogController@getIndex'));			
 //});
 
 Route::controllers([
@@ -39,10 +39,14 @@ Route::controllers([
 ]);
 
 // config panel to load from our namespace for panel 
- if (\Request::is('admin/Blog/*'))
+ if (\Request::is('panel/*'))
 {
-    \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
+   \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
+ 
+  //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 }
+
+Route::controller('/panel', 'Blog\panel\BlogController');
 
 //Route::controller('/blog', 'Blog\BlogController');
 
