@@ -29,7 +29,9 @@ Route::get('/welcome', function () {
 	
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
 //{
-	Route::get('/news', array('as' => 'blog.index', 'uses' => 'Blog\BlogController@getIndex'));			
+	Route::get('/news', array('as' => 'news.index', 'uses' => 'News\BlogController@getIndex'));	
+	Route::get('/news/post/{id}/{title}', array('as' => 'news.show', 'uses' => 'News\BlogController@getPost'));	
+	Route::get('/news/share/{id}/{social}', array('as' => 'news.show', 'uses' => 'News\BlogController@getShare'));		
 //});
 
 Route::controllers([
@@ -46,7 +48,7 @@ Route::controllers([
   //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 }
 
-Route::controller('/admin', 'Blog\panel\BlogController');
+Route::controller('/admin', 'News\panel\BlogController');
 
 //Route::controller('/blog', 'Blog\BlogController');
 
