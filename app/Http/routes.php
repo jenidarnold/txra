@@ -39,12 +39,12 @@ Route::controllers([
 ]);
 
 // config panel to load from our namespace for panel 
-if (\Request::is('panel/Blog/*'))
-{
-    \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
-}
+//if (\Request::is('panel/Blog/*'))
+//{
+//    \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
+//}
 
-Route::controller('/blog', 'Blog\BlogController');
+//Route::controller('/blog', 'Blog\BlogController');
 
 Route::get('/logout', function () {
 	\Auth::logout();
