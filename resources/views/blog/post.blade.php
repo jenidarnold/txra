@@ -48,10 +48,10 @@
 
     <section class="related">
         <p>If you enjoyed this post, share it on social networks :</p>
-        <p>  <a target="_blank" href="{{ '/blog/share/'. $post['id']}}/facebook"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
-            <a target="_blank" href="{{ '/blog/share/'. $post['id']}}/twitter"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
-            <a target="_blank" href="{{ '/blog/share/'. $post['id']}}/googlePlus"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
-            <a target="_blank" href="{{ Config::get('app.url')  .'/blog/share/'. $post['id']}}/linkedIn"><i id="social" class="fa fa-linkedin-square fa-3x social-gp"></i></a>
+        <p>  <a target="_blank" href="{{ '/news/share/'. $post['id']}}/facebook"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
+            <a target="_blank" href="{{ '/news/share/'. $post['id']}}/twitter"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
+            <a target="_blank" href="{{ '/news/share/'. $post['id']}}/googlePlus"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
+            <a target="_blank" href="{{ Config::get('app.url')  .'/news/share/'. $post['id']}}/linkedIn"><i id="social" class="fa fa-linkedin-square fa-3x social-gp"></i></a>
         </p>
         <p class="post-button">
 
@@ -86,7 +86,7 @@
     </section>
 
 
-</div><!-- /blog -->
+</div><!-- /news -->
 
 
 
@@ -101,21 +101,21 @@
 
 
 <!-- Include required JS files -->
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shCore.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shCore.js")}}"></script>
 <!--
     At least one brush, here we choose JS. You need to include a brush for every 
     language you want to highlight
 -->
 
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shAutoloader.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushJScript.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushCss.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushPhp.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushXml.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushPlain.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushSql.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushBash.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shLegacy.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shAutoloader.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushJScript.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushCss.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushPhp.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushXml.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushPlain.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushSql.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushBash.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shLegacy.js")}}"></script>
  
 
 <script type="text/javascript">

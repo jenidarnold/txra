@@ -27,10 +27,10 @@ Route::get('/welcome', function () {
 });
 
 	
-Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
-{
-	Route::get('/blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));		
-});
+//Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
+//{
+	Route::get('/news', array('as' => 'blog.index', 'uses' => 'Blog\BlogController@getIndex'));		
+//});
 
 Route::controllers([
 //	'auth' => 'Auth\AuthController',
@@ -39,10 +39,10 @@ Route::controllers([
 ]);
 
 // config panel to load from our namespace for panel 
-//if (\Request::is('panel/Blog/*'))
-//{
-//    \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
-//}
+ if (\Request::is('admin/Blog/*'))
+{
+    \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
+}
 
 //Route::controller('/blog', 'Blog\BlogController');
 
