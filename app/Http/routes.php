@@ -27,10 +27,9 @@ Route::get('/welcome', function () {
 });
 
 	
-Route::group(['namespace' => 'Blog', 'prefix' =>'news'], function()
+Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
 {
-	Route::get('/', array('as' => 'blog.index', 'uses' => 'BlogController@index'));	
-	Route::get('/{id}', array('as' => 'blog.show', 'uses' => 'BlogController@show'));		
+	Route::get('/blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));		
 });
 
 Route::controllers([
@@ -38,6 +37,14 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 	//'scraper' => 'Admin\ScreenScrapeController',
 ]);
+
+// config panel to load from our namespace for panel 
+if (\Request::is('panel/Blog/*'))
+{
+    \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
+}
+
+Route::controller('/blog', 'Blog\BlogController');
 
 Route::get('/logout', function () {
 	\Auth::logout();
