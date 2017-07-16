@@ -3,7 +3,7 @@ use Illuminate\Database\Seeder;
 //use Illuminate\Database\Eloquent\Model;
 //use App\Blog;
 
-class InstructorsTableSeeder extends Seeder {
+class BlogTableSeeder extends Seeder {
 	/**
 	 * Run the database seeds.
 	 *
