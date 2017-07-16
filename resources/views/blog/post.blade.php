@@ -1,4 +1,4 @@
-@extends('blog::master')
+@extends('layouts.news')
 
 @section('body')
 
