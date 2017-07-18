@@ -1,8 +1,12 @@
 @extends('layouts.app')
+
+@section('head')	
+	<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script> 	
+@stop
 @section('content')
 <section class="page-header page-header-xs">
 		<div class="container">
-			<h1><i class="fa fa-envelope"></i> CREATE A NEW POST</h1>
+			<h1><i class="fa fa-write"></i> SUBMIT AN ARTICLE</h1>
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->
@@ -18,7 +22,7 @@
 							<!-- Alert Success -->
 							<div id="alert_success" class="alert alert-success margin-bottom-30">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Thank You!</strong> Your post was successfully created!
+								<strong>Thank You!</strong> Your article was successfully submitted!
 							</div><!-- /Alert Success -->
 
 
@@ -91,8 +95,14 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label for="message">Content (required)</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="content" id="content"></textarea>
+												<label for="editor1">Content (required)</label>
+												 <textarea name="editor1" id="editor1" rows="10" cols="80">
+									            </textarea>
+									            <script>
+									                // Replace the <textarea id="editor1"> with a CKEditor
+									                // instance, using default configuration.
+									                CKEDITOR.replace( 'editor1' );
+									            </script>
 											</div>
 										</div>
 									</div>
@@ -116,3 +126,5 @@
 			<!-- / -->
 @stop
 
+@section('script')
+@stop
