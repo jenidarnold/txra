@@ -7,6 +7,7 @@
  */
 use Serverfireteam\Panel\CrudController;
 use \Illuminate\Routing\Controllers;
+use App\NewsPage;
 /**
  * Description of PagePanel
  *
@@ -17,7 +18,7 @@ class PageController extends CrudController{
     public function all($entity){
         parent::all($entity); 
 
-        $this->filter = \DataFilter::source(new \NewsPage());
+        $this->filter = \DataFilter::source(new NewsPage());
         $this->filter->add('id', 'ID', 'text');
         $this->filter->add('title', 'Title', 'text');
         $this->filter->submit('search');
@@ -35,7 +36,7 @@ class PageController extends CrudController{
         
         parent::edit($entity);
 
-        $this->edit = \DataEdit::source(new \NewsPage());
+        $this->edit = \DataEdit::source(new NewsPage());
 
         $this->edit->label('Edit Pages');
         $this->edit->add('title','Title', 'text')->rule('required|min:5');

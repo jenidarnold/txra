@@ -351,9 +351,14 @@
 										</ul>
 									</li>
 									<li class="dropdown"><!-- EVENTS -->
-										<a class="dropdown" href="/blog">
+										<a class="dropdown" href="#">
 											NEWS
 										</a>
+										<ul class="dropdown-menu">
+											<li><a href="{{ route('news.index')}}">LATEST</a></li>
+											<li><a href="{{ route('news.create')}}" >SUBMIT POST</a></li>
+											<!--li><a href="{ { route('news .edit')}}">MY POSTS</a></li-->
+										</ul>										
 									</li>
 									<li class="dropdown"><!-- ABOUT -->
 										<a class="dropdown-toggle" href="#">

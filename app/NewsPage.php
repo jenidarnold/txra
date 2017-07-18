@@ -1,4 +1,4 @@
-<?php
+<?php namespace App;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,6 +11,6 @@
  *
  * @author alireza
  */
-class NewsPage extends Eloquent {
+class NewsPage extends \Eloquent {
     protected $table = 'page';
 }
