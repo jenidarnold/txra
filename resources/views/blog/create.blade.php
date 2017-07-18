@@ -64,17 +64,14 @@
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-6">
-												<label for="committee">Category</label>
-												<select class="form-control pointer" name="committee">
-													<option value="">--- Select ---</option>
-													<option value="1">Awards</option>
-													<option value="2">Communications</option>
-													<option value="3">Finance</option>
-													<option value="4">Governance</option>
-													<option value="5">Strategic Planning</option>
-													<option value="6">Youth and Collegiate</option>
-												</select>
+											<div class="col-md-6">											
+												{!! Form::label('Category') !!}
+											    {!! Form::select('category', 
+											        (['0' => '-- Select --'] + $categories), 
+											            null, 
+            										['class' => 'form-control pointer',
+ 													  'name' => 'category'
+            										]) !!}
 											</div>
 											<div class="col-md-6">
 												<label for="committee">Image(s)</label>

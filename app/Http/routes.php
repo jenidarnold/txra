@@ -30,6 +30,7 @@ Route::get('/welcome', function () {
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
 //{
 	Route::get('/news', array('as' => 'news.index', 'uses' => 'News\BlogController@getIndex'));	
+	Route::get('/news/category/{id}/{category}', array('as' => 'news.category', 'uses' => 'News\BlogController@getCategory'));	
 	Route::get('/news/post/{id}/{title}', array('as' => 'news.show', 'uses' => 'News\BlogController@getPost'));	
 	Route::get('/news/share/{id}/{social}', array('as' => 'news.show', 'uses' => 'News\BlogController@getShare'));	
     

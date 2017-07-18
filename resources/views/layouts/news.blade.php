@@ -49,13 +49,17 @@
                             <button class="fa fa-bars"></button>
                             <h4>CATEGORIES</h4>
                         </div>
+
+
                         <ul class="list-group list-group-bordered list-group-noicon uppercase">
-                            <li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(12)</span> MEDIA</a></li>
-                            <li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(8)</span> JUNIORS</a></li>
-                            <li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(32)</span> NEW</a></li>
-                            <li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(16)</span> RULES</a></li>
-                            <li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(2)</span> TOURNAMENTS</a></li>
-                            <li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">(1)</span> UNCATEGORIZED</a></li>
+                            <li class="list-group-item"><a href="{{ route('news.index')}}">LATEST</a>
+                            </li>
+                             @foreach($categories as $c)                             
+                                <li class="list-group-item"><a href="{{ route('news.category' , array('id' => $c->id, 'category' => $c->category)) }}">
+                                    <!--span class="size-11 text-muted pull-right">({{$c->count}})</span--> 
+                                    {{$c->category}}</a>
+                                </li>
+                             @endforeach
 
                         </ul>
                         <!-- /side navigation -->

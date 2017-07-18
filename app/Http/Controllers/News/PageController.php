@@ -4,6 +4,7 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\News;
+use App\BlogCategory;
 
 class PageController extends BaseController {
 
@@ -24,8 +25,9 @@ class PageController extends BaseController {
      */
     public function create()
     {
+        $categories = \DB::table('blog_categories')->lists('category', 'id');
 
-        return View('blog.create');
+        return View('blog.create', compact('categories'));
     }
 
     /**
@@ -74,9 +76,10 @@ class PageController extends BaseController {
     {
         // get the post
         $post = News::find($id);
+        
+        $categories = \DB::table('blog_categories')->lists('category', 'id');
 
-        // show the edit form and pass the nerd
-        return View('blog.edit')
-            ->with('post', $post);
+        // show the edit form and pass the post
+        return View('blog.edit',compact('post', 'categories'));
     }
 }

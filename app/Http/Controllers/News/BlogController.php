@@ -4,6 +4,7 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\News;
+use App\BlogCategory;
 
 class BlogController extends BaseController {
 
@@ -28,11 +29,46 @@ class BlogController extends BaseController {
 	{
             $mostRecommended = News::mostRecommended();
             $last            = News::lastPosts();
-            //echo'<pre>';
-            //dd($mostRecommended);
-                    
-            return View('blog/index',array('title'=>"Welcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
+      
+            $categories = BlogCategory::all();
+                   
+            return View('blog/index',
+                array(
+                    'title'=>"TXRA News ",
+                    'mostRecommended'=>$mostRecommended,
+                    'last'=>$last,
+                     'categories' => $categories
+                    )
+                );
 	}
+
+    /**
+     * Display a listing of the resource.
+     * GET /blog
+     *
+     * @return Response
+     */
+    public function getCategory($category)
+    {
+            $mostRecommended = News::mostRecommended();
+            $last            = News::lastPosts();
+      
+            $categories = BlogCategory::all();
+
+            if ($category !='') {
+                $last = $last->where('category' , '=', $category);
+            }
+                    
+            return View('blog/index',
+                array(
+                    'title'=>"TXRA News ",
+                    'mostRecommended'=>$mostRecommended,
+                    'last'=>$last,
+                     'categories' => $categories
+                    )
+                );
+    }
+
 
     public static function seoUrl($string) {
         //Lower case everything
@@ -57,12 +93,21 @@ class BlogController extends BaseController {
 
             $mostRecommended = News::mostRecommended();
             $last            = News::lastPosts();
+            $categories = BlogCategory::all();
 
             $post = News::find($id);
             if($post == NULL){
                App::abort(404);
             }
-            return View('blog/post',array('title'=>$post['title'],'post'=>$post, 'mostRecommended'=>$mostRecommended,'last'=>$last));
+            return View('blog/post',
+                array(
+                    'title'=>$post['title'],
+                    'post'=>$post, 
+                    'mostRecommended'=>$mostRecommended,
+                    'last'=>$last,
+                    'categories' => $categories
+                    )   
+                );
 	}
         
     /**
