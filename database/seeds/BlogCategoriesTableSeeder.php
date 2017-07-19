@@ -58,7 +58,7 @@ class BlogCategoriesTableSeeder extends Seeder {
 			'category' 		=>	'Board Minutes',	
 		]);
 
-				BlogCategory::create([
+		BlogCategory::create([
 			'id' 			=> 	 10,
 			'category' 		=>	'Board News',	
 		]);

@@ -44,4 +44,9 @@ class News extends \Eloquent {
                     ->get();            
         }
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany( 'App\BlogCategory', 'blog_category', 'blog_id', 'category_id');
+    }
 }

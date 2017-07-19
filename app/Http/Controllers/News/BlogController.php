@@ -96,6 +96,8 @@ class BlogController extends BaseController {
             $categories = BlogCategory::all();
 
             $post = News::find($id);
+
+            dd($post->categories);
             if($post == NULL){
                App::abort(404);
             }
