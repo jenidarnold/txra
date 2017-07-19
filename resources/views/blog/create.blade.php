@@ -41,7 +41,7 @@
 
 
 							<!--form action="php/contact.php" method="post" enctype="multipart/form-data"-->
-							<form action="{{route('news.store')}}" method="put" enctype="multipart/form-data">
+							<form action="{{route('news.store')}}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<fieldset>
 									<input type="hidden" name="action" value="post_create" />
@@ -50,15 +50,15 @@
 										<div class="form-group">											
 											<div class="col-md-4">
 												<label for="from_last_name">Author (required)</label>
-												<input required type="text" value="" class="form-control" name="author" id="contact:last_name">
+												<input required type="text" value="" class="form-control" name="author" id="author:name">
 											</div>	
 											<div class="col-md-4">
 												<label for="from_email">Your E-mail Address (required)</label>
-												<input required type="email" value="" class="form-control" name="author_email" id="contact:email">
+												<input required type="email" value="" class="form-control" name="author_email" id="author:email">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Your Phone (optional)</label>
-												<input type="text" value="" class="form-control" name="author_phone" id="contact:phone">
+												<input type="text" value="" class="form-control" name="author_phone" id="author:phone">
 											</div>
 										</div>
 									</div>
@@ -74,9 +74,8 @@
             										]) !!}
 											</div>
 											<div class="col-md-6">
-												<label for="committee">Image(s)</label>
-												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
+												  {!! Form::label('Blog Image') !!}
+    											  {!! Form::file('images[]', null) !!}
 												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
 											</div>	
 										</div>
@@ -84,7 +83,7 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label for="message">Title (required)</label>
+												<label for="title">Title (required)</label>
 												<input required maxlength="250" class="form-control" name="title" id="title"></textarea>
 											</div>
 										</div>

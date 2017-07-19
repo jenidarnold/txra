@@ -1,7 +1,9 @@
 @extends('layouts.news')
 
 @section('body')
-
+    <figure class="margin-bottom-20 ">
+        <img class="img-responsive1"  style="max-height:100px" src="{{asset('images/blog/'.$post['image'])}}" alt="{{$post['title']}} " >
+    </figure>
     <h1 class="blog-post-title" style="color:{{$post['color']}}">{{$post['title']}}</h1>   
     <ul class="blog-post-info list-inline">
             <li>
@@ -37,9 +39,7 @@
                 </a>
             </li>
         </ul>
-        <figure class="margin-bottom-20 ">
-            <img class="img-responsive"  src="uploads/{{$post['image']}}" alt="{{$post['title']}} " >
-        </figure>
+
 
         <!-- article content -->
         <p class="dropcap">{!! $post['content'] !!}</p>

@@ -15,7 +15,7 @@ class BlogTableSeeder extends Seeder {
 		
      	DB::table('blog')->insert(
               array('title'=>'TXRA Board Elections',
-                   'image'=>'board/julie_arnold.png',
+                   'image'=>'brad_giezentanner.png',
                    'author' => 'Sean Arnold',
                    'content' => ' <p>The TXRA Board of Directors announced the results of the recent 2017 Board of Directors Election that filled the four vacancies. Congratulations to Julienne Arnold...</p>',
                    'socialPoint' => 100,
@@ -25,8 +25,8 @@ class BlogTableSeeder extends Seeder {
         );
 
     	DB::table('blog')->insert(
-              array('title'=>'Get rid of the dinky doo.',
-                   'image'=>'board/julie_arnold.png',
+              array('title'=>'Get Rid of the Dinky Doo',
+                   'image'=>'brokenblueball.jpg',
                    'author' => 'Coach Jim Winterton',
                    'content' => ' <p>A dinky-doo is a twist of the wrist in the middle of a swing. It is subtle. An exaggerated dinky doo is called twisty wristy. Fix a dinky doo by flattening out the forehand and backhand throughout the swing. If you have a dinky doo you have increased chances for error. Note: You won’t find these terms anywhere else!</p>',
                    'socialPoint' => 15,
@@ -38,7 +38,7 @@ class BlogTableSeeder extends Seeder {
 
     	DB::table('blog')->insert(
               array('title'=>'2017 TXRA ANNUAL AWARDS',
-                   'image'=>'board/julie_arnold.png',
+                   'image'=>'julienne_arnold.png',
                    'author' => 'Mike Grisz',
                    'content' => ' <p>Congratulations!</p>',
                    'socialPoint' => 35,

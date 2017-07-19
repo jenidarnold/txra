@@ -37,6 +37,9 @@ class PageController extends BaseController {
      */
     public function store()
     {
+
+        //dd($_FILES["images"]); //->getClientOriginalName());
+
         // validate
         // read more on validation at http://laravel.com/docs/validation
         //$rules = array(
@@ -52,17 +55,42 @@ class PageController extends BaseController {
         //        ->withErrors($validator)
         //        ->withInput(Input::except('password'));
         //} else {
+        //
+        //
+        //
             // store
             $post = new News;
-            $post->title       = Input::get('title');
-            $post->content      = Input::get('content');
-            $post->author      = Input::get('author');
-            //$post->category = Input::get('category');
+            $post->title       = \Input::get('title');
+            $post->content     = \Input::get('editor1');
+            $post->author      = \Input::get('author');
+            //$post->image       = \Input::get('image');
+            $post->image       = $_FILES["images"]["name"][0];
+            $post->public      = 0;
             $post->save();
 
+            $category_id = \Input::get('category');
+
+            \DB::table('blog_category')->insert(
+                [
+                    'blog_id'   => $post->id,
+                    'category_id' =>$category_id 
+                ]
+            );
+
+            // TODO Save images 
+            foreach ($_FILES["images"]["error"] as $key => $error) {
+                if ($error == UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES["images"]["tmp_name"][$key];
+                    // basename() may prevent filesystem traversal attacks;
+                    // further validation/sanitation of the filename may be appropriate
+                    $name = basename($_FILES["images"]["name"][$key]);
+                    move_uploaded_file($tmp_name, "data/$name");
+                }
+            }
+
             // redirect
-            Session::flash('message', 'Successfully created Post!');
-            return Redirect::to('blog/index');
+            \Session::flash('message', 'Successfully created Post!');
+            return \Redirect::to('news/');
         //}
     }
 

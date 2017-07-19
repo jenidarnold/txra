@@ -60,7 +60,6 @@
                             <h4>CATEGORIES</h4>
                         </div>
 
-
                         <ul class="list-group list-group-bordered list-group-noicon uppercase">
                             <li class="list-group-item"><a href="{{ route('news.index')}}">LATEST</a>
                             </li>
@@ -72,9 +71,7 @@
                              @endforeach
 
                         </ul>
-                        <!-- /side navigation -->
-
-                    
+                        <!-- /side navigation -->                    
                     </div>
 
 
