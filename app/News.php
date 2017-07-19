@@ -45,6 +45,12 @@ class News extends \Eloquent {
         }
     }
 
+     public static  function lastPostsByCategory($id) {       
+          return self::orderBy('created_at','desc')
+                    ->where('public', 1)
+                    ->get();   
+    }
+
     public function categories()
     {
         return $this->belongsToMany( 'App\BlogCategory', 'blog_category', 'blog_id', 'category_id');

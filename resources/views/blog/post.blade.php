@@ -10,21 +10,19 @@
                     <span class="font-lato">{{$post['created_at']}}</span>
                 </a>
             </li>
-            <li>
+            <!--li>
                 <a href="#">
                     <i class="fa fa-comment-o"></i> 
                     <span class="font-lato">28 Comments</span>
                 </a>
-            </li>
+            </li-->
             <li>
                 <i class="fa fa-folder-open-o"></i> 
-
-                <a class="category" href="#">
-                    <span class="font-lato">Board</span>
-                </a>
-                <a class="category" href="#">
-                    <span class="font-lato">Elections</span>
-                </a>
+                @foreach($post->categories as $c)
+                    <a class="category" href="{{ route('news.category', array('id' => $c->id, 'category' => $c->category))}}">
+                        <span class="font-lato">{{ $c->category}}</span>
+                    </a>
+                @endforeach
             </li>
             <li>
                 <a href="#">

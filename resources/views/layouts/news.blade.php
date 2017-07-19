@@ -12,6 +12,14 @@
 	<![endif]-->
 	
 @stop
+
+@section('style')
+    <style>
+    .tabs {
+    }
+    </style>
+
+@stop
 @section('content')
   <section class="page-header page-header-xs">        
         <div class="container">
@@ -28,8 +36,8 @@
 
                 <!-- LEFT -->
                 <div class="col-md-3 col-sm-3">
-
-                    <!-- INLINE SEARCH -->
+                    
+                    <!-- INLINE SEARCH 
                     <div class="inline-search clearfix margin-bottom-30">
                         <form action="" method="get" class="widget_search">
                             <input type="search" placeholder="Start Searching..." id="s" name="s" class="serch-input">
@@ -38,12 +46,14 @@
                             </button>
                         </form>
                     </div>
-                    <!-- /INLINE SEARCH -->
 
                     <hr />
+                    -->
+                    <!-- /INLINE SEARCH -->
+
 
                     <!-- side navigation -->
-                    <div class="side-nav margin-bottom-60 margin-top-30">
+                    <div class="side-nav margin-bottom-60 margin-top-0">
 
                         <div class="side-nav-head">
                             <button class="fa fa-bars"></button>
@@ -68,7 +78,7 @@
                     </div>
 
 
-                    <!-- JUSTIFIED TAB -->
+{{--                     <!-- JUSTIFIED TAB -->
                     <div class="tabs nomargin-top hidden-xs margin-bottom-60">
 
                         <!-- tabs -->
@@ -129,7 +139,7 @@
                         </div>
 
                     </div>
-                    <!-- JUSTIFIED TAB -->
+                    <!-- JUSTIFIED TAB --> --}}
 
 
                     <!-- TAGS 
@@ -179,10 +189,10 @@
 
                     <!-- FACEBOOK 
                     <iframe class="hidden-xs" src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fstepofweb&amp;width=263&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:263px; height:258px;"></iframe>
-                    -->
 
                     <hr />
 
+                    -->
 
                     <!-- SOCIAL ICONS -->
                     <div class="hidden-xs margin-top-30 margin-bottom-60">

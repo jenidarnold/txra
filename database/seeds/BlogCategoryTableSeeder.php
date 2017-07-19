@@ -17,17 +17,9 @@ class BlogCategoryTableSeeder extends Seeder
 	 	DB::table('blog_category')->insert(
               array(
               		'blog_id'		=> 	1,
-                   	'category_id'	=> 	1
+                   	'category_id'	=> 	10
                    )  
         );
-
-	 	DB::table('blog_category')->insert(
-              array(
-              		'blog_id'		=> 	1,
-                   	'category_id'	=> 	2
-                   )  
-        );
-
 
 	 	DB::table('blog_category')->insert(
               array(
@@ -36,10 +28,10 @@ class BlogCategoryTableSeeder extends Seeder
                    )  
         );
 
-	 	DB::table('blog_category')->insert(
+    DB::table('blog_category')->insert(
               array(
-              		'blog_id'		=> 	2,
-                   	'category_id'	=> 	4
+                  'blog_id'   =>  3,
+                    'category_id' =>  2
                    )  
         );
     }

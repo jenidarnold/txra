@@ -31,6 +31,7 @@ class BlogController extends BaseController {
             $last            = News::lastPosts();
       
             $categories = BlogCategory::all();
+
                    
             return View('blog/index',
                 array(
@@ -48,17 +49,20 @@ class BlogController extends BaseController {
      *
      * @return Response
      */
-    public function getCategory($category)
+    public function getCategory($id)
     {
             $mostRecommended = News::mostRecommended();
             $last            = News::lastPosts();
       
+            $cat = new BlogCategory ;
+            //Note: not filtered by
+            $last = $cat->find($id)->blogs()
+                ->orderBy('created_at','desc')
+                ->where('public', 1)
+                ->get();
+
             $categories = BlogCategory::all();
 
-            if ($category !='') {
-                $last = $last->where('category' , '=', $category);
-            }
-                    
             return View('blog/index',
                 array(
                     'title'=>"TXRA News ",
@@ -97,7 +101,6 @@ class BlogController extends BaseController {
 
             $post = News::find($id);
 
-            dd($post->categories);
             if($post == NULL){
                App::abort(404);
             }
