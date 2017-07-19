@@ -54,7 +54,7 @@ class BlogController extends BaseController {
             $mostRecommended = News::mostRecommended();
             $last            = News::lastPosts();
       
-            $cat = new BlogCategory ;
+            $cat = new BlogCategory;
             //Note: not filtered by
             $last = $cat->find($id)->blogs()
                 ->orderBy('created_at','desc')

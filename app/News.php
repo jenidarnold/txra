@@ -45,10 +45,16 @@ class News extends \Eloquent {
         }
     }
 
-     public static  function lastPostsByCategory($id) {       
-          return self::orderBy('created_at','desc')
+    //FIX
+    public static  function lastPostsByCategory($id, $number = null) {              
+        if ( $number != null ){
+            return self::where('public', 1)->take($number)
+                    ->orderBy('created_at','desc')->get();                        
+        } else {
+            return self::orderBy('created_at','desc')
                     ->where('public', 1)
-                    ->get();   
+                    ->get();            
+        }
     }
 
     public function categories()

@@ -21,10 +21,7 @@ Route::get('/', function () {
 
 Route::get('/sitemap.xml', 'SitemapController@index');
 
-Route::get('/welcome', function () {
-	$tournaments = App\Tournament::all();
-    return view('welcome', compact('tournaments'));
-});
+Route::get('/welcome', 'WelcomeController@index' );
 
 	
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()

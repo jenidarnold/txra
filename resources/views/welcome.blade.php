@@ -213,10 +213,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-sm-12"><!-- left text -->
-                            <h3>Join the Racquetball community in supporting the sport on the local, national and international levels.</h3>
-                            <p class="font-lato weight-300 size-20 nomargin-bottom">
+                            <h3>Join the Texas racquetball community in supporting the sport on the local, state, national, and international levels.</h3>
+                            <!--p class="font-lato weight-300 size-20 nomargin-bottom">
                                 Send a definitive message about the passion of racquetball players to Facilities, Manufacturers and Sponsors to help insure the long term future and growth of the sport.
-                            </p>
+                            </p-->
                         </div><!-- /left text -->
                         <div class="col-md-3 col-sm-12 text-right"><!-- right btn -->
                             <a href="{{ route('members.membership')}}" rel="nofollow" class="btn btn-primary btn-lg">JOIN NOW</a>
