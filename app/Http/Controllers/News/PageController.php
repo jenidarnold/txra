@@ -4,6 +4,7 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\News;
+use App\User;
 use App\BlogCategory;
 
 class PageController extends BaseController {
@@ -27,7 +28,13 @@ class PageController extends BaseController {
     {
         $categories = \DB::table('blog_categories')->lists('category', 'id');
 
-        return View('blog.create', compact('categories'));
+        $author = new User;
+
+        if(\Auth::check()){
+            $author = \Auth::user();        
+        }
+
+        return View('blog.create', compact('categories' ,'author'));
     }
 
     /**
@@ -78,18 +85,22 @@ class PageController extends BaseController {
             );
 
             // http://php.net/manual/en/features.file-upload.post-method.php
+            $i = 0;
             foreach ($_FILES["images"]["error"] as $key => $error) {
                 if ($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["images"]["tmp_name"][$key];
                     // basename() may prevent filesystem traversal attacks;
                     // further validation/sanitation of the filename may be appropriate
-                    $name = basename($_FILES["images"]["name"][$key]);
-
+                    
+                    //append display order numner
+                    $order = $i.'_';
+                    $name = $order . basename($_FILES["images"]["name"][$key]);
 
                     if (!file_exists("images/blog/$post->id")) {
                         mkdir("images/blog/$post->id", 0777, true);
                     }
                     move_uploaded_file($tmp_name, "images/blog/$post->id/$name");
+                    $i++;
                 }
             }
 

@@ -61,4 +61,13 @@ class News extends \Eloquent {
     {
         return $this->belongsToMany( 'App\BlogCategory', 'blog_category', 'blog_id', 'category_id');
     }
+
+    public function image_count() {
+        $directory = "images/blog/$this->id";
+        
+        $fi = new \FilesystemIterator($directory, \FilesystemIterator::SKIP_DOTS);
+        $filecount = iterator_count($fi);
+      
+        return $filecount;
+    }
 }

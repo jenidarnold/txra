@@ -50,21 +50,21 @@
 										<div class="form-group">											
 											<div class="col-md-4">
 												<label for="from_last_name">Author (required)</label>
-												<input required type="text" value="" class="form-control" name="author" id="author:name">
+												<input required type="text" value="{{ $author->full_name}}" class="form-control" name="author" id="author:name">
 											</div>	
 											<div class="col-md-4">
 												<label for="from_email">Your E-mail Address (required)</label>
-												<input required type="email" value="" class="form-control" name="author_email" id="author:email">
+												<input required type="email" value="{{ $author->email}}" class="form-control" name="author_email" id="author:email">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Your Phone (optional)</label>
-												<input type="text" value="" class="form-control" name="author_phone" id="author:phone">
+												<input type="text" value="{{ $author->phone}}" class="form-control" name="author_phone" id="author:phone">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-6">											
+											<div class="col-md-3">											
 												{!! Form::label('Category') !!}
 											    {!! Form::select('category', 
 											        (['0' => '-- Select --'] + $categories), 
@@ -73,8 +73,18 @@
  													  'name' => 'category'
             										]) !!}
 											</div>
-											<div class="col-md-6">
-												  {!! Form::label('Blog Image') !!}
+											<div class="col-md-3">
+												  {!! Form::label('Image 1') !!}
+    											  {!! Form::file('images[]', null) !!}
+												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+											</div>	
+											<div class="col-md-3">
+												  {!! Form::label('Image 2') !!}
+    											  {!! Form::file('images[]', null) !!}
+												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+											</div>	
+											<div class="col-md-3">
+												  {!! Form::label('Image 3') !!}
     											  {!! Form::file('images[]', null) !!}
 												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
 											</div>	

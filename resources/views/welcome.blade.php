@@ -227,7 +227,26 @@
         <!-- /CALLOUT -->
 
         <!-- BLOG SLIDER-->
-        @include('includes.blogslider')     
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <!-- POST ITEM -->
+                        <div class="blog-post-item col-md-4">
+                            @include('includes.blogslider', array('title' => 'TRENDING', 'post' => $trending))  
+                        </div>
+                        <!-- POST ITEM -->
+                        <div class="blog-post-item col-md-4">
+                            @include('includes.blogslider', array('title' => 'PLAYER SPOTLIGHT', 'post' => $spotlight))  
+                        </div>
+                        <!-- POST ITEM -->
+                        <div class="blog-post-item col-md-4">
+                            @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'post' => $tip))  
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         <!-- /EVENT SLIDER -->
 
         <!-- EVENT SLIDER-->

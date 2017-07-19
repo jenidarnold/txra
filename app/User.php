@@ -96,4 +96,7 @@ class User extends Model implements AuthenticatableContract,
         }
     }
 
+    public function getFullNameAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
