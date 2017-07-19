@@ -65,7 +65,7 @@ class PageController extends BaseController {
             $post->author      = \Input::get('author');
             //$post->image       = \Input::get('image');
             $post->image       = $_FILES["images"]["name"][0];
-            $post->public      = 0;
+            $post->public      = 1;
             $post->save();
 
             $category_id = \Input::get('category');
@@ -77,14 +77,19 @@ class PageController extends BaseController {
                 ]
             );
 
-            // TODO Save images 
+            // http://php.net/manual/en/features.file-upload.post-method.php
             foreach ($_FILES["images"]["error"] as $key => $error) {
                 if ($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["images"]["tmp_name"][$key];
                     // basename() may prevent filesystem traversal attacks;
                     // further validation/sanitation of the filename may be appropriate
                     $name = basename($_FILES["images"]["name"][$key]);
-                    move_uploaded_file($tmp_name, "data/$name");
+
+
+                    if (!file_exists("images/blog/$post->id")) {
+                        mkdir("images/blog/$post->id", 0777, true);
+                    }
+                    move_uploaded_file($tmp_name, "images/blog/$post->id/$name");
                 }
             }
 

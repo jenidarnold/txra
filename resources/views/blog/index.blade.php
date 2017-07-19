@@ -19,7 +19,7 @@
                         </div>
                         /OWL SLIDER -->
                         <figure class="margin-bottom-20 ">
-                            <img class="img-responsive1"  style="max-height:100px" src="{{asset('images/blog/'.$post['image'])}}" alt="{{$post['title']}} " >
+                            <img class="img-responsive1"  style="max-height:100px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
                         </figure>
 
                         <h2><a href="{{$post->getUrl()}}">{{$post['title']}}</a></h2>
