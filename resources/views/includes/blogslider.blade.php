@@ -6,7 +6,7 @@
 		<li>
 			<a href="#">
 				<i class="fa fa-clock-o"></i>
-				<span class="font-lato">{{ date_format($post->created_at, "D, d M Y H:i:s T") }}</span>
+				<span class="font-lato">{{$post->created_at}}</span>
 			</a>
 		</li>								
 		<!--li class="comment">
@@ -25,12 +25,12 @@
 
 	@if ($post->image_count() > 1)
 		<!-- OWL SLIDER -->
-	<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": {{$post->image_count()}}, "autoPlay": 3000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+	<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": {{$post->image_count()}}, "autoPlay": 6000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
 
 		@foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)
 			@if (!$fileinfo->isDot())
 				<div>
-					<img class="img-responsive" src="{{ asset($fileinfo->getPathname()) }}" alt="">
+					<img class="thumbnail img-responsive" src="{{ asset($fileinfo->getPathname()) }}" alt="">
 				</div>
 			@endif
 		@endforeach								
@@ -38,7 +38,7 @@
 	<!-- /OWL SLIDER -->
 	@else
 	  	<figure class="margin-bottom-20 ">
-            <img class="img-responsive" src="{{asset('images/blog/'.$post->id.'/'.$post->image)}}" alt="{{$post->title}} " >
+            <img class="thumbnail img-responsive" src="{{asset('images/blog/'.$post->id.'/'.$post->image)}}" alt="{{$post->title}} " >
         </figure>
     @endif
 

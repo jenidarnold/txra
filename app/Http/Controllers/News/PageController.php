@@ -70,8 +70,9 @@ class PageController extends BaseController {
             $post->title       = \Input::get('title');
             $post->content     = \Input::get('editor1');
             $post->author      = \Input::get('author');
-            //$post->image       = \Input::get('image');
-            $post->image       = $_FILES["images"]["name"][0];
+
+            $post->image       = '0_'. $_FILES["images"]["name"][0];            
+
             $post->public      = 1;
             $post->save();
 
