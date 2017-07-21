@@ -69,13 +69,21 @@
 											    {!! Form::select('category', 
 											        (['0' => '-- Select --'] + $categories), 
 											            null, 
-            										['class' => 'form-control pointer',
+            											['class' => 'form-control pointer',
  													  'name' => 'category'
-            										]) !!}
+            											]
+        											) 
+    											!!}
 											</div>
 											<div class="col-md-3">
-												  {!! Form::label('Image 1') !!}
-    											  {!! Form::file('images[]', null) !!}
+											  	{!! Form::label('Image 1') !!}
+											  	{!! Form::file('images[]',  
+    											  				[	
+    											  					'multiple' => 'multiple',
+    											  					'accept'	=>'image/*'
+    											  				]
+											  				) 
+										  		!!}
 												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
 											</div>	
 											<div class="col-md-3">
