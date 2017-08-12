@@ -3,8 +3,8 @@
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use App\News;
-use App\BlogCategory;
+use App\Post;
+use App\PostCategory;
 
 class BlogController extends BaseController {
 
@@ -27,18 +27,17 @@ class BlogController extends BaseController {
 	 */
 	public function getIndex()
 	{
-            $mostRecommended = News::mostRecommended();
-            $last            = News::lastPosts();
+            $mostRecommended = Post::mostRecommended();
+            $last            = Post::lastPosts();
       
-            $categories = BlogCategory::all();
+            $categories = PostCategory::all();
 
-                   
             return View('blog/index',
                 array(
                     'title'=>"TXRA News ",
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
-                     'categories' => $categories
+                    'categories' => $categories
                     )
                 );
 	}
@@ -51,24 +50,24 @@ class BlogController extends BaseController {
      */
     public function getCategory($id)
     {
-            $mostRecommended = News::mostRecommended();
-            $last            = News::lastPosts();
+            $mostRecommended = Post::mostRecommended();
+            $last            = Post::lastPosts();
       
-            $cat = new BlogCategory;
+            $cat = new PostCategory;
             //Note: not filtered by
-            $last = $cat->find($id)->blogs()
+            $last = $cat->find($id)->posts()
                 ->orderBy('created_at','desc')
                 ->where('public', 1)
                 ->get();
 
-            $categories = BlogCategory::all();
+            $categories = PostCategory::all();
 
             return View('blog/index',
                 array(
                     'title'=>"TXRA News ",
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
-                     'categories' => $categories
+                    'categories' => $categories
                     )
                 );
     }
@@ -95,11 +94,11 @@ class BlogController extends BaseController {
 	public function getPost($id)
 	{
 
-            $mostRecommended = News::mostRecommended();
-            $last            = News::lastPosts();
-            $categories = BlogCategory::all();
+            $mostRecommended = Post::mostRecommended();
+            $last            = Post::lastPosts();
+            $categories = PostCategory::all();
 
-            $post = News::find($id);
+            $post = Post::find($id);
 
             if($post == NULL){
                App::abort(404);

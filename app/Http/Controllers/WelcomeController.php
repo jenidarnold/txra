@@ -6,8 +6,8 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 
 use App\Tournament;
-use App\News;
-use App\BlogCategory;
+use App\Post;
+use App\PostCategory;
 
 class WelcomeController extends Controller
 {
@@ -29,13 +29,13 @@ class WelcomeController extends Controller
     public function index()
     {
         $tournaments =  Tournament::all();
-        $categories = new BlogCategory;
+        $categories = new PostCategory;
 
         //Trending
-        $trending =  $mostRecommended = News::mostRecommended();
+        $trending =  $mostRecommended = Post::mostRecommended();
         
         //Recent
-        $recent      = News::lastPosts(1);
+        $recent      = Post::lastPosts(1);
 
         //Spotlight
         $spot_id = $categories
@@ -44,7 +44,7 @@ class WelcomeController extends Controller
         	->id
         ;
 
-        $spotlight =  $categories->find($spot_id)->blogs()
+        $spotlight =  $categories->find($spot_id)->posts()
                 ->orderBy('created_at','desc')
                 ->where('public', 1)
                 ->first();
@@ -56,7 +56,7 @@ class WelcomeController extends Controller
         	->id
         ;
 
-        $tip =  $categories->find($tip_id)->blogs()
+        $tip =  $categories->find($tip_id)->posts()
                 ->orderBy('created_at','desc')
                 ->where('public', 1)
                 ->first();

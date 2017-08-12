@@ -3,9 +3,9 @@
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use App\News;
+use App\Post;
 use App\User;
-use App\BlogCategory;
+use App\PostCategory;
 
 class PageController extends BaseController {
 
@@ -26,13 +26,17 @@ class PageController extends BaseController {
      */
     public function create()
     {
-        $categories = \DB::table('blog_categories')->lists('category', 'id');
+        $categories = \DB::table('post_categories')->lists('category', 'id');
 
         $author = new User;
 
         if(\Auth::check()){
             $author = \Auth::user();        
+        } else {
+            \Session::flash('message', 'You must be logged in to create Post!');
+            return \Redirect::to('news/');
         }
+
 
         return View('blog.create', compact('categories' ,'author'));
     }
@@ -66,10 +70,10 @@ class PageController extends BaseController {
         //
         //
             // store
-            $post = new News;
+            $post = new Post;
             $post->title       = \Input::get('title');
             $post->content     = \Input::get('editor1');
-            $post->author      = \Input::get('author');
+            $post->author_id   = \Input::get('author_id');
 
             $post->image       = '0_'. $_FILES["images"]["name"][0];            
 
@@ -78,9 +82,9 @@ class PageController extends BaseController {
 
             $category_id = \Input::get('category');
 
-            \DB::table('blog_category')->insert(
+            \DB::table('post_category')->insert(
                 [
-                    'blog_id'   => $post->id,
+                    'post_id'   => $post->id,
                     'category_id' =>$category_id 
                 ]
             );
@@ -120,9 +124,9 @@ class PageController extends BaseController {
     public function edit($id)
     {
         // get the post
-        $post = News::find($id);
+        $post = Post::find($id);
         
-        $categories = \DB::table('blog_categories')->lists('category', 'id');
+        $categories = \DB::table('post_categories')->lists('category', 'id');
 
         // show the edit form and pass the post
         return View('blog.edit',compact('post', 'categories'));

@@ -47,15 +47,15 @@
 				
 				<div class="col-md-6 col-sm-6">
 					<!-- article content -->
-					<h4>Object of the Game</h4>
+					<ul class="blog-post-info list-inline">
+						<li>
+							<a href="http://www.rulesofsport.com/sports/racquetball.html" target="new">
+								<i class="fa fa-user"></i> 
+								<span class="font-lato">http://www.wikihow.com/Play-Racquetball</span>
+							</a>
+						</li>
 
-					<h4>Players & Equipment</h4>
-
-					<h4>Scoring</h4>
-
-					<h4>Winning the Game</h4>
-
-					<h4>Rules of the Game</h4>
+					</ul>
 
 				</div>
 				<div class="col-md-6 col-sm-6">
@@ -67,6 +67,11 @@
 					</div>
 				</div>
 			</div>
+			<div class"row">
+
+
+
+			</div>	
 		</div>
 	</section>
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostPageTable extends Migration {
+class CreatePostTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,18 @@ class CreatePostPageTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('page', function($table)
+		Schema::create('post', function($table)
                 {
                     $table->increments('id');
-                    $table->string('title',50);
-                    $table->string('slug',512);
+                    $table->string('title',256);
+                    $table->string('image',256);
+                    $table->integer('author_id');
                     $table->longText('content');
+                    $table->bigInteger('socialPoint');
                     $table->boolean('public');
                     $table->timestamps();
                 });
+
 	}
 
 	/**
@@ -30,7 +33,7 @@ class CreatePostPageTable extends Migration {
 	 */
 	public function down()
 	{
-            Schema::drop('page');
+            Schema::drop('post');
 	}
 
 }

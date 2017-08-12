@@ -32,11 +32,11 @@ Route::get('/welcome', 'WelcomeController@index' );
 	Route::get('/news/share/{id}/{social}', array('as' => 'news.show', 'uses' => 'News\BlogController@getShare'));	
     
     //don't use the Panel code
-	Route::get('/news/post/create', array('as' => 'news.create', 'uses' => 'News\PageController@create'));	
-	Route::get('/news/post/{id}/{title}/edit', array('as' => 'news.edit', 'uses' => 'News\PageController@edit'));		
+	Route::get('/news/create', array('as' => 'news.create', 'uses' => 'News\PageController@create'));	
+	Route::get('/news/edit/{id}/{title}', array('as' => 'news.edit', 'uses' => 'News\PageController@edit'));		
 	Route::post('/news/post', array('as' => 'news.store', 'uses' => 'News\PageController@store'));		
 	Route::put('/news/post/{id}', array('as' => 'news.update', 'uses' => 'News\PageController@update'));
-	Route::delete('/news/post/{id}', array('as' => 'news.delete', 'uses' => 'News\PageController@delete'));	
+	Route::delete('/news/{id}', array('as' => 'news.delete', 'uses' => 'News\PageController@delete'));	
 //});
 
 Route::controllers([

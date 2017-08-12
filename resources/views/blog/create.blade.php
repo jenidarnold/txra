@@ -49,16 +49,16 @@
 									<div class="row">
 										<div class="form-group">											
 											<div class="col-md-4">
-												<label for="from_last_name">Author (required)</label>
-												<input required type="text" value="{{ $author->full_name}}" class="form-control" name="author" id="author:name">
+												<label for="from_last_name">Author</label>
+												<input required type="text" readonly="true" value="{{ $author->full_name}}" class="form-control" name="author" id="author:name">
 											</div>	
 											<div class="col-md-4">
-												<label for="from_email">Your E-mail Address (required)</label>
-												<input required type="email" value="{{ $author->email}}" class="form-control" name="author_email" id="author:email">
+												<label for="from_email">Your E-mail Address</label>
+												<input required type="email" readonly="true" value="{{ $author->email}}" class="form-control" name="author_email" id="author:email">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:phone">Your Phone (optional)</label>
-												<input type="text" value="{{ $author->phone}}" class="form-control" name="author_phone" id="author:phone">
+												<label for="contact:phone">Your Phone</label>
+												<input type="text" value="{{ $author->phone}}" readonly="true" class="form-control" name="author_phone" id="author:phone">
 											</div>
 										</div>
 									</div>

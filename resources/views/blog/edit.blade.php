@@ -49,16 +49,16 @@
 									<div class="row">
 										<div class="form-group">											
 											<div class="col-md-4">
-												<label for="from_last_name">Author (required)</label>
-												<input required type="text" value="" class="form-control" name="author" id="contact:last_name">
+												<label for="from_last_name">Author</label>
+												<input required type="text" readonly="true" value="{{ $post['author']->full_name }}" class="form-control" name="author" id="author:last_name">
 											</div>	
 											<div class="col-md-4">
-												<label for="from_email">Your E-mail Address (required)</label>
-												<input required type="email" value="" class="form-control" name="author_email" id="contact:email">
+												<label for="from_email">Your E-mail Address</label>
+												<input required type="email" readonly="true" value="{{ $post['author']->email }}" class="form-control" name="author_email" id="author:email">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:phone">Your Phone (optional)</label>
-												<input type="text" value="" class="form-control" name="author_phone" id="contact:phone">
+												<label for="contact:phone">Your Phone</label>
+												<input type="text" value="{{ $post['author']->phone }}"  readonly="true"  class="form-control" name="author_phone" id="author:phone">
 											</div>
 										</div>
 									</div>
@@ -88,7 +88,7 @@
 										<div class="form-group">
 											<div class="col-md-12">
 												<label for="message">Title (required)</label>
-												<input required maxlength="250" class="form-control" name="title" id="title"></textarea>
+												<input required maxlength="250" class="form-control"  value="{{$post['title']}}" name="title" id="title"></textarea>
 											</div>
 										</div>
 									</div>	
@@ -96,7 +96,8 @@
 										<div class="form-group">
 											<div class="col-md-12">
 												<label for="message">Content (required)</label>
-												 <textarea name="editor1" id="editor1" rows="10" cols="80">
+												<textarea name="editor1" id="editor1" rows="10" cols="80">
+												{{ $post['content'] }}
 									            </textarea>
 									            <script>
 									                // Replace the <textarea id="editor1"> with a CKEditor
@@ -117,8 +118,6 @@
 
 						</div>
 						<!-- /FORM -->
-
-
 					</div>
 
 				</div>

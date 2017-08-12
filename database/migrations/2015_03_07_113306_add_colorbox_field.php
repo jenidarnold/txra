@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNewsColorboxField extends Migration {
+class AddPostColorboxField extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class AddNewsColorboxField extends Migration {
 	 */
 	public function up()
 	{
-		DB::statement('ALTER TABLE `blog` ADD `color` VARCHAR(10) NOT NULL AFTER `socialPoint`;');
+		DB::statement('ALTER TABLE `post` ADD `color` VARCHAR(10) NOT NULL AFTER `socialPoint`;');
 	}
 
 	/**
@@ -22,7 +22,7 @@ class AddNewsColorboxField extends Migration {
 	 */
 	public function down()
 	{
-		DB::statement('ALTER TABLE `blog` DROP `color`;');
+		DB::statement('ALTER TABLE `post` DROP `color`;');
 	}
 
 }

@@ -27,9 +27,9 @@
                 @endforeach
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('members.show', array('id' => $post['author']->id))}}">
                     <i class="fa fa-user"></i> 
-                    <span class="font-lato">{{$post['author']}}</span>
+                    <span class="font-lato">{{$post['author']->full_name}}</span>
                 </a>
             </li>
             <li>
@@ -38,50 +38,55 @@
                     <span class="font-lato">{{$post['socialPoint']}} shared</span>
                 </a>
             </li>
+             <li>
+                <a href="{{ route('news.edit', array('id' => $post['id'], 'title' => $post['title']))}}">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </li>
         </ul>
 
 
         <!-- article content -->
         <p class="dropcap">{!! $post['content'] !!}</p>
 
-    <section class="related">
-        <p>If you enjoyed this post, share it on social networks :</p>
-        <p>  <a target="_blank" href="{{ '/news/share/'. $post['id']}}/facebook"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
-            <a target="_blank" href="{{ '/news/share/'. $post['id']}}/twitter"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
-            <a target="_blank" href="{{ '/news/share/'. $post['id']}}/googlePlus"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
-            <a target="_blank" href="{{ Config::get('app.url')  .'/news/share/'. $post['id']}}/linkedIn"><i id="social" class="fa fa-linkedin-square fa-3x social-gp"></i></a>
-        </p>
-        <p class="post-button">
+        <section class="related">
+            <p>If you enjoyed this post, share it on social networks :</p>
+            <p>  <a target="_blank" href="{{ '/news/share/'. $post['id']}}/facebook"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
+                <a target="_blank" href="{{ '/news/share/'. $post['id']}}/twitter"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
+                <a target="_blank" href="{{ '/news/share/'. $post['id']}}/googlePlus"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
+                <a target="_blank" href="{{ Config::get('app.url')  .'/news/share/'. $post['id']}}/linkedIn"><i id="social" class="fa fa-linkedin-square fa-3x social-gp"></i></a>
+            </p>
+            <p class="post-button">
 
-            @if($post->nextPost())
-            <a class="pull-right btn btn-default" href="{{$post->nextPost()->getUrl()}}">Next : {{$post->nextPost()['title']}}
+                @if($post->nextPost())
+                <a class="pull-right btn btn-default" href="{{$post->nextPost()->getUrl()}}">Next : {{$post->nextPost()['title']}}
 
-                <span class="fa fa-angle-right" aria-hidden="true"></span></a>
-            @endif
+                    <span class="fa fa-angle-right" aria-hidden="true"></span></a>
+                @endif
 
-            @if($post->previousPost())
-            <a class="pull-left btn btn-default" href="{{$post->previousPost()->getUrl()}}">Previous : {{$post->previousPost()['title']}}
-                <span class="fa fa-angle-left" aria-hidden="true"></span>
-            </a>
-            @endif
-        </p>
-    </section>
-    <section class="content">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = '{{\Config::get('blog.disqus')}}'; // required: replace example with your forum shortname
+                @if($post->previousPost())
+                <a class="pull-left btn btn-default" href="{{$post->previousPost()->getUrl()}}">Previous : {{$post->previousPost()['title']}}
+                    <span class="fa fa-angle-left" aria-hidden="true"></span>
+                </a>
+                @endif
+            </p>
+        </section>
+        <section class="content">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = '{{\Config::get('blog.disqus')}}'; // required: replace example with your forum shortname
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-    </section>
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+        </section>
 
 
 </div><!-- /news -->
