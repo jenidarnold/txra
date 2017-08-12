@@ -10,8 +10,8 @@
 		<meta property="og:description" content="TXRA leads the Texas racquetball community in supporting the sport on the local, state, national, and international levels."/>
 		<meta property="og:url" content="http://67.205.179.1"/>		
 		<meta property="og:image" content="http://67.205.179.1/images/logos/txra_logo.png"/>
-		<meta property="og:image:width" content="190"/>
-		<meta property="og:image:height" content="70"/>
+		<meta property="og:image:width" content="746"/>
+		<meta property="og:image:height" content="215"/>
 		<meta property="og:image:type" content="image/png" />
 		<!-- mobile settings -->
 		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
