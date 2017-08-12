@@ -11,7 +11,7 @@
 		<meta property="og:url" content="http://67.205.179.1"/>		
 		<meta property="og:image" content="http://67.205.179.1/images/logos/txra_logo_og.png"/>
 		<meta property="og:image:width" content="746"/>
-		<meta property="og:image:height" content="215"/>
+		<meta property="og:image:height" content="746"/>
 		<meta property="og:image:type" content="image/png" />
 		<!-- mobile settings -->
 		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
