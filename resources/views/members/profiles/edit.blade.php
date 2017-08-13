@@ -42,20 +42,24 @@
 					<input type="text" placeholder="{{$user->address_city}}" class="form-control">
 				</div>
 				<div class="form-group">
+					<label class="control-label">Skill</label>
+					<input type="text" placeholder="{{$user->skill}}" class="form-control">
+				</div>	
+				<div class="form-group">
 					<label class="control-label">Racquet</label>
 					<input type="text" placeholder="{{$user->racquet}}" class="form-control">
 				</div>	
 				<div class="form-group">
 					<label class="control-label">Dominant Hand</label>
-					<input type="text" placeholder="{{$user->dominance}}" class="form-control">
+					{{ Form::select('hand', ['', 'LEFT', 'RIGHT', 'BOTH']) }}
 				</div>	
-				<div class="form-group">
+				{{-- <div class="form-group">
 					<label class="control-label">Interests</label>
 					<input type="text" placeholder="{{$user->interests}}" class="form-control">
-				</div>				
+				</div>	 --}}			
 				<div class="form-group">
 					<label class="control-label">Who Am I?</label>
-					<textarea class="form-control" rows="3" placeholder="{{$user->about}}"></textarea>
+					<textarea class="form-control" rows="3" placeholder="{{$user->bio}}"></textarea>
 				</div>				
 				<div class="margiv-top10">
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
@@ -76,7 +80,15 @@
 						<div class="col-md-3 col-sm-4">
 
 							<div class="thumbnail">
-								<img class="img-responsive" src="assets/images/demo/people/460x700/8-min.jpg" alt="" />
+								@if((true)) 	
+									<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
+								@else
+									@if($user->gender == 'f')
+										<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
+									@else
+										<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
+									@endif
+								@endif
 							</div>
 
 						</div>
@@ -94,13 +106,13 @@
 
 							<a href="#" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Avatar</a>
 
-							<div class="clearfix margin-top-20">
+							{{-- <div class="clearfix margin-top-20">
 								<span class="label label-warning">NOTE! </span>
 								<p>
 									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet!
 								</p>
 							</div>
-
+ --}}
 						</div>
 
 					</div>

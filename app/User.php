@@ -74,6 +74,15 @@ class User extends Model implements AuthenticatableContract,
     public static function link_account($fb_id) {
     
     }
+
+    /**
+     *  User's Profile
+     */
+
+    public function profile()
+    {
+        return $this->hasOne('App\UserProfile', 'user_id', 'id');
+    }
           
     /**
      * User's permissions

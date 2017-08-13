@@ -232,15 +232,15 @@
                 <div class="container">
                     <div class="row">
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4">
+                        <div class="blog-post-item col-md-4 col-sm-6 col-xs-8">
                             @include('includes.blogslider', array('title' => 'TRENDING', 'post' => $trending))  
                         </div>
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4">
+                        <div class="blog-post-item col-md-4 col-sm-6 col-xs-8" >
                             @include('includes.blogslider', array('title' => 'PLAYER SPOTLIGHT', 'post' => $spotlight))  
                         </div>
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4">
+                        <div class="blog-post-item col-md-4 col-sm-6 col-xs-8">
                             @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'post' => $tip))  
                         </div>
                     </div>
@@ -248,8 +248,9 @@
             </section>
 
         <!-- /EVENT SLIDER -->
-
+        @include('includes.eventslider', array('event_type' => 'LIVE'))
         <!-- EVENT SLIDER-->
-        @include('includes.eventslider', array('event_type' => 'FUTURE'))        
+        @include('includes.eventslider', array('event_type' => 'RECENT'))        
         <!-- /EVENT SLIDER -->
+        @include('includes.eventslider', array('event_type' => 'FUTURE'))
 @stop

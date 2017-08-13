@@ -3,13 +3,13 @@
 
 		<div class="row">
 
-			<div class="col-md-3 col-sm-2">
+			<div class="col-md-3 col-sm-3">
 				<!-- Footer Logo 
 				<img src="{{ asset('images/TX.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				<img src="{{ asset('images/R.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
 				-->
-				<img class="responsive" src="{{ asset('images/logos/txra_flag.png')}}" style="display:inline; opacity:.7" alt="" />
+				<img class="img-responsive" src="{{ asset('images/logos/txra_logo.png')}}" style="display:inline; opacity:.7" alt="" />
 
         		<!--@include('includes.txra_flag')    -->
 

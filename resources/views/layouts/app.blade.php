@@ -272,11 +272,11 @@
 											<li class="dropdown">
 												<a href="{{route('juniors.welcome')}}">JUNIORS</a>												
 											</li>
-											<li class="dropdown">
+											{{-- <li class="dropdown">
 												<a href="{{route('collegiate.welcome')}}">
 													COLLEGIATE
 												</a>
-											</li>
+											</li> --}}
 											<li class="dropdown">
 												<a class="dropdown" href="{{ route('referee.index')}}">
 													REFEREE CERTIFICATION

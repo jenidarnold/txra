@@ -74,10 +74,8 @@ class MemberController extends Controller {
 	{
 
 		$user = User::find($id);
-
-		//TODO add gender to user table
-		$user->gender = 'f';
-		return view('members/profiles/show', compact('user'));
+		$profile = $user->profile()->first();
+		return view('members/profiles/show', compact('user', 'profile'));
 	}
 
 	/**
@@ -89,10 +87,9 @@ class MemberController extends Controller {
 	{
 
 		$user = User::find($id);
+		$profile = $user->profile()->first();
 
-		//TODO add gender to user table
-		$user->gender = 'f';
-		return view('members/profiles/edit', compact('user'));
+		return view('members/profiles/edit', compact('user', 'profile'));
 	}
 
 	/**

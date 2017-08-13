@@ -41,30 +41,30 @@
 					@if((true)) 	
 						<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
 					@else
-						@if($user->gender == 'f')
+						@if($profile->gender == 'female')
 							<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
 						@else
 							<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
 						@endif
 					@endif
 					<h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2>
-					<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">ELITE</h3>
+					<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ $profile->skill }}</h3>
 				</div>
 				
 				<!-- Show Profile Progress if this profile belongs to current Auth -->
 				@if(Auth::id() == $user->id)
-				<div class="margin-bottom-30">
+				{{-- <div class="margin-bottom-30">
 					<label>88% completed profile</label>
 					<div class="progress progress-xxs">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%; min-width: 2em;"></div>
 					</div>
-				</div>
+				</div> --}}
 				@endif
 
 				<!-- SIDE NAV -->
 				<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
 					<li class="list-group-item active"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> PROFILE</a></li>
-					<li class="list-group-item list-toggle">   <!-- NOTE: "active" to be open on page load -->                
+					{{-- <li class="list-group-item list-toggle">   <!-- NOTE: "active" to be open on page load -->                
 						<a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-1"><i class="fa fa-calendar"></i> UPCOMING EVENTS</a></a>
 						<ul id="collapse-1" class="collapse"><!-- NOTE: "collapse in" to be open on page load -->
 							<li>
@@ -89,9 +89,9 @@
 						</ul>
 					</li>
 					<li class="list-group-item"><a href="#"><i class="fa fa-trophy"></i> ACHIEVEMENTS <span class="badge badge-warning">23</span></a></li>
-					<li class="list-group-item"><a href="#"><i class="fa fa-history"></i> MATCH HISTORY</a></li>
-					<li class="list-group-item"><a href="#"><i class="fa fa-photo"></i> GALLERY</a></li>
-					<li class="list-group-item"><a href="#"><i class="fa fa-comments-o"></i> COMMENTS</a></li>
+					<li class="list-group-item"><a href="#"><i class="fa fa-history"></i> MATCH HISTORY</a></li> --}}
+					{{-- <li class="list-group-item"><a href="#"><i class="fa fa-photo"></i> GALLERY</a></li>
+					<li class="list-group-item"><a href="#"><i class="fa fa-comments-o"></i> COMMENTS</a></li> --}}
 					<!-- Show Profile Settings if this profile belongs to current Auth -->
 					@if(Auth::id() == $user->id)
 						<li class="list-group-item"><a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> SETTINGS</a></li>		
@@ -104,13 +104,13 @@
 				<div class="box-light margin-bottom-30"><!-- .box-light OR .box-light -->
 
 					<div class="text-muted margin-bottom-20">
-						<h2 class="size-18 text-muted margin-bottom-20"><b>About</b> {{ $user->first_name }} {{ $user->last_name }}</h2>
+						<h2 class="size-18 text-muted margin-bottom-20"><b>About Me</b></h2>
 						<ul class="list-unstyled nomargin">
-							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs hidden-sm"></i> Carrollton, TX</li>
-							<li class="margin-bottom-10"><i class="fa fa-female width-20 hidden-xs hidden-sm"></i> Female</li>
-							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs hidden-sm"></i> Righty</li>
-							<li class="margin-bottom-10"><i class="fa fa-signal width-20 hidden-xs hidden-sm"></i> Elite</li>
-							<li class="margin-bottom-10"><i class="fa fa-wrench width-20 hidden-xs hidden-sm"></i> Gearbox</li>
+							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs hidden-sm"></i> {{ $profile->city }} , {{ $profile->state }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-female width-20 hidden-xs hidden-sm"></i> {{ $profile->gender }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs hidden-sm"></i> {{ $profile->dominant_hand }} handed</li>
+							<li class="margin-bottom-10"><i class="fa fa-signal width-20 hidden-xs hidden-sm"></i> {{ $profile->skill }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-wrench width-20 hidden-xs hidden-sm"></i> {{ $profile->racquet }}</li>
 						</ul>
 					</div>						
 

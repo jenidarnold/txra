@@ -40,7 +40,8 @@
 					<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
 						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i> SINGLES</h3>
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
-							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >3</h2>
+							{{-- <h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >{{ $user->rank->state->singles }}</h2> --}}
+							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >4</h2>
 							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">TEXAS</h3>
 						</div>
 
@@ -81,7 +82,7 @@
 			<div class="box2 noradius">
 				<h4>WHO AM I?</h4>
 				<hr />
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
+				<p>{{ $user->bio }}</p>
 			</div>
 		</div>
 	</div>
@@ -98,7 +99,7 @@
 				<div class="box-inner">
 					<h3>
 						<a class="pull-right size-11 text-warning" href="#">VIEW ALL</a>
-						UPCOMING EVENTS
+						MY UPCOMING EVENTS
 					</h3>
 					<div class="height-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
 					
@@ -200,7 +201,7 @@
 					<!-- INLINE SEARCH -->
 					<div class="inline-search clearfix">
 						<form action="#" method="get" class="widget_search nomargin">
-							<input type="search" placeholder="Search Friend..." name="s" class="serch-input">
+							<input type="search" placeholder="Search Achievements..." name="s" class="serch-input">
 							<button type="submit">
 								<i class="fa fa-search"></i>
 							</button>
@@ -217,7 +218,7 @@
 		</div>
 
 
-		<div class="row margin-top-30">
+{{-- 		<div class="row margin-top-30">
 
 			<!-- DISCUSSIONS -->
 			<div class="col-md-6 col-sm-6">
@@ -375,13 +376,13 @@
 			</div>
 			<!-- /NOTIFICATIONS -->
 
-		</div>
+		</div> --}}
 
 
 	</div>
 
 
-	<form method="post" action="#" class="box-light margin-top-20"><!-- .box-light OR .box-dark -->
+	{{-- <form method="post" action="#" class="box-light margin-top-20"><!-- .box-light OR .box-dark -->
 		<div class="box-inner">
 			<h4 class="uppercase">LEAVE A MESSAGE TO <strong>{{ $user->first_name }} {{ $user->last_name }}</strong></h4>
 			
@@ -392,6 +393,6 @@
 
 			<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
 		</div>
-	</form>
+	</form> --}}
 
 @stop

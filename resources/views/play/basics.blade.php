@@ -20,12 +20,12 @@
 	<div class="container">
 		<h1>THE BASICS</h1>
 	
-		<!-- breadcrumbs -->
+		{{-- <!-- breadcrumbs -->
 		<ol class="breadcrumb">
 			<li><a href="/">Home</a></li>
 			<li><a href="/play">Play</a></li>
 			<li class="active">Basics</li>
-		</ol><!-- /breadcrumbs -->
+		</ol>< --}}!-- /breadcrumbs -->
 	</div>
 	</section>
 	<!-- /PAGE HEADER -->
