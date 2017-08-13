@@ -28,7 +28,8 @@
 
 		<!-- PERSONAL INFO TAB -->
 		<div class="tab-pane fade in active" id="info">
-			<form role="form" action="#" method="post">
+			<form role="form" action="{{route('members.update', $profile->id)}}" method="post">
+				{{ csrf_field() }}			  
 				<div class="form-group">
 					<label class="control-label">First Name</label>
 					<input type="text" placeholder="{{$user->first_name}}" class="form-control">
@@ -56,7 +57,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">City/Town</label>
-					<input type="text" placeholder="{{$profile->city}}" class="form-control">
+					<input type="text" name="city" value="{{$profile->city}}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Skill</label>
@@ -84,7 +85,7 @@
 				</div>	
 				<div class="form-group">
 					<label class="control-label">Racquet</label>
-					<input type="text" placeholder="{{$profile->racquet}}" class="form-control">
+					<input type="text" name="racquet" value="{{$profile->racquet}}" class="form-control">
 				</div>	
 				<div class="form-group">
 					<label class="control-label">Dominant Hand</label>
@@ -110,7 +111,7 @@
 				</div>	 --}}			
 				<div class="form-group">
 					<label class="control-label">Who Am I?</label>
-					<textarea class="form-control" rows="3" placeholder="{{$profile->bio}}"></textarea>
+					<textarea class="form-control" name="bio" rows="3" placeholder="Tell us about yourself">{{$profile->bio}}</textarea>
 				</div>				
 				<div class="margiv-top10">
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
@@ -124,6 +125,7 @@
 		<div class="tab-pane fade" id="avatar">
 
 			<form class="clearfix" action="#" method="post" enctype="multipart/form-data">
+				{{ csrf_field() }}
 				<div class="form-group">
 
 					<div class="row">
@@ -183,8 +185,8 @@
 		<!-- PASSWORD TAB -->
 		<div class="tab-pane fade" id="password">
 
-			<form action="#" method="post">
-
+			<form action="{{route('members.update_pwd', $user->id)}}" method="put">
+				{{ csrf_field() }}
 				<div class="form-group">
 					<label class="control-label">Current Password</label>
 					<input type="password" class="form-control">
@@ -212,6 +214,7 @@
 		<div class="tab-pane fade" id="privacy">
 
 			<form action="#" method="post">
+				{{ csrf_field() }}
 				<div class="sky-form">
 
 					<table class="table table-bordered table-striped">

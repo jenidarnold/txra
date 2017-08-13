@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
 use App\User;
+use App\UserProfile;
 
 class MemberController extends Controller {
 
@@ -113,5 +114,76 @@ class MemberController extends Controller {
 	{
 
 		return view('memberships/index');
+	}
+
+
+	/**
+	 * Update Personal Info
+	 *
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		// validate
+        // read more on validation at http://laravel.com/docs/validation
+        // $rules = array(
+        //     'name'       => 'required',
+        //     'email'      => 'required|email',
+        //     'nerd_level' => 'required|numeric'
+        // );
+        // $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        // if ($validator->fails()) {
+        //     return Redirect::to('nerds/' . $id . '/edit')
+        //         ->withErrors($validator)
+        //         ->withInput(Input::except('password'));
+        // } else {
+            // store
+            
+            $profile = UserProfile::find($id);
+            $profile->gender = \Input::get('gender');
+            $profile->city = \Input::get('city');
+            $profile->skill = \Input::get('skill');
+            $profile->racquet = \Input::get('racquet');
+            $profile->dominant_hand = \Input::get('hand');
+            $profile->bio = \Input::get('bio');
+            $profile->save();
+
+			$user = User::find($id);
+            // redirect
+            \Session::flash('message', 'Successfully updated Personal Info');
+
+		return  redirect()->back()->with('flash-message','message');  
+	}
+
+	/**
+	 * Update Avatar
+	 *
+	 * @return Response
+	 */
+	public function update_avatar($id)
+	{
+
+	}
+
+	/**
+	 * Update Password
+	 *
+	 * @return Response
+	 */
+	public function update_pwd($id)
+	{
+
+	}
+
+	/**
+	 * Update Privacy
+	 *
+	 * @return Response
+	 */
+	public function update_privacy($id)
+	{
+
 	}
 }
