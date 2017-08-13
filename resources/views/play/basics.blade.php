@@ -8,6 +8,10 @@
     .info-bar h3 {
     	text-align: center;
     }
+    .table-borderless td,
+	.table-borderless th {
+		    border: 0 !important;
+		}
     </style>
 @stop
 @section('content')
@@ -29,49 +33,25 @@
 	<section>
 		<div class="container">
 			<div class"row">
-				<h1 class="blog-post-title">HOW TO PLAY RACQUETBALL</h1>
-				<ul class="blog-post-info list-inline">
-					<li>
-						<a href="#">
-							<i class="fa fa-clock-o"></i> 
-							<span class="font-lato">June 15, 2017</span>
-						</a>
-					</li>								
-					<li>
-						<a href="http://www.rulesofsport.com/sports/racquetball.html" target="new">
-							<i class="fa fa-user"></i> 
-							<span class="font-lato">Rules of Sport</span>
-						</a>
-					</li>
-				</ul>
-				
-				<div class="col-md-6 col-sm-6">
-					<!-- article content -->
-					<ul class="blog-post-info list-inline">
-						<li>
-							<a href="http://www.rulesofsport.com/sports/racquetball.html" target="new">
-								<i class="fa fa-user"></i> 
-								<span class="font-lato">http://www.wikihow.com/Play-Racquetball</span>
-							</a>
-						</li>
-
-					</ul>
-
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<!--img class="img-responsive pull-right" src="{{asset('images/play/court.jpg')}}" width="300" alt="zones" /-->
-
-					<div class="img-responsive pull-right">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/H2Z6A2iNSUM" frameborder="0" allowfullscreen></iframe>
-						<p class="credit">Video courtesy of Johnny Boyd</p>
-					</div>
-				</div>
+				<h5>Here are various links that best explain the game of Racquetball </h5>
 			</div>
-			<div class"row">
 
+			<table class="table table-condensed table-borderless">
+			@foreach($sites as $s)
+			  	<tr>
+			  		<td width="200px">						
+						<a href="{{ $s['hybridGraph']['url']}}" target="new">
+							<img class="img-responsive1 img-thumbnail" width="200px" src="{{ $s['hybridGraph']['image'] }}">
+						</a>
+					</td>
+					<td>
+						<h4><a href="{{ $s['hybridGraph']['url']}}" target="new">{{$s['hybridGraph']['title']}}</a></h4>				
+						<p class="list-group-item-text"> {{ $s['hybridGraph']['description']}}</p>
+					</td>
+				</tr>	
+			@endforeach	
+			</table>	
 
-
-			</div>	
 		</div>
 	</section>
 

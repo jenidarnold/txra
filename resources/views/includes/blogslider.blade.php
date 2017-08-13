@@ -18,7 +18,7 @@
 		<li>
             <a href="#">
                 <i class="fa fa-user"></i> 
-                <span class="font-lato">{{$post->author}}</span>
+                <span class="font-lato">{{$post->author["first_name"] . " " . $post->author["last_name"]}}</span>
             </a>
         </li>
 	</ul>

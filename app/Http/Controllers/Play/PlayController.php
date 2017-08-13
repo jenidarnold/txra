@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Redirect;
 use App\Club;
 use App\Instructor;
+use App\OpenGraph;
 
 class PlayController extends Controller {
 
@@ -25,8 +26,20 @@ class PlayController extends Controller {
 	 * @return Response
 	 */
 	public function basics(Request $request)
-	{
-		return view('play/basics');
+	{		
+		
+		$sites = collect();
+		$links = array(
+					"http://www.wikihow.com/Play-Racquetball", 
+					"https://www.youtube.com/watch?v=H2Z6A2iNSUM&t=721s",
+					"http://www.rulesofsport.com/sports/racquetball.html", 
+				);
+
+		$og = New OpenGraph;
+		foreach ($links as $link) {
+			$sites->push($og->get_info($link));
+		}
+		return view('play/basics', compact('sites'));
 	}
 	
 	/**
