@@ -48,7 +48,7 @@
 						@endif
 					@endif
 					<h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2>
-					<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ $profile->skill }}</h3>
+					<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ ucfirst($profile->skill) }}</h3>
 				</div>
 				
 				<!-- Show Profile Progress if this profile belongs to current Auth -->
@@ -106,10 +106,10 @@
 					<div class="text-muted margin-bottom-20">
 						<h2 class="size-18 text-muted margin-bottom-20"><b>About Me</b></h2>
 						<ul class="list-unstyled nomargin">
-							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs hidden-sm"></i> {{ $profile->city }} , {{ $profile->state }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-female width-20 hidden-xs hidden-sm"></i> {{ $profile->gender }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs hidden-sm"></i> {{ $profile->dominant_hand }} handed</li>
-							<li class="margin-bottom-10"><i class="fa fa-signal width-20 hidden-xs hidden-sm"></i> {{ $profile->skill }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs hidden-sm"></i> {{ $profile->city }}, {{ $profile->state }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-female width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->gender) }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->dominant_hand) }} handed</li>
+							<li class="margin-bottom-10"><i class="fa fa-signal width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->skill) }}</li>
 							<li class="margin-bottom-10"><i class="fa fa-wrench width-20 hidden-xs hidden-sm"></i> {{ $profile->racquet }}</li>
 						</ul>
 					</div>						

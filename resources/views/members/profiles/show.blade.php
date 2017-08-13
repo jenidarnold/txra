@@ -82,7 +82,7 @@
 			<div class="box2 noradius">
 				<h4>WHO AM I?</h4>
 				<hr />
-				<p>{{ $user->bio }}</p>
+				<p>{{ $profile->bio }}</p>
 			</div>
 		</div>
 	</div>

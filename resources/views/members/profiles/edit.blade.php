@@ -38,20 +38,71 @@
 					<input type="text" placeholder="{{$user->last_name}}" class="form-control">
 				</div>
 				<div class="form-group">
+					<label class="control-label">Gender</label>
+					{{ Form::select(
+							'gender', 
+							[
+								'none' => '', 
+								'male' => 'Male', 
+								'female' => 'Female'
+							],
+							$profile->gender,
+							array(
+								'class' => 'form-control',
+								'id' => 'gender'
+							)
+						) 
+					}}
+				</div>
+				<div class="form-group">
 					<label class="control-label">City/Town</label>
-					<input type="text" placeholder="{{$user->address_city}}" class="form-control">
+					<input type="text" placeholder="{{$profile->city}}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Skill</label>
-					<input type="text" placeholder="{{$user->skill}}" class="form-control">
+					{{ Form::select(
+							'skill', 
+							[
+								'none' 	=>	'', 
+								'pro'	=>	'Pro', 
+								'open'	=>	'Open', 
+								'elite'	=>	'Elite', 
+								'a'		=>	'A',
+								'b'		=>	'B', 
+								'c'		=>	'C', 
+								'd'		=>	'D', 
+								'novice'=>	'Novice', 
+								'junior'=>	'Junior'
+							],
+							$profile->skill,
+							array(
+								'class' => 'form-control',
+								'id' => 'skill'
+							)
+						) 
+					}}
 				</div>	
 				<div class="form-group">
 					<label class="control-label">Racquet</label>
-					<input type="text" placeholder="{{$user->racquet}}" class="form-control">
+					<input type="text" placeholder="{{$profile->racquet}}" class="form-control">
 				</div>	
 				<div class="form-group">
 					<label class="control-label">Dominant Hand</label>
-					{{ Form::select('hand', ['', 'LEFT', 'RIGHT', 'BOTH']) }}
+					{{ Form::select(
+							'hand', 
+							[
+								'none' 	=>	'', 
+								'left' 	=>	'Left', 
+								'right'	=>	'Right', 
+								'both'	=>	'Both'
+							],
+							$profile->dominant_hand,
+							array(
+								'class' => 'form-control',
+								'id'	=> 'gender'
+							)
+						) 
+					}}
 				</div>	
 				{{-- <div class="form-group">
 					<label class="control-label">Interests</label>
@@ -59,7 +110,7 @@
 				</div>	 --}}			
 				<div class="form-group">
 					<label class="control-label">Who Am I?</label>
-					<textarea class="form-control" rows="3" placeholder="{{$user->bio}}"></textarea>
+					<textarea class="form-control" rows="3" placeholder="{{$profile->bio}}"></textarea>
 				</div>				
 				<div class="margiv-top10">
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
@@ -83,7 +134,7 @@
 								@if((true)) 	
 									<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
 								@else
-									@if($user->gender == 'f')
+									@if($profile->gender == 'female')
 										<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
 									@else
 										<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
@@ -164,43 +215,47 @@
 				<div class="sky-form">
 
 					<table class="table table-bordered table-striped">
-						<tbody>
+						<tbody>						
 							<tr>
-								<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
+								<td>Publish my cell phone number</td>
 								<td>
 									<div class="inline-group">
 										<label class="radio nomargin-top nomargin-bottom">
-											<input type="radio" name="radioOption" checked=""><i></i> Yes
+											<input type="radio" name="radPhone" checked=""><i></i> Yes
 										</label>
 
 										<label class="radio nomargin-top nomargin-bottom">
-											<input type="radio" name="radioOption" checked=""><i></i> No
+											<input type="radio" name="radPhone" checked=""><i></i> No
+										</label>
+									</div>
+								</td>
+							</tr>							
+							<tr>
+								<td>Publish my E-mail</td>
+								<td>
+									<div class="inline-group">
+										<label class="radio nomargin-top nomargin-bottom">
+											<input type="radio" name="radEmail" checked=""><i></i> Yes
+										</label>
+
+										<label class="radio nomargin-top nomargin-bottom">
+											<input type="radio" name="radEmail" checked=""><i></i> No
 										</label>
 									</div>
 								</td>
 							</tr>
 							<tr>
-								<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
+								<td>Publish my Facebook Username</td>
 								<td>
-									<label class="checkbox nomargin">
-										<input type="checkbox" name="checkbox" checked=""><i></i> Yes
-									</label>
-								</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
-								<td>
-									<label class="checkbox nomargin">
-										<input type="checkbox" name="checkbox" checked=""><i></i> Yes
-									</label>
-								</td>
-							</tr>
-							<tr>
-								<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</td>
-								<td>
-									<label class="checkbox nomargin">
-										<input type="checkbox" name="checkbox" checked=""><i></i> Yes
-									</label>
+									<div class="inline-group">
+										<label class="radio nomargin-top nomargin-bottom">
+											<input type="radio" name="radFacebook" checked=""><i></i> Yes
+										</label>
+
+										<label class="radio nomargin-top nomargin-bottom">
+											<input type="radio" name="radFacebook" checked=""><i></i> No
+										</label>
+									</div>
 								</td>
 							</tr>
 						</tbody>
