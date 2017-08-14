@@ -302,7 +302,7 @@ class Scraper {
 						'name' => $tourneys["name"][$x],
 						'location' => $tourneys["location"][$x],
 						'start_date' => date("Y-m-d H:i:s", strtotime($tourneys["start_date"][$x])),
-						'end_date' => date("Y-m-d H:i:s", strtotime($tourneys["start_date"][$x])),
+						'end_date' => date("Y-m-d H:i:s", strtotime($tourneys["end_date"][$x])),
 						'img_logo' => $tourneys["img_logo"][$x],
 						'url' => 'http://www.r2sports.com/website/event-website.asp?TID='.$tid 						
 						);				
