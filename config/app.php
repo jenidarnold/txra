@@ -133,6 +133,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         /*Canvas\CanvasServiceProvider::class,*/
+        Gidlov\Copycat\CopycatServiceProvider::class,
         Serverfireteam\Blog\BlogServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],
@@ -154,6 +155,7 @@ return [
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
+        'Copycat'  => Gidlov\Copycat\Copycat::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,

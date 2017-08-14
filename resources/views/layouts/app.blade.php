@@ -384,7 +384,7 @@
 													<li><a href="{{ route('election.index')}}" >ELECTION PROCEDURE</a></li>
 												</ul>
 											</li>
-											<li class="dropdown">
+											{{-- <li class="dropdown">
 												<a class="dropdown-toggle" href="#">
 													MISSION & VALUES
 												</a>
@@ -392,8 +392,8 @@
 													<li><a href="{{ route('about.mission')}}">MISSION STATEMENT</a></li>
 													<li><a href="{{ route('about.ethics')}}" >CODE OF ETHICS</a></li>
 												</ul>
-											</li>											
-											<li class="dropdown">
+											</li>	 --}}										
+											{{-- <li class="dropdown">
 												<a class="dropdown-toggle" href="#">
 													FINANCIALS
 												</a>
@@ -401,7 +401,7 @@
 													<li><a href="blog-single-default.html">BUDGET</a></li>	
 													<li><a href="blog-single-default.html"></a></li>													
 												</ul>
-											</li>
+											</li> --}}
 											<li class="dropdown">
 												<a class="dropdown-toggle" href="/about/bylaws">
 													BY LAWS

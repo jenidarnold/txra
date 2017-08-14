@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
 use App\Tournament;
+use App\Scraper;
 
 class EventController extends Controller {
 
@@ -25,12 +26,17 @@ class EventController extends Controller {
 	 */
 	public function index($type)
 	{
+		//Move to Admin
+		// $time_period = $type; //$request->input('time_period');
+		// $location =  "Texas"; //Location::find($location_id)->location;
+		// $ss = new Scraper();
+		// $tournaments = $ss->get_tournaments($location, $time_period);
 
 		$tournaments = Tournament::all();
 		$page = (object) [ 
 			'title' => 'Index' 
 			];
-		return view('events/index', compact('tournaments', 'page'));
+		return view('events/index', compact('tournaments', 'page', 'type'));
 	}
 
 		
@@ -46,6 +52,9 @@ class EventController extends Controller {
 		$page = (object) [ 
 			'title' => 'Info' 
 			];
+
+
+
 		return view('events/show', compact('tournament', 'page'));
 	}
 

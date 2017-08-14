@@ -20,7 +20,7 @@
 
 <section>
 	<!-- EVENT SLIDER-->
-	@include('includes.eventslider', array('event_type' => 'LIVE') )    	
+	@include('includes.eventslider', array('event_type' => $type) )    	
 	<!-- /EVENT SLIDER -->
 </section>
 

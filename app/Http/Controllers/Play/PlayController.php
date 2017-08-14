@@ -88,8 +88,9 @@ class PlayController extends Controller {
         //  'position' =>  '{lat: 32.7098963, lng: -97.1373552 }',           
         //];
 
-		$clubs = Club::orderBy('name')
-			->get()
+		$clubs = Club::where('lat', '>', 0)
+				->orderBy('name')
+				->get()
 			;
 
 		$i = 1;
