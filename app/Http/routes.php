@@ -98,11 +98,11 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	Route::get('profile/{id}/edit', array('as' => 'members.edit', 'uses' => 'MemberController@edit'));
 	Route::post('profile/', array('as' => 'members.store', 'uses' => 'MemberController@store'));
 	Route::post('profile/{id}', array('as' => 'members.update', 'uses' => 'MemberController@update'));
-	Route::put('profile/{id}/pwd', array('as' => 'members.update_pwd', 'uses' => 'MemberController@update_pwd'));
+	Route::post('profile/{id}/pwd', array('as' => 'members.update_pwd', 'uses' => 'MemberController@update_pwd'));
 
-	Route::get('matches', array('as' => 'members.matches', 'uses' => 'MemberController@matches'));	
+	//Route::get('matches', array('as' => 'members.matches', 'uses' => 'MemberController@matches'));	
 	Route::get('rankings', array('as' => 'members.rankings', 'uses' => 'MemberController@rankings'));
-	Route::get('gallery', array('as' => 'members.gallery.index', 'uses' => 'GalleryController@index'));
+	//Route::get('gallery', array('as' => 'members.gallery.index', 'uses' => 'GalleryController@index'));
 	Route::put('addphoto', array('as' => 'members.gallery.create', 'uses' => 'GalleryController@create'));	
 
 	Route::get('membership', array('as' => 'members.membership', 'uses' => 'MemberController@membership'));		

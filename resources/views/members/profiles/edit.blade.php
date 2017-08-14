@@ -24,6 +24,25 @@
 		<li><a href="#privacy" data-toggle="tab">Privacy</a></li>
 	</ul>
 
+	<div class="flash-message">
+	    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+	      @if(Session::has('alert-' . $msg))
+
+	      <div class="alert alert-{{ $msg }}">
+	      	{{ Session::get('alert-' . $msg) }} 	      	
+	      	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	      	@if($errors->has())
+	      		<ul>
+			   	@foreach ($errors->all() as $error)
+			      	<li>{{ $error }}</li>
+			  	@endforeach
+			  	</ul>
+			@endif
+	      </div>
+	      @endif
+	    @endforeach
+  	</div> <!-- end .flash-message -->
+
 	<div class="tab-content margin-top-20">
 
 		<!-- PERSONAL INFO TAB -->
@@ -182,26 +201,26 @@
 		</div>
 		<!-- /AVATAR TAB -->
 
-		<!-- PASSWORD TAB -->
+		<!-- PASSWORD TAB -->		
 		<div class="tab-pane fade" id="password">
 
-			<form action="{{route('members.update_pwd', $user->id)}}" method="put">
+			<form action="{{route('members.update_pwd', $user->id)}}" method="post" >
 				{{ csrf_field() }}
 				<div class="form-group">
 					<label class="control-label">Current Password</label>
-					<input type="password" class="form-control">
+					<input type="password" name="current_password" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">New Password</label>
-					<input type="password" class="form-control">
+					<input type="password" name="password" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Re-type New Password</label>
-					<input type="password" class="form-control">
+					<input type="password" name="password_confirmation" class="form-control">
 				</div>
 
 				<div class="margiv-top10">
-					<a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Change Password</a>
+					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Change Password </button>					
 					<a href="#" class="btn btn-default">Cancel </a>
 				</div>
 

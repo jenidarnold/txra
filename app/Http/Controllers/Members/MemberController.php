@@ -174,7 +174,36 @@ class MemberController extends Controller {
 	 */
 	public function update_pwd($id)
 	{
+		// validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(        	
+            'current_password' => 'required|confirmed',
+            'password' => 'required|min:4|confirmed',
+        );
 
+        $input = \Input::all();
+        $input['current_password_confirmation'] = \Auth::user()->password;
+        $validator = \Validator::make($input, $rules);
+
+        if ($validator->fails()) {
+          
+        	$message = 'Failed to change password.';
+   			return  redirect()->back()
+				->with('alert-danger', $message)
+				->withErrors($validator)
+	            ->withInput(\Input::except('password'));
+				;    
+        } else {
+            //store
+            
+            $user = User::find($id);
+            $user->password = \Input::get('password');
+            $user->save();
+
+            \Session::flash('alert-success', 'Successfully updated password');
+        }
+
+		return  redirect()->back()->with('flash-message','message');  
 	}
 
 	/**

@@ -48,7 +48,7 @@
 						@endif
 					@endif
 					<h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2>
-					<h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ ucfirst($profile->skill) }}</h3>
+					{{-- <h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ ucfirst($profile->skill) }}</h3> --}}
 				</div>
 				
 				<!-- Show Profile Progress if this profile belongs to current Auth -->

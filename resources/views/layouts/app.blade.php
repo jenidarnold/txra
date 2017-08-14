@@ -436,7 +436,10 @@
 										<a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 											<img class="user-avatar" alt="{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}" src="{{ asset('images/members/'. Auth::user()->id .'/profile.png') }}" height="34" />
 										</a>
-										<ul class="dropdown-menu hold-on-click">								
+										<ul class="dropdown-menu hold-on-click">
+											<li><!-- My Profile -->
+												<a href="{{ route('members.show', array('id' =>  Auth::user()->id))}}"><i class="fa fa-user"></i> My Profile</a>
+											</li>									
 											<li><!-- settings -->
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
