@@ -248,9 +248,9 @@
             </section>
 
         <!-- /EVENT SLIDER -->
-        @include('includes.eventslider', array('event_type' => 'LIVE'))
-        <!-- EVENT SLIDER-->
-        @include('includes.eventslider', array('event_type' => 'RECENT'))        
+        @include('includes.eventslider', array('event_type' => 'LIVE'))            
         <!-- /EVENT SLIDER -->
         @include('includes.eventslider', array('event_type' => 'FUTURE'))
+        <!-- EVENT SLIDER-->
+        @include('includes.eventslider', array('event_type' => 'RECENT'))    
 @stop

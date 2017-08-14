@@ -214,7 +214,19 @@
 											<li><!-- settings -->
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
-
+											@if( Auth::user()->id == 1 )
+												<li class="divider"></li>											
+												<li class="dropdown">
+													<a class="dropdown-toggle" href="#">
+														<i class="fa fa-cogs"></i> ADMIN
+													</a>								
+													<ul class="dropdown-menu">
+														<li><a href="{{ route('events.download', 'live')}}">DOWNLOAD LIVE EVENTS</a></li>
+														<li><a href="{{ route('events.download', 'future')}}">DOWNLOAD FUTURE EVENTS</a></li>
+														<li><a href="{{ route('events.download', 'past')}}">DOWNLOAD PAST EVENTS</a></li>
+													</ul>
+												</li>
+											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->
 												<a href="{{ url('/logout') }}"><i class="fa fa-power-off"></i> Log Out</a>
@@ -443,7 +455,19 @@
 											<li><!-- settings -->
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
-
+											@if( Auth::user()->id == 1 )
+												<li class="divider"></li>											
+												<li class="dropdown">
+													<a class="dropdown-toggle" href="#">
+														ADMIN
+													</a>								
+													<ul class="dropdown-menu">
+														<li><a href="{{ route('events.download', 'live')}}">DOWNLOAD LIVE EVENTS</a></li>
+														<li><a href="{{ route('events.download', 'future')}}">DOWNLOAD FUTURE EVENTS</a></li>
+														<li><a href="{{ route('events.download', 'past')}}">DOWNLOAD PAST EVENTS</a></li>
+													</ul>
+												</li>
+											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->
 												<a href="{{ url('/logout') }}"><i class="fa fa-power-off"></i> Log Out</a>

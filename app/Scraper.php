@@ -303,11 +303,10 @@ class Scraper {
 						'location' => $tourneys["location"][$x],
 						'start_date' => date("Y-m-d H:i:s", strtotime($tourneys["start_date"][$x])),
 						'end_date' => date("Y-m-d H:i:s", strtotime($tourneys["start_date"][$x])),
-						'img_logo' => isset($tourneys["img_logo"][$x]),
+						'img_logo' => $tourneys["img_logo"][$x],
 						'url' => 'http://www.r2sports.com/website/event-website.asp?TID='.$tid 						
 						);				
 					//Save to database
-					//$ss->create_tournament($tourney);
 					
 					$this->create_tournament($tourney);
 					array_push($tournaments, $tourney);	

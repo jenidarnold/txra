@@ -19,6 +19,27 @@ class EventController extends Controller {
 		$this->middleware('auth');
 	}
 		
+
+	/**
+	 * Download tournaments.
+	 *
+	 * @return Response
+	 */
+	public function download($type)
+	{
+		//Move to Admin
+		$time_period = $type; //$request->input('time_period');
+		$location =  "Texas"; //Location::find($location_id)->location;
+		$ss = new Scraper();
+		$tournaments = $ss->get_tournaments($location, $time_period);
+
+		$tournaments = Tournament::all();
+		$page = (object) [ 
+			'title' => 'Index' 
+			];
+		return view('events/index', compact('tournaments', 'page', 'type'));
+	}
+
 	/**
 	 * Display index of events.
 	 *
@@ -26,13 +47,20 @@ class EventController extends Controller {
 	 */
 	public function index($type)
 	{
-		// //Move to Admin
-		// $time_period = $type; //$request->input('time_period');
-		// $location =  "Texas"; //Location::find($location_id)->location;
-		// $ss = new Scraper();
-		// $tournaments = $ss->get_tournaments($location, $time_period);
+		if ($type=='live') {
+			$tournaments = Tournament::orderBy('start_date')
+				->where('end_date', '>=', date("Y-m-d"))
+				->get();
+		}elseif ($type=='future') {
+			$tournaments = Tournament::orderBy('start_date')
+				->where('start_date', '>', date("Y-m-d"))
+				->get();
+		}else{
+			$tournaments = Tournament::orderBy('start_date', 'desc')
+				->where('end_date','<', date("Y-m-d"))
+				->get();
+		}
 
-		$tournaments = Tournament::all();
 		$page = (object) [ 
 			'title' => 'Index' 
 			];

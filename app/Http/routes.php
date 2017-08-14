@@ -113,6 +113,7 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 Route::group(['namespace' => 'Events', 'prefix' =>'events'], function()
 {
 	Route::get('{type}', array('as' => 'events.index', 'uses' => 'EventController@index'));	
+	Route::get('download/{type}', array('as' => 'events.download', 'uses' => 'EventController@download'));	
 	Route::get('tournament/{id}/', array('as' => 'events.show', 'uses' => 'EventController@show'));
 	Route::get('tournament/{id}/scores', array('as' => 'events.scores', 'uses' => 'EventController@scores'));
 	Route::get('tournament/{id}/participants', array('as' => 'events.participants', 'uses' => 'EventController@participants'));

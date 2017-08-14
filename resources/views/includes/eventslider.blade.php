@@ -24,7 +24,7 @@
 							.owl-padding-20
 					-->
 					<div class="text-center">
-						<div class="owl-carousel owl-padding-1 nomargin buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "6", "autoPlay": 3500, "navigation": true, "pagination": false}'>
+						<div class="owl-carousel owl-padding-1 nomargin buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "6", "autoPlay": 5000, "navigation": true, "pagination": false}'>
 
 						@foreach($tournaments as $t)
 							<!-- item -->
@@ -35,9 +35,9 @@
 										<span class="inner">
 
 											<!-- lightbox -->
-											<a class="ico-rounded lightbox" href={{ asset("images/tournaments/logos/$t->logo") }} data-plugin-options='{"type":"image"}'>
+											{{-- <a class="ico-rounded lightbox" href={{ asset("images/tournaments/logos/$t->logo") }} data-plugin-options='{"type":"image"}'>
 												<span class="fa fa-plus size-20"></span>
-											</a>
+											</a> --}}
 
 											<!-- details -->
 											<a class="ico-rounded" href="{{ route('events.show', array('id' => $t->id)) }}">
@@ -47,16 +47,16 @@
 										</span>
 									</span>
 
-									<img class="img-responsive" src={{ asset("images/tournaments/logos/$t->logo") }} width="200" alt="">
+									<img class="img-responsive" src={{"http://www.r2sports.com/tourney/imageGallery/gallery/tourneyLogo/$t->logo"  }} width="200" alt="">
 								</figure>
 
 								<div class="item-box-desc">
 									<h3>{{ $t->name }}</h3>
 									<ul class="nomargin" style="list-style: none;">
-										<li>6/06/2017 - 6/07/2017</li>
-										<li>Round Rock, TX</li>
+										<li>{{$t->start_date}} - {{$t->end_date}}</li>
+										<li>{{$t->location}}</li>
 										<li>
-											<a href="r2sports.com/?TID=21674">Tournament Information</a>
+											<a href="{{ $t->url}}" target="tournament">Official Tournament Site</a>
 										</li>
 									</ul>
 								</div>
