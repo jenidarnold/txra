@@ -264,7 +264,7 @@ class Scraper {
  				$tourney_page = "live-events.asp";
  				break;
  			case "future":
-				$tourney_page = "results.asp";
+				$tourney_page = "future.asp";
  				break;
  		}
  		$url ="http://www.usaracquetballevents.com/$location/$tourney_page";

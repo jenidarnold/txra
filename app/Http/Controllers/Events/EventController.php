@@ -26,7 +26,7 @@ class EventController extends Controller {
 	 */
 	public function index($type)
 	{
-		//Move to Admin
+		// //Move to Admin
 		// $time_period = $type; //$request->input('time_period');
 		// $location =  "Texas"; //Location::find($location_id)->location;
 		// $ss = new Scraper();
