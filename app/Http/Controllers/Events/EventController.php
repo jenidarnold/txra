@@ -47,19 +47,24 @@ class EventController extends Controller {
 	 */
 	public function index($type)
 	{
-		if ($type=='live') {
-			$tournaments = Tournament::orderBy('start_date')
-				->where('end_date', '>=', date("Y-m-d"))
-				->get();
-		}elseif ($type=='future') {
-			$tournaments = Tournament::orderBy('start_date')
-				->where('start_date', '>', date("Y-m-d"))
-				->get();
-		}else{
-			$tournaments = Tournament::orderBy('start_date', 'desc')
-				->where('end_date','<', date("Y-m-d"))
-				->get();
+		$type = strtoupper($type);
+
+		if ( strtolower($type) == 'live') {
+			
+			$tournaments = Tournament::live();
+
+		}elseif ( strtolower($type) =='future') {
+			
+			$tournaments = Tournament::future();
+
+		}elseif (strtolower($type) =='recent') {
+			
+			$tournaments = Tournament::past(90);	
+
+		}else {
+			$tournaments = Tournament::past();	
 		}
+		
 
 		$page = (object) [ 
 			'title' => 'Index' 

@@ -3,7 +3,7 @@
 				<div class="container">
 
 					<div class="heading-title heading-border">
-						<h3><span>{{ $event_type }}</span> Events</h3>
+						<h3><a href="{{route('events.index', array('type' => $event_type))}}">{{ $event_type }} Events</a></h3>
 						<!--p class="font-lato size-14">Lorem ipsum dolor sit amet.</p-->
 					</div>
 
@@ -38,27 +38,29 @@
 											{{-- <a class="ico-rounded lightbox" href={{ asset("images/tournaments/logos/$t->logo") }} data-plugin-options='{"type":"image"}'>
 												<span class="fa fa-plus size-20"></span>
 											</a> --}}
-
+											
 											<!-- details -->
+											<a class="ico-rounded" href="{{ $t->url }}" target="tournament">
+												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+											</a>
+											<!-- TODO Custom tournament Page 
 											<a class="ico-rounded" href="{{ route('events.show', array('id' => $t->id)) }}">
 												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
 											</a>
+											-->
 
 										</span>
 									</span>
 
-									<img class="img-responsive" src={{"http://www.r2sports.com/tourney/imageGallery/gallery/tourneyLogo/$t->logo"  }} width="200" alt="">
+									<img class="img-responsive" src="{{$t->logo }}" width="200" alt="">
 								</figure>
 
+								<!-- div info -->
 								<div class="item-box-desc">
-									<h3>{{ $t->name }}</h3>
-									<ul class="nomargin" style="list-style: none;">
-										<li>{{$t->start_date}} - {{$t->end_date}}</li>
-										<li>{{$t->location}}</li>
-										<li>
-											<a href="{{ $t->url}}" target="tournament">Official Tournament Site</a>
-										</li>
-									</ul>
+									<h4>{{ $t->name }}</h4>
+									<h6>{{$t->start_date}} - {{$t->end_date}}</li></h6>
+									<h6>{{$t->location}}</h6>
+									{{-- <h6><a href="{{ $t->url}}" target="tournament"><img height="18px" src="{{asset('images/logos/r2sports.gif')}}"> Official Touranment Site</a></h6> --}}
 								</div>
 
 							</div>

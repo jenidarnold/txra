@@ -109,7 +109,7 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 
 });
 
-
+/* Events */
 Route::group(['namespace' => 'Events', 'prefix' =>'events'], function()
 {
 	Route::get('{type}', array('as' => 'events.index', 'uses' => 'EventController@index'));	

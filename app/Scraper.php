@@ -2,7 +2,8 @@
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Gidlov\Copycat\Copycat;
-//use App\Services\ScreenScraper;
+use App\OpenGraph;
+
 class Scraper {
  
  	/*
@@ -290,21 +291,32 @@ class Scraper {
 	 	$i = 0;
 	 	$cnt = count($result[0]["tournament_id"]);
 	 	
+
 	 	//Save Tournaments to database
 	 	foreach ($result as $tourneys) {
 	 		for ($x = 0; $x < $cnt; $x++) {
 	 			try {
 		            $tid = $tourneys["tournament_id"][$x];
 		            $tname = $tourneys["name"][$x];
-		        
+		        	//$logo =  $tid.'_normal.jpg'; 
+		        	//$logo =  $tourneys["img_logo"][$x];
+		        	$url = 'http://www.r2sports.com/website/event-website.asp?TID='.$tid;
+
+		        	try {
+		        		$siteInformation = OpenGraph::get_info($url);	       
+		        		$logo = $siteInformation['hybridGraph']['image'];
+		        	}
+		        	catch(\Exception $e) {
+		        		$logo =  $tourneys["img_logo"][$x];
+		        	}
 					$tourney = array(
 						'tournament_id' =>  $tourneys["tournament_id"][$x],
 						'name' => $tourneys["name"][$x],
 						'location' => $tourneys["location"][$x],
 						'start_date' => date("Y-m-d H:i:s", strtotime($tourneys["start_date"][$x])),
 						'end_date' => date("Y-m-d H:i:s", strtotime($tourneys["end_date"][$x])),
-						'img_logo' => $tourneys["img_logo"][$x],
-						'url' => 'http://www.r2sports.com/website/event-website.asp?TID='.$tid 						
+						'img_logo' => $logo,
+						'url' => $url						
 						);				
 					//Save to database
 					
@@ -312,10 +324,12 @@ class Scraper {
 					array_push($tournaments, $tourney);	
 				}
 				catch(\Exception $e) {
-
+					//dd($e);
 				}
 		 	}
 		}
+
+		dd($result);
 	 	return $tournaments;
  	}
 

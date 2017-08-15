@@ -28,7 +28,10 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $tournaments =  Tournament::all();
+        $tournaments["live"] = Tournament::live();
+        $tournaments["future"] = Tournament::future();
+        $tournaments["recent"] = Tournament::past(90);
+
         $categories = new PostCategory;
 
         //Trending

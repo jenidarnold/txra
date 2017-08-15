@@ -248,9 +248,9 @@
             </section>
 
         <!-- /EVENT SLIDER -->
-        @include('includes.eventslider', array('event_type' => 'LIVE'))            
+        @include('includes.eventslider', array('event_type' => 'LIVE', 'tournaments' => $tournaments["live"]))            
         <!-- /EVENT SLIDER -->
-        @include('includes.eventslider', array('event_type' => 'FUTURE'))
+        @include('includes.eventslider', array('event_type' => 'FUTURE', 'tournaments' => $tournaments["future"])))
         <!-- EVENT SLIDER-->
-        @include('includes.eventslider', array('event_type' => 'RECENT'))    
+        @include('includes.eventslider', array('event_type' => 'RECENT', 'tournaments' => $tournaments["recent"])))    
 @stop

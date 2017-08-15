@@ -7,24 +7,15 @@
 
 <section class="page-header page-header-xs">
 	<div class="container">
-
-		<!-- breadcrumbs -->
-		<ol class="breadcrumb breadcrumb-inverse">
-			<li><a href="#">EVENTS</a></li>
-			<li class="active">LIVE</li>
-		</ol><!-- /breadcrumbs -->
-
+		<h3><span>{{ $type }}</span> Events</h3>
+		<!--p class="font-lato size-14">Lorem ipsum dolor sit amet.</p-->
 	</div>
 </section>
 <!-- /PAGE HEADER -->
 
 <section>
 	<div class="container">
-		<div class="heading-title heading-border">
-			<h3><span>{{ $type }}</span> Events</h3>
-			<!--p class="font-lato size-14">Lorem ipsum dolor sit amet.</p-->
-		</div>
-					<div id="portfolio" class="portfolio-gutter">
+		
 
 {{-- 						<ul class="nav nav-pills mix-filter margin-bottom-60">
 							<li data-filter="all" class="filter active"><a href="#">All</a></li>
@@ -34,10 +25,11 @@
 						</ul> --}}
 
 
-						<div class="row mix-grid">
+				<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-4">
+
 							@foreach($tournaments as $t)
 							<!-- item -->								
-							<div class="col-md-3 col-sm-4 mix design">
+							<div class="portfolio-item">
 								<div class="item-box">
 									<figure>
 										<span class="item-hover">
@@ -52,42 +44,31 @@
 												href="{{route('events.show', array('id' => $t->id))}}" data-plugin-options='{"type":"html"}'>
 													<span class="fa fa-plus size-20"></span>
 												</a> --}}
+
 												<!-- details -->
+												<a class="ico-rounded" href="{{ $t->url }}" target="tournament">
+													<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+												</a>
+												<!-- TODO Custom tournament Page 
 												<a class="ico-rounded" href="{{ route('events.show', array('id' => $t->id)) }}">
 													<span class="glyphicon glyphicon-option-horizontal size-20"></span>
 												</a>
+												-->
 
 											</span>
 										</span>
 
-										<img class="img-responsive" src={{"http://www.r2sports.com/tourney/imageGallery/gallery/tourneyLogo/$t->logo" }} width="200" alt="">
-
-										{{-- <!-- carousel -->
-										<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
-											<div>
-												<img class="img-responsive" src="assets/images/demo/mockups/600x399/8-min.jpg" width="600" height="399" alt="">
-											</div>
-											<div>
-												<img class="img-responsive" src="assets/images/demo/mockups/600x399/9-min.jpg" width="600" height="399" alt="">
-											</div>
-											<div>
-												<img class="img-responsive" src="assets/images/demo/mockups/600x399/10-min.jpg" width="600" height="399" alt="">
-											</div>
-										</div>
-										<!-- /carousel --> --}}
-
+										{{-- <img class="img-responsive" src={{"http://www.r2sports.com/tourney/imageGallery/gallery/tourneyLogo/$t->logo" }} width="200" alt=""> --}}
+										<img class="img-responsive" src="{{$t->logo }}" width="200" alt="">
+										
 									</figure>
 
 									<!-- div info -->
 									<div class="item-box-desc">
-										<h3>{{ $t->name }}</h3>
-										<ul class="nomargin" style="list-style: none;">
-											<li>{{$t->start_date}} - {{$t->end_date}}</li>
-											<li>{{$t->location}}</li>
-											<li>
-												<a href="{{ $t->url}}" target="tournament">Official Tournament Site</a>
-											</li>
-										</ul>
+										<h4>{{ $t->name }}</h4>
+										<h6>{{$t->start_date}} - {{$t->end_date}}</li></h6>
+										<h6>{{$t->location}}</h6>
+										{{-- <h6><a href="{{ $t->url}}" target="tournament"><img height="18px" src="{{asset('images/logos/r2sports.gif')}}"> Official Touranment Site</a></h6> --}}
 									</div>
 								</div>
 
