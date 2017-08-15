@@ -13,12 +13,12 @@
 	<!-- -->
 	<section>
 		<div class="container">
-			<ul id="portfolio_filter" class="nav nav-pills margin-top-10  margin-bottom-10">
-				<li data-filter="all" class="filter active"><a href="#">All</a></li>
-				<li data-filter="male" class="filter"><a href="#">Male</a></li>
+{{-- 			<ul id="portfolio_filter" class="nav nav-pills margin-top-10  margin-bottom-10">
+				<li data-filter="*" class="filter active"><a href="#">All</a></li>
+				<li data-filter=".male" class="filter"><a href="#">Male</a></li>
 				<li data-filter=".female" class="filter"><a href="#">Female</a></li>
-				<li data-filter="junior" class="filter"><a href="#">Juniors</a></li>
-				<li data-filter="pro" class="filter"><a href="#">Pros</a></li>
+				<li data-filter=".junior" class="filter"><a href="#">Juniors</a></li>
+				<li data-filter=".pro" class="filter"><a href="#">Pros</a></li>
 				
 				<div class="input-group col-md-4">
 					<input type="text" placeholder="Search" class="form-control">
@@ -26,14 +26,38 @@
 						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 					</span>
 				</div>	
-			</ul>
+			</ul> --}}
 
+
+				<ul id="portfolio_filter" class="nav nav-pills margin-bottom-60">
+					<li class="filter active"><a data-filter="*" href="#">All</a></li>
+					<li class="filter"><a data-filter=".female" href="#">Female</a></li>
+					<li class="filter"><a data-filter=".male" href="#">Male</a></li>
+					<li class="filter"><a data-filter=".pro" href="#">Pro</a></li>
+					<li class="filter"><a data-filter=".open" href="#">Open</a></li>
+					<li class="filter"><a data-filter=".elite" href="#">Elite</a></li>
+					<li class="filter"><a data-filter=".a" href="#">A</a></li>
+					<li class="filter"><a data-filter=".b" href="#">B</a></li>
+					<li class="filter"><a data-filter=".c" href="#">C</a></li>
+					<li class="filter"><a data-filter=".d" href="#">D</a></li>
+					<li class="filter"><a data-filter=".junior" href="#">Junior</a></li>
+					<li class="filter"><a data-filter=".novice" href="#">Novice</a></li>
+				</ul>
+
+				<div class="input-group col-md-4">
+					<input type="text" placeholder="Search" class="form-control">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+					</span>
+				</div>	
+				
 		<!-- Portfolio Items -->
 			<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-4">
+		{{-- 	<div id="portfolio" class="clearfix portfolio-isotope portfolio-isotope-4"> --}}
 
 				@foreach($members as $m)
 				<!-- item -->					
-				<div class="portfolio-item has-title {{$m->profile['gender']}} {{$m->profile['skill']}} ">
+				<div class="portfolio-item has-title  {{$m->profile['gender']}} {{$m->profile['skill']}} ">
 
 					<div class="item-box">
 						<div class="item-box-desc">							
