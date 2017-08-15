@@ -95,7 +95,8 @@
 					<!-- Show Profile Settings if this profile belongs to current Auth -->
 					@if(Auth::id() == $user->id)
 						<li class="list-group-item {{ $active['settings'] }}"><a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> SETTINGS</a></li>		
-					@endif					
+					@endif	
+					<li class="list-group-item "><a href="{{ route('members.listing')}}"><i class="fa fa-users"></i> BACK TO ALL</a></li>				
 				</ul>
 				<!-- /SIDE NAV -->
 

@@ -17,7 +17,7 @@ class MemberController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('current_user');
+		$this->middleware('current_user', ['except' => ['index', 'show', 'rankings', 'home', 'matches']]);
 	}
 		
 	/**
