@@ -307,7 +307,7 @@ class Scraper {
 		        		$logo = $siteInformation['hybridGraph']['image'];
 		        	}
 		        	catch(\Exception $e) {
-		        		$logo =  "http://www.r2sports.com/tourney/imageGallery/gallery/tourneyLogo/".$tourneys["img_logo"][$x];
+		        		$logo =  "";
 		        	}
 					$tourney = array(
 						'tournament_id' =>  $tourneys["tournament_id"][$x],

@@ -26,7 +26,15 @@ class MemberController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-		$members = User::orderBy('name');
+		$members = User::orderBy('last_name')
+			->orderBy('first_name')
+			->get()
+			;
+
+			foreach ($members as $m) {
+				$user = User::find($m->id);
+				$m->profile = $user->profile()->first() ;
+			}
 
 		return view('members/profiles/index', compact('members'));
 	}
