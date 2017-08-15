@@ -5,7 +5,9 @@
     </style>
 @stop
 @section('profile_header')
-	<h1>EDIT MY PROFILE	</h1>
+
+	<h1>CREATE MY PROFILE</h1>
+	
 @stop
 @section('profile_content')
 	<!-- RIGHT -->
@@ -44,7 +46,7 @@
 				{{ csrf_field() }}			  
 				<div class="form-group">
 					<label class="control-label">First Name</label>
-					<input type="text" placeholder="{{$user->first_name}}" class="form-control">
+					<input type="text" placeholder="First Name" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Last Name</label>
@@ -59,7 +61,7 @@
 								'male' => 'Male', 
 								'female' => 'Female'
 							],
-							$profile->gender,
+							null,
 							array(
 								'class' => 'form-control',
 								'id' => 'gender'
@@ -68,8 +70,8 @@
 					}}
 				</div>
 				<div class="form-group">
-					<label class="control-label">City/Town</label>
-					<input type="text" name="city" value="{{$profile->city}}" class="form-control">
+					<label class="control-label">Hometown</label>
+					<input type="text" name="city" value="" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Skill</label>
@@ -97,7 +99,7 @@
 				</div>	
 				<div class="form-group">
 					<label class="control-label">Racquet</label>
-					<input type="text" name="racquet" value="{{$profile->racquet}}" class="form-control">
+					<input type="text" name="racquet" value="" class="form-control">
 				</div>	
 				<div class="form-group">
 					<label class="control-label">Dominant Hand</label>
@@ -109,7 +111,7 @@
 								'right'	=>	'Right', 
 								'both'	=>	'Both'
 							],
-							$profile->dominant_hand,
+							null,
 							array(
 								'class' => 'form-control',
 								'id'	=> 'gender'
@@ -123,7 +125,7 @@
 				</div>	 --}}			
 				<div class="form-group">
 					<label class="control-label">Who Am I?</label>
-					<textarea class="form-control" name="bio" rows="3" placeholder="Tell us about yourself">{{$profile->bio}}</textarea>
+					<textarea class="form-control" name="bio" rows="3" placeholder="Tell us about yourself"></textarea>
 				</div>				
 				<div class="margiv-top10">
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
@@ -145,15 +147,7 @@
 						<div class="col-md-3 col-sm-4">
 
 							<div class="thumbnail">
-								@if((true)) 	
-									<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
-								@else
-									@if($profile->gender == 'female')
-										<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
-									@else
-										<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
-									@endif
-								@endif
+								<img src='{{ asset('images/avatar2.jpg')}}' alt="" />								
 							</div>
 
 						</div>

@@ -63,7 +63,7 @@
 
 				<!-- SIDE NAV -->
 				<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
-					<li class="list-group-item active"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> PROFILE</a></li>
+					<li class="list-group-item {{ $active['profile'] }}"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> PROFILE</a></li>
 					{{-- <li class="list-group-item list-toggle">   <!-- NOTE: "active" to be open on page load -->                
 						<a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-1"><i class="fa fa-calendar"></i> UPCOMING EVENTS</a></a>
 						<ul id="collapse-1" class="collapse"><!-- NOTE: "collapse in" to be open on page load -->
@@ -94,7 +94,7 @@
 					<li class="list-group-item"><a href="#"><i class="fa fa-comments-o"></i> COMMENTS</a></li> --}}
 					<!-- Show Profile Settings if this profile belongs to current Auth -->
 					@if(Auth::id() == $user->id)
-						<li class="list-group-item"><a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> SETTINGS</a></li>		
+						<li class="list-group-item {{ $active['settings'] }}"><a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> SETTINGS</a></li>		
 					@endif					
 				</ul>
 				<!-- /SIDE NAV -->
@@ -106,9 +106,9 @@
 					<div class="text-muted margin-bottom-20">
 						<h2 class="size-18 text-muted margin-bottom-20"><b>About Me</b></h2>
 						<ul class="list-unstyled nomargin">
-							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs hidden-sm"></i> {{ $profile->city }}, {{ $profile->state }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs hidden-sm"></i> {{ $profile->city }}</li>
 							<li class="margin-bottom-10"><i class="fa fa-female width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->gender) }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->dominant_hand) }} handed</li>
+							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->dominant_hand) }}</li>
 							<li class="margin-bottom-10"><i class="fa fa-signal width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->skill) }}</li>
 							<li class="margin-bottom-10"><i class="fa fa-wrench width-20 hidden-xs hidden-sm"></i> {{ $profile->racquet }}</li>
 						</ul>

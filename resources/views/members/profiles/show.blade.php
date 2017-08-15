@@ -19,11 +19,11 @@
     </style>
 @stop
 @section('profile_header')
-	<!-- breadcrumbs -->
-	<ol class="breadcrumb breadcrumb-inverse">
-		<li><a href="{{ route('members.listing')}} ">Members</a></li>
-		<li class="active">{{ $user->first_name }} {{ $user->last_name }}</li>
-	</ol><!-- /breadcrumbs -->
+	@if(Auth::id() == $user->id)
+		<h1>MY PROFILE</h1>
+	@else
+		<h1>{{$user->full_name}}'s PROFILE</h1>
+	@endif
 @stop
 
 @section("profile_content")

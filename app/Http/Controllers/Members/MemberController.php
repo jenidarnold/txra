@@ -17,6 +17,7 @@ class MemberController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
+		$this->middleware('current_user');
 	}
 		
 	/**
@@ -84,7 +85,28 @@ class MemberController extends Controller {
 
 		$user = User::find($id);
 		$profile = $user->profile()->first();
-		return view('members/profiles/show', compact('user', 'profile'));
+
+		$active['profile'] = 'active';
+		$active['settings'] = '';
+
+		return view('members/profiles/show', compact('user', 'profile', 'active'));
+	}
+
+	/**
+	 * Display member profile create.
+	 *
+	 * @return Response
+	 */
+	public function create($id)
+	{
+
+		$user = User::find($id);
+		$profile = $user->profile()->first();
+
+		$active['profile'] ='';
+		$active['settings'] = 'active';
+
+		return view('members/profiles/create', compact('user', 'profile', 'active'));
 	}
 
 	/**
@@ -98,7 +120,11 @@ class MemberController extends Controller {
 		$user = User::find($id);
 		$profile = $user->profile()->first();
 
-		return view('members/profiles/edit', compact('user', 'profile'));
+		$active['profile'] ='';
+		$active['settings'] = 'active';
+
+		return view('members/profiles/edit', compact('user', 'profile', 'active'));
+		
 	}
 
 	/**

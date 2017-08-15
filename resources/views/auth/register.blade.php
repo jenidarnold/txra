@@ -6,16 +6,8 @@
 @section('content')		
 	<section class="page-header page-header-xs">
 		<div class="container">
-
 			<h1>REGISTER</h1>
-			<p>Your new account will give you access to extra features and personalized content</p>
-
-			<!-- breadcrumbs -->
-			<ol class="breadcrumb">
-				<li><a href="/">Welcome</a></li>
-				<li class="active">Register</li>
-			</ol><!-- /breadcrumbs -->
-
+			<p>Your new TXRA account will give you access to extra features and personalized content</p>
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->

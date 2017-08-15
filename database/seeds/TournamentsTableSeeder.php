@@ -10,7 +10,7 @@ class TournamentsTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		DB::table('tournaments')->delete();
+		//DB::table('tournaments')->delete();
 		
 		// Tournament::create([
 		// 	'id'			=> 	'21674',

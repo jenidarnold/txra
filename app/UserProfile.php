@@ -19,7 +19,7 @@ class UserProfile extends Model
      * @var array
      */
     protected $fillable = [
-        'gender', 'cell_phone', 'home_phone', 'address', 'zipcode', 'city', 'state',
+        'user_id', 'gender', 'cell_phone', 'home_phone', 'address', 'zipcode', 'city', 'state',
         'racquet', 'skill', 'dominant_hand', 'bio', 
         'facebook', 'twitter', 'linkedin', 'googleplus', 'instagram'
     ];

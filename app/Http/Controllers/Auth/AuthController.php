@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\UserProfile;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -77,7 +78,8 @@ class AuthController extends Controller
 
         \Auth::login($this->create($request->all()));
         /*\Event::fire(new UserWasRegistered($data)); */
-        
+
+        $this->redirectPath = 'members/profile/'.\Auth::user()->id.'/create';
         return redirect($this->redirectPath());
 
     }
@@ -91,12 +93,22 @@ class AuthController extends Controller
     public function create(array $data)
     {
         /*\Event::fire(new UserWasRegistered($data)); */
-        return User::create([
+        $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
-          //  'gender' => $data['gender'],
             'password' => bcrypt($data['password']),
-        ]);
+            ]);
+
+        $profile = UserProfile::create([
+            'user_id' => $user->id
+            ]);
+
+        //Create profile folder
+        if (!file_exists("images/members/$user->id")) {
+            mkdir("images/members/$user->id", 0777, true);
+            copy("images/avatar2.jpg","images/members/$user->id/profile.png"  );
+        }
+        return $user;
     }
 }
