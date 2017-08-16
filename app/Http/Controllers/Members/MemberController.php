@@ -175,7 +175,10 @@ class MemberController extends Controller {
         // } else {
             // store
             
-            $profile = UserProfile::find($id);
+			$user = User::find($id);
+			$profile_id = $user->profile->id;
+
+            $profile = UserProfile::find($profile_id);
             $profile->gender = \Input::get('gender');
             $profile->city = \Input::get('city');
             $profile->skill = \Input::get('skill');
@@ -184,7 +187,6 @@ class MemberController extends Controller {
             $profile->bio = \Input::get('bio');
             $profile->save();
 
-			$user = User::find($id);
             // redirect
             \Session::flash('message', 'Successfully updated Personal Info');
 
