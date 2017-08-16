@@ -100,6 +100,8 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	Route::post('profile/', array('as' => 'members.store', 'uses' => 'MemberController@store'));
 	Route::post('profile/{id}', array('as' => 'members.update', 'uses' => 'MemberController@update'));
 	Route::post('profile/{id}/pwd', array('as' => 'members.update_pwd', 'uses' => 'MemberController@update_pwd'));
+	Route::post('profile/{id}/avatar', array('as' => 'members.update_avatar', 'uses' => 'MemberController@update_avatar'));
+	Route::post('profile/{id}/usar', array('as' => 'members.link_usar', 'uses' => 'MemberController@link_usar'));
 
 	//Route::get('matches', array('as' => 'members.matches', 'uses' => 'MemberController@matches'));	
 	Route::get('rankings', array('as' => 'members.rankings', 'uses' => 'MemberController@rankings'));

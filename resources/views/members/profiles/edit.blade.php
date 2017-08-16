@@ -136,26 +136,16 @@
 		<!-- AVATAR TAB -->
 		<div class="tab-pane fade" id="avatar">
 
-			<form class="clearfix" action="#" method="post" enctype="multipart/form-data">
+			<form class="clearfix" action="{{ route('members.update_avatar', $user->id)}}" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group">
 
 					<div class="row">
 
 						<div class="col-md-3 col-sm-4">
-
 							<div class="thumbnail">
-								@if((true)) 	
-									<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
-								@else
-									@if($profile->gender == 'female')
-										<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
-									@else
-										<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
-									@endif
-								@endif
+								<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="avatar">
 							</div>
-
 						</div>
 
 						<div class="col-md-9 col-sm-8">
@@ -164,20 +154,12 @@
 								<label class="label">Select File</label>
 								<label for="file" class="input input-file">
 									<div class="button">
-										<input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse
+										<input type="file" name="avatar[]" id="avatar" onchange="this.parentNode.nextSibling.value = this.value">Browse
 									</div><input type="text" readonly>
 								</label>
 							</div>
 
-							<a href="#" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Avatar</a>
-
-							{{-- <div class="clearfix margin-top-20">
-								<span class="label label-warning">NOTE! </span>
-								<p>
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet!
-								</p>
-							</div>
- --}}
+							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Avatar</a>
 						</div>
 
 					</div>
@@ -185,7 +167,7 @@
 				</div>
 
 				<div class="margiv-top10">
-					<a href="#" class="btn btn-primary">Save Changes </a>
+					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
 					<a href="#" class="btn btn-default">Cancel </a>
 				</div>
 

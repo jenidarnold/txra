@@ -6,8 +6,7 @@
 @section('content')		
 	<section class="page-header page-header-xs">
 		<div class="container">
-			<h1>REGISTER</h1>
-			<p>Your new TXRA account will give you access to extra features and personalized content</p>
+			<h1>CREATE YOUR ACCOUNT</h1>
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->
@@ -19,7 +18,7 @@
 					<div class="row">
 
 						<!-- LOGIN -->
-						<div class="col-md-6 col-sm-6 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+						<div class="col-md-8 col-md-offset-2 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
 							<!-- ALERT -->
 							<!--
@@ -33,9 +32,9 @@
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
 							 {{ csrf_field() }}
 								<header>
-									<i class="fa fa-envelope"></i> Register for a TXRA account using your email address
+									<i class="fa fa-envelope text-default"></i> Register for a TXRA account using your email address
 									</header>
-
+									<input type="hidden" name="method" value="email">
 								<fieldset class="nomargin">		
 								    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">			
 										<label class="input margin-bottom-10">
@@ -112,7 +111,7 @@
 
 								<div class="row margin-bottom-20">
 									<div class="col-md-12">
-										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> REGISTER</button>
+										<center><button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> REGISTER</button>
 									</div>
 								</div>
 
@@ -122,10 +121,12 @@
 						</div>
 						<!-- /LOGIN -->
 
-						<!-- R2 Sports LOGIN -->
+{{-- 						<!-- R2 Sports LOGIN -->
 						<div class="col-md-6 col-sm-6">
-							<form action="#" method="post" class="sky-form boxed">
+							<form action="{{ url('/register')}}" method="post" class="sky-form boxed">
 							{{ csrf_field() }}
+
+								<input type="hidden" name="method" value="r2sports">
 								<header class="size-18 margin-bottom-20">
 									<img class="" style="height:30px" src="{{ asset('images/logos/r2sports.gif') }}" ></i> Register for a TXRA account using your existing USAR account
 								</header>
@@ -165,8 +166,10 @@
 
 						<!-- SOCIAL LOGIN -->
 						<div class="col-md-6 col-sm-6">
-							<form action="#" method="post" class="sky-form boxed">
+							<form action="{{ url('/register')}}" method="post" class="sky-form boxed">
 							{{ csrf_field() }}
+
+								<input type="hidden" name="method" value="facebook">
 								<header class="size-18 margin-bottom-20">
 									<i class="fa fa-facebook-square"></i>  Register for a TXRA account using your existing Facebook account
 								</header>
@@ -199,7 +202,7 @@
 
 						</div>
 						<!-- /SOCIAL LOGIN -->
-
+ --}}
 					
 
 						<div class="col-md-12 text-center margin-top-20">

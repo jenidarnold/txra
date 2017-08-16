@@ -1,0 +1,1 @@
+[{"Name":"ASPSESSIONIDAERQCCQA","Value":"AMAIHPEBEOCMPAKNIKJOCNJN","Domain":"www.r2sports.com","Path":"\/","Max-Age":null,"Expires":null,"Secure":true,"Discard":false,"HttpOnly":false},{"Name":"R2memSportOrganizationID","Value":"0","Domain":"www.r2sports.com","Path":"\/","Max-Age":null,"Expires":1518754282,"Secure":false,"Discard":false,"HttpOnly":false}]

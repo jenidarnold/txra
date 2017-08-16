@@ -17,7 +17,7 @@ class MemberController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('current_user', ['except' => ['index', 'show', 'rankings', 'home', 'matches']]);
+		$this->middleware('current_user', ['except' => ['index', 'show', 'membership', 'rankings', 'home', 'matches']]);
 	}
 		
 	/**
@@ -199,6 +199,29 @@ class MemberController extends Controller {
 	public function update_avatar($id)
 	{
 
+        // http://php.net/manual/en/features.file-upload.post-method.php
+        $i = 0;
+        foreach ($_FILES["avatar"]["error"] as $key => $error) {
+            if ($error == UPLOAD_ERR_OK) {
+                $tmp_name = $_FILES["avatar"]["tmp_name"][$key];
+                // basename() may prevent filesystem traversal attacks;
+                // further validation/sanitation of the filename may be appropriate
+                
+                //append display order numner
+                $order = $i.'_';
+                $name = "profile.png";
+
+                if (!file_exists("images/members/$id")) {
+                    mkdir("images/members/$id", 0777, true);
+                }
+                move_uploaded_file($tmp_name, "images/members/$id/$name");
+                $i++;
+            }
+        }
+
+        \Session::flash('message', 'Successfully updated Avatar');
+
+		return  redirect()->back()->with('flash-message','message'); 
 	}
 
 	/**
@@ -249,4 +272,22 @@ class MemberController extends Controller {
 	{
 
 	}
+
+	/**
+	 * Link USAR Account
+	 *
+	 * @return Response
+	 */
+	public function link_usar($id)
+	{
+		$user = User::find($id);
+		$username = \Input::get("username");
+		$password = \Input::get("password");
+		$user->link_Usar($id, $username, $password);
+	
+         \Session::flash('alert-success', 'Successfully linked your USAR account');
+
+		return  redirect()->back()->with('flash-message','message');  
+	}
+
 }

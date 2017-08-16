@@ -15,6 +15,7 @@
 	<ul class="nav nav-tabs nav-top-border">
 		<li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
 		<li><a href="#avatar" data-toggle="tab">Avatar</a></li>
+		<li><a href="#accounts" data-toggle="tab">Link Accounts</a></li>
 		<li><a href="#password" data-toggle="tab">Password</a></li>
 		<li><a href="#privacy" data-toggle="tab">Privacy</a></li>
 	</ul>
@@ -46,11 +47,11 @@
 				{{ csrf_field() }}			  
 				<div class="form-group">
 					<label class="control-label">First Name</label>
-					<input type="text" placeholder="First Name" class="form-control">
+					<input type="text" value="{{$user->fist_name}}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Last Name</label>
-					<input type="text" placeholder="{{$user->last_name}}" class="form-control">
+					<input type="text" value="{{$user->last_name}}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Gender</label>
@@ -138,7 +139,7 @@
 		<!-- AVATAR TAB -->
 		<div class="tab-pane fade" id="avatar">
 
-			<form class="clearfix" action="#" method="post" enctype="multipart/form-data">
+			<form class="clearfix" action="{{ route('members.update_avatar', $user->id)}}" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group">
 
@@ -147,7 +148,7 @@
 						<div class="col-md-3 col-sm-4">
 
 							<div class="thumbnail">
-								<img src='{{ asset('images/avatar2.jpg')}}' alt="" />								
+								<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="avatar" />
 							</div>
 
 						</div>
@@ -158,20 +159,12 @@
 								<label class="label">Select File</label>
 								<label for="file" class="input input-file">
 									<div class="button">
-										<input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse
+										<input type="file" name="avatar[]" id="avatar" onchange="this.parentNode.nextSibling.value = this.value">Browse
 									</div><input type="text" readonly>
 								</label>
 							</div>
 
-							<a href="#" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Avatar</a>
-
-							{{-- <div class="clearfix margin-top-20">
-								<span class="label label-warning">NOTE! </span>
-								<p>
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet!
-								</p>
-							</div>
- --}}
+							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Avatar</a>
 						</div>
 
 					</div>
@@ -179,7 +172,7 @@
 				</div>
 
 				<div class="margiv-top10">
-					<a href="#" class="btn btn-primary">Save Changes </a>
+					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
 					<a href="#" class="btn btn-default">Cancel </a>
 				</div>
 
@@ -187,6 +180,51 @@
 
 		</div>
 		<!-- /AVATAR TAB -->
+
+		<!-- ACCOUNTS TAB -->		
+		<div class="tab-pane fade" id="accounts">
+			<div class="container">
+				<div class="row">
+			{{-- 		<div class="row col-md-12 alert alert-info col-sm-12 col-sm-offset-0">
+						<label class="h4">Link your USAR Account to this account</label>
+						<p>By linking your USAR account, you will have access to your USAR History	in your TXRA account</p>
+					</div>
+				</div>
+				<div class="row">
+					<div id="ifR2Sports" name ="ifR2Sports" class="col-md-8 col-md-offset-0">		
+
+					</div> --}}
+					<div class="col-md-8 col-md-offset-0">						
+							{!! Form::model($user, array('route' => array('members.link_usar', $user->id), 'role' => 'form', 'class'=> 'form-horizontal','method' => 'POST')) !!}
+								{!! Form::hidden ('_token', csrf_token()) !!}
+								<div class="form-group">
+									<label class="col-md-3 control-label">USAR Login:</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="username" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">USAR Password:</label>
+									<div class="col-md-6">
+										<input type="password" class="form-control" name="password">
+									</div>
+								</div>						
+								<div class="form-group">
+									<div class="col-md-6 col-md-offset-3">
+										{!!  Form::submit('Link Accounts', array('class' => 'btn btn-success')) !!}
+									</div>
+								</div>
+								<div class="form-group"> 
+									<div class="alert alert-info col-sm-9 col-sm-offset-1"><i class="fa fa-info-circle"></i> We do not store your USAR username and password</div>
+								</div>
+							{!! Form::close() !!}							
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /ACCOUNTS TAB -->
 
 		<!-- PASSWORD TAB -->		
 		<div class="tab-pane fade" id="password">
@@ -284,4 +322,11 @@
 
 	</div>
 
+@stop
+@section('scripts')
+	
+	<script>
+		alert('hi');
+		$('#ifR2Sports').load('https://www.r2sports.com/membership/login.asp #content');
+	</script>
 @stop

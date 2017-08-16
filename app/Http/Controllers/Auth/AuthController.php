@@ -68,6 +68,27 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         
+        // if ($request->method == 'email'){
+        //     $this->register_by_email($request);
+        // }elseif {
+        // }elseif {
+        // }else{
+        // }
+
+        $this->register_by_email($request);
+        $this->redirectPath = 'members/profile/'.\Auth::user()->id.'/create';
+        return redirect($this->redirectPath());
+
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    public function register_by_email(Request $request)
+    {
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -79,8 +100,6 @@ class AuthController extends Controller
         \Auth::login($this->create($request->all()));
         /*\Event::fire(new UserWasRegistered($data)); */
 
-        $this->redirectPath = 'members/profile/'.\Auth::user()->id.'/create';
-        return redirect($this->redirectPath());
 
     }
 

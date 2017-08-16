@@ -4,6 +4,7 @@ use Guzzlehttp;
 use GuzzleHttp\Message\Request;
 use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Cookie\FileCookieJar;
+use GuzzleHttp\Client;
 //use Gidlov\Copycat\Copycat;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -46,26 +47,55 @@ class User extends Model implements AuthenticatableContract,
      * @return [type]           [description]
      */
     public static function link_Usar($userId, $username, $password) {
-        //file to store cookie data
-        $cookieFile = '/var/www/racquetball/jar.txt';
-        $jar = new FileCookieJar($cookieFile, true);
-        $url = 'https://www.r2sports.com/';
-        // Need to add the token to the header?
-        //X-CSRF-Token: [token]
-        // Create a client with a base URI
-        $client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
-        // Send a request to https://foo.com/api/test
-        $response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID=', [
-            'form_params' => [
-                'userName' => $username,
-                'password' => $password
-                ]           
-        ]);
-        //dd($response);
-        //$body = $response->getBody();
-        //echo $header;
-        //echo $body;
+
+        // $username = 'j****';
+        // $password = 'r****';
+
+        // $cookieFile = '/var/www/txra/jar.txt';
+        // $jar = new FileCookieJar($cookieFile, true);
+        // $url = 'https://www.r2sports.com/';
+        // // Need to add the token to the header?
+        // //X-CSRF-Token: [token]
+        // // Create a client with a base URI
+        // $client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
+        // // Send a request to https://foo.com/api/test
+        // //$response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID=', [
+        // $response = $client->request('POST', 'membership/login.asp', 
+        //     ['debug' => false,
+        //     'track_redirects' => true],
+        //     [
+        //     'form_params' => [
+        //         'userName' => $username,
+        //         'password' => $password,
+        //         ]           
+        // ]);
+
+        // $response = $client->request('GET', 'membership/home.asp');
+
+        // $content = $response->getBody()->getContents();
+        // dd($response->getBody());
+
+        // $ch = curl_init();
+
+        // $postData = array(
+        //     'userName' => $username,
+        //     'password' => $password,
+        //     'redirect_to' => 'home.asp?TID=',
+        //     'testcookie' => '1'
+        // );
+
+        // curl_setopt_array($ch, array(
+        //     CURLOPT_URL => 'https://www.r2sports.com/membership/login.asp?',
+        //     CURLOPT_RETURNTRANSFER => true,
+        //     CURLOPT_POST => true,
+        //     CURLOPT_POSTFIELDS => $postData,
+        //     CURLOPT_FOLLOWLOCATION => true
+        // ));
+
+        // $output = curl_exec($ch);
+        // dd($output);
     }
+
     /**
      * Link FB account to User Account; probablyy move to another loca
      * @param  [type] $userId   [description]
