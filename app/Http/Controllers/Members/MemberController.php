@@ -219,7 +219,24 @@ class MemberController extends Controller {
             }
         }
 
-        \Session::flash('message', 'Successfully updated Avatar');
+        \Session::flash('message', 'Successfully updated avatar');
+
+		return  redirect()->back()->with('flash-message','message'); 
+	}
+
+	/**
+	 * Delete Avatar
+	 *
+	 * @return Response
+	 */
+	public function delete_avatar($id)
+	{
+		//Overwrite current avatar with default
+        //if (file_exists("images/members/$id/profile.png")) {
+            copy("images/avatar2.jpg","images/members/$id/profile.png"  );
+		//}
+
+        \Session::flash('message', 'Successfully deleted avatar');
 
 		return  redirect()->back()->with('flash-message','message'); 
 	}
