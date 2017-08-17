@@ -10,7 +10,8 @@
         "serverfireteam/blog": "2.*",
         "serverfireteam/panel": "1.4.*",
         "gidlov/copycat":  "dev-master",        
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "fabpot/goutte": "^3.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

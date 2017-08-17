@@ -4,7 +4,9 @@ use Guzzlehttp;
 use GuzzleHttp\Message\Request;
 use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Cookie\FileCookieJar;
-use GuzzleHttp\Client;
+//use GuzzleHttp\Client;
+use Goutte\Client;
+use GuzzleHttp\Client as GuzzleClient;
 //use Gidlov\Copycat\Copycat;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -27,7 +29,7 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'middle_name', 'prefix', 'suffix', 'email', 'password',
+        'first_name', 'last_name', 'middle_name', 'prefix', 'suffix', 'email', 'password', 'usar_id'
     ];
 
     /**
@@ -48,18 +50,18 @@ class User extends Model implements AuthenticatableContract,
      */
     public static function link_Usar($userId, $username, $password) {
 
-        // $username = 'j****';
-        // $password = 'r****';
+         $username = 'j***';
+         $password = 'r***';
 
-        // $cookieFile = '/var/www/txra/jar.txt';
-        // $jar = new FileCookieJar($cookieFile, true);
-        // $url = 'https://www.r2sports.com/';
-        // // Need to add the token to the header?
-        // //X-CSRF-Token: [token]
-        // // Create a client with a base URI
-        // $client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
-        // // Send a request to https://foo.com/api/test
-        // //$response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID=', [
+        $cookieFile = '/var/www/txra/jar.txt';
+        $jar = new FileCookieJar($cookieFile, true);
+        $url = 'https://www.r2sports.com/';
+        // Need to add the token to the header?
+        //X-CSRF-Token: [token]
+        // Create a client with a base URI
+        //$client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
+        // Send a request to https://foo.com/api/test
+        //$response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID=', [
         // $response = $client->request('POST', 'membership/login.asp', 
         //     ['debug' => false,
         //     'track_redirects' => true],
@@ -70,30 +72,41 @@ class User extends Model implements AuthenticatableContract,
         //         ]           
         // ]);
 
-        // $response = $client->request('GET', 'membership/home.asp');
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.r2sports.com/membership/login.asp');    
+        
+        $html = new \DOMDocument('1.0','iso-8859-1');
+        $html->formatOutput = true;
 
-        // $content = $response->getBody()->getContents();
-        // dd($response->getBody());
+        $form = $html->createElement('form');
+        $form->setAttribute('method', 'post');
+        $form->setAttribute('action', 'membership/loginCheck.asp?TID=&sportOrganizationID=1&returnToRefPage=&directorID=');
 
-        // $ch = curl_init();
+        $fieldset = $html->createElement('fieldset');
 
-        // $postData = array(
-        //     'userName' => $username,
-        //     'password' => $password,
-        //     'redirect_to' => 'home.asp?TID=',
-        //     'testcookie' => '1'
-        // );
+        $name = $html->createElement('input');
+        $name->setAttribute('type', 'text');
+        $name->setAttribute('name', 'userName');
 
-        // curl_setopt_array($ch, array(
-        //     CURLOPT_URL => 'https://www.r2sports.com/membership/login.asp?',
-        //     CURLOPT_RETURNTRANSFER => true,
-        //     CURLOPT_POST => true,
-        //     CURLOPT_POSTFIELDS => $postData,
-        //     CURLOPT_FOLLOWLOCATION => true
-        // ));
+        $email = $html->createElement('input');
+        $email->setAttribute('type', 'password');
+        $email->setAttribute('name', 'password');
 
-        // $output = curl_exec($ch);
-        // dd($output);
+        $fieldset->appendChild($name);
+        $fieldset->appendChild($email);
+
+        $form->appendChild($fieldset);
+
+        $form = new \Symfony\Component\DomCrawler\Form($form, 'https://www.r2sports.com/membership/login.asp', 'POST', 'https://www.r2sports.com');
+        //$form->set($formInput);
+     
+        $crawler = $client->submit($form, array('userName' => $username, 'password' => $password ));
+
+        $crawler->filter('.flash-error')->each(function ($node) {
+            var_dump( $node->text()."\n");
+        });
+
+        dd( $crawler);
     }
 
     /**
@@ -114,6 +127,16 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasOne('App\UserProfile', 'user_id', 'id');
     }
           
+
+    /**
+     *  User's Usar account
+     */
+
+    public function usar()
+    {
+        return $this->hasOne('App\UsarMember', 'id', 'usar_id');
+    }
+      
     /**
      * User's permissions
      *
@@ -121,6 +144,11 @@ class User extends Model implements AuthenticatableContract,
     public function permissions() {
         return $this->hasMany('App\Permission', 'user_id', 'user_id');
     }
+
+    /**
+     * User's permissions
+     *
+     */
     public function hasPermission( $permission_id) {
         $result = 0;
         $result = \DB::table('permissions')
@@ -135,6 +163,10 @@ class User extends Model implements AuthenticatableContract,
         }
     }
 
+    /**
+     * User's fullname
+     *
+     */
     public function getFullNameAttribute() {
         return $this->first_name . ' ' . $this->last_name;
     }

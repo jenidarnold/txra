@@ -107,11 +107,14 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	Route::post('profile/{id}/usar', array('as' => 'members.link_usar', 'uses' => 'MemberController@link_usar'));
 
 	//Route::get('matches', array('as' => 'members.matches', 'uses' => 'MemberController@matches'));	
-	Route::get('rankings', array('as' => 'members.rankings', 'uses' => 'MemberController@rankings'));
 	//Route::get('gallery', array('as' => 'members.gallery.index', 'uses' => 'GalleryController@index'));
 	Route::put('addphoto', array('as' => 'members.gallery.create', 'uses' => 'GalleryController@create'));	
 
 	Route::get('membership', array('as' => 'members.membership', 'uses' => 'MemberController@membership'));		
+
+
+	Route::get('rankings', array('as' => 'members.rankings', 'uses' => 'RankingsController@index'));
+	Route::get('download/rankings/{group_id}', array('as' => 'events.download.rankings', 'uses' => 'RankingsController@download'));
 
 });
 
@@ -126,6 +129,7 @@ Route::group(['namespace' => 'Events', 'prefix' =>'events'], function()
 	Route::get('tournament/{id}/gallery', array('as' => 'events.gallery', 'uses' => 'EventController@gallery'));
 });
 
+/* ABOUT */
 Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 {
 	Route::get('board', array('as' => 'board.index', 'uses' => 'LeadershipController@board'));	
@@ -137,11 +141,13 @@ Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 	Route::get('mission', array('as' => 'about.mission', 'uses' => 'LeadershipController@mission'));	
 });
 
+/* DONTATE */
 Route::group(['namespace' => 'Donate', 'prefix' =>'donate'], function()
 {
 	Route::get('/', array('as' => 'donate.index', 'uses' => 'DonateController@index'));	
 });
 
+/* FORMS */
 Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 {
 	Route::get('election/nominate', array('as' => 'election.nominate', 'uses' => 'NominationController@election'));	

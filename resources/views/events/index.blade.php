@@ -70,10 +70,10 @@
 											@if( $t->club()->lat > 0)
 												<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
 													<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>
-													{{$t->club()->city }}		
+													{{$t->club()->city }}, {{$t->club()->state }}		
 											@else
 												 {{$t->club()->name }}<br/>  
-												 {{$t->club()->city }}
+												 {{$t->club()->city }}, {{$t->club()->state }}
 											@endif
 										</span>
 									</div>

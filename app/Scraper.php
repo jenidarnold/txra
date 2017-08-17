@@ -3,6 +3,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Gidlov\Copycat\Copycat;
 use App\OpenGraph;
+use App\Rank;
 
 class Scraper {
  
@@ -53,9 +54,10 @@ class Scraper {
 	 	}
 	 	$startRank = 1;
 	 	$rankChunks = 100;
-		$ss = New ScreenScraper;
+
 		$player_rankings = array();
 	 	$i = 0;
+	 	$p = 0;
 	 	$rdate = date('1/1/0000');
 	 	$prev_pid = -1;
 	 	$curr_pid = 0;
@@ -105,9 +107,24 @@ class Scraper {
 										'location_id' => $location_id,
 									);
 									//Save to database
-									$ss->create_ranking($rank);
+									$this->create_ranking($rank);
 									array_push($player_rankings, $rank);
 									$i = $i + 1;
+
+									//Get usar_player if not in table
+									
+									$player = \DB::table('usar_members')
+									->where('id', '=',$curr_pid)
+									->first();
+
+									if (is_null($player)) {
+										// Limit 10 player downloads
+										if ($p < 10) {
+											$this->get_player($curr_pid);
+											$p = $p + 1;
+											}
+										}
+									}
 								}
 						 	}					 	
 						 	$prev_pid = $curr_pid;
@@ -115,7 +132,7 @@ class Scraper {
 					}
 				}
 		 	}
-		 }
+		 
 	 	return $player_rankings;
  	}
  	public function get_player($uid) 
@@ -140,7 +157,6 @@ class Scraper {
 	 		->URLS('http://www.usaracquetballevents.com/profile-player.asp?UID=' .$uid);	 		
 	 	$result = $cc->get();
 		
-		$ss = New ScreenScraper;
 		$player = array();
 	 	$i = 0;
 	 
@@ -158,8 +174,7 @@ class Scraper {
 					'img_profile' => $player_info["img_profile"],
 				);
 				//Save to database				
-				//TODO: don't create if already exists in database
-				$ss->create_player($player);
+				$this->create_player($player);
 		 //	}
 		}
 	 	return $player;
@@ -343,20 +358,22 @@ class Scraper {
 	 */
 	public function create_ranking(array $data)
 	{
-		$ranking = \DB::table('rankings')
-			->where('ranking_date', '=', $data['ranking_date'])
+		$ranking = \DB::table('ranks')
+			->where('effective', '=', $data['ranking_date'])
 			->where('group_id', '=', $data['group_id'])
 			->where('location_id', '=', $data['location_id'])
-			->where('player_id', '=', $data['player_id'])
+			->where('usar_id', '=', $data['player_id'])
 			->first();
 		if (is_null($ranking)) {
-			return Ranking::create([
-				'ranking_date' => $data['ranking_date'],
-				'player_id' => $data['player_id'],
-				'ranking' =>  $data['ranking'],
+			$rank = Rank::create([
+				'effective' => $data['ranking_date'],
+				'usar_id' => $data['player_id'],
+				'rank' =>  $data['ranking'],
 				'group_id' =>  $data['group_id'],
 				'location_id' =>  $data['location_id'],
 			]);
+			
+			return $rank;
 		}
 	}
 	/**
@@ -384,7 +401,7 @@ class Scraper {
 			$club_name = trim($club[0]);
 			$club_city = trim($club[1]);
 			$club_city = chop($club_city, ",");
-
+	
 			//Add Club if not found
 			$club = \DB::table('clubs')
 			->where('name', '=', $club_name)
@@ -441,20 +458,27 @@ class Scraper {
 	 */
 	public function create_player(array $data)
 	{
-		$player = \DB::table('players')
-			->where('player_id', '=', $data['player_id'])
+		$player = \DB::table('usar_members')
+			->where('id', '=', $data['player_id'])
 			->first();
 		if (is_null($player)) {
-			return Player::create([
-				'player_id' => $data['player_id'],
+
+			$home = explode(',',$data['home']);
+			$city = trim($home[0]);
+			$state = trim($home[1]);
+
+			return UsarMember::create([
+				'id' => $data['player_id'],
 				'first_name' =>  $data['first_name'],
 				'last_name' =>  $data['last_name'],
 				'gender' =>  $data['gender'],
-				'home' =>  $data['home'],
-				'skill_level' =>  $data['skill_level'],
-				'img_profile' =>  $data['img_profile'],
+				'city' =>  $city,
+				'state' =>  $state,
+				'skill' =>  $data['skill_level'],
+				'avatar' =>  $data['img_profile'],
 			]);
 		}
+
 	}
 	/**
 	 * Insert new Match
