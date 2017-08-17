@@ -15,4 +15,12 @@ class Rank extends Model
         'usar_id', 'location_id', 'group_id', 'rank', 'effective'
     ];
 
+    /**
+     *  User's Usar account
+     */
+
+    public function usar()
+    {
+        return $this->hasOne('App\UsarMember', 'id', 'usar_id');
+    }
 }

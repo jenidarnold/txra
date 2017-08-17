@@ -118,7 +118,8 @@ class Scraper {
 									->first();
 
 									if (is_null($player)) {
-										// Limit 10 player downloads
+										// Limit 10 player downloads	
+										// TODO:call get_player from separate Admin looping and sleeping									
 										if ($p < 10) {
 											$this->get_player($curr_pid);
 											$p = $p + 1;

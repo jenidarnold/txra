@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsarMember extends Model
 {
+
+
+    protected  $table = 'usar_members';
     /**
      * The attributes that are mass assignable.
      *
@@ -22,5 +25,14 @@ class UsarMember extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+
+    /**
+     * User's fullname
+     *
+     */
+    public function getFullNameAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
     }
 }
