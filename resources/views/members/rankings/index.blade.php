@@ -49,7 +49,7 @@
 									<span class="inner">
 									
 										<!-- lightbox -->
-										<a class="ico-rounded lightbox" href="assets/images/demo/mockups/1200x800/9-min.jpg" data-plugin-options='{"type":"image"}'>
+										<a class="ico-rounded lightbox" href="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$tms->featured['usar']['avatar']}}" data-plugin-options='{"type":"image"}'>
 											<span class="fa fa-plus size-20"></span>
 										</a>
 
@@ -61,10 +61,10 @@
 								</span>
 								<!-- overlay title -->
 								<div class="item-box-overlay-title">
-									<h3><sup>#</sup>26 Mike Grisz</h3>									
+									<h3><sup>#</sup>{{$tms->featured->rank}} {{$tms->featured['usar']['full_name']}}</h3>									
 								</div><!-- /overlay title -->
 						
-								<img class="img-responsive" src="{{ asset('images/members/7/profile.png')}}" width="600" height="399" alt="">
+								<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$tms->featured['usar']['avatar']}}" width="600" height="399" alt="">
 							</figure>
 							
 							<!-- /Random player -->
@@ -154,50 +154,51 @@
 						<div class="">
 							<h2 class="text-center margin-bottom-10">TX Women's Singles</h2>									
 						</div><!-- /title -->	
+												<!--Random player -->
 						<div class="item-box" >
-							<figure>
+							<figure>								
 								<span class="item-hover">
 									<span class="overlay dark-5"></span>
 									<span class="inner">
 									
 										<!-- lightbox -->
-										<a class="ico-rounded lightbox" href="assets/images/demo/mockups/1200x800/9-min.jpg" data-plugin-options='{"type":"image"}'>
+										<a class="ico-rounded lightbox" href="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$tws->featured['usar']['avatar']}}" data-plugin-options='{"type":"image"}'>
 											<span class="fa fa-plus size-20"></span>
 										</a>
 
 										<!-- details -->
-										<a class="ico-rounded" href="portfolio-single-slider.html">
+										<a class="ico-rounded" href="#">
 											<span class="glyphicon glyphicon-option-horizontal size-20"></span>
 										</a>
 									</span>
 								</span>
 								<!-- overlay title -->
 								<div class="item-box-overlay-title">
-									<h3><sup>#</sup>9 Terry Latham</h3>									
+									<h3><sup>#</sup>{{$tws->featured->rank}} {{$tws->featured['usar']['full_name']}}</h3>									
 								</div><!-- /overlay title -->
 						
-								<!--Random player -->
-								<img class="img-responsive" src="{{ asset('images/members/12/profile.png')}}" width="600" height="399" alt="">
+								<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$tws->featured['usar']['avatar']}}" width="600" height="399" alt="">
 							</figure>
+							
+							<!-- /Random player -->
 
 							<div class="item-box-desc">
-								<div class="height-250 " data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4">
-										
-									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/10/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>1 <smaller>Da'Monique Davis</smaller></a></h3>
-										<span class="size-11 text-muted">San Antonio, TX</span>
-									</div><!-- /post item -->
-									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/11/profile.png')}}" width="60" height="60" alt="" />
-										<h4 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>2 Briana Jacquet</a></h4>
-										<span class="size-11 text-muted">Port Arther, TX</span>
-									</div><!-- /post item -->
-									<div class="clearfix margin-bottom-10"><!-- post item -->
-										<img class="thumbnail pull-left" src="{{ asset('images/members/13/profile.png')}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html"><sup>#</sup>3 <smaller>Brittany Click</smaller></a></h3>
-										<span class="size-11 text-muted">Arlington, TX</span>
-									</div><!-- /post item -->
+								<div class="height-250 " data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" >
+									
+									<h4 class="text-primary text-center">Top 10 
+										<smaller class="h6"><a href="{{$tws->url}}" target="rankings" title="View All Ranks"><i class="fa fa-eye"></i></a></smaller>
+									</h4>
+									<hr/> 
+									@foreach($tws as $r)
+									<!-- post item -->
+									<div class="clearfix margin-bottom-10">
+										<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+										<h3 class="size-13 nomargin noborder nopadding"><a href="{{ route('members.show', 1)}}"><sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller></a></h3>
+										<span class="size-11 text-muted">{{$r->usar()->first()->city}}, {{$r->usar()->first()->state }}</span>
+									</div>
+									<!-- /post item -->
+									@endforeach	
+
 								</div>
 
 							</div>

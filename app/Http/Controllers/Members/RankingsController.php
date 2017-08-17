@@ -26,17 +26,26 @@ class RankingsController extends Controller {
 	 * Display member rankings.
 	 *
 	 * @return Response
-	 */
+	 */	
 	public function index(Request $request)
 	{
 
 		//Texas Mens 
-		$tms = Rank::orderBy('rank')->limit(10)->get();
+		$tms =  Rank::where('group_id', '=','1')->orderBy('rank');
+		$featured = Rank::inRandomOrder()->where('group_id', '=','1')->first();
+		$tms = $tms->limit(10)->get();
+		$tms->featured = $featured;
+
 		$tmd = Rank::all();
 		$tmx = Rank::all();
 		
-		//Texas Womens 
-		$tws = Rank::all();
+		//Texas Womens 		
+		$tws =  Rank::where('group_id', '=','2')->orderBy('rank');
+		$featured = Rank::inRandomOrder()->where('group_id', '=','2')->first();
+		$tws = $tws->limit(10)->get();
+		$tws->featured = $featured;
+
+
 		$twd = Rank::all();
 		$twx = Rank::all();
 
@@ -72,7 +81,9 @@ class RankingsController extends Controller {
 
 
 
-		return view('members/rankings/index', compact('tms'));
+
+
+		return view('members/rankings/index', compact('tms', 'tws'));
 	}
 
 		
