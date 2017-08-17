@@ -380,13 +380,21 @@ class Scraper {
 				'url' => $data['url'],
 			]);
 
-			//Add Club
+			$club = explode('.',$data['location']);
+			$club_name = trim($club[0]);
+			$club_city = trim($club[1]);
+			$club_city = chop($club_city, ",");
+
+			//Add Club if not found
 			$club = \DB::table('clubs')
-			->where('name', '=', $data['location'])
+			->where('name', '=', $club_name)
 			->first();
+
 			if (is_null($club)) {
 				$club =	Club::create([
-						'name'	=>	$data['location'],
+						'name'	=>	$club_name,
+						'city'	=>	$club_city,
+						'state'	=>	'Texas',
 				]);
 			}
 

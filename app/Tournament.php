@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Club;
 
 class Tournament extends Model
 {
@@ -52,6 +53,25 @@ class Tournament extends Model
 				->where('start_date', '>', date('Y-m-d', strtotime("-$days days")))
 				->get();        
         }
+    }
+
+     /* tournament location relation
+     * @return [type]        relationship
+     */
+    public function location()
+    {
+        $location = $this->hasOne('App\TournamentLocation', 'tournament_id','usar_id');
+
+        return  $location;
+    }
+
+     /* tournament club
+     * @return [type]  Club
+     */
+    public function club() {
+
+        $club_id = $this->location->club_id;
+        return Club::find($club_id);
     }
   
 }

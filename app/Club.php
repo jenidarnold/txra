@@ -16,4 +16,11 @@ class Club extends Model
     protected $fillable = [
         'name', 
     ];
+
+    public function locations()
+    {
+        return $this->belongsToMany('App\TournamentLocation', 'club_id', 'tournament_id');       
+    }
+  
+
 }

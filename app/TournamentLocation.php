@@ -16,4 +16,15 @@ class TournamentLocation extends Model
     protected $fillable = [
         'tournament_id', 'club_id' 
     ];
+
+    public function tournament()
+    {
+        return $this->belongsTo('App\Tournament');
+    }
+
+   public function club()
+    {
+        return $this->hasOne('App\TournamentLocation', 'tournament_id', 'club_id');       
+    }
+  
 }

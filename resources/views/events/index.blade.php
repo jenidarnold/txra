@@ -66,9 +66,16 @@
 									<!-- div info -->
 									<div class="item-box-desc">
 										<h4>{{ $t->name }}</h4>
-										<h6>{{$t->start_date}} - {{$t->end_date}}</li></h6>
-										<h6>{{$t->location}}</h6>
-										{{-- <h6><a href="{{ $t->url}}" target="tournament"><img height="18px" src="{{asset('images/logos/r2sports.gif')}}"> Official Touranment Site</a></h6> --}}
+										<span class="text">{{$t->start_date}} - {{$t->end_date}}<br/>
+											@if( $t->club()->lat > 0)
+												<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
+													<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>
+													{{$t->club()->city }}		
+											@else
+												 {{$t->club()->name }}<br/>  
+												 {{$t->club()->city }}
+											@endif
+										</span>
 									</div>
 								</div>
 

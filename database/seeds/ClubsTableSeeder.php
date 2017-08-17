@@ -398,7 +398,7 @@ class ClubsTableSeeder extends Seeder {
 
 		Club::create([
 			'id' 			=> 	25,
-			'name'		    =>	'University of Texas Gregory Gym',
+			'name'		    =>	'University of Texas: Austin Gregory Gym',
 			'address' 		=>	'2101 Speedway',
 			'city' 			=> 	'Austin',
 			'state' 		=> 	'Texas',
@@ -414,7 +414,7 @@ class ClubsTableSeeder extends Seeder {
 
 		Club::create([
 			'id' 			=> 	26,
-			'name'		    =>	'University of Texas Recreation Center',
+			'name'		    =>	'University of Texas: Austin Rec Center',
 			'address' 		=>	'2001 San Jacinto',
 			'city' 			=> 	'Austin',
 			'state' 		=> 	'Texas',
