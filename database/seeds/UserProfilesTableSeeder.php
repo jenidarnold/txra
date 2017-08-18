@@ -47,7 +47,7 @@ class UserProfilesTableSeeder extends Seeder {
             'home_phone'=>    '',
             'address'   =>  '',
             'zipcode'   =>  '',
-            'city'            =>  '',
+            'city'            =>  'Arlington',
             'state'           =>    'TX',
 
             'racquet'   =>    '',
@@ -102,7 +102,7 @@ class UserProfilesTableSeeder extends Seeder {
             'state'           =>    'TX',
 
             'racquet'   =>    '',
-            'skill'           =>    '',
+            'skill'           =>    'B',
             'dominant_hand'   =>    'right',
 
             'bio'       =>    '',
@@ -148,11 +148,11 @@ class UserProfilesTableSeeder extends Seeder {
             'home_phone'=>    '',
             'address'   =>  '',
             'zipcode'   =>  '',
-            'city'            =>  '',
+            'city'            =>  'Dallas',
             'state'           =>    'TX',
 
             'racquet'   =>    '',
-            'skill'           =>    '',
+            'skill'           =>    'Open',
             'dominant_hand'   =>    'right',
 
             'bio'       =>    '',

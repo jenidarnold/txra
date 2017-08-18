@@ -90,11 +90,18 @@
 					<div class="text-muted margin-bottom-20">
 						<h2 class="size-18 text-muted margin-bottom-20"><b>About Me</b></h2>
 						<ul class="list-unstyled nomargin">
-							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs hidden-sm"></i> {{ $profile->city }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-female width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->gender) }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->dominant_hand) }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-signal width-20 hidden-xs hidden-sm"></i> {{ ucfirst($profile->skill) }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-wrench width-20 hidden-xs hidden-sm"></i> {{ $profile->racquet }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-home width-20 hidden-xs"></i> {{ $profile->city }}</li>
+							
+							<li class="margin-bottom-10">
+							@if($profile->gender == 'female')
+								<i class="fa fa-female width-20 hidden-xs"></i> 
+							@else
+								<i class="fa fa-male width-20 hidden-xs"></i> 
+							@endif
+							{{ ucfirst($profile->gender) }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20 hidden-xs"></i> {{ ucfirst($profile->dominant_hand) }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-signal width-20 hidden-xs"></i> {{ ucfirst($profile->skill) }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-wrench width-20 hidden-xs"></i> {{ $profile->racquet }}</li>
 						</ul>
 					</div>						
 
