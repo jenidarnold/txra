@@ -131,6 +131,16 @@ class RankingsController extends Controller {
 
 		$rank = $rank->limit(10)->get();
 		$rank->featured = $rand;
+		
+
+		$user_id =  0;
+		if ($rand != null) {
+			$user = \App\User::where('usar_id' , '=',$rand->usar_id )->first();
+			if ($user != null){
+				$user_id = $user->id;
+			}			
+			$rank->featured->user_id = $user_id; 
+		}
 
 		return $rank;
 	}

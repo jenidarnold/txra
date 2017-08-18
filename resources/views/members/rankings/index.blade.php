@@ -50,14 +50,21 @@
 									<span class="overlay dark-5"></span>
 									<span class="inner">
 										<!-- lightbox -->
-										<a class="ico-rounded lightbox" href="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" data-plugin-options='{"type":"image"}'>
+										{{-- <a class="ico-rounded lightbox" href="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" data-plugin-options='{"type":"image"}'>
 											<span class="fa fa-plus size-20"></span>
-										</a>
+										</a> --}}
 
 										<!-- details -->
-										<a class="ico-rounded" href="#">
-											<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-										</a>
+
+										@if ($rank->featured->user_id == 0)
+											<a class="ico-rounded" href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $rank->featured->usar_id }}" target="usar_profile">
+												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+											</a>
+										@else
+											<a class="ico-rounded" href="{{ route('members.show', $rank->featured->user_id) }}">
+												<span class="glyphicon glyphicon-option-horizontal size-20"></span>
+											</a>
+										@endif
 									</span>
 								</span>
 								<!-- overlay title -->
@@ -65,7 +72,11 @@
 									<h3><sup>#</sup>{{$rank->featured->rank}} {{$rank->featured->first_name}} {{$rank->featured->last_name}}</h3>									
 								</div><!-- /overlay title -->
 						
-								<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" width="600" height="399" alt="">
+								@if($rank->featured->avatar!=0)
+									<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" width="600" height="399" alt="">
+								@else
+									<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="600" height="399" alt=""/>
+								@endif
 							</figure>
 							<!-- /Random player -->
 
@@ -80,8 +91,23 @@
 									@foreach($rank as $r)
 									<!-- post item -->
 									<div class="clearfix margin-bottom-10">
-										<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										<h3 class="size-13 nomargin noborder nopadding"><a href="{{ route('members.show', 1)}}"><sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller></a></h3>
+									    @if($r->usar()->first()->avatar !=0)
+											<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+										@else
+											<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="60" height="60" alt=""/>
+										@endif
+										<h3 class="size-13 nomargin noborder nopadding">
+
+										@if ($r->user()->count() == 0 )
+											<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $r->usar_id }}" target="usar_profile">
+										@else
+											<a href="{{ route('members.show',1)}}">
+										@endif
+										<sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller>										
+										</a>
+
+
+										</h3>
 										<span class="size-11 text-muted">{{$r->usar()->first()->city}}, {{$r->usar()->first()->state }}</span>
 									</div>
 									<!-- /post item -->

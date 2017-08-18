@@ -23,4 +23,9 @@ class Rank extends Model
     {
         return $this->hasOne('App\UsarMember', 'id', 'usar_id');
     }
+
+    public function user()
+    {
+        return $this->hasOne('App\User', 'usar_id', 'usar_id');
+    }
 }
