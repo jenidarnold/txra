@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Redirect;
 use App\User;
 use App\UserProfile;
+use App\UsarMember;
 
 class MemberController extends Controller {
 
@@ -86,10 +87,17 @@ class MemberController extends Controller {
 		$user = User::find($id);
 		$profile = $user->profile()->first();
 
+		$usar = [];
+		if(isset($user->usar_id)){
+			
+			$usar = UsarMember::find($user->usar_id);
+			
+		}
+
 		$active['profile'] = 'active';
 		$active['settings'] = '';
 
-		return view('members/profiles/show', compact('user', 'profile', 'active'));
+		return view('members/profiles/show', compact('user', 'profile', 'usar', 'active'));
 	}
 
 	/**

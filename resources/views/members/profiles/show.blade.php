@@ -41,36 +41,36 @@
 						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i> SINGLES</h3>
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
 							{{-- <h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >{{ $user->rank->state->singles }}</h2> --}}
-							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >4</h2>
+							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >{{$usar->state_singles_rank}}</h2>
 							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">TEXAS</h3>
 						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
-							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >79</h2>
+							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >{{$usar->national_singles_rank}}</h2>
 							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">NATIONAL</h3>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
 						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i><i class="fa fa-female"></i> DOUBLES</h3>
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
-							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">14</h2>
+							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->state_doubles_rank}}</h2>
 							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">TEXAS</h3>
 						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
-							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">340</h2>
+							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->national_doubles_rank}}</h2>
 							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">NATIONAL</h3>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
 						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i><i class="fa fa-male"></i> MIXED DOUBLES</h3>
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
-							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">11</h2>
+							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->state_mixed_rank}}</h2>
 							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">TEXAS</h3>
 						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
-							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">195</h2>
+							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->national_mixed_rank}}</h2>
 							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">NATIONAL</h3>
 						</div>
 					</div>
