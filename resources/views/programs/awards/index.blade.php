@@ -25,11 +25,11 @@
 	<section>
 		<div class="container">
 			<!-- Mobile Menu Button -->
-			<button class="btn btn-mobile hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
-				<i class="fa fa-bars"></i>
+			<button class="btn btn-mobile hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
+				<i class="fa fa-bars"> Filter</i>
 			</button>
 
-			<div class="collapse navbar-collapse nav-filter-collapse">
+			<div class="collapse navbar-collapse nav-filter-collapse">				
 				<ul id="portfolio_filter" class="nav nav-pills margin-bottom-0">
 					<li class="filter active"><a data-filter="*" href="#">All</a></li>
 					<li class="filter"><a data-filter=".2017" href="#">2017</a></li>

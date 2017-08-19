@@ -104,7 +104,7 @@
 
 							<!-- /option list -->
 							<!-- button -->
-								<a href="#" class="btn btn-primary fullwidth">Read More</a>		
+							{{-- 	<a href="#" class="btn btn-primary fullwidth">Read More</a>		 --}}
 						</div>
 					</div>				
 				</div>
@@ -151,7 +151,7 @@
 							<!-- /option list -->
 
 							<!-- button -->
-							<a href="#" class="btn btn-primary fullwidth">Read More</a>	
+							{{-- <a href="#" class="btn btn-primary fullwidth">Read More</a>	 --}}
 
 						</div>
 					</div>
@@ -201,7 +201,7 @@
 
 
 							<!-- button -->
-							<a href="#" class="btn btn-primary fullwidth">Read More</a>	
+							{{-- <a href="#" class="btn btn-primary fullwidth">Read More</a>	 --}}
 
 						</div>
 					</div>
@@ -251,7 +251,7 @@
 
 
 							<!-- button -->
-							<a href="#" class="btn btn-primary fullwidth">Read More</a>	
+							{{-- <a href="#" class="btn btn-primary fullwidth">Read More</a>	 --}}
 
 						</div>
 					</div>
@@ -300,7 +300,7 @@
 							<!-- /option list -->
 
 							<!-- button -->
-							<a href="#" class="btn btn-primary fullwidth">Read More</a>	
+							{{-- <a href="#" class="btn btn-primary fullwidth">Read More</a>	 --}}
 
 						</div>					
 					</div>
@@ -348,7 +348,7 @@
 							<!-- /option list -->
 
 							<!-- button -->
-							<a href="#" class="btn btn-primary fullwidth">Read More</a>	
+							{{-- <a href="#" class="btn btn-primary fullwidth">Read More</a>	 --}}
 
 						</div>					
 					</div>
@@ -397,7 +397,7 @@
 
 
 							<!-- button -->
-							<a href="#" class="btn btn-primary fullwidth">Read More</a>	
+							{{-- <a href="#" class="btn btn-primary fullwidth">Read More</a>	 --}}
 
 						</div>					
 					</div>
@@ -446,7 +446,7 @@
 
 
 							<!-- button -->
-							<a href="#" class="btn btn-primary fullwidth">Read More</a>	
+							{{-- <a href="#" class="btn btn-primary fullwidth">Read More</a>	 --}}
 
 						</div>					
 					</div>

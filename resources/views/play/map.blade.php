@@ -17,8 +17,10 @@
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
-				<li><a href="#">Play</a></li>
-				<li class="active">Map</li>
+				<li class="active">Clubs</li>
+				<li><a href="{{ route('play.leagues.index')}}">Leagues</a></li>
+				<li><a href="{{ route('events.index', array('type' =>'future'))}}">Tournaments</a></li>
+
 			</ol><!-- /breadcrumbs -->
 
 		</div>

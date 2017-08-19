@@ -33,7 +33,7 @@
 		<div class="front">
 			<div class="box1 noradius" >
 				<div class="box-icon-title">
-					<i class="fa fa-signal " style="background-color:#fff"></i>
+					<i class="fa fa-list-ol " style="background-color:#fff"></i>
 					<h2>RANKINGS</h2>
 				</div>
 				<div class="row margin-top-10">
@@ -41,36 +41,57 @@
 						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i> SINGLES</h3>
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
 							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >{{$usar->state_singles_rank}}</h2>
-							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">TEXAS</h3>
+							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">
+								<span class="hidden-xs text-info bold">TEXAS</span>
+								<span class="hidden-sm hidden-md hidden-lg  text-info bold">TX</span>	
+							</h3>
 						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
 							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000" >{{$usar->national_singles_rank}}</h2>
-							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">NATIONAL</h3>
+							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">
+								<span class="hidden-xs text-info bold">NATIONAL</span>
+								<span class="hidden-sm hidden-md hidden-lg text-info bold">NAT</span>						
+							</h3>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
 						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i><i class="fa fa-female"></i> DOUBLES</h3>
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
 							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->state_doubles_rank}}</h2>
-							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">TEXAS</h3>
+							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">
+								<span class="hidden-xs text-info bold">TEXAS</span>
+								<span class="hidden-sm hidden-md hidden-lg  text-info bold">TX</span>	
+							</h3>
 						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
 							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->national_doubles_rank}}</h2>
-							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">NATIONAL</h3>
+							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">
+								<span class="hidden-xs text-info bold">NATIONAL</span>
+								<span class="hidden-sm hidden-md hidden-lg  text-info bold">NAT</span>
+							</h3>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
-						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i><i class="fa fa-male"></i> MIXED DOUBLES</h3>
+						<h3 class="size-11 margin-top-0 margin-bottom-0 text-center"><i class="fa fa-female"></i><i class="fa fa-male"></i> 
+						<span class="hidden-xs text-default bold">MIXED DOUBLES</span>
+						<span class="hidden-sm hidden-md hidden-lg text-default bold">MIXED</span>
+						</h3>
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
 							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->state_mixed_rank}}</h2>
-							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">TEXAS</h3>
+							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">
+								<span class="hidden-xs text-info bold">TEXAS</span>
+								<span class="hidden-sm hidden-md hidden-lg  text-info bold">TX</span>
+							</h3>
 						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 text-center bold">
 							<h2 class="size-20 margin-top-10 margin-bottom-0 font-raleway countTo" data-speed="3000">{{$usar->national_mixed_rank}}</h2>
-							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">NATIONAL</h3>
+							<h3 class="size-11 margin-top-0 margin-bottom-10 text-info">
+								<span class="hidden-xs text-info bold">NATIONAL</span>
+								<span class="hidden-sm hidden-md hidden-lg  text-info bold">NAT</span>
+							</h3>
 						</div>
 					</div>
 				</div>

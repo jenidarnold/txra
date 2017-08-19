@@ -18,9 +18,39 @@ class MemberController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('current_user', ['except' => ['index', 'show', 'membership', 'rankings', 'home', 'matches']]);
+		$this->middleware('current_user', ['except' => ['index', 'show', 'search', 'membership', 'rankings', 'home', 'matches']]);
 	}
 		
+	/**
+	 * Display index of members.
+	 *
+	 * @return Response
+	 */
+	public function search(Request $request)
+	{
+		$members = User::orderBy('last_name')
+			->orderBy('first_name')
+			;
+
+		foreach ($members as $m) {
+			$user = User::find($m->id);
+			$m->profile = $user->profile()->first() ;
+		}
+
+		$name = $request['name'];
+		if ( $name != '') {
+			$members = $members
+						->where('first_name', 'like', "%$name%")
+						->orWhere('last_name', 'like', "%$name%")
+						->orWhere(\DB::raw('CONCAT(first_name, " ", last_name)'),'like', "%$name%")
+					;
+			}
+		$members = $members->paginate(10);
+
+		return view('members/profiles/index', compact('members', 'name'));
+	}
+
+
 	/**
 	 * Display index of members.
 	 *
@@ -30,16 +60,22 @@ class MemberController extends Controller {
 	{
 		$members = User::orderBy('last_name')
 			->orderBy('first_name')
-			->get()
 			;
 
-			foreach ($members as $m) {
-				$user = User::find($m->id);
-				$m->profile = $user->profile()->first() ;
-			}
+		foreach ($members as $m) {
+			$user = User::find($m->id);
+			$m->profile = $user->profile()->first() ;
+		}
 
-		return view('members/profiles/index', compact('members'));
+
+		$members = $members->paginate(10);
+
+		//Search parameter
+		$name = "";
+			
+		return view('members/profiles/index', compact('members', 'name'));
 	}
+
 
 	/**
 	 * Display member profile.

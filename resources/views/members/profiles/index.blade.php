@@ -28,31 +28,41 @@
 				</div>	
 			</ul> --}}
 
+				<button class="btn btn-mobile hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
+					<i class="fa fa-bars"></i> Filter
+				</button>
 
-				<ul id="portfolio_filter" class="nav nav-pills margin-bottom-60">
-					<li class="filter active"><a data-filter="*" href="#">All</a></li>
-					<li class="filter"><a data-filter=".female" href="#">Female</a></li>
-					<li class="filter"><a data-filter=".male" href="#">Male</a></li>
-					<li class="filter"><a data-filter=".pro" href="#">Pro</a></li>
-					<li class="filter"><a data-filter=".open" href="#">Open</a></li>
-					<li class="filter"><a data-filter=".elite" href="#">Elite</a></li>
-					<li class="filter"><a data-filter=".a" href="#">A</a></li>
-					<li class="filter"><a data-filter=".b" href="#">B</a></li>
-					<li class="filter"><a data-filter=".c" href="#">C</a></li>
-					<li class="filter"><a data-filter=".d" href="#">D</a></li>
-					<li class="filter"><a data-filter=".junior" href="#">Junior</a></li>
-					<li class="filter"><a data-filter=".novice" href="#">Novice</a></li>
-				</ul>
-
-				<div class="input-group col-md-4">
-					<input type="text" placeholder="Search" class="form-control">
-					<span class="input-group-btn">
-						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-					</span>
-				</div>	
-				
+				<div class="collapse navbar-collapse nav-filter-collapse">
+					<ul id="portfolio_filter" class="nav nav-pills margin-bottom-20">
+						<li class="filter active"><a data-filter="*" href="#">All</a></li>
+						<li class="filter"><a data-filter=".female" href="#">Female</a></li>
+						<li class="filter"><a data-filter=".male" href="#">Male</a></li>
+						<li class="filter"><a data-filter=".pro" href="#">Pro</a></li>
+						<li class="filter"><a data-filter=".open" href="#">Open</a></li>
+						<li class="filter"><a data-filter=".elite" href="#">Elite</a></li>
+						<li class="filter"><a data-filter=".a" href="#">A</a></li>
+						<li class="filter"><a data-filter=".b" href="#">B</a></li>
+						<li class="filter"><a data-filter=".c" href="#">C</a></li>
+						<li class="filter"><a data-filter=".d" href="#">D</a></li>
+						<li class="filter"><a data-filter=".junior" href="#">Junior</a></li>
+						<li class="filter"><a data-filter=".novice" href="#">Novice</a></li>
+					</ul>
+				</div>
+				<form method="GET" action="{{route('members.search')}}">			
+					<div class="input-group col-sm-4 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+						<input type="text" name="name" value="{{$name}}" placeholder="Search by Name" class="form-control">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+					
+				</form>
+			</div>
+			@if(isset($search_results))
+				<h4>{{ $search_results}}</h4>
+			@endif
 		<!-- Portfolio Items -->
-			<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-4">
+			<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-5">
 		{{-- 	<div id="portfolio" class="clearfix portfolio-isotope portfolio-isotope-4"> --}}
 
 				@foreach($members as $m)
@@ -88,17 +98,6 @@
 							<!-- /overlay title -->
 
 							<img class="img-responsive" src="{{ asset('images/members/'.$m->id.'/profile.png')}}" width="600" height="399" alt="">
-							{{-- <!-- carousel -->
-							<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 6000, "navigation": false, "pagination": true, "transitionStyle":"goDown"}'>
-								<div>
-									<img class="img-responsive" src="{{ asset('images/members/'.$m->id.'/profile.png')}}" width="600" height="399" alt="">
-								</div>
-								<div style="padding-top:40px">
-									<h4>Skill: {{$m->profile['skill']}}</h4>
-								</div>								
-							</div>
-							<!-- /carousel --> --}}
-
 						</figure>
 					</div>
 
@@ -130,16 +129,9 @@
 			-->
 			<section class="page-header page-header-xs">
 				<div class="container text-center">
-
-					<!-- Pagination Default -->
 					<ul class="pagination pagination-lg pagination-simple">
-						<li><a href="#">prev</a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">next</a></li>
+					{{$members->links()}}
+					<!-- Pagination Default -->				
 					</ul>
 					<!-- /Pagination Default -->
 

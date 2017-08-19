@@ -6,13 +6,14 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><i class="et-bullhorn"></i> RANKINGS</h1>
+			<h1><i class="fa fa-list-ol"></i> RANKINGS</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Members</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="{{route('members.listing')}}">Profiles</a></li>
 				<li class="active">Rankings</li>
+				<li><a href="{{route('members.membership')}}">Membership</a></li>
 			</ol><!-- /breadcrumbs -->
 
 		</div>
@@ -80,41 +81,40 @@
 							</figure>
 							<!-- /Random player -->
 
-							<div class="item-box-desc">
-								<div class="height-250 " data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" >
+								<div class="box-innerX" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" >
 									
-									<h4 class="text-primary text-center">Top 10 
-										<smaller class="h6"><a href="{{$rank->url}}" target="rankings" title="View All Ranks"><i class="fa fa-eye"></i></a></smaller>
-									</h4>
-									<hr/> 
+									<hr style="margin:5px"/>
+									<h5 class="text-success " style="padding-left:10px; padding-right:10px; margin:0px 0px 0px 0px">
+										<a class="pull-right size-11 text-warning" href="{{$rank->url}}" target="rankings" title="View All Ranks">VIEW ALL </a>
+										Top 10
+									</h5>
+									<hr style="margin:5px"/>
+									<div class="height-350 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" >
+										<!-- TOP 10 -->
+										@foreach($rank as $r)
+										<!-- post item -->
+										<div class="clearfix margin-bottom-5">
+										    @if($r->usar()->first()->avatar!=0)
+												<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+											@else
+												<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="60" height="60" alt=""/>
+											@endif
+											<h3 class="size-13 nomargin noborder nopadding">
 
-									@foreach($rank as $r)
-									<!-- post item -->
-									<div class="clearfix margin-bottom-10">
-									    @if($r->usar()->first()->avatar!=0)
-											<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
-										@else
-											<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="60" height="60" alt=""/>
-										@endif
-										<h3 class="size-13 nomargin noborder nopadding">
-
-										@if ($r->user()->count() == 0 )
-											<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $r->usar_id }}" target="usar_profile">
-										@else
-											<a href="{{ route('members.show',1)}}">
-										@endif
-												
-										</a>	
-									     	<sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller>						
-										</h3>
-										<span class="size-11 text-muted">{{$r->usar()->first()->city}}, {{$r->usar()->first()->state }}</span>
+												@if ($r->user()->count() == 0 )
+												<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $r->usar_id }}" target="usar_profile">
+												@else
+												<a href="{{ route('members.show',1)}}">
+												@endif	
+										     	<sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller>			</a>
+											</h3>
+											<span class="size-11 text-muted">{{$r->usar()->first()->city}}, {{$r->usar()->first()->state }}</span>
+										</div>
+										<!-- /post item -->
+										@endforeach
 									</div>
-									<!-- /post item -->
-									@endforeach
-
 								</div>
 
-							</div>
 						</div>
 					</div><!-- /item -->
 

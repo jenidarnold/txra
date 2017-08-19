@@ -93,7 +93,8 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 {	
 	Route::get('home', array('as' => 'members.listing', 'uses' => 'MemberController@home'));
-	Route::get('/', array('as' => 'members.listing', 'uses' => 'MemberController@index'));	
+	Route::get('/', array('as' => 'members.listing', 'uses' => 'MemberController@index'));
+	Route::get('/search/', array('as' => 'members.search', 'uses' => 'MemberController@search'));		
 	Route::get('profile/{id}/', array('as' => 'members.show', 'uses' => 'MemberController@show'));	
 	Route::get('profile/{id}/create', array('as' => 'members.create', 'uses' => 'MemberController@create'));	
 	Route::get('profile/{id}/edit', array('as' => 'members.edit', 'uses' => 'MemberController@edit'));
