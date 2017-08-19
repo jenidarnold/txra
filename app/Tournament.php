@@ -25,8 +25,8 @@ class Tournament extends Model
     public static function live() {
     	return self::orderBy('start_date')
 				->where('start_date', '<=', date("Y-m-d"))
-				->where('end_date', '>=', date("Y-m-d"))				
-				->get();
+				->where('end_date', '>=', date("Y-m-d"))	
+                ;
 	}
 
      /* future tournaments
@@ -35,7 +35,7 @@ class Tournament extends Model
     public static function future() {
     	return self::orderBy('start_date')
 				->where('start_date', '>', date("Y-m-d"))
-				->get();
+                ;
 	}
 
      /* past tournaments
@@ -46,12 +46,12 @@ class Tournament extends Model
 	 	if ( $days == null ){
         	return self::orderBy('start_date', 'desc')
 				->where('end_date','<', date("Y-m-d"))
-				->get();
+                ;
         } else {
             return  self::orderBy('start_date', 'desc')
 				->where('end_date','<', date("Y-m-d"))
 				->where('start_date', '>', date('Y-m-d', strtotime("-$days days")))
-				->get();        
+                ;
         }
     }
 

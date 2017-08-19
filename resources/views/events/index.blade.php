@@ -7,8 +7,8 @@
 
 <section class="page-header page-header-xs">
 	<div class="container">
-		<h3><span>{{ $type }}</span> Events</h3>
-		<!--p class="font-lato size-14">Lorem ipsum dolor sit amet.</p-->
+		<h3><span>{{ $type }}</span> 
+			Events</h3>
 	</div>
 </section>
 <!-- /PAGE HEADER -->
@@ -24,8 +24,12 @@
 							<li data-filter="design" class="filter"><a href="#">Design</a></li>
 						</ul> --}}
 
-
-				<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-4">
+				<!-- Pager TOP -->
+				<div class="text-center">
+					{{$tournaments->links()}}
+				</div>
+				<!-- /Pager TOP -->
+				<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-3">
 
 							@foreach($tournaments as $t)
 							<!-- item -->								
@@ -84,11 +88,14 @@
 						</div>
 
 </section>
-{{-- <section>
-	<!-- EVENT SLIDER-->
-	@include('includes.eventslider', array('event_type' => $type) )    	
-	<!-- /EVENT SLIDER -->
-</section>
- --}}
+<section class="page-header page-header-xs">
+	<div class="container text-center">
+		<ul class="pagination pagination-lg pagination-simple">
+		{{$tournaments->links()}}
+		<!-- Pagination Default -->				
+		</ul>
+		<!-- /Pagination Default -->
 
+	</div>
+</section>
 @stop

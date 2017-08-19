@@ -369,6 +369,11 @@
 													ARCHIVED EVENTS
 												</a>
 											</li>
+											<li class="dropdown">
+												<a class="dropdown" href="{{ route('events.index', array('type' =>'ladder'))}}">
+													LADDERS
+												</a>
+											</li>
 										</ul>
 									</li>
 									<li class="dropdown"><!-- EVENTS -->

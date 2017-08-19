@@ -61,10 +61,23 @@ class EventController extends Controller {
 			
 			$tournaments = Tournament::past(90);	
 
+		}elseif (strtolower($type) =='ladder') {		
+			$tournaments = Tournament::live()
+				->where('name', 'like', '%Ladder')
+				;				
 		}else {
 			$tournaments = Tournament::past();	
 		}
 		
+		//Filter out Ladders
+		if (strtolower($type) != 'ladder'){
+			$tournaments = $tournaments
+				->where('name', 'not like', '%Ladder')
+				;
+		}
+
+		//final tournaments
+		$tournaments = $tournaments->paginate(9);
 
 		$page = (object) [ 
 			'title' => 'Index' 
