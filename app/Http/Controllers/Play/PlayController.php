@@ -30,8 +30,9 @@ class PlayController extends Controller {
 		
 		$sites = collect();
 		$links = array(
-					"http://www.wikihow.com/Play-Racquetball", 
+					"http://www.teamusa.org/USA-Racquetball/How-To-Play",
 					"https://www.youtube.com/watch?v=H2Z6A2iNSUM&t=721s",
+					"http://www.wikihow.com/Play-Racquetball", 
 					"http://www.rulesofsport.com/sports/racquetball.html", 
 				);
 
@@ -49,6 +50,7 @@ class PlayController extends Controller {
 	 */
 	public function rules(Request $request)
 	{
+	
 		return view('play/rules');
 	}
 	

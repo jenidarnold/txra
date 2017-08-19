@@ -75,7 +75,7 @@
 								@if($rank->featured->avatar!=0)
 									<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" width="600" height="399" alt="">
 								@else
-									<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="600" height="399" alt=""/>
+									<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="600" height="399" alt=""/>
 								@endif
 							</figure>
 							<!-- /Random player -->
@@ -91,7 +91,7 @@
 									@foreach($rank as $r)
 									<!-- post item -->
 									<div class="clearfix margin-bottom-10">
-									    @if($r->usar()->first()->avatar !=0)
+									    @if($r->usar()->first()->avatar!=0)
 											<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
 										@else
 											<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="60" height="60" alt=""/>
@@ -103,10 +103,9 @@
 										@else
 											<a href="{{ route('members.show',1)}}">
 										@endif
-										<sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller>										
-										</a>
-
-
+												
+										</a>	
+									     	<sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller>						
 										</h3>
 										<span class="size-11 text-muted">{{$r->usar()->first()->city}}, {{$r->usar()->first()->state }}</span>
 									</div>

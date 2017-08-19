@@ -34,7 +34,7 @@ class UsarMembersTableSeeder extends Seeder
 			'city' => 'Arlington',
 			'state' => 'Texas',
 			'skill' => 'Elite',
-			'avatar' => ''
+			'avatar' => '0'
 		]);
 
 		UsarMember::create([
@@ -45,7 +45,7 @@ class UsarMembersTableSeeder extends Seeder
 			'city' => 'Cedar Hill',
 			'state' => 'Texas',
 			'skill' => 'Elite',
-			'avatar' => ''
+			'avatar' => '0'
 		]);
 
 		UsarMember::create([
@@ -56,7 +56,7 @@ class UsarMembersTableSeeder extends Seeder
 			'city' => 'Plano',
 			'state' => 'Texas',
 			'skill' => 'B',
-			'avatar' => ''
+			'avatar' => '0'
 		]);
 
 		UsarMember::create([
@@ -67,7 +67,7 @@ class UsarMembersTableSeeder extends Seeder
 			'city' => 'Houston',
 			'state' => 'Texas',
 			'skill' => 'A',
-			'avatar' => ''
+			'avatar' => '0'
 		]);
 
 		UsarMember::create([
@@ -78,7 +78,7 @@ class UsarMembersTableSeeder extends Seeder
 			'city' => 'Dallas',
 			'state' => 'Texas',
 			'skill' => 'Open',
-			'avatar' => ''
+			'avatar' => '0'
 		]);
 
 

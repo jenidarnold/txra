@@ -55,7 +55,7 @@
 			display: none;
 		}
 		.breadcrumb {
-			display: none;
+			/*display: none;*/
 		}
 				
 	</style>
