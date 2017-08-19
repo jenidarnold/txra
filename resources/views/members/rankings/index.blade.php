@@ -73,10 +73,14 @@
 									<h3><sup>#</sup>{{$rank->featured->rank}} {{$rank->featured->first_name}} {{$rank->featured->last_name}}</h3>									
 								</div><!-- /overlay title -->
 						
-								@if($rank->featured->avatar!=0)
-									<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" width="600" height="399" alt="">
+								@if ($rank->featured->user_id == 0)
+									@if($rank->featured->avatar!=0)
+										<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" width="600" height="399" alt="">
+									@else
+										<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="600" height="399" alt=""/>
+									@endif
 								@else
-									<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="600" height="399" alt=""/>
+									<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/members/'. $rank->featured->user_id .'/profile.png')}}" width="600" height="399" alt=""/>
 								@endif
 							</figure>
 							<!-- /Random player -->
@@ -94,10 +98,15 @@
 										@foreach($rank as $r)
 										<!-- post item -->
 										<div class="clearfix margin-bottom-5">
-										    @if($r->usar()->first()->avatar!=0)
-												<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+
+											@if ($r->user()->count() == 0 )
+											    @if($r->usar()->first()->avatar!=0)
+													<img class="thumbnail pull-left" style="margin-right:5px" src="{{ 'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$r->usar()->first()->avatar}}" data-plugin-options='{"type":"image"}' width="60" height="60" alt="" />
+												@else
+													<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="60" height="60" alt=""/>
+												@endif
 											@else
-												<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="60" height="60" alt=""/>
+												<img class="img-thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/members/'. $r->user()->first()->id .'/profile.png')}}" width="60" height="60" alt=""/>
 											@endif
 											<h3 class="size-13 nomargin noborder nopadding">
 

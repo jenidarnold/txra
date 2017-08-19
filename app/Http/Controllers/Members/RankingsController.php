@@ -63,7 +63,7 @@ class RankingsController extends Controller {
 		$tms->filter = "TX singles men";
 		$tws->filter = "TX singles women";
 		$tmd->filter = "TX doubles men";
-		$twd->filter = "TX dobules women";
+		$twd->filter = "TX doubles women";
 		$tmx->filter = "TX mixed men";
 		$twx->filter = "TX mixed women";
 		
