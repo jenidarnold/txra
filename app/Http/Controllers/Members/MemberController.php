@@ -38,6 +38,9 @@ class MemberController extends Controller {
 		}
 
 		$name = $request['name'];
+		$city = $request['city'];
+
+		//Filter by Name
 		if ( $name != '') {
 			$members = $members
 						->where('first_name', 'like', "%$name%")
@@ -45,9 +48,21 @@ class MemberController extends Controller {
 						->orWhere(\DB::raw('CONCAT(first_name, " ", last_name)'),'like', "%$name%")
 					;
 			}
+
+		//Filter by city
+		if ( $city != '') {
+			$members = $members
+						->whereHas('profile', function($query) use ($city)
+							{
+								$query->where('city', 'like', "%$city%");
+							}
+						)
+						;			
+			}
+
 		$members = $members->paginate(10);
 
-		return view('members/profiles/index', compact('members', 'name'));
+		return view('members/profiles/index', compact('members', 'name', 'city'));
 	}
 
 
@@ -72,8 +87,9 @@ class MemberController extends Controller {
 
 		//Search parameter
 		$name = "";
+		$city = "";
 			
-		return view('members/profiles/index', compact('members', 'name'));
+		return view('members/profiles/index', compact('members', 'name', 'city'));
 	}
 
 

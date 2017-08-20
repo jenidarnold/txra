@@ -1,9 +1,26 @@
 @extends('layouts.news')
 
 @section('body')
-    <figure class="margin-bottom-20 ">
-        <img class="img-responsive1"  style="max-height:100px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
-    </figure>
+    @if ($post->image_count() > 1)
+        <!-- OWL SLIDER -->
+        <div style="max-height:200px" class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": {{$post->image_count()}}, "autoPlay": 6000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+
+            @foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)
+                @if (!$fileinfo->isDot())
+                    <div>
+                        <img class="img-responsive"  style="max-height:200px" src="{{ asset($fileinfo->getPathname()) }}" alt="">
+                    </div>
+                @endif
+            @endforeach                             
+        </div>
+        <!-- /OWL SLIDER -->
+    @else
+        <figure class="margin-bottom-20 ">
+            <img class="thumbnail img-responsive1"  style="max-height:100px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
+        </figure>
+    @endif
+
+    
     <h1 class="blog-post-title" style="color:{{$post['color']}}">{{$post['title']}}</h1>   
     <ul class="blog-post-info list-inline">
             <li>
@@ -71,23 +88,6 @@
                 @endif
             </p>
         </section>
-        <section class="content">
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = '{{\Config::get('blog.disqus')}}'; // required: replace example with your forum shortname
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        
-        </section>
-
 
 </div><!-- /news -->
 

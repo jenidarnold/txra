@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="page-header page-header-xs">
+    <section class="page-header page-header-xs hidden-xs">
         <div class="container">
 
-            <h1>LOGIN into TXRA</h1>
+            <h1><i class="fa fa-sign-in"></i> LOGIN</h1>
            
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="/welcome">Welcome</a></li>
-                <li class="active">LOGIN</li>
+                <li><a href="/welcome">Home</a></li>
+                <li class="active">Login</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -21,11 +21,11 @@
         <div class="container">
             <div class="row">
             <!-- LOGIN EMAIL-->
-                <div class="col-md-4 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                <div class="col-md-4 col-md-offset-4 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                    <form class="nomargin sky-form boxed" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                          <header>
-                        <i class="fa fa-envelope"></i> Login with your Email address
+                        Login with your Email Address
                         </header>
 
                         <fieldset class="nomargin"> 
@@ -77,7 +77,7 @@
                 </div>
                 <!-- \LOGIN EMAIL -->
                
-                <!-- LOGIN R2SPORTS -->
+{{--                 <!-- LOGIN R2SPORTS -->
                 <div class="col-md-4 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                    <form class="nomargin sky-form boxed" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -124,13 +124,13 @@
                       
                     </form>
                                    
-                </div>
+                </div> --}}
                
-                <div class="col-md-4 col-sm-12 text-center">                  
+{{--                 <div class="col-md-4 col-sm-12 text-center">                  
                         <a class="btn btn-block btn-social btn-facebook margin-top-10">
                             <i class="fa fa-facebook"></i> Sign in with Facebook
                         </a>
-                </div>    
+                </div>   --}}  
             </div>
         </div>
     </div>

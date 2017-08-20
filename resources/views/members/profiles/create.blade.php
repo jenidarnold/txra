@@ -184,43 +184,33 @@
 		<!-- ACCOUNTS TAB -->		
 		<div class="tab-pane fade" id="accounts">
 			<div class="container">
-				<div class="row">
-			{{-- 		<div class="row col-md-12 alert alert-info col-sm-12 col-sm-offset-0">
-						<label class="h4">Link your USAR Account to this account</label>
-						<p>By linking your USAR account, you will have access to your USAR History	in your TXRA account</p>
-					</div>
-				</div>
-				<div class="row">
-					<div id="ifR2Sports" name ="ifR2Sports" class="col-md-8 col-md-offset-0">		
-
-					</div> --}}
+				<div class="row">		
 					<div class="col-md-8 col-md-offset-0">						
-							{!! Form::model($user, array('route' => array('members.link_usar', $user->id), 'role' => 'form', 'class'=> 'form-horizontal','method' => 'POST')) !!}
-								{!! Form::hidden ('_token', csrf_token()) !!}
-								<div class="form-group">
-									<label class="col-md-3 control-label">USAR Login:</label>
-									<div class="col-md-6">
-										<input type="text" class="form-control" name="username" value="">
-									</div>
+						{!! Form::model($user, array('route' => array('members.link_usar', $user->id), 'role' => 'form', 'class'=> 'form-horizontal','method' => 'POST')) !!}
+							{!! Form::hidden ('_token', csrf_token()) !!}
+							<div class="form-group">
+								<label class="col-md-3 control-label">USAR Login:</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="username" value="">
 								</div>
-								<div class="form-group">
-									<label class="col-md-3 control-label">USAR Password:</label>
-									<div class="col-md-6">
-										<input type="password" class="form-control" name="password">
-									</div>
-								</div>						
-								<div class="form-group">
-									<div class="col-md-6 col-md-offset-3">
-										{!!  Form::submit('Link Accounts', array('class' => 'btn btn-success')) !!}
-									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">USAR Password:</label>
+								<div class="col-md-6">
+									<input type="password" class="form-control" name="password">
 								</div>
-								<div class="form-group"> 
-									<div class="alert alert-info col-sm-9 col-sm-offset-1"><i class="fa fa-info-circle"></i> We do not store your USAR username and password</div>
+							</div>						
+							<div class="form-group">
+								<div class="col-md-6 col-md-offset-3">
+									{!!  Form::submit('Link Accounts', array('class' => 'btn btn-success')) !!}
 								</div>
-							{!! Form::close() !!}							
-						</div>
-						
+							</div>
+							<div class="form-group"> 
+								<div class="alert alert-info col-sm-9 col-sm-offset-1"><i class="fa fa-info-circle"></i> We do not store your USAR username and password</div>
+							</div>
+						{!! Form::close() !!}							
 					</div>
+						
 				</div>
 			</div>
 		</div>

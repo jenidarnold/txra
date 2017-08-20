@@ -13,6 +13,7 @@
 	<ul class="nav nav-tabs nav-top-border">
 		<li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
 		<li><a href="#avatar" data-toggle="tab">Avatar</a></li>
+		<li><a href="#accounts" data-toggle="tab">Link Accounts</a></li>
 		<li><a href="#password" data-toggle="tab">Password</a></li>
 		<li><a href="#privacy" data-toggle="tab">Privacy</a></li>
 	</ul>
@@ -175,6 +176,41 @@
 
 		</div>
 		<!-- /AVATAR TAB -->
+		
+		<!-- ACCOUNTS TAB -->		
+		<div class="tab-pane fade" id="accounts">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-0">						
+						{!! Form::model($user, array('route' => array('members.link_usar', $user->id), 'role' => 'form', 'class'=> 'form-horizontal','method' => 'POST')) !!}
+							{!! Form::hidden ('_token', csrf_token()) !!}
+							<div class="form-group">
+								<label class="col-md-3 control-label">USAR Login:</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="username" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">USAR Password:</label>
+								<div class="col-md-6">
+									<input type="password" class="form-control" name="password">
+								</div>
+							</div>						
+							<div class="form-group">
+								<div class="col-md-6 col-md-offset-3">
+									{!!  Form::submit('Link Accounts', array('class' => 'btn btn-success')) !!}
+								</div>
+							</div>
+							<div class="form-group"> 
+								<div class="alert alert-info col-sm-9 col-sm-offset-1"><i class="fa fa-info-circle"></i> We do not store your USAR username and password</div>
+							</div>
+						{!! Form::close() !!}							
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- /ACCOUNTS TAB -->
 
 		<!-- PASSWORD TAB -->		
 		<div class="tab-pane fade" id="password">

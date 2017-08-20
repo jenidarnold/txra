@@ -6,28 +6,15 @@
 @section('content')		
 	<section class="page-header page-header-xs">		
 		<div class="container">
-			<h1>MEMBERS</h1>					
+			<h1><i class="fa fa-user-circle"></i> MEMBERS</h1>					
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->
 	<!-- -->
 	<section>
 		<div class="container">
-{{-- 			<ul id="portfolio_filter" class="nav nav-pills margin-top-10  margin-bottom-10">
-				<li data-filter="*" class="filter active"><a href="#">All</a></li>
-				<li data-filter=".male" class="filter"><a href="#">Male</a></li>
-				<li data-filter=".female" class="filter"><a href="#">Female</a></li>
-				<li data-filter=".junior" class="filter"><a href="#">Juniors</a></li>
-				<li data-filter=".pro" class="filter"><a href="#">Pros</a></li>
-				
-				<div class="input-group col-md-4">
-					<input type="text" placeholder="Search" class="form-control">
-					<span class="input-group-btn">
-						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-					</span>
-				</div>	
-			</ul> --}}
-
+			<p class="text-primary col-xs-12">Members listed below have an account with <b>TXRA.org</b>. If you, don't have an account, <a href="/register">register here</a>
+			</p>
 				<button class="btn btn-mobile hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
 					<i class="fa fa-bars"></i> Filter
 				</button>
@@ -48,21 +35,36 @@
 						<li class="filter"><a data-filter=".novice" href="#">Novice</a></li>
 					</ul>
 				</div>
-				<form method="GET" action="{{route('members.search')}}">			
-					<div class="input-group col-sm-4 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-						<input type="text" name="name" value="{{$name}}" placeholder="Search by Name" class="form-control">
-						<span class="input-group-btn">
-							<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-						</span>
+
+				<form method="GET" action="{{route('members.search')}}">	
+					<div class="row">
+						<div class="col-md-4 col-sm-6">		
+							<div class="input-group">
+								<input type="text" name="name" value="{{$name}}" placeholder="Search by Name" class="form-control">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">		
+							<div class="input-group ">
+								<input type="text" name="city" value="{{$city}}" placeholder="Search by Hometown" class="form-control">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-2">	
+						<a  href="{{route('members.listing')}}" class="btn btn-default" type="button">Reset</a>
+						</div>
 					</div>
-					
 				</form>
 			</div>
 			@if(isset($search_results))
 				<h4>{{ $search_results}}</h4>
 			@endif
 		<!-- Portfolio Items -->
-			<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-5">
+			<div id="portfolio" class="clearfix fullwidth portfolio-gutter portfolio-isotope portfolio-isotope-5">
 		{{-- 	<div id="portfolio" class="clearfix portfolio-isotope portfolio-isotope-4"> --}}
 
 				@foreach($members as $m)
@@ -93,7 +95,7 @@
 							<!-- overlay title -->
 							<div class="item-box-overlay-title">
 								<h3 class="text-center">{{$m->full_name}}</h3>
-								Hometown: {{$m->profile['city']}}<br/>								
+								 {{$m->profile['city']}}<br/>								
 							</div>
 							<!-- /overlay title -->
 

@@ -50,8 +50,8 @@ class User extends Model implements AuthenticatableContract,
      */
     public static function link_Usar($userId, $username, $password) {
 
-         $username = 'j***';
-         $password = 'r***';
+         $username = 'je****';
+         $password = 'Ru****';
 
         $cookieFile = '/var/www/txra/jar.txt';
         $jar = new FileCookieJar($cookieFile, true);
@@ -59,54 +59,74 @@ class User extends Model implements AuthenticatableContract,
         // Need to add the token to the header?
         //X-CSRF-Token: [token]
         // Create a client with a base URI
-        //$client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
+        $client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
         // Send a request to https://foo.com/api/test
-        //$response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID=', [
-        // $response = $client->request('POST', 'membership/login.asp', 
-        //     ['debug' => false,
-        //     'track_redirects' => true],
-        //     [
-        //     'form_params' => [
-        //         'userName' => $username,
-        //         'password' => $password,
-        //         ]           
-        // ]);
+        $response = $client->request('GET', 'membership/login.asp', [
+            'form_params' => [
+                'userName' => $username,
+                'password' => $password,
+                'action' => 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID='
+                ]           
+        ]);
+       
+        //dd($response);
+        $body = $response->getBody();
+        dd($response);
+       
+       //  // Need to add the token to the header?
+       //  //X-CSRF-Token: [token]
+       //  // Create a client with a base URI
+       //  //$client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
+       //  // Send a request to https://foo.com/api/test
+       //  //$response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID=', [
+       //  // $response = $client->request('POST', 'membership/login.asp', 
+       //  //     ['debug' => false,
+       //  //     'track_redirects' => true],
+       //  //     [
+       //  //     'form_params' => [
+       //  //         'userName' => $username,
+       //  //         'password' => $password,
+       //  //         ]           
+       //  // ]);
 
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.r2sports.com/membership/login.asp');    
-        
-        $html = new \DOMDocument('1.0','iso-8859-1');
-        $html->formatOutput = true;
+       //  $client = new Client();
+    
 
-        $form = $html->createElement('form');
-        $form->setAttribute('method', 'post');
-        $form->setAttribute('action', 'membership/loginCheck.asp?TID=&sportOrganizationID=1&returnToRefPage=&directorID=');
+       //  // $crawler = $client->request('POST', 'https://www.r2sports.com/tourney/login.asp?TID=21919'); 
+       //  // $form = $crawler->filter('form')->form();
+       //  // $crawler = $client->submit($form, array('uid' => $username, 'pwd' => $password ));
 
-        $fieldset = $html->createElement('fieldset');
+       //  // $crawler->filter('.flash-error')->each(function ($node) {
+       //  //     var_dump( $node->text()."\n");
+       //  // });
 
-        $name = $html->createElement('input');
-        $name->setAttribute('type', 'text');
-        $name->setAttribute('name', 'userName');
+       //  // we don't use the trait method here since we want our
+       //  // test to span two page requests, and we need to have
+       //  // the session persist on the remote server
+       //  // create a web client and hit the login page
+       //  $url = "https://www.r2sports.com/tourney/login.asp?TID=21919";
+       //  $client = new Client();
+       //  $crawler = $client->request('POST', $url);
+       //  $response_code = $client->getResponse()->getStatus();
+       //  // we should get 200 back
+       // // $this->assertEquals(200, $response_code);
+       //  // select the form on the page and populate values
+       //  // since we are using Goutte\Client, we don't need
+       //  // to worry about parsing the HTML to find the csrf _token
+       //  //$form = $crawler->selectButton('image')->form();
+       //  $form = $crawler->filter('form')->form();
+       //  $form->setValues(['uid' => 'jenida', 'pwd' => 'Ruph7874']);
+       //  // submit the form
+       //  $client->submit($form);
+       //  $response_code_after_submit = $client->getResponse()->getStatus();
+       //  // make sure the HTML page displayed (response code 200
+       //  //$this->assertEquals(200, $response_code_after_submit);
+       //  // make sure we can get to the testimonial page
+       //  $client->request('GET', 'https://www.r2sports.com/tourney/Registration.asp?regUserLoginID=1633738&TID=21919&UID=192412&EDIT=Y');
+       //  $response_code = $client->getResponse()->getStatus();
+       //  //$this->assertEquals(200, $response_code);
 
-        $email = $html->createElement('input');
-        $email->setAttribute('type', 'password');
-        $email->setAttribute('name', 'password');
-
-        $fieldset->appendChild($name);
-        $fieldset->appendChild($email);
-
-        $form->appendChild($fieldset);
-
-        $form = new \Symfony\Component\DomCrawler\Form($form, 'https://www.r2sports.com/membership/login.asp', 'POST', 'https://www.r2sports.com');
-        //$form->set($formInput);
-     
-        $crawler = $client->submit($form, array('userName' => $username, 'password' => $password ));
-
-        $crawler->filter('.flash-error')->each(function ($node) {
-            var_dump( $node->text()."\n");
-        });
-
-        dd( $crawler);
+       //  dd( $crawler->html());
     }
 
     /**

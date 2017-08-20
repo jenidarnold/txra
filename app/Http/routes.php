@@ -149,6 +149,12 @@ Route::group(['namespace' => 'Donate', 'prefix' =>'donate'], function()
 	Route::get('/', array('as' => 'donate.index', 'uses' => 'DonateController@index'));	
 });
 
+/* FAQ */
+Route::group(['namespace' => 'Faq', 'prefix' =>'faq'], function()
+{
+	Route::get('/articles', array('as' => 'faq.articles', 'uses' => 'FAQController@index'));	
+});
+
 /* FORMS */
 Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 {

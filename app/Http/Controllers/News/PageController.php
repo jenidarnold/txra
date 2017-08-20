@@ -49,26 +49,6 @@ class PageController extends BaseController {
     public function store()
     {
 
-        //dd($_FILES["images"]); //->getClientOriginalName());
-
-        // validate
-        // read more on validation at http://laravel.com/docs/validation
-        //$rules = array(
-        //    'name'       => 'required',
-        //    'email'      => 'required|email',
-        //    'nerd_level' => 'required|numeric'
-        //);
-        //$validator = Validator::make(Input::all(), $rules);
-
-        // process the login
-        //if ($validator->fails()) {
-        //    return Redirect::to('news/create')
-        //        ->withErrors($validator)
-        //        ->withInput(Input::except('password'));
-        //} else {
-        //
-        //
-        //
             // store
             $post = new Post;
             $post->title       = \Input::get('title');
@@ -77,7 +57,7 @@ class PageController extends BaseController {
 
             $post->image       = '0_'. $_FILES["images"]["name"][0];            
 
-            $post->public      = 1;
+            $post->public      = 0;
             $post->save();
 
             $category_id = \Input::get('category');
@@ -91,6 +71,7 @@ class PageController extends BaseController {
 
             // http://php.net/manual/en/features.file-upload.post-method.php
             $i = 0;
+            $limit = 6; //Limit to 6 files
             foreach ($_FILES["images"]["error"] as $key => $error) {
                 if ($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["images"]["tmp_name"][$key];
@@ -106,6 +87,9 @@ class PageController extends BaseController {
                     }
                     move_uploaded_file($tmp_name, "images/blog/$post->id/$name");
                     $i++;
+                    if ($i== $limit) {
+                       break;
+                    }
                 }
             }
 
