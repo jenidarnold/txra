@@ -232,24 +232,24 @@
                 <div class="container">
                     <div class="row">
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:0px; padding-bottom:0px; border-bottom:none">
+                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:10px; padding-bottom:10px; border-bottom:none">
                             @include('includes.blogslider', array('title' => 'TRENDING', 'icon'=>'fa-line-chart text-success', 'post' => $trending))  
                         </div>
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:0px; padding-bottom:0px; border-bottom:none">
+                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:10px; padding-bottom:10px; border-bottom:none">
                             @include('includes.blogslider', array('title' => 'PLAYER SPOTLIGHT', 'icon'=>'fa-star-o text-info', 'post' => $spotlight))  
                         </div>
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:0px; padding-bottom:0px; border-bottom:none">
+                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:10px; padding-bottom:10px; border-bottom:none">
                             @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $tip))  
                         </div>
                     </div>
                 </div>
             </section>
 
-        <!-- /EVENT SLIDER -->
+        <!-- EVENT SLIDER -->  
         @include('includes.eventslider', array('event_type' => 'LIVE', 'tournaments' => $tournaments["live"]))            
-        <!-- /EVENT SLIDER -->
+        <!-- EVENT SLIDER -->
         @include('includes.eventslider', array('event_type' => 'FUTURE', 'tournaments' => $tournaments["future"])))
         <!-- EVENT SLIDER-->
         @include('includes.eventslider', array('event_type' => 'RECENT', 'tournaments' => $tournaments["recent"])))    
