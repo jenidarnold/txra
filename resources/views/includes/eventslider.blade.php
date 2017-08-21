@@ -2,8 +2,8 @@
 			<section>
 				<div class="container">
 
-					<div class="heading-title heading-border">
-						<h3><a href="{{route('events.index', array('type' => $event_type))}}">{{ $event_type }} Events</a></h3>
+					<div class="heading-titleX heading-borderX">
+						<h4><i class="et-trophy text-warning"></i> <a href="{{route('events.index', array('type' => $event_type))}}">{{ $event_type }} Events</a></h4>
 						<!--p class="font-lato size-14">Lorem ipsum dolor sit amet.</p-->
 					</div>
 

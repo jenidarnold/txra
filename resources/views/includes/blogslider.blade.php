@@ -1,14 +1,15 @@
 
-	<h2><a href="{{$post->getUrl()}}">{{$title }}</a></h2>
-	<h4><a href="{{$post->getUrl()}}">{{$post->title}}</a></h4>
+	<h4 style="margin-bottom:0px"><i class="fa {{$icon}} text-warning"></i> <a href="{{$post->getUrl()}}">{{$title }}</a></h4>
+	<hr style="margin-top:2px; margin-bottom:5px;"/>
+	<h5 style="margin-bottom:5px"><a href="{{$post->getUrl()}}">{{$post->title}}</a></h5>
 
-	<ul class="blog-post-info list-inline">
-		<li>
+	<ul class="blog-post-info list-inline" style="margin-bottom:5px; padding-bottom:0px; border-bottom:none">
+		{{-- <li>
 			<a href="#">
 				<i class="fa fa-clock-o"></i>
-				<span class="font-lato">{{$post->created_at}}</span>
+				<span class="font-lato">{{$post->created_at->format('m-d Y h:i')}}</span>
 			</a>
-		</li>								
+		</li> --}}								
 		<!--li class="comment">
 			<a href="#">
 				<i class="fa fa-comment-o"></i>
@@ -16,9 +17,8 @@
 			</a>
 		</li-->
 		<li>
-            <a href="#">
-                <i class="fa fa-user"></i> 
-                <span class="font-lato">{{$post->author["first_name"] . " " . $post->author["last_name"]}}</span>
+            <a href="{{route('members.show', $post->author['id'])}}">
+                <span class="font-lato">By {{$post->author["first_name"] . " " . $post->author["last_name"]}}</span>
             </a>
         </li>
 	</ul>
@@ -37,17 +37,17 @@
 	</div>
 	<!-- /OWL SLIDER -->
 	@else
-	  	<figure class="margin-bottom-20 ">
+	  	<figure class="margin-bottom-10 ">
             <img class="thumbnail img-responsive" src="{{asset('images/blog/'.$post->id.'/'.$post->image)}}" alt="{{$post->title}} " >
         </figure>
     @endif
 
 	<p class="list-group-item-text"> {{substr(strip_tags($post->content), 0, 200)}}... </p>
-
-		<a href="{{$post->getUrl()}}" class="btn btn-reveal btn-default">
-    		<i class="fa fa-plus"></i>
-    		<span>Read More</span>
-    	</a>
+	<br/>
+	<a href="{{$post->getUrl()}}" class="btn btn-reveal btn-default">
+		<i class="fa fa-plus"></i>
+		<span>Read More</span>
+	</a>
 
 
 

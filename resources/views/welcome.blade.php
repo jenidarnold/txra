@@ -232,16 +232,16 @@
                 <div class="container">
                     <div class="row">
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4 col-sm-6 col-xs-8">
-                            @include('includes.blogslider', array('title' => 'TRENDING', 'post' => $trending))  
+                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:0px; padding-bottom:0px; border-bottom:none">
+                            @include('includes.blogslider', array('title' => 'TRENDING', 'icon'=>'fa-line-chart text-success', 'post' => $trending))  
                         </div>
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4 col-sm-6 col-xs-8" >
-                            @include('includes.blogslider', array('title' => 'PLAYER SPOTLIGHT', 'post' => $spotlight))  
+                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:0px; padding-bottom:0px; border-bottom:none">
+                            @include('includes.blogslider', array('title' => 'PLAYER SPOTLIGHT', 'icon'=>'fa-star-o text-info', 'post' => $spotlight))  
                         </div>
                         <!-- POST ITEM -->
-                        <div class="blog-post-item col-md-4 col-sm-6 col-xs-8">
-                            @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'post' => $tip))  
+                        <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:0px; padding-bottom:0px; border-bottom:none">
+                            @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $tip))  
                         </div>
                     </div>
                 </div>

@@ -224,12 +224,14 @@
 												<li class="divider"></li>											
 												<li class="dropdown">
 													<a class="dropdown-toggle" href="#">
-														<i class="fa fa-cogs"></i> ADMIN
+														<i class="fa fa-cogs"></i> DOWNLOAD
 													</a>								
 													<ul class="dropdown-menu">
-														<li><a href="{{ route('events.download', 'live')}}">DOWNLOAD LIVE EVENTS</a></li>
-														<li><a href="{{ route('events.download', 'future')}}">DOWNLOAD FUTURE EVENTS</a></li>
-														<li><a href="{{ route('events.download', 'past')}}">DOWNLOAD PAST EVENTS</a></li>
+														<li><a href="{{ route('events.download', array('location' => 'Texas', 'type' => 'live')) }}">TX LIVE EVENTS</a></li>
+														<li><a href="{{ route('events.download', array('location' => 'Texas', 'type' => 'future')) }}">TX FUTURE EVENTS</a></li>
+														<li><a href="{{ route('events.download', array('location' => 'Texas', 'type' => 'past')) }}">TX PAST EVENTS</a></li>
+														<li class="divider"></li>
+														<li><a href="{{ route('events.download',  array('location' => 'national', 'type' => 'future'))}}">NAT FUTURE EVENTS</a></li>
 													</ul>
 												</li>
 											@endif
@@ -470,12 +472,14 @@
 												<li class="divider"></li>											
 												<li class="dropdown">
 													<a class="dropdown-toggle" href="#">
-														ADMIN
+														DOWNLOAD
 													</a>								
 													<ul class="dropdown-menu">
-														<li><a href="{{ route('events.download', 'live')}}">DOWNLOAD LIVE EVENTS</a></li>
-														<li><a href="{{ route('events.download', 'future')}}">DOWNLOAD FUTURE EVENTS</a></li>
-														<li><a href="{{ route('events.download', 'past')}}">DOWNLOAD PAST EVENTS</a></li>
+														<li><a href="{{ route('events.download',  array('location' => 'Texas', 'type' => 'live'))  }}">TX LIVE EVENTS</a></li>
+														<li><a href="{{ route('events.download',  array('location' => 'Texas', 'type' => 'future')) }}">TX FUTURE EVENTS</a></li>
+														<li><a href="{{ route('events.download',  array('location' => 'Texas', 'type' => 'past')) }}">TX PAST EVENTS</a></li>
+														<li class="divider"></li>
+														<li><a href="{{ route('events.download',  array('location' => 'national', 'type' => 'future')) }}">NAT FUTURE EVENTS</a></li>
 													</ul>
 												</li>
 											@endif

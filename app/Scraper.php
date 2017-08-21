@@ -273,6 +273,7 @@ class Scraper {
  	}
  	public function get_tournaments($location, $time_period) 
  	{
+ 		
  		switch($time_period) {
  			case "past":
  				$tourney_page = "results.asp";
@@ -284,7 +285,15 @@ class Scraper {
 				$tourney_page = "future.asp";
  				break;
  		}
- 		$url ="http://www.usaracquetballevents.com/$location/$tourney_page";
+
+		if ($location == 'national'){
+ 			$url ="http://www.usaracquetballevents.com/$tourney_page";
+		}
+		else{
+ 			$url ="http://www.usaracquetballevents.com/$location/$tourney_page";
+ 		}
+
+
 	 	$cc = new CopyCat;
 	 	$cc->setCurl(array(
 	 		CURLOPT_RETURNTRANSFER => 1,

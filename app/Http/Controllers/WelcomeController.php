@@ -28,9 +28,17 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $tournaments["live"] = Tournament::live();
-        $tournaments["future"] = Tournament::future();
-        $tournaments["recent"] = Tournament::past(90);
+
+        $tournaments["live"] = Tournament::live()
+            ->where('name', 'not like', '%Ladder')
+            ->get();
+        $tournaments["future"] = Tournament::future()
+            ->where('name', 'not like', '%Ladder')
+            ->get();
+        $tournaments["recent"] = Tournament::past(90)
+            ->where('name', 'not like', '%Ladder')
+            ->get();
+            
 
         $categories = new PostCategory;
 

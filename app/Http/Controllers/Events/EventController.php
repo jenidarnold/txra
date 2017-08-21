@@ -25,11 +25,11 @@ class EventController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function download($type)
+	public function download($location, $type)
 	{
 		//Move to Admin
 		$time_period = $type; //$request->input('time_period');
-		$location =  "Texas"; //Location::find($location_id)->location;
+		$location =  $location; //Location::find($location_id)->location;
 		$ss = new Scraper();
 		$tournaments = $ss->get_tournaments($location, $time_period);
 
