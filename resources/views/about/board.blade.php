@@ -21,13 +21,14 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1>TXRA BOARD MEMBERS</h1>
+			<h1><img src="{{asset('images/board/board.png')}}" height="24px"> TXRA BOARD MEMBERS</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Pages</a></li>
-				<li class="active">Board of Directors</li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about/board">Directors</a></li>
+				<li><a href="/about/committees">Commitees</a></li>
+				<li><a href="/election/process">Elections</a></li>
 			</ol><!-- /breadcrumbs -->
 
 		</div>
