@@ -426,7 +426,7 @@
 												</ul>
 											</li> --}}
 											<li class="dropdown">
-												<a class="dropdown-toggle" href="/about/bylaws">
+												<a class="dropdown" href="/about/bylaws">
 													BY LAWS
 												</a>
 											</li>

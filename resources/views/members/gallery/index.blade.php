@@ -9,7 +9,7 @@
 	<div class="container">
 
 		<!-- breadcrumbs -->
-		<ol class="breadcrumb breadcrumb-inverse">
+		<ol class="breadcrumb">
 			<li><a href="{{ route('members.listing')}} ">Members</a></li>
 			<li class="active">Julienne Arnold</li>
 		</ol><!-- /breadcrumbs -->
