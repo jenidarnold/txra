@@ -76,8 +76,10 @@
 				<div class="row">
 
 					<div class="col-md-12">
-						<h6><i class="icon-heart text-danger"></i> WHY RACQUETBALL?</h6>
-						<p>"Not only is racquetball a blast to play, but also the sport offers a great deal of physical and mental health benefits. Racquetball is a cinch to learn, and there is a minimal amount of game equipment to buy. The game is fast-paced, so it offers an impressive workout for your entire body in a short amount of time. Racquetball isn't a game for slackers, but you will be having so much fun you wont even notice how much energy you are exerting." <a href="http://woman.thenest.com/benefits-playing-racquetball-13166.html" target="new"> Read More</a></p>
+						<h1 style="font-size:16pt"><i class="icon-heart text-danger"></i>MISSION STATEMENT</h1>
+						<h3>The Texas Racquetball Association's mission is to develop and promote the growth of racquetball.</h3>
+
+						
 					</div>
 
 					<!--div class="col-md-4">

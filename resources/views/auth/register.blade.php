@@ -6,7 +6,8 @@
 @section('content')		
 	<section class="page-header page-header-xs">
 		<div class="container">
-			<h1>CREATE YOUR ACCOUNT</h1>
+			<h1><i class="fa fa-user-circle-o"></i> CREATE YOUR TXRA ACCOUNT</h1>	
+			<p>Already a TXRA/USAR memeber? What's the difference between this account and my USAR account?	</p>	
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->
@@ -32,7 +33,7 @@
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
 							 {{ csrf_field() }}
 								<header>
-									<i class="fa fa-envelope text-default"></i> Register for a TXRA account using your email address
+									<i class="fa fa-envelope text-default"></i> Register using your email address
 									</header>
 									<input type="hidden" name="method" value="email">
 								<fieldset class="nomargin">		
@@ -102,9 +103,8 @@
 										</div>
 									</div>
 								
-									<div class="margin-top-30">
-										<label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>I want to receive news and  special offers</label>
-										<label class="nomargin">By clicking "REGISTER", you agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms of Service</a></label>
+									<div class="margin-top-30 text-center">
+										<label class="nomargin text-muted small">By clicking <b>REGISTER</b>, you agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms of Service</a></label>
 										
 									</div>
 								</fieldset>
@@ -206,7 +206,7 @@
 					
 
 						<div class="col-md-12 text-center margin-top-20">
-							Already have an account? <a href="/login"><strong>Back to login</strong></a>
+							Already have a TXRA account? <a href="/login"><strong>Back to login</strong></a>
 						</div>
 					</div>
 

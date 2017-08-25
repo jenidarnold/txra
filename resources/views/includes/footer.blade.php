@@ -16,23 +16,23 @@
 				<!-- Small Description -->
 				<!--p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p-->
 
-				<!-- Contact Address 
+				<!-- Contact Address -->
 				<address>
 					<ul class="list-unstyled">
 						<li class="footer-sprite address">
-							PO Box 111<br>
-							Down Ln, Texas<br>
-							75007 USA<br>
+							5220 McKinney Avenue, Suite 200<br>
+							Dallas, Texas<br>
+							75205 USA<br>
 						</li>
 						<li class="footer-sprite phone">
-							Phone: 1-800-000-0000
+							Phone: 1-214-378-7400
 						</li>
 						<li class="footer-sprite email">
 							<a href="#" data-toggle="modal" data-target="#contactModal"  data-placement="bottom" title="Contact Us">support@txra.org</a>
 						</li>
 					</ul>
 				</address>
-				/Contact Address -->
+				<!--/Contact Address -->
 
 			</div>
 
