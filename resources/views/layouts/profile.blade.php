@@ -34,23 +34,22 @@
 		<div class="container">
 			
 			<!-- LEFT -->
-			<div class="col-lg-3 col-md-3 col-sm-4">
-			
+			<div class="col-lg-3 col-md-3 col-sm-4">				
 				<div class="thumbnail text-center">
-					<!-- && (@getimagesize('http://localhost:8886/images/members/'. $user->id  . '/profile.png'))) -->
-					@if((true)) 	
-						<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
-					@else
-						@if($profile->gender == 'female')
-							<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
+						<!-- && (@getimagesize('http://localhost:8886/images/members/'. $user->id  . '/profile.png'))) -->
+						@if((true)) 	
+							<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
 						@else
-							<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
+							@if($profile->gender == 'female')
+								<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
+							@else
+								<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
+							@endif
 						@endif
-					@endif
-					<h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2>
-					{{-- <h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ ucfirst($profile->skill) }}</h3> --}}
+						<h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2>
+						{{-- <h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ ucfirst($profile->skill) }}</h3> --}}
 				</div>
-				
+					
 				<!-- Show Profile Progress if this profile belongs to current Auth -->
 				@if(Auth::id() == $user->id)
 				{{-- <div class="margin-bottom-30">
@@ -85,8 +84,7 @@
 
 
 				<!-- info -->
-				<div class="box-light margin-bottom-30"><!-- .box-light OR .box-light -->
-
+				<div class="box-light margin-bottom-30"><!-- .box-light OR .box-light -->					
 					<div class="text-muted margin-bottom-20">
 						<h2 class="size-18 text-muted margin-bottom-20"><b>About Me</b></h2>
 						<ul class="list-unstyled nomargin">
@@ -108,25 +106,9 @@
 							<li class="margin-bottom-10"><i class="fa fa-signal width-20"></i> {{ ucfirst($profile->skill) }}</li>
 							<li class="margin-bottom-10"><i class="fa fa-wrench width-20"></i> {{ $profile->racquet }}</li>
 						</ul>
-					</div>						
-
-					<!--
-					<div class="text-muted">
-					
-						<ul class="list-unstyled nomargin">
-							<li class="margin-bottom-10"><i class="fa fa-globe width-20 hidden-xs hidden-sm"></i> <a href="http://www.stepofweb.com">www.stepofweb.com</a></li>
-							<li class="margin-bottom-10"><i class="fa fa-facebook width-20 hidden-xs hidden-sm"></i> <a href="http://www.facebook.com/stepofweb">stepofweb</a></li>
-							<li class="margin-bottom-10"><i class="fa fa-twitter width-20 hidden-xs hidden-sm"></i> <a href="http://www.twitter.com/stepofweb">@stepofweb</a></li>
-						</ul>
-					</div>
-					-->
-					<!-- /info -->
-
-				
+					</div>			
 				</div>
-
 			</div>
-
 
 			<!-- RIGHT -->
 			<div class="col-lg-9 col-md-9 col-sm-8">

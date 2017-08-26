@@ -4,6 +4,12 @@
     	h5 {
     		color: #0F597B !important;
     	}
+    	.price-heading {
+    		height:80px;
+    	}
+    	.price-body{
+    		height:100px;
+    	}
     </style>
 @stop
 @section('content')		
@@ -29,18 +35,21 @@
 			<div class="row">
 
 				<!-- FREE -->
-				<div class="col-md-3 col-sm-3">
-					
-					<div class="price-clean">                                
-						<h4>
-							FREE
-						</h4>
-						<h5> LEVEL 1 </h5>
+				<div class="col-md-3 col-sm-4">					
+					<div class="price-clean">  
+						<div class="heading">                              
+							<h4>
+								FREE
+							</h4>
+							<h5> LEVEL 1 </h5>
+						</div>
 						<hr />
-						<ul class="text-left">
-							<li>For individuals who want a better understanding of the rules</li>
-							<li>Online rules clinic </li>
-						</ul>
+						<div class="price-body">
+							<ul class="text-left">
+								<li>For individuals who want a better understanding of the rules</li>
+								<li>Online rules clinic </li>
+							</ul>
+						</div>
 						<hr />						
 						<button type="button" class="btn btn-3d btn-teal" data-toggle="modal" data-target=".modal-free">Learn More</button>
 					</div>
@@ -59,30 +68,39 @@
 								<div class="modal-body">
 									<h4>Initial certification requirements:</h4>
 									<ul class="list-group">
-										<li class="list-group-item">Attend an online rules clinic</li>											
-									</ul>								
+										<li class="list-group-item">Attend an online rules clinic</li>		
+										<li>To enroll, <a href="https://www.r2sports.com/membership/login.asp" target="r2sports">login into R2Sports</a>, 
+											then go to <a href="https://www.r2sports.com/membership/USARrefCertification.asp" target="r2sports"> Online Training</a>	
+										</li>								
+									</ul>	
+
+													
 								</div>
 							</div>
 						</div>
 					</div>
 					<!-- /FREE Modal -->
 				</div>
-				<div class="col-md-3 col-sm-3">
+				<div class="col-md-3 col-sm-4">
 					
 					<div class="price-clean  price-clean-popular">
-						<div class="ribbon"> 
-							<div class="ribbon-inner">POPULAR</div>
-						</div>                                
-						<h4>
-							<sup>$</sup>10<em></em>
-						</h4>
-						<h5> LEVEL 1 CERTIFIED</h5>
+						<div class="price-heading"> 
+							<div class="ribbon"> 
+								<div class="ribbon-inner">POPULAR</div>
+							</div>                                
+							<h4>
+								<sup>$</sup>10<em></em>
+							</h4>
+							<h5> LEVEL 1 CERTIFIED</h5>
+						</div>
 						<hr />
-						<ul class="text-left">
-							<li>State Level</li>
-							<li>Online rules clinic and video assessment test. </li>
-							<li>Certification valid for 3 years!</lu>
-						</ul>
+						<div class="price-body">
+							<ul class="text-left">
+								<li>State Level</li>
+								<li>Online rules clinic and video assessment test. </li>
+								<li>Certification valid for 3 years!</lu>
+							</ul>
+						</div>
 						<hr />
 						<button type="button" class="btn btn-3d btn-primary" data-toggle="modal" data-target=".modal-level1">Learn More</button>
 					</div>		
@@ -152,17 +170,21 @@
 					<!-- /Level 1 Modal -->
 				</div>
 
-				<div class="col-md-3 col-sm-3">		
-					<div class="price-clean">			
-						<h4>
-							<sup>$</sup>10
-						</h4>
-						<h5> LEVEL 2 CERTIFIED</h5>
+				<div class="col-md-3 col-sm-4">		
+					<div class="price-clean">	
+						<div class="price-heading">		
+							<h4>
+								<sup>$</sup>10
+							</h4>
+							<h5> LEVEL 2 CERTIFIED</h5>
+						</div>	
 						<hr />
-						<ul class="text-left">
-							<li>National Level</li>
-							<li>Added to the USAR Referee Certification database</li>
-						</ul>
+						<div class="price-body">
+							<ul class="text-left">
+								<li>National Level</li>
+								<li>Added to the USAR Referee Certification database</li>
+							</ul>
+						</div>
 						<hr />						
 						<button type="button" class="btn btn-3d btn-teal" data-toggle="modal" data-target=".modal-level2">Learn More</button>
 					</div>
@@ -234,14 +256,20 @@
 				<!-- LEVEL 2 -->
 
 				<!-- JUNIORS -->
-				<div class="col-md-3 col-sm-3">					
-					<div class="price-clean">                                
-						<h4>
-							<sup>$</sup>5
-						</h4>
-						<h5> JUNIOR CERTIFIED </h5>
-						<hr />
-						<p>For juniors competing in national events.</p>
+				<div class="col-md-3 col-sm-4">					
+					<div class="price-clean">  
+						<div class="price-heading">                              
+							<h4>
+								<sup>$</sup>5
+							</h4>
+							<h5> JUNIOR CERTIFIED </h5>							
+						</div>
+						<hr/>
+						<div class="price-body">
+							<ul class="text-left">
+								<li>For juniors competing in national events.</li>
+							</ul>
+						</div>	
 						<hr />						
 						<button type="button" class="btn btn-3d btn-teal" data-toggle="modal" data-target=".modal-junior">Learn More</button>
 					</div>

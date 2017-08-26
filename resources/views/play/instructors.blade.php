@@ -65,22 +65,22 @@
 										</p>
 							
 									<a href="#" data-toggle="modal" data-target="{{'#mod'.$i->last_name}}" class="btn btn-translucid btn-lg btn-block">READ MORE</a>
-									<a href="/members/profile/1" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
+									<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $i->usar_id }}" target="usar" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>
 
 									<div class="social">
-										<a href="http://m.me/jansen.allen.3" class="social-icon social-icon-sm social-facebook">
+										{{-- <a href="{{ 'http://m.me/' . $i->facebook}}" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
-										</a>
+										</a> --}}
 									
 										<a href="{{ route('contact',array('to' => $i->first_name . ' '. $i->last_name))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
-										<a href="#" class="social-icon social-icon-sm social-google">
+										{{-- <a href="#" class="social-icon social-icon-sm social-google">
 											<i class="fa fa-phone"></i>
 											<i class="fa fa-phone"></i>
-										</a>
+										</a> --}}
 									</div>
 								</div>
 							</div>

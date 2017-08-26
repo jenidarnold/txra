@@ -74,7 +74,7 @@
 
 							<p>The 2018 Election will have two (2) open positions for a three (3) year term.<p/>
 
-							<p>Current Board members are Michael Kaplan, Wendy Akins, Sean Arnold, Mike Griz, Lance Gilliam, Tom Doughtry, Dale Gosser, Mitchell McCoy, Julienne Arnold, Mike Sorenson, Brad Giezentanner, and John O'Niel.</p>
+							<p>Current Board members are Michael Kaplan, Wendy Akins, Sean Arnold, Mike Griz, Lance Gilliam, Tom Doughtry, Dale Gosser, Mitchell McCoy, Julienne Arnold, Mike Sorensen, Brad Giezentanner, and John O'Niel.</p>
 
 							<p>
 								If you are interested in running or would like to nominate someone, fill out the <a href='{{route('election.nominate')}}'>Nomination Form</a> or contact <a mailto:sean@arnold.net>Sean Arnold</a>, TXRA Election Committee Director.

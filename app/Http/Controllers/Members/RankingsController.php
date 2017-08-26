@@ -116,14 +116,25 @@ class RankingsController extends Controller {
 	 */
 	public function get_rank_by_group($group_id, $location_id){
 
+		$maxDate =  Rank::where('group_id', '=',$group_id)
+					->where('location_id','=', $location_id)
+					->orderBy('effective',  'desc')
+					->take(1)
+					->select('effective')
+					->first()
+					;
+
 		$rank =  Rank::where('group_id', '=',$group_id)
 				->where('location_id','=', $location_id)
+				->where('effective', '=', $maxDate['effective'])
 				->orderBy('rank');
 
+		//Random Ranking
 		$rand = \DB::table('ranks')
 			->join('usar_members', 'ranks.usar_id', '=', 'usar_members.id')
 			->where('group_id', '=',$group_id)
-			->where('location_id','=', $location_id)			
+			->where('location_id','=', $location_id)
+			->where('effective', '=', $maxDate['effective'])			
         	->orderBy(\DB::raw('RAND()'))
         	->take(1)
 			->first();

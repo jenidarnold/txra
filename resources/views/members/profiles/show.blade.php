@@ -33,8 +33,9 @@
 		<div class="front">
 			<div class="box1 noradius" >
 				<div class="box-icon-title">
-					<i class="fa fa-list-ol " style="background-color:#fff"></i>
-					<h2>RANKINGS</h2>
+					<i class="fa fa-list-ol" style="background-color:#fff"></i>
+					<h2>RANKINGS</h2>									
+					<div class="text-muted small" style="color:white;font-size:smaller">{{ $usar->effective_rank}}</div>
 				</div>
 				<div class="row margin-top-10">
 					<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
@@ -93,6 +94,7 @@
 								<span class="hidden-sm hidden-md hidden-lg  text-info bold">NAT</span>
 							</h3>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -109,11 +111,19 @@
 	<!-- /FLIP BOX -->
 
 
-	<div class="box-light"><!-- .box-light OR .box-dark -->
-
+{{-- 	<div class="box-light"><!-- .box-light OR .box-dark -->
 		<div class="row">
+			<!-- Game Style for Dobules Match Maker  -->
+			<div class="col-md-6 col-sm-6">
+				<div class="box-inner">
+					<h3>GAME STYLE</h3>
 
-			<!-- POPULAR POSTS -->
+				</div>
+			</div>
+		</div>
+	</div> --}}
+	
+{{-- 			<!-- MY UPCOMING EVENTS -->
 			<div class="col-md-6 col-sm-6">
 
 				<div class="box-inner">
@@ -144,7 +154,7 @@
 							<span class="badge badge-black"><i class="fa fa-user"></i></span>
 						</div><!-- /post item -->
 
-						<div class="clearfix margin-bottom-10"><!-- post item -->
+						<div class="clearfix margin-bottom-10">post item
 							<img class="thumbnail pull-left" src="http://www.r2sports.com/tourney/imageGallery/gallery/tourneyLogo/16981_normal.jpg" width="60" height="60" alt="" />
 							<h4 class="size-13 nomargin noborder nopadding"><a href="blog-single-default.html">2017 July Triple Crown</a></h4>
 							<span class="size-11 text-muted">July 8-9, 2017</span>
@@ -167,7 +177,6 @@
 
 					</div>
 				</div>
-
 				<div class="box-footer">
 					<!-- INLINE SEARCH -->
 					<div class="inline-search clearfix">
@@ -180,13 +189,11 @@
 						</form>
 					</div>
 					<!-- /INLINE SEARCH -->
-
 				</div>
-
 			</div>
-			<!-- /POPULAR POSTS -->
+			<!-- /MY UPCOMING EVENTS --> --}}
 
-			<!-- ACHIEVEMENTS -->
+{{-- 			<!-- ACHIEVEMENTS -->
 			<div class="col-md-6 col-sm-6">
 
 				<div class="box-inner">
@@ -231,10 +238,8 @@
 					<!-- /INLINE SEARCH -->
 
 				</div>
-
 			</div>
-			<!-- /FRIENDS -->
-
+			<!-- /ACHIEVEMENTS --> --}}
 		</div>
 
 

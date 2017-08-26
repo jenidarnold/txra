@@ -15,7 +15,7 @@ class InstructorsTableSeeder extends Seeder {
 		
 		Instructor::create([
 			'id' 				=> 	1,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	8220,	
 			'first_name'		=>	'Kane',
 			'last_name'			=>	'Waselenchuk',
 			'level'				=> 	1,
@@ -34,7 +34,7 @@ class InstructorsTableSeeder extends Seeder {
 
 		Instructor::create([
 			'id' 				=> 	2,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	169,	
 			'first_name'		=>	'Jansen',
 			'last_name'			=>	'Allen',
 			'level'				=> 	1,
@@ -52,7 +52,7 @@ class InstructorsTableSeeder extends Seeder {
 
 		Instructor::create([
 			'id' 				=> 	3,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	5427,	
 			'first_name'		=>	'Jesse',
 			'last_name'			=>	'Baza',
 			'level'				=> 	1,
@@ -70,7 +70,7 @@ class InstructorsTableSeeder extends Seeder {
 
 		Instructor::create([
 			'id' 				=> 	4,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	8984,	
 			'first_name'		=>	'Jerry',
 			'last_name'			=>	'Fronczak',
 			'level'				=> 	1,
@@ -88,7 +88,7 @@ class InstructorsTableSeeder extends Seeder {
 
 		Instructor::create([
 			'id' 				=> 	5,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	29353,	
 			'first_name'		=>	'Tyrone',
 			'last_name'			=>	'Gilmore',
 			'level'				=> 	1,
@@ -106,7 +106,7 @@ class InstructorsTableSeeder extends Seeder {
 
 		Instructor::create([
 			'id' 				=> 	6,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	173753,	
 			'first_name'		=>	'Briana',
 			'last_name'			=>	'Jacquet',
 			'level'				=> 	1,
@@ -124,7 +124,7 @@ class InstructorsTableSeeder extends Seeder {
 
 		Instructor::create([
 			'id' 				=> 	7,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	170599,	
 			'first_name'		=>	'Mike',
 			'last_name'			=>	'Sorensen',
 			'level'				=> 	1,
@@ -142,7 +142,7 @@ class InstructorsTableSeeder extends Seeder {
 
 		Instructor::create([
 			'id' 				=> 	8,
-			'usar_id' 			=>	1,	
+			'usar_id' 			=>	134003,	
 			'first_name'		=>	'George',
 			'last_name'			=>	'Weller',
 			'level'				=> 	1,

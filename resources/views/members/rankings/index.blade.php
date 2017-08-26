@@ -7,6 +7,7 @@
 		<div class="container">
 
 			<h1><i class="fa fa-list-ol"></i> RANKINGS</h1>
+			<span>As of {{ $ranks[0]->featured->effective}}</span>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">

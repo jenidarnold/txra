@@ -87,6 +87,26 @@ class UsarMember extends Model
 
 
     /**
+     * User's Latest Rank Date
+     *
+     */
+    public function getEffectiveRankAttribute()
+    {
+        $effective = "";
+       
+        $r = Rank::orderBy('effective', 'desc')
+            ->where("usar_id", '=', $this->id)
+            ->limit(1)
+            ->get()
+            ;
+
+        if (isset($r[0])) {
+         $effective = $r[0]->effective;
+        }
+        return $effective;
+    }
+
+    /**
      * User's State Rank
      *
      */
