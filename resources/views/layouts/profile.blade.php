@@ -38,7 +38,7 @@
 				<div class="thumbnail text-center">
 						<!-- && (@getimagesize('http://localhost:8886/images/members/'. $user->id  . '/profile.png'))) -->
 						@if((true)) 	
-							<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
+							<img class="img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
 						@else
 							@if($profile->gender == 'female')
 								<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
@@ -46,23 +46,26 @@
 								<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
 							@endif
 						@endif
-						<h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2>
-						{{-- <h3 class="size-11 margin-top-0 margin-bottom-10 text-muted">{{ ucfirst($profile->skill) }}</h3> --}}
-				</div>
+						{{-- <h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2> --}}				</div>
 					
 				<!-- Show Profile Progress if this profile belongs to current Auth -->
-				@if(Auth::id() == $user->id)
-				{{-- <div class="margin-bottom-30">
-					<label>88% completed profile</label>
-					<div class="progress progress-xxs">
-						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%; min-width: 2em;"></div>
+				@if ((Auth::id() == $user->id) && ($profile->progress < 100))
+
+				<div class="margin-bottom-30 text-center">
+					<h6>
+						<a class="text-info" href="{{ route('members.edit', array('id' => $user->id))}}" title="Goto My Settings to complete profile">
+							<i class="fa fa-info-circle"></i> Profile {{ $profile->progress}}% completed
+						</a>
+					</h6>
+					<div class="progress progress-xs">
+						<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ $profile->progress}}" aria-valuemin="0" aria-valuemax="100" style="{{'width:' . $profile->progress . '%; min-width: 2em;'}}"></div>
 					</div>
-				</div> --}}
+				</div>
 				@endif
 
 				<!-- SIDE NAV -->
 				<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
-					<li class="list-group-item {{ $active['profile'] }}"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> PROFILE</a></li>
+					<li class="list-group-item {{ $active['profile'] }}"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> TXRA PROFILE</a></li>
 					<!-- Show Profile Settings if this profile belongs to current Auth -->
 					@if(Auth::id() == $user->id)
 						<li class="list-group-item {{ $active['settings'] }}">
@@ -78,15 +81,16 @@
 						</li>
 
 						@endif				
-					<li class="list-group-item "><a href="{{ route('members.listing')}}"><i class="fa fa-users"></i> BACK TO ALL</a></li>				
+					<li class="list-group-item "><a href="{{ route('members.listing')}}"><i class="fa fa-users"></i> BACK TO ALL PROFILES</a></li>				
 				</ul>
 				<!-- /SIDE NAV -->
 
 
 				<!-- info -->
-				<div class="box-light margin-bottom-30"><!-- .box-light OR .box-light -->					
-					<div class="text-muted margin-bottom-20">
-						<h2 class="size-18 text-muted margin-bottom-20"><b>About Me</b></h2>
+				<div class="box-light1 margin-bottom-30 alert alert-info"><!-- .box-light OR .box-light -->					
+					<div class="text-primary margin-bottom-20">
+						<h2 class="size-18 text-primary text-center margin-bottom-20"><b>About Me</b></h2>
+						<hr class="text-primary"/>
 						<ul class="list-unstyled nomargin">
 							<li class="margin-bottom-10"><i class="fa fa-home width-20"></i> {{ $profile->city }}</li>
 							

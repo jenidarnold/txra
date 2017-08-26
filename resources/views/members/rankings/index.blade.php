@@ -24,7 +24,11 @@
 	<!-- -->
 	<section class="dark1">
 		<div class="container">
-			<div id="portfolio" class="portfolio-gutter">
+			<button class="btn btn-mobile hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
+				<i class="fa fa-bars"></i> Filter
+			</button>
+
+			<div id="portfolio" class="portfolio-gutter collapse navbar-collapse nav-filter-collapse">
 				<ul class="nav nav-pills mix-filter margin-bottom-10">
 					<li data-filter="all" class="filter"><a href="#">All</a></li>
 					<li data-filter="singles" class="filter"><a href="#">Singles</a></li>
@@ -37,7 +41,6 @@
 				</ul>
 
 				<div class="row mix-grid">
-
 
 					@foreach($ranks as $rank)
 					<div class="col-md-3 col-sm-3 mix {{$rank->filter}}"><!-- item -->	

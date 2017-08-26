@@ -6,14 +6,21 @@
 @section('content')		
 	<section class="page-header page-header-xs">		
 		<div class="container">
-			<h1><i class="fa fa-user-circle"></i> MEMBERS</h1>					
+			<h1><i class="fa fa-user-circle"></i> MEMBERS</h1>			
+			<!-- breadcrumbs -->
+			<ol class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li><a class="active">Profiles</a></li>
+				<li<a href="{{route('members.rankings')}}" >Rankings</a></li>
+				<li><a href="{{route('members.membership')}}">Membership</a></li>
+			</ol><!-- /breadcrumbs -->		
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->
 	<!-- -->
 	<section>
 		<div class="container">
-			<p class="text-primary col-xs-12">Members listed below have an account with <b>TXRA.org</b>. If you, don't have an account, <a href="/register">register here</a>
+			<p class="text-primary col-xs-12">Members listed below have an account with <b>TXRA.org</b>. Don't have an account? <a href="/register">Register here</a>
 			</p>
 				<button class="btn btn-mobile hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
 					<i class="fa fa-bars"></i> Filter

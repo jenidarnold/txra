@@ -20,9 +20,10 @@
 @stop
 @section('profile_header')
 	@if(Auth::id() == $user->id)
-		<h1>MY PROFILE</h1>
+		<h1><i class="fa fa-user-circle-o"></i> MY PROFILE - {{$user->full_name}}</h1>
+	
 	@else
-		<h1>{{$user->full_name}}'s PROFILE</h1>
+		<h1><i class="fa fa-user-circle-o"></i> PROFILE - {{$user->full_name}}</h1>
 	@endif
 @stop
 
