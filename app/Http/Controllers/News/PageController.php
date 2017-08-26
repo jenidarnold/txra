@@ -57,7 +57,7 @@ class PageController extends BaseController {
 
             $post->image       = '0_'. $_FILES["images"]["name"][0];            
 
-            $post->public      = 0;
+            $post->public      = 1;
             $post->save();
 
             $category_id = \Input::get('category');

@@ -236,6 +236,8 @@
 														<li><a href="{{ route('events.download',  array('location' => 'national', 'type' => 'future'))}}">NAT FUTURE EVENTS</a></li>
 													</ul>
 												</li>
+												<li class="divider"></li>												
+												<li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li>
 											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->
@@ -392,7 +394,7 @@
 										</a>
 										<ul class="dropdown-menu">
 											<li><a href="{{ route('news.index')}}">LATEST</a></li>
-											<li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li>
+											{{-- <li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li> --}}
 											<!--li><a href="{ { route('news .edit')}}">MY POSTS</a></li-->
 										</ul>										
 									</li>
@@ -484,6 +486,8 @@
 														<li><a href="{{ route('events.download',  array('location' => 'national', 'type' => 'future')) }}">NAT FUTURE EVENTS</a></li>
 													</ul>
 												</li>
+												<li class="divider"></li>												
+												<li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li>
 											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->

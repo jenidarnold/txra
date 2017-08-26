@@ -24,7 +24,7 @@
 				<div class="container">
 					
 					<div class="row">
-						<p>Articles must be 400-100 words. Submissions are reviewed approximately within a week.
+						<p>Articles must be 400-1000 words. Submissions are reviewed approximately within a week.
 						All articles are subject to editing. <a href="route('faq.articles')">Read the complete submission process</a></p>
 					</div>
 					<hr/>

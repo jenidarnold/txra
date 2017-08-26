@@ -16,7 +16,7 @@
         <!-- /OWL SLIDER -->
     @else
         <figure class="margin-bottom-20 ">
-            <img class="thumbnail img-responsive1"  style="max-height:100px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
+            <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
         </figure>
     @endif
 
@@ -66,7 +66,7 @@
         <!-- article content -->
         <p class="dropcap">{!! $post['content'] !!}</p>
 
-        <section class="related">
+       {{--  <section class="related">
             <p>If you enjoyed this post, share it on social networks :</p>
             <p>  <a target="_blank" href="{{ '/news/share/'. $post['id']}}/facebook"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
                 <a target="_blank" href="{{ '/news/share/'. $post['id']}}/twitter"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
@@ -88,7 +88,7 @@
                 @endif
             </p>
         </section>
-
+ --}}
 </div><!-- /news -->
 
 
