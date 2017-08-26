@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="page-header page-header-xs hidden-xs">
+   {{--  <section class="page-header page-header-xs hidden-xs">
         <div class="container">
 
             <h1><i class="fa fa-sign-in"></i> LOGIN</h1>
@@ -13,7 +13,7 @@
             </ol><!-- /breadcrumbs -->
 
         </div>
-    </section>
+    </section> --}}
     <!-- /PAGE HEADER -->
 
     <!-- -->
@@ -24,9 +24,9 @@
                 <div class="col-md-4 col-md-offset-4 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                    <form class="nomargin sky-form boxed" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
-                         <header>
-                        Login with your Email Address
-                        </header>
+                        <div class="text-center h3">
+                        Log In
+                        </div>
 
                         <fieldset class="nomargin"> 
 
@@ -55,24 +55,29 @@
                                     </span>
                                 @endif
                             </div>
-                            
-                            <div class="clearfix note margin-bottom-30">
-                                <a class="pull-right" href="{{ url('/password/reset') }}">Forgot Password?</a>
-                            </div>
-
-                            <label class="checkbox weight-300">
-                                <input type="checkbox" name="checkbox-inline">
-                                <i></i> Keep me logged in
-                            </label>
-                        </fieldset>
-
-                        <div class="row margin-bottom-20">
-                                <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i> Login
+                            <div class="form-group">
+                                <button type="submit" class="nomargin btn btn-primary btn-block">
+                                    Log In
                                 </button>
                             </div>
-                        </div>
+                            
+                            <div class="clearfix note margin-bottom-30 text-center">
+                                <a  class="text-primary" href="{{ url('/password/reset') }}">Forgot Password?</a>
+                            </div>
+
+                            <div class="clearfix note margin-bottom-30 text-center">
+                                Don't have account? <a class="text-danger" href="{{ url('/register') }}">Sign Up</a>
+                            </div>
+
+                           {{--  <label class="checkbox weight-300">
+                                <input type="checkbox" name="checkbox-inline">
+                                <i></i> Keep me logged in
+                            </label> --}}
+
+
+                        </fieldset>
+
+                        
                     </form>
                 </div>
                 <!-- \LOGIN EMAIL -->

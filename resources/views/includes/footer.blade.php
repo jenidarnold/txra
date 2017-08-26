@@ -4,18 +4,12 @@
 		<div class="row">
 
 			<div class="col-md-3 col-sm-3">
-				<!-- Footer Logo 
-				<img src="{{ asset('images/TX.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
-				<img src="{{ asset('images/R.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
-				<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.7" alt="" />
-				-->
-				<img class="img-responsive" src="{{ asset('images/logos/txra_logo.png')}}" style="display:inline; opacity:.7" alt="" />
-
-        		<!--@include('includes.txra_flag')    -->
-
-				<!-- Small Description -->
-				<!--p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p-->
-
+				<!-- Footer Logo -->			
+				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:70px; padding-top:15px;" alt="" /></a>
+				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:60px; padding-top:15px;" alt="" /></a>
+				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
+				
+				<br/>
 				<!-- Contact Address -->
 				<address>
 					<ul class="list-unstyled">
@@ -35,30 +29,6 @@
 				<!--/Contact Address -->
 
 			</div>
-
-
-			<!-- Latest Blog Post 
-			<div class="col-md-4">
-
-				<!-- Latest Blog Post 
-				<h4 class="letter-spacing-1">LATEST NEWS</h4>
-				<ul class="footer-posts list-unstyled">
-					<li>
-						<a href="#">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue</a>
-						<small>29 June 2017</small>
-					</li>
-					<li>
-						<a href="#">Nullam id dolor id nibh ultricies</a>
-						<small>29 June 2017</small>
-					</li>
-					<li>
-						<a href="#">Duis mollis, est non commodo luctus</a>
-						<small>29 June 2017</small>
-					</li>
-				</ul>
-
-			</div>
-			<!-- /Latest Blog Post -->
 
 			<div class="col-md-8 col-sm-10">
 
