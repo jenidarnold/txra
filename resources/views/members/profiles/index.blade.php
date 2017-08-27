@@ -11,8 +11,8 @@
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
 				<li><a class="active">Profiles</a></li>
-				<li<a href="{{route('members.rankings')}}" >Rankings</a></li>
-				<li><a href="{{route('members.membership')}}">Membership</a></li>
+				<li><a href="{{route('members.rankings')}}" >Rankings</a></li>
+				<li><a href="{{route('members.membership')}}">Memberships</a></li>
 			</ol><!-- /breadcrumbs -->		
 		</div>
 	</section>

@@ -14,12 +14,12 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1>DONATIONS to <span class="txra">TXRA</span></h1>
-			<h4>Supporting Racquetball in Texas</h4>
+			<h1><i class="et-wallet"></i> DONATIONS</h1>
+			<h5>Supporting Racquetball in Texas</h5>
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
-				<li class="active">DONATE</li>
+				<li class="active">Donations</li>
 			</ol><!-- /breadcrumbs -->
 
 		</div>
@@ -31,37 +31,43 @@
 		<div class="container donate">
 			<div class="row countTo-md text-center">
 
-				<div class="col-xs-6 col-sm-3">
+				<div class="col-xs-6 col-sm-4">
 					<i class="fa fa-usd text-success"></i>
-					<span class="countTo" data-speed="3000">5005</span>
-					<h5><a href="#" data-toggle="modal" data-target="#modDonate">DONATIONS</a></h5>
-					<p>Donations can be received by any TXRA Board member, mailing a check, or Donating online using PayPal Donate.</p>
+					<h5><a href="#" data-toggle="modal" data-target="#modDonate">MONETARY</a></h5>
+					<span class="countTo" data-speed="3000">850</span>
+					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
+					<p>Donations can be received in person by any TXRA Board member, or by mailing a check.</p>
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Donate Now</a> |
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Learn More</a>
 				</div>
 
-				<div class="col-xs-6 col-sm-3">
+				<div class="col-xs-6 col-sm-4">
 					<i class="fa fa-child text-info"></i><i class="fa fa-child text-danger"></i>
-					<span class="countTo" data-speed="3000">9877</span>
 					<h5><a href="#" data-toggle="modal" data-target="#modJuniors">Raised for Juniors</a></h5>
+					<span class="countTo" data-speed="3000">9877</span>
+					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
 					<p>Our members, parents and coaches fundraise and donate almost $10,000 annually just for the kids</p>
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate" >Donate Now</a> |
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modJuniors">Learn More</a>
 				</div>
 
-				<div class="col-xs-6 col-sm-3">
-					<i class="fa fa-home text-primary"></i>
+				{{-- <div class="col-xs-6 col-sm-3">
+					<i class="fa fa-home text-primary"></i>	
+					<h5><a href="http://www.tomthumb.com/ShopStores/Good-Neighbor.page?" target="donate">Good Neighbor Program</a></h5>
 					<span class="countTo" data-speed="3000">560</span>
-					<h5><a href="http://www.tomthumb.com/ShopStores/Good-Neighbor.page?">Good Neighbor Program</a></h5>
+					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
+				
 					<p>Texas Amateur Racquetball Association Organization Acct. #: 11882</p>
 					<a class="box-icon-more font-lato weight-300" href="#">Enroll Now</a> |
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modNeighbor">Learn More</a>
 				</div>
-
-				<div class="col-xs-6 col-sm-3">
+ --}}
+				<div class="col-xs-6 col-sm-4">
 					<i class="fa fa-amazon text-warning"></i>
-					<span class="countTo" data-speed="3000">4897</span>
 					<h5><a href="http://smile.amazon.com/ch/76-0262488">Amazon Smile</a></h5>
+					<span class="countTo" data-speed="3000">114</span>
+					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
+					
 					<p>Amazon donates 0.5% of the price of your eligible AmazonSmile purchases to <b>Texas Amateur Racquetball Assn Inc</b></p>
 					<a class="box-icon-more font-lato weight-300" href="http://smile.amazon.com/ch/76-0262488" target="_blank">Shop Now</a> |
 					<a href="#" class="box-icon-more font-lato weight-300" data-toggle="modal" data-target="#modAmazon">Learn More</a>
@@ -70,7 +76,7 @@
 		</div>
 	</section>
 
-	<!-- Testimonials & Thank Yous -->
+{{-- 	<!-- Testimonials & Thank Yous -->
 	<section>
 		<div class="container">
 			<!-- 
@@ -110,7 +116,7 @@
 			</div>	
 		</div>
 	</section>
-	<!-- /Testimonials -->
+	<!-- /Testimonials --> --}}
 
 	<!-- Donate Modal -->
 	<div class="modal fade" id="modDonate" tabindex="-1" role="dialog" aria-labelledby="myDonateLabel" aria-hidden="true">
@@ -126,14 +132,9 @@
 				<!-- body modal -->
 				<div class="modal-body">
 
-					<div class="text-center">
-					<button class="btn btn-info">PayPal Donate</button>
-					</div>
-
-					<p>
-						
+					<p>						
 						<address>
-							ATTEN: Donations Texas Racquetball Association
+							ATTN: Donations Texas Racquetball Association
 							P.O.Box Blah 
 							TX, 77777
 
@@ -164,10 +165,7 @@
 				<!-- body modal -->
 				<div class="modal-body">
 
-					<div class="text-center">
-					<button class="btn btn-info">PayPal Donate</button>
-					</div>
-
+				
 					<p>
 						
 						<address>

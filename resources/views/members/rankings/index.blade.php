@@ -28,9 +28,9 @@
 				<i class="fa fa-bars"></i> Filter
 			</button>
 
-			<div id="portfolio" class="portfolio-gutter collapse navbar-collapse nav-filter-collapse">
+			<div class="collapse navbar-collapse nav-filter-collapse">
 				<ul class="nav nav-pills mix-filter margin-bottom-10">
-					<li data-filter="all" class="filter"><a href="#">All</a></li>
+					<li data-filter="all" class="filter active"><a href="#">All</a></li>
 					<li data-filter="singles" class="filter"><a href="#">Singles</a></li>
 					<li data-filter="doubles" class="filter"><a href="#">Doubles</a></li>
 					<li data-filter="mixed" class="filter"><a href="#">Mixed Doubles</a></li>
@@ -39,7 +39,8 @@
 					<li data-filter="men" class="filter"><a href="#">Men</a></li>
 					<li data-filter="women" class="filter"><a href="#">Women</a></li>
 				</ul>
-
+			</div>
+			<div id="portfolio" class="portfolio-gutter ">				
 				<div class="row mix-grid">
 
 					@foreach($ranks as $rank)

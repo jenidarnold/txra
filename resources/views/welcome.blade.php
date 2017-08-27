@@ -224,7 +224,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-sm-12"><!-- left text -->
-                            <h3>Join the Texas Racquetball Association in developing and promoting the growth of racquetball in our communities across the state of Texas. Texas is home to largest racquetball association in the U.S. with 900+ members!
+                            <h3>Join the Texas Racquetball Association in developing and promoting the growth of racquetball in our communities across the state of Texas.
                             </h3>
                         </div><!-- /left text -->
                         <div class="col-md-3 col-sm-12 text-right"><!-- right btn -->
