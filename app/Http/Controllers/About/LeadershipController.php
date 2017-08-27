@@ -144,17 +144,18 @@ class LeadershipController extends Controller {
 
         });
 
-        // Send confirmation and thank you for signing up
+        //Send confirmation and thank you for signing up
         
-    	// \Session::flash('message', 'Successfully subscribed to newsletter');
-     //    Mail::send('emails.committees.replyvolunteer', ['subscriber' => $subscriber], function($m) use ($subscriber, $txra) {
-     //        $subject = 'Thak you for volunteering!';
-     //        $m->from( $txra->email, $txra->full_name);
-     //        $m->to($subscriber->email, $subscriber->full_name)->subject($subject);
-     //    });
+    	\Session::flash('message', 'Successfully subscribed to newsletter');
+        Mail::send('emails.committees.replyvolunteer', ['subscriber' => $subscriber], function($m) use ($subscriber, $txra) {
+            $subject = 'Thak you for volunteering!';
+            $m->from( $txra->email, $txra->full_name);
+            $m->to($subscriber->email, $subscriber->full_name)->subject($subject);
+        });
 
-    	\Session::flash('message', 'Successfully emailed message');
+        $message = 'Successfully sent. Thank you!';
     	
-		return  redirect()->back()->with('flash-message','message');  
+		return  Redirect::to(URL::previous() . "#join")
+			->with('alert-success', $message);
 	}
 }

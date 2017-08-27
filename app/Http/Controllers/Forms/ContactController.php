@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Redirect;
 use Mail;
 use App\User;
-
+use Illuminate\Support\Facades\URL;
 
 class ContactController extends Controller {
 
@@ -30,7 +30,11 @@ class ContactController extends Controller {
 	public function index(Request $request)
 	{
 		$to = new User;
-		$to->full_name = $request->to;
+		$to->full_name = "";
+
+		if( trim($request->to)  != ''){
+			$to->full_name = trim($request->to);
+		}
 
 		if(\Auth::check()){
 			$from = \Auth::user();
@@ -94,8 +98,11 @@ class ContactController extends Controller {
 
         });
 
-    	\Session::flash('message', 'Successfully emailed message');
+
+
+        $message = 'Successfully sent. Thank you!';
     	
-		return  redirect()->back()->with('flash-message','message');  
+		return  Redirect::to(URL::previous())
+			->with('alert-success', $message); 
 	}
 }

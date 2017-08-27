@@ -118,6 +118,7 @@
 								<img height="42px" src="{{asset('images/icons/hands.png')}}"></i> Tell us what committees you are interested in joining
 							</header>
 
+							<!-- Flash Message -->
 							<div class="flash-message">
 							    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
 							      @if(Session::has('alert-' . $msg))

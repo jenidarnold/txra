@@ -1,19 +1,22 @@
 @extends('layouts.app')
 @section('style')
     <style type="text/css">
+    	.row {
+    		margin-bottom: 10px;
+    	}
     </style>
 @stop	
 @section('content')		
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><i class="fa fa-envelope"></i> CONTACT THE TXRA BOARD</h1>
+			<h1><i class="fa fa-envelope"></i> CONTACT US</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
-				<li><a href="#">ABOUT</a></li>
-				<li class="active">CONTACT US</li>
+				<li><a href="/about/board">Board</a></li>
+				<li class="active">Contact Us</li>
 			</ol><!-- /breadcrumbs -->
 
 		</div>
@@ -23,37 +26,41 @@
 	<!-- -->
 			<section>
 				<div class="container">
-					
+					<div class="row">
+						<div class="col-sm-12">
+							<p class="lead">
+								Do you have a question, comment, or news to pass along to the TXRA? 	Please use this form to send us your message and we'll get back with you very soon.
+							</p>
+						</div>
+					</div>
+					<div class="divider divider-center divider-color"  style="margin-top:10px;margin-bottom:20px"><!-- divider -->
+						<i class="fa fa-chevron-down"></i>
+					</div>
 					<div class="row">
 
 						<!-- FORM -->
-						<div class="col-md-12">
+						<div class="col-sm-10 col-sm-offset-1">						
 
-							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
-						
-							<!--
-								MESSAGES
-								
-									How it works?
-									The form data is posted to php/contact.php where the fields are verified!
-									php.contact.php will redirect back here and will add a hash to the end of the URL:
-										#alert_success 		= email sent
-										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-										#alert_mandatory	= email not sent - required fields empty
-										Hashes are handled by assets/js/contact.js
+							<!-- Flash Message -->
+							<div class="flash-message">
+							    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+							      @if(Session::has('alert-' . $msg))
 
-									Form data: required to be an array. Example:
-										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-										Also, add `required` to input fields if is a mandatory field. 
-										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
+							      <div class="alert alert-{{ $msg }}">
+							      	{{ Session::get('alert-' . $msg) }} 	      	
+							      	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							      	@if($errors->has())
+							      		<ul>
+									   	@foreach ($errors->all() as $error)
+									      	<li>{{ $error }}</li>
+									  	@endforeach
+									  	</ul>
+									@endif
+							      </div>
+							      @endif
+							    @endforeach
+						  	</div> <!-- end .flash-message -->
 
-									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-									WARNING! Do not change the `email` and `name`!
-												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->
 
 							<!-- Alert Success -->
 							<div id="alert_success" class="alert alert-success margin-bottom-30">
@@ -84,36 +91,41 @@
 
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-6">
-												<label for="from_first_name">Your First Name (required)</label>
-												<input required type="text" value="{{$from->first_name}}" class="form-control" name="from_first_name" id="contact:first_name">
+											<label>From:</label>
+											<div class="col-sm-6">
+
+												<input required type="text" placeholder="First Name" value="{{$from->first_name}}" class="form-control" name="from_first_name" id="contact:first_name">
 											</div>
-											<div class="col-md-6">
-												<label for="from_last_name">Your Last Name (required)</label>
-												<input required type="text" value="{{$from->last_name}}" class="form-control" name="from_last_name" id="contact:last_name">
+
+											<div class="col-sm-6">
+												<input required type="text" placeholder="Last Name" value="{{$from->last_name}}" class="form-control" name="from_last_name" id="contact:last_name">
 											</div>
 										</div>
+									</div>
+									<div class="row">
 										<div class="form-group">
-											<div class="col-md-6">
-												<label for="from_email">Your E-mail Address (required)</label>
-												<input required type="email" value="{{$from->email}}" class="form-control" name="from_email" id="contact:email">
+											<div class="col-sm-6">
+												<input required type="email" placeholder="Email" value="{{$from->email}}" class="form-control" name="from_email" id="contact:email">
 											</div>
-											<div class="col-md-6">
-												<label for="contact:phone">Your Phone (optional)</label>
-												<input type="text" value="{{$from->phone}}" class="form-control" name="from_phone" id="contact:phone">
+											<div class="col-sm-6">
+												<input type="text" value="{{$from->phone}}"  placeholder="Phone (optional)" class="form-control" name="from_phone" id="contact:phone">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group">
+											<label>To:</label>
+											<div class="col-sm-12">
+												<input type="text" value="{{trim($to->full_name)}}"
+												placeholder="Attention To: Full Name (optional)" class="form-control" name="to_full_name" id="toname">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-6">
-												<label for="to_full_name">To (optional) </label>
-												<input type="text" value="{{$to->full_name}}" class="form-control" name="to_full_name" id="toname">
-											</div>
-											<div class="col-md-6">
-												<label for="committee">Committee (optional)</label>
 												<select class="form-control pointer" name="committee">
-													<option value="">--- Select ---</option>
+													<option value="">--- Select a Committee (optional)---</option>
 													<option value="1">Awards</option>
 													<option value="2">Communications</option>
 													<option value="3">Finance</option>
@@ -122,21 +134,26 @@
 													<option value="6">Youth and Collegiate</option>
 												</select>
 											</div>
-											<div class="col-md-12">
-												<label for="subject">Subject (required)</label>
-												<input required type="text" value="" class="form-control" name="subject" id="subject">
-											</div>
 										</div>
 									</div>
 									<div class="row">
+										<label>Subject:</label>
 										<div class="form-group">
 											<div class="col-md-12">
-												<label for="message">Message (required)</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="message" id="message"></textarea>
+												<input required type="text" value="" placeholder="" class="form-control" name="subject" id="subject">
 											</div>
 										</div>
 									</div>
 									<div class="row">
+										<label>Message:</label>									
+										<div class="form-group">
+											<div class="col-md-12">
+
+												<textarea required maxlength="10000" placeholder="" rows="6" class="form-control" name="message" id="message"></textarea>
+											</div>
+										</div>
+									</div>
+									{{-- <div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
 												<label for="contact:attachment">File Attachment</label>
@@ -147,13 +164,13 @@
 
 											</div>
 										</div>
-									</div>
+									</div> --}}
 
 								</fieldset>
 
 								<div class="row">
-									<div class="col-md-12">
-										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
+									<div class="col-md-12 text-center">
+										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>SEND</button>
 									</div>
 								</div>
 							</form>
