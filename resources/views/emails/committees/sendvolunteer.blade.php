@@ -42,65 +42,61 @@
 			<!-- HEADER -->
 			<div id="header" class="">
 				<center>
-					<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" />		
+				<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" />		
   					<h1>TEXAS RACQUETBALL ASSOCIATION</h1>
 				</center>
 			</div>
 			<!-- /HEADER -->
 
-
 			<!-- -->
 			<section>
-				<div class="container text-center">
-					<center>
-						<h2 class="margin-bottom-20 size-30">
-						Subject: {{$subject}}
-						</h2>
+				<div style="margin:auto; margin-top:30px;">
+					<!-- Name info -->
+					<p>
+						Hello, <br/>
+						<br/>
+						My name is {{$subscriber->full_name}}. <br/>
 
-						<div style="max-width:550px; margin:auto; margin-top:60px;">
-						Message: {{$content}}
-						</div>
-					</center>
-				</div>
-			</section>
-			<!-- / -->
-
-
-
-
-			<!-- -->
-			<section class="noborder-bottom">
-				<div class="container">
-			
-					<div style="max-width:550px; margin:auto;">
-
-
+						@if ($subscriber->is_member == 1) 
+        					I am a current TXRA member.
+       					@else
+        					I am not yet a TXRA member.
+        				@endif
+    				</p>
+								
+					<!-- Committees -->
+					<div style="margin-top:20px; margin-bottom:20px;">
+						I am interested in volunteering to work on these committees:
+						<ul>
+						@foreach ($committees as $c)
+							<li> {{$c}}</li>
+						@endforeach
+						</ul> 
 					</div>
 
+					<!-- Comments -->
+					<div style="margin-top:20px;">
+						<p>
+							{{$comments}}
+						</p>
+					</div>
 				</div>
 			</section>
 			<!-- / -->
-
 
 
 			<!-- FOOTER -->
 			<footer id="footer" class="sticky">
-
 				<div class="copyright">
-					<div class="container">
-						
-						<span class="block" style="margin-top:20px">
+					<div class="container">						
+						<span class="block" style="margin-top:100px">
 							<center>&copy; All Rights Reserved, TXRA.org</center>
 						</span>
 
 					</div>
 				</div>
-
 			</footer>
 			<!-- /FOOTER -->
-
-
-
 		</div>
 		<!-- /wrapper -->
 

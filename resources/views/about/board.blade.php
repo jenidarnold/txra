@@ -6,7 +6,7 @@
     }
     .box-flip {
     	margin-bottom: 10px;
-    	min-height: 260px;
+    	height: 260px;
     }
 
     ul,li { list-style-type: none;
@@ -21,7 +21,7 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><img src="{{asset('images/board/board.png')}}" height="24px"> TXRA BOARD MEMBERS</h1>
+			<h1><img src="{{asset('images/board/board.png')}}" height="24px"> BOARD OF DIRECTORS</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
@@ -39,7 +39,7 @@
 			<section>
 				<div class="container">
 					
-					<p class="lead">The Board of the Texas Racquetball Association is committed to our members and the growth of racquetball in Texas from recreational play to international competition.</p>
+					<p class="lead">The TXRA Board of Directors is committed to our members and the growth of racquetball in Texas from recreational play to international competition.</p>
 					<p>Our mission is to provide racquetball opportunities for all levels of participation. We promote the sport with various marketing efforts. We expand our membership by recruiting at the grassroot level. We strive to provide many services for our members</p>
 
 						<!-- item -->
@@ -56,7 +56,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Michael Kaplan</h4>
 										<small>PRESIDENT</small>
 										<ul>
@@ -100,7 +100,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Sean Arnold</h4>
 										<ul>
 											<li>Governance</li>
@@ -144,7 +144,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Mike Grisz</h4>									
 										<ul>
 											<li>Finance (Chair)</li>
@@ -187,7 +187,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Mitchell McCoy</h4>
 										<ul>
 											<li>Finance</li>
@@ -230,7 +230,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Wendy Akins</h4>
 										<ul>
 											<li>Awards</li>
@@ -273,7 +273,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Julienne Arnold</h4>
 										<ul>
 											<li>Awards</li>
@@ -316,7 +316,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Tom Doughtry</h4>
 										<ul>
 											<li>Governance</li>
@@ -359,7 +359,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Brad Giezentanner</h4>
 										<ul>
 											<li>Communications</li>
@@ -402,7 +402,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Lance Gilliam</h4>
 										<ul>
 											<li>Finance</li>
@@ -445,7 +445,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Dale Gosser</h4>
 										<ul>
 											<li>Communications</li>
@@ -488,7 +488,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">John O'Neill</h4>
 										<ul>
 											<li>Governance</li>
@@ -531,7 +531,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Mike Sorensen</h4>
 										<ul>
 											<li>Awards</li>
@@ -574,7 +574,7 @@
 								</div>
 
 								<div class="back">
-									<div class="box2 box-default">
+									<div class="box2 box-info">
 										<h4 class="nomargin">Terry Wenetschlaeger</h4>
 										<ul>
 											<li>Strategic Planning</li>
@@ -612,16 +612,10 @@
 				<div class="container">
 
 					<div class="row">
-
 						<div class="col-md-9"><!-- title + shortdesc -->
-							<h3>Want to volunteer to work on a committee?</h3>
-							<p>If so, click to sign up, and be part of our dynamic team!</p>
+							<h3>Call for Volunteers!</h3> 
+							<h4>We have many committees that need your help, talent, and support.</h4><a href="{{ route('committees.index')}}" class="btn btn-primary btn-lg">Join Our Team</a>
 						</div>
-
-						<div class="col-md-3"><!-- button -->
-							<a href="{{ route('committees.index')}}" class="btn btn-primary btn-lg">Join Our Team</a>
-						</div>
-
 					</div>
 
 				</div>

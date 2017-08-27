@@ -137,6 +137,7 @@ Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 	Route::get('board', array('as' => 'board.index', 'uses' => 'LeadershipController@board'));	
 	Route::get('bylaws', array('as' => 'about.bylaws', 'uses' => 'LeadershipController@bylaws'));	
 	Route::get('committees', array('as' => 'committees.index', 'uses' => 'LeadershipController@committees'));
+	Route::post('committees', array('as' => 'committees.join', 'uses' => 'LeadershipController@joinCommittees'));
 	Route::get('volunteer', array('as' => 'volunteer.index', 'uses' => 'LeadershipController@volunteer'));
 	Route::get('election/process', array('as' => 'election.index', 'uses' => 'LeadershipController@election'));	
 	Route::get('ethics', array('as' => 'about.ethics', 'uses' => 'LeadershipController@ethics'));	
@@ -160,6 +161,7 @@ Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 {
 	Route::get('election/nominate', array('as' => 'election.nominate', 'uses' => 'NominationController@election'));	
 	Route::get('awards/nominate', array('as' => 'awards.nominate', 'uses' => 'NominationController@awards'));	
+	Route::post('awards/nominate', array('as' => 'nominate.awards', 'uses' => 'ContactController@nominateAwards'));	
 	Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));	
 	Route::post('contact', array('as' => 'contact', 'uses' => 'ContactController@send'));	
 });

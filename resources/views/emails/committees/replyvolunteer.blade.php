@@ -41,10 +41,12 @@
 
 			<!-- HEADER -->
 			<div id="header" class="">
-				<center>
-					<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" />		
-  					<h1>TEXAS RACQUETBALL ASSOCIATION</h1>
-				</center>
+
+				<!-- Logo 
+				<a href="/"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" /></a>
+  				-->
+  				<h1> <center>TEXAS RACQUETBALL ASSOCIATION</center></h1>
+  			
 			</div>
 			<!-- /HEADER -->
 
@@ -54,11 +56,13 @@
 				<div class="container text-center">
 					<center>
 						<h2 class="margin-bottom-20 size-30">
-						Subject: {{$subject}}
+							<center>Thank you for volunteering!</center>
 						</h2>
 
 						<div style="max-width:550px; margin:auto; margin-top:60px;">
-						Message: {{$content}}
+							
+							<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" />
+
 						</div>
 					</center>
 				</div>
@@ -83,6 +87,8 @@
 
 
 
+
+
 			<!-- FOOTER -->
 			<footer id="footer" class="sticky">
 
@@ -90,7 +96,7 @@
 					<div class="container">
 						
 						<span class="block" style="margin-top:20px">
-							<center>&copy; All Rights Reserved, TXRA.org</center>
+							<center>&copy; All Rights Reserved, TXRA</center>
 						</span>
 
 					</div>

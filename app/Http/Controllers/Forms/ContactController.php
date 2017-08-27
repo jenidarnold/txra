@@ -47,20 +47,31 @@ class ContactController extends Controller {
 	 */
 	public function send(Request $request)
 	{
-		/* TODO: Add validation
+		// validate
+        // read more on validation at http://laravel.com/docs/validation
+       //validation
 		$rules = array(
-        	'email' => 'required|email',
-        	'subscription_id' => 'required'
+        	'from_email' => 'required|email',
+        	'from_first_name' => 'required',
+        	'from_last_name' => 'required',
+        	'subject' => 'required',
+        	'message' => 'required'
         );
 
-        $validator = \Validator::make(\Input::all(), $rules);
+        $input = \Input::all();
+        $validator = \Validator::make($input, $rules);
 
         if ($validator->fails()) {
-        	Session::flash('message', 'Failed to subscribe to newsletter');
-        } else  {
+          
+        	$message = 'Failed to send.';
+   			return  redirect()->back()
+				->with('alert-danger', $message)
+				->withErrors($validator)
+	            ->withInput(\Input::except('password'));
+				;    
+		}
 
-		*/
-
+		//Compose message
 		$from = new User;
 		$from->first_name = $request->from_first_name;
 		$from->last_name = $request->from_last_name;
