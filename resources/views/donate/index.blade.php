@@ -2,7 +2,8 @@
 @section('style')
     <style type="text/css">
     .txra {
-    	font-weight: 600;
+    	font-weight: 400;
+    	color:#28a4c9 !important;
     }
     .donate a {
     	font-weight: 600 !important;
@@ -15,7 +16,7 @@
 		<div class="container">
 
 			<h1><i class="et-wallet"></i> DONATIONS</h1>
-			<h5>Supporting Racquetball in Texas</h5>
+			{{-- <h5>Supporting Racquetball in Texas</h5> --}}
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
@@ -44,7 +45,7 @@
 				<div class="col-xs-6 col-sm-4">
 					<i class="fa fa-child text-info"></i><i class="fa fa-child text-danger"></i>
 					<h5><a href="#" data-toggle="modal" data-target="#modJuniors">Raised for Juniors</a></h5>
-					<span class="countTo" data-speed="3000">9877</span>
+					<span class="countTo" data-speed="3000">10000</span>
 					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
 					<p>Our members, parents and coaches fundraise and donate almost $10,000 annually just for the kids</p>
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modJuniors" >Donate Now</a>
@@ -191,31 +192,25 @@
 
 	<!-- Amazon Smile Modal -->
 	<div class="modal fade" id="modAmazon" tabindex="-1" role="dialog" aria-labelledby="myAmazonLabel" aria-hidden="true">
-		<div class="modal-dialog modal-full">
+		<div class="modal-dialog modal-md">
 			<div class="modal-content">
 
 				<!-- header modal -->
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myAmazonLabel">Amazon Smile</h4>
+					<h4 class="modal-title" id="myAmazonLabel"><i class="fa fa-amazon text-warning"></i> Amazon Smile</h4>
 				</div>
 
 				<!-- body modal -->
 				<div class="modal-body">
 					<p>
-					You can support the <span class="txra">TXRA</span> by shopping with Amazon through their AmazonSmile Foundation Program. Each quarter, the AmazonSmile Foundation will donate 0.5% of the purchase price to the <span class="txra">TXRA</span> by electronic funds transfer. This is a convenient way to donate for purchases you already make and it won't cost you anything extra. 
+					You can support <span class="txra">TXRA</span> by shopping with Amazon through their AmazonSmile Foundation Program. Each quarter, the AmazonSmile Foundation will donate 0.5% of the purchase price to the <span class="txra">TXRA</span> by electronic funds transfer. This is a convenient way to donate for purchases you already make and it won't cost you anything extra. 
 					</p>
 					<p>
 					The donations we receive from AmazonSmile will help our junior development and college programs. 
 					</p>
 					
-					<h5>Please make sure it says <b>Supporting: Texas Amateur Racquetball Assn Inc.</b></h5>
-				</div>
-
-				<!-- Modal Footer -->
-				<div class="modal-footer">
-					<a href="http://smile.amazon.com/ch/76-0262488" target="new"><img src="{{asset('images/donate/amazonsmile.jpg')}}"></a>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<h5>Please select our charity listed as <span class="text-info">Supporting: Texas Amateur Racquetball Assn Inc.</h5>
 				</div>
 
 			</div>

@@ -1,15 +1,19 @@
 <footer id="footer">
 	<div class="container">
 
-		<div class="row">
-
-			<div class="col-md-3 col-sm-3">
+		<div class="row text-center">
+			<h6>
 				<!-- Footer Logo -->			
 				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:70px; padding-top:15px;" alt="" /></a>
 				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:60px; padding-top:15px;" alt="" /></a>
 				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
+			</h6>
+		</div>
+		<div class="row">
+
+			<div class="col-md-3 col-sm-4">
 				
-				<br/>
+			
 				<!-- Contact Address -->
 				<address>
 					<ul class="list-unstyled">
@@ -30,11 +34,11 @@
 
 			</div>
 
-			<div class="col-md-8 col-sm-10">
+			<div class="col-md-8 col-sm-7">
 
 				<!-- Newsletter Form -->
 				<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
-				<p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
+				<p>Subscribe to our Newsletter to get important news</p>
 
 				<form class="validate" action="{{ url('subscribe')}} " method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
 					<div class="input-group">
