@@ -37,8 +37,8 @@
 					<span class="countTo" data-speed="3000">850</span>
 					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
 					<p>Donations can be received in person by any TXRA Board member, or by mailing a check.</p>
-					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Donate Now</a> |
-					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Learn More</a>
+					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Donate Now</a>
+					{{-- |<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Learn More</a> --}}
 				</div>
 
 				<div class="col-xs-6 col-sm-4">
@@ -47,8 +47,8 @@
 					<span class="countTo" data-speed="3000">9877</span>
 					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
 					<p>Our members, parents and coaches fundraise and donate almost $10,000 annually just for the kids</p>
-					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate" >Donate Now</a> |
-					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modJuniors">Learn More</a>
+					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modJuniors" >Donate Now</a>
+					{{-- | <a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modJuniors">Learn More</a> --}}
 				</div>
 
 				{{-- <div class="col-xs-6 col-sm-3">
@@ -120,67 +120,71 @@
 
 	<!-- Donate Modal -->
 	<div class="modal fade" id="modDonate" tabindex="-1" role="dialog" aria-labelledby="myDonateLabel" aria-hidden="true">
-		<div class="modal-dialog modal-full">
+		<div class="modal-dialog modal-md">
 			<div class="modal-content">
 
 				<!-- header modal -->
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myDonateLabel">Monetary Donations</h4>
+					<h4 class="modal-title text-muted" id="myDonateLabel"><i class="fa fa-usd text-success"></i> Monetary Donations</h4>
 				</div>				
 
 				<!-- body modal -->
 				<div class="modal-body">
-
-					<p>						
-						<address>
-							ATTN: Donations Texas Racquetball Association
-							P.O.Box Blah 
-							TX, 77777
-
-						</address>
-					</p>
+					<div class="container">
+						<div class="col-sm-6">
+							<h4>Please, make checks payable to:</h4>
+							<h3 class="text-info"><center><address>Texas Racquetball Association, Inc.</address></center></h3>
+							<h4>Mail to:</h4>		
+							<div class="col-sm-6 col-sm-offset-3">	
+								<address>
+									Texas Racquetball Association<br/>
+									5220 McKinney Avenue, Suite 200<br/>
+									Dallas, Texas<br/>
+									75205 USA
+								</address>
+							</div>
+						</div>
+					</div>
 				</div>
-
-				<!-- Modal Footer -->
-				<div class="modal-footer">				
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-
 			</div>
 		</div>
 	</div>
 
 	<!-- Juniors Modal -->
 	<div class="modal fade" id="modJuniors" tabindex="-1" role="dialog" aria-labelledby="myJuniorsLabel" aria-hidden="true">
-		<div class="modal-dialog modal-full">
+		<div class="modal-dialog modal-md">
 			<div class="modal-content">
 
 				<!-- header modal -->
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myJuniorsLabel">Donations for Juniors</h4>
+					<h4 class="modal-title text-muted" id="myJuniorsLabel">
+						<i class="fa fa-child text-info"></i>
+						<i class="fa fa-child text-danger"></i>
+						TX Juniors Program Donations
+					</h4>
 				</div>				
 
 				<!-- body modal -->
 				<div class="modal-body">
-
-				
-					<p>
-						
-						<address>
-							ATTN: Sandy Long Texas Racquetball Association
-							P.O.Box Blah 
-							TX, 77777
-
-						</address>
-					</p>
+					<div class="container">
+						<div class="col-sm-6">
+							<h4>Please, make checks payable to:</h4>
+							<h3 class="text-primary"><center><address>Sandy Long</address></center></h3>
+							<h4>Mail to:</h4>	
+							<div class="col-sm-6 col-sm-offset-3">			
+								<address>
+									ATTN: Coach Sandy Long
+									Texas Racquetball Association<br/>
+									5220 McKinney Avenue, Suite 200<br/>
+									Dallas, Texas<br/>
+									75205 USA
+								</address>
+							</div>
+						</div>
+					</div>
 				</div>
-
-				<!-- Modal Footer -->
-				<d	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-
 			</div>
 		</div>
 	</div>
