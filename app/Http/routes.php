@@ -169,6 +169,10 @@ Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 Route::get('/terms-of-use', function () {
     return view('misc.termsofuse');
 });
+Route::get('/privacy', function () {
+    return view('misc.privacy');
+});
+
 Route::get('/home', 'HomeController@index');
 
 

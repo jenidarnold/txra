@@ -26,7 +26,8 @@
 							Phone: 1-214-378-7400
 						</li>
 						<li class="footer-sprite email">
-							<a href="#" data-toggle="modal" data-target="#contactModal"  data-placement="bottom" title="Contact Us">support@txra.org</a>
+							{{-- <a href="#" data-toggle="modal" data-target="#contactModal"  data-placement="bottom" title="Contact Us">support@txra.org</a> --}}
+							<a href="/forms/contact" title="Contact Us">support@txra.org</a>
 						</li>
 					</ul>
 				</address>
@@ -71,7 +72,8 @@
 						<i class="icon-gplus"></i>
 					</a-->
 
-					<a href="#" data-toggle="modal" data-target="#contactModal" class="social-icon social-icon-border pull-left" data-placement="bottom" title="Contact Us">
+					{{-- <a href="#" data-toggle="modal" data-target="#contactModal" class="social-icon social-icon-border pull-left" data-placement="bottom" title="Contact Us"> --}}
+					<a href="/forms/contact" class="social-icon social-icon-border pull-left" data-placement="bottom" title="Contact Us">					
 						<i class="fa fa-envelope"></i>
 						<i class="fa fa-envelope"></i>
 					</a>
@@ -88,7 +90,7 @@
 			<ul class="pull-right nomargin list-inline mobile-block">
 				<li><a href="{{ url('/terms-of-use')}}">Terms &amp; Conditions</a></li>
 				<li>&bull;</li>
-				<li><a href="#">Privacy</a></li>
+				<li><a href="{{ url('/privacy')}}">Privacy</a></li>
 			</ul>
 			&copy; All Rights Reserved, TXRA.ORG
 		</div>

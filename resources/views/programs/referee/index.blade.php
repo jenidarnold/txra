@@ -10,21 +10,26 @@
     	.price-body{
     		height:100px;
     	}
+    	.modal-footer{
+    		text-align: center;
+    	}
     </style>
 @stop
 @section('content')		
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><i class="et-bullhorn"></i> Referee Certification Program</h1>
+			<h1><img src="{{asset('images/icons/whistle.png')}}" height="40px"></i> Referee Certification Programs</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="#">Home</a></li>
-				<li><a href="#">Referee</a></li>
-				<li class="active">Certification</li>
+				<li><a href="/programs/juniors">Juniors</a></li>
+				<li><a href="/programs/instructors">TIP</a></li>
+				<li class="active">Referee</li>
+				<li><a href="/programs/awards">Awards</a></li>
+				
 			</ol><!-- /breadcrumbs -->
-
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->
@@ -55,7 +60,7 @@
 					</div>
 					<!-- FREE Modal -->
 					<div class="modal fade modal-free" tabindex="-1" role="dialog" aria-labelledby="free" aria-hidden="true">
-						<div class="modal-dialog modal-lg">
+						<div class="modal-dialog modal-md">
 							<div class="modal-content">
 
 								<!-- header modal -->
@@ -69,13 +74,12 @@
 									<h4>Initial certification requirements:</h4>
 									<ul class="list-group">
 										<li class="list-group-item">Attend an online rules clinic</li>		
-										<li>To enroll, <a href="https://www.r2sports.com/membership/login.asp" target="r2sports">login into R2Sports</a>, 
-											then go to <a href="https://www.r2sports.com/membership/USARrefCertification.asp" target="r2sports"> Online Training</a>	
-										</li>								
-									</ul>	
-
-													
+										
+									</ul>			
 								</div>
+								<div class="modal-footer">
+									To enroll, <a href="https://www.r2sports.com/membership/login.asp" target="r2sports">login into R2Sports.com</a>, then navigate to <a href="https://www.r2sports.com/membership/USARrefCertification.asp" target="r2sports"> Online Training</a>	
+								</div>	
 							</div>
 						</div>
 					</div>
@@ -142,7 +146,7 @@
 										(minimum score of 90), and pay $10.00.
 									</ul>
 
-									<h4>Pending Certification</h4>
+									<h4>Pending Certification:</h4>
 									<ul class="list-group">
 										<li class="list-group-item"> Pass the written test with a score of at least 86.
 										<li class="list-group-item"> Attend a Rules Clinic
@@ -164,6 +168,9 @@
 									status in the best interest of the sport of racquetball. The State Association also has the right to
 									modify the requirements of this document, but must notify the program director of each change made.
 								</div>
+								<div class="modal-footer">
+									To enroll, <a href="https://www.r2sports.com/membership/login.asp" target="r2sports">login into R2Sports.com</a>, then navigate to <a href="https://www.r2sports.com/membership/USARrefCertification.asp" target="r2sports"> Online Training</a>	
+								</div>	
 							</div>
 						</div>
 					</div>
@@ -248,6 +255,9 @@
 									status in the best interest of the sport of racquetball. The State Association also has the right to
 									modify the requirements of this document, but must notify the program director of each change made.
 								</div>
+								<div class="modal-footer">
+									To enroll, <a href="https://www.r2sports.com/membership/login.asp" target="r2sports">login into R2Sports.com</a>, then navigate to <a href="https://www.r2sports.com/membership/USARrefCertification.asp" target="r2sports"> Online Training</a>	
+								</div>	
 							</div>
 						</div>
 					</div>
@@ -320,7 +330,9 @@
 								<h5>The State will provide each certified referee with a referee card stating their certification and expiration date.</h5>
 								
 							</div>
-
+							<div class="modal-footer">
+								To enroll, <a href="https://www.r2sports.com/membership/login.asp" target="r2sports">login into R2Sports.com</a>, then navigate to <a href="https://www.r2sports.com/membership/USARrefCertification.asp" target="r2sports"> Online Training</a>	
+							</div>	
 						</div>
 					</div>
 				</div>

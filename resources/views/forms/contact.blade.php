@@ -91,9 +91,10 @@
 
 									<div class="row">
 										<div class="form-group">
-											<label>From:</label>
+											<div class="col-sm-12">
+												<label class="text-primary">From:</label>	
+											</div>
 											<div class="col-sm-6">
-
 												<input required type="text" placeholder="First Name" value="{{$from->first_name}}" class="form-control" name="from_first_name" id="contact:first_name">
 											</div>
 
@@ -114,8 +115,8 @@
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<label>To:</label>
 											<div class="col-sm-12">
+												<label class="text-primary">To:</label>
 												<input type="text" value="{{trim($to->full_name)}}"
 												placeholder="Attention To: Full Name (optional)" class="form-control" name="to_full_name" id="toname">
 											</div>
@@ -137,18 +138,18 @@
 										</div>
 									</div>
 									<div class="row">
-										<label>Subject:</label>
 										<div class="form-group">
 											<div class="col-md-12">
+												<label class="text-primary">Subject:</label>
+
 												<input required type="text" value="" placeholder="" class="form-control" name="subject" id="subject">
 											</div>
 										</div>
 									</div>
-									<div class="row">
-										<label>Message:</label>									
+									<div class="row">								
 										<div class="form-group">
 											<div class="col-md-12">
-
+												<label class="text-primary">Message:</label>	
 												<textarea required maxlength="10000" placeholder="" rows="6" class="form-control" name="message" id="message"></textarea>
 											</div>
 										</div>
