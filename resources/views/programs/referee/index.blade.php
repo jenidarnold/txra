@@ -27,8 +27,7 @@
 				<li><a href="/programs/juniors">Juniors</a></li>
 				<li><a href="/programs/instructors">TIP</a></li>
 				<li class="active">Referee</li>
-				<li><a href="/programs/awards">Awards</a></li>
-				
+				<li><a href="/programs/awards">Awards</a></li>				
 			</ol><!-- /breadcrumbs -->
 		</div>
 	</section>

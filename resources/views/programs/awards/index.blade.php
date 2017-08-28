@@ -9,14 +9,13 @@
 		<div class="container">
 
 			<h1><i class="et-trophy"></i> ANNUAL AWARDS GALLERY</h1>
-
-			<!-- breadcrumbs
+	
+			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="#">Home</a></li>
-				<li><a href="#">Awards</a></li>
-				<li class="active">Gallery</li>
+				<li class="active">Gallery</li>		
+				<li><a href="/forms/awards/nominate/">Nominations</a></li>					
 			</ol><!-- /breadcrumbs -->
-
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->

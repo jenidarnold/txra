@@ -7,13 +7,14 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><i class="et-trophy"></i> ANNUAL AWARDS & NOMINATION FORM</h1>
+			<h1><i class="et-trophy"></i> ANNUAL AWARDS NOMINATION</h1>
+
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="#">Home</a></li>
-				<li><a href="#">Awards</a></li>
-				<li class="active">Nonimate</li>
+				<li> <a href="/programs/awards">Gallery</a></li>		
+				<li class="active">Nominations</li>					
 			</ol><!-- /breadcrumbs -->
 
 		</div>
