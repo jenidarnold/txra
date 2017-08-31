@@ -65,6 +65,10 @@
 			/*background-color: #98a09e;*/
 			font-weight: bolder;
 		}
+
+		#topNav div.nav-main-collapse {
+			max-height: 400px !important;
+		}
 				
 	</style>
 @yield('style')

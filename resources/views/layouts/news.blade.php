@@ -17,6 +17,9 @@
     <style>
     .tabs {
     }
+    .list-group-item {
+        font-size: 12pt !important;
+    }
     </style>
 
 @stop

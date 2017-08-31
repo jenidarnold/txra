@@ -3,12 +3,12 @@
 @section('body')
     @if ($post->image_count() > 1)
         <!-- OWL SLIDER -->
-        <div style="max-height:200px" class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": {{$post->image_count()}}, "autoPlay": 6000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+        <div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": {{$post->image_count()}}, "autoPlay": 6000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
 
             @foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)
                 @if (!$fileinfo->isDot())
                     <div>
-                        <img class="img-responsive"  style="max-height:200px" src="{{ asset($fileinfo->getPathname()) }}" alt="">
+                        <img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
                     </div>
                 @endif
             @endforeach                             
