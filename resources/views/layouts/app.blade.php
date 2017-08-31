@@ -29,6 +29,9 @@
 		<!-- LAYER SLIDER -->
 		<link href="{{ asset('plugins/slider.layerslider/css/layerslider.css') }}" rel="stylesheet" type="text/css" />
 
+		<!-- Jcrop -->
+		<link href="{{ asset('css/jquery.Jcrop.min.css') }}" rel="stylesheet" type="text/css" />
+		
 		<!-- THEME CSS -->
 		<link href="{{ asset('css/essentials.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('css/layout.css') }}" rel="stylesheet" type="text/css" />
@@ -617,6 +620,10 @@
 		<!-- JAVASCRIPT FILES -->
 		<script type="text/javascript">var plugin_path = '/plugins/';</script>
 		<script type="text/javascript" src="{{ asset('plugins/jquery/jquery-2.2.3.min.js') }}"></script>
+
+		<!-- Jcrop -->
+		<script type="text/javascript" src="{{ asset('js/jquery.Jcrop.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/jquery.color.js') }}"></script>
 
 		<!-- LAYER SLIDER -->
 		<script type="text/javascript" src="{{ asset('plugins/slider.layerslider/js/layerslider_pack.js') }}"></script>

@@ -26,7 +26,8 @@
 		<section>
 			<div class="container">
 
-				<p class="lead">The Texas Instructor Program (TIP) is a comprehensive reimbursement program designed to assist Texas racquetball instructors in providing quality racquetball programs in their communities for Texas women, men and children. This program is intended to encourage interested racquetball instructors to become nationally certified by reimbursing a portion of the cost of the <b>USAR-IP</b> certification clinics offered by USAR (described below).</p>
+				<p class="lead">The Texas Instructor Program (TIP) is a comprehensive reimbursement program designed to assist Texas racquetball instructors in providing quality racquetball programs in their communities for Texas women, men and children. </p>
+				<p>This program is intended to encourage interested racquetball instructors to become nationally certified by reimbursing a portion of the cost of the <b>USAR-IP</b> certification clinics offered by USAR (described below).</p>
 				
 				<div class="divider divider-center divider-color"><!-- divider -->
 					<i class="fa fa-chevron-down"></i>
@@ -56,74 +57,75 @@
 						<div class="col-lg-5 col-md-5 col-sm-6 col-md-pull-2">
 
 							<div class="box-icon box-icon-right">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-eye"></i>
 									<h2>Certification is for three years</h2>
-								</a>
+								</span>
 							</div>
 
 							<div class="box-icon box-icon-right">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-check"></i>
 									<h2>$5 million in liability insurance coverage</h2>
-								</a>
+								</span>
 							</div>
 
 							<div class="box-icon box-icon-right">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-rocket"></i>
 									<h2>Safe sport education</h2>								
 							</div>
 
 							<div class="box-icon box-icon-right">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-flash"></i>
 									<h2>Vast library of education</h2>
-								</a>	
+								</span>	
 							</div>
 
 							<div class="box-icon box-icon-right">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-flash"></i>
 									<h2>Online certification</h2>
-								</a>
+								</span>
 							</div>
 						</div>
 
 						<div class="col-lg-5 col-md-5 col-sm-6">
 							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-tablet"></i>
 									<h2>Mentor program with nationally known coaches</h2>
+								</span>
 							</div>
 
 							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-random"></i>
 									<h2>Entry level coaching course</h2>
-								</a>
+								</span>
 							</div>
 
 							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-cogs"></i>
 									<h2>Ongoing educational courses</h2>
-								</a>
+								</span>
 							</div>
 
 							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-cogs"></i>
 									<h2>Program	for creating revenue streams in clubs</h2>
-								</a>
+								</span>
 							</div>
 
 
 							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
+								<span class="box-icon-title">
 									<i class="fa fa-cogs"></i>
 									<h2>Only recognized racquetball instructional program in the USA.</h2>
-								</a>
+								</span>
 							</div>
 
 						</div>
@@ -162,7 +164,7 @@
 
 										<hr />
 
-										<a href="shop-checkout.html" class="btn btn-primary btn-lg btn-block size-15"><i class="fa fa-mail-forward"></i> Join Now</a>
+										<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15"><i class="fa fa-mail-forward"></i> Sign up</a>
 									</div>
 								</div>
 							</div>
@@ -178,13 +180,13 @@
 										<div class="col-md-6">
 											<cite>
 												Coordinator
-												<span>Bob Sullins <a mailto:bob@themav.com>bob@themav.com</a></span>
+												<span>Sean Arnold</a></span>
 											</cite>
 										</div>
 										<div class="col-md-6">
 											<cite>
 												Coordinator
-												<span>Leo Vasquez <a mailto:leo@themav.com>leo@themav.com</a></span>
+												<span>Mike Grisz</a></span>
 											</cite>
 										</div>
 									</div>
@@ -238,9 +240,7 @@
 
 				<div class="text-center">
 
-					<h4>For additional information contact, Leo R Vasquez, leo@themav.com or Bob Sullins, bob@themav.com</h4>
-					
-					<a href="page-contact-1.html" class="btn btn-primary btn-lg margin-top-30">CONTACT US NOW</a>
+					<h4><a href="/forms/contact" class="btn btn-primary btn-lg margin-top-30">CONTACT US NOW</a> </h4>
 
 				</div>
 
