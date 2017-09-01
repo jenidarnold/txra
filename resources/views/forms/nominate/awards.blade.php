@@ -36,7 +36,7 @@
 			<div class="row">
 
 				<!-- LEFT COLUMNS -->
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
@@ -52,7 +52,7 @@
 						</div><!-- /toggle -->					
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
@@ -70,7 +70,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 						<div class="toggle mix design alert-warning"><!-- toggle -->
@@ -84,7 +84,7 @@
 						</div><!-- /toggle -->
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 						<div class="toggle mix design alert-warning"><!-- toggle -->
@@ -100,7 +100,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 						<div class="toggle mix design alert-warning"><!-- toggle -->
@@ -114,7 +114,7 @@
 						</div><!-- /toggle -->
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 						<div class="toggle mix design alert-warning"><!-- toggle -->
@@ -130,7 +130,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 						<div class="toggle mix design alert-warning"><!-- toggle -->
@@ -144,7 +144,7 @@
 						</div><!-- /toggle -->
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 margin-bottom-20">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 						<div class="toggle mix design alert-warning"><!-- toggle -->
@@ -169,14 +169,15 @@
 			<div class="row">
 				<!-- FORM -->
 				<div class="row">
-					<div class="col-sm-8">
+					<div class="col-sm-8 margin-bottom-0">
 						<a name="form"></a>
 						<h3 class="text-center text-primary">Nomination Form</h3>	
 						<hr/>
 					</div>	
 				</div>
 				<div class="col-md-8 col-sm-8">											
-						<form action="{{route('awards.nominate')}}" method="post" enctype="multipart/form-data">
+					<form action="{{route('awards.nominate')}}" method="post" enctype="multipart/form-data">
+						{{csrf_field()}}
 						<fieldset>
 							<input type="hidden" name="action" value="contact_send" />
 							<div class="row">

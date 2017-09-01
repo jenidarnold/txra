@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
+use Illuminate\Support\Facades\URL;
 
 class NominationController extends Controller {
 

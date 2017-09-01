@@ -163,7 +163,7 @@ Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 {
 	Route::get('election/nominate', array('as' => 'election.nominate', 'uses' => 'NominationController@election'));	
 	Route::get('awards/nominate', array('as' => 'awards.nominate', 'uses' => 'NominationController@awards'));	
-	Route::post('awards/nominate', array('as' => 'awards.nominate', 'uses' => 'ContactController@sendAward'));	
+	Route::post('awards/nominate', array('as' => 'awards.nominate', 'uses' => 'NominationController@sendAward'));	
 	Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));	
 	Route::post('contact', array('as' => 'contact', 'uses' => 'ContactController@send'));	
 });
