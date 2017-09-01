@@ -20,13 +20,28 @@
     .list-group-item {
         font-size: 12pt !important;
     }
+    .list-group-item-text{
+        font-size: 12pt !important;
+    }
+    .blog-post-info{
+        font-size: 10pt !important;
+    }
+    .blog-post-item{
+        margin-bottom: 20px;
+        padding-bottom: 40px;
+    }
+
     </style>
 
 @stop
 @section('content')
   <section class="page-header page-header-xs">        
         <div class="container">
-            <h1><i class="fa fa-newspaper-o"></i> NEWS</h1>                   
+            <h1><i class="fa fa-newspaper-o"></i> NEWS
+            @if(isset($category)) 
+                <i class="fa fa-chevron-right fa-sm"></i> {{$category}}
+            @endif
+            </h1>                   
         </div>
     </section>
 

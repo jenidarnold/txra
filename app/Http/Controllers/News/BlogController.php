@@ -29,12 +29,13 @@ class BlogController extends BaseController {
 	{
             $mostRecommended = Post::mostRecommended();
             $last            = Post::lastPosts();
-      
+            $last = $last->paginate(5);
+
             $categories = PostCategory::all();
 
             return View('blog/index',
                 array(
-                    'title'=>"TXRA News ",
+                    'title'=>"News",
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
                     'categories' => $categories
@@ -48,7 +49,7 @@ class BlogController extends BaseController {
      *
      * @return Response
      */
-    public function getCategory($id)
+    public function getCategory($id, $category)
     {
             $mostRecommended = Post::mostRecommended();
             $last            = Post::lastPosts();
@@ -58,16 +59,19 @@ class BlogController extends BaseController {
             $last = $cat->find($id)->posts()
                 ->orderBy('created_at','desc')
                 ->where('public', 1)
-                ->get();
+                ;
 
             $categories = PostCategory::all();
 
+            $last = $last->paginate(3);
+
             return View('blog/index',
                 array(
-                    'title'=>"TXRA News ",
+                    'title'=>"News",
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
-                    'categories' => $categories
+                    'categories' => $categories,
+                    'category' => $category
                     )
                 );
     }

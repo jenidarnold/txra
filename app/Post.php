@@ -38,10 +38,11 @@ class Post extends \Eloquent {
     public static  function lastPosts($number = null) {       
         if ( $number != null ){
             return self::where('public', 1)->take($number)
-                    ->orderBy('created_at','desc')->get();                        
+                    ->orderBy('created_at','desc')
+                    ;                        
         } else {
             return self::orderBy('created_at','desc')->where('public', 1)
-                    ->get();            
+                    ;            
         }
     }
 

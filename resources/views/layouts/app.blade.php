@@ -401,6 +401,10 @@
 										</a>
 										<ul class="dropdown-menu">
 											<li><a href="{{ route('news.index')}}">LATEST</a></li>
+											<li><a href="{{ route('news.category', array('id' =>2, 'category' => 'playerspotlight') )}}">PLAYER SPOTLIGHT</a></li>
+											<li><a href="{{ route('news.category', array('id' =>3, 'category' => 'tipofday'))}}">TIP OF THE DAY</a></li>
+											<li><a href="{{ route('news.category', array('id' =>6, 'category' => 'events'))}}">EVENTS</a></li>
+											<li><a href="{{ route('news.category', array('id' =>9, 'category' => 'minutes'))}}">BOARD MINUTES</a></li>
 											{{-- <li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li> --}}
 											<!--li><a href="{ { route('news .edit')}}">MY POSTS</a></li-->
 										</ul>										

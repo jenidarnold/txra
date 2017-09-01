@@ -62,6 +62,7 @@ Route::get('/logout', function () {
     return view('welcome');
 });
 
+/* Play */
 Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 {
 	Route::get('basics', array('as' => 'play.basics', 'uses' => 'PlayController@basics'));	
@@ -72,6 +73,7 @@ Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 	Route::get('leagues', array('as' => 'play.leagues.index', 'uses' => 'LeaguesController@index'));	
 });
 
+/* Programs */
 Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 {
 	Route::get('juniors', array('as' => 'juniors.index', 'uses' => 'JuniorsController@index'));

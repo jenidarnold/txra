@@ -44,7 +44,7 @@
 
 	<p class="list-group-item-text"> {{substr(strip_tags($post->content), 0, 200)}}... </p>
 	<br/>
-	<a href="{{$post->getUrl()}}" class="btn btn-reveal btn-default">
+	<a href="{{$post->getUrl()}}" class="btn btn-reveal btn-info btn-sm">
 		<i class="fa fa-plus"></i>
 		<span>Read More</span>
 	</a>
