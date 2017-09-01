@@ -13,7 +13,7 @@
 	<ul class="nav nav-tabs nav-top-border">
 		<li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
 		<li><a href="#avatar" data-toggle="tab">Avatar</a></li>
-		<li><a href="#accounts" data-toggle="tab">Link Accounts</a></li>
+		{{-- <li><a href="#accounts" data-toggle="tab">Link Accounts</a></li> --}}
 		<li><a href="#password" data-toggle="tab">Password</a></li>
 		{{-- <li><a href="#privacy" data-toggle="tab">Privacy</a></li> --}}
 	</ul>

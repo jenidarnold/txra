@@ -55,7 +55,7 @@
 					<p>
 						Hello, <br/>
 						<br/>
-						My name is: <br/>
+						My name is:<br/>
 						{{$subscriber->full_name}}. <br/>
 						{{$subscriber->email}}<br/>
 						{{$subscriber->phone}}<br/>
@@ -69,16 +69,12 @@
 								
 					<!-- Committees -->
 					<div style="margin-top:20px; margin-bottom:20px;">
-						I am interested in volunteering to work on these committees:
-						<ul>
-						@foreach ($committees as $c)
-							<li> {{$c}}</li>
-						@endforeach
-						</ul> 
+						I am nominating {{ $nominee }} for  {{ $award}}.
 					</div>
 
 					<!-- Comments -->
 					<div style="margin-top:20px;">
+						Supporting Information:<br/>
 						<p>
 							{{$comments}}
 						</p>

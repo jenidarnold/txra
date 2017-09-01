@@ -6,9 +6,10 @@
         </div>
     @else
   
+        <div class="row">
         @foreach($last as $post)
             <!-- POST ITEM -->
-            <div class="blog-post-item">
+            <div class="blog-post-item col-sm-6">
             @if ($post->image_count() > 1)
                 <!-- OWL SLIDER -->
                 <div style="max-height:200px" class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": {{$post->image_count()}}, "autoPlay": 6000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
@@ -23,8 +24,10 @@
                 </div>
                 <!-- /OWL SLIDER -->
             @else
-                <figure class="margin-bottom-20 ">
-                    <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
+
+                <figure class="margin-bottom-20">                       
+                    <!-- details -->                
+                    <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >                             
                 </figure>
             @endif
 
@@ -69,7 +72,7 @@
             </div>
             <!-- /POST ITEM -->
         @endforeach
-
+        </div>
             <!-- PAGINATION -->           
             {{-- <section class="page-header page-header-xs"> --}}
                 <div class="text-center">

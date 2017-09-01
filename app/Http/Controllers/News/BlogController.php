@@ -29,7 +29,7 @@ class BlogController extends BaseController {
 	{
             $mostRecommended = Post::mostRecommended();
             $last            = Post::lastPosts();
-            $last = $last->paginate(5);
+            $last = $last->paginate(4);
 
             $categories = PostCategory::all();
 
@@ -63,7 +63,7 @@ class BlogController extends BaseController {
 
             $categories = PostCategory::all();
 
-            $last = $last->paginate(3);
+            $last = $last->paginate(4);
 
             return View('blog/index',
                 array(

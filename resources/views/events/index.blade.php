@@ -14,16 +14,7 @@
 <!-- /PAGE HEADER -->
 
 <section>
-	<div class="container">
-		
-
-{{-- 						<ul class="nav nav-pills mix-filter margin-bottom-60">
-							<li data-filter="all" class="filter active"><a href="#">All</a></li>
-							<li data-filter="development" class="filter"><a href="#">Development</a></li>
-							<li data-filter="photography" class="filter"><a href="#">Photography</a></li>
-							<li data-filter="design" class="filter"><a href="#">Design</a></li>
-						</ul> --}}
-
+	<div class="container">		
 				<!-- Pager TOP -->
 				<div class="text-center">
 					{{$tournaments->links()}}
@@ -69,7 +60,7 @@
 
 									<!-- div info -->
 									<div class="item-box-desc">
-										<h4>{{ $t->name }}</h4>
+										<h4><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h4>
 										<span class="text">{{$t->start_date}} - {{$t->end_date}}<br/>
 											@if( $t->club()->lat > 0)
 												<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">

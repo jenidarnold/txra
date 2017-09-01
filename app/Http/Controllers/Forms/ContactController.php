@@ -82,9 +82,9 @@ class ContactController extends Controller {
 		$from->full_name = $from->first_name . ' ' . $from->last_name;
 		$from->email = $request->from_email;
 
-		$to = new User;
-		$to->email ='julie.enid@gmail.com'; /* replace with ENV VAR or look up email by Name or BoardID  */
-		$to->full_name = $request->to_full_name;
+		$txra = new User;
+		$txra->email = env('MAIL_TO_EMAIL'); 
+		$txra->full_name = env('MAIL_TO_NAME');
 
         $subject = $request->subject;
         $content = $request->message;
@@ -94,7 +94,7 @@ class ContactController extends Controller {
         {
 
             $m->from($from->email, $from->full_name );
-            $m->to($to->email, $to->name)->subject($subject);
+            $m->to($txra->email, $txra->full_name)->subject($subject);
 
         });
 

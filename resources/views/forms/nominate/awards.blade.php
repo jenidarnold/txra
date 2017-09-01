@@ -26,7 +26,13 @@
 		<div class="container">
 
 	        <h3>@php echo date("Y"); @endphp Annual Awards (presented in @php echo date("Y", strtotime('+1 year')); @endphp)</h3>
-			<h5>These awards are for the period of January 1, @php echo date("Y"); @endphp to December 31, @php echo date("Y"); @endphp Awards will be presented at Regional’s Competition in San Antonio, Texas. (April, @php echo date("Y", strtotime('+1 year')); @endphp)</h5>
+			<p class="lead">These awards are for the period of January 1, @php echo date("Y"); @endphp to December 31, @php echo date("Y"); @endphp <br/>Awards will be presented at Regional’s Competition in San Antonio, Texas. (April, @php echo date("Y", strtotime('+1 year')); @endphp) <a href="#form">Nominate Now!</a></p> 
+			
+
+			<div class="divider divider-center divider-color"><!-- divider -->
+				<i class="fa fa-chevron-down"></i>
+			</div>
+
 			<div class="row">
 
 				<!-- LEFT COLUMNS -->
@@ -35,7 +41,7 @@
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 
-						<div class="toggle mix design"><!-- toggle -->
+						<div class="toggle mix design alert-warning"><!-- toggle -->
 							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Ann Gibbons Memorial Sportsmanship</label>
 							<div class="toggle-content">
 								<p class="clearfix">
@@ -51,7 +57,7 @@
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 
-						<div class="toggle mix design"><!-- toggle -->
+						<div class="toggle mix design alert-warning"><!-- toggle -->
 							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Outstanding Racquetball Contributor</label>
 							<div class="toggle-content">
 								<p class="clearfix">
@@ -67,7 +73,7 @@
 				<div class="col-md-6">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
-						<div class="toggle mix design"><!-- toggle -->
+						<div class="toggle mix design alert-warning"><!-- toggle -->
 							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Male Athlete of the Year</label>
 							<div class="toggle-content">
 								<p class="clearfix">
@@ -81,7 +87,7 @@
 				<div class="col-md-6">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
-						<div class="toggle mix design"><!-- toggle -->
+						<div class="toggle mix design alert-warning"><!-- toggle -->
 							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Female Athlete of the Year</label>
 							<div class="toggle-content">
 								<p class="clearfix">
@@ -97,7 +103,7 @@
 				<div class="col-md-6">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
-						<div class="toggle mix design"><!-- toggle -->
+						<div class="toggle mix design alert-warning"><!-- toggle -->
 							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Junior Male Athlete of the Year - Under 13</label>
 							<div class="toggle-content">
 								<p class="clearfix">
@@ -111,7 +117,7 @@
 				<div class="col-md-6">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
-						<div class="toggle mix design"><!-- toggle -->
+						<div class="toggle mix design alert-warning"><!-- toggle -->
 							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Junior Male Athlete of the Year - Age 13-18</label>
 							<div class="toggle-content">
 								<p class="clearfix">
@@ -127,7 +133,7 @@
 				<div class="col-md-6">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
-						<div class="toggle mix design"><!-- toggle -->
+						<div class="toggle mix design alert-warning"><!-- toggle -->
 							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i>  Junior Female Athlete of the Year - Under 13</label>
 							<div class="toggle-content">
 								<p class="clearfix">
@@ -141,8 +147,8 @@
 				<div class="col-md-6">
 					<!-- TOGGLES -->
 					<div class="toggle toggle-transparent toggle-bordered-simple">
-						<div class="toggle mix design"><!-- toggle -->
-							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Junior Female Athlete of the Year - Age 13-18</label>
+						<div class="toggle mix design alert-warning"><!-- toggle -->
+							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Junior Female Athlete of the Year - Age 13-18</label> 
 							<div class="toggle-content">
 								<p class="clearfix">
 									Awarded to the female player that is 13 or over and under 18 that has demonstrated significant improvement in his performance. Demonstrated good sportsmanship on and off the court.
@@ -154,73 +160,42 @@
 				</div>
 			</div>
 	</div>
-	</section>
+	
+	<div class="divider divider-center divider-color"><!-- divider -->
+		<i class="fa fa-chevron-down"></i>
+	</div>
 
-	<section>
 		<div class="container">
 			<div class="row">
 				<!-- FORM -->
-				<div class="col-md-8 col-sm-8">
-					
-					<h3>Nomination Form</h3>					
-					<!--
-						MESSAGES
-						
-							How it works?
-							The form data is posted to php/contact.php where the fields are verified!
-							php.contact.php will redirect back here and will add a hash to the end of the URL:
-								#alert_success 		= email sent
-								#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-								#alert_mandatory	= email not sent - required fields empty
-								Hashes are handled by assets/js/contact.js
-
-							Form data: required to be an array. Example:
-								contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-								Also, add `required` to input fields if is a mandatory field. 
-								Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
-
-							PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-										 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-							WARNING! Do not change the `email` and `name`!
-										contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-										contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-					-->
-
-					<!-- Alert Success -->
-					<div id="alert_success" class="alert alert-success margin-bottom-30">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>Thank You!</strong> Your message successfully sent!
-					</div><!-- /Alert Success -->
-
-
-					<!-- Alert Failed -->
-					<div id="alert_failed" class="alert alert-danger margin-bottom-30">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>[SMTP] Error!</strong> Internal server error!
-					</div><!-- /Alert Failed -->
-
-
-					<!-- Alert Mandatory -->
-					<div id="alert_mandatory" class="alert alert-danger margin-bottom-30">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-					</div><!-- /Alert Mandatory -->
-
-
-					<form action="php/contact.php" method="post" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col-sm-8">
+						<a name="form"></a>
+						<h3 class="text-center text-primary">Nomination Form</h3>	
+						<hr/>
+					</div>	
+				</div>
+				<div class="col-md-8 col-sm-8">											
+						<form action="{{route('awards.nominate')}}" method="post" enctype="multipart/form-data">
 						<fieldset>
 							<input type="hidden" name="action" value="contact_send" />
 							<div class="row">
+															
 								<div class="form-group">
-									<div class="col-md-4">
-										<label for="contact:name">Nominee Full Name *</label>
-										<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-									</div>	
-									<div class="col-md-8">
-										<label for="contact_department">Specify Award *</label>
-										<select class="form-control pointer" name="contact[department]">
-											<option value="">--- Select ---</option>
+									<h4 class="col-sm-12 text-primary">Tell Us About Your Nominee!</h4>	
+									<div class="col-sm-6">	
+										<input required type="text" placeholder="First Name" class="form-control" name="nominee['first_name']">
+									</div>
+									<div class="col-sm-6">
+										<input required type="text" placeholder="Last Name" class="form-control" name="nominee['last_name]">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group">	
+									<div class="col-sm-12">
+										<select class="form-control pointer" name="award">
+											<option value="" class="text-danger">---Select Award---</option>
 											<option value="1">Ann Gibbons Memorial Sportsmanship</option>
 											<option value="2">Male Athlete of the Year</option>
 											<option value="3">Female Athlete of the Year</option>
@@ -235,35 +210,39 @@
 							</div>
 							<div class="row">
 								<div class="form-group">
-									<div class="col-md-4">
-										<label for="contact:name">Your Full Name *</label>
-										<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+									<div class="col-md-12">
+										<textarea required maxlength="10000" rows="8" class="form-control" name="comments" id="comments" placeholder="Please list achievements, verification source and contact name/information of Tournament & League Directors, coaches, parents, etc"></textarea>
 									</div>
-									<div class="col-md-4">
-										<label for="contact:email">Your E-mail Address *</label>
-										<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+								</div>
+							</div>		
+							<div class="row">								
+								<div class="form-group">
+									<h4 class="col-sm-12 text-primary">Tell Us About You!</h4>
+									<div class="col-sm-6">
+										<input required type="text" placeholder="First Name" class="form-control" name="from['first_name']" id="from:name">
 									</div>
-									<div class="col-md-4">
-										<label for="contact:phone">Your Phone</label>
-										<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+									<div class="col-sm-6">
+										<input required type="text" placeholder="Last Name" class="form-control" name="from['last_name']" id="from:name">
+									</div>
+								</div>
+							</div>
+							<div class="row">								
+								<div class="form-group">	
+									<div class="col-sm-6">
+										<input required type="email" placeholder="Email Address" class="form-control" name="from['email']" id="from:email">
+									</div>
+									<div class="col-sm-6">
+										<input type="text" placeholder="Phone (optional)" class="form-control" name="from['phone']" id="from:phone">
 									</div>
 								</div>
 							</div>														
-							<div class="row">
-								<div class="form-group">
-									<div class="col-md-12">
-										<label for="contact:message">Supporting Information * </label>
-										<small>Please list achievements, verification source and contact name/information of Tournament & League Directors, parents, coaches, etc. </small>
-										<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
-									</div>
-								</div>
-							</div>									
+														
 
 						</fieldset>
 
 						<div class="row">
 							<div class="col-md-12">
-								<button type="submit" class="btn btn-primary"><i class="fa fa-trophy"></i> SEND</button>
+								<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-trophy"></i> NOMINATE</button>
 							</div>
 						</div>
 					</form>
@@ -276,17 +255,17 @@
 				<div class="col-md-4 col-sm-4">
 					<!-- -->
 
-					<div class="panel panel-info">
+					<div class="panel panel-warning">
 						<div class="panel-heading panel-heading-transparent!">
 							<h2 class="panel-title"><i class="fa fa-info-circle"></i> Eligibility Criteria</h2>
 						</div>
-						<div class="panel-body">
+						<div class="panel-body small alert-warning">
 							<ul class="list-unstyled list-icons">
 								<li><i class="fa fa-check"></i> Candidates must be current TXRA/USRA  members in good standing and must have participated in sanctioned events for a minimum of two years</li>
 								<li><i class="fa fa-check"></i> Candidates must currently reside in Texas for the past two years</li>
 								<li><i class="fa fa-check"></i> Candidates must have participated in a minimum of four sanctioned tournaments during the past calendar year and one of those to include State Singles, State Doubles and/or Regional Competition</li>
 								<li><i class="fa fa-check"></i> Candidates may also include TXRA Board, Committee and At large members who exhibit extraordinary selfless service beyond that of his or her current position and /or meets the performance criteria </li>
-								<li>Any current TXRA member in good standing may nominate a candidate or themselves</li>
+								<li><i class="fa fa-check"></i> Any current TXRA member in good standing may nominate a candidate or themselves</li>
 							</ul>
 						</div>
 					</div>

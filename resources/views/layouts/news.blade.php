@@ -29,6 +29,7 @@
     .blog-post-item{
         margin-bottom: 20px;
         padding-bottom: 40px;
+        height: 500px
     }
 
     </style>
@@ -37,7 +38,7 @@
 @section('content')
   <section class="page-header page-header-xs">        
         <div class="container">
-            <h1><i class="fa fa-newspaper-o"></i> NEWS
+            <h1><i class="et-newspaper"></i> NEWS
             @if(isset($category)) 
                 <i class="fa fa-chevron-right fa-sm"></i> {{$category}}
             @endif

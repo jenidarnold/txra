@@ -24,7 +24,7 @@
 							.owl-padding-20
 					-->
 					<div class="text-center">
-						<div class="owl-carousel owl-padding-1 nomargin buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "6", "autoPlay": 5000, "navigation": true, "pagination": false}'>
+						<div class="owl-carousel owl-padding-1 nomargin buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "4", "autoPlay": 5000, "navigation": true, "pagination": false}'>
 
 						@foreach($tournaments as $t)
 							<!-- item -->
@@ -51,13 +51,12 @@
 
 										</span>
 									</span>
-
-									<img class="img-responsive" src="{{$t->logo }}" width="200" alt="">
+									<img class="img-responsive" src="{{$t->logo }}" width="300" alt="">
 								</figure>
 
 								<!-- div info -->
 								<div class="item-box-desc">
-									<h4>{{ $t->name }}</h4>
+									<h4><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h4>
 									<span class="text">{{$t->start_date}} - {{$t->end_date}}<br/>
 											@if( $t->club()->lat > 0)
 												<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
