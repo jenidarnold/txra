@@ -26,7 +26,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-clock-o"></i> 
-                    <span class="font-lato">{{$post['created_at']}}</span>
+                    <span class="font-lato">{{$post['created_at']->format('m/d/y')}}</span>
                 </a>
             </li>
             <!--li>

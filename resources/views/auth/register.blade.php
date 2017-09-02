@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('style')
-    <style type="text/css">
+    <style type="text/css">    	
     </style>
 @stop
 @section('content')		
-	<section class="page-header page-header-xs">
+	{{-- <section class="page-header page-header-xs">
 		<div class="container">
-			<h1><i class="fa fa-user-circle-o"></i> CREATE YOUR TXRA ACCOUNT</h1>	
+			<h1><i class="fa fa-user-circle-o"></i> JOIN TXRA</h1>	
 			<p>Already a TXRA/USAR memeber? What's the difference between this account and my USAR account?	</p>	
 		</div>
-	</section>
+	</section> --}}
 	<!-- /PAGE HEADER -->
 
 			<!-- -->
@@ -19,7 +19,7 @@
 					<div class="row">
 
 						<!-- LOGIN -->
-						<div class="col-md-8 col-md-offset-2 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+						<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
 							<!-- ALERT -->
 							<!--
@@ -32,11 +32,38 @@
 							<!-- register form -->
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
 							 {{ csrf_field() }}
-								<header>
-									<i class="fa fa-envelope text-default"></i> Register using your email address
-									</header>
-									<input type="hidden" name="method" value="email">
-								<fieldset class="nomargin">		
+								<header class="text-center alert-info text-primary" style="background-color: #d9edf7">
+									<i class="fa fa-user-circle-o"></i> Signup for a TXRA account
+								</header>
+								<input type="hidden" name="method" value="email">
+								<fieldset class="nomargin">	
+									<div class="row margin-bottom-10">
+										<div class="col-sm-12">
+											<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+												<label class="input">
+													<input type="text" name="first_name" placeholder="First name" value="{{ old('first_name') }}">
+												</label>
+												@if ($errors->has('first_name'))
+				                                    <span class="help-block">
+				                                        <strong>{{ $errors->first('first_name') }}</strong>
+				                                    </span>
+				                                @endif
+				                            </div>
+										</div>
+										<div class="col-sm-12">
+											<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+												<label class="input">
+													<input type="text" name="last_name" placeholder="Last name">
+												</label>
+												@if ($errors->has('last_name'))
+				                                    <span class="help-block">
+				                                        <strong>{{ $errors->first('last_name') }}</strong>
+				                                    </span>
+				                                @endif
+											</div>
+										</div>
+									</div>
+
 								    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">			
 										<label class="input margin-bottom-10">
 											<i class="ico-append fa fa-envelope"></i>
@@ -74,47 +101,20 @@
 		                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
 		                                    </span>
 		                                @endif
-		                            </div>
-
-									<div class="row margin-bottom-10">
-										<div class="col-md-6">
-											<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-												<label class="input">
-													<input type="text" name="first_name" placeholder="First name" value="{{ old('first_name') }}">
-												</label>
-												@if ($errors->has('first_name'))
-				                                    <span class="help-block">
-				                                        <strong>{{ $errors->first('first_name') }}</strong>
-				                                    </span>
-				                                @endif
-				                            </div>
-										</div>
-										<div class="col col-md-6">
-											<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-												<label class="input">
-													<input type="text" name="last_name" placeholder="Last name">
-												</label>
-												@if ($errors->has('last_name'))
-				                                    <span class="help-block">
-				                                        <strong>{{ $errors->first('last_name') }}</strong>
-				                                    </span>
-				                                @endif
-											</div>
-										</div>
-									</div>
+		                            </div>									
 								
-									<div class="margin-top-30 text-center">
+									<div class="margin-top-10 margin-bottom-10 text-center">
 										<label class="nomargin text-muted small">By clicking <b>REGISTER</b>, you agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms of Service</a></label>
 										
 									</div>
-								</fieldset>
 
-								<div class="row margin-bottom-20">
-									<div class="col-md-12">
-										<center><button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> REGISTER</button>
+									<div class="margin-bottom-20">
+										<div class="">
+											<button type="submit" class="nomargin btn btn-primary btn-block">REGISTER</button>
+										</div>
 									</div>
-								</div>
-
+								</fieldset>
+							
 							</form>
 							<!-- /register form -->
 

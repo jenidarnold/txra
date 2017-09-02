@@ -60,12 +60,14 @@
 
 								<!-- div info -->
 								<div class="item-box-desc">
-									<h4><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h4>
-									<span class="text text-info">
-										{{$t->start}} - {{$t->end}}
-									</span>
+									<h4 class="text-center"><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h4>
+									
+									<div class="text text-center">
+										<span class="text-info">
+											{{$t->start}} - {{$t->end}}
+										</span>
 										<br/>
-									<span class="text">
+										<span>
 											@if( $t->club()->lat > 0)
 												<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
 													<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>
@@ -75,6 +77,7 @@
 												 {{$t->club()->city }}, {{$t->club()->state }}
 											@endif
 										</span>
+									</div>
 								</div>
 
 							</div>
