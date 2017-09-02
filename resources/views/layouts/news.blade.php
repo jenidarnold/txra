@@ -54,7 +54,7 @@
             <div class="row">
 
                 <!-- LEFT -->
-                <div class="col-md-3 col-sm-3">
+                <div class="col-sm-4 col-md-3">
                     
                     <!-- INLINE SEARCH 
                     <div class="inline-search clearfix margin-bottom-30">
@@ -92,129 +92,11 @@
                         </ul>
                         <!-- /side navigation -->                    
                     </div>
-
-
-{{--                     <!-- JUSTIFIED TAB -->
-                    <div class="tabs nomargin-top hidden-xs margin-bottom-60">
-
-                        <!-- tabs -->
-                        <ul class="nav nav-tabs nav-bottom-border nav-justified">
-                            <li class="active">
-                                <a href="#tab_1" data-toggle="tab">
-                                    Popular
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#tab_2" data-toggle="tab">
-                                    Recent
-                                </a>
-                            </li>
-                        </ul>
-
-                        <!-- tabs content -->
-                        <div class="tab-content margin-bottom-60 margin-top-30">
-
-                            <!-- POPULAR -->
-                            <div id="tab_1" class="tab-pane active">
-
-                                <div class="row tab-post"><!-- post -->
-                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <a href="{{$mostRecommended->getUrl()}}">
-                                            <img src="uploads/{{$mostRecommended['image']}}" class="img-responsive img-rounded col-xs-12 no-padding" alt="{{$mostRecommended['title']}}">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-9 col-sm-9 col-xs-9">
-                                        <a href="{{$mostRecommended->getUrl()}}">{{$mostRecommended['title']}}</a>
-                                        <small>June 29 2014</small>
-                                    </div>
-                                </div><!-- /post -->
-                            </div>
-                            <!-- /POPULAR -->
-
-
-                            <!-- RECENT -->
-                            <div id="tab_2" class="tab-pane">
-                                @foreach($last as $post)
-                                <div class="row tab-post"><!-- post -->
-                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <a href="{{$post->getUrl()}}">
-                                             <img class="img-rounded img-responsive"  src="uploads/{{$post['image']}}" alt="{{$post['title']}} " >
-                                        </a>
-                                    </div>
-                                    <div class="col-md-9 col-sm-9 col-xs-9">
-                                        <a href="{{$post->getUrl()}}" class="tab-post-link">{{$post['title']}}</a>
-                                        <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 50)}}... </p>
-                                        <small>June 29 2014</small>
-                                    </div>
-                                </div><!-- /post -->
-                                @endforeach
-                                
-                            </div>
-                            <!-- /RECENT -->
-
-                        </div>
-
-                    </div>
-                    <!-- JUSTIFIED TAB --> --}}
-
-
-                    <!-- TAGS 
-                    <h3 class="hidden-xs size-16 margin-bottom-20">TAGS</h3>
-                    <div class="hidden-xs margin-bottom-60">
-
-                        <a class="tag" href="#">
-                            <span class="txt">RESPONSIVE</span>
-                            <span class="num">12</span>
-                        </a>
-                        <a class="tag" href="#">
-                            <span class="txt">CSS</span>
-                            <span class="num">3</span>
-                        </a>
-                        <a class="tag" href="#">
-                            <span class="txt">HTML</span>
-                            <span class="num">1</span>
-                        </a>
-                        <a class="tag" href="#">
-                            <span class="txt">JAVASCRIPT</span>
-                            <span class="num">28</span>
-                        </a>
-                        <a class="tag" href="#">
-                            <span class="txt">DESIGN</span>
-                            <span class="num">6</span>
-                        </a>
-                        <a class="tag" href="#">
-                            <span class="txt">DEVELOPMENT</span>
-                            <span class="num">3</span>
-                        </a>
-                    </div>
-                    -->
-
-                    <!-- TWIITER WIDGET 
-                    <h3 class="hidden-xs size-16 margin-bottom-10">TWITTER FEED</h3>                            
-                    <ul class="hidden-xs widget-twitter margin-bottom-60" data-php="php/twitter/tweet.php" data-username="stepofweb" data-limit="3">
-                        <li></li>
-                    </ul>
-                    -->
-
-                    <!-- FEATURED VIDEO 
-                    <h3 class="hidden-xs size-16 margin-bottom-10">FEATURED VIDEO</h3>
-                    <div class="hidden-xs embed-responsive embed-responsive-16by9 margin-bottom-60">
-                        <iframe class="embed-responsive-item" src="http://player.vimeo.com/video/8408210" width="800" height="450"></iframe>
-                    </div>
-                    -->
-
-                    <!-- FACEBOOK 
-                    <iframe class="hidden-xs" src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fstepofweb&amp;width=263&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:263px; height:258px;"></iframe>
-
-                    <hr />
-
-                    -->
-
-                   </div>
+               </div>
 
 
                 <!-- RIGHT -->
-                <div class="col-md-9 col-sm-9">
+                <div class="col-sm-8 col-md-9">
       
    					 @yield('body')
    					 

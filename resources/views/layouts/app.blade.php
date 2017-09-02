@@ -375,7 +375,7 @@
 											</li>
 											<li class="dropdown">
 												<a class="dropdown" href="{{ route('events.index', array('type' =>'future'))}}">
-													UPCOMING EVENTS
+													FUTURE EVENTS
 												</a>
 											</li>
 											<li class="dropdown">
@@ -385,7 +385,7 @@
 											</li>
 											<li class="dropdown">
 												<a class="dropdown" href="{{ route('events.index', array('type' =>'past'))}}">
-													ARCHIVED EVENTS
+													PAST EVENTS
 												</a>
 											</li>
 											<li class="dropdown">

@@ -21,12 +21,12 @@
         <div class="container">
             <div class="row">
             <!-- LOGIN EMAIL-->
-                <div class="col-md-4 col-md-offset-4 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                    <form class="nomargin sky-form boxed" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
-                        <div class="text-center h3">
+                        <header class="text-center text-primary h3">
                         Log In
-                        </div>
+                        </header>
 
                         <fieldset class="nomargin"> 
 
@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="clearfix note margin-bottom-30 text-center">
-                                Don't have account? <a class="text-danger" href="{{ url('/register') }}">Sign Up</a>
+                                Don't have an account? <a class="text-danger" href="{{ url('/register') }}">Sign Up</a>
                             </div>
 
                            {{--  <label class="checkbox weight-300">

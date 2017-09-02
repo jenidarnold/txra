@@ -7,14 +7,25 @@
 
 <section class="page-header page-header-xs">
 	<div class="container">
-		<h3><span>{{ $type }}</span> 
-			Events</h3>
+		<h3><span>{{ $type }}</span> Events</h3>
+
+		<!-- breadcrumbs -->
+		<ol class="breadcrumb breadcrumb">
+			<li><a href="/">Home</a></li>
+			<li><a href="{{ route('events.index', array('type' => 'live'))}} ">Live</a></li>
+			<li><a href="{{ route('events.index', array('type' => 'future'))}} ">Future</a></li>
+			<li><a href="{{ route('events.index', array('type' => 'recent'))}} ">Recent</a></li>
+			<li><a href="{{ route('events.index', array('type' => 'past'))}} ">Past</a></li>
+		</ol><!-- /breadcrumbs -->
 	</div>
 </section>
 <!-- /PAGE HEADER -->
 
 <section>
 	<div class="container">		
+		@if($tournaments->count() == 0)
+			<h5 class="text-muted text-center">There currently are no {{$type}} Events</h5>
+		@endif
 				<!-- Pager TOP -->
 				<div class="text-center">
 					{{$tournaments->links()}}
