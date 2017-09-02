@@ -161,11 +161,11 @@
 								</label>
 							</div>
 
-						  	<button id="cropbutton" type="button" class="btn btn-warning btn-xs noradius"><i class="fa fa-times"></i> Crop</button>
-							<button id="scalebutton" type="button" class="btn btn-info btn-xs noradius"><i class="fa fa-times"></i> Scale</button>
+						  	{{-- <button id="cropbutton" type="button" class="btn btn-warning btn-xs noradius"><i class="fa fa-times"></i> Crop</button> --}}
+							{{-- <button id="scalebutton" type="button" class="btn btn-info btn-xs noradius"><i class="fa fa-times"></i> Scale</button>
 							<button id="rotatebutton" type="button" class="btn btn-default btn-xs noradius"><i class="fa fa-times"></i> Rotate</button>
 							<button id="hflipbutton" type="button" class="btn btn-default btn-xs noradius"><i class="fa fa-times"></i>H-flip</button>
-							<button id="vflipbutton" type="button" class="btn btn-default btn-xs noradius"><i class="fa fa-times"></i>V-flip</button>
+							<button id="vflipbutton" type="button" class="btn btn-default btn-xs noradius"><i class="fa fa-times"></i>V-flip</button> --}}
 							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Avatar</a>							
 						</div>
 
@@ -175,7 +175,15 @@
 				<div class="row">	
 					<!-- Preview Image -->	
 					<div class="col-md-6">			
-						<div id="views"></div>
+						<div id="cropbox" name="cropbox"></div>
+					</div>
+					<div class="col-md-6">	
+						<div style="width:200px;height:200px;overflow:hidden;margin-left:0px;">
+							<div class="thumbnail">
+								<img id='preview' name="preview">
+							</div>
+						</div>
+						<h5>Preview</h5>
 					</div>
 				</div>	
 				<div class="margiv-top10">
@@ -323,19 +331,16 @@
 
 @section('script')
 <script type="text/javascript">
-	var crop_max_width = 400;
-	var crop_max_height = 400;
+	var crop_max_width = 200;
+	var crop_max_height = 200;
 	var jcrop_api;
 	var canvas;
 	var context;
 	var image;
-
 	var prefsize;
-
 	$("#file").change(function() {
 	  loadImage(this);
 	});
-
 	function loadImage(input) {
 	  if (input.files && input.files[0]) {
 	    var reader = new FileReader();
@@ -344,18 +349,17 @@
 	      image = new Image();
 	      image.onload = validateImage;
 	      image.src = e.target.result;
+	     $("#preview").attr('src', image.src);
 	    }
 	    reader.readAsDataURL(input.files[0]);
 	  }
 	}
-
 	function dataURLtoBlob(dataURL) {
 	  var BASE64_MARKER = ';base64,';
 	  if (dataURL.indexOf(BASE64_MARKER) == -1) {
 	    var parts = dataURL.split(',');
 	    var contentType = parts[0].split(':')[1];
 	    var raw = decodeURIComponent(parts[1]);
-
 	    return new Blob([raw], {
 	      type: contentType
 	    });
@@ -368,42 +372,46 @@
 	  for (var i = 0; i < rawLength; ++i) {
 	    uInt8Array[i] = raw.charCodeAt(i);
 	  }
-
 	  return new Blob([uInt8Array], {
 	    type: contentType
 	  });
 	}
-
 	function validateImage() {
 	  if (canvas != null) {
 	    image = new Image();
 	    image.onload = restartJcrop;
 	    image.src = canvas.toDataURL('image/png');
+
+	     $("#preview").src = image.src;
 	  } else restartJcrop();
 	}
-
 	function restartJcrop() {
 	  if (jcrop_api != null) {
 	    jcrop_api.destroy();
 	  }
-	  $("#views").empty();
-	  $("#views").append("<canvas id=\"canvas\">");
+	  $("#cropbox").empty();
+	  $("#cropbox").append("<canvas id=\"canvas\">");
 	  canvas = $("#canvas")[0];
 	  context = canvas.getContext("2d");
 	  canvas.width = image.width;
 	  canvas.height = image.height;
 	  context.drawImage(image, 0, 0);
 	  $("#canvas").Jcrop({
-	    onSelect: selectcanvas,
+	  	onChange: showPreview,
+	    onSelect: showPreview,
 	    onRelease: clearcanvas,
 	    boxWidth: crop_max_width,
-	    boxHeight: crop_max_height
+	    boxHeight: crop_max_height,
+	    aspectRatio: 1
 	  }, function() {
-	    jcrop_api = this;
+	    jcrop_api = this; 
+	    jcrop_api.setSelect(
+			[0, 0,crop_max_width, crop_max_height]
+			);
+
 	  });
 	  clearcanvas();
 	}
-
 	function clearcanvas() {
 	  prefsize = {
 	    x: 0,
@@ -412,7 +420,6 @@
 	    h: canvas.height,
 	  };
 	}
-
 	function selectcanvas(coords) {
 	  prefsize = {
 	    x: Math.round(coords.x),
@@ -422,64 +429,22 @@
 	  };
 	}
 
-	function applyCrop() {
-	  canvas.width = prefsize.w;
-	  canvas.height = prefsize.h;
-	  context.drawImage(image, prefsize.x, prefsize.y, prefsize.w, prefsize.h, 0, 0, canvas.width, canvas.height);
-	  validateImage();
+	function showPreview(coords)
+	{
+		var rx = crop_max_width / coords.w;
+		var ry = crop_max_height / coords.h;
+
+		console.log(image.width + ',' + image.height);
+		
+		$('#preview').css({
+			width: Math.round(rx *  image.width) + 'px',
+			height: Math.round(ry *  image.height) + 'px',
+			marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+			marginTop: '-' + Math.round(ry * coords.y) + 'px'
+		});
 	}
 
-	function applyScale(scale) {
-	  if (scale == 1) return;
-	  canvas.width = canvas.width * scale;
-	  canvas.height = canvas.height * scale;
-	  context.drawImage(image, 0, 0, canvas.width, canvas.height);
-	  validateImage();
-	}
-
-	function applyRotate() {
-	  canvas.width = image.height;
-	  canvas.height = image.width;
-	  context.clearRect(0, 0, canvas.width, canvas.height);
-	  context.translate(image.height / 2, image.width / 2);
-	  context.rotate(Math.PI / 2);
-	  context.drawImage(image, -image.width / 2, -image.height / 2);
-	  validateImage();
-	}
-
-	function applyHflip() {
-	  context.clearRect(0, 0, canvas.width, canvas.height);
-	  context.translate(image.width, 0);
-	  context.scale(-1, 1);
-	  context.drawImage(image, 0, 0);
-	  validateImage();
-	}
-
-	function applyVflip() {
-	  context.clearRect(0, 0, canvas.width, canvas.height);
-	  context.translate(0, image.height);
-	  context.scale(1, -1);
-	  context.drawImage(image, 0, 0);
-	  validateImage();
-	}
-
-	$("#cropbutton").click(function(e) {
-	  applyCrop();
-	});
-	$("#scalebutton").click(function(e) {
-	  var scale = prompt("Scale Factor:", "1");
-	  applyScale(scale);
-	});
-	$("#rotatebutton").click(function(e) {
-	  applyRotate();
-	});
-	$("#hflipbutton").click(function(e) {
-	  applyHflip();
-	});
-	$("#vflipbutton").click(function(e) {
-	  applyVflip();
-	});
-
+	
 	$("#form").submit(function(e) {
 	  e.preventDefault();
 	  formData = new FormData($(this)[0]);
@@ -503,5 +468,7 @@
 	  });
 	});
 
+
+	
 	</script>
 @stop
