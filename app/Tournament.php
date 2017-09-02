@@ -74,4 +74,11 @@ class Tournament extends Model
         return Club::find($club_id);
     }
   
+    public function getStartAttribute(){
+        return \DateTime::createFromFormat('Y-d-m', $this->start_date)->format('m/d/y');
+    }
+
+    public function getEndAttribute(){
+        return \DateTime::createFromFormat('Y-d-m', $this->end_date)->format('m/d/y');
+    }
 }

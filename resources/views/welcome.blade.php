@@ -228,7 +228,7 @@
                             </h3>
                         </div><!-- /left text -->
                         <div class="col-md-3 col-sm-12 text-right"><!-- right btn -->
-                            <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-primary btn-lg">JOIN NOW</a>
+                            <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">JOIN NOW</a>
                         </div><!-- /right btn -->
                     </div>
                 </div>
@@ -259,7 +259,7 @@
         <!-- EVENT SLIDER -->  
         @include('includes.eventslider', array('event_type' => 'LIVE', 'tournaments' => $tournaments["live"]))            
         <!-- EVENT SLIDER -->
-        @include('includes.eventslider', array('event_type' => 'FUTURE', 'tournaments' => $tournaments["future"])))
+        @include('includes.eventslider', array('event_type' => 'FUTURE', 'tournaments' => $tournaments["future"]))
         <!-- EVENT SLIDER-->
-        @include('includes.eventslider', array('event_type' => 'RECENT', 'tournaments' => $tournaments["recent"])))    
+        @include('includes.eventslider', array('event_type' => 'RECENT', 'tournaments' => $tournaments["recent"]))  
 @stop

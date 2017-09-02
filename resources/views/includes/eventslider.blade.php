@@ -7,6 +7,9 @@
 						<!--p class="font-lato size-14">Lorem ipsum dolor sit amet.</p-->
 					</div>
 
+					@if($tournaments->count() == 0)
+						<h5 class="text-muted text-center well">There currently are no {{$event_type}} Events</h5>
+					@endif
 					<!--
 						RELATED CAROUSEL
 
@@ -24,7 +27,8 @@
 							.owl-padding-20
 					-->
 					<div class="text-center">
-						<div class="owl-carousel owl-padding-1 nomargin buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "4", "autoPlay": 5000, "navigation": true, "pagination": false}'>
+						<div class="owl-carousel owl-padding-20 nomarginX buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": "4", "autoPlay": 7000, "navigation": true, "pagination": false}'>
+
 
 						@foreach($tournaments as $t)
 							<!-- item -->
@@ -57,7 +61,11 @@
 								<!-- div info -->
 								<div class="item-box-desc">
 									<h4><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h4>
-									<span class="text">{{$t->start_date}} - {{$t->end_date}}<br/>
+									<span class="text text-info">
+										{{$t->start}} - {{$t->end}}
+									</span>
+										<br/>
+									<span class="text">
 											@if( $t->club()->lat > 0)
 												<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
 													<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>

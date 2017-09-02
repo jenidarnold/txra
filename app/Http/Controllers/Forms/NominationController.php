@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
 use Illuminate\Support\Facades\URL;
+use App\User;
+use Mail;
 
 class NominationController extends Controller {
 
@@ -48,23 +50,26 @@ class NominationController extends Controller {
 		//validation
 		$rules = array(
         	'from_email' => 'required|email',
-        	'from_name' => 'required',
+        	'from_first_name' => 'required',
+        	'from_last_name' => 'required',
         	'comments' => 'required',
-        	'nominee' => 'required',
-        	'award' => 'required'
+        	'nominee_first_name' => 'required',
+        	'nominee_last_name' => 'required',
+        	'award' => 'required',
+        	'is_member' => 'required'
         );
 
         $input = \Input::all();
         $validator = \Validator::make($input, $rules);
 
         if ($validator->fails()) {          
-        	$message = 'Failed to send. Please fill out all required fields';
+        	$message = 'Please fill out all required fields';
    	/*		return  redirect()->back()
 				->with('alert-danger', $message)
 				->withErrors($validator)
 	            ->withInput(\Input::except('password'));
 				; */  
-			return  Redirect::to(URL::previous() . "#nominate")
+			return  Redirect::to(URL::previous() . "#form")
 				->with('alert-danger', $message)
 				->withErrors($validator)
 	            ->withInput(\Input::except('password'));
@@ -74,8 +79,18 @@ class NominationController extends Controller {
 
 
 		$subscriber = new User;
-		$subscriber->full_name = $subscriber->full_name;
+		$subscriber->first_name = $request->first_name;
+		$subscriber->last_name = $request->last_name;
 		$subscriber->email = $request->from_email;
+		$subscriber->phone = $request->phone;
+		$subscriber->is_member = $request->is_member;
+
+        $nominee = new User;
+        $nominee->first_name = $request->nominee_first_name;
+        $nominee->last_name = $request->nominee_last_name;
+        $nominee->award = $request->award;
+        $comments = $request->comments;
+
 
 		$txra = new User;
 		$txra->email = env('MAIL_TO_EMAIL'); 
@@ -83,13 +98,9 @@ class NominationController extends Controller {
 
         $subject = "TXRA: Annual Awards Nomination Form";
 
-        $subscriber->is_member = $request->is_member;
-        $nominee->full_name = $request->nominee;
-        $nominee->award = $request->award;
-        $comments = $request->comments;
-
         // Send to TXRA
-        Mail::send('emails.awards.sendnomination', ['subject' => $subject, 'comments' => $comments, 'subscriber' => $subscriber, 'nominee' => $nominee], function ($m) use ($subscriber, $txra, $subject)
+        Mail::send('emails.awards.sendnomination', ['subject' => $subject, 'comments' => $comments, 
+        	'subscriber' => $subscriber, 'nominee' => $nominee], function ($m) use ($subscriber, $txra, $subject)
         {
 
             $m->from($subscriber->email, $subscriber->full_name );
@@ -108,7 +119,7 @@ class NominationController extends Controller {
 
         $message = 'Successfully sent. Thank you!';
     	
-		return  Redirect::to(URL::previous() . "#join")
+		return  Redirect::to(URL::previous() . "#form")
 			->with('alert-success', $message);
 	}
 }

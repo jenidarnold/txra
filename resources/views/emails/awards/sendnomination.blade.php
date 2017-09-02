@@ -69,7 +69,7 @@
 								
 					<!-- Committees -->
 					<div style="margin-top:20px; margin-bottom:20px;">
-						I am nominating {{ $nominee }} for  {{ $award}}.
+						I am nominating {{ $nominee->first_name}} {{ $nominee->last_name}} for  {{ $nominee->award}}.
 					</div>
 
 					<!-- Comments -->

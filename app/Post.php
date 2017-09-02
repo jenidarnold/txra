@@ -76,4 +76,9 @@ class Post extends \Eloquent {
     {
         return $this->hasOne('App\User', 'id', 'author_id');
     }
+
+    public function getCreatedAttribute()
+    {
+        return $this->created_at->format('m/d/y');
+    }
 }

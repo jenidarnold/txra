@@ -203,7 +203,7 @@
 
 							<div class="row margin-bottom-20">
 								<div class="col-md-12 text-center">
-									<button type="submit" class="btn btn-primary"></i>Submit</button>
+									<button type="submit" class="btn btn-primary btn-block"></i>SUBMIT</button>
 								</div>
 							</div>
 

@@ -4,12 +4,12 @@
 	<h5 style="margin-bottom:5px"><a href="{{$post->getUrl()}}">{{$post->title}}</a></h5>
 
 	<ul class="blog-post-info list-inline" style="margin-bottom:5px; padding-bottom:0px; border-bottom:none">
-		{{-- <li>
+		<li>
 			<a href="#">
 				<i class="fa fa-clock-o"></i>
-				<span class="font-lato">{{$post->created_at->format('m-d Y h:i')}}</span>
+				<span class="font-lato">{{$post->created}}</span>
 			</a>
-		</li> --}}								
+		</li>								
 		<!--li class="comment">
 			<a href="#">
 				<i class="fa fa-comment-o"></i>
