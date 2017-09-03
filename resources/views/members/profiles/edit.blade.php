@@ -169,14 +169,14 @@
 					<div class="col-sm-6">			
 						<div id="cropbox" name="cropbox"></div>
 					</div>
-					<div class="col-sm-6">	
+					{{-- <div class="col-sm-6">	
 						<div style="width:200px;height:200px;overflow:hidden;margin-left:20px;">
 							<div class="">
 								<img id='preview' name="preview">
 							</div>
 						</div>
 						<h5 class="text-center">Preview</h5>
-					</div>
+					</div> --}}
 				</div>	
 				<div class="margiv-top10">
 					<button type="button" id="btnUpdateAvatar" name="btnUpdateAvatar" class="btn btn-primary"><i class="fa fa-check"></i> Save Picture </button>
@@ -457,6 +457,7 @@
 	 //  	formData.append("cropped_image[]", blob);
 
 	  	form.submit();
+	  	clearcanvas();
 	});
 	
 	$("#frmAvatar").submit(function(e) {
@@ -476,7 +477,8 @@
 	    processData: false,
 	    async: false,
 	    success: function(data) {
-	      alert("Success");
+	      var src = $("#imgProfile").attr('src');
+	      $("#imgProfile").attr('src', src + '?' + new Date().getTime());
 	    },
 	    error: function(data) {
 	      alert("Error");

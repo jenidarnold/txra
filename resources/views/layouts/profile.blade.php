@@ -38,7 +38,7 @@
 				<div class="thumbnail text-center">
 						<!-- && (@getimagesize('http://localhost:8886/images/members/'. $user->id  . '/profile.png'))) -->
 						@if((true)) 	
-							<img class="img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
+							<img name="imgProfile" id="imgProfile" class="img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
 						@else
 							@if($profile->gender == 'female')
 								<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
