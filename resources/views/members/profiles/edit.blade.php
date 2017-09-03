@@ -12,7 +12,7 @@
 					
 	<ul class="nav nav-tabs nav-top-border">
 		<li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
-		<li><a href="#avatar" data-toggle="tab">Avatar</a></li>
+		<li><a href="#avatar" data-toggle="tab">Profile Picture</a></li>
 		{{-- <li><a href="#accounts" data-toggle="tab">Link Accounts</a></li> --}}
 		<li><a href="#password" data-toggle="tab">Password</a></li>
 		{{-- <li><a href="#privacy" data-toggle="tab">Privacy</a></li> --}}
@@ -137,36 +137,28 @@
 		<!-- AVATAR TAB -->
 		<div class="tab-pane fade" id="avatar">
 
-			<form class="clearfix" action="{{ route('members.update_avatar', $user->id)}}" method="post" enctype="multipart/form-data">
+			{{-- <form class="clearfix" action="{{ route('members.update_avatar', $user->id)}}" method="post" enctype="multipart/form-data"> --}}
+			<form id="frmAvatar" name="frmAvatar" class="clearfix" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
+				
+				<input type="hidden" name="x" id="x" style="width:30px"  />
+				<input type="hidden" name="y" id="y" style="width:30px"  />
+				<input type="hidden" name="w" id="w"  style="width:30px" />
+				<input type="hidden" name="h" id="h"  style="width:30px" />
 				<div class="form-group">
 
 					<div class="row">
-
-						{{-- <div class="col-md-3 col-sm-4">
-							<div class="thumbnail">
-								<img src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="avatar">
-							</div>
-						</div> --}}
-
 						<div class="col-md-9 col-sm-8">
-
 							<div class="sky-form nomargin">
 								<label class="label">Select File</label>
 								<label for="file" class="input input-file">
 									<div class="button">
 										{{-- <input type="file" name="avatar[]" id="avatar" onchange="this.parentNode.nextSibling.value = this.value">Browse --}}
-										<input id="file" type="file" name="avatar[]" id="avatar"  />Browse
+										<input id="file" type="file" name="avatar[]" id="avatar"  /> Browse
 									</div><input type="text" readonly>
 								</label>
 							</div>
-
-						  	{{-- <button id="cropbutton" type="button" class="btn btn-warning btn-xs noradius"><i class="fa fa-times"></i> Crop</button> --}}
-							{{-- <button id="scalebutton" type="button" class="btn btn-info btn-xs noradius"><i class="fa fa-times"></i> Scale</button>
-							<button id="rotatebutton" type="button" class="btn btn-default btn-xs noradius"><i class="fa fa-times"></i> Rotate</button>
-							<button id="hflipbutton" type="button" class="btn btn-default btn-xs noradius"><i class="fa fa-times"></i>H-flip</button>
-							<button id="vflipbutton" type="button" class="btn btn-default btn-xs noradius"><i class="fa fa-times"></i>V-flip</button> --}}
-							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Avatar</a>							
+							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Picture</a>						
 						</div>
 
 					</div>
@@ -174,20 +166,20 @@
 				</div>
 				<div class="row">	
 					<!-- Preview Image -->	
-					<div class="col-md-6">			
+					<div class="col-sm-6">			
 						<div id="cropbox" name="cropbox"></div>
 					</div>
-					<div class="col-md-6">	
-						<div style="width:200px;height:200px;overflow:hidden;margin-left:0px;">
-							<div class="thumbnail">
+					<div class="col-sm-6">	
+						<div style="width:200px;height:200px;overflow:hidden;margin-left:20px;">
+							<div class="">
 								<img id='preview' name="preview">
 							</div>
 						</div>
-						<h5>Preview</h5>
+						<h5 class="text-center">Preview</h5>
 					</div>
 				</div>	
 				<div class="margiv-top10">
-					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
+					<button type="button" id="btnUpdateAvatar" name="btnUpdateAvatar" class="btn btn-primary"><i class="fa fa-check"></i> Save Picture </button>
 					<a href="#" class="btn btn-default">Cancel </a>
 				</div>
 
@@ -349,6 +341,8 @@
 	      image = new Image();
 	      image.onload = validateImage;
 	      image.src = e.target.result;
+
+	     //Set Preview Image
 	     $("#preview").attr('src', image.src);
 	    }
 	    reader.readAsDataURL(input.files[0]);
@@ -400,11 +394,15 @@
 	  	onChange: showPreview,
 	    onSelect: showPreview,
 	    onRelease: clearcanvas,
-	    boxWidth: crop_max_width,
-	    boxHeight: crop_max_height,
+	    boxWidth: 400,
+	    boxHeight: 400,
+	    trueSize: [image.width,image.height],
 	    aspectRatio: 1
 	  }, function() {
 	    jcrop_api = this; 
+	    jcrop_api.setOptions({allowMove: true});
+	    jcrop_api.setOptions({allowResize: false});
+
 	    jcrop_api.setSelect(
 			[0, 0,crop_max_width, crop_max_height]
 			);
@@ -434,30 +432,49 @@
 		var rx = crop_max_width / coords.w;
 		var ry = crop_max_height / coords.h;
 
-		console.log(image.width + ',' + image.height);
-		
+		var w = $('.jcrop-holder').width();
+		var h =$('.jcrop-holder').height();
+
 		$('#preview').css({
-			width: Math.round(rx *  image.width) + 'px',
-			height: Math.round(ry *  image.height) + 'px',
+			width: Math.round(rx *  w) + 'px',
+			height: Math.round(ry *  h) + 'px',
 			marginLeft: '-' + Math.round(rx * coords.x) + 'px',
 			marginTop: '-' + Math.round(ry * coords.y) + 'px'
 		});
+
+		$('#x').val(coords.x);
+		$('#y').val(coords.y);
+		$('#w').val(coords.w);
+		$('#h').val(coords.h);
 	}
 
+	$("#btnUpdateAvatar").click(function() {
+		 form = $("#frmAvatar");
+
+		// formData = new FormData(form[0]);
+	 //  	var blob = dataURLtoBlob(canvas.toDataURL('image/png'));
+	 //  	//---Add file blob to the form data
+	 //  	formData.append("cropped_image[]", blob);
+
+	  	form.submit();
+	});
 	
-	$("#form").submit(function(e) {
+	$("#frmAvatar").submit(function(e) {
 	  e.preventDefault();
 	  formData = new FormData($(this)[0]);
 	  var blob = dataURLtoBlob(canvas.toDataURL('image/png'));
+	  
 	  //---Add file blob to the form data
 	  formData.append("cropped_image[]", blob);
+	  formData.append("id", 1);
 	  $.ajax({
-	    url: "whatever.php",
+	    url: "avatar/upload",
 	    type: "POST",
 	    data: formData,
 	    contentType: false,
 	    cache: false,
 	    processData: false,
+	    async: false,
 	    success: function(data) {
 	      alert("Success");
 	    },

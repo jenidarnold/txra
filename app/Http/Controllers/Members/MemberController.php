@@ -260,26 +260,66 @@ class MemberController extends Controller {
 	 */
 	public function update_avatar($id)
 	{
+		$x = $_POST['x'];
+		$y = $_POST['y'];
+		$w = $_POST['w'];
+		$h = $_POST['h'];
 
-        // http://php.net/manual/en/features.file-upload.post-method.php
+		$targ_w = $targ_h = 200;
+		$jpeg_quality = 90;
+		$name = "profile.png";
+
         $i = 0;
         foreach ($_FILES["avatar"]["error"] as $key => $error) {
             if ($error == UPLOAD_ERR_OK) {
                 $tmp_name = $_FILES["avatar"]["tmp_name"][$key];
-                // basename() may prevent filesystem traversal attacks;
-                // further validation/sanitation of the filename may be appropriate
                 
-                //append display order numner
-                $order = $i.'_';
-                $name = "profile.png";
+            	$img_r = imagecreatefromjpeg($tmp_name);
+				$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
+				imagecopyresampled($dst_r, $img_r, 0, 0, $x, $y,
+		    		$targ_w, $targ_h, $w, $h);
 
-                if (!file_exists("images/members/$id")) {
-                    mkdir("images/members/$id", 0777, true);
-                }
-                move_uploaded_file($tmp_name, "images/members/$id/$name");
+				$output_filename = "images/members/$id/$name";
+				
+				if (!file_exists("images/members/$id")) {
+          			mkdir("images/members/$id", 0777, true);
+  		 		}		
+
+				imagejpeg($dst_r, $output_filename, $jpeg_quality);
+
                 $i++;
+            }else {
+            	dd($error);
             }
         }
+
+
+	
+
+
+		// //ORIGINAL
+  //       //http://php.net/manual/en/features.file-upload.post-method.php
+  //       $i = 0;
+  //       foreach ($_FILES["cropped_image"]["error"] as $key => $error) {
+  //           if ($error == UPLOAD_ERR_OK) {
+  //               $tmp_name = $_FILES["cropped_image"]["tmp_name"][$key];
+  //               // basename() may prevent filesystem traversal attacks;
+  //               // further validation/sanitation of the filename may be appropriate
+                
+  //               //append display order numner
+  //               $order = $i.'_';
+  //               $name = "profile.png";
+
+  //               if (!file_exists("images/members/$id")) {
+  //                   mkdir("images/members/$id", 0777, true);
+  //               }
+  //               move_uploaded_file($tmp_name, "images/members/$id/$name");
+  //               $i++;
+  //           }else {
+  //           	dd($error);
+
+  //           }
+  //       }
 
         \Session::flash('message', 'Successfully updated avatar');
 
