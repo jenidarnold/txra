@@ -293,34 +293,6 @@ class MemberController extends Controller {
             }
         }
 
-
-	
-
-
-		// //ORIGINAL
-  //       //http://php.net/manual/en/features.file-upload.post-method.php
-  //       $i = 0;
-  //       foreach ($_FILES["cropped_image"]["error"] as $key => $error) {
-  //           if ($error == UPLOAD_ERR_OK) {
-  //               $tmp_name = $_FILES["cropped_image"]["tmp_name"][$key];
-  //               // basename() may prevent filesystem traversal attacks;
-  //               // further validation/sanitation of the filename may be appropriate
-                
-  //               //append display order numner
-  //               $order = $i.'_';
-  //               $name = "profile.png";
-
-  //               if (!file_exists("images/members/$id")) {
-  //                   mkdir("images/members/$id", 0777, true);
-  //               }
-  //               move_uploaded_file($tmp_name, "images/members/$id/$name");
-  //               $i++;
-  //           }else {
-  //           	dd($error);
-
-  //           }
-  //       }
-
         \Session::flash('message', 'Successfully updated avatar');
 
 		return  redirect()->back()->with('flash-message','message'); 

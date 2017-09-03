@@ -481,7 +481,8 @@
 	      $("#imgProfile").attr('src', src + '?' + new Date().getTime());
 	    },
 	    error: function(data) {
-	      alert("Error");
+	      alert("Unable to update profile picture");
+	      console.log(data.responseText);
 	    },
 	    complete: function(data) {}
 	  });
