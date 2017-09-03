@@ -35,15 +35,15 @@
 			
 			<!-- LEFT -->
 			<div class="col-lg-3 col-md-3 col-sm-4">				
-				<div class="thumbnail text-center">
+				<div class="text-center">
 						<!-- && (@getimagesize('http://localhost:8886/images/members/'. $user->id  . '/profile.png'))) -->
 						@if((true)) 	
-							<img name="imgProfile" id="imgProfile" class="img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
+							<img name="imgProfile" id="imgProfile" class="thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
 						@else
 							@if($profile->gender == 'female')
-								<i class="ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
+								<i class="thumbnail ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
 							@else
-								<i class="ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
+								<i class="thumbnail ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
 							@endif
 						@endif
 						{{-- <h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2> --}}				</div>

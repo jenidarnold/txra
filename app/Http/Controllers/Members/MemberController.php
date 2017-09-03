@@ -274,7 +274,12 @@ class MemberController extends Controller {
             if ($error == UPLOAD_ERR_OK) {
                 $tmp_name = $_FILES["avatar"]["tmp_name"][$key];
                 
-            	$img_r = imagecreatefromjpeg($tmp_name);
+                if(strpos($tmp_name, '.png') !== false) {
+                	$img_r =imagecreatefrompng($tmp_name);
+            	}else{
+            		$img_r = imagecreatefromjpeg($tmp_name);
+            	}
+
 				$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
 				imagecopyresampled($dst_r, $img_r, 0, 0, $x, $y,
 		    		$targ_w, $targ_h, $w, $h);
