@@ -6,7 +6,7 @@
 @section('content')
 <section class="page-header page-header-xs">
 		<div class="container">
-			<h1><i class="fa fa-envelope"></i> EDIT ARTICLE</h1>
+			<h1><i class="fa fa-pencil"></i> EDIT ARTICLE</h1>
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->

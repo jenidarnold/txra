@@ -1,5 +1,11 @@
 @extends('layouts.news')
-
+@section('style')
+    <style type="text/css">
+        .content {
+            font-size: 10pt !important;
+        }
+    </style>
+@stop
 @section('body')
     @if ($post->image_count() > 1)
         <!-- OWL SLIDER -->
@@ -104,21 +110,21 @@
 
 
 <!-- Include required JS files -->
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shCore.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shCore.js")}}"></script>
 <!--
     At least one brush, here we choose JS. You need to include a brush for every 
     language you want to highlight
 -->
 
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shAutoloader.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushJScript.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushCss.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushPhp.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushXml.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushPlain.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushSql.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shBrushBash.js")}}"></script>
-<script type="text/javascript" src="{{asset("packages/serverfireteam/news/libs/syntaxhighlighter/scripts/shLegacy.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shAutoloader.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushJScript.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushCss.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushPhp.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushXml.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushPlain.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushSql.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shBrushBash.js")}}"></script>
+<script type="text/javascript" src="{{asset("packages/serverfireteam/blog/libs/syntaxhighlighter/scripts/shLegacy.js")}}"></script>
  
 
 <script type="text/javascript">

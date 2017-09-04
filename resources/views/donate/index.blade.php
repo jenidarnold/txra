@@ -15,8 +15,7 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><i class="et-wallet"></i> DONATIONS</h1>
-			{{-- <h5>Supporting Racquetball in Texas</h5> --}}
+			<h1><i class="et-wallet"></i> DONATIONS</h1>			
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
@@ -30,8 +29,14 @@
 	<!-- -->
 	<section>
 		<div class="container donate">
+			<div class="row">
+				<div class="col-sm-12">
+					<p class="lead">
+						The Texas Racquetball Association (TXRA) is registered with the IRS as a 501(c)(3) charitable organization.
+					</p>
+				</div>
+			</div>
 			<div class="row countTo-md text-center">
-
 				<div class="col-xs-6 col-sm-4">
 					<i class="fa fa-usd text-success"></i>
 					<h5><a href="#" data-toggle="modal" data-target="#modDonate">MONETARY</a></h5>
@@ -69,7 +74,7 @@
 					<span class="countTo" data-speed="3000">114</span>
 					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
 					
-					<p>Amazon donates 0.5% of the price of your eligible AmazonSmile purchases to <b>Texas Amateur Racquetball Assn Inc</b></p>
+					<p>Amazon donates 0.5% of the price of your eligible AmazonSmile purchases to TXRA</p>
 					<a class="box-icon-more font-lato weight-300" href="http://smile.amazon.com/ch/76-0262488" target="_blank">Shop Now</a> |
 					<a href="#" class="box-icon-more font-lato weight-300" data-toggle="modal" data-target="#modAmazon">Learn More</a>
 				</div>			
@@ -133,11 +138,11 @@
 				<!-- body modal -->
 				<div class="modal-body">
 					<div class="container">
-						<div class="col-sm-6">
+						<div class="col-md-8">
 							<h4>Please, make checks payable to:</h4>
 							<h3 class="text-info"><center><address>Texas Racquetball Association, Inc.</address></center></h3>
 							<h4>Mail to:</h4>		
-							<div class="col-sm-6 col-sm-offset-3">	
+							<div class="col-md-8 col-md-offset-2">	
 								<address>
 									Texas Racquetball Association<br/>
 									5220 McKinney Avenue, Suite 200<br/>
@@ -170,11 +175,11 @@
 				<!-- body modal -->
 				<div class="modal-body">
 					<div class="container">
-						<div class="col-sm-6">
+						<div class="col-md-8">
 							<h4>Please, make checks payable to:</h4>
 							<h3 class="text-primary"><center><address>Sandy Long</address></center></h3>
 							<h4>Mail to:</h4>	
-							<div class="col-sm-6 col-sm-offset-3">			
+							<div class="col-md-8 col-md-offset-2">			
 								<address>
 									ATTN: Coach Sandy Long
 									Texas Racquetball Association<br/>
