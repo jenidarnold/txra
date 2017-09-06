@@ -29,7 +29,10 @@ class BlogController extends BaseController {
 	{
             $mostRecommended = Post::mostRecommended();
             $last            = Post::lastPosts();
-            $last = $last->paginate(4);
+            $last = $last
+                ->where('public', 1)
+                ->paginate(4)
+                ;
 
             $categories = PostCategory::all();
 
@@ -72,6 +75,35 @@ class BlogController extends BaseController {
                     'last'=>$last,
                     'categories' => $categories,
                     'category' => $category
+                    )
+                );
+    }
+
+     /**
+     * Display a listing of the resource.
+     * GET /blog
+     *
+     * @return Response
+     */
+    public function getDrafts()
+    {
+            $mostRecommended = Post::mostRecommended();
+            $last = Post::lastPosts()
+                ->orderBy('created_at')
+                ->where('public', 0)
+                ;
+
+            $categories = PostCategory::all();
+
+            $last = $last->paginate(4);
+
+            return View('blog/index',
+                array(
+                    'title'=>"News",
+                    'mostRecommended'=>$mostRecommended,
+                    'last'=>$last,
+                    'categories' => $categories,
+                    'category' => "Drafts"
                     )
                 );
     }

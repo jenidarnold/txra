@@ -28,6 +28,7 @@ Route::get('/welcome', 'WelcomeController@index' );
 //{
 	Route::get('/news', array('as' => 'news.index', 'uses' => 'News\BlogController@getIndex'));	
 	Route::get('/news/category/{id}/{category}', array('as' => 'news.category', 'uses' => 'News\BlogController@getCategory'));	
+	Route::get('/news/drafts', array('as' => 'news.drafts', 'uses' => 'News\BlogController@getDrafts'));
 	Route::get('/news/post/{id}/{title}', array('as' => 'news.show', 'uses' => 'News\BlogController@getPost'));	
 	Route::get('/news/share/{id}/{social}', array('as' => 'news.show', 'uses' => 'News\BlogController@getShare'));	
     
@@ -37,6 +38,7 @@ Route::get('/welcome', 'WelcomeController@index' );
 	Route::post('/news/post', array('as' => 'news.store', 'uses' => 'News\PageController@store'));		
 	Route::put('/news/post/{id}', array('as' => 'news.update', 'uses' => 'News\PageController@update'));
 	Route::delete('/news/{id}', array('as' => 'news.delete', 'uses' => 'News\PageController@delete'));	
+	Route::get('/news/post/{id}/publish/{publish}', array('as' => 'news.publish', 'uses' => 'News\PageController@publish'));	
 //});
 
 Route::controllers([

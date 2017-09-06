@@ -23,25 +23,25 @@ class Post extends \Eloquent {
         return \Config::get('app.url') .'/news/post/'. $this->id . '/' . \App\Http\Controllers\News\BlogController::seoUrl($this->title);
     }
     
-    public static  function mostRecommended(){
-        return  self::orderBy('socialPoint','desc')->where('public', 1)->take(1)->get()->first();
+    public static  function mostRecommended($public = 1){
+        return  self::orderBy('socialPoint','desc')->where('public', $public)->take(1)->get()->first();
     }
-    public function nextPost(){
+    public function nextPost($public = 1){
         // get next post
-        return self::where('id', '>', $this->id)->where('public', 1)->orderBy('id','asc')->take(1)->get()->first();
+        return self::where('id', '>', $this->id)->where('public', $public)->orderBy('id','asc')->take(1)->get()->first();
     }
-    public  function previousPost(){
+    public  function previousPost($public = 1){
         // get previous  post 
-        return self::where('id', '<', $this->id)->where('public', 1)->orderBy('id','desc')->take(1)->get()->first();
+        return self::where('id', '<', $this->id)->where('public', $public)->orderBy('id','desc')->take(1)->get()->first();
     }
     
     public static  function lastPosts($number = null) {       
         if ( $number != null ){
-            return self::where('public', 1)->take($number)
+            return self::take($number)
                     ->orderBy('created_at','desc')
                     ;                        
         } else {
-            return self::orderBy('created_at','desc')->where('public', 1)
+            return self::orderBy('created_at','desc')
                     ;            
         }
     }
@@ -49,12 +49,13 @@ class Post extends \Eloquent {
     //FIX
     public static  function lastPostsByCategory($id, $number = null) {              
         if ( $number != null ){
-            return self::where('public', 1)->take($number)
+            return self::take($number)
+                    ->where('public', 1)
                     ->orderBy('created_at','desc')->get();                        
         } else {
             return self::orderBy('created_at','desc')
-                    ->where('public', 1)
-                    ->get();            
+                        ->where('public', 1)
+                        ->get();            
         }
     }
 

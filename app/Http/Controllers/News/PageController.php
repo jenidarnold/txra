@@ -115,4 +115,24 @@ class PageController extends BaseController {
         // show the edit form and pass the post
         return View('blog.edit',compact('post', 'categories'));
     }
+
+     /**
+     * Publish/Unpbulish the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function publish($id, $public)
+    {
+        // get the post
+        $post = Post::find($id);
+        $post->public = $public;
+
+        $post->save();
+
+
+         // redirect
+        \Session::flash('message', 'Successfully updated Post!');
+        return \Redirect::to("news/post/$id/".$post->title);
+    }
 }

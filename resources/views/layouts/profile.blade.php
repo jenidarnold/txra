@@ -108,7 +108,7 @@
 								@endif
 							</li>
 							<li class="margin-bottom-10"><i class="fa fa-signal width-20"></i> {{ ucfirst($profile->skill) }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-wrench width-20"></i> {{ $profile->racquet }}</li>
+							<li class="margin-bottom-10"><i class="fa fa-search fa-flip-horizontal margin-right-20"></i> {{ $profile->racquet }}</li>
 						</ul>
 					</div>			
 				</div>

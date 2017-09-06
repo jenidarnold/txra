@@ -229,6 +229,7 @@
 											<li><!-- settings -->
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
+											<!-- Only Julie operations -->
 											@if( Auth::user()->id == 1 )
 												<li class="divider"></li>											
 												<li class="dropdown">

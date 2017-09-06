@@ -80,15 +80,16 @@
                         </div>
 
                         <ul class="list-group list-group-bordered list-group-noicon uppercase">
-                            <li class="list-group-item"><a href="{{ route('news.index')}}">LATEST</a>
-                            </li>
+                            <li class="list-group-item"><a href="{{ route('news.index')}}">LATEST</a></li>                            
                              @foreach($categories as $c)                             
                                 <li class="list-group-item"><a href="{{ route('news.category' , array('id' => $c->id, 'category' => $c->category)) }}">
                                     <!--span class="size-11 text-muted pull-right">({{$c->count}})</span--> 
                                     {{$c->category}}</a>
                                 </li>
                              @endforeach
-
+                             @if(Auth::user()->id = 1)
+                             <li class="list-group-item"><a href="{{ route('news.drafts')}}">DRAFTS</a></li>
+                            @endif
                         </ul>
                         <!-- /side navigation -->                    
                     </div>

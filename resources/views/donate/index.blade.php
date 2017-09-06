@@ -15,7 +15,7 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><i class="et-wallet"></i> DONATIONS</h1>			
+			<h1><i class="et-wallet text-success"></i> DONATIONS</h1>			
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>

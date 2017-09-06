@@ -61,11 +61,37 @@
                     <span class="font-lato">{{$post['socialPoint']}} shared</span>
                 </a>
             </li>
-             <li>
-                <a href="{{ route('news.edit', array('id' => $post['id'], 'title' => $post['title']))}}">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </li>
+            <!-- Only Julie operations -->
+            @if( Auth::user()->id == 1 )
+                <li>
+                    <a href="{{ route('news.edit', array('id' => $post['id'], 'title' => $post['title']))}}">
+                        <i class="fa fa-pencil" title="Edit"></i>
+                        <span class="font-lato">Edit</span>
+                    </a>
+                </li>
+
+                @if($post['public'] == 0)
+                <li>
+                    <a href="{{ route('news.publish', array('id' => $post['id'], 'publish' => 1)) }}">
+                        <i class="fa fa-upload" title="Publish"></i>
+                        <span class="font-lato">Publish</span>
+                    </a>
+                </li>
+                @else
+                <li>
+                    <a href="{{ route('news.publish', array('id' => $post['id'], 'publish' => 1)) }}">
+                        <i class="fa fa-undo" title="Publish"></i>
+                        <span class="font-lato">Unpublish</span>
+                    </a>
+                </li>
+                @endif
+                <li>
+                    <a href="{{ route('news.delete', array('id' => $post['id'])) }}">
+                        <i class="fa fa-trash-o text-danger" title="Delete"></i>
+                        <span class="font-lato">Delete</span>
+                    </a>
+                </li>
+            @endif
         </ul>
 
 
