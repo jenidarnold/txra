@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +15,15 @@
 class Post extends \Eloquent {
     //put your code here
     protected  $table = 'post';
+   
+    use SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
     
     // return url of blog post 
     function getUrl(){

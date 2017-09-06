@@ -18,8 +18,10 @@ class PageController extends BaseController {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin_user');
     }
- /**
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response
@@ -39,6 +41,21 @@ class PageController extends BaseController {
 
 
         return View('blog.create', compact('categories' ,'author'));
+    }
+
+    /**
+     * Delete a post.
+     *
+     * @return Response
+     */
+    public function delete($id)
+    {
+         $post = Post::find($id);
+         $post->delete();
+
+         // redirect
+        \Session::flash('message', 'Successfully deleted Post');
+        return \Redirect::to('news/');
     }
 
     /**

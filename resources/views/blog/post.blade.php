@@ -86,7 +86,7 @@
                 </li>
                 @endif
                 <li>
-                    <a href="{{ route('news.delete', array('id' => $post['id'])) }}">
+                    <a href="{{ route('news.delete', array('id' => $post['id'])) }}" data-method="delete" data-token="{{csrf_token()}}" data-confirm="Are you sure?"
                         <i class="fa fa-trash-o text-danger" title="Delete"></i>
                         <span class="font-lato">Delete</span>
                     </a>
