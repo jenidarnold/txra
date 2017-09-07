@@ -36,7 +36,7 @@ Route::get('/welcome', 'WelcomeController@index' );
 	Route::get('/news/create', array('as' => 'news.create', 'uses' => 'News\PageController@create'));	
 	Route::get('/news/edit/{id}/{title}', array('as' => 'news.edit', 'uses' => 'News\PageController@edit'));		
 	Route::post('/news/post', array('as' => 'news.store', 'uses' => 'News\PageController@store'));		
-	Route::put('/news/post/{id}', array('as' => 'news.update', 'uses' => 'News\PageController@update'));
+	Route::post('/news/post/{id}', array('as' => 'news.update', 'uses' => 'News\PageController@update'));
 	Route::delete('/news/{id}', array('as' => 'news.delete', 'uses' => 'News\PageController@delete'));	
 	Route::get('/news/post/{id}/publish/{publish}', array('as' => 'news.publish', 'uses' => 'News\PageController@publish'));	
 //});

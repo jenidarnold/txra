@@ -41,7 +41,7 @@
 
 
 							<!--form action="php/contact.php" method="post" enctype="multipart/form-data"-->
-							<form action="{{route('news.store')}}" method="put" enctype="multipart/form-data">
+							<form action="{{route('news.update', [ 'id' => $post['id']] )}}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<fieldset>
 									<input type="hidden" name="action" value="post_create" />
@@ -49,53 +49,38 @@
 									<div class="row">
 										<div class="form-group">											
 											<div class="col-md-4">
-												<label for="from_last_name">Author</label>
-												<input required type="text" readonly="true" value="{{ $post['author']->full_name }}" class="form-control" name="author" id="author:last_name">
+												<input required type="text" readonly="true" placeholder="Author" value="{{ $post['author']->full_name }}" class="form-control" name="author" id="author:last_name">
 											</div>	
 											<div class="col-md-4">
-												<label for="from_email">Your E-mail Address</label>
-												<input required type="email" readonly="true" value="{{ $post['author']->email }}" class="form-control" name="author_email" id="author:email">
+												<input required type="email" readonly="true" placeholder="Email Address" value="{{ $post['author']->email }}" class="form-control" name="author_email" id="author:email">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:phone">Your Phone</label>
-												<input type="text" value="{{ $post['author']->phone }}"  readonly="true"  class="form-control" name="author_phone" id="author:phone">
+												<input type="text" value="{{ $post['author']->phone }}" placeholder="Phone (optional)" readonly="true"  class="form-control" name="author_phone" id="author:phone">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-6">
-												<label for="committee">Category</label>
-												<select class="form-control pointer" name="committee">
-													<option value="">--- Select ---</option>
-													<option value="1">Awards</option>
-													<option value="2">Communications</option>
-													<option value="3">Finance</option>
-													<option value="4">Governance</option>
-													<option value="5">Strategic Planning</option>
-													<option value="6">Youth and Collegiate</option>
-												</select>
+											<div class="col-md-4">
+											{{ Form::select('category', $categories, $post->categories()->first()->id, ['class' => 'form-control pointer'] ) }}						
 											</div>
-											<div class="col-md-6">
-												<label for="committee">Image(s)</label>
+											<div class="col-md-4">
 												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
+												<input class="custom-file-upload" type="file" placeholder="Images" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Upload Images" />
 												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
 											</div>	
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-12">
-												<label for="message">Title (required)</label>
-												<input required maxlength="250" class="form-control"  value="{{$post['title']}}" name="title" id="title"></textarea>
+											<div class="col-md-6">
+												<input required maxlength="250" class="form-control"  placeholder="Title" value="{{$post['title']}}" name="title" id="title"></textarea>
 											</div>
 										</div>
 									</div>	
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<label for="message">Content (required)</label>
 												<textarea name="editor1" id="editor1" rows="10" cols="80">
 												{{ $post['content'] }}
 									            </textarea>

@@ -55,12 +55,12 @@
                     <span class="font-lato">{{$post['author']->full_name}}</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#">
                     <i class="fa fa-share-alt"></i> 
                     <span class="font-lato">{{$post['socialPoint']}} shared</span>
                 </a>
-            </li>
+            </li> --}}
             <!-- Only Julie operations -->
             @if( Auth::user()->id == 1 )
                 <li>

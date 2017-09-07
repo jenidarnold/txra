@@ -62,7 +62,7 @@
                     </li>
                 </ul>
 
-                <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 150)}}... </p>
+                <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 200)}}... </p>
 
                 <a href="{{$post->getUrl()}}" class="btn btn-sm btn-reveal btn-info margin-top-10">
                     <i class="fa fa-plus"></i>

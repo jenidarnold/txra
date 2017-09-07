@@ -117,6 +117,74 @@ class PageController extends BaseController {
     }
 
      /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function update($id)
+    {
+
+            // update
+            $post = Post::find($id);
+        
+            $post->title       = \Input::get('title');
+            $post->content     = \Input::get('editor1');
+            //$post->author_id   = \Input::get('author_id');
+
+
+            //$post->image       = '0_'. $_FILES["images"]["name"][0];            
+
+            $post->public      = 1;
+            $post->save();
+
+            $category_id = \Input::get('category');
+
+            //Delete previous category
+            $pc =\DB::table('post_category')
+                ->where('post_id', '=', $id )
+                ->delete();
+
+            //Insert new category
+            \DB::table('post_category')->insert(
+                [
+                    'post_id'   => $post->id,
+                    'category_id' =>$category_id 
+                ]
+            );
+
+            // http://php.net/manual/en/features.file-upload.post-method.php
+            $i = 0;
+            $limit = 6; //Limit to 6 files
+            if (isset ($_FILES["images"])) {
+                foreach ($_FILES["images"]["error"] as $key => $error) {
+                    if ($error == UPLOAD_ERR_OK) {
+                        $tmp_name = $_FILES["images"]["tmp_name"][$key];
+                        // basename() may prevent filesystem traversal attacks;
+                        // further validation/sanitation of the filename may be appropriate
+                        
+                        //append display order numner
+                        $order = $i.'_';
+                        $name = $order . basename($_FILES["images"]["name"][$key]);
+
+                        if (!file_exists("images/blog/$post->id")) {
+                            mkdir("images/blog/$post->id", 0777, true);
+                        }
+                        move_uploaded_file($tmp_name, "images/blog/$post->id/$name");
+                        $i++;
+                        if ($i== $limit) {
+                           break;
+                        }
+                    }
+                }
+            }
+
+            // redirect
+            \Session::flash('message', 'Successfully updated Post!');
+            return \Redirect::to('news/');
+        //}
+    }
+
+     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -129,6 +197,7 @@ class PageController extends BaseController {
         
         $categories = \DB::table('post_categories')->lists('category', 'id');
 
+        //dd($post->categories()->first()->id);
         // show the edit form and pass the post
         return View('blog.edit',compact('post', 'categories'));
     }
