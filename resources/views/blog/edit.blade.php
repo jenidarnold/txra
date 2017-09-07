@@ -61,6 +61,18 @@
 									</div>
 									<div class="row">
 										<div class="form-group">
+											@foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)												 	
+								                @if (!$fileinfo->isDot())
+								                	<div class="col-md-2">
+							                        	<img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
+							                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
+						                        	</div>
+								                @endif
+								            @endforeach 
+							            </div>	
+									</div>
+									<div class="row">
+										<div class="form-group">
 											<div class="col-md-4">
 											{{ Form::select('category', $categories, $post->categories()->first()->id, ['class' => 'form-control pointer'] ) }}						
 											</div>
@@ -69,11 +81,12 @@
 												<input class="custom-file-upload" type="file" placeholder="Images" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Upload Images" />
 												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
 											</div>	
+
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<input required maxlength="250" class="form-control"  placeholder="Title" value="{{$post['title']}}" name="title" id="title"></textarea>
 											</div>
 										</div>
@@ -96,7 +109,8 @@
 
 								<div class="row">
 									<div class="col-md-12">
-										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+										<button type="submit" class="btn btn-primary"> SUBMIT</button>
+										<a href="{{route('news.show', [ 'id' => $post['id'], 'title' => $post['title']] )}}"  class="btn btn-warning"> CANCEL</a>
 									</div>
 								</div>
 							</form>

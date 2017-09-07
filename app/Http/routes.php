@@ -30,7 +30,8 @@ Route::get('/welcome', 'WelcomeController@index' );
 	Route::get('/news/category/{id}/{category}', array('as' => 'news.category', 'uses' => 'News\BlogController@getCategory'));	
 	Route::get('/news/drafts', array('as' => 'news.drafts', 'uses' => 'News\BlogController@getDrafts'));
 	Route::get('/news/post/{id}/{title}', array('as' => 'news.show', 'uses' => 'News\BlogController@getPost'));	
-	Route::get('/news/share/{id}/{social}', array('as' => 'news.show', 'uses' => 'News\BlogController@getShare'));	
+	Route::get('/news/share/{id}/{social}', array('as' => 'news.share', 'uses' => 'News\BlogController@getShare'));	
+	Route::get('news/post/{id}/image/{file}/delete', array('as' => 'news.delete_image', 'uses' => 'News\BlogController@delete_image'));
     
     //don't use the Panel code
 	Route::get('/news/create', array('as' => 'news.create', 'uses' => 'News\PageController@create'));	

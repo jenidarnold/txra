@@ -189,4 +189,22 @@ class BlogController extends BaseController {
         return \Redirect::to($url);
     }
 
+
+    /**
+     * Delete Image
+     *
+     * @return Response
+     */
+    public function delete_image($id, $file)
+    {
+        //Deletes file
+        if (!unlink("images/blog/$id/$file")){
+            \Session::flash('message', 'Error deleted image');
+        }else
+        {
+            \Session::flash('message', 'Successfully deleted image');
+        }
+            
+        return  redirect()->back()->with('flash-message','message'); 
+    }
 }
