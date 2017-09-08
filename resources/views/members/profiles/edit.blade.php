@@ -463,11 +463,11 @@
 	$("#frmAvatar").submit(function(e) {
 	  e.preventDefault();
 	  formData = new FormData($(this)[0]);
-	  var blob = dataURLtoBlob(canvas.toDataURL('image/png'));
+	  //var blob = dataURLtoBlob(canvas.toDataURL('image/png'));
 	  
 	  //---Add file blob to the form data
-	  formData.append("cropped_image[]", blob);
-	  formData.append("id", 1);
+	  //formData.append("cropped_image[]", blob);
+	 // formData.append("id", 1);
 	  $.ajax({
 	    url: "avatar/upload",
 	    type: "POST",
