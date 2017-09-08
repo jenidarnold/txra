@@ -38,7 +38,7 @@
 				<div class="text-center">
 						<!-- && (@getimagesize('http://localhost:8886/images/members/'. $user->id  . '/profile.png'))) -->
 						@if((true)) 	
-							<img name="imgProfile" id="imgProfile" class="thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
+							<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
 						@else
 							@if($profile->gender == 'female')
 								<i class="thumbnail ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
@@ -67,7 +67,7 @@
 				<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
 					<li class="list-group-item {{ $active['profile'] }}"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> TXRA PROFILE</a></li>
 					<!-- Show Profile Settings if this profile belongs to current Auth -->
-					@if(Auth::id() == $user->id)
+					@if((Auth::id() == $user->id))
 						<li class="list-group-item {{ $active['settings'] }}">
 						<a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> MY SETTINGS</a></li>		
 					@endif	

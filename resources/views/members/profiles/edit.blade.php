@@ -158,7 +158,7 @@
 					</div>
 				</div>
 
-				<!-- Preview Image -->	
+				<!-- Crop Image -->	
 				<div class="row hide" name="divCrop" id="divCrop">	
 					<div class="col-md-6 col-sm-6">
 							<div class="sky-form nomargin">
@@ -167,7 +167,7 @@
 							</div>
 					</div>
 				</div>	
-				<!-- SAve/Cancel Buttons -->
+				<!-- Save/Cancel Buttons -->
 				<div class="hide sky-form margiv-top10" name="divSave" id="divSave">
 					<label class="h4">3. 
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>

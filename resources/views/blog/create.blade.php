@@ -24,7 +24,7 @@
 				<div class="container">
 					
 					<div class="row">
-						<p>Articles must be 400-1000 words. Submissions are reviewed approximately within a week.
+						<p>Articles must be 200-1000 words. Submissions are reviewed approximately within a week.
 						All articles are subject to editing. <a href="route('faq.articles')">Read the complete submission process</a></p>
 					</div>
 					<hr/>
@@ -89,11 +89,16 @@
             											]
         											) 
     											!!}
-											</div>
+											</div>											
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group">
 											<div class="col-md-6 col-sm-6">
 											  	{!! Form::label('Images') !!}
 											  	{!! Form::file('images[]',  
     											  				[	
+    											  					'id'	=>	'file',
     											  					'multiple' => 'multiple',
     											  					'accept'	=>'image/*'
     											  				]
@@ -103,6 +108,28 @@
 											</div>												
 										</div>
 									</div>
+
+								<!--- JCrop work in progress -->	
+								{{-- 	<div class="row">
+										<div class="form-group">
+											<!-- Preview Image -->	
+											<div name="divCrop1" id="divCrop1">	
+												<div class="col-sm-4">
+													@include('includes.jcrop', array('form' => 'form1', 'file' => 'file1', 'canvas' => 'canvas1', 'cropbox' => 'cropbox1', 'images' => 'iamges1[]'))  
+												</div>
+											</div>	
+											<div name="divCrop2" id="divCrop2">	
+												<div class="col-sm-4">
+													@include('includes.jcrop', array('form' => 'form2', 'file' => 'file2', 'canvas' => 'canvas2', 'cropbox' => 'cropbox2', 'images' => 'iamges2[]'))   
+												</div>
+											</div>	
+											<div name="divCrop3" id="divCrop3">	
+												<div class="col-sm-4">
+													@include('includes.jcrop', array('form' => 'form3', 'file' => 'file3', 'canvas' => 'canvas3', 'cropbox' => 'cropbox3', 'images' => 'iamges3[]'))  
+												</div>
+											</div>	
+										</div>
+									</div> --}}
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-8 col-sm-8">
@@ -146,4 +173,5 @@
 @stop
 
 @section('script')
+		
 @stop
