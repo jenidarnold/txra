@@ -277,7 +277,7 @@
 												</a>
 												<ul class="dropdown-menu">
 													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
-													<li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li>
+													{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}
 													<li><a href="{{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>
 												</ul>
 											</li>
