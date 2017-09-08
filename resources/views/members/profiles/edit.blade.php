@@ -126,10 +126,7 @@
 					<label class="control-label">Who Am I?</label>
 					<textarea class="form-control" name="bio" rows="3" placeholder="Tell us about yourself">{{$profile->bio}}</textarea>
 				</div>				
-				<div class="margiv-top10">
-					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
-					<a href="#" class="btn btn-default">Cancel </a>
-				</div>
+			
 			</form>
 		</div>
 		<!-- /PERSONAL INFO TAB -->
@@ -145,42 +142,42 @@
 				<input type="hidden" name="y" id="y" style="width:30px"  />
 				<input type="hidden" name="w" id="w"  style="width:30px" />
 				<input type="hidden" name="h" id="h"  style="width:30px" />
+				
 				<div class="form-group">
-
 					<div class="row">
-						<div class="col-md-9 col-sm-8">
+						<div class="col-md-6 col-sm-6">
 							<div class="sky-form nomargin">
-								<label class="label">Select File</label>
-								<label for="file" class="input input-file">
+								<label class="h4">1. Select an Image</label> 
+								<label for="file" class="input input-file" style="margin-left:20px">
 									<div class="button">
-										{{-- <input type="file" name="avatar[]" id="avatar" onchange="this.parentNode.nextSibling.value = this.value">Browse --}}
 										<input id="file" type="file" name="avatar[]" id="avatar"  /> Browse
 									</div><input type="text" readonly>
 								</label>
-							</div>
-							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Picture</a>						
-						</div>
-
+							</div>												
+						</div>						
 					</div>
-
 				</div>
-				<div class="row">	
-					<!-- Preview Image -->	
-					<div class="col-sm-6">			
-						<div id="cropbox" name="cropbox"></div>
-					</div>
-					{{-- <div class="col-sm-6">	
-						<div style="width:200px;height:200px;overflow:hidden;margin-left:20px;">
-							<div class="">
-								<img id='preview' name="preview">
+
+				<!-- Preview Image -->	
+				<div class="row hide" name="divCrop" id="divCrop">	
+					<div class="col-md-6 col-sm-6">
+							<div class="sky-form nomargin">
+								<label class="h4">2. Crop Image</label> 		
+								<div id="cropbox" name="cropbox" style="margin-left:20px"></div>
 							</div>
-						</div>
-						<h5 class="text-center">Preview</h5>
-					</div> --}}
+					</div>
 				</div>	
-				<div class="margiv-top10">
-					<button type="button" id="btnUpdateAvatar" name="btnUpdateAvatar" class="btn btn-primary"><i class="fa fa-check"></i> Save Picture </button>
-					<a href="#" class="btn btn-default">Cancel </a>
+				<!-- SAve/Cancel Buttons -->
+				<div class="hide sky-form margiv-top10" name="divSave" id="divSave">
+					<label class="h4">3. 
+					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
+					<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>
+					</label>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Current Picture</a>
+					</div>
 				</div>
 
 			</form>
@@ -243,7 +240,7 @@
 
 				<div class="margiv-top10">
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Change Password </button>					
-					<a href="#" class="btn btn-default">Cancel </a>
+					<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>
 				</div>
 
 			</form>
@@ -309,7 +306,7 @@
 
 				<div class="margin-top-10">
 					<a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </a>
-					<a href="#" class="btn btn-default">Cancel </a>
+					<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>
 				</div>
 
 			</form>
@@ -332,6 +329,8 @@
 	var prefsize;
 	$("#file").change(function() {
 	  loadImage(this);
+	   $("#divCrop").removeClass('hide');
+	   $("#divSave").removeClass('hide');
 	});
 	function loadImage(input) {
 	  if (input.files && input.files[0]) {
@@ -479,6 +478,7 @@
 	    success: function(data) {
 	      var src = $("#imgProfile").attr('src');
 	      $("#imgProfile").attr('src', src + '?' + new Date().getTime());
+	      $(".user-avatar").attr('src', src + '?' + new Date().getTime());
 	    },
 	    error: function(data) {
 	      alert("Unable to update profile picture");
