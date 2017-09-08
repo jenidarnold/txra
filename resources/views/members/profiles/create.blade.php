@@ -43,15 +43,15 @@
 
 		<!-- PERSONAL INFO TAB -->
 		<div class="tab-pane fade in active" id="info">
-			<form role="form" action="{{route('members.update', $profile->id)}}" method="post">
+			<form role="form" action="{{route('members.update', $user->id)}}" method="post">
 				{{ csrf_field() }}			  
 				<div class="form-group">
 					<label class="control-label">First Name</label>
-					<input type="text" value="{{$user->fist_name}}" class="form-control">
+					<input type="text" value="{{$user->fist_name}}" name="first_name" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Last Name</label>
-					<input type="text" value="{{$user->last_name}}" class="form-control">
+					<input type="text" value="{{$user->last_name}}" name="last_name" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Gender</label>

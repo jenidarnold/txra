@@ -27,15 +27,18 @@
 @stop
 
 @section("profile_content")
-					
+				
+	@if(isset($usar))
 	<!-- FLIP BOX -->
 	<div class="ranking-box box-flip box-icon box-icon-center box-icon-round box-icon-large text-center nomargin " >
 		<div class="front">
+
 			<div class="box1 noradius" >
+			
 				<div class="box-icon-title">
 					<i class="fa fa-list-ol" style="background-color:#fff"></i>
 					<h2>RANKINGS</h2>									
-					<div class="text-muted small" style="color:white;font-size:smaller">{{ $usar->effective_rank}}</div>
+					{{-- <div class="text-muted small" style="color:white;font-size:smaller">{{ $usar->effective_rank}}</div> --}}
 				</div>
 				<div class="row margin-top-10">
 					<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
@@ -98,6 +101,7 @@
 					</div>
 				</div>
 			</div>
+		
 		</div>
 
 		<div class="back">
@@ -109,6 +113,16 @@
 		</div>
 	</div>
 	<!-- /FLIP BOX -->
+	@else
+		<div class="box1 noradius" >
+			<div class="box2 noradius">
+				<h4>WHO AM I?</h4>
+				<hr />
+				<p>{{ $profile->bio }}</p>
+			</div>
+		</div>
+
+	@endif
 
 
 {{-- 	<div class="box-light"><!-- .box-light OR .box-dark -->

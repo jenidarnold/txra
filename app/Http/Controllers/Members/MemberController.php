@@ -142,8 +142,7 @@ class MemberController extends Controller {
 		$usar = [];
 		if(isset($user->usar_id)){
 			
-			$usar = UsarMember::find($user->usar_id);
-			
+			$usar = UsarMember::find($user->usar_id);			
 		}
 
 		$active['profile'] = 'active';
@@ -218,27 +217,31 @@ class MemberController extends Controller {
 	 */
 	public function update($id)
 	{
-		// validate
-        // read more on validation at http://laravel.com/docs/validation
-        // $rules = array(
-        //     'name'       => 'required',
-        //     'email'      => 'required|email',
-        //     'nerd_level' => 'required|numeric'
-        // );
-        // $validator = Validator::make(Input::all(), $rules);
+		//validate
+       //read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'first_name'       => 'required',
+            'last_name'       => 'required',
+        );
+        $validator = \Validator::make(\Input::all(), $rules);
 
-        // process the login
-        // if ($validator->fails()) {
-        //     return Redirect::to('nerds/' . $id . '/edit')
-        //         ->withErrors($validator)
-        //         ->withInput(Input::except('password'));
-        // } else {
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput(\Input::except('password'));
+        } else {
             // store
             
 			$user = User::find($id);
+
+			$user->first_name = \Input::get('first_name');
+			$user->last_name = \Input::get('last_name');
+			$user->save();
+
 			$profile_id = $user->profile->id;
 
             $profile = UserProfile::find($profile_id);
+
             $profile->gender = \Input::get('gender');
             $profile->city = \Input::get('city');
             $profile->skill = \Input::get('skill');
@@ -247,10 +250,13 @@ class MemberController extends Controller {
             $profile->bio = \Input::get('bio');
             $profile->save();
 
+
             // redirect
             \Session::flash('message', 'Successfully updated Personal Info');
 
-		return  redirect()->back()->with('flash-message','message');  
+			return  redirect()->route('members.show', ['id' =>  $id ])
+				->with('flash-message','message');  
+		}
 	}
 
 	/**
