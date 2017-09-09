@@ -73,14 +73,15 @@
 					@endif	
 
 					@if(isset($user->usar_id))
-						<li class="list-group-item ">
-							<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR PROFILE</a>
-						</li>
-						<li class="list-group-item ">
-							<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id . '&matchHistoryType=Singles'}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR MATCH HISTORY</a>
-						</li>
-
-						@endif				
+						@if($user->usar_id > 0)
+							<li class="list-group-item ">
+								<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR PROFILE</a>
+							</li>
+							<li class="list-group-item ">
+								<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id . '&matchHistoryType=Singles'}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR MATCH HISTORY</a>
+							</li>
+						@endif
+					@endif				
 					<li class="list-group-item "><a href="{{ route('members.listing')}}"><i class="fa fa-users"></i> BACK TO ALL PROFILES</a></li>				
 				</ul>
 				<!-- /SIDE NAV -->

@@ -50,10 +50,6 @@ class ImportController extends Controller {
 		          	$user->create_profile($data[$i]);
 		        }
             }
-
-           // dd($dataImported);
-
-	      	//User::insert($dataImported);
         }
         return back();
 	}

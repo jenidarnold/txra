@@ -22,51 +22,51 @@
 		<div class="container">
 			<p class="text-primary col-xs-12">Members listed below have an account with <b>TXRA.org</b>. Don't have an account? <a href="/register">Register here</a>
 			</p>
-				<button class="btn btn-mobile hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
-					<i class="fa fa-bars"></i> Filter
-				</button>
+			<button class="btn btn-mobile hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".nav-filter-collapse">
+				<i class="fa fa-bars"></i> Filter
+			</button>
 
-				<div class="collapse navbar-collapse nav-filter-collapse">
-					<ul id="portfolio_filter" class="nav nav-pills margin-bottom-20">
-						<li class="filter active"><a data-filter="*" href="#">All</a></li>
-						<li class="filter"><a data-filter=".female" href="#">Female</a></li>
-						<li class="filter"><a data-filter=".male" href="#">Male</a></li>
-						<li class="filter"><a data-filter=".pro" href="#">Pro</a></li>
-						<li class="filter"><a data-filter=".open" href="#">Open</a></li>
-						<li class="filter"><a data-filter=".elite" href="#">Elite</a></li>
-						<li class="filter"><a data-filter=".a" href="#">A</a></li>
-						<li class="filter"><a data-filter=".b" href="#">B</a></li>
-						<li class="filter"><a data-filter=".c" href="#">C</a></li>
-						<li class="filter"><a data-filter=".d" href="#">D</a></li>
-						<li class="filter"><a data-filter=".junior" href="#">Junior</a></li>
-						<li class="filter"><a data-filter=".novice" href="#">Novice</a></li>
-					</ul>
-				</div>
+			<div class="collapse navbar-collapse nav-filter-collapse">
+				<ul id="portfolio_filter" class="nav nav-pills margin-bottom-20">
+					<li class="filter active"><a data-filter="*" href="#">All</a></li>
+					<li class="filter"><a data-filter=".female" href="#">Female</a></li>
+					<li class="filter"><a data-filter=".male" href="#">Male</a></li>
+					<li class="filter"><a data-filter=".pro" href="#">Pro</a></li>
+					<li class="filter"><a data-filter=".open" href="#">Open</a></li>
+					<li class="filter"><a data-filter=".elite" href="#">Elite</a></li>
+					<li class="filter"><a data-filter=".a" href="#">A</a></li>
+					<li class="filter"><a data-filter=".b" href="#">B</a></li>
+					<li class="filter"><a data-filter=".c" href="#">C</a></li>
+					<li class="filter"><a data-filter=".d" href="#">D</a></li>
+					<li class="filter"><a data-filter=".junior" href="#">Junior</a></li>
+					<li class="filter"><a data-filter=".novice" href="#">Novice</a></li>
+				</ul>
+			</div>
 
-				<form method="GET" action="{{route('members.search')}}">	
-					<div class="row">
-						<div class="col-md-4 col-sm-6">		
-							<div class="input-group">
-								<input type="text" name="name" value="{{$name}}" placeholder="Search by Name" class="form-control">
-								<span class="input-group-btn">
-									<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-								</span>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">		
-							<div class="input-group ">
-								<input type="text" name="city" value="{{$city}}" placeholder="Search by Hometown" class="form-control">
-								<span class="input-group-btn">
-									<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-								</span>
-							</div>
-						</div>
-						<div class="col-md-1 col-sm-1 col-xs-2">	
-						<a  href="{{route('members.listing')}}" class="btn btn-default" type="button">Reset</a>
+			<form method="GET" action="{{route('members.search')}}">	
+				<div class="row">
+					<div class="col-md-4 col-sm-6">		
+						<div class="input-group">
+							<input type="text" name="name" value="{{$name}}" placeholder="Search by Name" class="form-control">
+							<span class="input-group-btn">
+								<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+							</span>
 						</div>
 					</div>
-				</form>
-			</div>
+					<div class="col-md-4 col-sm-6">		
+						<div class="input-group ">
+							<input type="text" name="city" value="{{$city}}" placeholder="Search by Hometown" class="form-control">
+							<span class="input-group-btn">
+								<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-1 col-sm-1 col-xs-2">	
+					<a  href="{{route('members.listing')}}" class="btn btn-default" type="button">Reset</a>
+					</div>
+				</div>
+			</form>
+		
 			@if(isset($search_results))
 				<h4>{{ $search_results}}</h4>
 			@endif

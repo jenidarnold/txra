@@ -18,6 +18,7 @@ return array(
     'CreateBlogTable' => $vendorDir . '/serverfireteam/blog/src/database/migrations/2014_12_15_124028_create_blog_table.php',
     'CreateClubsTable' => $baseDir . '/database/migrations/2017_06_05_030855_create_clubs_table.php',
     'CreateInstructorsTable' => $baseDir . '/database/migrations/2017_07_06_211124_create_instructors_table.php',
+    'CreateInvitesTable' => $baseDir . '/database/migrations/2017_09_09_044554_create_invites_table.php',
     'CreateMembersTable' => $baseDir . '/database/migrations/2017_05_28_221232_create_members_table.php',
     'CreatePageTable' => $vendorDir . '/serverfireteam/blog/src/database/migrations/2014_12_15_130757_create_page_table.php',
     'CreatePasswordRemindersTable' => $vendorDir . '/serverfireteam/panel/src/database/migrations/2014_12_02_152920_create_password_reminders_table.php',
