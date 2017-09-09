@@ -25,10 +25,10 @@
 			 the form will not break #winning -->			 
 			<form action="{{ route('invite') }}" method="post">
 			    {{ csrf_field() }}
-			    <input type="email" name="email" />
-			    <input type="text" name="first_name" />
-			    <input type="text" name="last_name" />
-			    <button type="submit">Send invite</button>
+			    Email:<input type="email" name="email" /><br/>
+			    First:<input type="text" name="first_name" /><br/>
+			    Last:<input type="text" name="last_name" /><br/>
+			    <button type="submit" class="btn btn-success">Send invite</button>
 			</form>
 		</div>
 	</section>

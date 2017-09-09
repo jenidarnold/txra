@@ -19,7 +19,7 @@
 					<div class="row">
 
 						<!-- LOGIN -->
-						<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+						<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
 							<!-- ALERT -->
 							<!--
