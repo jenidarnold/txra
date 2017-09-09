@@ -6,3 +6,4 @@ Homestead.json
 .env
 /public/images/blog
 /public/images/members
+/public/import

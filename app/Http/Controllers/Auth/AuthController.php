@@ -117,6 +117,7 @@ class AuthController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'disabled' => 1
             ]);
 
         $profile = UserProfile::create([
@@ -126,8 +127,9 @@ class AuthController extends Controller
         //Create profile folder
         if (!file_exists("images/members/$user->id")) {
             mkdir("images/members/$user->id", 0777, true);
-            copy("images/avatar2.jpg","images/members/$user->id/profile.png"  );
         }
+        copy("images/avatar2.jpg","images/members/$user->id/profile.png"  );
+
         return $user;
     }
 }

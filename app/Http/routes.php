@@ -56,6 +56,14 @@ Route::controllers([
   //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 }
 
+
+/* Admin */
+Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
+{
+	Route::get('/import/', array('as' => 'import.index', 'uses' => 'ImportController@index'));
+	Route::post('/import/users', array('as' => 'import.users', 'uses' => 'ImportController@import_users'));
+});	
+
 Route::controller('/admin', 'News\panel\BlogController');
 
 //Route::controller('/blog', 'Blog\BlogController');
@@ -94,11 +102,14 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 });
 
 
+
 /* Members */
 Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 {	
 	Route::get('home', array('as' => 'members.listing', 'uses' => 'MemberController@home'));
 	Route::get('/', array('as' => 'members.listing', 'uses' => 'MemberController@index'));
+	Route::get('/', array('as' => 'members.listing', 'uses' => 'MemberController@index'));
+
 	Route::get('/search/', array('as' => 'members.search', 'uses' => 'MemberController@search'));		
 	Route::get('profile/{id}/', array('as' => 'members.show', 'uses' => 'MemberController@show'));	
 	Route::get('profile/{id}/create', array('as' => 'members.create', 'uses' => 'MemberController@create'));	

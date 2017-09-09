@@ -27,6 +27,12 @@ class Authenticate
             }
         }
 
+        #logout if user not active
+        if(Auth::check() && Auth::user()->disabled == 1){
+            Auth::logout();
+            return redirect('/login')->withErrors('Sorry, this user account is not activate. Contact us to reactivate this account.');
+        }
+
         return $next($request);
     }
 }

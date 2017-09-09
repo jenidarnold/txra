@@ -23,7 +23,8 @@ class ScreenScrapeController extends Controller {
 	 */
 	public function __construct()
 	{
-		
+	   	$this->middleware('auth');
+        $this->middleware('admin_user');
 	}
 	/**
 	 * Show the application welcome screen to the user.

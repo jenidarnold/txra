@@ -29,7 +29,7 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'middle_name', 'prefix', 'suffix', 'email', 'password', 'usar_id', 'disabled', 'dob'
+        'first_name', 'last_name', 'middle_name', 'prefix', 'suffix', 'dob', 'email', 'password', 'usar_id', 'disabled', 'created_at'
     ];
 
     /**
@@ -41,6 +41,37 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * Create a new user instance; Called by ImportController
+     *
+     * @param  array  $data
+     * @return User
+     */
+    public function create_profile(array $data)
+    {
+        /*\Event::fire(new UserWasRegistered($data)); */
+        $user = User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'disabled' => $data['disabled']
+            ]);
+
+        $profile = UserProfile::create([
+            'user_id' => $user->id
+            ]);
+
+        //Create profile folder
+        if (!file_exists("images/members/$user->id")) {
+            mkdir("images/members/$user->id", 0777, true);
+        }
+        copy("images/avatar2.jpg","images/members/$user->id/profile.png"); 
+
+        return $user;
+    }
 
     /**
      * [link_Usar description]

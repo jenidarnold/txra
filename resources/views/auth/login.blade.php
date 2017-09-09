@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
             <!-- LOGIN EMAIL-->
-                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                    <form class="nomargin sky-form boxed" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                         <header class="text-center text-primary h3">
@@ -72,9 +72,13 @@
                            {{--  <label class="checkbox weight-300">
                                 <input type="checkbox" name="checkbox-inline">
                                 <i></i> Keep me logged in
-                            </label> --}}
-
-
+                            </label> --}} 
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger text-center"> 
+                                        {{ $error }}
+                                    </div>
+                                @endforeach
+                            </div>
                         </fieldset>
 
                         
