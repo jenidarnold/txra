@@ -34,4 +34,26 @@ class Invite extends Model
     {
         return  $this->first_name . ' ' . $this->last_name;
     }
+
+    public function create_with_token($data)
+    {
+
+        // validate the incoming request data
+        do {
+            //generate a random string using Laravel's str_random helper
+            $token = str_random();
+        } //check if the token already exists and if it does, try again
+        while (Invite::where('token', $token)->first());
+
+        //create a new invite record
+        $invite = Invite::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'token' => $token
+        ]);
+
+        return $invite;
+    }
+
 }

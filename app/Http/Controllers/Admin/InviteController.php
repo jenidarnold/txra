@@ -28,21 +28,14 @@ class InviteController extends Controller {
     // process the form submission and send the invite by email
     public function process(Request $request)
     {
-        // validate the incoming request data
+        
+        $data = [];
+        $data['first_name'] =  $request->get('first_name');
+        $data['last_name'] =  $request->get('last_name');
+        $data['email'] =  $request->get('email');
 
-        do {
-            //generate a random string using Laravel's str_random helper
-            $token = str_random();
-        } //check if the token already exists and if it does, try again
-        while (Invite::where('token', $token)->first());
-
-        //create a new invite record
-        $invite = Invite::create([
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'email' => $request->get('email'),
-            'token' => $token
-        ]);
+        $invite = new Invite;
+        $invite = $invite->create_with_token($data);
 
         // send the email
         //Mail::to($request->get('email'))->send(new InviteCreated($invite));

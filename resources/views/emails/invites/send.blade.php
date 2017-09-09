@@ -55,7 +55,7 @@
 			          	<tbody>
 				          	<tr>
 				             	<td>				             		
-				             		<a href="{{ url('events/future') }}">View all Event</a>
+				             		<a href="{{ url('events/future') }}">View all Events</a>
 				             	</td>
 				          	</tr>
 			        	</tbody>

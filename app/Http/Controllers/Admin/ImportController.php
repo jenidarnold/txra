@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Invite;
 
 class ImportController extends Controller {
 
@@ -22,7 +23,9 @@ class ImportController extends Controller {
 	 */
 	public function index()
 	{	
-		return view('admin.import.index');
+
+        $users = User::all();
+		return view('admin.users.index', compact('users'));
 	}
 
 	/**
@@ -52,5 +55,37 @@ class ImportController extends Controller {
             }
         }
         return back();
+	}
+
+	/**
+	 * Import Users
+	 *
+	 * @return Response
+	 */
+	public function import_invites(Request $request)
+	{	
+
+ 		if($request->file('imported-file'))
+      	{
+            $path = $request->file('imported-file')->getRealPath();
+            $data = \Excel::load($path, function($reader) {})->get();
+
+            if(!empty($data) && $data->count())
+	      	{
+	        
+	        	$data = $data->toArray();
+	        
+		        for($i=0;$i<count($data) ;$i++)
+		        {
+		          	$invite = new Invite;
+        			$invite = $invite->create_with_token($data);
+		        }
+
+
+            }
+        }
+
+        $invites = Invite::all()->get();
+        return back()->with('invites');
 	}
 }

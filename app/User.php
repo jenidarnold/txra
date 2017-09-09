@@ -57,7 +57,8 @@ class User extends Model implements AuthenticatableContract,
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'disabled' => $data['disabled']
+            'disabled' => $data['disabled'],
+            'usar_id' => $data['usar_id']
             ]);
 
         $profile = UserProfile::create([
