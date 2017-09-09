@@ -15,6 +15,11 @@ Route::get('/emails/confirmation', function () {
     return view('emails.confirmation');
 });
 
+
+Route::get('/emails/invites/send', function () {
+    return view('emails.invites.send');
+});
+
 Route::get('/', function () {
     return view('coming-soon');
 });
@@ -194,7 +199,9 @@ Route::get('/terms-of-use', function () {
 Route::get('/privacy', function () {
     return view('misc.privacy');
 });
-
+Route::get('/unsubscribe', function () {
+    return view('misc.unsubscribe');
+});
 Route::get('/home', 'HomeController@index');
 
 
