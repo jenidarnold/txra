@@ -5,10 +5,11 @@
 	</style>
 @stop
 
-
-@php ($invite = new stdClass())
-@php ($invite->full_name = "Julienne Arnold")
-@php ($invite->token = "test")
+@if(!isset($invite))
+	@php ($invite = new stdClass())
+	@php ($invite->full_name = "Racquetball Enthusiast")
+	@php ($invite->token = "unk")
+@endif
 
 @php ($tournaments = App\Tournament::future()->where('name', 'not like', '%Ladder')->limit(4)->get())
 @section('greeting')
@@ -19,7 +20,7 @@
 	The Texas Racquetball Association has a brand new snazzy <a href="http://txra.org">website</a>, full of current and useful information about the TXRA and our members. 
 	To experience all that the <a href="http://txra.org">TXRA website</a> has to offer, activate your FREE account today!
 
-	<table class="four columns">
+	<table class="six columns">
 	    <tbody>
 	    	<tr>
 		      <td>
