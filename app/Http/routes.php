@@ -61,8 +61,14 @@ Route::controllers([
 Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 {
 	Route::get('/import/', array('as' => 'import.index', 'uses' => 'ImportController@index'));
-	Route::post('/import/users', array('as' => 'import.users', 'uses' => 'ImportController@import_users'));
+	Route::post('/import/users', array('as' => 'import.users', 'uses' => 'ImportController@import_users'));	
+	Route::get('/import/invites', array('as' => 'import.invites', 'uses' => 'ImportController@import_invites'));
+
+	Route::get('/invite', array('as' => 'invite', 'uses' => 'InviteController@invite'));
+	Route::post('/invite', array('as' => 'invite.process', 'uses' => 'InviteController@process'));
 });	
+Route::get('accept/{token}', 'Admim\InviteController@accept')->name('invite.accept');
+
 
 Route::controller('/admin', 'News\panel\BlogController');
 
