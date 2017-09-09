@@ -29,7 +29,7 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'middle_name', 'prefix', 'suffix', 'email', 'password', 'usar_id'
+        'first_name', 'last_name', 'middle_name', 'prefix', 'suffix', 'email', 'password', 'usar_id', 'disabled', 'dob'
     ];
 
     /**
@@ -37,6 +37,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
+    
     protected $hidden = [
         'password', 'remember_token',
     ];

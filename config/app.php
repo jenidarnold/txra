@@ -136,6 +136,7 @@ return [
         Gidlov\Copycat\CopycatServiceProvider::class,
         Serverfireteam\Blog\BlogServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------

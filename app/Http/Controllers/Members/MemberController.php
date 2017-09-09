@@ -92,6 +92,18 @@ class MemberController extends Controller {
 		return view('members/profiles/index', compact('members', 'name', 'city'));
 	}
 
+	/**
+	 * Display index of members.
+	 *
+	 * @return Response
+	 */
+	public function import(Request $request)
+	{
+		
+		
+	}
+
+
 
 	/**
 	 * Display member profile.
