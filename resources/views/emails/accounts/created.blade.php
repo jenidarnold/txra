@@ -19,12 +19,20 @@
 @section('lead')
 	
 	Congratulations. You're online account with the <a href="http://txra.org">Texas Racquetball Association</a> has been successfully created.  
-	Fill out your online profile to share a little about yourself and your Racquetball life with other TXRA</a> members.
+	
 
-	<table class="six columns">
+	<table class="eight columns">
 	    <tbody>
 	    	<tr>
-		      <td>
+	    		<td>
+					<img 1height="200px" src="{{asset('images/clipart/man-and-racquet.png')}}">	
+	    		</td>
+	    		<td style="vertical-align:middle">
+	    			Please, fill out your online profile to share a little about yourself and your Racquetball life with other TXRA</a> members.
+	    		</td>
+    		</tr>
+	    	<tr>
+		      <td colspan="2">
 		        <table class="button success">
 		          	<tbody>
 			          	<tr>
@@ -33,17 +41,23 @@
 		        	</tbody>
 		        </table>
 		      </td>
-		      <td class="expander"></td>
+		      <td class="expander">
+		      	
+		      </td>
 		    </tr>
+		    <tr>
+		      <td colspan="2">
+		      	<p><span style="font-size:small">If you think you're receiving this email in error, please <a href="{{ url('/contact') }}">contact us</a> immediately.</span>
+		      </td>
+	      	</tr>
 	 	 </tbody>
   	</table>
 
-  	<p>If you think you're receiving this email in error, please <a href="{{ url('/contact') }}">contact us</a> immediately</p>
 @stop
 
 @section('hero')
 	<center>
-		<img src="{{asset('images/landing/tournament_players.jpg')}}">		
+		{{-- <img src="{{asset('images/landing/tournament_players.jpg')}}">	 --}}	
 	</center>
 @stop
 

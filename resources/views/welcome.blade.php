@@ -69,13 +69,6 @@
                                OUTDOOR RACQUETBALL
                             </p>
 
-
-                            <!--
-                            <img class="ls-l" data-ls="offsetxin:50;durationin:2000;delayin:1500;offsetxout:50;durationout:1000;parallaxlevel:1;" style="top:3px;left:137px;white-space: nowrap;" src="{{ asset('images/demo/layerslider/slide-b-2.png') }}" alt="">
-                            <img class="ls-l" data-ls="offsetxin:100;durationin:2000;delayin:1500;offsetxout:100;durationout:1000;parallaxlevel:3;" style="top:203px;left:383px;white-space: nowrap;" src="{{ asset('images/demo/layerslider/slide-b-3.png') }}" alt="">
-                            <img class="ls-l" data-ls="offsetxin:150;durationin:2000;delayin:1500;offsetxout:150;durationout:1000;parallaxlevel:5;" style="top:206px;left:486px;white-space: nowrap;" src="{{ asset('images/demo/layerslider/slide-b-4.png') }}" alt="">
-                            <img class="ls-l" data-ls="offsetxin:200;durationin:2000;delayin:1500;offsetxout:200;durationout:1000;parallaxlevel:7;" style="top:171px;left:559px;white-space: nowrap;" src="asset('images/demo/layerslider/slide-b-5.png') }}" alt="">
-                            -->
                   
                             <p class="ls-l" style="top:27%;left:490px;font-weight: 500;font-size:35px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:1500;delayin:1500;rotateyin:90;transformoriginin:left 50% 0;offsetxout:0;durationout:1500;showuntil:1000;rotateyout:-90;transformoriginout:left 50% 0;">
                                MILITARY RACQUETBALL
@@ -97,37 +90,7 @@
                             <!-- background -->
                             {{-- <img src="{{ asset('images/rball-action.gif') }}" class="ls-bg" alt="Slide background"/> --}}
                             <img src="{{ asset('images/landing/kids.png') }}" class="ls-bg" alt="Slide background"/>
-                            <!--
-                            <img class="ls-l" data-ls="
-                                offsetxin:0;
-                                durationin:1500;
-                                delayin:3000;
-                                easingin:linear;
-                                scalexin:0;
-                                scaleyin:0;
-                                offsetxout:0;
-                                durationout:1500;
-                                showuntil:1;
-                                easingout:linear;
-                                scalexout:2;
-                                scaleyout:2;"
-                                style="top:20px;left:50%;white-space: nowrap;" src="{{ asset('images/demo/layerslider/circle.png') }}" alt="">
-                            <img class="ls-l" data-ls="
-                                offsetxin:0;
-                                durationin:1500;
-                                delayin:4000;
-                                easingin:linear;
-                                scalexin:0;
-                                scaleyin:0;
-                                offsetxout:0;
-                                durationout:1500;
-                                showuntil:1;
-                                easingout:linear;
-                                scalexout:2;
-                                scaleyout:2;"
-                                style="top:20px;left:50%;white-space: nowrap;" src="{{ asset('images/demo/layerslider/circle.png') }}" alt="">
-                            -->
-
+                            
                             <!-- left -->
                             <p class="ls-l" data-ls="
                                 offsetxin:0;
@@ -159,50 +122,15 @@
                                 skewxout:-60;"
                                 style="top:360px;left:273px;font-weight: 500;font-size:30px;color:#fff;white-space: nowrap;">
                                 much more!
-                            </p>
-
-                            <!-- right -->
-                            <!--
-                            <p class="ls-l" data-ls="
-                                offsetxin:0;
-                                delayin:2500;
-                                rotatein:90;
-                                transformoriginin:right bottom 0;
-                                offsetxout:0;
-                                durationout:1500;
-                                transformoriginout:right bottom 0;"
-                                style="top:320px;left:1013px;font-weight: 500; text-align: right;font-size:30px;color:#fff;white-space: nowrap;">
-                                ...to create
-                            </p>
-                            <p class="ls-l" data-ls="
-                                offsetxin:0;
-                                durationin:2500;
-                                delayin:3250;
-                                easingin:easeOutElastic;rotatexin:90;
-                                transformoriginin:50% top 0;
-                                offsetxout:0;
-                                durationout:1000;
-                                rotatexout:90;
-                                transformoriginout:50% bottom 0;"
-                                style="top:360px;left:890px;font-weight: 300; text-align: right;width:260px;height:40px;padding-right:10px;font-size:30px;line-height:37px;color:#ffffff;background:#f06a52;white-space: nowrap;">
-                                THE LARGEST STATE MEMBERSHIP IN THE COUNTRY
-                            </p>
-                            <p class="ls-l" data-ls="
-                                offsetxin:-50;
-                                delayin:3500;
-                                skewxin:60;
-                                scalexin:1.5;
-                                offsetxout:-50;
-                                durationout:1000;
-                                skewxout:60;
-                                scalexout:1.5;"
-                                style="top:405px;left:883px;font-size:30px;color:#fff;white-space: nowrap;">
-                                with no compromises!
-                            </p>
-                            -->
+                            </p>                           
                         </div>
-                    </div>
+                         <!-- SLIDE -->
+                        <div class="ls-slide" data-ls="slidedelay:8000;transition2d:21,105;timeshift:-1000;">
 
+                            <img src="{{ asset('images/landing/diving_man.jpg') }}" class="ls-bg" alt="Slide background"/>
+                        </div>
+                        <!-- /SLIDE-->
+                    </div>
                     <script type="text/javascript">
                         var layer_options = {
                             responsive:         false,

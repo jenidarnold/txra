@@ -1311,7 +1311,8 @@ section.dark #portfolio h3 {
                       <table class="twelve columns">
                         <tr>
                           <td>
-                            <h1>@yield('greeting')</h1>
+                            <h2>@yield('greeting')</h2>
+                            <br/>
                 						<p class="lead">
                               @yield('lead')
                             </p>
