@@ -20,7 +20,7 @@
 
 @section('lead')
 	
-	Congratulations. You're online account with the <a href="http://txra.org">Texas Racquetball Association</a> has been successfully created.  
+	Congratulations. Your online account with the <a href="http://txra.org">Texas Racquetball Association</a> has been successfully created.  
 	
 
 	<table class="eight columns">
