@@ -1279,7 +1279,7 @@ section.dark #portfolio h3 {
                           <tr>
 
                             <td class="six sub-columns">
-                              <img src="{{ asset('images/logos/txra_logo.png')}}" style="height:50px;display:inline;" alt="" /> 
+                               <a href="http://texasracquetball.org/"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:50px;display:inline;" alt="" /></a>
                             </td>
                             <td class="six sub-columns last" align="right" style="text-align:right; vertical-align:middle;">
                               <span class="template-label"></span>

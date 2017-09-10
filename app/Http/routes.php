@@ -212,10 +212,6 @@ Route::resource('subscribe', 'SubscribeController');
 /* Email Previews */
 Route::group(['middleware' => ['auth', 'admin_user']], function () {
 
-	Route::get('/emails/confirmation', function () {
-	    return view('emails.confirmation');
-	});
-
 	Route::get('/emails/invites/send', function () {
 	    return view('emails.invites.send');
 	});
@@ -226,6 +222,10 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 
 	Route::get('/emails/password/reset', function () {
 	    return view('auth.emails.password');
+	});
+
+	Route::get('/emails/contact/send', function () {
+	    return view('emails.contact.send');
 	});
 });
 

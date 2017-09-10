@@ -99,9 +99,14 @@ class ContactController extends Controller {
         $content = $request->message;
         $department = $request->department;
 
-    
+        if( trim($request->department)  != ''){
+			$department = trim($request->department);
+		}
+		else{
+			$department =  "General";
+		}    
 
-        Mail::send('emails.send', ['subject' => $subject, 'content' => $content], function ($m) use ($from, $to, $subject)
+        Mail::send('emails.contact.send', ['subject' => $subject, 'content' => $content], function ($m) use ($from, $to, $subject)
         {
 
             $m->from($from->email, $from->full_name );
