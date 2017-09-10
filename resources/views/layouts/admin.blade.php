@@ -29,7 +29,7 @@
 		<div class="container">
 			
 			<!-- LEFT -->
-			<div class="col-lg-2 col-md-2 col-sm-3">				
+			<div class="col-lg-2 col-md-2 col-sm-3 well">				
 				{{-- <div class="text-center">
 						
 					@if((true)) 	
