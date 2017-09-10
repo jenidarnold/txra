@@ -141,6 +141,7 @@ class LeadershipController extends Controller {
 
             $m->from($subscriber->email, $subscriber->full_name );
             $m->to($txra->email, $txra->full_name)->subject($subject);
+            $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
 
         });
 
@@ -150,7 +151,8 @@ class LeadershipController extends Controller {
         Mail::send('emails.committees.replyvolunteer', ['subscriber' => $subscriber], function($m) use ($subscriber, $txra) {
             $subject = 'Thank you for volunteering!';
             $m->from( $txra->email, $txra->full_name);
-            $m->to($subscriber->email, $subscriber->full_name)->subject($subject);
+            $m->to($subscriber->email, $subscriber->full_name)->subject($subject);            
+            $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
         });
 
         $message = 'Successfully sent. Thank you!';

@@ -176,40 +176,42 @@
 							<h4 class="modal-title" id="myModalLabel">CONTACT US</h4>
 						</div>
 
-						<!-- AJAX CONTACT FORM USING VALIDATE PLUGIN -->
-						<form class="validate nomargin" action="php/contact.php" method="post">
+						<form class="validate nomargin" action="{{ route('contact')}}" method="post">
 
 							<!-- Modal Body -->
 							<div class="modal-body">
 
 								<fieldset>
-									<input type="hidden" name="action" value="contact_send" />
-
+									{{ csrf_field() }}	
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-4">
-												<label for="contact:name">Full Name *</label>
-												<input type="text" value="" class="form-control required" name="contact[name][required]" id="contact:name">
+												<label for="first_name">First Name *</label>
+												<input type="text" value="" class="form-control required" name="from_first_name" id="from_first_name">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:email">E-mail Address *</label>
-												<input type="email" value="" class="form-control required" name="contact[email][required]" id="contact:email">
+												<label for="last_name">Last Name *</label>
+												<input type="text" value="" class="form-control required" name="from_last_name" id="from_last_name">
+											</div>
+											<div class="col-md-4">
+												<label for="email">E-mail Address *</label>
+												<input type="email" value="" class="form-control required" name="from_email" id="email">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Phone</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+												<input type="text" value="" class="form-control" name="phone" id="phone">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-8">
-												<label for="contact:subject">Subject *</label>
-												<input type="text" value="" class="form-control required" name="contact[subject][required]" id="contact:subject">
+												<label for="subject">Subject *</label>
+												<input type="text" value="" class="form-control required" name="subject" id="subject">
 											</div>
 											<div class="col-md-4">
-												<label for="contact_department">Department</label>
-												<select class="form-control pointer" name="contact[department]">
+												<label for="department">Department</label>
+												<select class="form-control pointer" name="department">
 													<option value="">--- Select ---</option>
 													<option value="Board">Board</option>													
 													<option value="Marketing">Marketing</option>
@@ -223,7 +225,7 @@
 										<div class="form-group">
 											<div class="col-md-12">
 												<label for="contact:message">Message *</label>
-												<textarea maxlength="10000" rows="8" class="form-control required" name="contact[message]" id="contact:message"></textarea>
+												<textarea maxlength="10000" rows="8" class="form-control required" name="message" id="message"></textarea>
 											</div>
 										</div>
 									</div>

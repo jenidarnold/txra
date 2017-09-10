@@ -73,7 +73,7 @@
 					</a-->
 
 					{{-- <a href="#" data-toggle="modal" data-target="#contactModal" class="social-icon social-icon-border pull-left" data-placement="bottom" title="Contact Us"> --}}
-					<a href="/forms/contact" class="social-icon social-icon-border pull-left" data-placement="bottom" title="Contact Us">					
+					<a href="{{ route('contact')}}" class="social-icon social-icon-border pull-left" data-placement="bottom" title="Contact Us">					
 						<i class="fa fa-envelope"></i>
 						<i class="fa fa-envelope"></i>
 					</a>

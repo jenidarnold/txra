@@ -57,6 +57,8 @@ class SubscribeController extends Controller
                 $subject = 'You are now enrolled to receive TXRA updates and  newsletters';
                 $m->from('julie.enid@gmail.com', 'TXRA');
                 $m->to($subscriber->email, $subscriber->name)->subject($subject);
+                $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
+
             });
         }
 
