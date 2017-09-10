@@ -1,7 +1,9 @@
 @extends('layouts.emails.hero')
 @section('style')
 	<style type="text/css">
-
+	.img-200{
+		width:200px !important;
+	}
 	</style>
 @stop
 
@@ -24,15 +26,20 @@
 	<table class="eight columns">
 	    <tbody>
 	    	<tr>
-	    		<td>
-					<img 1height="200px" src="{{asset('images/clipart/man-and-racquet.png')}}">	
-	    		</td>
 	    		<td style="vertical-align:middle">
-	    			Please, fill out your online profile to share a little about yourself and your Racquetball life with other TXRA</a> members.
+	    			<div>
+		    			<div style="float:left">
+			    			<img src="{{asset('images/clipart/man-and-racquet-100.png')}}">
+			    		</div>
+		    			<p>
+		    			<br/>
+		    			Please, fill out your online profile to share your racquetball life with the <b>TXRA</b></a> community.
+		    			</p>
+		    		</div>
 	    		</td>
     		</tr>
 	    	<tr>
-		      <td colspan="2">
+		      <td>
 		        <table class="button success">
 		          	<tbody>
 			          	<tr>
@@ -46,7 +53,7 @@
 		      </td>
 		    </tr>
 		    <tr>
-		      <td colspan="2">
+		      <td>
 		      	<p><span style="font-size:small">If you think you're receiving this email in error, please <a href="{{ url('/contact') }}">contact us</a> immediately.</span>
 		      </td>
 	      	</tr>
