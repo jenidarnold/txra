@@ -108,7 +108,7 @@
 						</ul>
 
 						<!-- Logo --> 
-						<a href="/welcome" class="hidden-xs hidden-sm"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:50px;display:inline;margin-top:10px" alt="" /></a>
+						<a href="/" class="hidden-xs hidden-sm"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:50px;display:inline;margin-top:10px" alt="" /></a>
 						<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-md hidden-lg" style="height:50px; padding-top:5px; display:inline;" alt="" /></a>
 					</div>
 				</header>
