@@ -13,7 +13,7 @@
 	<ul class="nav nav-tabs nav-top-border">
 		<li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
 		<li><a href="#avatar" data-toggle="tab">Profile Picture</a></li>
-		{{-- <li><a href="#accounts" data-toggle="tab">Link Accounts</a></li> --}}
+		<li><a href="#accounts" data-toggle="tab">Link USAR</a></li>
 		<li><a href="#password" data-toggle="tab">Password</a></li>
 		{{-- <li><a href="#privacy" data-toggle="tab">Privacy</a></li> --}}
 	</ul>
@@ -45,11 +45,11 @@
 				{{ csrf_field() }}			  
 				<div class="form-group">
 					<label class="control-label">First Name</label>
-					<input type="text" placeholder="{{$user->first_name}}" class="form-control">
+					<input type="text" name="first_name" value="{{$user->first_name}}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Last Name</label>
-					<input type="text" placeholder="{{$user->last_name}}" class="form-control">
+					<input type="text" name="last_name" value="{{$user->last_name}}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Gender</label>
@@ -126,7 +126,10 @@
 					<label class="control-label">Who Am I?</label>
 					<textarea class="form-control" name="bio" rows="3" placeholder="Tell us about yourself">{{$profile->bio}}</textarea>
 				</div>				
-			
+				<div class="margiv-top10">
+					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Save Changes </button>					
+					<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>
+				</div>
 			</form>
 		</div>
 		<!-- /PERSONAL INFO TAB -->

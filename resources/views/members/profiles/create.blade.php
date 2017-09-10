@@ -47,7 +47,7 @@
 				{{ csrf_field() }}			  
 				<div class="form-group">
 					<label class="control-label">First Name</label>
-					<input type="text" value="{{$user->fist_name}}" name="first_name" class="form-control">
+					<input type="text" value="{{$user->first_name}}" name="first_name" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="control-label">Last Name</label>

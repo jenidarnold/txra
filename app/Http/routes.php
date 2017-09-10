@@ -211,7 +211,9 @@ Route::get('/privacy', function () {
 Route::get('/unsubscribe', function () {
     return view('misc.unsubscribe');
 });
-Route::get('/home', 'HomeController@index');
+
+/* home was a default page in Laravel; I removed; but just incase references go to Landing page */
+Route::get('/home', 'WelcomeController@index');
 
 
 Route::resource('subscribe', 'SubscribeController');

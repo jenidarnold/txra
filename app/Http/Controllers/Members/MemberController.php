@@ -60,7 +60,7 @@ class MemberController extends Controller {
 						;			
 			}
 
-		$members = $members->paginate(10);
+		$members = $members->paginate(12);
 
 		return view('members/profiles/index', compact('members', 'name', 'city'));
 	}
@@ -91,19 +91,6 @@ class MemberController extends Controller {
 			
 		return view('members/profiles/index', compact('members', 'name', 'city'));
 	}
-
-	/**
-	 * Display index of members.
-	 *
-	 * @return Response
-	 */
-	public function import(Request $request)
-	{
-		
-		
-	}
-
-
 
 	/**
 	 * Display member profile.
@@ -229,6 +216,7 @@ class MemberController extends Controller {
 	 */
 	public function update($id)
 	{
+
 		//validate
        //read more on validation at http://laravel.com/docs/validation
         $rules = array(
@@ -238,7 +226,10 @@ class MemberController extends Controller {
         $validator = \Validator::make(\Input::all(), $rules);
 
         if ($validator->fails()) {
+
+        	$message = 'Failed to update profile.';
             return redirect()->back()
+				->with('alert-danger', $message)
                 ->withErrors($validator)
                 ->withInput(\Input::except('password'));
         } else {
