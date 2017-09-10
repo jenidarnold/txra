@@ -5,7 +5,7 @@
 	</style>
 @stop
 
-@if(!isset($invite))
+@if(!isset($user))
 	@php ($user = new stdClass())
 	@php ($user->full_name = "Racquetball Enthusiast")
 	@php ($user->id = 1)
