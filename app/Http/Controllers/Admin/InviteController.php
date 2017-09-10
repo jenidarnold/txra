@@ -81,7 +81,9 @@ class InviteController extends Controller {
         // User must change password
        \Auth::login($user);
 
-       return redirect()->route('members.create', ['id' => \Auth::user()->id]);
+       //return redirect()->route('members.create', ['id' => \Auth::user()->id]);
+       return redirect()->route('members.create_pwd', ['id' => \Auth::user()->id]);
+       
        
        
     }

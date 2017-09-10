@@ -1,22 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('style')
     <style type="text/css">
     </style>
 @stop
-@section('content')		
-	<section class="page-header page-header-xs">		
-		<div class="container">
-			<h1><i class="fa fa-user-circle"></i> ADMIN <i class="fa fa-chevron-right"></i> Invites</h1>			
-			<!-- breadcrumbs -->
-			<ol class="breadcrumb">
-				<li class="active">Invites</li>
-				<li><a href="{{route('admin.users')}}">Users</a></li>
-			</ol><!-- /breadcrumbs -->		
-		</div>
-	</section>
-	<!-- /PAGE HEADER -->
-	<!-- -->
-	<section>
+@section('admin_content')		
 		<div class="container">
 			<div class="row">
 		        <div class="col-md-8">

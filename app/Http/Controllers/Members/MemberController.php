@@ -167,6 +167,25 @@ class MemberController extends Controller {
 		return view('members/profiles/create', compact('user', 'profile', 'active'));
 	}
 
+
+	/**
+	 * Display member password create.
+	 *
+	 * @return Response
+	 */
+	public function create_pwd($id)
+	{
+
+		// $user = User::find($id);
+		// $profile = $user->profile()->first();
+
+		// $active['profile'] ='';
+		// $active['settings'] = 'active';
+
+		return view('members/profiles/password');
+	}
+
+
 	/**
 	 * Display member profile edit.
 	 *
@@ -330,17 +349,58 @@ class MemberController extends Controller {
 	}
 
 	/**
+	 * Store New Password (used by those completing invitation)
+	 *
+	 * @return Response
+	 */
+	public function store_pwd($id)
+	{
+
+		// validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(        	
+            'password' => 'required|min:6|confirmed',
+        );
+
+        $input = \Input::all();
+        $validator = \Validator::make($input, $rules);
+
+        if ($validator->fails()) {
+          
+        	$message = 'Failed to create password.';
+   			return  redirect()->back()
+				->with('alert-danger', $message)
+				->withErrors($validator)
+	            ->withInput(\Input::except('password'));
+				;    
+        } else {
+            //store
+            
+            $user = User::find($id);
+            $user->password = \Input::get('password');
+            $user->save();
+
+            \Session::flash('alert-success', 'Successfully created password');
+        }
+
+        return redirect()->route('members.show', ['id' => $id])
+        		->with('flash-message','message');  
+	}
+
+
+	/**
 	 * Update Password
 	 *
 	 * @return Response
 	 */
 	public function update_pwd($id)
 	{
+
 		// validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(        	
             'current_password' => 'required|confirmed',
-            'password' => 'required|min:4|confirmed',
+            'password' => 'required|min:6|confirmed',
         );
 
         $input = \Input::all();
