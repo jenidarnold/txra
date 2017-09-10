@@ -126,7 +126,7 @@ class AuthController extends Controller
 
         // send email account created
 
-        \Mail::send('emails.account.created', ['user' => $user], function ($m) use ($user) {
+        \Mail::send('emails.accounts.created', ['user' => $user], function ($m) use ($user) {
             $m->from('noreply@txra.com', 'Texas Racquetball Association');
             $m->to($user->email, $user->full_name)->subject('Welcome! Your online account with TXRA has been created');
         });
