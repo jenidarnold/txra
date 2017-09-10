@@ -117,12 +117,19 @@ class AuthController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'disabled' => 1
+            'disabled' => 0
             ]);
 
         $profile = UserProfile::create([
             'user_id' => $user->id
             ]);
+
+        // send email account created
+
+        \Mail::send('emails.account.created', ['user' => $user], function ($m) use ($user) {
+            $m->from('noreply@txra.com', 'Texas Racquetball Association');
+            $m->to($user->email, $user->full_name)->subject('Welcome! Your online account with TXRA has been created');
+        });
 
         //Create profile folder
         if (!file_exists("images/members/$user->id")) {

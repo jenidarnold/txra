@@ -38,8 +38,6 @@ class InviteController extends Controller {
         $invite = $invite->create_with_token($data);
 
         // send the email
-        //Mail::to($request->get('email'))->send(new InviteCreated($invite));
-
         \Mail::send('emails.invites.send', ['invite' => $invite], function ($m) use ($invite) {
             $m->from('noreply@txra.com', 'Texas Racquetball Association');
             $m->to($invite->email, $invite->full_name)->subject('Your New TXRA Account is Ready!');

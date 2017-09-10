@@ -27,7 +27,7 @@
 						</li>
 						<li class="footer-sprite email">
 							{{-- <a href="#" data-toggle="modal" data-target="#contactModal"  data-placement="bottom" title="Contact Us">support@txra.org</a> --}}
-							<a href="/forms/contact" title="Contact Us">support@txra.org</a>
+							<a href="/contact" title="Contact Us">support@txra.org</a>
 						</li>
 					</ul>
 				</address>

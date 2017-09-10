@@ -20,6 +20,10 @@ Route::get('/emails/invites/send', function () {
     return view('emails.invites.send');
 });
 
+Route::get('/emails/accounts/created', function () {
+    return view('emails.accounts.created');
+});
+
 Route::get('/', function () {
     return view('coming-soon');
 });
@@ -195,6 +199,8 @@ Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 	Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));	
 	Route::post('contact', array('as' => 'contact', 'uses' => 'ContactController@send'));	
 });
+
+Route::get('/contact', array('as' => 'contact', 'uses' => 'Forms\ContactController@index'));
 
 Route::get('/terms-of-use', function () {
     return view('misc.termsofuse');
