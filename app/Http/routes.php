@@ -122,9 +122,9 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	Route::get('profile/{id}/edit', array('as' => 'members.edit', 'uses' => 'MemberController@edit'));
 	Route::post('profile/', array('as' => 'members.store', 'uses' => 'MemberController@store'));
 	Route::post('profile/{id}', array('as' => 'members.update', 'uses' => 'MemberController@update'));
-	Route::post('profile/{id}/pwd', array('as' => 'members.update_pwd', 'uses' => 'MemberController@update_pwd'));
-	Route::get('profile/{id}/pwd', array('as' => 'members.create_pwd', 'uses' => 'MemberController@create_pwd'));
-	Route::post('profile/{id}/pwd', array('as' => 'members.store_pwd', 'uses' => 'MemberController@store_pwd'));
+	Route::post('profile/{id}/edit/pwd', array('as' => 'members.update_pwd', 'uses' => 'MemberController@update_pwd'));
+	Route::post('profile/{id}/create/pwd', array('as' => 'members.store_pwd', 'uses' => 'MemberController@store_pwd'));
+	Route::get('profile/{id}/create/pwd', array('as' => 'members.create_pwd', 'uses' => 'MemberController@create_pwd'));
 
 	Route::post('profile/{id}/avatar/upload', array('as' => 'members.update_avatar', 'uses' => 'MemberController@update_avatar'));
 	Route::get('profile/{id}/avatar/delete', array('as' => 'members.delete_avatar', 'uses' => 'MemberController@delete_avatar'));
