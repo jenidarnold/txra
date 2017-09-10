@@ -15,8 +15,8 @@ class InviteController extends Controller {
 	 */
 	public function __construct()
 	{
-	   $this->middleware('auth');
-       $this->middleware('admin_user');
+	   $this->middleware('auth', ['except' => ['accept']]);
+       $this->middleware('admin_user', ['except' => ['accept']]);
 	}
 
     // show the user a form with an email field to invite a new user
@@ -37,17 +37,29 @@ class InviteController extends Controller {
         $invite = new Invite;
         $invite = $invite->create_with_token($data);
 
-        // send the email
+        $this->send($invite->id);
+        
+        // redirect back where we came from
+        return redirect()
+            ->back();
+    }
+
+
+    public function send($id){
+
+        $invite = Invite::find($id);
+
+       // send the email
         \Mail::send('emails.invites.send', ['invite' => $invite], function ($m) use ($invite) {
             $m->from('noreply@txra.com', 'Texas Racquetball Association');
             $m->to($invite->email, $invite->full_name)->subject('Your New TXRA Account is Ready!');
             $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
         });
 
-        
         // redirect back where we came from
         return redirect()
             ->back();
+
     }
 
     // here we'll look up the user by the token sent provided in the URL
@@ -68,6 +80,7 @@ class InviteController extends Controller {
 
         $profile['password'] = \Hash::make(str_random(8));
         $profile['disabled'] = 0;
+        $profile['usar_id'] = 0;
 
         $user = $user->create_profile($profile);
 

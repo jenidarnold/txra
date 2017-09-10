@@ -23,9 +23,8 @@ class ImportController extends Controller {
 	 */
 	public function index()
 	{	
-
-        $users = User::all();
-		return view('admin.users.index', compact('users'));
+  		// $users = User::all();
+		// return view('admin.users.index', compact('users'));
 	}
 
 	/**
@@ -64,7 +63,6 @@ class ImportController extends Controller {
 	 */
 	public function import_invites(Request $request)
 	{	
-
  		if($request->file('imported-file'))
       	{
             $path = $request->file('imported-file')->getRealPath();
@@ -74,18 +72,22 @@ class ImportController extends Controller {
 	      	{
 	        
 	        	$data = $data->toArray();
-	        
+
 		        for($i=0;$i<count($data) ;$i++)
 		        {
-		          	$invite = new Invite;
-        			$invite = $invite->create_with_token($data);
+		        	if(
+		        		isset($data[$i]['first_name']) &&
+		        		isset($data[$i]['last_name']) &&
+		        		isset($data[$i]['email'])
+	        		  )
+        		 	{
+		          			$invite = new Invite;
+        					$invite->create_with_token($data[$i]);
+    				}
 		        }
-
-
             }
         }
 
-        $invites = Invite::all()->get();
-        return back()->with('invites');
+        return back();
 	}
 }

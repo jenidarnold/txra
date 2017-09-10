@@ -15,9 +15,7 @@ class Invite extends Model
         'token',
         'first_name',
         'last_name',
-        'email',
-        'accepted',
-        'accepted_at',
+        'email'
     ];
 
     /**

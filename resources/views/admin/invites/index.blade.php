@@ -8,7 +8,7 @@
 			<div class="row">
 		        <div class="col-md-8">
 		          <div class="row">
-		            <form action="{{route('import.users')}}" method="post" enctype="multipart/form-data">
+		            <form action="{{route('import.invites')}}" method="post" enctype="multipart/form-data">
 		              <div class="col-md-6 col-sm-8">
 		                {{csrf_field()}}
 		                <div class="sky-form nomargin">
@@ -36,6 +36,7 @@
 		        			<th>Token</th>
 		        			<th>Accepted</th>
 		        			<th>Accepted At</th>
+		        			<th></th>
 		        		</tr>
 		        	@foreach($invites as $invite)
 		        		<tr>
@@ -45,6 +46,7 @@
 		        			<td>{{$invite->token}}</td>
 		        			<td>{{$invite->accepted}}</td>
 		        			<td>{{$invite->accepted_at}}</td>
+		        			<td><a href="{{route('invite.send', $invite->id)}}" class='btn btn-sm btn-success'>Send</a></td>
 		        		</tr>
 		        	@endforeach
 		        	</table>

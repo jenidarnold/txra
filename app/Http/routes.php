@@ -66,6 +66,7 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 
 	Route::get('/invites/invite', array('as' => 'invite', 'uses' => 'InviteController@invite'));
 	Route::post('/invite', array('as' => 'invite.process', 'uses' => 'InviteController@process'));
+	Route::get('/invite/{id}', array('as' => 'invite.send', 'uses' => 'InviteController@send'));
 });	
 Route::get('accept/{token}', 'Admin\InviteController@accept')->name('invite.accept');
 
