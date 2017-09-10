@@ -11,18 +11,6 @@
 |
 */
 
-Route::get('/emails/confirmation', function () {
-    return view('emails.confirmation');
-});
-
-
-Route::get('/emails/invites/send', function () {
-    return view('emails.invites.send');
-});
-
-Route::get('/emails/accounts/created', function () {
-    return view('emails.accounts.created');
-});
 
 Route::get('/', function () {
     return view('coming-soon');
@@ -217,6 +205,32 @@ Route::get('/home', 'WelcomeController@index');
 
 
 Route::resource('subscribe', 'SubscribeController');
+
+
+
+
+/* Email Previews */
+Route::group(['middleware' => ['auth', 'admin_user']], function () {
+
+	Route::get('/emails/confirmation', function () {
+	    return view('emails.confirmation');
+	});
+
+	Route::get('/emails/invites/send', function () {
+	    return view('emails.invites.send');
+	});
+
+	Route::get('/emails/accounts/created', function () {
+	    return view('emails.accounts.created');
+	});
+
+	Route::get('/emails/password/reset', function () {
+	    return view('auth.emails.password');
+	});
+});
+
+
+
 
 
 /* must be last? */

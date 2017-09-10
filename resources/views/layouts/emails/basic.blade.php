@@ -1351,7 +1351,7 @@ section.dark #portfolio h3 {
 
                       <table class="twelve columns">
                         <tr>
-                          <td class="center panel">
+                          <td class="center">
                             @yield('content')
 
                           </td>
