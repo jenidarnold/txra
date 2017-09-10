@@ -16,7 +16,7 @@ class SubscribeController extends Controller
      */
     public function __construct()
     {
-       $this->middleware('auth');
+       //$this->middleware('auth');
     }
 
     /**  
@@ -52,14 +52,15 @@ class SubscribeController extends Controller
 
             $subscriber->name ="New Subscriber";
 
-        	\Session::flash('message', 'Successfully subscribed to newsletter');
-            Mail::send('emails.confirmation', ['subscriber' => $subscriber], function($m) use ($subscriber) {
-                $subject = 'You are now enrolled to receive TXRA updates and  newsletters';
-                $m->from('julie.enid@gmail.com', 'TXRA');
-                $m->to($subscriber->email, $subscriber->name)->subject($subject);
-                $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
+            //TODO: create subscription email 
+        	// \Session::flash('message', 'Successfully subscribed to newsletter');
+         //    Mail::send('emails.contact.subscription', ['subscriber' => $subscriber], function($m) use ($subscriber) {
+         //        $subject = 'You are now enrolled to receive TXRA updates and  newsletters';
+         //        $m->from('julie.enid@gmail.com', 'TXRA');
+         //        $m->to($subscriber->email, $subscriber->name)->subject($subject);
+         //        $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
 
-            });
+         //    });
         }
 
     }
