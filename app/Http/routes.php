@@ -60,6 +60,8 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::get('/', array('as' => 'admin.index', 'uses' => 'AdminController@index'));
 	Route::get('/users', array('as' => 'admin.users', 'uses' => 'AdminController@users'));
 	Route::get('/invites', array('as' => 'admin.invites', 'uses' => 'AdminController@invites'));
+	Route::get('/events', array('as' => 'admin.events', 'uses' => 'AdminController@events'));
+	Route::get('/rankings', array('as' => 'admin.rankings', 'uses' => 'AdminController@rankings'));
 
 	Route::post('/users/import', array('as' => 'import.users', 'uses' => 'ImportController@import_users'));	
 	Route::post('/invites/import', array('as' => 'import.invites', 'uses' => 'ImportController@import_invites'));
@@ -67,6 +69,8 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::get('/invites/invite', array('as' => 'invite', 'uses' => 'InviteController@invite'));
 	Route::post('/invite', array('as' => 'invite.process', 'uses' => 'InviteController@process'));
 	Route::get('/invite/{id}', array('as' => 'invite.send', 'uses' => 'InviteController@send'));
+
+
 });	
 Route::get('accept/{token}', 'Admin\InviteController@accept')->name('invite.accept');
 

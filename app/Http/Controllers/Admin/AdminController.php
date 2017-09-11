@@ -52,4 +52,22 @@ class AdminController extends Controller {
         	->paginate(10);
 		return view('admin.invites.index', compact('invites'));
 	}
+
+	/**
+	 *
+	 * @return Response
+	 */
+	public function events()
+	{	
+		return view('admin.events.index');
+	}
+
+	/**
+	 *
+	 * @return Response
+	 */
+	public function rankings()
+	{	
+		return view('admin.rankings.index');
+	}
 }

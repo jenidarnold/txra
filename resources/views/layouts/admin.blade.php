@@ -14,9 +14,9 @@
 				<ol class="breadcrumb">
 					<li><a href="/admin">Index</a></li>
 					<li><a href="{{route('admin.invites')}}">Invites</a></li>
-					<li><a href="{{route('admin.invites')}}">Users</a></li>
-					<li><a href="{{route('admin.invites')}}">Rankings</a></li>
-					<li><a href="{{route('admin.invites')}}">Events</a></li>
+					<li><a href="{{route('admin.users')}}">Users</a></li>
+					<li><a href="{{route('admin.rankings')}}">Rankings</a></li>
+					<li><a href="{{route('admin.events')}}">Events</a></li>
 				</ol><!-- /breadcrumbs -->		
 			</div>
 			{{-- @yield('admin_header') --}}
@@ -46,10 +46,11 @@
 					
 			<!-- SIDE NAV -->
 			<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
+			
 				<li><a href="{{route('admin.invites')}}">Invites</a></li>
-				<li><a href="{{route('admin.invites')}}">Users</a></li>
-				<li><a href="{{route('admin.invites')}}">Rankings</a></li>
-				<li><a href="{{route('admin.invites')}}">Events</a></li>
+				<li><a href="{{route('admin.users')}}">Users</a></li>
+				<li><a href="{{route('admin.rankings')}}">Rankings</a></li>
+				<li><a href="{{route('admin.events')}}">Events</a></li>
 			</ul>
 			<!-- /SIDE NAV -->
 		</div>

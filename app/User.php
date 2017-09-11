@@ -52,26 +52,38 @@ class User extends Model implements AuthenticatableContract,
     public function create_profile(array $data)
     {
         /*\Event::fire(new UserWasRegistered($data)); */
-        $user = User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'disabled' => $data['disabled'],
-            'usar_id' => $data['usar_id']
-            ]);
 
-        $profile = UserProfile::create([
-            'user_id' => $user->id
-            ]);
+        /* Create only if email does not exist */
+        if (!$user = User::where('email', $data['email'])
+            ->first()) 
+        {
 
-        //Create profile folder
-        if (!file_exists("images/members/$user->id")) {
-            mkdir("images/members/$user->id", 0777, true);
+          if ($data['usar_id']= ''){
+            $data['usar_id'] = 0;
+          }
+          
+          $user = User::create([
+              'first_name' => $data['first_name'],
+              'last_name' => $data['last_name'],
+              'email' => $data['email'],
+              'password' => bcrypt($data['password']),
+              'disabled' => $data['disabled'],
+              'usar_id' => $data['usar_id']
+              ]);
+
+          $profile = UserProfile::create([
+              'user_id' => $user->id
+              ]);
+
+          //Create profile folder
+          if (!file_exists("images/members/$user->id")) {
+              mkdir("images/members/$user->id", 0777, true);
+          }
+          copy("images/avatar2.jpg","images/members/$user->id/profile.png"); 
+
+          return $user;
         }
-        copy("images/avatar2.jpg","images/members/$user->id/profile.png"); 
 
-        return $user;
     }
 
     /**

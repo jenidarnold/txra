@@ -19,7 +19,7 @@ class RankingsController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		//$this->middleware('current_user', ['except' => ['index', 'show', 'membership', 'rankings', 'home', 'matches']]);
+		$this->middleware('admin_user', ['only' => 'download']);
 	}
 		
 	/**
@@ -172,19 +172,26 @@ class RankingsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function download($group_id)
+	public function download($group_id, $location_id = 1)
 	{
 
 		//Move to Admin
-		$location_id =  1; //"Texas"; //Location::find($location_id)->location;
+		//$location_id =  1; //"Texas"; //Location::find($location_id)->location;
 		$maxRank = 10;
+
+		$lastRank = Rank::where('group_id', '=', $group_id)
+			->where('location_id', '=', $location_id)
+			->max('id');
 
 		$ss = new Scraper();
 		$rankings = $ss->get_rankings($group_id, $location_id, $maxRank );
 
-		//$rankings = Rank::all();
+		$rankings = Rank::where('group_id', '=', $group_id)
+			->where('location_id', '=', $location_id)
+			->where('id', '>', $lastRank)->get();
 
-		dd($rankings);
+		
+		return view('admin.rankings.index', compact('rankings'));
 	}
 
 }

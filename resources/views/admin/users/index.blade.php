@@ -12,7 +12,7 @@
 		              <div class="col-md-6 col-sm-8">
 		                {{csrf_field()}}
 		                <div class="sky-form nomargin">
-							<label class="h4">Import</label> 
+							<label class="h4">Import Users</label> 
 							<label for="file" class="input input-file">
 								<div class="button">
 									<input id="file" type="file" name="imported-file" id="mported-file"  /> Browse
