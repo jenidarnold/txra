@@ -6,7 +6,7 @@
 @section('admin_content')		
 	<div class="container">
 		<div class="row">
-			<h3>Download Rankings</h3>
+			<h3><i class="fa fa-gears"></i> Download Rankings</h3>
 		</div>
 	
 		<div class="row">

@@ -231,21 +231,9 @@
 											</li>
 											<!-- Only Julie operations -->
 											@if( Auth::user()->id == 1 )
-												<li class="divider"></li>											
-												<li class="dropdown">
-													<a class="dropdown-toggle" href="#">
-														<i class="fa fa-cogs"></i> DOWNLOAD
-													</a>								
-													<ul class="dropdown-menu">
-														<li><a href="{{ route('events.download', array('location' => 'Texas', 'type' => 'live')) }}">TX LIVE EVENTS</a></li>
-														<li><a href="{{ route('events.download', array('location' => 'Texas', 'type' => 'future')) }}">TX FUTURE EVENTS</a></li>
-														<li><a href="{{ route('events.download', array('location' => 'Texas', 'type' => 'past')) }}">TX PAST EVENTS</a></li>
-														<li class="divider"></li>
-														<li><a href="{{ route('events.download',  array('location' => 'national', 'type' => 'future'))}}">NAT FUTURE EVENTS</a></li>
-													</ul>
-												</li>
-												<li class="divider"></li>												
-												<li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li>
+												<li class="divider"></li>	
+												<li><a href="{{ route('admin.index')}}"><i class="fa fa-lock"></i> ADMIN</a></li>
+												<li><a href="{{ route('news.create')}}"><i class="fa fa-pencil"></i> SUBMIT ARTICLE</a></li>
 											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->
@@ -485,21 +473,9 @@
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
 											@if( Auth::user()->id == 1 )
-												<li class="divider"></li>											
-												<li class="dropdown">
-													<a class="dropdown-toggle" href="#">
-														DOWNLOAD
-													</a>								
-													<ul class="dropdown-menu">
-														<li><a href="{{ route('events.download',  array('location' => 'Texas', 'type' => 'live'))  }}">TX LIVE EVENTS</a></li>
-														<li><a href="{{ route('events.download',  array('location' => 'Texas', 'type' => 'future')) }}">TX FUTURE EVENTS</a></li>
-														<li><a href="{{ route('events.download',  array('location' => 'Texas', 'type' => 'past')) }}">TX PAST EVENTS</a></li>
-														<li class="divider"></li>
-														<li><a href="{{ route('events.download',  array('location' => 'national', 'type' => 'future')) }}">NAT FUTURE EVENTS</a></li>
-													</ul>
-												</li>
-												<li class="divider"></li>												
-												<li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li>
+												<li class="divider"></li>	
+												<li><a href="{{ route('admin.index')}}"><i class="fa fa-lock"></i> ADMIN</a></li>
+												<li><a href="{{ route('news.create')}}"><i class="fa fa-pencil"></i> SUBMIT ARTICLE</a></li>
 											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->
