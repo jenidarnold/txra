@@ -27,9 +27,27 @@
 			</button>
 
 			<div class="collapse navbar-collapse nav-filter-collapse">
+				<ul id="portfolio_filterX" class="nav nav-pills margin-bottom-20">
+					<li class="{{ $active['all']}}"><a href="{{route('members.listing')}}">All</a></li>
+					<li class="{{ $active['female']}}"><a href="{{route('members.search', ['gender' => 'female'])}}">Female</a></li>
+					<li class="{{ $active['male']}}"><a href="{{route('members.search', ['gender' => 'male'])}}">Male</a></li>
+					<li class="{{ $active['pro']}}"><a href="{{route('members.search', ['skill' => 'pro'])}}">Pro</a></li>
+					<li class="{{ $active['open']}}"><a href="{{route('members.search', ['skill' => 'open'])}}">Open</a></li>
+					<li class="{{ $active['elite']}}"><a href="{{route('members.search', ['skill' => 'elite'])}}">Elite</a></li>
+					<li class="{{ $active['a']}}"><a href="{{route('members.search', ['skill' => 'a'])}}">A</a></li>
+					<li class="{{ $active['b']}}"><a href="{{route('members.search', ['skill' => 'b'])}}">B</a></li>
+					<li class="{{ $active['c']}}"><a href="{{route('members.search', ['skill' => 'c'])}}">C</a></li>
+					<li class="{{ $active['d']}}"><a href="{{route('members.search', ['skill' => 'd'])}}">D</a></li>
+					<li class="{{ $active['junior']}}"><a href="{{route('members.search', ['skill' => 'junior'])}}">Junior</a></li>
+					<li class="{{ $active['novice']}}"><a href="{{route('members.search', ['skill' => 'novice'])}}">Novice</a></li>
+				</ul>
+			</div>
+
+
+			{{-- <div class="collapse navbar-collapse nav-filter-collapse">
 				<ul id="portfolio_filter" class="nav nav-pills margin-bottom-20">
 					<li class="filter active"><a data-filter="*" href="#">All</a></li>
-					<li class="filter"><a data-filter=".female" href="#">Female</a></li>
+					<li class="filter1"><a href="{{route('members.search', ['gender' => 'female'])}}">Female</a></li>
 					<li class="filter"><a data-filter=".male" href="#">Male</a></li>
 					<li class="filter"><a data-filter=".pro" href="#">Pro</a></li>
 					<li class="filter"><a data-filter=".open" href="#">Open</a></li>
@@ -41,7 +59,7 @@
 					<li class="filter"><a data-filter=".junior" href="#">Junior</a></li>
 					<li class="filter"><a data-filter=".novice" href="#">Novice</a></li>
 				</ul>
-			</div>
+			</div> --}}
 
 			<form method="GET" action="{{route('members.search')}}">	
 				<div class="row">

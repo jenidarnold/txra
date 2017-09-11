@@ -104,7 +104,7 @@
 							{{ ucfirst($profile->gender) }}</li>
 
 							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20"></i> 
-								@if(isset($profile->dominant_hand))
+								@if(isset($profile->dominant_hand) && $profile->dominant_hand <> "")	
 									{{ ucfirst($profile->dominant_hand) }}-handed
 								@endif
 							</li>

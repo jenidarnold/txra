@@ -39,6 +39,21 @@ class MemberController extends Controller {
 
 		$name = $request['name'];
 		$city = $request['city'];
+		$gender = $request['gender'];
+		$skill = $request['skill'];
+
+		$active['all'] = 'active';
+		$active['female'] = '';
+		$active['male'] = '';
+		$active['pro'] = '';
+		$active['open'] = '';
+		$active['elite'] = '';
+		$active['a'] = '';
+		$active['b'] = '';
+		$active['c'] = '';
+		$active['d'] = '';
+		$active['junior'] = '';
+		$active['novice'] = '';
 
 		//Filter by Name
 		if ( $name != '') {
@@ -47,7 +62,7 @@ class MemberController extends Controller {
 						->orWhere('last_name', 'like', "%$name%")
 						->orWhere(\DB::raw('CONCAT(first_name, " ", last_name)'),'like', "%$name%")
 					;
-			}
+		}
 
 		//Filter by city
 		if ( $city != '') {
@@ -58,11 +73,39 @@ class MemberController extends Controller {
 							}
 						)
 						;			
-			}
+		}
+
+		//Filter by gender
+		if ( $gender != '') {
+			$members = $members
+						->whereHas('profile', function($query) use ($gender)
+							{
+								$query->where('gender', '=', "$gender");
+							}
+						)
+						;	
+
+			$active[$gender] = 'active';
+			$active['all'] = '';	
+		}
+
+		//Filter by skill
+		if ( $skill != '') {
+			$members = $members
+						->whereHas('profile', function($query) use ($skill)
+							{
+								$query->where('skill', '=', "$skill");
+							}
+						)
+						;	
+			$active[$skill] = 'active';
+			$active['all'] = '';			
+		}
+
 
 		$members = $members->paginate(12);
 
-		return view('members/profiles/index', compact('members', 'name', 'city'));
+		return view('members/profiles/index', compact('members', 'name', 'city', 'active'));
 	}
 
 
@@ -83,7 +126,7 @@ class MemberController extends Controller {
 		}
 
 
-		$members = $members->paginate(10);
+		$members = $members->paginate(12);
 
 		//Search parameter
 		$name = "";
