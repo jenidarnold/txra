@@ -29,18 +29,26 @@
                         </header>
 
                         <fieldset class="nomargin"> 
-
+                             @if($errors->count() > 0)                            
+                            <div class="alert alert-danger"> 
+                                @foreach ($errors->all() as $error)
+                                    <span class="help-blockX">
+                                        <i class="fa fa-exclamation-circle"></i> <strong>{{ $error }}</strong><br/>
+                                    </span>
+                                @endforeach
+                            </div>
+                            @endif
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label class="input margin-bottom-10">
                                     <i class="ico-append fa fa-envelope"></i>
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address">
                                 <b class="tooltip tooltip-bottom-right">Your email address will be used to login</b>
                                 </label>
-                                @if ($errors->has('email'))
+                               {{--  @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
+                                @endif --}}
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
@@ -49,11 +57,13 @@
                                     <input id="password" type="password" class="form-control" name="password" placeholder="Password">
                                     <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
                                 </label>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                               {{--  @if ($errors->has('password'))
+                                    <div class="alert alert-danger text-center"> 
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    </div>
+                                @endif --}}
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="nomargin btn btn-primary btn-block">
@@ -73,12 +83,7 @@
                                 <input type="checkbox" name="checkbox-inline">
                                 <i></i> Keep me logged in
                             </label> --}} 
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger text-center"> 
-                                        {{ $error }}
-                                    </div>
-                                @endforeach
-                            </div>
+
                         </fieldset>
 
                         

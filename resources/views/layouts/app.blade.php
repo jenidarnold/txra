@@ -289,9 +289,9 @@
 											PROGRAMS
 										</a>
 										<ul class="dropdown-menu">
-											<li class="dropdown">
+											{{-- <li class="dropdown">
 												<a href="{{route('juniors.welcome')}}">JUNIORS</a>												
-											</li>
+											</li> --}}
 											{{-- <li class="dropdown">
 												<a href="{{route('collegiate.welcome')}}">
 													COLLEGIATE

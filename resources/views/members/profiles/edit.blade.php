@@ -148,6 +148,11 @@
 				
 				<div class="form-group">
 					<div class="row">
+					<div class="col-md-6 col-sm-6">
+							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Current Picture</a>
+						</div>
+					</div>
+					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<div class="sky-form nomargin">
 								<label class="h4">1. Select an Image</label> 
@@ -174,15 +179,10 @@
 				<div class="hide sky-form margiv-top10" name="divSave" id="divSave">
 					<label class="h4">3. 
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
+					<a href="{{ route('members.show', $user->id)}}" id="btnDoneAvatar" name="btnDoneAvatar" class="btn btn-info disabled">Done </a>
 					<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>
 					</label>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6">
-						<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Current Picture</a>
-					</div>
-				</div>
-
+				</div>				
 			</form>
 
 		</div>
@@ -482,6 +482,7 @@
 	      var src = $("#imgProfile").attr('src');
 	      $("#imgProfile").attr('src', src + '?' + new Date().getTime());
 	      $(".user-avatar").attr('src', src + '?' + new Date().getTime());
+	      $("#btnDoneAvatar").removeClass("disabled");
 	    },
 	    error: function(data) {
 	      alert("Unable to update profile picture");
