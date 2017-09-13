@@ -47,15 +47,18 @@
 									<input type="hidden" name="action" value="post_create" />
 
 									<div class="row">
-										<div class="form-group">											
+										<div class="form-group">	
+											<div class="col-md-1">
+												<input required type="text" placeholder="AID" value="{{ $post['author']->id }}" class="form-control" name="author_id" id="author:last_name">
+											</div>										
 											<div class="col-md-4">
-												<input required type="text" readonly="true" placeholder="Author" value="{{ $post['author']->full_name }}" class="form-control" name="author" id="author:last_name">
+												<input required type="text" readonly placeholder="Author" value="{{ $post['author']->full_name }}" class="form-control" name="author" id="author:last_name">
 											</div>	
 											<div class="col-md-4">
-												<input required type="email" readonly="true" placeholder="Email Address" value="{{ $post['author']->email }}" class="form-control" name="author_email" id="author:email">
+												<input required type="email" readonly placeholder="Email Address" value="{{ $post['author']->email }}" class="form-control" name="author_email" id="author:email">
 											</div>
-											<div class="col-md-4">
-												<input type="text" value="{{ $post['author']->phone }}" placeholder="Phone (optional)" readonly="true"  class="form-control" name="author_phone" id="author:phone">
+											<div class="col-md-3">
+												<input type="text" value="{{ $post['author']->phone }}" placeholder="Phone (optional)" readonly  class="form-control" name="author_phone" id="author:phone">
 											</div>
 										</div>
 									</div>

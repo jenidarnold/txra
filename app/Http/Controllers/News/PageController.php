@@ -195,6 +195,15 @@ class PageController extends BaseController {
         // get the post
         $post = Post::find($id);
         
+
+        if (!isset($post['author'])) {
+            $author = New User;
+            $author->id =0;
+            $author->full_name='';
+            $post['author'] = $author;
+        }
+
+
         $categories = \DB::table('post_categories')->lists('category', 'id');
 
         //dd($post->categories()->first()->id);
