@@ -42,18 +42,7 @@ class MemberController extends Controller {
 		$gender = $request['gender'];
 		$skill = $request['skill'];
 
-		$active['all'] = 'active';
-		$active['female'] = '';
-		$active['male'] = '';
-		$active['pro'] = '';
-		$active['open'] = '';
-		$active['elite'] = '';
-		$active['a'] = '';
-		$active['b'] = '';
-		$active['c'] = '';
-		$active['d'] = '';
-		$active['junior'] = '';
-		$active['novice'] = '';
+		$active = $this->get_active_filter('all');	
 
 		//Filter by Name
 		if ( $name != '') {
@@ -85,8 +74,7 @@ class MemberController extends Controller {
 						)
 						;	
 
-			$active[$gender] = 'active';
-			$active['all'] = '';	
+			$active = $this->get_active_filter($gender);		
 		}
 
 		//Filter by skill
@@ -97,9 +85,8 @@ class MemberController extends Controller {
 								$query->where('skill', '=', "$skill");
 							}
 						)
-						;	
-			$active[$skill] = 'active';
-			$active['all'] = '';			
+						;			
+			$active = $this->get_active_filter($skill);		
 		}
 
 
@@ -128,13 +115,33 @@ class MemberController extends Controller {
 
 		$members = $members->paginate(12);
 
+		$active = $this->get_active_filter('all');
 		//Search parameter
 		$name = "";
 		$city = "";
 			
-		return view('members/profiles/index', compact('members', 'name', 'city'));
+		return view('members/profiles/index', compact('members', 'name', 'city', 'active'));
 	}
 
+	private function get_active_filter($filter){
+
+		$active['all'] = '';
+		$active['female'] = '';
+		$active['male'] = '';
+		$active['pro'] = '';
+		$active['open'] = '';
+		$active['elite'] = '';
+		$active['a'] = '';
+		$active['b'] = '';
+		$active['c'] = '';
+		$active['d'] = '';
+		$active['junior'] = '';
+		$active['novice'] = '';
+
+		$active[$filter] = 'active';
+
+		return $active;
+	}
 	/**
 	 * Display member profile.
 	 *
@@ -206,8 +213,9 @@ class MemberController extends Controller {
 
 		$active['profile'] ='';
 		$active['settings'] = 'active';
+		$action = "CREATE";
 
-		return view('members/profiles/create', compact('user', 'profile', 'active'));
+		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action'));
 	}
 
 
@@ -242,8 +250,9 @@ class MemberController extends Controller {
 
 		$active['profile'] ='';
 		$active['settings'] = 'active';
+		$action = "CREATE";
 
-		return view('members/profiles/edit', compact('user', 'profile', 'active'));
+		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action'));
 		
 	}
 

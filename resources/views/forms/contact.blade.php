@@ -95,21 +95,21 @@
 												<label class="text-primary">From:</label>	
 											</div>
 											<div class="col-sm-6">
-												<input required type="text" placeholder="First Name" value="{{$from->first_name}}" class="form-control" name="from_first_name" id="contact:first_name">
+												<input required type="text" placeholder="First Name" value="{{$from->first_name}}" class="form-control" name="from_first_name" id="first_name">
 											</div>
 
 											<div class="col-sm-6">
-												<input required type="text" placeholder="Last Name" value="{{$from->last_name}}" class="form-control" name="from_last_name" id="contact:last_name">
+												<input required type="text" placeholder="Last Name" value="{{$from->last_name}}" class="form-control" name="from_last_name" id="last_name">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group">
 											<div class="col-sm-6">
-												<input required type="email" placeholder="Email" value="{{$from->email}}" class="form-control" name="from_email" id="contact:email">
+												<input required type="email" placeholder="Email" value="{{$from->email}}" class="form-control" name="from_email" id="from_email">
 											</div>
 											<div class="col-sm-6">
-												<input type="text" value="{{$from->phone}}"  placeholder="Phone (optional)" class="form-control" name="from_phone" id="contact:phone">
+												<input type="text" value="{{$from->phone}}"  placeholder="Phone (optional)" class="form-control" name="from_phone" id="from_phone">
 											</div>
 										</div>
 									</div>
@@ -118,7 +118,7 @@
 											<div class="col-sm-12">
 												<label class="text-primary">To:</label>
 												<input type="text" value="{{trim($to->full_name)}}"
-												placeholder="Attention To: Full Name (optional)" class="form-control" name="to_full_name" id="toname">
+												placeholder="Attention To: Full Name (optional)" class="form-control" name="to_full_name" id="to_full_name">
 											</div>
 										</div>
 									</div>

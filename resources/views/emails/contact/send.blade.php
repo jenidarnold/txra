@@ -1,4 +1,4 @@
-@extends('layouts.emails.basic')
+@extends('layouts.emails.contact')
 @section('style')
 	<style type="text/css">
 
@@ -16,8 +16,9 @@
 	@php ($from->email = "member@txra.org")
 	@php ($from->phone = "555-555-5555")
 	@php ($subject = "Ut risus tellus, finibus non tristique a, malesuada vel metus")
-	@php ($message = "Etiam viverra blandit auctor. Sed cursus ligula eu eros gravida, in elementum diam consectetur. Nulla luctus dapibus purus a ultrices. Duis sit amet sem vel justo auctor rutrum. Sed nec felis ornare, egestas dolor sit amet, placerat turpis. Quisque lobortis ipsum dui, non elementum quam auctor vel. Quisque suscipit lacus lectus, porta cursus turpis molestie facilisis. Duis rhoncus lacus sagittis hendrerit condimentum. Nam augue arcu, maximus mattis gravida non, ullamcorper non turpis. Curabitur auctor ultricies convallis. Suspendisse cursus mi at magna faucibus, in malesuada metus placerat. Nam eu volutpat mauris.")
+	@php ($body = "Etiam viverra blandit auctor. Sed cursus ligula eu eros gravida, in elementum diam consectetur. Nulla luctus dapibus purus a ultrices. Duis sit amet sem vel justo auctor rutrum. Sed nec felis ornare, egestas dolor sit amet, placerat turpis. Quisque lobortis ipsum dui, non elementum quam auctor vel. Quisque suscipit lacus lectus, porta cursus turpis molestie facilisis. Duis rhoncus lacus sagittis hendrerit condimentum. Nam augue arcu, maximus mattis gravida non, ullamcorper non turpis. Curabitur auctor ultricies convallis. Suspendisse cursus mi at magna faucibus, in malesuada metus placerat. Nam eu volutpat mauris.")
 @endif
+
 
 @section('greeting')
 	Hello, {{ $to->full_name}}
@@ -27,13 +28,11 @@
 	{{$subject}}
 @stop
 
-@section('callout')
-	My Contact Info: {{$from->email}} &nbsp; {{$from->phone}}
-@stop
+
 
 @section('content')
 	<p>
-		{{$message}}
+		{{$body}}
 	</p>
 @stop
 
@@ -42,3 +41,7 @@
 	{{ $from->full_name}}
 @stop
 
+@section('contact')
+	Email: {{$from->email}} <br/>
+	Phone: {{$from->phone}}
+@stop

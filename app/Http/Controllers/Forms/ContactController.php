@@ -69,7 +69,6 @@ class ContactController extends Controller {
         if ($validator->fails()) {
           
         	$message = 'Failed to send.';
-        	dd($validator);
    			return  redirect()->back()
 				->with('alert-danger', $message)
 				->withErrors($validator)
@@ -83,30 +82,33 @@ class ContactController extends Controller {
 		$from->last_name = $request->from_last_name;
 		$from->full_name = $from->first_name . ' ' . $from->last_name;
 		$from->email = $request->from_email;
-		$from->phone = $request->phone;
+		$from->phone = $request->from_phone;
 
 
 		$to = new User;
 		$to->email = env('MAIL_TO_EMAIL'); 
-   		if( trim($request->to)  != ''){
-			$to->full_name = trim($request->to);
+   		if( trim($request->to_full_name)  != ''){
+			$to->full_name = trim($request->to_full_name);
 		}
 		else{
 			$to->full_name =  env('MAIL_TO_NAME');
 		}
 
         $subject = $request->subject;
-        $content = $request->message;
+        $body = $request->message;
         $department = $request->department;
 
         if( trim($request->department)  != ''){
 			$department = trim($request->department);
+			$subject = "ATTEN " & $department & ": " & $subject;
 		}
 		else{
 			$department =  "General";
 		}    
 
-        Mail::send('emails.contact.send', ['subject' => $subject, 'content' => $content], function ($m) use ($from, $to, $subject)
+        Mail::send('emails.contact.send', 
+        	['from' => $from, 'to' => $to, 'subject' => $subject, 'department' => $department, 'body' => $body], 
+        	function ($m) use ($from, $to, $subject, $department, $body)
         {
 
             $m->from($from->email, $from->full_name );

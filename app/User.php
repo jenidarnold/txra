@@ -95,35 +95,35 @@ class User extends Model implements AuthenticatableContract,
      */
     public static function link_Usar($userId, $username, $password) {
 
-         $username = 'je****';
-         $password = 'Ru****';
+         $username = 'j***';
+         $password = 'R***';
 
-        $cookieFile = '/var/www/txra/jar.txt';
-        $jar = new FileCookieJar($cookieFile, true);
-        $url = 'https://www.r2sports.com/';
-        // Need to add the token to the header?
-        //X-CSRF-Token: [token]
-        // Create a client with a base URI
-        $client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
-        // Send a request to https://foo.com/api/test
-        $response = $client->request('GET', 'membership/login.asp', [
-            'form_params' => [
-                'userName' => $username,
-                'password' => $password,
-                'action' => 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID='
-                ]           
-        ]);
+        // $cookieFile = '/var/www/txra/jar.txt';
+        // $jar = new FileCookieJar($cookieFile, true);
+        // $url = 'https://www.r2sports.com/';
+        // // Need to add the token to the header?
+        // //X-CSRF-Token: [token]
+        // // Create a client with a base URI
+        // $client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
+        // // Send a request to https://foo.com/api/test
+        // $response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=1&returnToRefPage=&directorID=', [
+        //     'form_params' => [
+        //         'userName' => $username,
+        //         'password' => $password,
+        //         'action' => 'membership/loginCheck.asp?TID=&sportOrganizationID=1&returnToRefPage=&directorID='
+        //         ]           
+        // ]);
        
-        //dd($response);
-        $body = $response->getBody();
-        dd($response);
+        // //dd($response);
+        // $body = $response->getBody();
+        // dd($body);
        
        //  // Need to add the token to the header?
        //  //X-CSRF-Token: [token]
        //  // Create a client with a base URI
        //  //$client = new \GuzzleHttp\Client(['base_uri' => $url, 'cookies' => $jar ]);
        //  // Send a request to https://foo.com/api/test
-       //  //$response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=0&returnToRefPage=&directorID=', [
+       //  //$response = $client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=1&returnToRefPage=&directorID=', [
        //  // $response = $client->request('POST', 'membership/login.asp', 
        //  //     ['debug' => false,
        //  //     'track_redirects' => true],
@@ -134,7 +134,7 @@ class User extends Model implements AuthenticatableContract,
        //  //         ]           
        //  // ]);
 
-       //  $client = new Client();
+        // $client = new Client();
     
 
        //  // $crawler = $client->request('POST', 'https://www.r2sports.com/tourney/login.asp?TID=21919'); 
@@ -149,7 +149,7 @@ class User extends Model implements AuthenticatableContract,
        //  // test to span two page requests, and we need to have
        //  // the session persist on the remote server
        //  // create a web client and hit the login page
-       //  $url = "https://www.r2sports.com/tourney/login.asp?TID=21919";
+       //  $url = "https://www.r2sports.com/membership/login.asp";
        //  $client = new Client();
        //  $crawler = $client->request('POST', $url);
        //  $response_code = $client->getResponse()->getStatus();
@@ -167,10 +167,12 @@ class User extends Model implements AuthenticatableContract,
        //  // make sure the HTML page displayed (response code 200
        //  //$this->assertEquals(200, $response_code_after_submit);
        //  // make sure we can get to the testimonial page
-       //  $client->request('GET', 'https://www.r2sports.com/tourney/Registration.asp?regUserLoginID=1633738&TID=21919&UID=192412&EDIT=Y');
-       //  $response_code = $client->getResponse()->getStatus();
+       //  //$client->request('GET', 'https://www.r2sports.com/tourney/Registration.asp?regUserLoginID=1633738&TID=21919&UID=192412&EDIT=Y');
+       //  //$client->request('GET', 'membership/loginCheck.asp?TID=&sportOrganizationID=1&returnToRefPage=&directorID=');
+       //  //$response_code = $client->getResponse()->getStatus();
        //  //$this->assertEquals(200, $response_code);
 
+       //  dd($response_code_after_submit);
        //  dd( $crawler->html());
     }
 

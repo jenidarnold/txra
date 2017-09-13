@@ -5,7 +5,7 @@
     </style>
 @stop
 @section('profile_header')
-	<h1>EDIT MY PROFILE	</h1>
+	<h1>{{$action}} MY PROFILE	</h1>
 @stop
 @section('profile_content')
 	<!-- RIGHT -->
@@ -196,6 +196,13 @@
 						{!! Form::model($user, array('route' => array('members.link_usar', $user->id), 'role' => 'form', 'class'=> 'form-horizontal','method' => 'POST')) !!}
 							{!! Form::hidden ('_token', csrf_token()) !!}
 							<div class="form-group">
+								<label class="col-md-3 control-label">USAR ID:</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" name="password">
+								</div>
+							</div>		
+
+							{{-- <div class="form-group">
 								<label class="col-md-3 control-label">USAR Login:</label>
 								<div class="col-md-6">
 									<input type="text" class="form-control" name="username" value="">
@@ -214,7 +221,7 @@
 							</div>
 							<div class="form-group"> 
 								<div class="alert alert-info col-sm-9 col-sm-offset-1"><i class="fa fa-info-circle"></i> We do not store your USAR username and password</div>
-							</div>
+							</div> --}}
 						{!! Form::close() !!}							
 					</div>
 					
