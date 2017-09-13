@@ -26,7 +26,7 @@ class Post extends \Eloquent {
     protected $dates = ['deleted_at'];
     
     // return url of blog post 
-    function getUrl(){
+    public function getUrl(){
         //return \Config::get('app.url') .'/blog/post/'. $this->id . '/' . \Serverfireteam\blog\BlogController::seoUrl($this->title);
         //return '/blog/post/'. $this->id . '/' . \Serverfireteam\blog\BlogController::seoUrl($this->title);
 

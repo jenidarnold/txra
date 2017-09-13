@@ -45,8 +45,7 @@ class WelcomeController extends Controller
         //Trending
         $trending =  $mostRecommended = Post::mostRecommended();
         
-        //Recent
-        $recent      = Post::lastPosts(1);
+
 
         //Spotlight
         $spot_id = $categories
@@ -57,8 +56,15 @@ class WelcomeController extends Controller
 
         $spotlight =  $categories->find($spot_id)->posts()
                 ->orderBy('created_at','desc')
-                ->where('public', 1)
                 ->first();
+
+
+        //Recent
+        $recent   = Post::lastPosts(3)
+            ->where('id', '<>', $spotlight->id)
+            ->where('id', '<>', $trending->id)
+            ->get()
+            ->first();
 
         //Tip of the Day
         $tip_id = $categories

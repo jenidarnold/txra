@@ -191,7 +191,8 @@
                         </div>
                         <!-- POST ITEM -->
                         <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:10px; padding-bottom:10px; border-bottom:none">
-                            @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $tip))  
+                            {{-- @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $tip))  --}}
+                            @include('includes.blogslider', array('title' => 'LATEST NEWS', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $recent))
                         </div>
                     </div>
                 </div>
