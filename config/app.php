@@ -133,6 +133,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         /*Canvas\CanvasServiceProvider::class,*/
+        Evercode1\ViewMaker\ViewMakerServiceProvider::class,
         Gidlov\Copycat\CopycatServiceProvider::class,
         Serverfireteam\Blog\BlogServiceProvider::class,
         App\Providers\RouteServiceProvider::class,

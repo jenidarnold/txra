@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "28e6a5c6f38549bf3f6d1d971892dbc7",
+    "content-hash": "66e0fed28dcd7280e8426979e97cad4c",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -267,6 +267,58 @@
                 "string"
             ],
             "time": "2017-07-22T12:18:28+00:00"
+        },
+        {
+            "name": "evercode1/view-maker",
+            "version": "3.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/evercode1/view-maker.git",
+                "reference": "033705485894d1eb5d2f3151e679d45bb2ad0bfc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/evercode1/view-maker/zipball/033705485894d1eb5d2f3151e679d45bb2ad0bfc",
+                "reference": "033705485894d1eb5d2f3151e679d45bb2ad0bfc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": "5.6.*|~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Evercode1\\ViewMaker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bill Keck",
+                    "email": "ikon321@yahoo.com",
+                    "homepage": "https://github.com/evercode1",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ViewMaker for Laravel 5.2 Artisan Command",
+            "homepage": "https://github.com/evercode1/view-maker",
+            "keywords": [
+                "Evercode1",
+                "Laravel 5.2",
+                "artisan",
+                "laravel",
+                "view-maker"
+            ],
+            "time": "2016-08-26T03:45:06+00:00"
         },
         {
             "name": "fabpot/goutte",

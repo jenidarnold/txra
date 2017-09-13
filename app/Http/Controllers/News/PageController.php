@@ -88,7 +88,7 @@ class PageController extends BaseController {
 
             // http://php.net/manual/en/features.file-upload.post-method.php
             $i = 0;
-            $limit = 6; //Limit to 6 files
+            $limit = 12; //Limit to 12 files
             foreach ($_FILES["images"]["error"] as $key => $error) {
                 if ($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["images"]["tmp_name"][$key];
@@ -154,7 +154,7 @@ class PageController extends BaseController {
 
             // http://php.net/manual/en/features.file-upload.post-method.php
             $i = 0;
-            $limit = 6; //Limit to 6 files
+            $limit = 12; //Limit to 12 files
             if (isset ($_FILES["images"])) {
                 foreach ($_FILES["images"]["error"] as $key => $error) {
                     if ($error == UPLOAD_ERR_OK) {
