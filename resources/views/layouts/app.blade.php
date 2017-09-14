@@ -85,31 +85,7 @@
 					<div class="col-md-12">
 						<h1 style="font-size:16pt"><i class="icon-heart text-danger"></i>MISSION STATEMENT</h1>
 						<h3>The Texas Racquetball Association's mission is to develop and promote the growth of racquetball.</h3>
-
-						
 					</div>
-
-					<!--div class="col-md-4">
-						<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>
-						<ul class="list-unstyled">
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-						</ul>
-					</div-->
-
-					<!--
-					<div class="col-md-5">
-						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-						<ul class="list-unstyled">
-							<li><b>Address:</b> PO Box 21132, Here Weare St, <br />Dallas, Texas 75007 USA</li>
-							<li><b>Phone:</b> 1-800-888-TXRA</li>
-							<li><b>Email:</b> <a href="mailto:support@txra.org">support@txra.org</a></li>
-						</ul>
-					</div>
-					-->
 				</div>
 			</div>
 

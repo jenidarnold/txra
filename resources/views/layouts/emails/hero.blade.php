@@ -1406,7 +1406,7 @@ section.dark #portfolio h3 {
                           <td class="last right-text-pad">
                             <h6>Contact Info:</h6>
                             <p>Phone: 1.214.378.7400</p>
-                            <p>Email: <a href="{{url('/contact')}}" title="Contact Us">support@txra.org</a></a></p>
+                            <p>Email: <a href="{{url('/contact')}}" title="Contact Us">{!! env('MAIL_TO_CONTACT') !!}</a></a></p>
                           </td>
                           <td class="expander"></td>
                         </tr>
