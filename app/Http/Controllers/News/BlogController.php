@@ -100,6 +100,8 @@ class BlogController extends BaseController {
 
             $categories = PostCategory::all();
 
+            $drafts = Post::where('public', 0)->get();
+
             $last = $last->paginate(4);
 
             return View('blog/index',
@@ -108,7 +110,8 @@ class BlogController extends BaseController {
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
                     'categories' => $categories,
-                    'category' => "Drafts"
+                    'category' => "Drafts"                    
+                    'drafts' => $drafts
                     )
                 );
     }
