@@ -250,7 +250,7 @@ class MemberController extends Controller {
 
 		$active['profile'] ='';
 		$active['settings'] = 'active';
-		$action = "CREATE";
+		$action = "EDIT";
 
 		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action'));
 		

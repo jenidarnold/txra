@@ -39,7 +39,7 @@ class ContactController extends Controller {
 		if(\Auth::check()){
 			$from = \Auth::user();
 		}else {
-
+			$from = new User;
 		}
 
 		return view('forms/contact', compact('to', 'from'));

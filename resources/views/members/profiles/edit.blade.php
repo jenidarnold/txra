@@ -5,7 +5,7 @@
     </style>
 @stop
 @section('profile_header')
-	<h1>{{$action}} MY PROFILE	</h1>
+	<h1><i class="fa fa-edit"></i> {{$action}} MY PROFILE	</h1>
 @stop
 @section('profile_content')
 	<!-- RIGHT -->

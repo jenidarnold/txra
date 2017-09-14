@@ -31,8 +31,8 @@ return [
     */
 
     /*'host' => env('MAIL_HOST', 'smtp.mailgun.org'), */
-    'host' => 'smtp.mailtrap.io',
-    //'host' => 'smtp.mailgun.org',
+    //'host' => 'smtp.mailtrap.io',
+    'host' => 'smtp.mailgun.org',
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port
@@ -44,8 +44,8 @@ return [
     |
     */
 
-    /*'port' => env('MAIL_PORT', 587),*/ 
-    'port' => env('MAIL_PORT', 465),   /*mailitrap.io*/
+    'port' => env('MAIL_PORT', 587),
+    //'port' => env('MAIL_PORT', 465),   /*mailitrap.io*/
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -57,7 +57,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'julie.enid@gmail.com', 'name' => 'TXRA'],    
+    'from' => ['address' => 'contact@mg.texasracquetball.org', 'name' => 'TXRA'],    
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
@@ -83,8 +83,8 @@ return [
     */
 
     /*'username' => env('MAIL_USERNAME'), */
-    'username' => '75a2ad6666b55e',   /*mailitrap.io*/
-    /*'username' => 'postmaster@mg.texasracquetball.org',   /*mailgun */
+    //'username' => '75a2ad6666b55e',   /*mailitrap.io*/
+    'username' => 'postmaster@mg.texasracquetball.org',   /*mailgun */
     /*
     |--------------------------------------------------------------------------
     | SMTP Server Password
@@ -97,8 +97,8 @@ return [
     */
 
     /*'password' => env('MAIL_PASSWORD'),*/
-    'password' => '6cc4f8ba6e7bb0',    /*mailitrap.io*/
-    /*'password' => '24a7f144e7e8cc94c6c50b3493ad2735',   /*mailgun */
+    //'password' => '6cc4f8ba6e7bb0',    /*mailitrap.io*/
+    'password' => '24a7f144e7e8cc94c6c50b3493ad2735',   /*mailgun */
 
     /*
     |--------------------------------------------------------------------------
