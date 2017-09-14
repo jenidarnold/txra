@@ -36,12 +36,15 @@ class BlogController extends BaseController {
 
             $categories = PostCategory::all();
 
+            $drafts = Post::where('public', 0)->get();
+
             return View('blog/index',
                 array(
                     'title'=>"News",
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
-                    'categories' => $categories
+                    'categories' => $categories,
+                    'drafts' => $drafts
                     )
                 );
 	}
@@ -67,6 +70,7 @@ class BlogController extends BaseController {
             $categories = PostCategory::all();
 
             $last = $last->paginate(4);
+            $drafts = Post::where('public', 0)->get();
 
             return View('blog/index',
                 array(
@@ -74,7 +78,8 @@ class BlogController extends BaseController {
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
                     'categories' => $categories,
-                    'category' => $category
+                    'category' => $category,
+                    'drafts' => $drafts
                     )
                 );
     }

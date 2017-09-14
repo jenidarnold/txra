@@ -84,11 +84,14 @@
                              @foreach($categories as $c)                             
                                 <li class="list-group-item"><a href="{{ route('news.category' , array('id' => $c->id, 'category' => $c->category)) }}">
                                     <!--span class="size-11 text-muted pull-right">({{$c->count}})</span--> 
-                                    {{$c->category}}</a>
+                                    {{$c->category}}   
+                                    <span class="badge">{{$c->posts()->count()}}</span> 
+                                    </a>
                                 </li>
                              @endforeach
                              @if(Auth::user()->id = 1)
-                             <li class="list-group-item"><a href="{{ route('news.drafts')}}">DRAFTS</a></li>
+                             <li class="list-group-item"><a href="{{ route('news.drafts')}}">DRAFTS <span class="badge ">{{$drafts->count()}}</span></a> 
+                             </li>
                             @endif
                         </ul>
                         <!-- /side navigation -->                    
