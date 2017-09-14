@@ -110,7 +110,7 @@ class BlogController extends BaseController {
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
                     'categories' => $categories,
-                    'category' => "Drafts"                    
+                    'category' => "Drafts"    ,                
                     'drafts' => $drafts
                     )
                 );
