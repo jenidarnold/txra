@@ -81,7 +81,7 @@
                 </li>
                 @else
                 <li>
-                    <a href="{{ route('news.publish', array('id' => $post['id'], 'publish' => 1)) }}">
+                    <a href="{{ route('news.publish', array('id' => $post['id'], 'publish' => 0)) }}">
                         <i class="fa fa-undo" title="Publish"></i>
                         <span class="font-lato">Unpublish</span>
                     </a>

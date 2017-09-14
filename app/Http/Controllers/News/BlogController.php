@@ -141,6 +141,7 @@ class BlogController extends BaseController {
             $mostRecommended = Post::mostRecommended();
             $last            = Post::lastPosts();
             $categories = PostCategory::all();
+            $drafts = Post::where('public', 0)->get();
 
             $post = Post::find($id);
 
@@ -153,7 +154,8 @@ class BlogController extends BaseController {
                     'post'=>$post, 
                     'mostRecommended'=>$mostRecommended,
                     'last'=>$last,
-                    'categories' => $categories
+                    'categories' => $categories,                
+                    'drafts' => $drafts
                     )   
                 );
 	}
