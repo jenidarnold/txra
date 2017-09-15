@@ -59,6 +59,10 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 {
 	Route::get('/', array('as' => 'admin.index', 'uses' => 'AdminController@index'));
 	Route::get('/users', array('as' => 'admin.users', 'uses' => 'AdminController@users'));
+	Route::get('/users/{id}/', array('as' => 'admin.users.edit', 'uses' => 'AdminController@edit_user'));
+	Route::delete('/users/{id}/', array('as' => 'admin.users.delete', 'uses' => 'AdminController@delete_user'));
+	
+	Route::post('/users/{id}/', array('as' => 'admin.users.update', 'uses' => 'AdminController@update_user'));
 	Route::get('/invites', array('as' => 'admin.invites', 'uses' => 'AdminController@invites'));
 	Route::get('/events', array('as' => 'admin.events', 'uses' => 'AdminController@events'));
 	Route::get('/rankings', array('as' => 'admin.rankings', 'uses' => 'AdminController@rankings'));

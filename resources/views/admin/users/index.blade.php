@@ -30,6 +30,7 @@
 		        <div class="col-sm-12">
 		        	<table class="table table-striped table-condensed">
 		        		<tr>
+		        			<th></th>
 		        			<th>ID</th>
 		        			<th>USAR ID</th>
 		        			<th>Last Name</th>
@@ -40,6 +41,7 @@
 		        		</tr>
 		        		@foreach($users as $user)
 		        		<tr>
+		        			<td><a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-xs btn-info">Edit</a></td>
 		        			<td>{{$user->id}}</td>
 		        			<td>{{$user->usar_id}}</td>
 		        			<td>{{$user->last_name}}</td>
