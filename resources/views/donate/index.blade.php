@@ -41,7 +41,7 @@
 					<i class="fa fa-usd text-success"></i>
 					<h5><a href="#" data-toggle="modal" data-target="#modDonate">MONETARY</a></h5>
 					<span class="countTo" data-speed="3000">850</span>
-					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
+					<h6 class="text-center text-muted h6">as of Sep 2017</h6>
 					<p>Donations can be received in person by any TXRA Board member, or by mailing a check.</p>
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Donate Now</a>
 					{{-- |<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modDonate">Learn More</a> --}}
@@ -50,8 +50,8 @@
 				<div class="col-xs-6 col-sm-4">
 					<i class="fa fa-child text-info"></i><i class="fa fa-child text-danger"></i>
 					<h5><a href="#" data-toggle="modal" data-target="#modJuniors">Raised for Juniors</a></h5>
-					<span class="countTo" data-speed="3000">10000</span>
-					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
+					<span class="countTo" data-speed="3000">20000</span>
+					<h6 class="text-center text-muted h6">as of Sep 2017</h6>
 					<p>Our members, parents and coaches fundraise and donate almost $10,000 annually just for the kids</p>
 					<a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modJuniors" >Donate Now</a>
 					{{-- | <a class="box-icon-more font-lato weight-300" href="#" data-toggle="modal" data-target="#modJuniors">Learn More</a> --}}
