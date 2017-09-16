@@ -106,7 +106,7 @@
 								<span class="inner">
 									<!-- lightbox -->
 
-									<a class="ico-rounded lightbox" href="{{ asset('images/members/'.$m->id.'/profile.png?')  }}" data-plugin-options='{"type":"image"}'>
+									<a class="ico-rounded lightbox" href="{{ asset('images/members/'.$m->id.'/profile.png')  }}" data-plugin-options='{"type":"image"}'>
 										<span class="fa fa-plus size-20"></span>
 									</a>
 

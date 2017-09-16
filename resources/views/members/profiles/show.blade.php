@@ -36,7 +36,7 @@
 				
 	@if(isset($usar))
 	<!-- FLIP BOX -->
-	<div class="ranking-box box-flip box-icon box-icon-center box-icon-round box-icon-large text-center nomargin " >
+	<div class="ranking-box box-flip box-icon box-icon-center box-icon-round box-icon-large text-center nomargin  margin-bottom-40" >
 		<div class="front">
 
 			<div class="box1 noradius" >
@@ -119,21 +119,21 @@
 		</div>
 	</div>
 	<!-- /FLIP BOX -->
-	{{-- @else --}}
-		<div class="box1 noradius well margin-top-40" >
-			<div class="box2 noradius">
-				<h4>WHO AM I?</h4>
-				<hr />
-				<p>
-				@if(isset($profile->bio) && !empty(trim($profile->bio)))
-					{{ $profile->bio }}
-				@else
-					<span class="text-center text-muted">Nothing to share at the moment</span>
-				@endif
-				</p>
-			</div>
-		</div>
 	@endif
+
+	<div class="box1 noradius well" >
+		<div class="box2 noradius">
+			<h4>WHO AM I?</h4>
+			<hr />
+			<p>
+			@if(isset($profile->bio) && !empty(trim($profile->bio)))
+				{{ $profile->bio }}
+			@else
+				<span class="text-center text-muted">Nothing to share at the moment</span>
+			@endif
+			</p>
+		</div>
+	</div>
 
 
 {{-- 	<div class="box-light"><!-- .box-light OR .box-dark -->
