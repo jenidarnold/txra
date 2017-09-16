@@ -46,12 +46,12 @@
 
 @section('callout')
 		
-		<table class="eight columns">
+		<table class="ten columns">
 		    <tbody>
 		    	<tr>
 			      <td>
 			      	<h6>Below are a few of our upcoming events!</h6>
-			        <table class="button primary six columns">
+			        <table class="button primary eight columns">
 			          	<tbody>
 				          	<tr>
 				             	<td>				             		
@@ -72,37 +72,46 @@
 	<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-3">
 
 		@foreach($tournaments as $t)
-		<!-- item -->						
-			<div class="portfolio-item">
-				<div class="item-box">
-					<figure>
-						<a class="ico-rounded" href="{{ $t->url }}" target="tournament">
-							<img class="img-responsive" src="{{$t->logo }}" width="100" alt="">
-						</a>	
-					</figure>
-
-					<!-- div info -->
-						<div class="item-box-desc">
-							<h4 class="text-center"><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h4>
-							<div class="text text-center">
-								<span class="text-info">
-									{{$t->start}} - {{$t->end}}
-								</span>
-								<br/>
-								<span>
-									@if( $t->club()->lat > 0)
-										<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
-											<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>
-											{{$t->club()->city }}, {{$t->club()->state }}		
-									@else
-										 {{$t->club()->name }}<br/>  
-										 {{$t->club()->city }}, {{$t->club()->state }}
-									@endif
-								</span>
-							</div>
-						</div>
-				</div>		
-			</div><!-- /item -->
+		<!-- item -->		
+			<table class="twelve columns">
+		    <tbody>
+		    	<tr>
+			      <td>
+					<center>
+						<figure>
+							<a class="ico-rounded" href="{{ $t->url }}" target="tournament">
+								<img class="img-responsive" style="float:none" src="{{$t->logo }}" width="100" alt="">
+							</a>	
+						</figure>
+					</center>
+					</td>
+				</tr>
+				<tr>
+			      <td>
+					<center>
+						<!-- div info -->
+						<h6 style="text-align:center"><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h6>
+								
+						<span class="text-info">
+							{{$t->start}} - {{$t->end}}
+						</span>
+						<br/>
+						<span>
+							@if( $t->club()->lat > 0)
+								<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
+									<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>
+									{{$t->club()->city }}, {{$t->club()->state }}		
+							@else
+								 {{$t->club()->name }}<br/>  
+								 {{$t->club()->city }}, {{$t->club()->state }}
+							@endif
+						</span>
+					</center>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+						
 		<hr/>
 		@endforeach
 	</div>
