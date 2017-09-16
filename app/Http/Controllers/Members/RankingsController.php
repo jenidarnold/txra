@@ -18,7 +18,7 @@ class RankingsController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//$this->middleware('auth');
 		$this->middleware('admin_user', ['only' => 'download']);
 	}
 		
