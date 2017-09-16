@@ -76,10 +76,12 @@ class Post extends \Eloquent {
 
     public function image_count() {
         $directory = "images/blog/$this->id";
+        $filecount = 0;
         
-        $fi = new \FilesystemIterator($directory, \FilesystemIterator::SKIP_DOTS);
-        $filecount = iterator_count($fi);
-      
+        if (\File::exists("images/blog/$this->id")) {
+            $fi = new \FilesystemIterator($directory, \FilesystemIterator::SKIP_DOTS);
+            $filecount = iterator_count($fi);
+        }
         return $filecount;
     }
 

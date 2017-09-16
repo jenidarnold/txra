@@ -20,7 +20,7 @@
                                 <img class="img-responsive" height="200px" src="{{ asset($fileinfo->getPathname()) }}" alt="">
                             </div>
                         @endif
-                    @endforeach                             
+                    @endforeach                  
                 </div>
                 <!-- /OWL SLIDER -->
             @else
