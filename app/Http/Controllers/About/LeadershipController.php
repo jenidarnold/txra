@@ -160,7 +160,7 @@ class LeadershipController extends Controller {
         //Send confirmation and thank you for signing up
         
     	//\Session::flash('message', 'Successfully subscribed to newsletter');
-        Mail::send('emails.committees.replyvolunteer', ['subscriber' => $subscriber], function($m) use ($subscriber, $txra) {
+        Mail::send('emails.committees.replyvolunteer', ['subscriber' => $subscriber,'committees' => $committees], function($m) use ($subscriber, $txra) {
             $subject = 'Thank you for volunteering!';
             $m->from(env('MAIL_FROM_EMAIL'), $txra->full_name);
             $m->to($subscriber->email, $subscriber->full_name)->subject($subject);     
