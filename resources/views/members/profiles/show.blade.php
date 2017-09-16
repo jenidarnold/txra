@@ -112,22 +112,27 @@
 
 		<div class="back">
 			<div class="box2 noradius">
-				<h4>WHO AM I?</h4>
+			{{-- 	<h4>WHO AM I?</h4>
 				<hr />
-				<p>{{ $profile->bio }}</p>
+				<p>{{ $profile->bio }}</p> --}}
 			</div>
 		</div>
 	</div>
 	<!-- /FLIP BOX -->
-	@else
-		<div class="box1 noradius" >
+	{{-- @else --}}
+		<div class="box1 noradius well margin-top-40" >
 			<div class="box2 noradius">
 				<h4>WHO AM I?</h4>
 				<hr />
-				<p>{{ $profile->bio }}</p>
+				<p>
+				@if(isset($profile->bio) && !empty(trim($profile->bio)))
+					{{ $profile->bio }}
+				@else
+					<span class="text-center text-muted">Nothing to share at the moment</span>
+				@endif
+				</p>
 			</div>
 		</div>
-
 	@endif
 
 
