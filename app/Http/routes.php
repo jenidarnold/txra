@@ -12,9 +12,9 @@
 */
 
 
-// Route::get('/', function () {
-// 	 return view('coming-soon');
-// });
+Route::get('/', function () {
+	 return view('coming-soon');
+});
 
 Route::get('/sitemap.xml', 'SitemapController@index');
 

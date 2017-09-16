@@ -12,8 +12,8 @@
 		<meta name="Author" content="Julienne Arnold" />
 		<meta property="og:title" content="Texas Racquetball Association"/>
 		<meta property="og:description" content="TXRA leads the Texas racquetball community in supporting the sport on the local, state, national, and international levels."/>
-		<meta property="og:url" content="http://67.205.179.1"/>		
-		<meta property="og:image" content="http://67.205.179.1/images/logos/txra_logo_og.png"/>
+		<meta property="og:url" content="http://texasracquetball.org"/>		
+		<meta property="og:image" content="http://texasracquetball.org/images/logos/txra_logo_og.png"/>
 		<meta property="og:image:width" content="746"/>
 		<meta property="og:image:height" content="746"/>
 		<meta property="og:image:type" content="image/png" />
@@ -135,7 +135,7 @@
 							<h4 class="size-30 font-lato text-muted"><i>Come back soon!</i></h4>
 							
 						<!-- Bordered Theme Style Countdown -->
-							<div class="countdown circle" data-from="September 16, 2017 10:00:00"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
+							<div class="countdown circle" data-from="September 16, 2017 15:00:00"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
 							<h1></h1>
 							<h5 class="size-30 font-lato text-muted"><i>Subscribe for updates</i></h5>
 
