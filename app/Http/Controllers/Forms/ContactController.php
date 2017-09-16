@@ -61,7 +61,6 @@ class ContactController extends Controller {
         	'from_last_name' => 'required',
         	'subject' => 'required',
         	'message' => 'required',
-        	'g-recaptcha-response' => 'required'
         );
 
         $input = \Input::all();
@@ -79,7 +78,7 @@ class ContactController extends Controller {
 
 		$captcha = \Input::get('g-recaptcha-response');
 		if(!$captcha){
-          $message = 'Failed to send. Please check the captacha.';
+          $message = 'Failed to send. Please check the reCaptacha box.';
    			return  redirect()->back()
 				->with('alert-danger', $message)
 				->withErrors($validator)
@@ -103,7 +102,7 @@ class ContactController extends Controller {
 		$from->first_name = $request->from_first_name;
 		$from->last_name = $request->from_last_name;
 		$from->full_name = $from->first_name . ' ' . $from->last_name;
-		$from->email = $request->from_email;
+		$from->email = env('MAIL_FROM_NAME');
 		$from->phone = $request->from_phone;
 
 
