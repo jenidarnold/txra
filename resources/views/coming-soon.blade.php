@@ -135,7 +135,7 @@
 							<h4 class="size-30 font-lato text-muted"><i>Come back soon!</i></h4>
 							
 						<!-- Bordered Theme Style Countdown -->
-							<div class="countdown circle" data-from="September 16, 2017 08:00:00"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
+							<div class="countdown circle" data-from="September 16, 2017 10:00:00"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
 							<h1></h1>
 							<h5 class="size-30 font-lato text-muted"><i>Subscribe for updates</i></h5>
 
