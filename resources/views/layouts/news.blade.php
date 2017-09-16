@@ -29,7 +29,6 @@
     .blog-post-item{
         margin-bottom: 20px;
         padding-bottom: 40px;
-        max-height: 500px
     }
 
     </style>
