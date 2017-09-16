@@ -55,6 +55,10 @@ class InviteController extends Controller {
             $m->to($invite->email, $invite->full_name)->subject('Your New TXRA Account is Ready!');
         });
 
+        $invite->sent=1;
+        $invite->sent_at = Carbon::now();
+        $invite->save();
+
         // redirect back where we came from
         return redirect()
             ->back();

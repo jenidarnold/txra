@@ -59,12 +59,21 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 {
 	Route::get('/', array('as' => 'admin.index', 'uses' => 'AdminController@index'));
 	Route::get('/users', array('as' => 'admin.users', 'uses' => 'AdminController@users'));
-	Route::get('/users/{id}/', array('as' => 'admin.users.edit', 'uses' => 'AdminController@edit_user'));
-	Route::delete('/users/{id}/', array('as' => 'admin.users.delete', 'uses' => 'AdminController@delete_user'));
-	
+	Route::get('/users/{id}/edit', array('as' => 'admin.users.edit', 'uses' => 'AdminController@edit_user'));
+	Route::delete('/users/{id}/', array('as' => 'admin.users.delete', 'uses' => 'AdminController@delete_user'));	
 	Route::post('/users/{id}/', array('as' => 'admin.users.update', 'uses' => 'AdminController@update_user'));
+
 	Route::get('/invites', array('as' => 'admin.invites', 'uses' => 'AdminController@invites'));
+	Route::get('/invites/{id}/create', array('as' => 'admin.invites.create', 'uses' => 'AdminController@create_invite'));
+	Route::post('/invites/', array('as' => 'admin.invites.store', 'uses' => 'AdminController@store_invite'));
+	Route::get('/invites/{id}/edit', array('as' => 'admin.invites.edit', 'uses' => 'AdminController@edit_invite'));
+	Route::delete('/invites/{id}/', array('as' => 'admin.invites.delete', 'uses' => 'AdminController@delete_invite'));	
+	Route::post('/invites/{id}/', array('as' => 'admin.invites.update', 'uses' => 'AdminController@update_invite'));
+
+
 	Route::get('/events', array('as' => 'admin.events', 'uses' => 'AdminController@events'));
+
+
 	Route::get('/rankings', array('as' => 'admin.rankings', 'uses' => 'AdminController@rankings'));
 
 	Route::post('/users/import', array('as' => 'import.users', 'uses' => 'ImportController@import_users'));	
