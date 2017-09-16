@@ -105,19 +105,32 @@ class LeadershipController extends Controller {
 
         if ($validator->fails()) {          
         	$message = 'Failed to send. Please fill out all required fields';
-   	/*		return  redirect()->back()
-				->with('alert-danger', $message)
-				->withErrors($validator)
-	            ->withInput(\Input::except('password'));
-				; */  
 			return  Redirect::to(URL::previous() . "#join")
 				->with('alert-danger', $message)
 				->withErrors($validator)
 	            ->withInput(\Input::except('password'));
 				;   
-
 		}
 
+		$captcha = \Input::get('g-recaptcha-response');
+		if(!$captcha){
+          $message = 'Failed to send. Please check the reCaptacha box.';
+   			return  redirect()->back()
+				->with('alert-danger', $message)
+				->withErrors($validator)
+	            ->withInput(\Input::except('password'));
+        }
+
+        $secret = ENV("RECAPTCHA_SECRET");
+        $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+        if($response['success'] == false){
+        	$message = 'Failed to send.' + $response;
+   			return  redirect()->back()
+				->with('alert-danger', $message)
+				->withErrors($validator)
+	            ->withInput(\Input::except('password'));
+				;    
+		}
 
 		$subscriber = new User;
 		$subscriber->first_name = $request->first_name;
@@ -139,9 +152,8 @@ class LeadershipController extends Controller {
         Mail::send('emails.committees.sendvolunteer', ['subject' => $subject, 'comments' => $comments, 'subscriber' => $subscriber, 'committees' => $committees], function ($m) use ($subscriber, $txra, $subject)
         {
 
-            $m->from($subscriber->email, $subscriber->full_name );
+            $m->from(env('MAIL_FROM_EMAIL'), $subscriber->full_name );
             $m->to($txra->email, $txra->full_name)->subject($subject);
-            $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
 
         });
 
@@ -150,9 +162,8 @@ class LeadershipController extends Controller {
     	//\Session::flash('message', 'Successfully subscribed to newsletter');
         Mail::send('emails.committees.replyvolunteer', ['subscriber' => $subscriber], function($m) use ($subscriber, $txra) {
             $subject = 'Thank you for volunteering!';
-            $m->from( $txra->email, $txra->full_name);
-            $m->to($subscriber->email, $subscriber->full_name)->subject($subject);            
-            $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
+            $m->from(env('MAIL_FROM_EMAIL'), $txra->full_name);
+            $m->to($subscriber->email, $subscriber->full_name)->subject($subject);     
         });
 
         $message = 'Successfully sent. Thank you!';

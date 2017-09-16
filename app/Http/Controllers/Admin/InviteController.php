@@ -51,9 +51,8 @@ class InviteController extends Controller {
 
        // send the email
         \Mail::send('emails.invites.send', ['invite' => $invite], function ($m) use ($invite) {
-            $m->from('noreply@txra.com', 'Texas Racquetball Association');
+            $m->from(env('MAIL_FROM_EMAIL'), 'Texas Racquetball Association');
             $m->to($invite->email, $invite->full_name)->subject('Your New TXRA Account is Ready!');
-            $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
         });
 
         // redirect back where we came from

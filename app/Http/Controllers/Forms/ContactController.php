@@ -85,7 +85,6 @@ class ContactController extends Controller {
 	            ->withInput(\Input::except('password'));
         }
 
-
         $secret = ENV("RECAPTCHA_SECRET");
         $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
         if($response['success'] == false){
@@ -102,7 +101,7 @@ class ContactController extends Controller {
 		$from->first_name = $request->from_first_name;
 		$from->last_name = $request->from_last_name;
 		$from->full_name = $from->first_name . ' ' . $from->last_name;
-		$from->email = env('MAIL_FROM_NAME');
+		$from->email = $request->from_email;
 		$from->phone = $request->from_phone;
 
 
@@ -121,7 +120,7 @@ class ContactController extends Controller {
 
         if( trim($request->department)  != ''){
 			$department = trim($request->department);
-			$subject = "ATTEN " & $department & ": " & $subject;
+			$subject = "ATTN " & $department & ": " & $subject;
 		}
 		else{
 			$department =  "General";
@@ -132,9 +131,8 @@ class ContactController extends Controller {
         	function ($m) use ($from, $to, $subject, $department, $body)
         {
 
-            $m->from($from->email, $from->full_name );
+            $m->from(env('MAIL_FROM_EMAIL'), $from->full_name );
             $m->to($to->email, $to->full_name)->subject($subject);
-            $m->bcc($to->email, env('MAIL_TO_NAME') );
 
         });
 

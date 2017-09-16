@@ -32,30 +32,6 @@
 							<h3></h3>
 
 							
-							<!--
-								MESSAGES
-								
-									How it works?
-									The form data is posted to php/contact.php where the fields are verified!
-									php.contact.php will redirect back here and will add a hash to the end of the URL:
-										#alert_success 		= email sent
-										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-										#alert_mandatory	= email not sent - required fields empty
-										Hashes are handled by assets/js/contact.js
-
-									Form data: required to be an array. Example:
-										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-										Also, add `required` to input fields if is a mandatory field. 
-										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
-
-									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-									WARNING! Do not change the `email` and `name`!
-												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->
-
 							<!-- Alert Success -->
 							<div id="alert_success" class="alert alert-success margin-bottom-30">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -77,7 +53,7 @@
 							</div><!-- /Alert Mandatory -->
 
 
-							<form action="php/contact.php" method="post" enctype="multipart/form-data">
+							<form action="" method="post" enctype="multipart/form-data">
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 									<div class="row">
@@ -115,14 +91,17 @@
 									</div>									
 
 								</fieldset>
-
+								<div class="row">
+									<div class="col-sm-12 text-center">
+										<div class="g-recaptcha" data-sitekey="6LfB4DAUAAAAAHwA_AmMxO4cdcVaJ9totprbuesE"></div>
+									</div>
+								</div>
 								<div class="row">
 									<div class="col-md-12">
 										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND</button>
 									</div>
 								</div>
 							</form>
-
 						</div>
 						<!-- /FORM -->
 

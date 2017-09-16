@@ -56,7 +56,7 @@ class SubscribeController extends Controller
         	// \Session::flash('message', 'Successfully subscribed to newsletter');
          //    Mail::send('emails.contact.subscription', ['subscriber' => $subscriber], function($m) use ($subscriber) {
          //        $subject = 'You are now enrolled to receive TXRA updates and  newsletters';
-         //        $m->from('julie.enid@gmail.com', 'TXRA');
+         //        $m->from(env('MAIL_FROM_EMAIL'), 'TXRA');
          //        $m->to($subscriber->email, $subscriber->name)->subject($subject);
          //        $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
 

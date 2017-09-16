@@ -13,7 +13,6 @@
 
 			<h1><i class="et-trophy text-warning"></i> ANNUAL AWARDS NOMINATION</h1>
 
-
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="#">Home</a></li>
@@ -273,9 +272,13 @@
 								</div>
 							</div>
 						</fieldset>
-
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-sm-12 text-center">
+								<div class="g-recaptcha" data-sitekey="6LfB4DAUAAAAAHwA_AmMxO4cdcVaJ9totprbuesE"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
 								<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-trophy"></i> NOMINATE</button>
 							</div>
 						</div>

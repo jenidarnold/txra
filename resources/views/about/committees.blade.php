@@ -198,7 +198,11 @@
 									</div>
 								</div>
 								<!-- /Comments -->
-
+								<div class="row">
+									<div class="col-sm-12 text-center">
+										<div class="g-recaptcha" data-sitekey="6LfB4DAUAAAAAHwA_AmMxO4cdcVaJ9totprbuesE"></div>
+									</div>
+								</div>
 								<div class="margin-bottom-20">
 									<div class="col-sm-12 text-center">
 										<button type="submit" class="nomargin btn btn-primary btn-block"></i>SUBMIT</button>
