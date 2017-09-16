@@ -93,10 +93,10 @@ class NominationController extends Controller {
 		}
 
 		$subscriber = new User;
-		$subscriber->first_name = $request->first_name;
-		$subscriber->last_name = $request->last_name;
+		$subscriber->first_name = $request->from_first_name;
+		$subscriber->last_name = $request->from_last_name;
 		$subscriber->email = $request->from_email;
-		$subscriber->phone = $request->phone;
+		$subscriber->phone = $request->from_phone;
 		$subscriber->is_member = $request->is_member;
 
         $nominee = new User;
