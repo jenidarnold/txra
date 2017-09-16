@@ -45,9 +45,9 @@ class Invite extends Model
 
         //create a new invite record
         $invite = Invite::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
+            'first_name' => trim($data['first_name']),
+            'last_name' => trim($data['last_name']),
+            'email' => trim($data['email']),
             'token' => $token
         ]);
 

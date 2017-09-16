@@ -5,17 +5,30 @@
 @stop
 @section('admin_content')		
 		<div class="">
-			 		 
-     		 <div class="row">
+			<div class="row" style="margin-bottom:20px">
+		        <div class="col-sm-12">
+		       		<h3>Invites</h3>
+		        </div>
+		        <div class="col-sm-12">
+		        	<button type="button" class="btn btn-sm btn-primary">Total <span class="badge">{{ $stats->total}}</span></button>
+		        	<button type="button" class="btn btn-sm btn-info">Sent <span class="badge">{{ $stats->sent}}</span></button>
+		        	<button type="button" class="btn btn-sm btn-default">Unsent <span class="badge">{{ $stats->unsent}}</span></button>
+		        	<button type="button" class="btn btn-sm btn-success">Accepted <span class="badge">{{ $stats->accepted}}</span></button>
+		        	<button type="button" class="btn btn-sm btn-danger">Pending <span class="badge">{{ $stats->pending}}</span></button>
+		        </div>
+		        <br/>
+		    </div>
+     		<div class="row">
 		        <div class="col-sm-12">
 		        	<table class="table table-stripedX table-condensed">
 		        		<tr>
 		        			<th></th>
-		        			<th>Last Name</th>
-		        			<th>First Name</th>
+		        			<th>Last</th>
+		        			<th>First</th>
 		        			<th>Email</th>
 		        			<th>Sent</th>
 		        			<th>Accepted</th>
+		        			{{-- <th>Token</th> --}}
 		        			<th></th>
 		        		</tr>
 		        	@foreach($invites as $invite)
@@ -33,9 +46,10 @@
 		        			</td>
 		        			<td>{{$invite->last_name}}</td>
 		        			<td>{{$invite->first_name}}</td>
-		        			<td>{{$invite->email}}</td>	
+		        			<td title="{{$invite->token}}">{{$invite->email}}</td>	
 		        			<td>{{$invite->sent_at}}</td>
 		        			<td>{{$invite->accepted_at}}</td>
+		        			{{-- <td>{{$invite->token}}</td> --}}
 		        		</tr>
 		        	@endforeach
 		        	</table>
@@ -58,7 +72,7 @@
 							<label class="h4">Import Invites</label> 
 							<label for="file" class="input input-file">
 								<div class="button">
-									<input id="file" type="file" name="imported-file" id="mported-file"  /> Browse
+									<input id="file" type="file" name="imported-file" id="imported-file"  /> Browse
 								</div><input type="text" readonly>
 							</label>
 							<button class="btn btn-primary" type="submit">Import</button>

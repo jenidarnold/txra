@@ -68,6 +68,8 @@ class ImportController extends Controller {
             $path = $request->file('imported-file')->getRealPath();
             $data = \Excel::load($path, function($reader) {})->get();
 
+          
+
             if(!empty($data) && $data->count())
 	      	{
 	        
@@ -86,8 +88,8 @@ class ImportController extends Controller {
     				}
 		        }
             }
+         
         }
-
         return back();
 	}
 }

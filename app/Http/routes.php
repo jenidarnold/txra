@@ -68,7 +68,10 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::post('/invites/', array('as' => 'admin.invites.store', 'uses' => 'AdminController@store_invite'));
 	Route::get('/invites/{id}/edit', array('as' => 'admin.invites.edit', 'uses' => 'AdminController@edit_invite'));
 	Route::delete('/invites/{id}/', array('as' => 'admin.invites.delete', 'uses' => 'AdminController@delete_invite'));	
-	Route::post('/invites/{id}/', array('as' => 'admin.invites.update', 'uses' => 'AdminController@update_invite'));
+
+	Route::post('/invites/import', array('as' => 'import.invites', 'uses' => 'ImportController@import_invites'));
+
+	Route::post('/invites/{id}/edit', array('as' => 'admin.invites.update', 'uses' => 'AdminController@update_invite'));
 
 
 	Route::get('/events', array('as' => 'admin.events', 'uses' => 'AdminController@events'));
@@ -77,7 +80,6 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::get('/rankings', array('as' => 'admin.rankings', 'uses' => 'AdminController@rankings'));
 
 	Route::post('/users/import', array('as' => 'import.users', 'uses' => 'ImportController@import_users'));	
-	Route::post('/invites/import', array('as' => 'import.invites', 'uses' => 'ImportController@import_invites'));
 
 	Route::get('/invites/invite', array('as' => 'invite', 'uses' => 'InviteController@invite'));
 	Route::post('/invite', array('as' => 'invite.process', 'uses' => 'InviteController@process'));

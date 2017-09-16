@@ -36,7 +36,7 @@ class AdminController extends Controller {
 
         $users = User::orderBy('last_name')
         	->orderBy('first_name')
-        	->paginate(10);
+        	->paginate(20);
 		return view('admin.users.index', compact('users'));
 	}
 
@@ -122,8 +122,18 @@ class AdminController extends Controller {
 
         $invites = Invite::orderBy('last_name')
         	->orderBy('first_name')
-        	->paginate(10);
-		return view('admin.invites.index', compact('invites'));
+        	->paginate(20);
+
+
+        $stats = collect();
+
+        $stats->total = Invite::count();
+        $stats->sent = Invite::where('sent', 1)->count();
+        $stats->unsent = Invite::where('sent', 0)->count();
+        $stats->accepted = Invite::where('accepted', 1)->count();
+        $stats->pending = Invite::where('sent', 1)->where('accepted', 0)->count();
+
+		return view('admin.invites.index', compact('invites', 'stats'));
 	}
 
 	/**
@@ -190,7 +200,7 @@ class AdminController extends Controller {
         } else {
             // store
             
-			$user = User::find($id);
+			$invite = Invite::find($id);
 
 			$invite->first_name = \Input::get('first_name');
 			$invite->last_name = \Input::get('last_name');
