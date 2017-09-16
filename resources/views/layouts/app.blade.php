@@ -208,7 +208,7 @@
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
 											<!-- Only Julie operations -->
-											@if( Auth::user()->id == 1 )
+											@if(Auth::check() && Auth::user()->id == 1 )
 												<li class="divider"></li>	
 												<li><a href="{{ route('admin.index')}}"><i class="fa fa-lock"></i> ADMIN</a></li>
 												<li><a href="{{ route('news.create')}}"><i class="fa fa-pencil"></i> SUBMIT ARTICLE</a></li>
@@ -604,8 +604,10 @@
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		  ga('create', 'UA-61761895-4', 'auto');		 
-		  //ga('set', 'userId', Auth::user()->id ); // Set the user ID using signed-in user_id.		 
+		  ga('create', 'UA-61761895-4', 'auto');	
+		  //@if(Auth::check()) {	 
+		  //	ga('set', 'userId', Auth::user()->id ); // Set the user ID using signed-in user_id.	
+		  //@endif	 
 		  ga('send', 'pageview');
 		</script>
 

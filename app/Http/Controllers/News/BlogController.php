@@ -17,6 +17,7 @@ class BlogController extends BaseController {
     public function __construct()
     {
         //$this->middleware('auth');
+        $this->middleware('admin_user', ['only' => 'delete_image']);
     }
 
 	/**
@@ -27,26 +28,26 @@ class BlogController extends BaseController {
 	 */
 	public function getIndex()
 	{
-            $mostRecommended = Post::mostRecommended();
-            $last            = Post::lastPosts();
-            $last = $last
-                ->where('public', 1)
-                ->paginate(4)
-                ;
+        $mostRecommended = Post::mostRecommended();
+        $last            = Post::lastPosts();
+        $last = $last
+            ->where('public', 1)
+            ->paginate(4)
+            ;
 
-            $categories = PostCategory::all();
+        $categories = PostCategory::all();
 
-            $drafts = Post::where('public', 0)->get();
+        $drafts = Post::where('public', 0)->get();
 
-            return View('blog/index',
-                array(
-                    'title'=>"News",
-                    'mostRecommended'=>$mostRecommended,
-                    'last'=>$last,
-                    'categories' => $categories,
-                    'drafts' => $drafts
-                    )
-                );
+        return View('blog/index',
+            array(
+                'title'=>"News",
+                'mostRecommended'=>$mostRecommended,
+                'last'=>$last,
+                'categories' => $categories,
+                'drafts' => $drafts
+                )
+            );
 	}
 
     /**

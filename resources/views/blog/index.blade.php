@@ -7,7 +7,7 @@
     @else
   
         <div class="row">
-        @foreach($last as $post)
+            @foreach($last as $post)
             <!-- POST ITEM -->
             <div class="blog-post-item col-sm-12 col-md-12">
             @if ($post->image_count() > 1)
@@ -54,27 +54,24 @@
                             </a>
                         @endforeach
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('members.show', array('id' => $post['author_id']))}}">
                             <i class="fa fa-user"></i> 
                             <span class="font-lato">{{ \App\Post::find($post['id'])->author()->first()["full_name"] }}</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
 
-                <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 200)}}... </p>
-
-                {{-- <a href="{{$post->getUrl()}}" class="btn btn-sm btn-reveal btn-info margin-top-10">
-                    <i class="fa fa-plus"></i>
-                    <span>Read More</span>
-                </a> --}}
-
+                <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 250)}} ...
+                    <a href="{{$post->getUrl()}}" class="text-info small margin-top-10">
+                        <span>Read More</span>
+                    </a>
+                </p>
             </div>
             <!-- /POST ITEM -->
-        @endforeach
+          @endforeach         
         </div>
             <!-- PAGINATION -->           
-            {{-- <section class="page-header page-header-xs"> --}}
                 <div class="text-center">
                     <ul class="pagination pagination-lg pagination-simple">
                     {{$last->links()}}
@@ -83,7 +80,6 @@
                     <!-- /Pagination Default -->
 
                 </div>
-           {{--  </section> --}}
             <!-- /PAGINATION -->
 
     @endif

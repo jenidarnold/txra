@@ -16,7 +16,7 @@ class AdminUser
      */
     public function handle($request, Closure $next)
     {
-         if (Auth::user()->id != 1) {
+         if (!Auth::check() || Auth::user()->id != 1) {
             //return response('Unauthorized.', 401);   
             abort(401, 'Unauthorized.');       
         }

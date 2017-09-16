@@ -12,14 +12,14 @@
 */
 
 
-Route::get('/', function () {
-	 return view('coming-soon');
-});
+// Route::get('/', function () {
+// 	 return view('coming-soon');
+// });
 
 Route::get('/sitemap.xml', 'SitemapController@index');
 
 
-//Route::get('/', 'WelcomeController@index' );
+Route::get('/', 'WelcomeController@index' );
 Route::get('/welcome', 'WelcomeController@index' );
 
 	
@@ -48,12 +48,12 @@ Route::controllers([
 ]);
 
 // config panel to load from our namespace for panel 
- if (\Request::is('admin/*'))
-{
- //  \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
+//  if (\Request::is('admin/*'))
+// {
+//  //  \Config::set('panel.controllers', 'App\Http\Controllers\Blog\panel');
  
-  //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
-}
+//   //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
+// }
 
 
 /* Admin */
