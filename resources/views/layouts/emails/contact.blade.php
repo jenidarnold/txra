@@ -1367,7 +1367,7 @@ section.dark #portfolio h3 {
 
                       <table class="twelve columns">                        
                         <tr>
-                          <td class="last left-text-pd">
+                          <td class="last left-text-pad">
                             <h6>Contact Info:</h6>
                               @yield('contact')
                           </td>

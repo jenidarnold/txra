@@ -1,113 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Texas Racquetball Association</title>
-		<meta name="keywords" content="Texas, racquetball, sport, racquet" />
-		<meta name="description" content="" />
-		<meta name="Author" content="Julienne Arnold" />
+@extends('layouts.emails.basic')
+@section('style')
+	<style type="text/css">
 
-		<!-- mobile settings -->
-		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	</style>
+@stop
 
-		<!-- WEB FONTS : use %7C instead of | (pipe) -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+@if(!isset($subscriber))
+	@php ($subscriber = new stdClass())
+	@php ($subscriber->full_name = "Racquetball Enthusiast")
+	@php ($subscriber->email = "subscriber@email.com")
+	@php ($subscriber->phone = "555-555-5555")
+	@php ($subscriber->is_member = "1")
+	
+	@php ($nominee = new stdClass())
+	@php ($nominee->first_name = "Super")
+	@php ($nominee->last_name = "Star")
+	@php ($nominee->award = "Female Athlete of the Year")
 
-		<!-- THEME CSS -->
-		<link href="{{ asset('css/foundation-emails.css') }}" rel="stylesheet" type="text/css" />
-		<link href="{{ asset('css/layout.css') }}" rel="stylesheet" type="text/css" />
-
-		<style>
-			#header {
-				height: 60px !important;
-				color: #fff;
-				background: #313131;
-			}
-			#footer {
-    			color: rgba(255,255,255,0.6);
-				background: #313131;
-    		}
-		</style>
-
-	</head>
+	@php ($subject = "Ut risus tellus, finibus non tristique a, malesuada vel metus")
+	@php ($comments = "Etiam viverra blandit auctor. Sed cursus ligula eu eros gravida, in elementum diam consectetur. Nulla luctus dapibus purus a ultrices. Duis sit amet sem vel justo auctor rutrum. Curabitur auctor ultricies convallis. Suspendisse cursus mi at magna faucibus, in malesuada metus placerat. Nam eu volutpat mauris.")
+@endif
 
 
-	<body class="enable-animation">
+@section('greeting')
+	Hello, {{$subscriber->full_name}}
+@stop
 
+@section('lead')
+	
+	Thank you for your nonmination of:
+@stop
 
-		<!-- wrapper -->
-		<div id="wrapper">
+@section('callout')
+	<h6>{{ $nominee->first_name}} {{ $nominee->last_name}}</h6> for 
+	<h6>{{ $nominee->award}}</h6>
+@stop
 
-			<!-- HEADER -->
-			<div id="header" class="">
+@section('footer')
+	Sincerely,<br/>
+	TXRA Awards Committee
+@stop
 
-				<!-- Logo 
-				<a href="/"><img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" /></a>
-  				-->
-  				<h1> <center>TEXAS RACQUETBALL ASSOCIATION</center></h1>
-  			
-			</div>
-			<!-- /HEADER -->
+@section('contact')
+	Email: {{$subscriber->email}}<br/>
+	Phone: {{$subscriber->phone}}<br/>
+	<br/>
+	@if ($subscriber->is_member == 1) 
+		<span class="text-success">I am a current TXRA member</span><br/>
+	@else
+		I am not yet a TXRA member<br/>
+	@endif
+@stop
 
-
-			<!-- -->
-			<section>
-				<div class="container text-center">
-					<center>
-						<h2 class="margin-bottom-20 size-30">
-							<center>Thank you for Nominating!</center>
-						</h2>
-
-						<div style="max-width:550px; margin:auto; margin-top:60px;">
-							
-							<img src="{{ asset('images/logos/txra_logo.png')}}" style="height:100px;display:inline;" alt="" />
-
-						</div>
-					</center>
-				</div>
-			</section>
-			<!-- / -->
-
-
-
-
-			<!-- -->
-			<section class="noborder-bottom">
-				<div class="container">
-			
-					<div style="max-width:550px; margin:auto;">
-
-
-					</div>
-
-				</div>
-			</section>
-			<!-- / -->
-
-
-
-
-
-			<!-- FOOTER -->
-			<footer id="footer" class="sticky">
-
-				<div class="copyright">
-					<div class="container">
-						
-						<span class="block" style="margin-top:20px">
-							<center>&copy; All Rights Reserved, TXRA</center>
-						</span>
-
-					</div>
-				</div>
-
-			</footer>
-			<!-- /FOOTER -->
-
-
-
-		</div>
-		<!-- /wrapper -->
-
-</html>

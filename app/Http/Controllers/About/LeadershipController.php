@@ -115,7 +115,7 @@ class LeadershipController extends Controller {
 		$captcha = \Input::get('g-recaptcha-response');
 		if(!$captcha){
           $message = 'Failed to send. Please check the reCaptacha box.';
-   			return  redirect()->back()
+   			return  Redirect::to(URL::previous() . "#join")
 				->with('alert-danger', $message)
 				->withErrors($validator)
 	            ->withInput(\Input::except('password'));
@@ -125,7 +125,7 @@ class LeadershipController extends Controller {
         $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
         if($response['success'] == false){
         	$message = 'Failed to send.' + $response;
-   			return  redirect()->back()
+   			return  Redirect::to(URL::previous() . "#join")
 				->with('alert-danger', $message)
 				->withErrors($validator)
 	            ->withInput(\Input::except('password'));

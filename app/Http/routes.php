@@ -238,6 +238,22 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	Route::get('/emails/contact/send', function () {
 	    return view('emails.contact.send');
 	});
+
+	Route::get('/emails/committees/send', function () {
+	    return view('emails.committees.sendvolunteer');
+	});
+
+	Route::get('/emails/committees/reply', function () {
+	    return view('emails.committees.replyvolunteer');
+	});
+
+	Route::get('/emails/awards/send', function () {
+	    return view('emails.awards.sendnomination');
+	});
+
+	Route::get('/emails/awards/reply', function () {
+	    return view('emails.awards.replynomination');
+	});
 });
 
 
