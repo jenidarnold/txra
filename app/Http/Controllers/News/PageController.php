@@ -134,7 +134,6 @@ class PageController extends BaseController {
 
             //$post->image       = '0_'. $_FILES["images"]["name"][0];            
 
-            $post->public      = 1;
             $post->save();
 
             $category_id = \Input::get('category');
@@ -152,7 +151,8 @@ class PageController extends BaseController {
                 ]
             );
 
-            // http://php.net/manual/en/features.file-upload.post-method.php
+            //todo get current # of images in folder
+            //$i=count-1;
             $i = 0;
             $limit = 12; //Limit to 12 files
             if (isset ($_FILES["images"])) {
@@ -162,7 +162,7 @@ class PageController extends BaseController {
                         // basename() may prevent filesystem traversal attacks;
                         // further validation/sanitation of the filename may be appropriate
                         
-                        //append display order numner
+                        //append display order numbner
                         $order = $i.'_';
                         $name = $order . basename($_FILES["images"]["name"][$key]);
 

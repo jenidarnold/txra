@@ -79,11 +79,18 @@
 											<div class="col-md-4">
 											{{ Form::select('category', $categories, $post->categories()->first()->id, ['class' => 'form-control pointer'] ) }}						
 											</div>
-											<div class="col-md-4">
-												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" placeholder="Images" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Upload Images" />
-												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
-											</div>	
+											<div class="col-md-6 col-sm-6">
+											  	{!! Form::label('Images') !!}
+											  	{!! Form::file('images[]',  
+    											  				[	
+    											  					'id'	=>	'file',
+    											  					'multiple' => 'multiple',
+    											  					'accept'	=>'image/*'
+    											  				]
+											  				) 
+										  		!!}
+												<small class="text-muted block">Max file size: 5Mb (pdf/jpg/png)</small>
+											</div>		
 
 										</div>
 									</div>

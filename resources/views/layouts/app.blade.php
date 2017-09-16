@@ -40,6 +40,8 @@
 		<link href="{{ asset('css/header-1.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('css/color_scheme/green.css') }}" rel="stylesheet" type="text/css" id="color_scheme" />
 
+		<!-- Adding reCAPTCHA to your site -->
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<style>
 		.content {

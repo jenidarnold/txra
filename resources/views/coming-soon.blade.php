@@ -40,6 +40,9 @@
 		<link href="{{ asset('css/header-1.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('css/color_scheme/green.css') }}" rel="stylesheet" type="text/css" id="color_scheme" />
 
+		<!-- Adding reCAPTCHA to your site -->
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		
 		<style>
 			.credit {
 				color: #fff;
@@ -51,6 +54,7 @@
 			}
 
 		</style>
+
 	</head>
 
 	<!--
@@ -233,11 +237,10 @@
 								</fieldset>
 
 								<div class="row">
-									<div class="col-md-12">
-										
+									<div class="col-md-12 text-center">
+										<div class="g-recaptcha" data-sitekey="6LfB4DAUAAAAAHwA_AmMxO4cdcVaJ9totprbuesE"></div>
 									</div>
 								</div>
-
 							</div>
 
 							<!-- Modal Footer -->

@@ -60,7 +60,8 @@ class ContactController extends Controller {
         	'from_first_name' => 'required',
         	'from_last_name' => 'required',
         	'subject' => 'required',
-        	'message' => 'required'
+        	'message' => 'required',
+        	'g-recaptcha-response' => 'required'
         );
 
         $input = \Input::all();
@@ -68,6 +69,25 @@ class ContactController extends Controller {
 
         if ($validator->fails()) {
           
+        	$message = 'Failed to send.';
+   			return  redirect()->back()
+				->with('alert-danger', $message)
+				->withErrors($validator)
+	            ->withInput(\Input::except('password'));
+				;    
+		}
+
+		$captcha = \Input::get('g-recaptcha-response');
+		if(!$captcha){
+          $message = 'Failed to send. Please check the captacha.';
+   			return  redirect()->back()
+				->with('alert-danger', $message)
+				->withErrors($validator)
+	            ->withInput(\Input::except('password'));
+        }
+
+        $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfB4DAUAAAAAHwA_AmMxO4cdcVaJ9totprbuesE&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+        if($response['success'] == false){
         	$message = 'Failed to send.';
    			return  redirect()->back()
 				->with('alert-danger', $message)
