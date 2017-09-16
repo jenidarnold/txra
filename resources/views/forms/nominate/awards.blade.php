@@ -220,14 +220,14 @@
 									<div class="col-sm-12">
 										<select class="form-control pointer alert-warning" name="award"  value="{{ Input::old('award') }}">
 											<option value="" class="text-danger">---Select Award---</option>
-											<option value="1">Ann Gibbons Memorial Sportsmanship</option>
+											<option value="Ann Gibbons Memorial Sportsmanship">Ann Gibbons Memorial Sportsmanship</option>
 											<option value="2">Male Athlete of the Year</option>
-											<option value="3">Female Athlete of the Year</option>
-											<option value="4">Junior Male Athlete of the Year – Under 13</option>
+											<option value="Male Athlete of the Year">Female Athlete of the Year</option>
+											<option value="Junior Male Athlete of the Year – Under 13">Junior Male Athlete of the Year – Under 13</option>
 											<option value="5">Junior Male Athlete of the Year – Age 13-18</option>
-											<option value="6">Junior Female Athlete of the Year – Under 13</option>
-											<option value="7">Junior Female Athlete of the Year – Age 13-18</option>
-											<option value="8">Outstanding Racquetball Contributor</option>
+											<option value="Junior Male Athlete of the Year – Age 13-18">Junior Female Athlete of the Year – Under 13</option>
+											<option value="Junior Female Athlete of the Year – Age 13-18">Junior Female Athlete of the Year – Age 13-18</option>
+											<option value="Outstanding Racquetball Contributor">Outstanding Racquetball Contributor</option>
 										</select>
 									</div>
 								</div>

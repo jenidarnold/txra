@@ -119,7 +119,6 @@ class NominationController extends Controller {
 
             $m->from(env('MAIL_FROM_EMAIL'), $subscriber->full_name );
             $m->to($txra->email, $txra->full_name)->subject($subject);
-            $m->bcc('julie.enid@gmail.com', 'TXRA Communications Committee');
 
         });
 
