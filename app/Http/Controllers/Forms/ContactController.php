@@ -86,9 +86,11 @@ class ContactController extends Controller {
 	            ->withInput(\Input::except('password'));
         }
 
-        $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfB4DAUAAAAAHwA_AmMxO4cdcVaJ9totprbuesE&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+
+        $secret = ENV("RECAPTCHA_SECRET");
+        $response=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
         if($response['success'] == false){
-        	$message = 'Failed to send.';
+        	$message = 'Failed to send.' + $response;
    			return  redirect()->back()
 				->with('alert-danger', $message)
 				->withErrors($validator)
