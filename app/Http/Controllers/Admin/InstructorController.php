@@ -23,16 +23,6 @@ class InstructorController extends Controller {
 	public function index()
 	{	
 
-		return view('admin.index');
-	}
-
-	/**
-	 *
-	 * @return Response
-	 */
-	public function instructors()
-	{	
-
         $instructors = Instructor::orderBy('last_name')
         	->orderBy('first_name')
         	->paginate(20);
@@ -44,7 +34,7 @@ class InstructorController extends Controller {
 	 * Create instructor
 	 * @return Response
 	 */
-	public function create_instructor($id)
+	public function create($id)
 	{	
 		return view('admin.instructors.create');
 	}
@@ -53,7 +43,7 @@ class InstructorController extends Controller {
 	 * Store Instructor
 	 * @return Response
 	 */
-	public function store_instructor(Request $request)
+	public function store(Request $request)
 	{	
        
 		//validate
@@ -102,7 +92,7 @@ class InstructorController extends Controller {
 	 * Edit instructor
 	 * @return Response
 	 */
-	public function edit_instructor($id)
+	public function edit($id)
 	{	
 
         $instructor = Instructor::find($id);
@@ -114,7 +104,7 @@ class InstructorController extends Controller {
 	 * Update instructor
 	 * @return Response
 	 */
-	public function update_instructor(Request $request, $id)
+	public function update(Request $request, $id)
 	{	
        
 		//validate
@@ -140,7 +130,6 @@ class InstructorController extends Controller {
 
 			$instructor->first_name = \Input::get('first_name');
 			$instructor->last_name = \Input::get('last_name');
-			$instructor->suffix = \Input::get('suffix');
 			$instructor->email = \Input::get('email');
 			$instructor->usar_id = \Input::get('usar_id');
 			$instructor->level = \Input::get('level');
@@ -170,7 +159,7 @@ class InstructorController extends Controller {
      *
      * @return Response
      */
-    public function delete_instructor($id)
+    public function delete($id)
     {
          $instructor = Instructor::find($id);
          $instructor->delete();

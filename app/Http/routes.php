@@ -86,11 +86,12 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::get('/invite/{id}', array('as' => 'invite.send', 'uses' => 'InviteController@send'));
 
 	/*instructors*/
-	Route::get('/instructors', array('as' => 'admin.instructors', 'uses' => 'InstructorController@instructors'));
-	Route::get('/instructors/{id}/create', array('as' => 'admin.instructors.create', 'uses' => 'InstructorController@create_instructor'));	
-	Route::get('/instructors/{id}/edit', array('as' => 'admin.instructors.edit', 'uses' => 'InstructorController@edit_instructor'));
-	Route::delete('/instructors/{id}/', array('as' => 'admin.instructors.delete', 'uses' => 'InstructorController@delete_instructors'));	
-	Route::post('/instructors/{id}/', array('as' => 'admin.instructors.update', 'uses' => 'InstructorController@update_instructor'));
+	Route::get('/instructors', 				array('as' => 'admin.instructors', 			'uses' => 'InstructorController@index'));
+	Route::get('/instructors/{id}/create', 	array('as' => 'admin.instructors.create', 	'uses' => 'InstructorController@create'));	
+	Route::post('/instructors/', 			array('as' => 'admin.instructors.store', 	'uses' => 'InstructorController@store'));
+	Route::get('/instructors/{id}/edit',	array('as' => 'admin.instructors.edit', 	'uses' => 'InstructorController@edit'));
+	Route::delete('/instructors/{id}/', 	array('as' => 'admin.instructors.delete', 	'uses' => 'InstructorController@delete'));	
+	Route::post('/instructors/{id}/', 		array('as' => 'admin.instructors.update', 	'uses' => 'InstructorController@update'));
 
 
 });	
