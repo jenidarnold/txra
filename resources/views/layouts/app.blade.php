@@ -13,6 +13,7 @@
 		<meta property="og:image:width" content="746"/>
 		<meta property="og:image:height" content="746"/>
 		<meta property="og:image:type" content="image/png" />
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<!-- mobile settings -->
 		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->

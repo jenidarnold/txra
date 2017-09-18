@@ -34,20 +34,20 @@
 			<?php $x = 0; ?>
 			@foreach($instructors as $i)
                  <?php $x++ ?>
-				@if($x % 4 == 0)
+				@if($x % 3 == 0)
 					<div class="row">
 				@endif
 					<!-- item -->
-					<div class="col-md-3" style="margin-bottom:20px">
+					<div class="col-md-4" style="margin-bottom:20px">
 
 						<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 							<div class="front">
 								<div class="box1 box-default">
 									<div class="box-icon-title">	
 									  	@if($i->logo == '')								
-											<img class="img-responsive" src="{{ asset('images/instructors/profile.png')}}" style="" alt="" />
+											<img class="img-responsiveX" src="{{ asset('images/instructors/profile.png')}}" style="height:200px" alt="" />
 										@else
-											<img class="img-responsive" src="{{ asset('images/instructors/'.$i->logo)}}" alt="" />
+											<img class="img-responsiveX" src="{{ asset('images/instructors/'.$i->logo)}}" style="height:200px" alt="" />
 										@endif
 										<h2>{{ $i->first_name}} {{$i->last_name }}</h2>			
 										<small>{{ $i->city }}, {{ $i->state }}</small>								
@@ -106,7 +106,7 @@
 						</div>
 					</div>
 					<!-- /item -->
-					@if($x % 4 == 0)
+					@if($x % 3 == 0)
 						</div>
 					@endif
 				@endforeach			

@@ -73,7 +73,9 @@ class PlayController extends Controller {
 	public function instructors(Request $request)
 	{
 
-		$instructors = Instructor::all();
+		$instructors = Instructor::orderBy('last_name')->get();
+			//->orderBy('first_name');
+
 		return view('play/instructors',compact('instructors'));
 	}
 
