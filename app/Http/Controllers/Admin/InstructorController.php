@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\instructor;
+use App\Instructor;
 
 class InstructorController extends Controller {
 
