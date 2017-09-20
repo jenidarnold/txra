@@ -25,10 +25,10 @@
 		<link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
 		<!-- Mobilie icons -->
-		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ assest('images/icons/txra-icon-57x57.png')}}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ assest('images/icons/txra-icon-72x72.png')}}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ assest('images/icons/txra-icon-114x114.png')}}">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ assest('images/icons/txra-icon-144x144.png')}}">
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('images/icons/txra-icon-57x57.png')}}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images/icons/txra-icon-72x72.png')}}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/icons/txra-icon-114x114.png')}}">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/icons/txra-icon-144x144.png')}}">
 
 		@yield('head')
 
