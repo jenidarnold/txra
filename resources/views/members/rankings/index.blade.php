@@ -85,7 +85,7 @@
 										<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="600" height="399" alt=""/>
 									@endif
 								@else
-									<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/members/'. $rank->featured->user_id .'/profile.png')}}" width="600" height="399" alt=""/>
+									<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/members/'. $rank->featured->user_id .'/'. $rank->featured->avatar )}}" width="600" height="399" alt=""/>
 								@endif
 							</figure>
 							<!-- /Random player -->
@@ -111,14 +111,15 @@
 													<img class="thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="60" height="60" alt=""/>
 												@endif
 											@else
-												<img class="img-thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/members/'. $r->user()->first()->id .'/profile.png')}}" width="60" height="60" alt=""/>
+												<img class="img-thumbnail pull-left" style="margin-right:5px" src="{{ asset('images/members/'. $r->user()->first()->id .'/'. $r->user()->first()->profile()->first()->avatar) }}" width="60" height="60" alt=""/>
+
 											@endif
 											<h3 class="size-13 nomargin noborder nopadding">
 
 												@if ($r->user()->count() == 0 )
 												<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $r->usar_id }}" target="usar_profile">
 												@else
-												<a href="{{ route('members.show',1)}}">
+												<a href="{{ route('members.show', $r->user()->first()->id)}}">
 												@endif	
 										     	<sup>#</sup>{{$r->rank}} <smaller>{{$r->usar()->first()->full_name}}</smaller>			</a>
 											</h3>

@@ -145,12 +145,18 @@ class RankingsController extends Controller {
 		
 
 		$user_id =  0;
+		$avatar ="images/avatar2.jpg";
+
 		if ($rand != null) {
 			$user = \App\User::where('usar_id' , '=',$rand->usar_id )->first();
 			if ($user != null){
 				$user_id = $user->id;
+
+				$profile = \App\UserProfile::find($user_id);
+				$avatar = $profile->avatar;
 			}			
 			$rank->featured->user_id = $user_id; 
+			$rank->featured->avatar = $avatar;
 		}
 
 		return $rank;

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddAvatarToUserProfilesTable' => $baseDir . '/database/migrations/2017_09_21_233505_add_avatar_to_user_profiles_table.php',
     'AddColorboxField' => $vendorDir . '/serverfireteam/blog/src/database/migrations/2015_03_07_113306_add_colorbox_field.php',
     'AddDeleteAtToPostTable' => $baseDir . '/database/migrations/2017_09_06_131051_add_delete_at_to_post_table.php',
     'AddDisableToUsersTable' => $baseDir . '/database/migrations/2017_09_08_195024_add_disable_to_users_table.php',
@@ -612,7 +613,6 @@ return array(
     'Serverfireteam\\blog\\panel\\BlogController' => $vendorDir . '/serverfireteam/blog/src/controllers/panel/BlogController.php',
     'Serverfireteam\\blog\\panel\\PageController' => $vendorDir . '/serverfireteam/blog/src/controllers/panel/PageController.php',
     'SubscribersTableSeeder' => $baseDir . '/database/seeds/SubscribersTableSeeder.php',
-    'SubscriptionsTableSeeder' => $baseDir . '/database/seeds/SubscriptionsTableSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'TournamentLocationsTableSeeder' => $baseDir . '/database/seeds/TournamentLocationsTableSeeder.php',

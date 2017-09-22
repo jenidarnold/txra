@@ -21,7 +21,7 @@ class UserProfile extends Model
     protected $fillable = [
         'user_id', 'gender', 'cell_phone', 'home_phone', 'address', 'zipcode', 'city', 'state',
         'racquet', 'skill', 'dominant_hand', 'bio', 
-        'facebook', 'twitter', 'linkedin', 'googleplus', 'instagram'
+        'facebook', 'twitter', 'linkedin', 'googleplus', 'instagram', 'avatar'
     ];
 
     public function user()

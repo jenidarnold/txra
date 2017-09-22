@@ -347,7 +347,11 @@ class MemberController extends Controller {
 
 		$targ_w = $targ_h = 200;
 		$jpeg_quality = 90;
-		$name = "profile.png";
+
+		$uid = uniqid();
+		$name = "profile_$uid.png";
+
+
 
         $i = 0;
         foreach ($_FILES["avatar"]["error"] as $key => $error) {
@@ -372,6 +376,20 @@ class MemberController extends Controller {
 
 				imagejpeg($dst_r, $output_filename, $jpeg_quality);
 
+				$user = User::find($id);
+				$profile_id = $user->profile->id;
+           		$profile = UserProfile::find($profile_id);
+
+           		//Old profile 
+           		$old_avatar = $profile->avatar;
+           		$profile->avatar = $name;
+           		$profile->save();
+
+           		//Delete old avatar
+           		if (file_exists("images/members/$id/$old_avatar")) {
+           			unlink("images/members/$id/$old_avatar");
+           		}
+
                 $i++;
             }else {
             	dd($error);
@@ -379,8 +397,9 @@ class MemberController extends Controller {
         }
 
         \Session::flash('message', 'Successfully updated avatar');
-
-		return  redirect()->back()->with('flash-message','message'); 
+		//return  redirect()->back()->with('flash-message','message'); 
+		//
+		return  url('/'.$output_filename);
 	}
 
 	/**
@@ -390,10 +409,31 @@ class MemberController extends Controller {
 	 */
 	public function delete_avatar($id)
 	{
-		//Overwrite current avatar with default
-        //if (file_exists("images/members/$id/profile.png")) {
-            copy("images/avatar2.jpg","images/members/$id/profile.png"  );
-		//}
+	
+		$user = User::find($id);
+		$profile_id = $user->profile->id;
+   		$profile = UserProfile::find($profile_id);
+
+   		//Old profile 
+   		$old_avatar = $profile->avatar;
+   		$profile->avatar = $name;
+   		$profile->save();
+
+   		//Delete old avatar
+   		if (file_exists("images/members/$id/$old_avatar")) {
+   			unlink("images/members/$id/$old_avatar");
+   		}
+
+		//Set Default Dummy profile image
+        copy("images/avatar2.jpg","images/members/$id/profile.png"  );
+
+        $uid = uniqid();
+        $avatar = "profile_$uid.png";
+        copy("images/avatar2.jpg","images/members/$user->id/$avatar"); 
+
+        $profile->avatar = $avatar;
+        $profile->save();
+	
 
         \Session::flash('message', 'Successfully deleted avatar');
 

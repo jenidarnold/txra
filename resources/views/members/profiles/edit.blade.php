@@ -486,9 +486,10 @@
 	    processData: false,
 	    async: false,
 	    success: function(data) {
-	      var src = $("#imgProfile").attr('src');
-	      $("#imgProfile").attr('src', src + '?' + new Date().getTime());
-	      $(".user-avatar").attr('src', src + '?' + new Date().getTime());
+	      var src = data;
+
+	      $("#imgProfile").attr('src', src);
+	      $(".user-avatar").attr('src', src);
 	      $("#btnDoneAvatar").removeClass("disabled");
 	    },
 	    error: function(data) {

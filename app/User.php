@@ -79,7 +79,13 @@ class User extends Model implements AuthenticatableContract,
           if (!file_exists("images/members/$user->id")) {
               mkdir("images/members/$user->id", 0777, true);
           }
-          copy("images/avatar2.jpg","images/members/$user->id/profile.png"); 
+
+          $uid = uniqid();
+          $avatar = "profile_$uid.png";
+          copy("images/avatar2.jpg","images/members/$user->id/$avatar"); 
+
+          $profile->avatar = $avatar;
+          $profile->save();
 
           return $user;
         }

@@ -31,30 +31,7 @@
 			
 			<!-- LEFT -->
 			<div class="col-lg-2 col-md-2 col-sm-3 well">				
-				{{-- <div class="text-center">
-						
-					@if((true)) 				<li><a href="/admin">Index</a></li>
-					<li><a href="{{route('admin.events')}}">Events</a></li>
-					<li><a href="{{route('admin.instructors')}}">Instructors</a></li>
-					<li><a href="{{route('admin.invites')}}">Invites</a></li>
-					<li><a href="{{route('admin.rankings')}}">Rankings</a></li>
-					<li><a href="{{route('admin.users')}}">Users</a></li>
-						<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  . '/profile.png')}}' alt="" />
-					@else
-						@if($profile->gender == 'female')
-							<i class="thumbnail ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
-						@else
-							<i class="thumbnail ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
-						@endif
-					@endif			<li><a href="/admin">Index</a></li>
-					<li><a href="{{route('admin.events')}}">Events</a></li>
-					<li><a href="{{route('admin.instructors')}}">Instructors</a></li>
-					<li><a href="{{route('admin.invites')}}">Invites</a></li>
-					<li><a href="{{route('admin.rankings')}}">Rankings</a></li>
-					<li><a href="{{route('admin.users')}}">Users</a></li>
-					</div>
-				--}}
-					
+			
 			<!-- SIDE NAV -->
 			<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">			
 				<li><a href="/admin">Index</a></li>

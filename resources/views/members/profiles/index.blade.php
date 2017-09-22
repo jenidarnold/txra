@@ -106,7 +106,7 @@
 								<span class="inner">
 									<!-- lightbox -->
 
-									<a class="ico-rounded lightbox" href="{{ asset('images/members/'.$m->id.'/profile.png')  }}" data-plugin-options='{"type":"image"}'>
+									<a class="ico-rounded lightbox" href="{{ asset('images/members/'.$m->id.'/'.$m->profile['avatar'] )  }}" data-plugin-options='{"type":"image"}'>
 										<span class="fa fa-plus size-20"></span>
 									</a>
 
@@ -125,7 +125,7 @@
 							</div>
 							<!-- /overlay title -->
 
-							<img class="img-responsive" src="{{ asset('images/members/'.$m->id.'/profile.png')}}" width="600" height="399" alt="">
+							<img class="img-responsive" src="{{ asset('images/members/'.$m->id.'/'.$m->profile['avatar'])}}" width="600" height="399" alt="">
 						</figure>
 					</div>
 
