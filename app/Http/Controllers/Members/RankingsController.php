@@ -182,6 +182,7 @@ class RankingsController extends Controller {
 	public function download($group_id, $location_id = 1)
 	{
 
+
 		//Move to Admin
 		//$location_id =  1; //"Texas"; //Location::find($location_id)->location;
 		$maxRank = 10;
@@ -190,8 +191,13 @@ class RankingsController extends Controller {
 			->where('location_id', '=', $location_id)
 			->max('id');
 
+		if(!isset($lastRank)){
+			$lastRank = 0;
+		}
+
 		$ss = new Scraper();
 		$rankings = $ss->get_rankings($group_id, $location_id, $maxRank );
+
 
 		$rankings = Rank::where('group_id', '=', $group_id)
 			->where('location_id', '=', $location_id)

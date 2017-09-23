@@ -42,11 +42,11 @@ class Scraper {
 				break;
 			case 5:
 				//Men's Mixed Doubles Texas
-				$sexCode = 'MX';
+				$sexCode = 'XM';
 				break;
 			case 6:
 				//Women's Mixed Doubles Texas
-				$sexCode = 'WX';
+				$sexCode = 'XF';
 				break;
 	 		default:
 	 			$sexCode = 'U';
