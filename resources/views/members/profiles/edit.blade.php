@@ -493,7 +493,6 @@
 	      $("#btnDoneAvatar").removeClass("disabled");
 	    },
 	    error: function(data) {
-	      alert("Unable to update profile picture");
 	      console.log(data.responseText);
 	    },
 	    complete: function(data) {}
