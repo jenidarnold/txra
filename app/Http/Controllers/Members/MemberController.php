@@ -113,7 +113,7 @@ class MemberController extends Controller {
 		}
 
 
-		$members = $members->paginate(12);
+		$members = $members->paginate(16);
 
 		$active = $this->get_active_filter('all');
 		//Search parameter

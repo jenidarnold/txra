@@ -70,9 +70,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -105,9 +105,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -138,9 +138,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -173,9 +173,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -208,9 +208,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -243,9 +243,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -278,9 +278,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -313,9 +313,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -353,18 +353,18 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
 
-							<img class="img-responsive" src="{{ asset('images/awards/2016/johnny_boyd.png')}}" width="600" height="399" alt="">
+							<img class="img-responsive" src="{{ asset('images/awards/2016/john_boyd.png')}}" width="600" height="399" alt="">
 						</figure>
 
 						<div class="item-box-desc">
-							<h3>Johnny_Boyd</h3>
+							<h3>Johnny Boyd</h3>
 							<ul class="list-inline categories nomargin">
 								<li><a href="#">2016 Outstanding Contributor</a></li>
 							</ul>
@@ -388,9 +388,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -421,9 +421,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -456,9 +456,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -491,9 +491,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -525,9 +525,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -560,9 +560,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -605,9 +605,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -640,9 +640,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -651,7 +651,7 @@
 						</figure>
 
 						<div class="item-box-desc">
-							<h3>Unknown</h3>
+							<h3>Ivan Sanchez</h3>
 							<ul class="list-inline categories nomargin">
 								<li><a href="#">2015 Ann Gibbons Sportsmanship</a></li>
 							</ul>
@@ -673,9 +673,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -684,7 +684,7 @@
 						</figure>
 
 						<div class="item-box-desc">
-							<h3>Patric M</h3>
+							<h3>Patric Mascorro</h3>
 							<ul class="list-inline categories nomargin">
 								<li><a href="#">2015 Male Athlete</a></li>
 							</ul>
@@ -708,9 +708,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -719,7 +719,7 @@
 						</figure>
 
 						<div class="item-box-desc">
-							<h3>Dragona B</h3>
+							<h3>Dragona Bulatović</h3>
 							<ul class="list-inline categories nomargin">
 								<li><a href="#">2015 Female Athlete</a></li>
 							</ul>
@@ -743,9 +743,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
@@ -778,9 +778,9 @@
 									</a>
 
 									<!-- details -->
-									<a class="ico-rounded" href="portfolio-single-slider.html">
+									{{-- <a class="ico-rounded" href="portfolio-single-slider.html">
 										<span class="glyphicon glyphicon-option-horizontal size-20"></span>
-									</a>
+									</a> --}}
 
 								</span>
 							</span>
