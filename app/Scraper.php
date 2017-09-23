@@ -107,6 +107,9 @@ class Scraper {
 										'location_id' => $location_id,
 									);
 									//Save to database
+									
+									//dd($rank);
+			
 									$this->create_ranking($rank);
 									array_push($player_rankings, $rank);
 									$i = $i + 1;

@@ -59,6 +59,13 @@ class RankingsController extends Controller {
 		$tmx->title = "TX Men's Mixed";
 		$twx->title = "TX Women's Mixed";
 
+		$nms->title = "National Men's Singles";
+		$nws->title = "National Women's Singles";
+		$nmd->title = "National Men's Doubles";
+		$nwd->title = "National Women's Doubles";
+		$nmx->title = "National Men's Mixed";
+		$nwx->title = "National Women's Mixed";
+
 		//Set Filters
 		$tms->filter = "TX singles men";
 		$tws->filter = "TX singles women";
@@ -66,12 +73,19 @@ class RankingsController extends Controller {
 		$twd->filter = "TX doubles women";
 		$tmx->filter = "TX mixed men";
 		$twx->filter = "TX mixed women";
+
+		$nms->filter = "national singles men";
+		$nws->filter = "national singles women";
+		$nmd->filter = "national doubles men";
+		$nwd->filter = "national doubles women";
+		$nmx->filter = "national mixed men";
+		$nwx->filter = "national mixed women";
 		
 		
 		//Set urls
 		$tms->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=M&stateID=1";		
 		$tmd->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=MD&stateID=1";
-		$tmx->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=MX&stateID=1";
+		$tmx->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=XM&stateID=1";
 
 		$tws->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=F&stateID=1";
 		$twd->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=WD&stateID=1";
@@ -83,7 +97,7 @@ class RankingsController extends Controller {
 
 		$nws->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=F&stateID=0";
 		$nwd->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=WD&stateID=0";
-		$nwx->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=WX&stateID=0";
+		$nwx->url ="http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&sex=XF&stateID=0";
 
 		//need to filter by top effective date
 		//need to push only if not empty
@@ -107,6 +121,24 @@ class RankingsController extends Controller {
 			array_push($ranks, $twx);	
 		}
 
+		if($nms->count() > 0){
+			array_push($ranks, $nms);
+		}
+		if($nws->count() > 0){		
+			array_push($ranks, $nws);	
+		}
+		if($nmd->count() > 0){
+			array_push($ranks, $nmd);
+		}
+		if($nwd->count() > 0){
+			array_push($ranks, $nwd);		
+		}
+		if($nmx->count() > 0){
+			array_push($ranks, $nmx);
+		}
+		if($nwx->count() > 0){
+			array_push($ranks, $nwx);	
+		}
 
 		return view('members/rankings/index', compact('ranks'));
 	}
@@ -179,13 +211,13 @@ class RankingsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function download($group_id, $location_id = 1)
+	public function download($group_id, $location_id)
 	{
 
 
 		//Move to Admin
 		//$location_id =  1; //"Texas"; //Location::find($location_id)->location;
-		$maxRank = 10;
+		$maxRank = 1;
 
 		$lastRank = Rank::where('group_id', '=', $group_id)
 			->where('location_id', '=', $location_id)

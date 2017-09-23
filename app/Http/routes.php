@@ -168,7 +168,7 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 
 	Route::get('rankings/', array('as' => 'members.rankings', 'uses' => 'RankingsController@index'));
 	Route::get('rankings/temp', array('as' => 'members.rankings.temp', 'uses' => 'RankingsController@temp'));
-	Route::get('download/rankings/{group_id}', array('as' => 'events.download.rankings', 'uses' => 'RankingsController@download'));
+	Route::get('download/rankings/{group_id}/{location_id}', array('as' => 'events.download.rankings', 'uses' => 'RankingsController@download'));
 
 });
 
