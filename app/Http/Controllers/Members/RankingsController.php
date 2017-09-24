@@ -186,11 +186,11 @@ class RankingsController extends Controller {
 
 				$profile = \App\UserProfile::find($user_id);
 
-				if(isset($profile )){
+				if($profile != null )){
 					$avatar = $profile->avatar;
 				}
 
-			$rank->featured->avatar = $avatar;
+				$rank->featured->avatar = $avatar;
 			}			
 			$rank->featured->user_id = $user_id; 
 		}
