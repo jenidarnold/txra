@@ -159,8 +159,8 @@
             </section>
             <!-- /LAYER SLIDER -->
 
-
-            <!-- CALLOUT -->
+            @if( Auth::guest())
+            <!-- GUEST CALLOUT -->
             <div class="alert alert-transparent bordered-bottom">
                 <div class="container">
                     <div class="row">
@@ -174,7 +174,25 @@
                     </div>
                 </div>
             </div>
-        <!-- /CALLOUT -->
+            <!-- /GUEST CALLOUT -->
+
+            @else
+            <!-- MEMBER CALLOUT -->
+            <div class="alert alert-transparent bordered-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12"><!-- left text -->
+                            <h3>{{ Auth::user()->first_name}}, thank you for supporting the Texas Racquetball Association. Is your USA Racquetball membership current?
+                            </h3>
+                        </div><!-- /left text -->
+                        <div class="col-md-3 col-sm-12 text-right"><!-- right btn -->
+                            <a href="{{ url('/members/membership')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">JOIN USA Racquetball</a>
+                        </div><!-- /right btn -->
+                    </div>
+                </div>
+            </div>
+            <!-- /MEMBER CALLOUT -->
+            @endif
 
         <!-- BLOG SLIDER-->
 

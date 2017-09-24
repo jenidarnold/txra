@@ -36,8 +36,19 @@ class AdminController extends Controller {
 
         $users = User::orderBy('last_name')
         	->orderBy('first_name')
-        	->paginate(20);
-		return view('admin.users.index', compact('users'));
+        	->paginate(40);
+
+
+        $date_since = \Carbon\Carbon::today()->subDays(7);
+
+        $stats = collect();
+
+        $stats->total = User::count();
+        $stats->new = User::where('created_at', '>=', $date_since)->count();
+        $stats->not_linked = User::where('usar_id', '=', 0)->count();
+
+
+		return view('admin.users.index', compact('users', 'stats'));
 	}
 
 	/**
@@ -255,15 +266,6 @@ class AdminController extends Controller {
 			return  redirect()->route('admin.invites')
 				->with('flash-message','message');  
 		}
-	}
-
-	/**
-	 *
-	 * @return Response
-	 */
-	public function events()
-	{	
-		return view('admin.events.index');
 	}
 
 	/**

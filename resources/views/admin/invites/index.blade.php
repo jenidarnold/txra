@@ -20,7 +20,7 @@
 		    </div>
      		<div class="row">
 		        <div class="col-sm-12">
-		        	<table class="table table-stripedX table-condensed">
+		        	<table class="table table-condensed">
 		        		<tr>
 		        			<th></th>
 		        			<th>Last</th>

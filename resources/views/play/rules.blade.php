@@ -95,12 +95,12 @@
 		</tr>	
 		<tr>
 	  		<td width="200px" class="hidden-xs">						
-				<a href="http://www.teamusa.org/usa-racquetball/rules" target="usar">
-					<img class="img-responsive1 img-thumbnail"  width="200px" src="{{ asset('images/awards/2016/johnny_boyd.png') }}">
+				<a href="#">
+					<img class="img-responsive1 img-thumbnail"  width="200px" src="{{ asset('images/awards/2016/john_boyd.png') }}">
 				</a>
 			</td>
 			<td>
-				<h4><a href="http://www.teamusa.org/usa-racquetball/how-to-play/rules/ask-otto" target="usar">
+				<h4><a href="#" data-toggle="modal" data-target="#contactModal">
 					Ask Johnny, National Certified Referee</a></h4>				
 				<p class="list-group-item-text"> 
 					<i class="fa fa-info-circle"></i> Texan, Johnny Boyd, has been a National Certified Referee for many years.

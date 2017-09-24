@@ -61,29 +61,45 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 {
 	Route::get('/', array('as' => 'admin.index', 'uses' => 'AdminController@index'));
 
-	Route::get('/users', array('as' => 'admin.users', 'uses' => 'AdminController@users'));
-	Route::get('/users/{id}/edit', array('as' => 'admin.users.edit', 'uses' => 'AdminController@edit_user'));
-	Route::delete('/users/{id}/', array('as' => 'admin.users.delete', 'uses' => 'AdminController@delete_user'));	
-	Route::post('/users/{id}/', array('as' => 'admin.users.update', 'uses' => 'AdminController@update_user'));
+	/* users */
+	Route::get('/users', 					array('as' => 'admin.users', 			'uses' => 'AdminController@users'));
+	Route::get('/users/{id}/edit', 			array('as' => 'admin.users.edit', 		'uses' => 'AdminController@edit_user'));
+	Route::delete('/users/{id}/', 			array('as' => 'admin.users.delete', 	'uses' => 'AdminController@delete_user'));	
+	Route::post('/users/{id}/', 			array('as' => 'admin.users.update', 	'uses' => 'AdminController@update_user'));
+	Route::post('/users/import', 			array('as' => 'import.users', 			'uses' => 'ImportController@import_users'));	
 
-	Route::get('/invites', array('as' => 'admin.invites', 'uses' => 'AdminController@invites'));
-	Route::get('/invites/{id}/create', array('as' => 'admin.invites.create', 'uses' => 'AdminController@create_invite'));
-	Route::post('/invites/', array('as' => 'admin.invites.store', 'uses' => 'AdminController@store_invite'));
-	Route::get('/invites/{id}/edit', array('as' => 'admin.invites.edit', 'uses' => 'AdminController@edit_invite'));
-	Route::delete('/invites/{id}/', array('as' => 'admin.invites.delete', 'uses' => 'AdminController@delete_invite'));	
-	Route::post('/invites/import', array('as' => 'import.invites', 'uses' => 'ImportController@import_invites'));
-	Route::post('/invites/{id}/edit', array('as' => 'admin.invites.update', 'uses' => 'AdminController@update_invite'));
+	/* invites */
+	Route::get('/invites', 					array('as' => 'admin.invites', 			'uses' => 'AdminController@invites'));
+	Route::get('/invites/{id}/create', 		array('as' => 'admin.invites.create', 	'uses' => 'AdminController@create_invite'));
+	Route::post('/invites/', 				array('as' => 'admin.invites.store', 	'uses' => 'AdminController@store_invite'));
+	Route::get('/invites/{id}/edit', 		array('as' => 'admin.invites.edit', 	'uses' => 'AdminController@edit_invite'));
+	Route::delete('/invites/{id}/', 		array('as' => 'admin.invites.delete', 	'uses' => 'AdminController@delete_invite'));	
+	Route::post('/invites/import', 			array('as' => 'import.invites', 		'uses' => 'ImportController@import_invites'));
+	Route::post('/invites/{id}/edit', 		array('as' => 'admin.invites.update', 	'uses' => 'AdminController@update_invite'));
+
+	Route::get('/invites/invite', 			array('as' => 'invite', 				'uses' => 'InviteController@invite'));
+	Route::post('/invite', 					array('as' => 'invite.process', 		'uses' => 'InviteController@process'));
+	Route::get('/invite/{id}', 				array('as' => 'invite.send', 			'uses' => 'InviteController@send'));
+
+	/*events/tournaments*/
+	Route::get('/events',					array('as' => 'admin.events', 			'uses' => 'EventController@index'));
+	Route::get('/events/{id}/create', 		array('as' => 'admin.events.create', 	'uses' => 'EventController@create'));	
+	Route::post('/events/', 				array('as' => 'admin.events.store', 	'uses' => 'EventController@store'));
+	Route::get('/events/{id}/edit',			array('as' => 'admin.events.edit', 		'uses' => 'EventController@edit'));
+	Route::delete('/events/{id}/', 			array('as' => 'admin.events.delete', 	'uses' => 'EventController@delete'));	
+	Route::post('/events/{id}/', 			array('as' => 'admin.events.update', 	'uses' => 'EventController@update'));
+
+	/*clubs*/
+	Route::get('/clubs',					array('as' => 'admin.clubs', 			'uses' => 'ClubController@index'));
+	Route::get('/clubs/{id}/create', 		array('as' => 'admin.clubs.create', 	'uses' => 'ClubController@create'));	
+	Route::post('/clubs/', 					array('as' => 'admin.clubs.store', 	'uses' => 'ClubController@store'));
+	Route::get('/clubs/{id}/edit',			array('as' => 'admin.clubs.edit', 		'uses' => 'ClubController@edit'));
+	Route::delete('/clubs/{id}/', 			array('as' => 'admin.clubs.delete', 	'uses' => 'ClubController@delete'));	
+	Route::post('/clubs/{id}/', 			array('as' => 'admin.clubs.update', 	'uses' => 'ClubController@update'));
 
 
-	Route::get('/events', array('as' => 'admin.events', 'uses' => 'AdminController@events'));
-
-	Route::get('/rankings', array('as' => 'admin.rankings', 'uses' => 'AdminController@rankings'));
-
-	Route::post('/users/import', array('as' => 'import.users', 'uses' => 'ImportController@import_users'));	
-
-	Route::get('/invites/invite', array('as' => 'invite', 'uses' => 'InviteController@invite'));
-	Route::post('/invite', array('as' => 'invite.process', 'uses' => 'InviteController@process'));
-	Route::get('/invite/{id}', array('as' => 'invite.send', 'uses' => 'InviteController@send'));
+	/*rankings*/
+	Route::get('/rankings', 				array('as' => 'admin.rankings', 			'uses' => 'AdminController@rankings'));
 
 	/*instructors*/
 	Route::get('/instructors', 				array('as' => 'admin.instructors', 			'uses' => 'InstructorController@index'));
@@ -95,8 +111,8 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 
 
 });	
-Route::get('accept/{token}', 'Admin\InviteController@accept')->name('invite.accept');
 
+Route::get('accept/{token}', 'Admin\InviteController@accept')->name('invite.accept');
 
 Route::controller('/admin', 'News\panel\BlogController');
 

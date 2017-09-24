@@ -8,7 +8,7 @@
 		<div class="row">
 	        <div class="col-md-8">
 	          <div class="row">
-	          	<h3>Editing {{$user->full_name}}</h3>	         
+	          	<h3 class="text-info" >Editing {{$user->full_name}}</h3>	         
 		          <div class="flash-message">
 					    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
 					      @if(Session::has('alert-' . $msg))
@@ -63,10 +63,16 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-2">
 							<button type="submit" class="btn btn-success">Save</button>
+						</div>	
+						<div class="col-sm-2">
 							<a class="btn btn-warning" href="{{route('admin.users')}}">Cancel</a>
+						</div>	
+						<div class="col-sm-2">
 							<button type="button" class="btn btn-info">Disable</button>
+						</div>	
+						<div class="col-sm-2">
 						  	<a href="{{ route('admin.users.delete', array('id' => $user->id)) }}" 
 						  		data-method="delete" data-token="{{csrf_token()}}" data-confirm="Are you sure?"	class="btn btn-danger">
 		                        Delete
