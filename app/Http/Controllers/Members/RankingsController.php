@@ -186,7 +186,7 @@ class RankingsController extends Controller {
 
 				$profile = \App\UserProfile::find($user_id);
 
-				if($profile != null )){
+				if($profile != null ){
 					$avatar = $profile->avatar;
 				}
 
