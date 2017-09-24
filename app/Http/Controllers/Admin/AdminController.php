@@ -132,7 +132,8 @@ class AdminController extends Controller {
 	{	
 
         $invites = Invite::orderBy('last_name')
-        	->orderBy('first_name')
+        	->orderBy('created_at', 'desc')
+        	->orderBy('sent_at', 'desc')
         	->paginate(20);
 
 
