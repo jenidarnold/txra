@@ -152,7 +152,7 @@ class ClubController extends Controller {
      */
     public function delete($id)
     {
-         $club = Tournament::find($id);
+         $club = Clubs::find($id);
          $club->delete();
 
          // redirect
