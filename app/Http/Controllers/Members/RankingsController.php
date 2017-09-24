@@ -180,12 +180,15 @@ class RankingsController extends Controller {
 		$avatar = 0;
 
 		if ($rand != null) {
+
 			$user = \App\User::where('usar_id' , '=',$rand->usar_id )->first();
 			if ($user != null){
 				$user_id = $user->id;
 
-				$profile = \App\UserProfile::find($user_id);
+				//$profile = \App\UserProfile::find($user_id);
 
+				$profile = \App\UserProfile::where('user_id', '=', $user_id)->first();;
+				
 				if($profile != null ){
 					$avatar = $profile->avatar;
 				}
