@@ -34,8 +34,7 @@ class AdminController extends Controller {
 	public function users()
 	{	
 
-        $users = User::orderBy('last_name')
-        	->orderBy('first_name')
+        $users = User::orderBy('id','desc')
         	->paginate(40);
 
 
@@ -133,7 +132,7 @@ class AdminController extends Controller {
 
         $invites = Invite::orderBy('created_at', 'desc')
         	->orderBy('sent_at', 'desc')
-        	->paginate(20);
+        	->paginate(40);
 
 
         $stats = collect();
