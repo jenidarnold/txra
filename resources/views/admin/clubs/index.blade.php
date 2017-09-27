@@ -33,7 +33,7 @@
 		        		<tr>
 		        		@endif
 		        			<td>		        				
-		        				{{-- <a href="{{route('admin.clubs.create', $club->id)}}" class="btn btn-xs btn-warning">Add</a> --}}
+		        				<a href="{{route('admin.clubs.create', $club->id)}}" class="btn btn-xs btn-warning">Add</a>
 		        				<a href="{{route('admin.clubs.edit', $club->id)}}" class="btn btn-xs btn-info">Edit</a>
 		        			</td>
 		        			<td>{{$club->id}}</td>

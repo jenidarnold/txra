@@ -40,7 +40,7 @@
 					<li data-filter="women" class="filter"><a href="#">Women</a></li>
 				</ul>
 			</div>
-			<div id="portfolio" class="portfolio-gutter ">				
+			<div id="portfolio" classX="portfolio-gutter " class="clearfix portfolio-isotope portfolio-isotope-4">				
 				<div class="row mix-grid">
 
 					@foreach($ranks as $rank)
@@ -80,12 +80,12 @@
 						
 								@if ($rank->featured->user_id == 0)
 									@if($rank->featured->avatar!=0)
-										<img class="img-responsive" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}" width="600" height="399" alt="">
+										<img class="img-responsiveX" src="{{'http://www.r2sports.com/tourney/imageGallery/gallery/player/'.$rank->featured->avatar}}"  height="250" alt="">
 									@else
-										<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" width="600" height="399" alt=""/>
+										<img class="img-responsiveX" style="margin-right:5px" src="{{ asset('images/avatar2.jpg')}}" height="250" alt=""/>
 									@endif
 								@else
-									<img class="img-responsive" style="margin-right:5px" src="{{ asset('images/members/'. $rank->featured->user_id .'/'. $rank->featured->avatar )}}" width="600" height="399" alt=""/>
+									<img class="img-responsiveX" style="margin-right:5px" src="{{ asset('images/members/'. $rank->featured->user_id .'/'. $rank->featured->avatar )}}" height="250" alt=""/>
 								@endif
 							</figure>
 							<!-- /Random player -->
