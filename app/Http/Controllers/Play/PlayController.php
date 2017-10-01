@@ -99,7 +99,7 @@ class PlayController extends Controller {
 
 		$i = 1;
 		foreach($clubs as $club) {
-			$club->ico = "../images/mapicons/number_".$i.".png";
+			$club->ico = $this->get_map_icon($club->map_icon, $i);
 			$club->info = "<div class='clubInfo'>"
 			        ."<h6>".$club->name . "</h6>"
                     ."<address>"
@@ -113,6 +113,37 @@ class PlayController extends Controller {
 		}	
 
 		return view('play/map', compact('clubs'));
+	}
+
+	private function get_map_icon($type, $i) {
+
+
+
+		switch ($type) {
+			case 'club':
+				$icon = "../images/mapicons/numbers/number_".$i.".png";
+				break;			
+			case 'support':
+				$icon = "../images/mapicons/sports/racquet.png";
+				break;
+			case 'military':
+				$icon = "../images/mapicons/letters/letter_m.png";
+				break;
+			case 'college':
+				$icon = "../images/mapicons/letters/letter_c.png";
+				break;
+			case 'ymca':
+				$icon = "../images/mapicons/letters/letter_y.png";
+				break;
+			case 'rec':
+				$icon = "../images/mapicons/letters/letter_r.png";
+				break;
+			default:
+				$icon = "../images/mapicons/numbers/number_".$i.".png";
+				break;
+		}
+
+		return $icon;
 	}
 
 }

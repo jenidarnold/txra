@@ -75,6 +75,7 @@ class ClubController extends Controller {
 	        $club->courts = $request->get('courts');
 	        $club->info = $request->get('info');
 	        $club->url = $request->get('url');
+	        $club->map_icon = $request->get('map_icon');
 			$club->save();
 
 		   // redirect
@@ -134,6 +135,7 @@ class ClubController extends Controller {
 	        $club->courts = $request->get('courts');
 	        $club->info = $request->get('info');
 	        $club->url = $request->get('url');
+	        $club->map_icon = $request->get('map_icon');
 
 			$club->save();
 

@@ -5,11 +5,33 @@
         	height: 600px;
         	width: 100%;
        	}       	
+       	#legend {
+		    font-family: Arial, sans-serif;
+		    background: #fff;
+		    padding: 10px;
+		    margin: 10px;
+		    border: 2px solid #000;
+	  	}
+		#legend .icon {
+		  	width: 22px;
+		}
+		
+		.club_detail {
+		  	height: 120px;
+		}
+		
+		#search {
+			background-color: #fff;
+			margin-left: 10px;
+			top:10px;
+			left:110px;
+			font-weight: 500;
+		}
     </style>
 @stop
 @section('content')		
 
-	<section class="page-header page-header-xs">
+	<section class="page-header page-header-xs hidden-xs">
 		<div class="container">
 
 			<h1>TEXAS CLUBS & FACILITIES</h1>
@@ -18,7 +40,7 @@
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
 				<li class="active">Clubs</li>
-				<li><a href="{{ route('play.leagues.index')}}">Leagues</a></li>
+				{{-- <li><a href="{{ route('play.leagues.index')}}">Leagues</a></li> --}}
 				<li><a href="{{ route('events.index', array('type' =>'future'))}}">Tournaments</a></li>
 
 			</ol><!-- /breadcrumbs -->
@@ -31,36 +53,88 @@
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
 		<div class="container">
-			<div class="row">
+			{{-- <div class="row">
 				<div class="col-md-12 margin-bottom-20">
 					This map consists of Racquetball Clubs and Facilities in Texas that sanction and support events with <b>USA Racquetball</b> and the <b>Texas Racquetball Association</b>. <br/>Please use this map as a guide to find and play at clubs that support racquetball in Texas. 
 					<cite class="text small">[Verified by Bob Sullins, 2017]
 				</div>
 			</div>
+ --}}
+
 
 			<div class="row">
-				<div class="col-md-8 col-sm-12 clearfix margin-bottom-60">
+				<div class="col-sm-12 clearfix margin-bottom-30">
 					<div id="map" class="thumbnail"></div>
-				</div>
-				<div id="legend" class="col-md-4 col-sm-12" style="height:600px; overflow:auto">
-					<h4 class="text-center">Legend</h4>
-					<ul style="list-style: none;">					
-					@foreach($clubs as $club)
-						<li>
-							<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
-								<img style="height:28px" src={{asset($club->ico)}} />	{{  $club->name }}
-							</a>
-							<address style="padding-left:28px">
-								{{ $club->address }}, {{ $club->city }}  {{ $club->zip}} <br/>
-								<i class="fa fa-phone"></i> {{ $club->phone }} <a href="{{ $club->url}}" target="new"><i class="fa fa-globe"></i> Website</a> 
-							</address>
-						</li>
-					@endforeach
-					</ul>
-				</div>
+					<div id="search" class="searchbox">
+					
+						<button class="btn" data-toggle="modal" data-target="#modClubs">
+							<i class="fa fa-bars"></i> <span class="small">List Clubs</span>
+						</button>
+						
+					</div>
+					{{-- <div id="legend"><h4>Legend</h4></div> --}}
+				</div>				
 			</div>
 		</div>
 	</section>
+	 <!-- Modal -->
+	<div class="modal fade" id="modClubs" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          	<h4 class="modal-title">Club Directory</h4>
+	        </div>
+	        <div class="modal-body">
+				<div class="navbar-collapse nav-filter-collapse">
+						<ul class="nav nav-pills mix-filter margin-bottom-10">
+							<li data-filter="all" class="filter active"><a href="#">All</a></li>
+							<li data-filter="support" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/sports/racquet.png')}}"/> Supports USAR</a></li>
+							<li data-filter="college" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_c.png')}}"/> College</a></li>
+							<li data-filter="club" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/numbers/number_1.png')}}"/> Club</a></li>
+							<li data-filter="military" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_m.png')}}"/> Military</a></li>
+							<li data-filter="rec" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_r.png')}}"/> Rec Center</a></li>
+							<li data-filter="ymca" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_y.png')}}"/> YMCA</a></li>
+						</ul>
+				
+						<div id="portfolio" class="clearfix fullwidth portfolio-gutter">
+						<div class="mix-grid">	
+							@foreach($clubs as $club)
+								<div class="portfolio-item col-sm-6 club_detail mix {{$club->map_icon}}">
+									<div class="item-box">
+										<div style="float:left; padding-right:2px">
+											<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} ); map.setZoom(17); map.panTo({{ $club->lat }}, {{ $club->lng }} ); return false;" > 
+												<img style="height:28px" src={{asset($club->ico)}} />	
+											</a>
+										</div>
+										<div>
+											<a href="#"  data-dismiss="modal" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
+												{{  $club->name }}
+											</a>
+											<address style="padding-left:28px">
+												{{ $club->address }} <br/>
+												{{ $club->city }}  {{ $club->zip}} <br/>
+												<i class="fa fa-phone"></i> {{ $club->phone }} <br/>
+												@if($club->url <> '')
+													<a href="{{ $club->url}}" target="new" class="text-info" ><i class="fa fa-globe"></i> 
+													{{ substr( explode("//", $club->url)[1], 0, 31) }}
+													@if(strlen($club->url) > 31)
+													...
+													@endif
+													</a>
+												@endif
+											</address>
+										</div>
+									</div>
+								</div>
+							@endforeach
+						</div>
+						</div>
+					</div>				 						
+				</div>
+			</div>
+		</div>
+	</div>
 
 @stop
 
@@ -77,9 +151,7 @@
           		zoom: 6,
           		center: mav
 	    	});       
-        
-	      			             
-	        // TODO: Get from Datatabase
+        	      			             
 			var clubs = {!! json_encode($clubs->toArray()) !!};
 
 			// Create markers.
@@ -96,12 +168,62 @@
 	     	       map: map,
 	     	       icon: ico,
 	     	       title: club.name
-	     	    });
+	     	    });	   
+
 	     	    google.maps.event.addListener(marker, 'click', function() {
       				infowindow.open(map,marker);
     			});
+
 	     	});
 
+
+	    	// Create Legend	
+	    	
+	    	var iconBase = '../images/mapicons/';
+	        var icons = {
+	          support: {
+	            name: 'Supports USAR',
+	            icon: iconBase + 'sports/racquet.png'
+	          },
+	          club: {
+	            name: 'Club',
+	            icon: iconBase + 'numbers/number_1.png'
+	          },
+	          college: {
+	            name: 'College',
+	            icon: iconBase + 'letters/letter_c.png'
+	          },
+	          military: {
+	            name: 'Military',
+	            icon: iconBase + 'letters/letter_m.png'
+	          },
+	          rec: {
+	            name: 'Rec Center',
+	            icon: iconBase + 'letters/letter_r.png'
+	          },
+	          ymca: {
+	            name: 'YMCA',
+	            icon: iconBase + 'letters/letter_y.png'
+	          }
+	        };
+
+	  	  //   var legend = document.getElementById('legend');			
+
+	     //    for (var key in icons) {
+	     //      var type = icons[key];
+	     //      var name = type.name;
+	     //      var icon = type.icon;
+	     //      var div = document.createElement('div');
+	     //      div.innerHTML = '<img class="icon" src="' + icon + '"> ' + name;
+	     //      legend.appendChild(div);
+	     //      console.log(icon);
+	     //    }
+
+    		// map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+
+
+	  	    var search = document.getElementById('search');	
+    		map.controls[google.maps.ControlPosition.LEFT_TOP].push(search);
 	     	
 	    }
 

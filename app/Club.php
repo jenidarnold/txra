@@ -14,7 +14,7 @@ class Club extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'city', 'state', 'zip', 'phone', 'lat', 'lng', 'type', 'courts', 'info', 'url'
+        'name', 'city', 'state', 'zip', 'phone', 'lat', 'lng', 'type', 'courts', 'info', 'url', 'map_icon'
     ];
 
     public function locations()

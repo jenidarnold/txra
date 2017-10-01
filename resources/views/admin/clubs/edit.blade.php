@@ -85,6 +85,19 @@
 							<label class="control-label">Url</label>
 							<input type="text" name="url" value="{{$club->url}}" class="form-control">
 						</div>
+						<div class="form-group">
+							<label class="control-label">Map Icon</label>
+							{{ Form::select('map_icon', 
+								['support' => 'Supports TXRA', 
+								 'military' => 'Military', 
+								 'rec' => 'Rec Center', 
+								 'ymca' =>'YMCA',
+								 'club' => 'Club', 
+								 'college' => 'College/Univ'], 
+								$club->map_icon, 
+								['class' => '']) 
+							}}
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-2">
