@@ -65,8 +65,7 @@
 			<div class="row">
 				<div class="col-sm-12 clearfix margin-bottom-30">
 					<div id="map" class="thumbnail"></div>
-					<div id="search" class="searchbox">
-					
+					<div id="search" class="searchbox">					
 						<button class="btn" data-toggle="modal" data-target="#modClubs">
 							<i class="fa fa-bars"></i> <span class="small">List Clubs</span>
 						</button>
@@ -77,24 +76,42 @@
 			</div>
 		</div>
 	</section>
-	 <!-- Modal -->
+	<div class="modal fade" id="modAddClub" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		          	<h3 class="modal-title text-center">Add a Racquetball Club</h3>
+	      	    </div>
+		        <div class="modal-body">
+
+
+		        </div>
+	        </div>
+        </div>
+    </div>
+	 <!-- Modal List Clubs-->
 	<div class="modal fade" id="modClubs" role="dialog">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	          	<h4 class="modal-title">Club Directory</h4>
-	        </div>
-	        <div class="modal-body">
+	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		          	<h3 class="modal-title text-center">Racquetball Club Directory</h3>
+		          	<h5 class="text-primary text-center">
+		          		Help us complete our map of clubs. 
+		          		<a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="text-success"> Add a Club</a>
+	          		</h5>
+          		</div>
+	        	<div class="modal-body">
 				<div class="navbar-collapse nav-filter-collapse">
 						<ul class="nav nav-pills mix-filter margin-bottom-10">
-							<li data-filter="all" class="filter active"><a href="#"><img src="{{ asset('/images/mapicons/numbers/number_100.png')}}"/> All</a></li>
-							<li data-filter="support" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/sports/racquet.png')}}"/> Supports USAR</a></li>
-							<li data-filter="college" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_c.png')}}"/> College</a></li>
-							<li data-filter="club" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/numbers/number_1.png')}}"/> Club</a></li>
-							<li data-filter="military" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_m.png')}}"/> Military</a></li>
-							<li data-filter="rec" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_r.png')}}"/> Rec Center</a></li>
-							<li data-filter="ymca" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_y.png')}}"/> YMCA</a></li>
+							<li data-filter="all" class="filter active"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('all') }}"/> All</a></li>
+							<li data-filter="support" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('support') }}"/> Supports USAR</a></li>
+							<li data-filter="college" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('college')  }}"/> College</a></li>
+							<li data-filter="club" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('club')  }}"/> Club</a></li>
+							<li data-filter="military" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('military') }}"/> Military</a></li>
+							<li data-filter="rec" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('rec') }}"/> Rec Center</a></li>
+							<li data-filter="ymca" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('ymca') }}"/> YMCA</a></li>
 						</ul>
 						<hr/>
 						<div id="portfolio" class="clearfix fullwidth portfolio-gutter">
@@ -131,6 +148,7 @@
 						</div>
 						</div>
 					</div>				 						
+				</div>
 				</div>
 			</div>
 		</div>

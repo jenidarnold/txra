@@ -16,6 +16,7 @@
 		        		<tr>
 		        			<th></th>
 		        			<th>ID</th>
+		        			<th>Icon</th>
 		        			<th>Name</th>
 		        			<th>Address</th>		        					        			
 		        			<th>Phone</th>
@@ -37,6 +38,7 @@
 		        				<a href="{{route('admin.clubs.edit', $club->id)}}" class="btn btn-xs btn-info">Edit</a>
 		        			</td>
 		        			<td>{{$club->id}}</td>
+		        			<td><img src="{{$club->get_map_icon(1)}}"/></td>
 		        			<td>{{$club->name}}</td>
 		        			<td>{{$club->address}}<br/>
 		        				{{$club->city}},	

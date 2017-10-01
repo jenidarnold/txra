@@ -23,4 +23,59 @@ class Club extends Model
     }
   
 
+    public function get_map_icon($i = 1) {
+
+        $path = $this->get_map_icon_path($this->map_icon);
+        $icon = "number_".$i.".png";
+      
+        return "$path/$icon";
+    }
+
+    static function get_map_icon_path($type) {
+        switch ($type) {
+            case 'club':
+                $path = "../images/mapicons/mapiconscollection-numbers-6b0e5a-iphone";
+                break;          
+            case 'support':
+                $path = "../images/mapicons/mapiconscollection-numbers-c90a0a-iphone";
+                break;
+            case 'military':
+                $path = "../images/mapicons/mapiconscollection-numbers-141717-iphone";
+                break;
+            case 'college':
+                $path = "../images/mapicons/mapiconscollection-numbers-088f99-iphone";
+                break;
+            case 'ymca':
+                $path = "../images/mapicons/mapiconscollection-numbers-223ce6-iphone";
+                break;
+            case 'rec':
+                $path = "../images/mapicons/mapiconscollection-numbers-107a53-iphone";
+                break;
+            default:
+                $path = "../images/mapicons/mapiconscollection-numbers-107a53-iphone";
+                break;
+        }
+        return $path;
+    }
+
+    static function get_map_icon_count($type = null){
+
+        if($type == 'all'){
+            $count = Club::all()->count();
+        }else{
+
+            $count = Club::where('map_icon', '=', $type)
+                ->where('lat' ,'<>', 0)
+                ->count();
+        }
+
+        return $count;
+    }
+
+    static function get_map_icon_legend($type) {
+
+        $legend = Club::get_map_icon_path($type) . "/number_" . Club::get_map_icon_count($type) . ".png";
+
+        return $legend;
+    }
 }

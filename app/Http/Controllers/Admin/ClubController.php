@@ -13,7 +13,7 @@ class ClubController extends Controller {
 	public function __construct()
 	{
 	   $this->middleware('auth');
-       $this->middleware('admin_user');
+       $this->middleware('admin_user', ['except' => ['store']]);
 	}
 
 	/**
@@ -33,7 +33,7 @@ class ClubController extends Controller {
 	 * Create club
 	 * @return Response
 	 */
-	public function create($id)
+	public function create()
 	{	
 		return view('admin.clubs.create');
 	}
@@ -54,7 +54,7 @@ class ClubController extends Controller {
 
         if ($validator->fails()) {
 
-        	$message = 'Failed to update club.';
+        	$message = 'Failed to create club.';
             return redirect()->back()
 				->with('alert-danger', $message)
                 ->withErrors($validator)

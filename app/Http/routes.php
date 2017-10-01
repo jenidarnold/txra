@@ -30,7 +30,7 @@ Route::get('/welcome', 'WelcomeController@index' );
 	Route::get('/news/drafts', array('as' => 'news.drafts', 'uses' => 'News\BlogController@getDrafts'));
 	Route::get('/news/post/{id}/{title}', array('as' => 'news.show', 'uses' => 'News\BlogController@getPost'));	
 	Route::get('/news/share/{id}/{social}', array('as' => 'news.share', 'uses' => 'News\BlogController@getShare'));	
-	Route::get('news/post/{id}/image/{file}/delete', array('as' => 'news.delete_image', 'uses' => 'News\BlogController@delete_image'));
+	Route::get('/news/post/{id}/image/{file}/delete', array('as' => 'news.delete_image', 'uses' => 'News\BlogController@delete_image'));
     
     //don't use the Panel code
 	Route::get('/news/create', array('as' => 'news.create', 'uses' => 'News\PageController@create'));	
@@ -54,6 +54,7 @@ Route::controllers([
  
 //   //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 // }
+
 
 
 /* Admin */
@@ -91,8 +92,8 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 
 	/*clubs*/
 	Route::get('/clubs',					array('as' => 'admin.clubs', 			'uses' => 'ClubController@index'));
-	Route::get('/clubs/{id}/create', 		array('as' => 'admin.clubs.create', 	'uses' => 'ClubController@create'));	
-	Route::post('/clubs/', 					array('as' => 'admin.clubs.store', 	'uses' => 'ClubController@store'));
+	Route::get('/clubs/create', 			array('as' => 'admin.clubs.create', 	'uses' => 'ClubController@create'));	
+	Route::post('/clubs/', 					array('as' => 'admin.clubs.store', 		'uses' => 'ClubController@store'));
 	Route::get('/clubs/{id}/edit',			array('as' => 'admin.clubs.edit', 		'uses' => 'ClubController@edit'));
 	Route::delete('/clubs/{id}/', 			array('as' => 'admin.clubs.delete', 	'uses' => 'ClubController@delete'));	
 	Route::post('/clubs/{id}/', 			array('as' => 'admin.clubs.update', 	'uses' => 'ClubController@update'));
