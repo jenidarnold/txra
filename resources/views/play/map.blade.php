@@ -27,6 +27,10 @@
 			left:110px;
 			font-weight: 500;
 		}
+		.modal-body {
+			height: 420px;
+			overflow-y: auto;
+		}
     </style>
 @stop
 @section('content')		
@@ -84,8 +88,7 @@
 		          	<h3 class="modal-title text-center">Add a Racquetball Club</h3>
 	      	    </div>
 		        <div class="modal-body">
-
-
+    				@include('includes.club_create')  
 		        </div>
 	        </div>
         </div>
@@ -96,10 +99,10 @@
 			<div class="modal-content">
 				<div class="modal-header">
 	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		          	<h3 class="modal-title text-center">Racquetball Club Directory</h3>
+		          	<h3 class="modal-title text-center">Racquetball Clubs & Facilities Directory</h3>
 		          	<h5 class="text-primary text-center">
-		          		Help us complete our map of clubs. 
-		          		<a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="text-success"> Add a Club</a>
+		          		If you don't see a club or facility on our map, please help us out. 
+		          		<a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="btn btn-xs btn-success"> Add to the map.</a>
 	          		</h5>
           		</div>
 	        	<div class="modal-body">
