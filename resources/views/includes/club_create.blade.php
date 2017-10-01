@@ -25,14 +25,17 @@
 	            <form action="{{route('admin.clubs.store')}}" method="post" enctype="multipart/form-data">
 	            	{{ csrf_field() }}		
 
-	            	<div class="row">						
+	            	<div class="row">	
+	            		<div class="col-sm-12 alert alert-warning">
+							<i class="fa fa-info-circle"></i> The club will not be visible on the map without a valid address and latitude/longitude coordinates. Click <b>Lookup</b> after filling the address to automatically retrieve the coordinates. Or enter manually.
+						</div>						
 						<div class="col-sm-12">
 							<label class="control-label">Name</label>
 							<input type="text" name="name" value="{{ Input::old('name')}}" class="form-control">
 						</div>
 						<div class="col-sm-12">
 							<label class="control-label">Address</label>
-							<input type="text" name="address" value="{{Input::old('address')}}" class="form-control">
+							<input type="text" id="address" name="address" value="{{Input::old('address')}}" class="form-control">
 						</div>	
 					</div>
 					<div class="row">							
@@ -42,7 +45,7 @@
 						</div>					
 						<div class="col-sm-2">
 							<label class="control-label">State</label>
-							<input type="text" name="state" value="{{Input::old('state')}}" maxlength="2" class="form-control">
+							<input type="text" name="state" value="{{Input::old('state')}}" class="form-control">
 						</div>					
 						<div class="col-sm-3">
 							<label class="control-label">Zip</label>
@@ -54,20 +57,18 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-12 alert alert-warning">
-							<i class="fa fa-info-circle"></i> The Club will not be visible on the map without a valid address and latitude/longitude coordinates. Click Lookup after filling the address to automatically retrieve the coordinates. Or enter manually.
-						</div>							
+											
 						<div class="col-sm-3">
 							<label class="control-label">Latitude</label>							
-							<input type="text" name="lat" value="{{Input::old('lat')}}" class="form-control">
+							<input type="text" name="lat" id="lat" value="{{Input::old('lat')}}" class="form-control">
 						</div>					
 						<div class="col-sm-3">
 							<label class="control-label">Longitude</label>							
-							<input type="text" name="lng" value="{{Input::old('lng')}}" class="form-control">
+							<input type="text" name="lng" id="lng" value="{{Input::old('lng')}}" class="form-control">
 						</div>	
 						<div class="col-sm-3">
 							<label class="control-label">&nbsp;</label>
-							<button type="button" class="btn btn-primary">
+							<button type="button" class="btn btn-primary" value="Encode" onclick="codeAddress()">
 								<i class="fa fa-search"></i> Lookup
 							</button>
 						</div>

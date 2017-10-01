@@ -71,17 +71,23 @@ class ClubController extends Controller {
 	        $club->phone = $request->get('phone');
 	        $club->lat = $request->get('lat');
 	        $club->lng = $request->get('lng');
-	        $club->type = $request->get('type');
+	        $club->type = $request->get('map_icon');
 	        $club->courts = $request->get('courts');
 	        $club->info = $request->get('info');
 	        $club->url = $request->get('url');
-	        $club->map_icon = $request->get('map_icon');
+
+	        if ($request->get('chkSupport')){
+	        	$club->map_icon = "support";	        
+	    	}else {
+    			$club->map_icon = $request->get('map_icon');
+	    	}
 			$club->save();
 
 		   // redirect
             \Session::flash('message', 'Successfully created club');
 
-			return  redirect()->route('admin.clubs')
+			return  redirect()
+				->back()
 				->with('flash-message','message');  
 		}
 	}

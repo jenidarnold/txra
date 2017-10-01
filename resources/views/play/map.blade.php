@@ -28,7 +28,7 @@
 			font-weight: 500;
 		}
 		.modal-body {
-			height: 420px;
+			height: 500px;
 			overflow-y: auto;
 		}
     </style>
@@ -162,17 +162,18 @@
 @section('script')
  	<script>
  		var map;
+     	var geocoder;
 
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
         	//var clay = {lat: 30.4971805, lng: -97.6608585 };
 
-
         	map = new google.maps.Map(document.getElementById('map'), {
           		zoom: 6,
           		center: mav
 	    	});       
-        	      			             
+	    	geocoder = new google.maps.Geocoder();
+
 			var clubs = {!! json_encode($clubs->toArray()) !!};
 
 			// Create markers.
@@ -228,25 +229,44 @@
 	          }
 	        };
 
-	  	  //   var legend = document.getElementById('legend');			
+		  	  //   var legend = document.getElementById('legend');			
 
-	     //    for (var key in icons) {
-	     //      var type = icons[key];
-	     //      var name = type.name;
-	     //      var icon = type.icon;
-	     //      var div = document.createElement('div');
-	     //      div.innerHTML = '<img class="icon" src="' + icon + '"> ' + name;
-	     //      legend.appendChild(div);
-	     //      console.log(icon);
-	     //    }
+		     //    for (var key in icons) {
+		     //      var type = icons[key];
+		     //      var name = type.name;
+		     //      var icon = type.icon;
+		     //      var div = document.createElement('div');
+		     //      div.innerHTML = '<img class="icon" src="' + icon + '"> ' + name;
+		     //      legend.appendChild(div);
+		     //      console.log(icon);
+		     //    }
 
-    		// map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+	    		// map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
 
 	  	    var search = document.getElementById('search');	
     		map.controls[google.maps.ControlPosition.LEFT_TOP].push(search);
-	     	
+	     			   
 	    }
+
+	    //geocode look up
+	    // https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingRequests
+	    function codeAddress() {
+		    var address = document.getElementById('address').value;
+		    geocoder.geocode( { 'address': address}, function(results, status) {
+		      if (status == 'OK') {
+		        var lat = document.getElementById('lat');
+		        var lng = document.getElementById('lng');
+
+		        console.log(results[0].geometry.location.lat());
+		        lat.value = results[0].geometry.location.lat();
+		        lng.value =results[0].geometry.location.lng();
+		        
+		      } else {
+		        console.log('Geocode was not successful for the following reason: ' + status);
+		      }
+	      	});
+	      }			  
 
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap">
