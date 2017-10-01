@@ -17,7 +17,7 @@
 		}
 		
 		.club_detail {
-		  	height: 120px;
+		  	height: 200px;
 		}
 		
 		#search {
@@ -88,7 +88,7 @@
 	        <div class="modal-body">
 				<div class="navbar-collapse nav-filter-collapse">
 						<ul class="nav nav-pills mix-filter margin-bottom-10">
-							<li data-filter="all" class="filter active"><a href="#">All</a></li>
+							<li data-filter="all" class="filter active"><a href="#"><img src="{{ asset('/images/mapicons/numbers/number_100.png')}}"/> All</a></li>
 							<li data-filter="support" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/sports/racquet.png')}}"/> Supports USAR</a></li>
 							<li data-filter="college" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_c.png')}}"/> College</a></li>
 							<li data-filter="club" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/numbers/number_1.png')}}"/> Club</a></li>
@@ -96,7 +96,7 @@
 							<li data-filter="rec" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_r.png')}}"/> Rec Center</a></li>
 							<li data-filter="ymca" class="filter"><a href="#"><img src="{{ asset('/images/mapicons/letters/letter_y.png')}}"/> YMCA</a></li>
 						</ul>
-				
+						<hr/>
 						<div id="portfolio" class="clearfix fullwidth portfolio-gutter">
 						<div class="mix-grid">	
 							@foreach($clubs as $club)
