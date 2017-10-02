@@ -8,7 +8,19 @@
     @include('includes.club_create')  
 @stop
 
-@section('scripts')
+@section('script')
+	<script>
+		
+ 		var geocoder;
+ 		
+      	function initMap() {
+        
+    		geocoder = new google.maps.Geocoder();
+    
+    	}
+
+    </script>
+
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap">
 	</script>
 @stop

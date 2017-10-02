@@ -31,7 +31,7 @@
 						</div>						
 						<div class="col-sm-12">
 							<label class="control-label">Name</label>
-							<input type="text" name="name" value="{{ Input::old('name')}}" class="form-control">
+							<input type="text" id="name" name="name" value="{{ Input::old('name')}}" class="form-control">
 						</div>
 						<div class="col-sm-12">
 							<label class="control-label">Address</label>
@@ -41,19 +41,19 @@
 					<div class="row">							
 						<div class="col-sm-4">
 							<label class="control-label">City</label>							
-							<input type="text" name="city" value="{{Input::old('city')}}" class="form-control">
+							<input type="text" id="city" name="city" value="{{Input::old('city')}}" class="form-control">
 						</div>					
 						<div class="col-sm-2">
 							<label class="control-label">State</label>
-							<input type="text" name="state" value="{{Input::old('state')}}" class="form-control">
+							<input type="text" id="state" name="state" value="{{Input::old('state')}}" class="form-control">
 						</div>					
 						<div class="col-sm-3">
 							<label class="control-label">Zip</label>
-							<input type="text" name="zip" value="{{Input::old('zip')}}" class="form-control">
+							<input type="text" id="zip" name="zip" value="{{Input::old('zip')}}" class="form-control">
 						</div>
 						<div class="col-sm-3">
 							<label class="control-label">Phone</label>							
-							<input type="text" name="phone" value="{{Input::old('phone')}}" class="form-control">
+							<input type="text" id="phone" name="phone" value="{{Input::old('phone')}}" class="form-control">
 						</div>
 					</div>
 					<div class="row">
@@ -81,11 +81,13 @@
 						<div class="col-sm-4">
 							<label class="control-label">Type of Club</label>
 								{{ Form::select('map_icon', 
-									['military' => 'Military', 
-									 'rec' => 'Rec Center', 
-									 'ymca' =>'YMCA',
+									[
 									 'club' => 'Club', 
-									 'college' => 'College/Univ'], 
+									 'college' => 'College/Univ',
+									 'military' => 'Military', 
+									 'rec' => 'Rec Center', 
+									 'ymca' =>'YMCA'
+									],									
 									null, 
 									['class' => 'form-control']) 
 								}}

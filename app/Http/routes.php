@@ -125,6 +125,7 @@ Route::get('/logout', function () {
 });
 
 /* Play */
+Route::get('/map', array('as' => 'play.map', 'uses' => 'Play\PlayController@map'));	
 Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 {
 	Route::get('basics', array('as' => 'play.basics', 'uses' => 'PlayController@basics'));	

@@ -162,7 +162,7 @@
 @section('script')
  	<script>
  		var map;
-     	var geocoder;
+ 		var geocoder;
 
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
@@ -171,9 +171,10 @@
         	map = new google.maps.Map(document.getElementById('map'), {
           		zoom: 6,
           		center: mav
-	    	});       
-	    	geocoder = new google.maps.Geocoder();
+	    	});       	
 
+    		geocoder = new google.maps.Geocoder();
+    
 			var clubs = {!! json_encode($clubs->toArray()) !!};
 
 			// Create markers.
@@ -229,8 +230,7 @@
 	          }
 	        };
 
-		  	  //   var legend = document.getElementById('legend');			
-
+		  	 //   var legend = document.getElementById('legend');			
 		     //    for (var key in icons) {
 		     //      var type = icons[key];
 		     //      var name = type.name;
@@ -250,9 +250,15 @@
 	    }
 
 	    //geocode look up
-	    // https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingRequests
+    	// https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingRequests
 	    function codeAddress() {
+
 		    var address = document.getElementById('address').value;
+		    var city = document.getElementById('city').value;
+		    var state = document.getElementById('state').value;
+
+		    address = address + ' ' + city + ' ' + state;
+
 		    geocoder.geocode( { 'address': address}, function(results, status) {
 		      if (status == 'OK') {
 		        var lat = document.getElementById('lat');
@@ -266,8 +272,7 @@
 		        console.log('Geocode was not successful for the following reason: ' + status);
 		      }
 	      	});
-	      }			  
-
+	      }		
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap">
 	</script>
