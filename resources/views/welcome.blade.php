@@ -164,13 +164,20 @@
             <div class="alert alert-transparent bordered-bottom">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9 col-sm-12"><!-- left text -->
-                            <h3>Join the Texas Racquetball Association in developing and promoting the growth of racquetball in our communities across the state of Texas.
-                            </h3>
+                        <div class="col-sm-12 col-xs-12"><!-- left text -->
+                            <h4>Support the Texas Racquetball Association in developing and promoting the growth of racquetball in our communities across the state of Texas.
+                            </h4>
                         </div><!-- /left text -->
-                        <div class="col-md-3 col-sm-12 text-right"><!-- right btn -->
-                            <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">JOIN NOW</a>
-                        </div><!-- /right btn -->
+                    </div>
+                    <div class="row margin-top-10">
+                        <div class="col-sm-6 col-xs-12 text-center">                    
+                            <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-info btn-lg btn-block">JOIN FOR FREE</a>
+                            <h5>Create a free TXRA account and personal profile. </h5>    
+                        </div>                   
+                        <div class="col-sm-6 col-xs-12 text-center">
+                            <a href="{{ url('/members/membership')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">PAY TO PLAY</a> 
+                            <h5>Get your USAR membership to play in sanctioned tournaments. </h5>               
+                        </div>
                     </div>
                 </div>
             </div>
