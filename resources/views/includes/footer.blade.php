@@ -4,9 +4,9 @@
 		<div class="row text-center">
 			<h6>
 				<!-- Footer Logo -->			
-				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:70px; padding-top:15px;" alt="" /></a>
-				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:60px; padding-top:15px;" alt="" /></a>
-				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
+				<a href="/welcome"><img src="{{ asset('images/logos/txra_full_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:90px; padding-top:5px;" alt="" /></a>
+				<a href="/welcome"><img src="{{ asset('images/logos/txra_full_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:80px; padding-top:5px;" alt="" /></a>
+				<a href="/welcome"><img src="{{ asset('images/logos/txra_logo_only.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
 			</h6>
 		</div>
 		<div class="row">
