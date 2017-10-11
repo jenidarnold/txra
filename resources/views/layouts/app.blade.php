@@ -169,9 +169,9 @@
 						</a>
 						-->
 							
-							<a href="/welcome"><img src="{{ asset('images/logos/txra_full_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:70px; padding-top:15px;" alt="" /></a>
-							<a href="/welcome"><img src="{{ asset('images/logos/txra_full_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:60px; padding-top:15px;" alt="" /></a>
-							<a href="/welcome"><img src="{{ asset('images/logos/txra_logo_only.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
+							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_full_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:70px; padding-top:15px;" alt="" /></a>
+							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_full_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:60px; padding-top:15px;" alt="" /></a>
+							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_logo_only.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
 						<!--
 							Top Nav
 							AVAILABLE CLASSES:
