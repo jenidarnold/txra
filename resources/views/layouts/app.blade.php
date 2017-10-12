@@ -130,7 +130,7 @@
 			<div id="header" class="dark transparent clearfix">
 				<!-- TOP NAV -->
 				<header id="topNav">
-					<div class="container">
+					<div class="containerX">
 
 						<!-- Mobile Menu Button -->
 						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
@@ -168,10 +168,9 @@
 							<img src="{{ asset('images/A.png')}}" style="height:30px;display:inline; opacity:.4" alt="" />
 						</a>
 						-->
-							
-							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_full_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:70px; padding-top:15px;" alt="" /></a>
-							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_full_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:60px; padding-top:15px;" alt="" /></a>
-							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_logo_only.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px; display:inline;" alt="" /></a>
+							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_full_logo.png')}}" class="hidden-md hidden-sm hidden-xs" style="max-height:90px; padding-top:5px;padding-left:5px" alt="" /></a>
+							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_full_logo.png')}}" class="hidden-sm hidden-xs hidden-lg" style="max-height:90px; padding-top:5px;padding-left:5px" alt="" /></a>
+							<a href="/welcome"><img src="{{ asset('images/logos/TXRA_logo_only.png')}}" class="hidden-md hidden-lg" style="max-height:50px; padding-top:5px;padding-left:5px; display:inline;" alt="" /></a>
 						<!--
 							Top Nav
 							AVAILABLE CLASSES:
@@ -704,6 +703,28 @@
 		     
 		    })();
 		</script>
+
+		<!-- Facebook API -->
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1163926640418093',
+		      xfbml      : true,
+		      version    : 'v2.10'
+		    });
+		    FB.AppEvents.logPageView();
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+
+
 		@yield('script')
 </body>
 </html>
