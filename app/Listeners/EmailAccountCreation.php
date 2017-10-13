@@ -32,9 +32,11 @@ class EmailAccountCreation
        
         // send email account created
 
-        \Mail::send('emails.accounts.created', ['user' => $event->user], function ($m) use ($event->user) {
+        $user = $event->user;
+
+        \Mail::send('emails.accounts.created', ['user' => $user], function ($m) use ($user) {
             $m->from(env('MAIL_FROM_EMAIL'), 'Texas Racquetball Association');
-            $m->to('julie.enid@gmail.com', $event->user->full_name)->subject('New TXRA Account Created!');
+            $m->to('julie.enid@gmail.com', $user->full_name)->subject('New TXRA Account Created!');
         });
     }
 }
