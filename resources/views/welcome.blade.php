@@ -172,7 +172,7 @@
                     <div class="row margin-top-10">
                         <div class="col-sm-6 col-xs-12 text-center">                    
                             <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-info btn-lg btn-block">JOIN FOR FREE</a>
-                            <h5>Create a free TXRA account and personal profile. </h5>    
+                            <h5>Create a free TXRA account and profile. </h5>    
                         </div>                   
                         <div class="col-sm-6 col-xs-12 text-center">
                             <a href="{{ url('/members/membership')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">PAY TO PLAY</a> 

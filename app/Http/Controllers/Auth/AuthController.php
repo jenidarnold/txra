@@ -84,6 +84,7 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
+     * user account is email
      * @param  array  $data
      * @return User
      */
@@ -97,9 +98,10 @@ class AuthController extends Controller
             );
         }
 
-        \Auth::login($this->create($request->all()));
-        /*\Event::fire(new UserWasRegistered($data)); */
+        $user = $this->create($request->all());
 
+        \Auth::login($user);
+        \Event::fire(new AccountWasCreated($user)); 
 
     }
 
