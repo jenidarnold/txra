@@ -1136,7 +1136,9 @@ section.dark.page-header ul.page-options a {
 	position: relative;
 	left:0; top:0; right:0;
 	z-index:1000;
-	background-color:#fff;
+	/*background-color:#fff;*/
+
+	background: linear-gradient(to bottom, #555555 0%,#000 100%);
 	border-bottom: rgba(0,0,0,0.05) 1px solid;
 
 	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.1) !important;
@@ -7203,7 +7205,8 @@ ul.search-history {
 	background: -webkit-linear-gradient(top, #555555 0%, #313131 100%);
 	background: -o-linear-gradient(top, #555555 0%, #313131 100%);
 	background: -ms-linear-gradient(top, #555555 0%, #313131 100%);
-	background: linear-gradient(to bottom, #555555 0%,#313131 100%);
+	/*background: linear-gradient(to bottom, #555555 0%,#313131 100%);*/
+	background: linear-gradient(to bottom, #000 0%,#555555 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#313131',GradientType=0 );
 }
 #footer>.container {

@@ -40,7 +40,7 @@
 		
 		<!-- THEME CSS -->
 		<link href="{{ asset('css/essentials.css') }}" rel="stylesheet" type="text/css" />
-		<link href="{{ asset('css/layout.css?v=1.00.01') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('css/layout.css?v=1.00.02') }}" rel="stylesheet" type="text/css" />
 
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="{{ asset('css/header-1.css') }}" rel="stylesheet" type="text/css" />
