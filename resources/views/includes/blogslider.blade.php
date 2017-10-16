@@ -16,11 +16,11 @@
 				<span class="font-lato">28</span>
 			</a>
 		</li-->
-		<li>
+		{{-- <li>
             <a href="{{route('members.show', $post->author['id'])}}">
                 <span class="font-lato">By {{$post->author["first_name"] . " " . $post->author["last_name"]}}</span>
             </a>
-        </li>
+        </li> --}}
 	</ul>
 
 	@if ($post->image_count() > 1)
