@@ -93,9 +93,9 @@ class InviteController extends Controller {
         $invite->save();
 
 
-        // here you would probably log the user in and show them the dashboard, but we'll just prove it worked
-        // User must change password
-       \Auth::login($user);
+        // login the user 
+        \Auth::login($user);       
+        \Event::fire(new AccountWasCreated($user)); 
 
        //if (Auth::check()) {
             return redirect()->route('members.create_pwd', ['id' => \Auth::user()->id]);
