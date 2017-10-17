@@ -152,7 +152,7 @@ class BlogController extends BaseController {
 
             $meta = [
                 'title' => $post['title'],
-                'description' => substr(strip_tags($post['content']), 0, 250),
+                'description' => substr(strip_tags($post['content']), 0, 300),
                 'image' => '/images/blog/'.$id.'/'.$post['image'],
                 'image_width' => '200',
                 'image_height' => '200',
