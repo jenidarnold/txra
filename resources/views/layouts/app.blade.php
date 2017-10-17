@@ -44,7 +44,13 @@
 	    @else	
 			<meta property="og:image:height" content="746" />
 		@endif
+		@if(!empty($meta['type']))
+			<meta property="og:type" content="{{ $meta['type'] }}"/>
+	    @else
+			<meta property="og:type" content="website"/>
+		@endif
 
+		<meta property="fb:app_id" content="1163926640418093"/>
 
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<!-- mobile settings -->
