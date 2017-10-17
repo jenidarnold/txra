@@ -6,13 +6,46 @@
 		<meta name="keywords" content="Texas, racquetball, sport, racquet" />
 		<meta name="description" content="" />
 		<meta name="Author" content="Julienne Arnold" />
-		<meta property="og:title" content="Texas Racquetball Association"/>
-		<meta property="og:description" content="TXRA leads the Texas racquetball community in supporting the sport on the local, state, national, and international levels."/>
-		<meta property="og:url" content="http://texasracquetball.org"/>		
-		<meta property="og:image" content="http://texasracquetball.org/images/logos/txra_full_logo_og.png"/>
-		<meta property="og:image:width" content="746"/>
-		<meta property="og:image:height" content="746"/>
-		<meta property="og:image:type" content="image/png" />
+
+
+	   <!--Facebook Metadata /-->
+	    @if(!empty($meta['image']))
+	        <meta property="og:image" content="{{ url($meta['image']) }}"/>
+	    @else
+			<meta property="og:image" content="http://texasracquetball.org/images/logos/txra_full_logo_og.png"/>
+	    @endif
+	    @if(!empty($meta['description']))
+	        <meta property="og:description" content="{{ str_limit($meta['description'], $limit = 100, $end = '...') }}"/>
+	    @else
+			<meta property="og:description" content="TXRA leads the Texas racquetball community in supporting the sport on the local, state, national, and international levels."/>
+	    @endif
+	    @if(!empty($meta['title']))
+	        <meta property="og:title" content="{{ $meta['title'] }}"/>
+	    @else
+			<meta property="og:title" content="Texas Racquetball Association"/>
+	    @endif
+	    @if(!empty($meta['url']))
+			<meta property="og:url" content="{{ url($meta['url']) }}"/>
+	    @else
+			<meta property="og:url" content="http://texasracquetball.org"/>		
+		@endif
+		@if(!empty($meta['image_type']))
+			<meta property="og:image:type" content="{{ $meta['image_type'] }}"/>
+	    @else
+			<meta property="og:image:type" content="image/png"/>
+		@endif
+		@if(!empty($meta['image_width']))
+			<meta property="og:image:width" content="{{ $meta['image_width'] }}"/>
+	    @else	
+			<meta property="og:image:width" content="746"/>
+		@endif
+		@if(!empty($meta['image_height']))
+			<meta property="og:image:height" content="{{ $meta['image_height'] }}"/>
+	    @else	
+			<meta property="og:image:height" content="746" />
+		@endif
+
+
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<!-- mobile settings -->
 		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />

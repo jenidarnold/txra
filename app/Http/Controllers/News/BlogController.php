@@ -154,6 +154,9 @@ class BlogController extends BaseController {
                 'title' => $post['title'],
                 'description' => substr(strip_tags($post['content']), 0, 110),
                 'image' => '/images/blog/'.$id.'/'.$post['image'],
+                'image_width' => '200',
+                'image_height' => '200',
+                'url' => $post->getUrl()
             ];
 
             return View('blog/post',

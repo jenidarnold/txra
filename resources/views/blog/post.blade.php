@@ -1,18 +1,4 @@
 @extends('layouts.news')
-
-@section('head')
-   <!--Facebook Metadata /-->
-    @if(!empty($meta['image']))
-        <meta property="og:image" content="{{ url($meta['image']) }}"/>
-    @endif
-    @if(!empty($meta['description']))
-        <meta property="og:description" content="{{ str_limit($meta['description'], $limit = 100, $end = '...') }}"/>
-    @endif
-    @if(!empty($meta['title']))
-        <meta property="og:title" content="{{ $meta['title'] }}"/>
-    @endif
-@stop
-
 @section('style')
     <style type="text/css">
         .content {
