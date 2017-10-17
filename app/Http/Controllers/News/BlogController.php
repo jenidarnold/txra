@@ -149,14 +149,22 @@ class BlogController extends BaseController {
             if($post == NULL){
                App::abort(404);
             }
+
+            $meta = [
+                'title' => $post['title'],
+                'description' => substr(strip_tags($post['content']), 0, 110),
+                'image' => '/images/blog/'.$id.'/'.$post['image'],
+            ];
+
             return View('blog/post',
                 array(
-                    'title'=>$post['title'],
-                    'post'=>$post, 
-                    'mostRecommended'=>$mostRecommended,
-                    'last'=>$last,
-                    'categories' => $categories,                
-                    'drafts' => $drafts
+                    'title'             =>$post['title'],
+                    'post'              =>$post, 
+                    'meta'              =>$meta,
+                    'mostRecommended'   =>$mostRecommended,
+                    'last'              =>$last,
+                    'categories'        => $categories,                
+                    'drafts'            => $drafts
                     )   
                 );
 	}
