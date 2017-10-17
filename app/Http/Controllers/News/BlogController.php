@@ -156,7 +156,7 @@ class BlogController extends BaseController {
                 'image' => '/images/blog/'.$id.'/'.$post['image'],
                 'image_width' => '200',
                 'image_height' => '200',
-                'image_type'    => 'image/jpg',
+                'image_type'    => 'image/'. explode('.',$post['image'],2)[1],
                 'url' => $post->getUrl(),                
             ];
 
