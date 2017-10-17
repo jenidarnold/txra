@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Invite;
+use App\Events\AccountWasCreated;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
