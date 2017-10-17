@@ -15,7 +15,7 @@
 			<meta property="og:image" content="http://texasracquetball.org/images/logos/txra_full_logo_og.png"/>
 	    @endif
 	    @if(!empty($meta['description']))
-	        <meta property="og:description" content="{{ str_limit($meta['description'], $limit = 100, $end = '...') }}"/>
+	        <meta property="og:description" content="{{ str_limit($meta['description'], $limit = 250, $end = '...') }}"/>
 	    @else
 			<meta property="og:description" content="TXRA leads the Texas racquetball community in supporting the sport on the local, state, national, and international levels."/>
 	    @endif
