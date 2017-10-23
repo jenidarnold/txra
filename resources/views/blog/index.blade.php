@@ -12,7 +12,7 @@
             <div class="blog-post-item col-sm-12 col-md-12">
             @if ($post->image_count() > 1)
                 <!-- OWL SLIDER -->
-                <div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": {{$post->image_count()-1}}, "autoPlay": 6000, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
+                <div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": {{$post->image_max()-1}}, "autoPlay": 6000, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
 
                     @foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)
                         @if (!$fileinfo->isDot())

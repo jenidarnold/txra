@@ -85,6 +85,17 @@ class Post extends \Eloquent {
         return $filecount;
     }
 
+    public function image_max() {
+
+        $max = 6;
+
+        if ($this->image_count() > $max) {
+            return $max;
+        } else
+            return $this->image_count();
+        }
+    }
+
     public function author()
     {
         return $this->hasOne('App\User', 'id', 'author_id');
