@@ -91,9 +91,9 @@ class Post extends \Eloquent {
 
         if ($this->image_count() > $max) {
             return $max;
-        } else
+        } else{
             return $this->image_count();
-        }
+        }        
     }
 
     public function author()
