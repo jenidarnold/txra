@@ -70,12 +70,12 @@
 
 @section('callout')
 		
-		<table class="eight columns">
+		<table class="ten columns">
 		    <tbody>
 		    	<tr>
 			      <td>
 			      	<h6>Below are a few of our upcoming events!</h6>
-			        <table class="button primary six columns">
+			        <table class="button primary eight columns">
 			          	<tbody>
 				          	<tr>
 				             	<td>				             		
