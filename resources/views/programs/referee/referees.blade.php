@@ -27,7 +27,7 @@
 	<section>
 		<div class="container">
 			
-			<p class="lead">The following TXRA members have completed <a href="{{ route('referee.index')}}">LEVEL 1 & 2 REFEREE CERTIFICATION</a>. 
+			<p class="lead">TXRA members with <a href="{{ route('referee.index')}}">REFEREE CERTIFICATION</a>
 			{{-- Click on the referees's photo for an introduction and contact information.</a> </p> --}}
 			<hr/>
 
@@ -44,12 +44,14 @@
 							<div class="front">
 								<div class="box1 box-default">
 									<div class="box-icon-title">	
+
 									  	@if($i->logo == '')								
 											<img class="img-responsiveX" src="{{ asset('images/referees/profile.png')}}" style="height:200px" alt="" />
 										@else
 											<img class="img-responsiveX" src="{{ asset('images/referees/'.$i->logo)}}" style="height:200px" alt="" />
 										@endif
-										<h2>{{ $i->first_name}} {{$i->last_name }}</h2>			
+										<h2>{{ $i->first_name}} {{$i->last_name }}</h2>	
+										<h2>Level {{ $i->level}}</h2>			
 										<small>{{ $i->city }}, {{ $i->state }}</small>								
 									</div>
 								</div>						
@@ -84,7 +86,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>		
 
 						<!-- Read More Modal -->
 						<div id="{{'mod'.$i->last_name}}"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modLabel" aria-hidden="true">
@@ -115,4 +117,19 @@
 		</div>
 	</section>
 	<!-- / -->
+	<section>
+		<div class="callout alert alert-info noborder margin-top-60 margin-bottom-60">
+			<div class="text-center">
+
+				<p class="font-lato size-30">
+					If you are interested in becoming a Level 1 nationally certified referee
+				</p>
+				<h3>Contact Johnny Boyd at <strong>+903-268-6622</strong> or email <strong>johnny.boyd1@verizon.net</h3>
+							
+				<a href="{{ route('referee.index')}}" class="btn btn-info btn-lg margin-top-30">GET CERTIFIED</a>
+
+			</div>
+
+		</div>
+	</section>
 @stop

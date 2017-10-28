@@ -45,7 +45,6 @@
 							<h4>
 								FREE
 							</h4>
-							<h5> LEVEL 1 </h5>
 						</div>
 						<hr />
 						<div class="price-body">
@@ -99,7 +98,6 @@
 						<hr />
 						<div class="price-body">
 							<ul class="text-left">
-								<li>State Level</li>
 								<li>Online rules clinic and video assessment test. </li>
 								<li>Certification valid for 3 years!</lu>
 							</ul>
@@ -115,7 +113,7 @@
 								<!-- header modal -->
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h3 class="modal-title" id="level1">LEVEL 1 (STATE LEVEL) REFEREE CERTIFICATION STANDARDS</h3>
+									<h3 class="modal-title" id="level1">LEVEL 1 REFEREE CERTIFICATION STANDARDS</h3>
 								</div>
 
 								<!-- body modal -->
@@ -187,7 +185,6 @@
 						<hr />
 						<div class="price-body">
 							<ul class="text-left">
-								<li>National Level</li>
 								<li>Added to the USAR Referee Certification database</li>
 							</ul>
 						</div>
@@ -202,7 +199,7 @@
 								<!-- header modal -->
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h3 class="modal-title" id="level2">LEVEL 2 (NATIONAL LEVEL) REFEREE CERTIFICATION STANDARDS</h3>
+									<h3 class="modal-title" id="level2">LEVEL 2 REFEREE CERTIFICATION STANDARDS</h3>
 								</div>
 
 								<!-- body modal -->

@@ -26,7 +26,10 @@ class RefereeController extends Controller {
 	public function listing(Request $request)
 	{
 
-		$referees = Referee::all();
+		$referees = Referee::orderBy('last_name')
+			->orderBy('first_name')
+			->get();
+
 		return view('programs/referee/referees', compact('referees'));
 	}
 
