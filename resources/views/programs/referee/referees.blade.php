@@ -11,7 +11,7 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><img src="{{asset('images/icons/whistle.png')}}" height="40px"></i> CERTIFIED REFEREES</h1>
+			<h1><img src="{{asset('images/icons/whistle.png')}}" height="40px"></i> CERTIFIED REFEREES IN TEXAS</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
@@ -27,7 +27,7 @@
 	<section>
 		<div class="container">
 			
-			<p class="lead">TXRA members with <a href="{{ route('referee.index')}}">REFEREE CERTIFICATION</a>
+			<p class="lead">TXRA members with <a href="{{ route('referee.index')}}">Referee Certification</a>
 			{{-- Click on the referees's photo for an introduction and contact information.</a> </p> --}}
 			<hr/>
 
