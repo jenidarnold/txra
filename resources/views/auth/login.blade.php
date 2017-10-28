@@ -25,7 +25,7 @@
                    <form class="nomargin sky-form boxed" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                         <header class="text-center text-primary h3">
-                        Log In
+                        Log Into Your Account
                         </header>
 
                         <fieldset class="nomargin"> 
@@ -70,13 +70,26 @@
                                     Log In
                                 </button>
                             </div>
+
                             
                             <div class="clearfix note margin-bottom-30 text-center">
                                 <a  class="text-primary" href="{{ url('/password/reset') }}">Forgot Password?</a>
                             </div>
 
+                         {{--   <div class="form-group"> 
+                                <h4 class="text-center">OR</h4>                 
+                                <a class="btn btn-block btn-social btn-facebook margin-top-10 fb_iframe_widget" 
+                                scope="public_profile, publish_actions, email,user_friends, user_about_me" data-show-faces="false" data-auto-logout-link="true" >
+                                    <i class="fa fa-facebook"></i> Sign in with Facebook
+                                </a>
+                                <div class="fb-login-button fb_iframe_widget btn-block margin-top-10" data-max-rows="1" data-size="large" login_text="Login with Facebook" 
+                                    scope="public_profile, publish_actions, email,user_friends, user_about_me" data-show-faces="false" data-auto-logout-link="true">        
+                                </div>
+                            </div> 
+ --}}
+
                             <div class="clearfix note margin-bottom-30 text-center">
-                                Don't have an account? <a class="text-danger" href="{{ url('/register') }}">Sign Up</a>
+                                <h5> Don't have an account? <a class="text-danger" href="{{ url('/register') }}">Sign Up</a></h5>
                             </div>
 
                            {{--  <label class="checkbox weight-300">
@@ -88,10 +101,13 @@
 
                         
                     </form>
+
+                  
+
                 </div>
                 <!-- \LOGIN EMAIL -->
                
-{{--                 <!-- LOGIN R2SPORTS -->
+{{--                  <!-- LOGIN R2SPORTS -->
                 <div class="col-md-4 col-sm-12 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                    <form class="nomargin sky-form boxed" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -138,13 +154,9 @@
                       
                     </form>
                                    
-                </div> --}}
+                </div>  --}}
                
-{{--                 <div class="col-md-4 col-sm-12 text-center">                  
-                        <a class="btn btn-block btn-social btn-facebook margin-top-10">
-                            <i class="fa fa-facebook"></i> Sign in with Facebook
-                        </a>
-                </div>   --}}  
+                  
             </div>
         </div>
     </div>

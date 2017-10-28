@@ -12,13 +12,15 @@
 				<h1><i class="fa fa-user-circle"></i> ADMIN</h1>			
 				<!-- breadcrumbs -->
 				<ol class="breadcrumb">
+					<li><a href="/">Home</a></li>
 					<li><a href="/admin">Index</a></li>
-					<li><a href="{{route('admin.clubs')}}">Clubs</a></li>
+					{{-- <li><a href="{{route('admin.clubs')}}">Clubs</a></li>
 					<li><a href="{{route('admin.events')}}">Events</a></li>
 					<li><a href="{{route('admin.instructors')}}">Instructors</a></li>
 					<li><a href="{{route('admin.invites')}}">Invites</a></li>
 					<li><a href="{{route('admin.rankings')}}">Rankings</a></li>
-					<li><a href="{{route('admin.users')}}">Users</a></li>
+					<li><a href="{{route('admin.referees')}}">Referees</a></li>
+					<li><a href="{{route('admin.users')}}">Users</a></li> --}}
 				</ol>		
 			</div>
 		</div>
@@ -42,6 +44,7 @@
 						<li><a href="{{route('admin.instructors')}}">Instructors</a></li>
 						<li><a href="{{route('admin.invites')}}">Invites</a></li>
 						<li><a href="{{route('admin.rankings')}}">Rankings</a></li>
+						<li><a href="{{route('admin.referees')}}">Referees</a></li>
 						<li><a href="{{route('admin.users')}}">Users</a></li>
 					</ul>
 					<!-- /SIDE NAV -->

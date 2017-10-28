@@ -31,6 +31,7 @@ return array(
     'CreatePostPageTable' => $baseDir . '/database/migrations/2014_12_15_130757_create_page_table.php',
     'CreatePostTable' => $baseDir . '/database/migrations/2014_12_15_124028_create_post_table.php',
     'CreateRanksTable' => $baseDir . '/database/migrations/2017_08_17_173847_create_ranks_table.php',
+    'CreateRefereesTable' => $baseDir . '/database/migrations/2017_10_28_043112_create_referees_table.php',
     'CreateRolesTables' => $vendorDir . '/serverfireteam/panel/src/database/migrations/2016_02_10_181651_create_roles_tables.php',
     'CreateSubscribersTable' => $baseDir . '/database/migrations/2017_06_03_160557_create_subscribers_table.php',
     'CreateSubscriptionsTable' => $baseDir . '/database/migrations/2017_06_03_160442_create_subscriptions_table.php',

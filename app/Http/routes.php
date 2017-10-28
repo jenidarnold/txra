@@ -109,6 +109,15 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::get('/instructors/{id}/edit',	array('as' => 'admin.instructors.edit', 	'uses' => 'InstructorController@edit'));
 	Route::delete('/instructors/{id}/', 	array('as' => 'admin.instructors.delete', 	'uses' => 'InstructorController@delete'));	
 	Route::post('/instructors/{id}/', 		array('as' => 'admin.instructors.update', 	'uses' => 'InstructorController@update'));
+	
+	/*referees*/
+	Route::get('/referees', 				array('as' => 'admin.referees', 			'uses' => 'RefereeController@index'));
+	Route::get('/referees/create', 	array('as' => 'admin.referees.create', 	'uses' => 'RefereeController@create'));	
+	Route::post('/referees/', 			array('as' => 'admin.referees.store', 	'uses' => 'RefereeController@store'));
+	Route::get('/referees/{id}/edit',	array('as' => 'admin.referees.edit', 	'uses' => 'RefereeController@edit'));
+	Route::delete('/referees/{id}/', 	array('as' => 'admin.referees.delete', 	'uses' => 'RefereeController@delete'));	
+	Route::post('/referees/{id}/', 		array('as' => 'admin.referees.update', 	'uses' => 'RefereeController@update'));
+
 
 
 });	
@@ -126,6 +135,7 @@ Route::get('/logout', function () {
 
 /* Play */
 Route::get('/map', array('as' => 'play.map', 'uses' => 'Play\PlayController@map'));	
+Route::get('/instructors', array('as' => 'play.instructors', 'uses' => 'Play\PlayController@instructors'));
 Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 {
 	Route::get('basics', array('as' => 'play.basics', 'uses' => 'PlayController@basics'));	
@@ -135,6 +145,7 @@ Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 	Route::get('map', array('as' => 'play.map', 'uses' => 'PlayController@map'));	
 	Route::get('leagues', array('as' => 'play.leagues.index', 'uses' => 'LeaguesController@index'));	
 });
+
 
 /* Programs */
 Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
@@ -154,6 +165,7 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 });
 
 
+Route::get('referees', array('as' => 'referees', 'uses' => 'Programs\RefereeController@listing'));	
 
 /* Members */
 Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()

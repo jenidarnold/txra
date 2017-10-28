@@ -71,6 +71,7 @@ class Scraper {
 	 		}
 	 		else {
 	 			$url_rankings = 'http://www.usaracquetballevents.com/rankings.asp?sortOptions=YES&startMembershipNum='.$startMemNum.'&sex='.$sexCode.'&stateID='.$location_id.'&ageRange=all&divClass=&lastName=&firstName=&startDisplayCount='.$x;
+		 		//dd($url_rankings);
 	 		}
 		 	$cc->matchAll(
 		 				array(
@@ -81,8 +82,9 @@ class Scraper {
 		 		->URLS($url_rankings);	 		
 		 	$result = $cc->get();	
 		 	
+
 		 	//Variable needed for the next page of Rankings
-		 	$startMemNum = 2222;//FIXME $result[0]['startMemNum'][0];
+		 	$startMemNum = $result[0]['startMemNum'][0];
 		 	//Increment for next set of rankings
 		 	$startRank = $startRank + $rankChunks;	 	
 		 	//Save Rankings to database
@@ -135,6 +137,9 @@ class Scraper {
 					 	}
 					}
 				}
+
+				//Halt between gets
+				sleep(3);
 		 	}
 		 
 	 	return $player_rankings;

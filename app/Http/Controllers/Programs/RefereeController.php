@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
+use App\Referee;
 
 class RefereeController extends Controller {
 
@@ -18,7 +19,19 @@ class RefereeController extends Controller {
 	}
 	
 	/**
-	 * Display index.
+	 * Display list of certified Referees.
+	 *
+	 * @return Response
+	 */
+	public function listing(Request $request)
+	{
+
+		$referees = Referee::all();
+		return view('programs/referee/referees', compact('referees'));
+	}
+
+	/**
+	 * Display index of programs
 	 *
 	 * @return Response
 	 */
@@ -26,6 +39,7 @@ class RefereeController extends Controller {
 	{
 		return view('programs/referee/index');
 	}
+
 
 	/**
 	 * Display juniors.
