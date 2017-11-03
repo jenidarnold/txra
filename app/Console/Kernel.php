@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
+         Commands\Inspire::class,
     ];
 
     /**
@@ -24,7 +24,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+
+        $schedule->call(function () {
+            // TEST
+            // \DB::table('tournament_locations')->insert(['tournament_id'  => 1, 'club_id' => 2]);            
+           
+            $event = new \App\Http\Controllers\Events\EventController;
+            $event->download('Texas','future');
+           
+        })
+        ->timezone('America/Chicago')
+        ->weekly()->fridays()->at('20:00')
+        ;
+
     }
 }
