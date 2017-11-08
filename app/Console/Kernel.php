@@ -25,17 +25,34 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
 
+        //Download Texas Future Tournaments
         $schedule->call(function () {
-            // TEST
-            // \DB::table('tournament_locations')->insert(['tournament_id'  => 1, 'club_id' => 2]);            
-           
             $event = new \App\Http\Controllers\Events\EventController;
             $event->download('Texas','future');
            
         })
         ->timezone('America/Chicago')
-        ->weekly()->fridays()->at('20:00')
+        ->daily()
+        ->at('21:00')
         ;
 
+        // //Download Rankings
+        // $start = '20:00';
+        // //test to 1; prod go to groupid = 6
+        // for ($groupID = 1; $groupID <= 1; $groupID++) {           
+        //      for ($locationID = 0; $locationID <= 1; $locationID++) { 
+        //         $schedule->call(function () {
+        //             $rank = new \App\Http\Controllers\Members\RankingsController;
+        //             $rank->download($groupID ,$locationID);                   
+        //         })
+        //         ->timezone('America/Chicago')
+        //         ->weekly()
+        //         ->fridays()
+        //         ->at($start)
+        //         ;
+        //         $start = strtotime("+10 minutes", strtotime($start));
+
+        //     }
+        // }
     }
 }

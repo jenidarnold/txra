@@ -21,6 +21,9 @@ Route::get('/sitemap.xml', 'SitemapController@index');
 
 Route::get('/', 'WelcomeController@index' );
 Route::get('/welcome', 'WelcomeController@index' );
+Route::get('/survey',  function () {
+    return view('survey');
+});
 
 	
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
