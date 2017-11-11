@@ -1,4 +1,8 @@
 @extends('layouts.app')
+
+@section('head')
+  <!-- Put opengraph meta tags here later -->
+@stop
 @section('style')
     <style type="text/css">
     </style>

@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
         })
         ->timezone('America/Chicago')
         ->daily()
-        ->at('21:00')
+        ->at('3:30')
         ;
 
         // //Download Rankings
