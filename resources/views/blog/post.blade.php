@@ -49,14 +49,14 @@
                     </a>
                 @endforeach
             </li>
-            {{-- <li>
+            <li>
                 @if(isset($post['author']))
                 <a href="{{ route('members.show', array('id' => $post['author']->id))}}">
                     <i class="fa fa-user"></i> 
                     <span class="font-lato">{{$post['author']->full_name}}</span>
                 </a>
                 @endif
-            </li> --}}
+            </li>
             {{-- <li>
                 <a href="#">
                     <i class="fa fa-share-alt"></i> 

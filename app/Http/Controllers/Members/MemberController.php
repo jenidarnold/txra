@@ -90,7 +90,7 @@ class MemberController extends Controller {
 		}
 
 
-		$members = $members->paginate(12);
+		$members = $members->paginate(20);
 
 		return view('members/profiles/index', compact('members', 'name', 'city', 'active'));
 	}
@@ -113,7 +113,7 @@ class MemberController extends Controller {
 		}
 
 
-		$members = $members->paginate(16);
+		$members = $members->paginate(20);
 
 		$active = $this->get_active_filter('all');
 		//Search parameter

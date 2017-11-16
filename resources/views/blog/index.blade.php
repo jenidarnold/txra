@@ -54,12 +54,12 @@
                             </a>
                         @endforeach
                     </li>
-                    {{-- <li>
+                    <li>
                         <a href="{{ route('members.show', array('id' => $post['author_id']))}}">
                             <i class="fa fa-user"></i> 
                             <span class="font-lato">{{ \App\Post::find($post['id'])->author()->first()["full_name"] }}</span>
                         </a>
-                    </li> --}}
+                    </li>
                 </ul>
 
                 <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 250)}} ...
