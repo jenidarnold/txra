@@ -197,17 +197,43 @@ class MemberController extends Controller {
 		$active['profile'] = 'active';
 		$active['settings'] = '';
 
-	  	$meta = [
-            'title' => $user->full_name,
-            'description' => substr(strip_tags($profile->bio), 0, 300),
-            'image' => '/images/members/'.$id.'/'.$profile->avatar,
+	  	$meta = $this->get_openpgraph_meta($user, $usar);
+
+		return view('members/profiles/show', compact('user', 'meta', 'profile', 'usar', 'active'));
+	}
+
+	private function get_openpgraph_meta($user, $usar)
+	{
+		$profile = $user->profile()->first();
+
+		if (isset($usar)) {
+			$description = "TX Rankings (S/D/X) " 
+			. $usar->state_singles_rank . "/"
+			. $usar->state_doubles_rank . "/"
+			. $usar->state_mixed_rank . "; "
+            . "NL Rankings (S/D/X) " 
+			. $usar->national_singles_rank . "/"
+			. $usar->national_doubles_rank . "/"
+			. $usar->national_mixed_rank . " "
+			;
+		}
+
+		if(strlen($profile->bio) > 0) {
+			$description = $description . "Who Am I? " . substr(strip_tags($profile->bio), 0, 300);
+		}
+		
+
+		$meta = [
+            'title' => "TXRA Member: " . $user->full_name,
+            'description' => $description,
+            'image' => '/images/members/'.$user->id.'/'.$profile->avatar,
             'image_width' => '200',
             'image_height' => '200',
             'image_type'    => 'image/'. explode('.',$profile->avatar,2)[1],
             'url'   => $user->getUrl()
         ];
 
-		return view('members/profiles/show', compact('user', 'meta', 'profile', 'usar', 'active'));
+        return $meta;
 	}
 
 	/**
