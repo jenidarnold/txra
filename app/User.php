@@ -191,6 +191,14 @@ class User extends Model implements AuthenticatableContract,
     
     }
 
+     // return url of member profile 
+    public function getUrl(){
+        //return \Config::get('app.url') .'/blog/post/'. $this->id . '/' . \Serverfireteam\blog\BlogController::seoUrl($this->title);
+        //return '/blog/post/'. $this->id . '/' . \Serverfireteam\blog\BlogController::seoUrl($this->title);
+
+        return \Config::get('app.url') .'/members/profile/'. $this->id;
+    }
+
     /**
      *  User's Profile
      */

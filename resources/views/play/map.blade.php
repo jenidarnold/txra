@@ -86,9 +86,17 @@
 				<div class="modal-header">
 	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
 		          	<h3 class="modal-title text-center">Add a Racquetball Club</h3>
-	      	    </div>
+	      	    </div>	      	    
 		        <div class="modal-body">
-    				@include('includes.club_create')  
+		         	@if( Auth::guest())		         		
+		         		<center>
+		         		<div class="alert alert-warning margin-top-10">
+		         			Please <a href="/login">Login</a> for access to add clubs.
+	         			</div>
+	         			</center>
+		         	@else
+    					@include('includes.club_create') 
+    				@endif 
 		        </div>
 	        </div>
         </div>

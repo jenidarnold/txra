@@ -197,7 +197,17 @@ class MemberController extends Controller {
 		$active['profile'] = 'active';
 		$active['settings'] = '';
 
-		return view('members/profiles/show', compact('user', 'profile', 'usar', 'active'));
+	  	$meta = [
+            'title' => $user->full_name,
+            'description' => substr(strip_tags($profile->bio), 0, 300),
+            'image' => '/images/members/'.$id.'/'.$profile->avatar,
+            'image_width' => '200',
+            'image_height' => '200',
+            'image_type'    => 'image/'. explode('.',$profile->avatar,2)[1],
+            'url'   => $user->getUrl()
+        ];
+
+		return view('members/profiles/show', compact('user', 'meta', 'profile', 'usar', 'active'));
 	}
 
 	/**
