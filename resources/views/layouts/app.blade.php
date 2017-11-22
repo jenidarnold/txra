@@ -90,7 +90,12 @@
 	</head>
 	<style>
 		.content {
+			padding-top: 60px;
+		}
+		@media only screen and (min-width: 1000px) {
+		.content {
 			padding-top: 100px;
+			}
 		}
 		.credit {
 				color: #fff;
@@ -142,7 +147,7 @@
 		<!-- /SLIDE TOP -->
 
 			<!-- wrapper -->
-		<div id="wrapper">
+		{{-- <div id="wrapper"> --}}
 
 			<!--
 				AVAILABLE HEADER CLASSES
@@ -633,7 +638,7 @@
 		<script type="text/javascript">var plugin_path = '/plugins/';</script>
 		<script type="text/javascript" src="{{ asset('plugins/jquery/jquery-2.2.3.min.js') }}"></script>
 
-		<!-- Jcrop -->
+		<!-- Jcrop v0.9-->
 		<script type="text/javascript" src="{{ asset('js/jquery.Jcrop.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/jquery.color.js') }}"></script>
 

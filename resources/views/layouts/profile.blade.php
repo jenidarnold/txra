@@ -16,6 +16,10 @@
     	.ranking-box h2, .ranking-box  h3 {
     		color:#fff;
     	}
+    	
+    	.nav-tabs>li, .nav-tabs>li>a {
+		    float: left !important;
+		}
     </style>
 @stop
 @section('content')
@@ -63,6 +67,9 @@
 				@endif
 
 				<!-- SIDE NAV -->
+
+				@if(!isset($action))
+				
 				<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
 					<li class="list-group-item {{ $active['profile'] }}"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> TXRA PROFILE</a></li>
 					<!-- Show Profile Settings if this profile belongs to current Auth -->
@@ -112,8 +119,9 @@
 						</ul>
 					</div>			
 				</div>
+				@endif
 			</div>
-
+    
 			<!-- RIGHT -->
 			<div class="col-lg-9 col-md-9 col-sm-8">
 			   @yield('profile_content')

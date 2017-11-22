@@ -12,7 +12,7 @@
 					
 	<ul class="nav nav-tabs nav-top-border">
 		<li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
-		<li><a href="#avatar" data-toggle="tab">Profile Picture</a></li>
+		<li><a href="#avatar" data-toggle="tab">Picture</a></li>
 		{{-- <li><a href="#accounts" data-toggle="tab">Link USAR</a></li> --}}
 		<li><a href="#password" data-toggle="tab">Password</a></li>
 		{{-- <li><a href="#privacy" data-toggle="tab">Privacy</a></li> --}}
@@ -329,7 +329,12 @@
 @stop
 
 @section('script')
+{{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="http://jcrop-cdn.tapmodo.com/v2.0.0-RC1/js/Jcrop.js"></script>
+<link rel="stylesheet" href="http://jcrop-cdn.tapmodo.com/v2.0.0-RC1/css/Jcrop.css" type="text/css">
+--}}
 <script type="text/javascript">
+
 	var crop_max_width = 200;
 	var crop_max_height = 200;
 	var jcrop_api;
@@ -337,6 +342,7 @@
 	var context;
 	var image;
 	var prefsize;
+
 	$("#file").change(function() {
 	  loadImage(this);
 	   $("#divCrop").removeClass('hide');
@@ -413,7 +419,7 @@
 	    jcrop_api.setOptions({allowResize: false});
 
 	    jcrop_api.setSelect(
-			[0, 0,crop_max_width, crop_max_height]
+			[50, 50,crop_max_width+50, crop_max_height+50]
 			);
 
 	  });

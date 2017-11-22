@@ -9938,7 +9938,7 @@ section.dark .nav-tabs.nav-stacked>li.active>a {
 	.nav-tabs>li,
 	.nav-tabs>li>a {
 		display:block !important;
-		float:none !important;
+		/*float:none !important;  Removed for Edit Profile on mobile*/
 		border:0 !important;
 		background-color:rgba(0,0,0,0.01);
 	}

@@ -25,7 +25,7 @@
 		<h1><i class="fa fa-user-circle-o"></i> {{$user->full_name}}</h1>
 	@endif
 
-	<ol class="breadcrumb">
+	<ol class="breadcrumb hidden-xs hidden-sm">
 		<li><a href="/">Home</a></li>
 		<li><a href="{{route('members.listing')}}">Profiles</a></li>
 		<li><a href="{{route('members.rankings')}}" >Rankings</a></li>

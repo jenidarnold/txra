@@ -35,7 +35,7 @@
 
 @stop
 @section('content')
-  <section class="page-header page-header-xs">        
+  <section class="page-header page-header-xs hidden-xs">        
         <div class="container">
             <h1><i class="et-newspaper"></i> NEWS
             @if(isset($category)) 

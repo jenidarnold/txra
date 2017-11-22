@@ -214,7 +214,7 @@ class MemberController extends Controller {
             . "NL Rankings (S/D/X) " 
 			. $usar->national_singles_rank . "/"
 			. $usar->national_doubles_rank . "/"
-			. $usar->national_mixed_rank . " "
+			. $usar->national_mixed_rank . "; "
 			;
 		}
 
