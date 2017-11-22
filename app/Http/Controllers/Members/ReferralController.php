@@ -63,7 +63,7 @@ class ReferralController extends Controller {
             'image_width' => '200',
             'image_height' => '200',
             'image_type'    => 'image/'. explode('.',$profile->avatar,2)[1],
-            'url'   => Route::get('refer.invite', $refer->token)
+            'url'   => \Config::get('app.url') .'/register/'.  $token
         ];
 
     	return view('members/referral/register', compact('user', 'profile', 'meta'));
