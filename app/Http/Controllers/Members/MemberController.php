@@ -182,10 +182,27 @@ class MemberController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($param)
 	{
+		$error = '';
+		if( is_numeric($param)) {		
+			$user = User::find($param);
+			$error = 'member ID ' . $param;
+		}
+		else {
 
-		$user = User::find($id);
+			$name = explode("-", $param);
+			$error = $name[0]. ' '. $name[1];
+			$user = User::where('first_name', '=', $name[0])
+				->where('last_name', '=', $name[1])
+				->first();
+			;
+		}
+
+		if (!isset($user)){
+			return view('errors/nouser', compact('error'));
+		}
+
 		$profile = $user->profile()->first();
 
 		$usar = [];
@@ -205,6 +222,7 @@ class MemberController extends Controller {
 	private function get_openpgraph_meta($user, $usar)
 	{
 		$profile = $user->profile()->first();
+		$description = '';
 
 		if (isset($usar)) {
 			$description = "TX Rankings (S/D/X) " 

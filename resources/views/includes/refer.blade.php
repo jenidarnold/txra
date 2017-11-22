@@ -13,7 +13,7 @@
 		<div class="panel-heading">	
 			<div class="pull-right well text-center" style="margin-bottom: 0px">
 				<span class="h5 text-primary">REFERRALS<br/>
-				2</span>
+				{{ $refer->referrals}}</span>
 			</div>
 			<h3 class="text-center">Invite your friends & win</h3>
 			<h4 class="text-center">Win 20 credits for every friend that signs up!</h4>
@@ -41,19 +41,30 @@
 			<div class="row margin-bottom-20">
 				<h4>Share your unique link</h4>
 				<div class="input-group col-md-6 col-md-offset-3 col-sm-12">
-			    	<span class="input-group-addon"><i class="fa fa-external-link"></i></span>
 					<a href="#" data-toggle="popover"  data-placement="top" data-content="Link copied to clipboard">
-			    		<input id="link" type="text" onclick="copyLink();" class="form-control" name="link" placeholder="Your Unique Link" value="mylink">
+			    		<input id="link" type="text" onclick="copyLink();" class="form-control" name="link" placeholder="Your Unique Link" 
+			    		value="route('refer.accept', $refer->token) ">
 			    	</a>
+			    	<span class="input-group-addon">
+			    		<a href="#" data-toggle="popover"  data-placement="top" data-content="Link copied to clipboard">
+				    		<button class="btn btn-xs btn-secondary" type="button">
+				    			<i class="fa fa-external-link"></i>
+			    			</button>
+		    			</a>
+	    			</span>					
 			  	</div>
 			</div>
 			<div class="row">
 				<h4>Invite your friends by email</h4>
-				<form action="{{ route('invite') }}" method="post">
+				<form action="{{ route('refer.email', $refer->user_id) }}" method="post">
 				    {{ csrf_field() }}
     				<div class="input-group col-md-6 col-md-offset-3 col-sm-12">
-				    	<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-				    	<input id="email" type="text" class="form-control" name="email" placeholder="Emeter email addresses sepateed by commas">
+				    	<input id="email" type="text" class="form-control" name="email" placeholder="Enter email addresses separated by commas">
+				    	<span class="input-group-addon">
+				    		<button class="btn btn-xs btn-secondary " type="submit">
+				    			<i class="glyphicon glyphicon-envelope"></i>
+			    			</button>
+			    		</span>
 				  	</div>
 				</form>
 

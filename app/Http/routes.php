@@ -129,6 +129,8 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 });	
 
 Route::get('accept/{token}', 'Admin\InviteController@accept')->name('invite.accept');
+Route::get('refer/{token}', 'Members\ReferralController@accept')->name('refer.accept');
+
 
 Route::controller('/admin', 'News\panel\BlogController');
 
@@ -178,7 +180,6 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 {	
 	Route::get('home', array('as' => 'members.listing', 'uses' => 'MemberController@home'));
 	Route::get('/', array('as' => 'members.listing', 'uses' => 'MemberController@index'));
-	Route::get('/', array('as' => 'members.listing', 'uses' => 'MemberController@index'));
 
 	Route::get('/search/', array('as' => 'members.search', 'uses' => 'MemberController@search'));		
 	Route::get('profile/{id}/', array('as' => 'members.show', 'uses' => 'MemberController@show'));	
@@ -192,7 +193,6 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 
 	Route::post('profile/{id}/avatar/upload', array('as' => 'members.update_avatar', 'uses' => 'MemberController@update_avatar'));
 	Route::get('profile/{id}/avatar/delete', array('as' => 'members.delete_avatar', 'uses' => 'MemberController@delete_avatar'));
-
 	Route::post('profile/{id}/usar', array('as' => 'members.link_usar', 'uses' => 'MemberController@link_usar'));
 
 	//Route::get('matches', array('as' => 'members.matches', 'uses' => 'MemberController@matches'));	
@@ -206,7 +206,17 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	Route::get('rankings/temp', array('as' => 'members.rankings.temp', 'uses' => 'RankingsController@temp'));
 	Route::get('download/rankings/{group_id}/{location_id}', array('as' => 'events.download.rankings', 'uses' => 'RankingsController@download'));
 
+	Route::get('/refer', array('as' => 'refer.index', 'uses' => 'ReferralController@index'));		
+	Route::get('refer/{id}/', array('as' => 'refer.show', 'uses' => 'ReferralController@show'));	
+	Route::post('refer/{id}/', array('as' => 'refer.email', 'uses' => 'ReferralController@send_email'));
+
+
+	Route::get('{param}', array('as' => 'members.show', 'uses' => 'MemberController@show'));	
+
 });
+
+
+	Route::get('/member/{param}', array('as' => 'members.show', 'uses' => 'Members\MemberController@show'));
 
 /* Events */
 Route::group(['namespace' => 'Events', 'prefix' =>'events'], function()
