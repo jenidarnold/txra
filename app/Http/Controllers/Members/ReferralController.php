@@ -42,7 +42,7 @@ class ReferralController extends Controller {
 		$refer->user_id = $id;
 		$refer->credit = 200;
 		$refer->referrals = 10;
-		$refer->token = "AXXCBHEQ";
+		$refer->token = str_random();
 
 
     	return view('members/referral/invite', compact('refer'));
@@ -63,7 +63,7 @@ class ReferralController extends Controller {
             'image_width' => '200',
             'image_height' => '200',
             'image_type'    => 'image/'. explode('.',$profile->avatar,2)[1],
-            'url'   => $user->getUrl()
+            'url'   => Route::get('refer.invite', $refer->token)
         ];
 
     	return view('members/referral/register', compact('user', 'profile', 'meta'));
