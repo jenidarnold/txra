@@ -44,6 +44,7 @@ class ReferralController extends Controller {
 		$refer->referrals = 10;
 		$refer->token = "AXXCBHEQ";
 
+
     	return view('members/referral/invite', compact('refer'));
 	}
 
