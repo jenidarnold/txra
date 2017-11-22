@@ -129,7 +129,8 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 });	
 
 Route::get('accept/{token}', 'Admin\InviteController@accept')->name('invite.accept');
-Route::get('refer/{token}', 'Members\ReferralController@accept')->name('refer.accept');
+Route::get('register/{token}', 'Members\ReferralController@invite')->name('refer.invite');
+//Route::get('register/{token}', 'Members\ReferralController@invite')->name('refer.accept');
 
 
 Route::controller('/admin', 'News\panel\BlogController');

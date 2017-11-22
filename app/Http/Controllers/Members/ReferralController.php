@@ -47,7 +47,28 @@ class ReferralController extends Controller {
     	return view('members/referral/invite', compact('refer'));
 	}
 
-	 // here we'll look up the user by the token sent provided in the URL
+	public function invite($token) {
+
+		//get refer user by token
+		
+		$id = 1;
+		$user = User::find($id);
+		$profile = $user->profile()->first();
+
+		$meta = [
+            'title' => "Join TXRA.org and earn credit towards rewards!",
+            'description' => $user->full_name. ' wants you to join the Texas Racquetball Association',
+            'image' => '/images/members/'.$user->id.'/'.$profile->avatar,
+            'image_width' => '200',
+            'image_height' => '200',
+            'image_type'    => 'image/'. explode('.',$profile->avatar,2)[1],
+            'url'   => $user->getUrl()
+        ];
+
+    	return view('members/referral/register', compact('user', 'profile', 'meta'));
+	}
+
+	// here we'll look up the user by the token sent provided in the URL
     public function accept($token)
     { // Look up the invite
 

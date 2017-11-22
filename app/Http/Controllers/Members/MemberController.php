@@ -248,7 +248,7 @@ class MemberController extends Controller {
             'image_width' => '200',
             'image_height' => '200',
             'image_type'    => 'image/'. explode('.',$profile->avatar,2)[1],
-            'url'   => $user->getUrl()
+            'url'   => Route::get('refer.invite', $refer->token)
         ];
 
         return $meta;

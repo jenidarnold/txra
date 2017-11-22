@@ -49,7 +49,8 @@
 								<i class="thumbnail ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
 							@endif
 						@endif
-						{{-- <h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2> --}}				</div>
+						{{-- <h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2> --}}				
+				</div>
 					
 				<!-- Show Profile Progress if this profile belongs to current Auth -->
 				@if ((Auth::id() == $user->id) && ($profile->progress < 100))
