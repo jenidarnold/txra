@@ -664,7 +664,6 @@
 		  //@endif	 
 		  ga('send', 'pageview');
 		</script>
-
 		<!-- collapse nav pill filters on click list item; for Mobile devices -->
 		<script>
 			$(document).on('click','.nav-filter-collapse.in',function(e) {
@@ -776,5 +775,14 @@
 
 
 		@yield('script')
+
+		
+
+		<script>
+			$(document).ready(function(){
+			    $('[data-toggle="popover"]').popover(); 
+			});
+		</script>
+
 </body>
 </html>

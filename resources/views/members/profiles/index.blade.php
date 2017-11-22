@@ -8,7 +8,7 @@
 		<div class="container">
 			<h1><i class="fa fa-user-circle"></i> MEMBERS</h1>			
 			<!-- breadcrumbs -->
-			<ol class="breadcrumb">
+			<ol class="breadcrumb hidden-xs">
 				<li><a href="/">Home</a></li>
 				<li><a class="active">Profiles</a></li>
 				<li><a href="{{route('members.rankings')}}" >Rankings</a></li>

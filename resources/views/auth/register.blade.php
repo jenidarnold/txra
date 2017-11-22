@@ -33,7 +33,7 @@
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
 							 {{ csrf_field() }}
 								<header class="text-center alert-info text-primary" style="background-color: #d9edf7">
-									<i class="fa fa-user-circle-o"></i> Signup for a TXRA account
+									<i class="fa fa-user-circle-o"></i> Sign Up for a TXRA account
 								</header>
 								<input type="hidden" name="method" value="email">
 								<fieldset class="nomargin">	

@@ -25,6 +25,9 @@ Route::get('/survey',  function () {
     return view('survey');
 });
 
+Route::get('/refer',  function () {
+    return view('members/referral/invite');
+});
 	
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
 //{
