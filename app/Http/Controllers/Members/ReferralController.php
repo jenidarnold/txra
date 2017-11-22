@@ -57,10 +57,10 @@ class ReferralController extends Controller {
 		$profile = $user->profile()->first();
 
 		$meta = [
-            'title' => "Join TXRA.org and earn credit towards rewards!",
-            'description' => $user->full_name. ' wants you to join the Texas Racquetball Association',
+            'title' => "Earn credit towards REWARDS when you join TXRA.org",
+            'description' => "Your friend, " $user->full_name. ', wants you to join the Texas Racquetball Association. It''s Free! Use this link for both of you to earn credit when you register',
             'image' => '/images/members/'.$user->id.'/'.$profile->avatar,
-            'image_width' => '200',
+            'image_width' => '400',
             'image_height' => '200',
             'image_type'    => 'image/'. explode('.',$profile->avatar,2)[1],
             'url'   => \Config::get('app.url') .'/register/'.  $token
