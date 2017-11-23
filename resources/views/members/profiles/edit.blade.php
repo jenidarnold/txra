@@ -9,12 +9,26 @@
 @stop
 @section('profile_content')
 	<!-- RIGHT -->
-					
+				
+	@if(session()->has('tab'))	
+		{{--*/ $tab = session('tab') /*--}}
+	@endif
+
 	<ul class="nav nav-tabs nav-top-border">
-		<li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
-		<li><a href="#avatar" data-toggle="tab">Picture</a></li>
+
+		<li class="{{$tab['info']}}">
+			<a href="#info" data-toggle="tab">Personal Info</a>
+		</li>
+		<li class="{{$tab['avatar']}}">
+			<a href="#avatar" data-toggle="tab">Picture</a>
+		</li>
+
+		@if($action != 'CREATE')
+			<li class="{{$tab['password']}}">
+				<a href="#password" data-toggle="tab">Password</a>
+			</li>
+		@endif
 		{{-- <li><a href="#accounts" data-toggle="tab">Link USAR</a></li> --}}
-		<li><a href="#password" data-toggle="tab">Password</a></li>
 		{{-- <li><a href="#privacy" data-toggle="tab">Privacy</a></li> --}}
 	</ul>
 
@@ -37,22 +51,22 @@
 	    @endforeach
   	</div> <!-- end .flash-message -->
 
-	<div class="tab-content margin-top-20">
+	<div class="tab-content margin-top-0">
 
 		<!-- PERSONAL INFO TAB -->
-		<div class="tab-pane fade in active" id="info">
-			<form role="form" action="{{route('members.update', $user->id)}}" method="post">
+		<div class="tab-pane fade in {{$tab['info']}}" id="info">
+			<form role="form" action="{{route('members.update', ['id' => $user->id, 'action' => $action])}}" method="post">
 				{{ csrf_field() }}			  
-				<div class="form-group">
-					<label class="control-label">First Name</label>
+				<div class="form-group col-sm-6">
+					<label class="control-label text-primary">First Name</label>
 					<input type="text" name="first_name" value="{{$user->first_name}}" class="form-control">
 				</div>
-				<div class="form-group">
-					<label class="control-label">Last Name</label>
+				<div class="form-group col-sm-6">
+					<label class="control-label text-primary">Last Name</label>
 					<input type="text" name="last_name" value="{{$user->last_name}}" class="form-control">
 				</div>
-				<div class="form-group">
-					<label class="control-label">Gender</label>
+				<div class="form-group col-sm-4">
+					<label class="control-label text-primary">Gender</label>
 					{{ Form::select(
 							'gender', 
 							[
@@ -68,12 +82,12 @@
 						) 
 					}}
 				</div>
-				<div class="form-group">
-					<label class="control-label">City/Town</label>
+				<div class="form-group col-sm-8">
+					<label class="control-label text-primary">City/Town</label>
 					<input type="text" name="city" value="{{$profile->city}}" class="form-control">
 				</div>
-				<div class="form-group">
-					<label class="control-label">Skill</label>
+				<div class="form-group col-sm-4">
+					<label class="control-label text-primary">Skill</label>
 					{{ Form::select(
 							'skill', 
 							[
@@ -96,12 +110,12 @@
 						) 
 					}}
 				</div>	
-				<div class="form-group">
-					<label class="control-label">Racquet</label>
+				<div class="form-group col-sm-4">
+					<label class="control-label text-primary">Racquet</label>
 					<input type="text" name="racquet" value="{{$profile->racquet}}" class="form-control">
 				</div>	
-				<div class="form-group">
-					<label class="control-label">Dominant Hand</label>
+				<div class="form-group col-sm-4">
+					<label class="control-label text-primary">Dominant Hand</label>
 					{{ Form::select(
 							'hand', 
 							[
@@ -119,23 +133,27 @@
 					}}
 				</div>	
 				{{-- <div class="form-group">
-					<label class="control-label">Interests</label>
+					<label class="control-label text-primary">Interests</label>
 					<input type="text" placeholder="{{$user->interests}}" class="form-control">
 				</div>	 --}}			
-				<div class="form-group">
-					<label class="control-label">Who Am I?</label>
+				<div class="form-group col-sm-12">
+					<label class="control-label text-primary">Who Am I?</label>
 					<textarea class="form-control" name="bio" rows="3" placeholder="Tell us about yourself">{{$profile->bio}}</textarea>
 				</div>				
-				<div class="margiv-top10">
-					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Save Changes </button>					
-					<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>
+				<div class="col-sm-12 margiv-top10">
+					@if($action == 'CREATE')
+						<button type="submit" class="btn btn-primary">Next <i class="fa fa-chevron-right"></i></button>
+					@else
+						<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Save Changes </button>					
+						<a href="{{ route('members.show', $user->id )}}" class="btn btn-default">Cancel </a>
+					@endif
 				</div>
 			</form>
 		</div>
 		<!-- /PERSONAL INFO TAB -->
 
 		<!-- AVATAR TAB -->
-		<div class="tab-pane fade" id="avatar">
+		<div class="tab-pane fade in {{$tab['avatar']}}" id="avatar">
 
 			{{-- <form class="clearfix" action="{{ route('members.update_avatar', $user->id)}}" method="post" enctype="multipart/form-data"> --}}
 			<form id="frmAvatar" name="frmAvatar" class="clearfix" method="post" enctype="multipart/form-data">
@@ -147,15 +165,15 @@
 				<input type="hidden" name="h" id="h"  style="width:30px" />
 				
 				<div class="form-group">
-					<div class="row">
-					<div class="col-md-6 col-sm-6">
+					{{-- <div class="row">
+						<div class="col-md-6 col-sm-6">
 							<a href="{{route('members.delete_avatar', $user->id)}}" class="btn btn-danger btn-xs noradius"><i class="fa fa-times"></i> Remove Current Picture</a>
 						</div>
-					</div>
+					</div> --}}
 					<div class="row">
-						<div class="col-md-6 col-sm-6">
+						<div class="col-md-8 col-sm-8">
 							<div class="sky-form nomargin">
-								<label class="h4">1. Select an Image</label> 
+								<label class="h4 text-primary"><i class="ico-light ico-xs ico-color et-camera"></i> Upload an Image</label> 
 								<label for="file" class="input input-file" style="margin-left:20px">
 									<div class="button">
 										<input id="file" type="file" name="avatar[]" id="avatar"  /> Browse
@@ -170,18 +188,18 @@
 				<div class="row hide" name="divCrop" id="divCrop">	
 					<div class="col-md-6 col-sm-6">
 							<div class="sky-form nomargin">
-								<label class="h4">2. Crop Image</label> 		
+								<label class="h4 text-primary"><i class="ico-light ico-xs ico-color et-expand"></i> Select Area to Crop</label> 		
 								<div id="cropbox" name="cropbox" style="margin-left:20px"></div>
 							</div>
 					</div>
 				</div>	
 				<!-- Save/Cancel Buttons -->
-				<div class="hide sky-form margiv-top10" name="divSave" id="divSave">
-					<label class="h4">3. 
-					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
-					<a href="{{ route('members.show', $user->id)}}" id="btnDoneAvatar" name="btnDoneAvatar" class="btn btn-info disabled">Done </a>
-					<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>
-					</label>
+				<div class="hide sky-form margiv-top10" name="divSave" id="divSave">		
+					<button type="submit" class="btn btn-primary">Save Crop </button>
+					<a href="{{ route('members.show', $user->id)}}" id="btnDoneAvatar" name="btnDoneAvatar" class="btn btn-info disabled">I'm Finished </a>
+					@if($action != 'CREATE')
+						<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>	
+					@endif		
 				</div>				
 			</form>
 
@@ -189,27 +207,27 @@
 		<!-- /AVATAR TAB -->
 		
 		<!-- ACCOUNTS TAB -->		
-		<div class="tab-pane fade" id="accounts">
+		<div class="tab-pane fade in {{$tab['accounts']}}" id="accounts">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-0">						
 						{!! Form::model($user, array('route' => array('members.link_usar', $user->id), 'role' => 'form', 'class'=> 'form-horizontal','method' => 'POST')) !!}
 							{!! Form::hidden ('_token', csrf_token()) !!}
 							<div class="form-group">
-								<label class="col-md-3 control-label">USAR ID:</label>
+								<label class="col-md-3 control-label text-primary">USAR ID:</label>
 								<div class="col-md-6">
 									<input type="text" class="form-control" name="password">
 								</div>
 							</div>		
 
 							{{-- <div class="form-group">
-								<label class="col-md-3 control-label">USAR Login:</label>
+								<label class="col-md-3 control-label text-primary">USAR Login:</label>
 								<div class="col-md-6">
 									<input type="text" class="form-control" name="username" value="">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-md-3 control-label">USAR Password:</label>
+								<label class="col-md-3 control-label text-primary">USAR Password:</label>
 								<div class="col-md-6">
 									<input type="password" class="form-control" name="password">
 								</div>
@@ -231,20 +249,20 @@
 		<!-- /ACCOUNTS TAB -->
 
 		<!-- PASSWORD TAB -->		
-		<div class="tab-pane fade" id="password">
+		<div class="tab-pane fade in {{$tab['password']}}" id="password">
 
 			<form action="{{route('members.update_pwd', $user->id)}}" method="post" >
 				{{ csrf_field() }}
 				<div class="form-group">
-					<label class="control-label">Current Password</label>
+					<label class="control-label text-primary">Current Password</label>
 					<input type="password" name="current_password" class="form-control">
 				</div>
 				<div class="form-group">
-					<label class="control-label">New Password</label>
+					<label class="control-label text-primary">New Password</label>
 					<input type="password" name="password" class="form-control">
 				</div>
 				<div class="form-group">
-					<label class="control-label">Re-type New Password</label>
+					<label class="control-label text-primary">Re-type New Password</label>
 					<input type="password" name="password_confirmation" class="form-control">
 				</div>
 
@@ -259,7 +277,7 @@
 		<!-- /PASSWORD TAB -->
 
 		<!-- PRIVACY TAB -->
-		<div class="tab-pane fade" id="privacy">
+		<div class="tab-pane fade in {{$tab['privacy']}}" id="privacy">
 
 			<form action="#" method="post">
 				{{ csrf_field() }}
@@ -333,6 +351,7 @@
 <script src="http://jcrop-cdn.tapmodo.com/v2.0.0-RC1/js/Jcrop.js"></script>
 <link rel="stylesheet" href="http://jcrop-cdn.tapmodo.com/v2.0.0-RC1/css/Jcrop.css" type="text/css">
 --}}
+
 <script type="text/javascript">
 
 	var crop_max_width = 200;

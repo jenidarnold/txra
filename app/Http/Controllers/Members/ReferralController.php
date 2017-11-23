@@ -58,7 +58,7 @@ class ReferralController extends Controller {
 
 		$meta = [
             'title' => "Earn credit towards REWARDS when you join TXRA.org",
-            'description' => "Your friend, " . $user->full_name. ', wants you to join the Texas Racquetball Association. It is FREE to join! Use this link for both of you to earn credit when you register',
+            'description' => "Your friend, " . $user->full_name. ', wants you to join the Texas Racquetball Association. It is FREE to join! Use this link to register.',
             'image' => '/images/members/'.$user->id.'/'.$profile->avatar,
             'image_width' => '400',
             'image_height' => '200',

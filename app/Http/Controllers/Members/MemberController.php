@@ -269,7 +269,13 @@ class MemberController extends Controller {
 		$active['settings'] = 'active';
 		$action = "CREATE";
 
-		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action'));
+		$tab['info'] ='active';
+    	$tab['avatar']='';
+    	$tab['accounts']='';
+    	$tab['password']='';
+    	$tab['privacy']='';
+    	
+		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action', 'tab'));
 	}
 
 
@@ -280,12 +286,6 @@ class MemberController extends Controller {
 	 */
 	public function create_pwd($id)
 	{
-
-		// $user = User::find($id);
-		// $profile = $user->profile()->first();
-
-		// $active['profile'] ='';
-		// $active['settings'] = 'active';
 
 		return view('members/profiles/password');
 	}
@@ -306,7 +306,13 @@ class MemberController extends Controller {
 		$active['settings'] = 'active';
 		$action = "EDIT";
 
-		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action'));
+		$tab['info'] ='active';
+    	$tab['avatar']='';
+    	$tab['accounts']='';
+    	$tab['password']='';
+    	$tab['privacy']='';
+
+		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action', 'tab'));
 		
 	}
 
@@ -378,12 +384,25 @@ class MemberController extends Controller {
             $profile->bio = \Input::get('bio');
             $profile->save();
 
+			$action = \Input::get('action');
+            if($action == 'CREATE') {
+            	$tab['info'] ='';
+            	$tab['avatar']='active';
+            	$tab['accounts']='';
+            	$tab['password']='';
+            	$tab['privacy']='';
 
+
+            	return  redirect()->route('members.create', ['id' => $id])
+            		->with('tab', $tab) ;
+            	//return Redirect::to(URL::previous() . "#avatar");
+            }else {
             // redirect
-            \Session::flash('message', 'Successfully updated Personal Info');
+	            \Session::flash('message', 'Successfully updated Personal Info');
 
-			return  redirect()->route('members.show', ['id' =>  $id ])
-				->with('flash-message','message');  
+				return  redirect()->route('members.show', ['id' =>  $id ])
+					->with('flash-message','message');  
+			}
 		}
 	}
 

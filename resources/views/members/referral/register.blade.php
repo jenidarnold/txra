@@ -30,7 +30,7 @@
 								@endif
 							</div>
 							<div class="">
-								<h4>{{$user->full_name}} <small>wants you to join TXRA. Sign up now, and you both will receive 20 credits in <a href="#" target="new">TXRA Rewards</a>. Earn more credits by referring you friends. Your Referal Link will be available after you create your account. </small></h4>
+								<h4>{{$user->full_name}} <small>invites you to join TXRA. Sign up now, and you both will receive 20 credits in <a href="#" target="new">TXRA Rewards</a>. Earn even MORE credits by referring your friends. But first, let's get you registered! </small></h4>
 							</div>
 						</div>
 

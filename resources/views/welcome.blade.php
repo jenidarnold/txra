@@ -55,15 +55,24 @@
                         <div class="ls-slide" data-ls="slidedelay:8000;transition2d:21,105;">
 
                             <!-- background image -->
-                            <img src="{{ asset('images/landing/chase_lukas.jpg') }}" class="ls-bg" alt="Slide background"/>
+                            <img src="{{ asset('images/landing/chase_lukas.jpg') }}" class="ls-bg" alt=" Photo courtesy of Joe Hall"/>
 
-                            <p class="ls-l" style="top:44%;left:50%;font-weight: 300;font-size:30px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:50;durationin:750;easingin:easeOutBack;skewxin:-50;offsetxout:-50;durationout:600;showuntil:500;easingout:easeInBack;skewxout:50;">
+                            <p class="ls-l" style="top:30%;left:50%;font-weight: 300;font-size:30px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:50;durationin:750;easingin:easeOutBack;skewxin:-50;offsetxout:-50;durationout:600;showuntil:1500;easingout:easeInBack;skewxout:50;">
                                 participate in
                             </p>
-                            <p class="ls-l" style="top:52%;left:50%;font-weight: 300;font-size:50px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:-100;durationin:750;delayin:250;easingin:easeOutBack;skewxin:-50;offsetxout:100;durationout:600;showuntil:500;easingout:easeInBack;skewxout:50;">
-                                Texas Sanctioned Events
+                            <p class="ls-l" style="top:40%;left:50%;font-weight: 300;font-size:50px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:-100;durationin:750;delayin:250;easingin:easeOutBack;skewxin:-50;offsetxout:100;durationout:600;showuntil:1800;easingout:easeInBack;skewxout:50;">
+                                Sanctioned Tournaments
                             </p>
-
+                            <p class="ls-l" style="top:50%;left:50%;font-weight: 300;font-size:50px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:-100;durationin:750;delayin:500;easingin:easeOutBack;skewxin:-50;offsetxout:100;durationout:600;showuntil:2200;easingout:easeInBack;skewxout:50;">
+                                One-Day Shootouts
+                            </p>
+                            <p class="ls-l" style="top:60%;left:50%;font-weight: 300;font-size:50px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:-100;durationin:750;delayin:750;easingin:easeOutBack;skewxin:-50;offsetxout:100;durationout:600;showuntil:2400;easingout:easeInBack;skewxout:50;">
+                                Leagues & Ladders
+                            </p>
+                            <!-- Photo Credit -->
+                            <p class="ls-l text smaller" style="top:90%;left:15%;font-weight: 400;font-size:12px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:50;durationin:750;easingin:easeOutBack;skewxin:-50;offsetxout:-50;durationout:600;showuntil:6000;easingout:easeInBack;skewxout:50;">
+                            Photo courtesy of Joe Hall</p>
+                           
                             <!--
                             <img class="ls-l" style="top:45%;left:585px;white-space: nowrap;" data-ls="offsetxin:0;durationin:1500;delayin:1500;rotateyin:90;transformoriginin:right 50% 0;offsetxout:0;durationout:1500;showuntil:1000;rotateyout:-90;transformoriginout:right 50% 0;" src="asset('images/racquet.png') }}" alt="">
                             -->
@@ -71,7 +80,7 @@
                         <!-- /SLIDE- ->
                         
                          <!-- SLIDE -->
-                        <div class="ls-slide" data-ls="slidedelay:8000;transition2d:21,105;timeshift:-1000;">
+                        <div class="ls-slide" data-ls="slidedelay:4000;transition2d:21,105;timeshift:-1000;">
 
                             <!-- background -->
                             {{-- <img src="{{ asset('images/rball-action.gif') }}" class="ls-bg" alt="Slide background"/> --}}
@@ -94,6 +103,21 @@
                                MASTER'S RACQUETBALL
                             </p>
 
+                           
+                        </div>
+                         <!-- SLIDE -->
+                        <div class="ls-slide" data-ls="slidedelay:4000;transition2d:21,105;timeshift:-1000;">
+
+                            <!-- background -->
+                            {{-- <img src="{{ asset('images/rball-action.gif') }}" class="ls-bg" alt="Slide background"/> --}}
+                            <img src="{{ asset('images/landing/diva_players.jpg?v6') }}" class="ls-bg" alt="Slide background"/>
+
+                            
+                            <!-- Can add images with the text to tile in smaller -->
+                            {{-- <img class="ls-l" data-ls="offsetxin:-100;durationin:2000;delayin:1500;offsetxout:-100;durationout:1000;parallaxlevel:-2;" style="top:30%;left:50%;width:120%;height:auto;white-space: nowrap;" src="{{asset('images/landing/outdoor.jpg')}}" alt=""> --}}
+                            <p class="ls-l" style="top:70%;left:400px;font-weight: 500;font-size:40px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:2500;delayin:500;rotateyin:-90;transformoriginin:left 50% 0;offsetxout:0;durationout:1500;showuntil:3000;rotateyout:90;transformoriginout:left 50% 0;">
+                               WOMEN'S RACQUETBALL
+                            </p>
                            
                         </div>
 
@@ -124,7 +148,7 @@
                                 offsetxout:-50;
                                 durationout:1000;"
                                 style="top:320px;left:120px;font-weight: 300; background: white; background: rgba(255,255,255,.85); height:40px; padding-right:10px;padding-left:10px;font-size:30px;line-height:37px;color:#A94545;white-space: nowrap;">
-                                LEAGUES, CLINICS
+                                JUNIORS PROGRAMS, CLINICS
                             </p>
                             <p class="ls-l" data-ls="
                                 offsetxin:50;
@@ -172,7 +196,9 @@
                     <div class="row margin-top-10">
                         <div class="col-sm-6 col-xs-12 text-center">                    
                             <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-info btn-lg btn-block">JOIN FOR FREE</a>
-                            <h5>Create a free TXRA account and profile. </h5>    
+                            <h5>Create a free TXRA profile 
+                                {{-- <a href="#"> & earn Rewards Points. </a> --}}
+                            </h5>    
                         </div>                   
                         <div class="col-sm-6 col-xs-12 text-center">
                             <a href="{{ url('/members/membership')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">PAY TO PLAY</a> 
