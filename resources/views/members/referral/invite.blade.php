@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.profile')
 @section('style')
 @stop	
 @section('content')		

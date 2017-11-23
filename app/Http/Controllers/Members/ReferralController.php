@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Redirect;
 use App\User;
 use App\UserProfile;
+use App\UsarMember;
 
 class ReferralController extends Controller {
 
@@ -38,14 +39,26 @@ class ReferralController extends Controller {
 	 */
 	public function show($id)
 	{
-		$refer = new UserProfile;
+        $user = User::find($id);		
+        $profile_id = $user->profile->id;
+        $profile = UserProfile::find($profile_id);
+        
+        $refer = $profile;
 		$refer->user_id = $id;
 		$refer->credit = 200;
 		$refer->referrals = 10;
 		$refer->token = str_random();
 
+        $usar = [];
+        if(isset($user->usar_id)){            
+            $usar = UsarMember::find($user->usar_id);           
+        }
 
-    	return view('members/referral/invite', compact('refer'));
+        $active['profile'] = '';
+        $active['settings'] = '';
+        $active['referrals'] = 'active';
+
+    	return view('members/profiles/refer', compact('user', 'usar', 'refer', 'profile', 'active'));
 	}
 
 	public function invite($token) {

@@ -200,7 +200,12 @@
 					@if($action != 'CREATE')
 						<a href="{{ route('members.show', $user->id)}}" class="btn btn-default">Cancel </a>	
 					@endif		
-				</div>				
+				</div>	
+				@if($action == 'CREATE')
+					<div class= "sky-form margiv-top10" name="divSave" id="divSkip">
+						<a href="{{ route('refer.show', $user->id)}}" class="btn btn-warning">Skip </a>	
+					</div>
+				@endif				
 			</form>
 
 		</div>
@@ -366,6 +371,7 @@
 	  loadImage(this);
 	   $("#divCrop").removeClass('hide');
 	   $("#divSave").removeClass('hide');
+	   $("#divSkip").addClass('hide');
 	});
 	function loadImage(input) {
 	  if (input.files && input.files[0]) {

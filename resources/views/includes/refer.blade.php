@@ -7,7 +7,6 @@
 	</style>
 @stop
 
-<div class="container">
 	<div class="panel panel-success">
 
 		<div class="panel-heading">	
@@ -16,7 +15,7 @@
 				{{ $refer->referrals}}</span>
 			</div>
 			{{-- <h3 class="text-center">Invite your friends & win</h3> --}}
-			<h4 class="text-center">Win 20 credits for every friend that signs up!</h4>
+			<h4 class="text-center">Earn 20 credits for every friend that signs up!</h4>
 		</div>
 		<div class="panel-body text-center">	
 			<div class="row margin-bottom-20">	
@@ -45,7 +44,7 @@
 			</div>
 			<div class="row margin-bottom-20">
 				<h4>Share your unique link</h4>
-				<div class="input-group col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div class="input-group col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 					<a href="#" data-toggle="popover"  data-placement="top" data-content="Link copied to clipboard">
 			    		<input id="link" type="text" onclick="copyLink();" class="form-control" name="link" placeholder="Your Unique Link" 
 			    		value="{{route('refer.invite', $refer->token) }}">
@@ -63,7 +62,7 @@
 				<h4>Invite your friends by email</h4>
 				<form action="{{ route('refer.email', $refer->user_id) }}" method="post">
 				    {{ csrf_field() }}
-    				<div class="input-group col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    				<div class="input-group col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 				    	<input id="email" type="text" class="form-control" name="email" placeholder="Enter email addresses separated by commas">
 				    	<span class="input-group-addon">
 				    		<button class="btn btn-xs btn-secondary " type="submit">
@@ -76,13 +75,12 @@
 			</div>
 
 		</div>
-		<div class="panel-footer">
+		{{-- <div class="panel-footer">
+			
 
-
-		</div>
+		</div> --}}
 	</div>
-</div>
-
+	
 @section('script')
 
 	<script>

@@ -71,55 +71,64 @@
 
 				@if(!isset($action))
 				
-				<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
-					<li class="list-group-item {{ $active['profile'] }}"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> TXRA PROFILE</a></li>
-					<!-- Show Profile Settings if this profile belongs to current Auth -->
-					@if((Auth::id() == $user->id))
-						<li class="list-group-item {{ $active['settings'] }}">
-						<a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> MY SETTINGS</a></li>		
-					@endif	
-
-					@if(isset($user->usar_id))
-						@if($user->usar_id > 0)
-							<li class="list-group-item ">
-								<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR PROFILE</a>
+					<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
+						<li class="list-group-item {{ $active['profile'] }}"><a href="{{ route('members.show', array('id' => $user->id))}}"><i class="fa fa-eye"></i> TXRA PROFILE</a></li>
+						<!-- Show Profile Settings if this profile belongs to current Auth -->
+						@if((Auth::id() == $user->id))
+							<li class="list-group-item {{ $active['settings'] }}">
+								<a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> MY SETTINGS</a>
 							</li>
-							<li class="list-group-item ">
-								<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id . '&matchHistoryType=Singles'}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR MATCH HISTORY</a>
-							</li>
-						@endif
-					@endif				
-					<li class="list-group-item "><a href="{{ route('members.listing')}}"><i class="fa fa-users"></i> BACK TO ALL PROFILES</a></li>				
-				</ul>
-				<!-- /SIDE NAV -->
+							<!-- under development-->	
+							@if((Auth::id() == 1))
+							<li class="list-group-item {{ $active['referrals'] }}">
+								<a href="{{ route('refer.show', array('id' => $user->id))}}"><i class="fa fa-share-alt"></i> MY REFERRALS</a>
+							</li>	
+							@endif	
+						@endif	
 
-
-				<!-- info -->
-				<div class="box-light1 margin-bottom-30 alert alert-info"><!-- .box-light OR .box-light -->					
-					<div class="text-primary margin-bottom-20">
-						<h2 class="size-18 text-primary text-center margin-bottom-20"><b>About Me</b></h2>
-						<hr class="text-primary"/>
-						<ul class="list-unstyled nomargin">
-							<li class="margin-bottom-10"><i class="fa fa-home width-20"></i> {{ $profile->city }}</li>
-							
-							<li class="margin-bottom-10">
-							@if($profile->gender == 'female')
-								<i class="fa fa-female width-20"></i> 
-							@else
-								<i class="fa fa-male width-20"></i> 
+						@if(isset($user->usar_id))
+							@if($user->usar_id > 0)
+								<li class="list-group-item ">
+									<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR PROFILE</a>
+								</li>
+								<li class="list-group-item ">
+									<a href="{{ 'http://www.usaracquetballevents.com/profile-player.asp?UID='. $user->usar_id . '&matchHistoryType=Singles'}}" target="usar_profile"><img src="{{ asset('images/logos/r2sports.gif')}}" width="20px"> USAR MATCH HISTORY</a>
+								</li>
 							@endif
-							{{ ucfirst($profile->gender) }}</li>
+						@endif				
+						<li class="list-group-item "><a href="{{ route('members.listing')}}"><i class="fa fa-users"></i> BACK TO ALL PROFILES</a></li>				
+					</ul>
+					<!-- /SIDE NAV -->
 
-							<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20"></i> 
-								@if(isset($profile->dominant_hand) && $profile->dominant_hand <> "")	
-									{{ ucfirst($profile->dominant_hand) }}-handed
-								@endif
-							</li>
-							<li class="margin-bottom-10"><i class="fa fa-signal width-20"></i> {{ ucfirst($profile->skill) }}</li>
-							<li class="margin-bottom-10"><i class="fa fa-search fa-flip-horizontal margin-right-20"></i> {{ $profile->racquet }}</li>
-						</ul>
-					</div>			
-				</div>
+
+					@if(isset($about))
+						<!-- info -->
+						<div class="box-light1 margin-bottom-30 alert alert-info"><!-- .box-light OR .box-light -->					
+							<div class="text-primary margin-bottom-20">
+								<h2 class="size-18 text-primary text-center margin-bottom-20"><b>About Me</b></h2>
+								<hr class="text-primary"/>
+								<ul class="list-unstyled nomargin">
+									<li class="margin-bottom-10"><i class="fa fa-home width-20"></i> {{ $profile->city }}</li>
+									
+									<li class="margin-bottom-10">
+									@if($profile->gender == 'female')
+										<i class="fa fa-female width-20"></i> 
+									@else
+										<i class="fa fa-male width-20"></i> 
+									@endif
+									{{ ucfirst($profile->gender) }}</li>
+
+									<li class="margin-bottom-10"><i class="fa fa-hand-stop-o width-20"></i> 
+										@if(isset($profile->dominant_hand) && $profile->dominant_hand <> "")	
+											{{ ucfirst($profile->dominant_hand) }}-handed
+										@endif
+									</li>
+									<li class="margin-bottom-10"><i class="fa fa-signal width-20"></i> {{ ucfirst($profile->skill) }}</li>
+									<li class="margin-bottom-10"><i class="fa fa-search fa-flip-horizontal margin-right-20"></i> {{ $profile->racquet }}</li>
+								</ul>
+							</div>			
+						</div>
+					@endif
 				@endif
 			</div>
     

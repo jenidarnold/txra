@@ -213,10 +213,12 @@ class MemberController extends Controller {
 
 		$active['profile'] = 'active';
 		$active['settings'] = '';
+        $active['referrals'] = '';
 
 	  	$meta = $this->get_openpgraph_meta($user, $usar);
 
-		return view('members/profiles/show', compact('user', 'meta', 'profile', 'usar', 'active'));
+		return view('members/profiles/show', compact('user', 'meta', 'profile', 'usar', 'active'))
+			->with('about', true);
 	}
 
 	private function get_openpgraph_meta($user, $usar)
@@ -274,7 +276,7 @@ class MemberController extends Controller {
     	$tab['accounts']='';
     	$tab['password']='';
     	$tab['privacy']='';
-    	
+    	    	
 		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action', 'tab'));
 	}
 
@@ -392,7 +394,6 @@ class MemberController extends Controller {
             	$tab['password']='';
             	$tab['privacy']='';
 
-
             	return  redirect()->route('members.create', ['id' => $id])
             		->with('tab', $tab) ;
             	//return Redirect::to(URL::previous() . "#avatar");
@@ -469,10 +470,15 @@ class MemberController extends Controller {
             }
         }
 
-        \Session::flash('message', 'Successfully updated avatar');
-		//return  redirect()->back()->with('flash-message','message'); 
-		//
-		return  url('/'.$output_filename);
+        $action = \Input::get('action');
+
+        //Goto Referal page
+        if($action == 'CREATE') {
+        	return  redirect()->route('refer.show', ['id' => $id]);
+        }else {
+        	\Session::flash('message', 'Successfully updated avatar');		
+			return  url('/'.$output_filename);
+		}
 	}
 
 	/**
