@@ -277,6 +277,9 @@ class MemberController extends Controller {
     	$tab['password']='';
     	$tab['privacy']='';
     	    	
+    	//Don't show referral modal when creating profile
+    	\Session::set('loadModReferral', 'false');
+
 		return view('members/profiles/edit', compact('user', 'profile', 'active', 'action', 'tab'));
 	}
 

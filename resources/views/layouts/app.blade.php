@@ -615,6 +615,75 @@
 			</div>
 			<!-- /MODAL -->
 
+
+        <!-- 
+                MODAL ON LOAD 
+                
+                data-autoload="true"            - load modal on page load
+                data-autoload-delay="2000"      - load after 2000 ms (1000ms = 1s)
+                
+                Please note, an unique ID is required.
+                localstorage use the ID to hide the modal, if used checked "Don't show this popup again"
+            -->
+            @if(Session::has('loadModReferral'))
+            	{{--*/ $loadModReferral = 'false' /*--}}    
+            	{{--*/ Session::set('loadModReferral', 'false') /*--}}        	
+            @else
+            	{{--*/ $loadModReferral = 'true' /*--}}
+            	{{--*/ Session::set('loadModReferral', 'false') /*--}}  
+            @endif
+
+            <div id="modReferral" class="modal fade" data-autoload="{{$loadModReferral}}" data-autoload-delay="2000">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h3 class="modal-title text-center" id="myModalLabel">Refer a Friend</h4>
+                        </div><!-- /Modal Header -->
+
+                        <!-- body modal -->
+                        <div class="modal-body clearfix text-center">
+                        
+                            <ul class="process-steps process-steps-square nav nav-justified">
+                                <li class="active">
+                                    <a href="#"><i class="et-happy"></i></a>
+                                    <h5>BECOME A MEMBER</h5>
+                                </li>
+                                <li class="active">
+                                    <a href="#"><i class="et-chat"></i></a>
+                                    <h5>SHARE WITH FRIENDS</h5>
+                                </li>
+                                <li class="active">
+                                    <a href="#"><i class="et-trophy"></i></a>
+                                    <h5>EARN REWARDS</h5>
+                                </li>
+                            </ul>
+
+                            <!--Details -->
+                            <div class="">
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <!-- Don't show this popup again -->
+                            <div class="size-11 text-left">
+                                <label class="checkbox pull-left">
+                                    <input class="loadModalHide" type="checkbox" />
+                                    <i></i> <span class="weight-300">Don't show this popup again</span>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /MODAL ON LOAD -->
+
 		<!-- FOOTER -->
 		@include('includes.footer')    	
 		<!-- /FOOTER -->

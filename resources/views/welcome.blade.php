@@ -187,6 +187,7 @@
             <!-- GUEST CALLOUT -->
             <div class="alert alert-transparent bordered-bottom">
                 <div class="container">
+
                     <div class="row">
                         <div class="col-sm-12 col-xs-12"><!-- left text -->
                             <h4>Support the Texas Racquetball Association in developing and promoting the growth of racquetball in our communities across the state of Texas.
@@ -205,6 +206,7 @@
                             <h5>Get your USAR membership to play in sanctioned tournaments. </h5>               
                         </div>
                     </div>
+
                 </div>
             </div>
             <!-- /GUEST CALLOUT -->
@@ -255,6 +257,8 @@
         @include('includes.eventslider', array('event_type' => 'FUTURE', 'tournaments' => $tournaments["future"]))
         <!-- EVENT SLIDER-->
         @include('includes.eventslider', array('event_type' => 'RECENT', 'tournaments' => $tournaments["recent"]))  
+
+
 @stop
 
 @section('script')
