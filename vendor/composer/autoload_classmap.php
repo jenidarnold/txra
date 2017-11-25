@@ -556,6 +556,8 @@ return array(
     'PostCategoriesTableSeeder' => $baseDir . '/database/seeds/PostCategoriesTableSeeder.php',
     'PostCategoryTableSeeder' => $baseDir . '/database/seeds/PostCategoryTableSeeder.php',
     'PostTableSeeder' => $baseDir . '/database/seeds/PostTableSeeder.php',
+    'PromoAcceptsTableSeeder' => $baseDir . '/database/seeds/PromoAcceptsTableSeeder.php',
+    'PromosTableSeeder' => $baseDir . '/database/seeds/PromosTableSeeder.php',
     'RecursiveCallbackFilterIterator' => $vendorDir . '/studio-42/elfinder/php/elFinderVolumeLocalFileSystem.class.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',

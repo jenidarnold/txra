@@ -7,6 +7,9 @@ use Redirect;
 use App\User;
 use App\UserProfile;
 use App\UsarMember;
+use App\Referral;
+use App\Promo;
+
 
 class ReferralController extends Controller {
 
@@ -43,22 +46,37 @@ class ReferralController extends Controller {
         $profile_id = $user->profile->id;
         $profile = UserProfile::find($profile_id);
         
-        $refer = $profile;
-		$refer->user_id = $id;
-		$refer->credit = 200;
-		$refer->referrals = 10;
-		$refer->token = str_random();
-
         $usar = [];
         if(isset($user->usar_id)){            
             $usar = UsarMember::find($user->usar_id);           
         }
 
+        //Set Active NAV Link
         $active['profile'] = '';
         $active['settings'] = '';
         $active['referrals'] = 'active';
 
-    	return view('members/profiles/refer', compact('user', 'usar', 'refer', 'profile', 'active'));
+        //Set All Promos Referrals by user id     
+        $promos = Promo::all();
+        foreach($promos as $promo) {
+            $refer = Referral::where('user_id', '=', $id)
+                ->where('promo_id', '=', $promo->id);
+
+            // Create refer and token
+            if($refer->count() == 0){
+                $refer = new Referral;
+                $refer->create_with_token($promo->id, $id);            
+            }
+        }
+        
+        //Get just the Promo 1 for now    
+        $promo = Promo::find(1)->first(); 
+        $refer = Referral::where('user_id', '=', $id)
+                ->where('promo_id', '=', 1)
+                ->first();
+                
+        //dd( $refer->referrals($promo->id));
+    	return view('members/profiles/refer', compact('user', 'usar', 'promo', 'refer', 'profile', 'active'));
 	}
 
 	public function invite($token) {
