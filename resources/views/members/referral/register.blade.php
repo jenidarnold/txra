@@ -21,7 +21,7 @@
 					<div class="row">
 						<!-- Left Side -->
 						<!-- LEFT -->
-						<div class="col-lg-3 col-md-3 col-sm-4">				
+						<div class="well col-lg-3 col-md-3 col-sm-4">				
 							<div class="text-center">
 								@if((true)) 	
 									<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt="" />
@@ -30,7 +30,7 @@
 								@endif
 							</div>
 							<div>
-								<h3 class="text-primary"><a target="member" href='{{route('members.show', $user->id)}}'>{{$user->full_name}}</a> <small>invites you to join <em class="text-primary  bold">TX<span class="text-danger">R</span>A</em>.&nbsp;&nbsp;Sign up now, and you both will receive <em class="text-success h3">{{$promo->credit}} credits</em> in <a href="#" target="new" class="h3 text-primary"><em class="text-primary bold">TX<span class="text-danger">R</span>A</em> Rewards</a>.&nbsp;&nbsp;Earn even more credits by referring your friends! But first, let's get you registered. </small>
+								<h3 class="text-primary"><a target="member" href='{{route('members.show', $user->id)}}'>{{$user->full_name}}</a> <small>invites you to join <em class="text-primary  bold">TXRA</em>.&nbsp;&nbsp;Sign up now, and you both will receive <em class="text-success">{{$promo->credit}} credits</em> in <em><a href="#" target="new" class="bold text-primary">TXRA Rewards</a></em>.&nbsp;&nbsp;Earn even more credits by referring your friends! But first, let's get you registered. </small>
 								</h3>
 							</div>
 						</div>
@@ -43,7 +43,7 @@
 								<header class="text-center alert-info text-info" style="background-color: #d9edf7">
 									<i class="fa fa-user-circle-o"></i> Sign Up for a <em class="bold text-primary">TX<span class="text-danger">R</span>A</em> account
 								</header>
-								<input type="hidden" name="method" value="email">
+								<input type="hidden" name="refer_token" value="{{$refer->token}}">
 								<fieldset class="nomargin">	
 									<div class="row margin-bottom-10">
 										<div class="col-sm-12">

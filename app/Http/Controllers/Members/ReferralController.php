@@ -20,7 +20,7 @@ class ReferralController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware('auth', ['except' => ['accept', 'register']]);
 		$this->middleware('current_user', ['except' => ['accept', 'register']]);
 	}
 		
@@ -107,7 +107,7 @@ class ReferralController extends Controller {
             'url'   => \Config::get('app.url') .'/register/'.  $token
         ];
 
-    	return view('members/referral/register', compact('promo', 'user', 'profile', 'meta'));
+    	return view('members/referral/register', compact('promo', 'refer', 'user', 'profile', 'meta'));
 	}
 
 

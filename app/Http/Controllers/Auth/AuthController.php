@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\UserProfile;
+use App\Referral;
+use App\PromoAccept;
 use App\Events\AccountWasCreated;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -84,6 +86,7 @@ class AuthController extends Controller
      */
     public function register_by_email(Request $request)
     {
+
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
@@ -93,6 +96,25 @@ class AuthController extends Controller
         }
 
         $user = $this->create($request->all());
+
+        //Add credit to $referr
+        //Mark accept
+        if($request->refer_token != ''){
+            $token = $request->refer_token;
+
+            $refer = Referral::find($token);
+
+            if (isset($refer)){
+                $accept = new PromoAccept;
+
+                $accept->promo_id = $refer->promo_id;
+                $accept->user_referrer_id =$refer->user_id;
+                $accept->user_accept_id = $user->id;
+                $accept->accepted_at = date("Y-m-d H:i:s");
+                $accept->accept_method_id = 1;
+                $accept->save();
+            }
+        }
 
         \Auth::login($user);
         \Event::fire(new AccountWasCreated($user)); 

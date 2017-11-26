@@ -19,6 +19,8 @@ class Referral extends Model
     ];
 
     protected $primaryKey = 'token';
+    public $incrementing = false;
+
 
     /**
      * Get the route key for the model.

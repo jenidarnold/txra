@@ -36,6 +36,7 @@
 									<i class="fa fa-user-circle-o"></i> Sign Up for a TXRA account
 								</header>
 								<input type="hidden" name="method" value="email">
+								<input type="hidden" name="refer_token" value="">
 								<fieldset class="nomargin">	
 									<div class="row margin-bottom-10">
 										<div class="col-sm-12">
