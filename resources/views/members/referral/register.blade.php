@@ -29,8 +29,9 @@
 									<i class="thumbnail ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
 								@endif
 							</div>
-							<div class="">
-								<h4>{{$user->full_name}} <small>invites you to join TXRA. Sign up now, and you both will receive 20 credits in <a href="#" target="new">TXRA Rewards</a>. Earn even MORE credits by referring your friends. But first, let's get you registered! </small></h4>
+							<div>
+								<h3 class="text-primary"><a target="member" href='{{route('members.show', $user->id)}}'>{{$user->full_name}}</a> <small>invites you to join <em class="text-primary  bold">TX<span class="text-danger">R</span>A</em>.&nbsp;&nbsp;Sign up now, and you both will receive <em class="text-success h3">{{$promo->credit}} credits</em> in <a href="#" target="new" class="h3 text-primary"><em class="text-primary bold">TX<span class="text-danger">R</span>A</em> Rewards</a>.&nbsp;&nbsp;Earn even more credits by referring your friends! But first, let's get you registered. </small>
+								</h3>
 							</div>
 						</div>
 
@@ -39,8 +40,8 @@
 
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
 							 {{ csrf_field() }}
-								<header class="text-center alert-info text-primary" style="background-color: #d9edf7">
-									<i class="fa fa-user-circle-o"></i> Sign Up for a TXRA account
+								<header class="text-center alert-info text-info" style="background-color: #d9edf7">
+									<i class="fa fa-user-circle-o"></i> Sign Up for a <em class="bold text-primary">TX<span class="text-danger">R</span>A</em> account
 								</header>
 								<input type="hidden" name="method" value="email">
 								<fieldset class="nomargin">	

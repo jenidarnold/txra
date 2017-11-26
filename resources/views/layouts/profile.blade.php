@@ -78,12 +78,9 @@
 							<li class="list-group-item {{ $active['settings'] }}">
 								<a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> MY SETTINGS</a>
 							</li>
-							<!-- under development-->	
-							@if((Auth::id() == 1))
 							<li class="list-group-item {{ $active['referrals'] }}">
 								<a href="{{ route('refer.show', array('id' => $user->id))}}"><i class="fa fa-share-alt"></i> MY REFERRALS</a>
 							</li>	
-							@endif	
 						@endif	
 
 						@if(isset($user->usar_id))

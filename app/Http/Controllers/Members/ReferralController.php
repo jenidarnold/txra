@@ -20,8 +20,8 @@ class ReferralController extends Controller {
 	 */
 	public function __construct()
 	{
-		//$this->middleware('auth');
-		//$this->middleware('current_user');
+		$this->middleware('auth');
+		$this->middleware('current_user', ['except' => ['accept', 'register']]);
 	}
 		
 	/**
@@ -79,12 +79,22 @@ class ReferralController extends Controller {
     	return view('members/profiles/refer', compact('user', 'usar', 'promo', 'refer', 'profile', 'active'));
 	}
 
-	public function invite($token) {
+    //
+	public function register($token) {
 
-		//get refer user by token
-		
-		$id = 1;
-		$user = User::find($id);
+        $refer = Referral::find($token);
+
+        if(!isset($refer)){
+            $refer = Referral::where('promo_id', '=', 1)
+                ->where('user_id', '=', 1)
+                ->first();
+        }
+
+        $promo = Promo::find($refer->promo_id)->first();
+
+
+		//get refer user by token		
+		$user = User::find($refer->user_id);
 		$profile = $user->profile()->first();
 
 		$meta = [
@@ -97,8 +107,10 @@ class ReferralController extends Controller {
             'url'   => \Config::get('app.url') .'/register/'.  $token
         ];
 
-    	return view('members/referral/register', compact('user', 'profile', 'meta'));
+    	return view('members/referral/register', compact('promo', 'user', 'profile', 'meta'));
 	}
+
+
 
 	// here we'll look up the user by the token sent provided in the URL
     public function accept($token)

@@ -18,6 +18,8 @@ class Referral extends Model
         'user_id'
     ];
 
+    protected $primaryKey = 'token';
+
     /**
      * Get the route key for the model.
      *

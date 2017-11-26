@@ -22,14 +22,14 @@
 
 				<h4>Share on Social Media</h4>
 
-				<div class="fb-share-button col-xs-4 col-sm-2 col-sm-offset-3 " data-href="{{route('refer.invite', $refer->token) }}" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('refer.invite', $refer->token)) }}&amp;src=sdkpreparse"  class="social-icon social-facebook fb-share-button" data-toggle="tooltip" data-placement="top" title="Facebook">
+				<div class="fb-share-button col-xs-4 col-sm-2 col-sm-offset-3 " data-href="{{route('refer.register', $refer->token) }}" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(route('refer.register', $refer->token)) }}&amp;src=sdkpreparse"  class="social-icon social-facebook fb-share-button" data-toggle="tooltip" data-placement="top" title="Facebook">
 						<i class="icon-facebook"></i>
 						<i class="icon-facebook"></i>
 					</a>
 				</div>					
 				<div class="col-xs-4 col-sm-2">
-					<a href="fb-messenger://share/?link={{route('refer.invite', $refer->token) }}" 
+					<a href="fb-messenger://share/?link={{route('refer.register', $refer->token) }}" 
 					class="social-icon social-messenger" data-toggle="tooltip"  data-placement="top" title="Messenger">
 						<img width="40px" src="{{ asset('images/icons/messenger.png')}}"></i>
 						<img width="40px" src="{{ asset('images/icons/messenger.png')}}"></i>
@@ -47,7 +47,7 @@
 				<div class="input-group col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 					<a href="#" data-toggle="popover"  data-placement="top" data-content="Link copied to clipboard">
 			    		<input id="link" type="text" onclick="copyLink();" class="form-control" name="link" placeholder="Your Unique Link" 
-			    		value="{{route('refer.invite', $refer->token) }}">
+			    		value="{{route('refer.register', $refer->token) }}">
 			    	</a>
 			    	<span class="input-group-addon">
 			    		<a href="#" data-toggle="popover"  data-placement="top" data-content="Link copied to clipboard">
