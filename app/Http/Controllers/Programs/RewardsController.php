@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
-use App\Reward;
+use App\Credit;
 
 class RewardsController extends Controller {
 
@@ -15,7 +15,8 @@ class RewardsController extends Controller {
 	 */
 	public function __construct()
 	{
-		//$this->middleware('auth');
+		$this->middleware('current_user', ['except' => ['index']]);
+	
 	}
 	
 
@@ -29,6 +30,27 @@ class RewardsController extends Controller {
 		return view('programs/rewards/index');
 	}
 
+
+	/**
+	 * Display users credits
+	 *
+	 * @return Response
+	 */
+	public function show($id)
+	{
+
+        //Set Active NAV Link
+        $active['profile'] = '';
+        $active['settings'] = '';
+        $active['referrals'] = 'active';
+        $active['rewards'] = '';
+
+		$credits = Credit::where('user_id', '=', $id)
+			->orderBy('id','desc')
+			->get();
+			
+		return view('programs/rewards/show', compact('id', 'credits'));
+	}
 
 }
 

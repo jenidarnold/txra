@@ -82,7 +82,7 @@
 								<a href="{{ route('refer.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-share-alt"></i> MY REFERRALS <span class="badge">{{ $referrals}}</span></a>
 							</li>
 							<li class="text-left list-group-item {{ $active['rewards'] }}">
-								<a href="{{ route('refer.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-money"></i> MY REWARD POINTS <span class="badge">10,000</span></a>
+								<a href="{{ route('rewards.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-money"></i> MY REWARD POINTS <span class="badge">{{\App\Credit::balance($user->id)}}</span></a>
 							</li>	
 						@endif	
 

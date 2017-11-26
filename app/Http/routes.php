@@ -172,6 +172,7 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 	Route::get('referee/adults', array('as' => 'referee.adults', 'uses' => 'RefereeController@adult'));	
 
 	Route::get('rewards', array('as' => 'rewards.index', 'uses' => 'RewardsController@index'));
+	Route::get('rewards/{id}', array('as' => 'rewards.show', 'uses' => 'RewardsController@show'));
 });
 
 

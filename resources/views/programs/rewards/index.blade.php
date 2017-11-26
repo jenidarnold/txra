@@ -23,15 +23,9 @@
 <!-- -->
 	<section>
 		<div class="container text-center">
-
-			<div class="row">
-				<iframe frameborder="0" width="560" height="315" src="https://biteable.com/watch/embed/rewards-coming-soon-1645148/707a4488e4911fe46e8df24b7393a9c28f4328bb?autoplay=1" allowfullscreen="true"></iframe><p><a href="https://biteable.com/watch/rewards-coming-soon-1645148/707a4488e4911fe46e8df24b7393a9c28f4328bb"></a></p>
-			</div>			
-
+	
 			<div class="callout alert alert-info margin-top-60 margin-bottom-60">
-
 				<div class="row">
-
 					@if( Auth::guest())
 
 						<div class="col-md-8 col-sm-8 text-left"><!-- left text -->
@@ -44,12 +38,14 @@
 					@else
 						<a href="{{route('refer.show', Auth::user()->id )}}"
 							<button type="button" class="btn btn-success btn-block">Refer a Friend Now!</button></a>
-					@endif
-					
+					@endif					
 				</div>
-
 			</div>
-			
+
+			<div class="row">
+				<iframe frameborder="0" width="560" height="315" src="https://biteable.com/watch/embed/rewards-coming-soon-1645148/707a4488e4911fe46e8df24b7393a9c28f4328bb?autoplay=0" allowfullscreen="true"></iframe><p><a href="https://biteable.com/watch/rewards-coming-soon-1645148/707a4488e4911fe46e8df24b7393a9c28f4328bb"></a></p>
+			</div>			
+
 		</div>	
 	</section>
 @stop

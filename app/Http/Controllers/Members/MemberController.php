@@ -9,6 +9,7 @@ use App\UserProfile;
 use App\UsarMember;
 use App\Referral;
 use App\PromoAccept;
+use App\Credit;
 
 class MemberController extends Controller {
 
@@ -212,7 +213,6 @@ class MemberController extends Controller {
             ->where('promo_id', '=', 1)
             ->count();
 
-
 		$usar = [];
 		if(isset($user->usar_id)){			
 			$usar = UsarMember::find($user->usar_id);			
@@ -226,7 +226,7 @@ class MemberController extends Controller {
 
 	  	$meta = $this->get_openpgraph_meta($user, $usar);
 
-		return view('members/profiles/show', compact('user', 'meta', 'referrals','profile', 'usar', 'active'))
+		return view('members/profiles/show', compact('user', 'meta', 'referrals', 'profile', 'usar', 'active'))
 			->with('about', true);
 	}
 
