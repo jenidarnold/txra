@@ -36,7 +36,10 @@
 					</a>
 				</div>
 				<div class="col-xs-4 col-sm-2">
-					<a href="#" class="social-icon social-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+					{{--*/ $tweet = 'Join the Texas Racquetball Association and earn Reward Points! ' /*--}}
+					{{--*/ $hashtags = 'referafriend,texas,racquetball,txra'  /*--}}
+					<!-- {{route('refer.register', $refer->token) }} -->
+					<a href="https://twitter.com/intent/tweet?text={{$tweet}}&hashtags={{$hashtags}}&url={{route('refer.register', $refer->token) }}" class="social-icon social-twitter" target="twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
 						<i class="icon-twitter"></i>
 						<i class="icon-twitter"></i>
 					</a>

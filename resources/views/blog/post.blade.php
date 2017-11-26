@@ -57,12 +57,19 @@
                 </a>
                 @endif
             </li>
-            {{-- <li>
+           {{--  <li>
                 <a href="#">
-                    <i class="fa fa-share-alt"></i> 
+                   //<i class="fa fa-share-alt"></i> 
+                    <div
+                      class="fb-like"
+                      data-share="true"
+                      data-width="450"
+                      data-show-faces="false">
+                    </div>
                     <span class="font-lato">{{$post['socialPoint']}} shared</span>
                 </a>
-            </li> --}}
+            </li> 
+            --}}
             <!-- Only Julie operations -->
             @if(Auth::check() && Auth::user()->id == 1 )
                 <li>
