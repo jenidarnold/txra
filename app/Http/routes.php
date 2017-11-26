@@ -170,9 +170,12 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 	Route::get('referee', array('as' => 'referee.index', 'uses' => 'RefereeController@index'));		
 	Route::get('referee/juniors', array('as' => 'referee.juniors', 'uses' => 'RefereeController@juniors'));	
 	Route::get('referee/adults', array('as' => 'referee.adults', 'uses' => 'RefereeController@adult'));	
+
+	Route::get('rewards', array('as' => 'rewards.index', 'uses' => 'RewardsController@index'));
 });
 
 
+Route::get('rewards', array('as' => 'rewards.index', 'uses' => 'Programs\RewardsController@index'));
 Route::get('referees', array('as' => 'referees', 'uses' => 'Programs\RefereeController@listing'));	
 
 /* Members */

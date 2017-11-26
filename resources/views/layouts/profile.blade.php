@@ -78,8 +78,11 @@
 							<li class="list-group-item {{ $active['settings'] }}">
 								<a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> MY SETTINGS</a>
 							</li>
-							<li class="list-group-item {{ $active['referrals'] }}">
-								<a href="{{ route('refer.show', array('id' => $user->id))}}"><i class="fa fa-share-alt"></i> MY REFERRALS</a>
+							<li class="text-left list-group-item {{ $active['referrals'] }}">
+								<a href="{{ route('refer.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-share-alt"></i> MY REFERRALS <span class="badge">{{ $referrals}}</span></a>
+							</li>
+							<li class="text-left list-group-item {{ $active['rewards'] }}">
+								<a href="{{ route('refer.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-money"></i> MY REWARD POINTS <span class="badge">10,000</span></a>
 							</li>	
 						@endif	
 

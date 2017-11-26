@@ -53,12 +53,4 @@ class Referral extends Model
         return $refer;
     }
 
-    /**
-     * User's referrals by Promo
-     *
-     */
-    public function referrals($promo_id) {
-        return $this->hasMany('App\PromoAccept', 'user_referrer_id', 'user_id')
-        	->where('promo_id', '=', $promo_id);
-    }
 }

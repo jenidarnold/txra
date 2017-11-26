@@ -357,6 +357,11 @@
 													</li>													
 												</ul>
 											</li>
+											<li class="dropdown">
+												<a class="dropdown" href="{{ route('rewards.index')}}">
+													REWARDS PROGRAM
+												</a>
+											</li>
 										</ul>
 									</li>
 									<li class="dropdown"><!-- MEMBERS -->

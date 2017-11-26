@@ -9,6 +9,7 @@ use App\UserProfile;
 use App\UsarMember;
 use App\Referral;
 use App\Promo;
+use App\PromoAccept;
 
 
 class ReferralController extends Controller {
@@ -55,6 +56,7 @@ class ReferralController extends Controller {
         $active['profile'] = '';
         $active['settings'] = '';
         $active['referrals'] = 'active';
+        $active['rewards'] = '';
 
         //Set All Promos Referrals by user id     
         $promos = Promo::all();
@@ -69,14 +71,18 @@ class ReferralController extends Controller {
             }
         }
         
+        $promo = Promo::find(1);
+
         //Get just the Promo 1 for now    
-        $promo = Promo::find(1)->first(); 
         $refer = Referral::where('user_id', '=', $id)
-                ->where('promo_id', '=', 1)
-                ->first();
+            ->where('promo_id', '=', 1)
+            ->first();
+
+        $referrals = PromoAccept::where('user_referrer_id', '=', $user->id)
+            ->where('promo_id', '=', 1)
+            ->count();
                 
-        //dd( $refer->referrals($promo->id));
-    	return view('members/profiles/refer', compact('user', 'usar', 'promo', 'refer', 'profile', 'active'));
+    	return view('members/profiles/refer', compact('user', 'usar', 'promo', 'refer', 'referrals', 'profile', 'active'));
 	}
 
     //
@@ -110,48 +116,4 @@ class ReferralController extends Controller {
     	return view('members/referral/register', compact('promo', 'refer', 'user', 'profile', 'meta'));
 	}
 
-
-
-	// here we'll look up the user by the token sent provided in the URL
-    public function accept($token)
-    { // Look up the invite
-
-    	exit;
-    	
-        if (!$invite = Invite::where('token', $token)
-            ->where('accepted', '<>', '1')
-            ->first()) 
-        {
-            //if the invite doesn't exist do something more graceful than this
-            return view('auth/register');
-        }
-
-        // create the user with the details from the invite
-        $user = new User;
-
-        $profile = $invite->toArray();
-
-        $profile['password'] = \Hash::make(str_random(8));
-        $profile['disabled'] = 0;
-        $profile['usar_id'] = 0;
-
-        $user = $user->create_profile($profile);
-
-        // delete the invite so it can't be used again
-        $invite->accepted = 1;
-        $invite->accepted_at = Carbon::now();
-        $invite->save();
-
-
-        // login the user 
-        \Auth::login($user);       
-        \Event::fire(new AccountWasCreated($user)); 
-
-       //if (Auth::check()) {
-            return redirect()->route('members.create_pwd', ['id' => \Auth::user()->id]);
-        //}else {
-        //    return redirect()->route('login');
-        //}       
-       
-    }
 }

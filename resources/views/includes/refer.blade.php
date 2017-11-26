@@ -12,10 +12,10 @@
 		<div class="panel-heading">	
 			<div class="pull-right label label-primary text-center" style="margin-bottom: 0px">
 				<span class="h5">REFERRALS<br/>
-				{{ $refer->referrals($promo->id)->count()}}</span>
+				{{ $referrals}}</span>
 			</div>
 			{{-- <h3 class="text-center">Invite your friends & win</h3> --}}
-			<h4 class="text-center">Earn {{$promo->credit}} credits for every friend that signs up!</h4>
+			<h4 class="text-center">Earn {{$promo->credit}} points for every friend that signs up!</h4>
 		</div>
 		<div class="panel-body text-center">	
 			<div class="row margin-bottom-20">	

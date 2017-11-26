@@ -7,6 +7,8 @@ use Redirect;
 use App\User;
 use App\UserProfile;
 use App\UsarMember;
+use App\Referral;
+use App\PromoAccept;
 
 class MemberController extends Controller {
 
@@ -205,19 +207,26 @@ class MemberController extends Controller {
 
 		$profile = $user->profile()->first();
 
+   
+        $referrals = PromoAccept::where('user_referrer_id', '=', $user->id)
+            ->where('promo_id', '=', 1)
+            ->count();
+
+
 		$usar = [];
-		if(isset($user->usar_id)){
-			
+		if(isset($user->usar_id)){			
 			$usar = UsarMember::find($user->usar_id);			
 		}
 
 		$active['profile'] = 'active';
 		$active['settings'] = '';
         $active['referrals'] = '';
+        $active['rewards'] = '';
+
 
 	  	$meta = $this->get_openpgraph_meta($user, $usar);
 
-		return view('members/profiles/show', compact('user', 'meta', 'profile', 'usar', 'active'))
+		return view('members/profiles/show', compact('user', 'meta', 'referrals','profile', 'usar', 'active'))
 			->with('about', true);
 	}
 
