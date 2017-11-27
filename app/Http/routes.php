@@ -24,10 +24,6 @@ Route::get('/welcome', 'WelcomeController@index' );
 Route::get('/survey',  function () {
     return view('survey');
 });
-
-Route::get('/refer',  function () {
-    return view('members/referral/invite');
-});
 	
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
 //{
@@ -178,6 +174,8 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 
 Route::get('rewards', array('as' => 'rewards.index', 'uses' => 'Programs\RewardsController@index'));
 Route::get('referees', array('as' => 'referees', 'uses' => 'Programs\RefereeController@listing'));	
+Route::get('refer', array('as' => 'refer.index', 'uses' => 'Members\ReferralController@index'));	
+Route::get('refer-a-friend', array('as' => 'refer.index', 'uses' => 'Members\ReferralController@index'));
 
 /* Members */
 Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()

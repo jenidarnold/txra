@@ -22,8 +22,8 @@ class ReferralController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth', ['except' => ['accept', 'register']]);
-		$this->middleware('current_user', ['except' => ['accept', 'register']]);
+		$this->middleware('auth', ['except' => ['accept', 'register', 'index']]);
+		$this->middleware('current_user', ['except' => ['accept', 'register', 'index']]);
 	}
 		
 	/**
@@ -34,7 +34,12 @@ class ReferralController extends Controller {
 	public function index()
 	{
 
-    	return view('members/referral/index');
+        $promo = Promo::find(1);
+        $refer = new Referral;
+
+        $refer->token ='Your-Unique-Refer-Code';
+
+    	return view('members/referral/index', compact('promo', 'refer'));
 	}
 
 	/**

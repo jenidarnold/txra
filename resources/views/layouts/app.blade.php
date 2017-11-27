@@ -630,7 +630,7 @@
                 Please note, an unique ID is required.
                 localstorage use the ID to hide the modal, if used checked "Don't show this popup again"
             -->
-            @if(Session::has('loadModReferral'))
+           @if(Session::has('loadModReferral'))
             	{{--*/ $loadModReferral = 'false' /*--}}    
             	{{--*/ Session::set('loadModReferral', 'false') /*--}}        	
             @else
@@ -649,28 +649,8 @@
                         </div><!-- /Modal Header -->
 
                         <!-- body modal -->
-                        <div class="modal-body clearfix text-center">
-                        
-                            <ul class="process-steps process-steps-square nav nav-justified">
-                                <li class="active">
-                                    <a href="#"><i class="et-happy"></i></a>
-                                    <h5>BECOME A MEMBER</h5>
-                                </li>
-                                <li class="active">
-                                    <a href="#"><i class="et-chat"></i></a>
-                                    <h5>SHARE WITH FRIENDS</h5>
-                                </li>
-                                <li class="active">
-                                    <a href="#"><i class="et-trophy"></i></a>
-                                    <h5>EARN REWARDS</h5>
-                                </li>
-                            </ul>
-
-                            <!--Details -->
-                            <div class="">
-
-
-                            </div>
+                        <div class="modal-body clearfix">
+                        	@include('includes.refer_faq')                           
                         </div>
 
 

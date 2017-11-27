@@ -10,11 +10,13 @@
 	<div class="panel panel-success">
 
 		<div class="panel-heading">	
+
+			@if(isset($referrals))
 			<div class="pull-right label label-primary text-center" style="margin-bottom: 0px">
 				<span class="h5">REFERRALS<br/>
-				{{ $referrals}}</span>
+				{{$referrals}}</span>
 			</div>
-			{{-- <h3 class="text-center">Invite your friends & win</h3> --}}
+			@endif
 			<h4 class="text-center">Earn {{$promo->credit}} points for every friend that signs up!</h4>
 		</div>
 		<div class="panel-body text-center">	
