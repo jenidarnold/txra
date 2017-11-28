@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\UserProfile;
 use App\Referral;
+use App\Credit;
+use App\Promo;
 use App\PromoAccept;
 use App\Events\AccountWasCreated;
 use Validator;
@@ -97,6 +99,8 @@ class AuthController extends Controller
 
         $user = $this->create($request->all());
 
+        $promo = Promo::find(1);
+
         //Add credit to $referr
         //Mark accept
         if($request->refer_token != ''){
@@ -108,13 +112,29 @@ class AuthController extends Controller
                 $accept = new PromoAccept;
 
                 $accept->promo_id = $refer->promo_id;
-                $accept->user_referrer_id =$refer->user_id;
+                $accept->user_referrer_id = $refer->user_id;
                 $accept->user_accept_id = $user->id;
                 $accept->accepted_at = date("Y-m-d H:i:s");
                 $accept->accept_method_id = 1;
                 $accept->save();
+
+                $credit = new Credit;
+                $credit->user_id = $refer->user_id;
+                $credit->type_id = 2;
+                $credit->amount = $promo->credit;
+                $credit->description ="Refer-a-friend points: ". $user->full_name . " joined.";
+                $credit->save();
             }
         }
+
+        //Give New User Credit for signing up
+    
+        $credit = new Credit;
+        $credit->user_id = $user->id;
+        $credit->type_id = 1;
+        $credit->amount = $promo->credit;
+        $credit->description ="New Member points";
+        $credit->save();
 
         \Auth::login($user);
         \Event::fire(new AccountWasCreated($user)); 
