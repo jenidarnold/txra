@@ -2,7 +2,7 @@
 @section('style')
 @stop	
 @section('content')
-		<section class="page-header page-header-xs">
+	<section class="page-header page-header-xs">
 		<div class="container">
 			<h1><i class="fa fa-share-alt-square text-primary"></i>  Refer-A-Friend Program: How It Works</h1>
 	
