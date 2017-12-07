@@ -357,11 +357,11 @@
 													</li>													
 												</ul>
 											</li>
-											<li class="dropdown">
+											{{-- <li class="dropdown">
 												<a class="dropdown" href="{{ route('rewards.index')}}">
 													REWARDS PROGRAM
 												</a>
-											</li>
+											</li> --}}
 										</ul>
 									</li>
 									<li class="dropdown"><!-- MEMBERS -->
@@ -637,7 +637,8 @@
             	{{--*/ $loadModReferral = 'true' /*--}}
             	{{--*/ Session::set('loadModReferral', 'false') /*--}}  
             @endif
-
+          
+          	{{--*/ $loadModReferral = 'false' /*--}}
             <div id="modReferral" class="modal fade" data-autoload="{{$loadModReferral}}" data-autoload-delay="2000">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -645,12 +646,12 @@
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            <h3 class="modal-title text-center" id="myModalLabel">Refer a Friend</h4>
+                            <h3 class="modal-title text-center" id="myModalLabel">Refer-A-Friend</h4>
                         </div><!-- /Modal Header -->
 
                         <!-- body modal -->
                         <div class="modal-body clearfix">
-                        	@include('includes.refer_faq')                           
+                        	@include('includes.promos.refer_faq')                           
                         </div>
 
 
@@ -659,7 +660,7 @@
                             <div class="size-11 text-left">
                                 <label class="checkbox pull-left">
                                     <input class="loadModalHide" type="checkbox" />
-                                    <i></i> <span class="weight-300">Don't show this popup again</span>
+                                    <i></i> <span class="weight-300 ">Don't show this popup again</span>
                                 </label>
 
                             </div>

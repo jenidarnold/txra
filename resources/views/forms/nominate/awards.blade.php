@@ -222,10 +222,10 @@
 											<option value="---Select Award---" class="text-danger">---Select Award---</option>
 											<option value="Ann Gibbons Memorial Sportsmanship">Ann Gibbons Memorial Sportsmanship</option>
 											<option value="Male Athlete of the Year">Male Athlete of the Year</option>
-											<option value="Male Athlete of the Year">Female Athlete of the Year</option>
+											<option value="Female Athlete of the Year">Female Athlete of the Year</option>
 											<option value="Junior Male Athlete of the Year – Under 13">Junior Male Athlete of the Year – Under 13</option>
 											<option value="Junior Male Athlete of the Year – Age 13-18">Junior Male Athlete of the Year – Age 13-18</option>
-											<option value="Junior Male Athlete of the Year – Age 13-18">Junior Female Athlete of the Year – Under 13</option>
+											<option value="Junior Female Athlete of the Year – Under 13">Junior Female Athlete of the Year – Under 13</option>
 											<option value="Junior Female Athlete of the Year – Age 13-18">Junior Female Athlete of the Year – Age 13-18</option>
 											<option value="Outstanding Racquetball Contributor">Outstanding Racquetball Contributor</option>
 										</select>
@@ -302,7 +302,7 @@
 								<li><i class="fa fa-check"></i> Candidates must currently reside in Texas for the past two years</li>
 								<li><i class="fa fa-check"></i> Candidates must have participated in a minimum of four sanctioned tournaments during the past calendar year and one of those to include State Singles, State Doubles and/or Regional Competition</li>
 								<li><i class="fa fa-check"></i> Candidates may also include TXRA Board, Committee and At large members who exhibit extraordinary selfless service beyond that of his or her current position and /or meets the performance criteria </li>
-								<li><i class="fa fa-check"></i> Any current TXRA member in good standing may nominate a candidate or themselves</li>
+								{{-- <li><i class="fa fa-check"></i> Any current TXRA member in good standing may nominate a candidate or themselves</li> --}}
 							</ul>
 						</div>
 					</div>

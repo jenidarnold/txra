@@ -19,6 +19,13 @@
 Route::get('/sitemap.xml', 'SitemapController@index');
 
 
+Route::get('/PICK-A-FREE-TOURNEY', function () {
+    return view('promos/free_tourney/index');
+});
+Route::get('/sweepstakes', function () {
+    return view('promos/free_tourney/index');
+});
+
 Route::get('/', 'WelcomeController@index' );
 Route::get('/welcome', 'WelcomeController@index' );
 Route::get('/survey',  function () {

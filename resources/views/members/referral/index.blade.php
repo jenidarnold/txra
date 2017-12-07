@@ -4,8 +4,7 @@
 @section('content')
 	<section class="page-header page-header-xs">
 		<div class="container">
-			<h1><i class="fa fa-share-alt-square text-primary"></i>  Refer-A-Friend Program: How It Works</h1>
-	
+			<h1><i class="fa fa-share-alt text-primary"></i>  Refer-A-Friend</h1>
 			{{-- <!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="#">Home</a></li>
@@ -17,6 +16,6 @@
 	<!-- /PAGE HEADER -->
 
 	<section>
-		@include('includes.refer_faq')
+		@include('includes.promos.refer_faq')
 	</section>
 @stop

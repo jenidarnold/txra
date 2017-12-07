@@ -6,5 +6,5 @@
 @stop
 @section('profile_content')
 	<!-- RIGHT -->
-	@include('includes.refer')
+	@include('includes.promos.refer')
 @stop

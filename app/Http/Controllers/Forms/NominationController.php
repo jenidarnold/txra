@@ -69,7 +69,6 @@ class NominationController extends Controller {
 				->withErrors($validator)
 	            ->withInput(\Input::except('password'));
 				;   
-
 		}
 
 		$captcha = \Input::get('g-recaptcha-response');
@@ -104,7 +103,6 @@ class NominationController extends Controller {
         $nominee->last_name = $request->nominee_last_name;
         $nominee->award = $request->award;
         $comments = $request->comments;
-
 
 		$txra = new User;
 		$txra->email = env('MAIL_TO_EMAIL'); 
