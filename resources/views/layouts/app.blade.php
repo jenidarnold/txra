@@ -637,8 +637,9 @@
             	{{--*/ $loadModReferral = 'true' /*--}}
             	{{--*/ Session::set('loadModReferral', 'false') /*--}}  
             @endif
-          
-          	{{--*/ $loadModReferral = 'false' /*--}}
+                 
+            {{--*/ $loadModReferral = 'false' /*--}}
+
             <div id="modReferral" class="modal fade" data-autoload="{{$loadModReferral}}" data-autoload-delay="2000">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -646,7 +647,7 @@
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            <h3 class="modal-title text-center" id="myModalLabel">Refer-A-Friend</h4>
+                            <h1 class="modal-title text-center text-primary" id="myModalLabel">Refer-A-Friend</h4>
                         </div><!-- /Modal Header -->
 
                         <!-- body modal -->

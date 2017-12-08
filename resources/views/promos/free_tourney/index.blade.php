@@ -10,6 +10,8 @@
 	<!-- /PAGE HEADER -->
 
 	<section>
-		
+		<div class="container">	
+			@include('includes.promos.sweeptakes') 
+		</div>  
 	</section>
 @stop
