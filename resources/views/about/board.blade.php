@@ -448,8 +448,8 @@
 									<div class="box2 box-info">
 										<h4 class="nomargin">Dale Gosser</h4>
 										<ul>
+											<li>Awards</li>
 											<li>Communications</li>
-											<li></li>
 											<li></li>
 										</ul>
 										<hr/>
