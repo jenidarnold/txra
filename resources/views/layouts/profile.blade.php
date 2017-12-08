@@ -78,12 +78,14 @@
 							<li class="list-group-item {{ $active['settings'] }}">
 								<a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> MY SETTINGS</a>
 							</li>
+							@if((Auth::id() == 1))
 							<li class="text-left list-group-item {{ $active['referrals'] }}">
 								<a href="{{ route('refer.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-share-alt"></i> MY REFERRALS <span class="badge">{{ $referrals}}</span></a>
 							</li>
 							<li class="text-left list-group-item {{ $active['rewards'] }}">
 								<a href="{{ route('rewards.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-money"></i> MY REWARD POINTS <span class="badge">{{\App\Credit::balance($user->id)}}</span></a>
 							</li>	
+							@endif
 						@endif	
 
 						@if(isset($user->usar_id))

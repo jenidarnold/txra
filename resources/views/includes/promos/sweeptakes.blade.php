@@ -14,10 +14,10 @@
 	 <h5>To participate:</h5>
 		<li>Create a TXRA account (it's free), and complete your profile. 
 		<li>If you already have an account, complete your profile.
-		<li>All eligible profiles will be entered for a chance to win a free entry into a TXRA sanctioned tournament of your choice and other greate prizes.
-		<li>Refer-a-Friend for more chances to win
-		<li>Sweepstakes ends February 1, 2018.
-		<li>Winners will be notified by February 7th, 2018
+		<li>All eligible profiles will be entered in to a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice and other great prizes.
+		<li><a href="/refer">Refer-a-Friend</a> to earn more chances to win
+		<li>Sweepstakes begins December 1st andends February 1, 2018.
+		<li>Winners will be announced on February 7th, 2018 by email and posted on our website and Facebook page.
 	</div>
 </div>
 <div class="row">
