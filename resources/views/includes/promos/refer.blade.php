@@ -88,7 +88,7 @@
 
 		</div>
 		<div class="panel-footer">
-			<div class ="row countTo-md text-center">
+			<div class ="row countTo-md text-center box-blue">
 				<div class="col-xs-6 col-sm-3 col-sm-offset-2 well well-sm">
 					<i class="fa fa-share-alt text-info"></i>
 					<span class="countTo" data-speed="3000">{{$referrals->count()}}</span>

@@ -18,16 +18,24 @@
 					
 					<div class="row">
 
-						<!-- LOGIN -->
-						<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+						<div class="col-sm-4 col-md-3 box-color text-center margin-bottom-0">
+							<a href="/sweepstakes">							
+								<div class="box-icon box-danger box-icon-center box-icon-round margin-bottom-10 box-icon-transparent box-icon-large box-icon-content">
+									<div class="box-icon-title">
+										<i class="fa fa-gift text-danger"></i>
+										<h2 class="text-white margin-bottom-0">SIGN UP TO</h2>
+									</div>
+										<span class="h1 bold">WIN</span><br/>
+										<span class="h3">FREE ENTRY TOURNAMENT</span><br/>
+										<span class="h5">and other great prizes</span><br/>			
+								</div>
+							</a>
+							<h6 class="text-muted small"><a href="/sweepstakes">Read Sweepstakes Details</a></h6>
+						</div>
 
-							<!-- ALERT -->
-							<!--
-							<div class="alert alert-mini alert-danger margin-bottom-30">
-								<strong>Oh snap!</strong> Login Incorrect!
-							</div>
-							-->
-							<!-- /ALERT -->
+						<!-- LOGIN -->
+						{{-- <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}"> --}}
+						<div class="col-sm-8 col-md-6 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
 							<!-- register form -->
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
@@ -204,8 +212,8 @@
 						</div>
 						<!-- /SOCIAL LOGIN -->
  --}}
-					
-
+					</div>
+ 					<div class="row">
 						<div class="col-md-12 text-center margin-top-20">
 							Already have a TXRA account? <a href="/login"><strong>Back to login</strong></a>
 						</div>
