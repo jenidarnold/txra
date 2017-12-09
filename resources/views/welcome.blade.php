@@ -195,16 +195,36 @@
                         </div><!-- /left text -->
                     </div>
                     <div class="row margin-top-10">
-                        <div class="col-sm-6 col-xs-12 text-center">                    
-                            <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-info btn-lg btn-block">JOIN FOR FREE</a>
-                            <h5>Create a free TXRA account & profile 
-                            {{-- & earn
-                                <a href="/rewards"> Rewards Points. </a> --}}
-                            </h5>    
-                        </div>                   
-                        <div class="col-sm-6 col-xs-12 text-center">
-                            <a href="{{ url('/members/membership')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">PAY TO PLAY</a> 
-                            <h5>Get your USAR membership to play in sanctioned tournaments. </h5>               
+
+                        <!-- Sweepstakes -->
+                        <div class="col-sm-4 col-md-3 box-color text-center margin-bottom-0">
+                            <a href="/sweepstakes">                         
+                                <div class="box-icon box-danger box-icon-center box-icon-round margin-bottom-10 box-icon-transparent box-icon-large box-icon-content">
+                                    <div class="box-icon-title">
+                                        <i class="fa fa-gift text-danger"></i>
+                                        <h2 class="text-white margin-bottom-0">SIGN UP TO</h2>
+                                    </div>
+                                        <span class="h1 bold">WIN</span><br/>
+                                        <span class="h3">FREE ENTRY TOURNAMENT</span><br/>
+                                        <span class="h5">and other great prizes</span><br/>         
+                                </div>
+                            </a>
+                            <h6 class="text-muted small"><a href="/sweepstakes">Read Sweepstakes Details</a></h6>
+                        </div>
+                        <!-- /Sweepstakes-->
+
+                        <div class="col-sm-8 text-center margin-top-30">
+                            <div class="col-sm-12 col-xs-12 text-center">                    
+                                <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-info btn-lg btn-block">JOIN FOR FREE</a>
+                                <h5>Create a free TXRA account & profile 
+                                {{-- & earn
+                                    <a href="/rewards"> Rewards Points. </a> --}}
+                                </h5>    
+                            </div>                   
+                            <div class="col-sm-12 col-xs-12 text-center">
+                                <a href="{{ url('/members/membership')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">PAY TO PLAY</a> 
+                                <h5>Get your USAR membership to play in sanctioned tournaments. </h5>               
+                            </div>
                         </div>
                     </div>
 

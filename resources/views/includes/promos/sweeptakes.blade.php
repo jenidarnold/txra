@@ -37,7 +37,11 @@
 		<a href="/register"><button class="btn btn-success btn-block">I want to Create an account and Enter Now!</button></a>
 	</div>
 	<div class="col-xs-12 col-sm-6">
-		<a href="/login"><button class="btn btn-info btn-block">I have an account. Am I entered?</button></a>
+		@if(Auth::guest())
+			<a href="/login"><button class="btn btn-info btn-block">I have an account. Login and Complete My Profile.</button></a>
+		@else
+			<a href="{{ route('members.show', array('id' =>Auth::user()->id ))}}"><button class="btn btn-info btn-block">I have an account. Complete My Profile.</button></a>
+		@endif
 	</div>
 </div>
 
