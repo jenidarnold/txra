@@ -22,10 +22,10 @@
 </div>
 <div class="row">
 	<div class="col-xs-12 col-sm-6">
-		<button class="btn btn-warning btn-block">I want to Create an account and Enter!</button>
+		<a href="/register"><button class="btn btn-warning btn-block">I want to Create an account and Enter!</button></a>
 	</div>
 	<div class="col-xs-12 col-sm-6">
-		<button class="btn btn-success btn-block">I have an account. Enter me now!</button>
+		<a href="/login"><button class="btn btn-success btn-block">I have an account. Enter me now!</button></a>
 	</div>
 </div>
 

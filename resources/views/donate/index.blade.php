@@ -71,8 +71,8 @@
 				<div class="col-xs-6 col-sm-4">
 					<i class="fa fa-amazon text-warning"></i>
 					<h5><a href="http://smile.amazon.com/ch/76-0262488">Amazon Smile</a></h5>
-					<span class="countTo" data-speed="3000">114</span>
-					<h6 class="text-center text-muted h6">as of Aug 2017</h6>
+					<span class="countTo" data-speed="3000">131.61</span>
+					<h6 class="text-center text-muted h6">as of Nov 2017</h6>
 					
 					<p>Amazon donates 0.5% of the price of your eligible AmazonSmile purchases to TXRA</p>
 					<a class="box-icon-more font-lato weight-300" href="http://smile.amazon.com/ch/76-0262488" target="_blank">Shop Now</a> |

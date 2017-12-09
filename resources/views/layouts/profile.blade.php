@@ -40,16 +40,16 @@
 			<!-- LEFT -->
 			<div class="col-lg-3 col-md-3 col-sm-4">				
 				<div class="text-center">
-						@if((true)) 	
-							<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt="" />
+					@if((true)) 	
+						<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt="" />
+					@else
+						@if($profile->gender == 'female')
+							<i class="thumbnail ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
 						@else
-							@if($profile->gender == 'female')
-								<i class="thumbnail ico-lg ico-color et-profile-female" style="background-color:#D8BFD8"></i>
-							@else
-								<i class="thumbnail ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
-							@endif
+							<i class="thumbnail ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
 						@endif
-						{{-- <h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2> --}}				
+					@endif
+					{{-- <h2 class="size-18 margin-top-10 margin-bottom-0">{{ $user->first_name }} {{ $user->last_name }}</h2> --}}				
 				</div>
 					
 				<!-- Show Profile Progress if this profile belongs to current Auth -->
@@ -78,14 +78,14 @@
 							<li class="list-group-item {{ $active['settings'] }}">
 								<a href="{{ route('members.edit', array('id' => $user->id))}}"><i class="fa fa-gears"></i> MY SETTINGS</a>
 							</li>
-							@if((Auth::id() == 1))
 							<li class="text-left list-group-item {{ $active['referrals'] }}">
-								<a href="{{ route('refer.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-share-alt"></i> MY REFERRALS <span class="badge">{{ $referrals}}</span></a>
+								<a href="{{ route('refer.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-share-alt"></i> MY REFERRALS 
+								<span class="badge progress-bar-success">{{ $referrals->count()}}</span>
+								</a>
 							</li>
-							<li class="text-left list-group-item {{ $active['rewards'] }}">
+							{{-- <li class="text-left list-group-item {{ $active['rewards'] }}">
 								<a href="{{ route('rewards.show', array('id' => $user->id))}}" class=" text-left"><i class="fa fa-money"></i> MY REWARD POINTS <span class="badge">{{\App\Credit::balance($user->id)}}</span></a>
-							</li>	
-							@endif
+							</li>	 --}}
 						@endif	
 
 						@if(isset($user->usar_id))

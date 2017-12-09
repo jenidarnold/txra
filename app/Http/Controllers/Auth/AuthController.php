@@ -183,4 +183,59 @@ class AuthController extends Controller
 
         return $user;
     }
+
+
+//     /**
+//      * Overrides method in class 'AuthenticatesUsers'
+//      *
+//      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\Viewhttps://github.com/peraleks/Laravel-redirect-back-to-original-destination-after-login/blob/master/README.md
+//      *
+//      * https://github.com/peraleks/Laravel-redirect-back-to-original-destination-after-login/blob/master/README.md
+//      */
+//     public function showLoginForm()
+//     {
+//         $view = property_exists($this, 'loginView')
+//             ? $this->loginView : 'auth.authenticate';
+//         if (view()->exists($view)) {
+//             return view($view);
+//         }
+//         /**
+//          * seve the previous page in the session
+//          */
+//         $previous_url = Session::get('_previous.url');
+//         $ref = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+//         $ref = rtrim($ref, '/');
+//         if ($previous_url != url('login')) {
+//             Session::put('referrer', $ref);
+//             if ($previous_url == $ref) {
+//                 Session::put('url.intended', $ref);
+//             }
+//         }
+//         /**
+//          * seve the previous page in the session
+//          * end
+//          */
+//         return view('auth.login');
+//     }
+//     /**
+//      * Overrides method in class 'AuthenticatesUsers'
+//      *
+//      * @param Request $request
+//      * @param $throttles
+//      *
+//      * @return \Illuminate\Http\RedirectResponse
+//      */
+//     protected function handleUserWasAuthenticated(Request $request, $throttles)
+//     {
+//         if ($throttles) {
+//             $this->clearLoginAttempts($request);
+//         }
+//         if (method_exists($this, 'authenticated')) {
+//             return $this->authenticated($request, Auth::guard($this->getGuard())->user());
+//         }
+//         /*return to the previous page*/
+//         return redirect()->intended(Session::pull('referrer'));
+// //        return redirect()->intended($this->redirectPath()); /*Larevel default*/
+//     }
+
 }

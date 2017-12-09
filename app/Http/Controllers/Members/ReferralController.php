@@ -86,7 +86,8 @@ class ReferralController extends Controller {
 
         $referrals = PromoAccept::where('user_referrer_id', '=', $user->id)
             ->where('promo_id', '=', 1)
-            ->count();            
+            ->get()
+            ;            
 
     	return view('members/profiles/refer', compact('user', 'usar', 'promo', 'refer', 'referrals', 'profile', 'active'));
 	}

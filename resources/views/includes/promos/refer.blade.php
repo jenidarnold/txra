@@ -2,22 +2,30 @@
 	<style>
 	.well {
 		margin-bottom: 0px !important;
+		background-color: #0C6296 !important;
+		color: white !important;
 	}
-
 	</style>
 @stop
-
-	<div class="panel panel-success">
-
+	<style>
+	.well {
+		margin-bottom: 0px !important;
+		background-color: #0C6296 !important;
+		color: white !important;
+	}
+	</style>
+	<div class="panel panel-info">
 		<div class="panel-heading">	
-
 			@if(isset($referrals))
-			<div class="pull-right label label-primary text-center" style="margin-bottom: 0px">
+			{{-- <div class="pull-right label label-success text-center" style="margin-bottom: 0px">
 				<span class="h5">REFERRALS<br/>
-				{{$referrals}}</span>
-			</div>
+				{{$referrals->count()}}</span>
+			</div> --}}
 			@endif
-			<h4 class="text-center">Earn {{$promo->credit}} points for every friend that signs up!</h4>
+			{{-- <h4 class="text-center">Earn {{$promo->credit}} points for every friend that signs up!</h4> --}}
+			<h4 class="text-center">For every {{$promo->credit}} friends that sign up, earn an extra ticket into the<br/> 
+				<a class="text-success" href="/PICK-A-FREE-TOURNEY">TXRA PICK-A-FREE-TOURNEY SWEEPSTAKES</a>
+			</h4>
 		</div>
 		<div class="panel-body text-center">	
 			<div class="row margin-bottom-20">	
@@ -76,14 +84,38 @@
 			    		</span>
 				  	</div>
 				</form>
-
 			</div>
 
 		</div>
-		{{-- <div class="panel-footer">
-			
+		<div class="panel-footer">
+			<div class ="row countTo-md text-center">
+				<div class="col-xs-6 col-sm-3 col-sm-offset-2 well well-sm">
+					<i class="fa fa-share-alt text-info"></i>
+					<span class="countTo" data-speed="3000">{{$referrals->count()}}</span>
+					<h5 class="text-white bold">REFERRALS</h5>
+				</div>
 
-		</div> --}}
+				<div class="col-xs-6 col-sm-3 col-sm-offset-2 well well-sm">
+					<i class="fa fa-ticket text-warning"></i>
+					<span class="countTo" data-speed="3000">{{$referrals->count() / $promo->credit}}</span>
+					<h5 class="text-white bold">TICKETS</h5>
+				</div>
+			</div>
+			@if($referrals->count()>0)
+			<div class="row margin-top-10">
+				<div class="col-xs-12 col-sm-offset-2 col-sm-8"> 
+					<h4 class="">Friends that accepted my referral:</h4>
+					<ul class="list-unstyled list-icons text-left">
+						@foreach ($referrals as $r)						
+							<li class="text-primary"><i class="fa fa-user text-primary"></i>
+								<a href="{{ route('members.show', $r->user_accept_id)}}" target="member">{{$r->accepter()->first()->full_name}}</a> accepted on {{$r->created_at->format('m/d/Y')}}
+							</li>
+						@endforeach
+					</ul>
+				</div>
+			</div>
+			@endif			
+		</div>
 	</div>
 	
 @section('script')

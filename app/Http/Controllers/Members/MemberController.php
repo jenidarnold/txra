@@ -208,10 +208,9 @@ class MemberController extends Controller {
 
 		$profile = $user->profile()->first();
 
-   
         $referrals = PromoAccept::where('user_referrer_id', '=', $user->id)
             ->where('promo_id', '=', 1)
-            ->count();
+            ->get();
 
 		$usar = [];
 		if(isset($user->usar_id)){			
@@ -222,7 +221,6 @@ class MemberController extends Controller {
 		$active['settings'] = '';
         $active['referrals'] = '';
         $active['rewards'] = '';
-
 
 	  	$meta = $this->get_openpgraph_meta($user, $usar);
 
