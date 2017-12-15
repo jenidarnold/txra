@@ -21,27 +21,35 @@
 					<div class="row">
 						<!-- Left Side -->
 						<!-- LEFT -->
-						<div class="well col-lg-3 col-md-3 col-sm-4">				
-							<div class="text-center">
+						<div class="well col-lg-3 col-md-4 col-sm-5">				
+							<div class="col-xs-12 text-center">
 								@if((true)) 	
 									<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt="" />
 								@else
 									<i class="thumbnail ico-lg ico-color et-profile-male" style="background-color:#1E8BC3"></i>
 								@endif
 							</div>
-							<div>
+							<div class="col-xs-12">
+								<h4 class="text-primary"><a target="member" href='{{route('members.show', $user->id)}}'>{{$user->full_name}}</a> <small> personally invites you to join <span class="bold">TXRA.org</span>
+				      			</small>
+				      			</h4>
+				      		</div>
+			      			<div class="col-xs-12">
+				      			@include('includes.promos.promo_box', array('show_link' => true)) 
+			      			</div>
+							{{-- <div>
 								<h3 class="text-primary"><a target="member" href='{{route('members.show', $user->id)}}'>{{$user->full_name}}</a> <small>invites you to join <span class="bold">TXRA</span>.&nbsp;&nbsp;Sign up now, and you both will receive <em class="bold text-success">{{$promo->credit}} </em> <a href="#" target="rewards" class="bold text-primary">TXRA Reward Points</span></a></em>.&nbsp;&nbsp;Earn even more  <a href="#" target="rewards" class="bold text-primary">points</a> by referring your friends! But first, let's get you registered. </small>
 								</h3>
-							</div>
+							</div> --}}
 						</div>
 
 						<!-- register form -->
-						<div class="col-sm-8 col-md-6 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+						<div class="col-sm-7 col-md-6 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
 							 {{ csrf_field() }}
 								<header class="text-center alert-info text-info" style="background-color: #d9edf7">
-									<i class="fa fa-user-circle-o"></i> Sign Up for a <em class="bold text-primary">TX<span class="text-danger">R</span>A</em> account
+									<i class="fa fa-user-circle-o"></i> Sign Up for a <em class="bold text-primary">TXRA</em> account
 								</header>
 								<input type="hidden" name="refer_token" value="{{$refer->token}}">
 								<fieldset class="nomargin">	

@@ -86,8 +86,9 @@ class ReferralController extends Controller {
 
         $referrals = PromoAccept::where('user_referrer_id', '=', $user->id)
             ->where('promo_id', '=', 1)
+            ->orderBy('created_at', 'desc')
             ->get()
-            ;            
+            ;        
 
     	return view('members/profiles/refer', compact('user', 'usar', 'promo', 'refer', 'referrals', 'profile', 'active'));
 	}
@@ -111,7 +112,8 @@ class ReferralController extends Controller {
 		$profile = $user->profile()->first();
 
 		$meta = [
-            'title' => "Earn credit towards REWARDS when you join TXRA.org",
+            //'title' => "Earn credit towards REWARDS when you join TXRA.org",
+            'title' => "Sign up to Win! Enter TXRA's PICK-A-FREE-TOURNEY Sweepstakes when you join TXRA.org",
             'description' => "Your friend, " . $user->full_name. ', wants you to join the Texas Racquetball Association. It is FREE to join! Use this link to register.',
             'image' => '/images/members/'.$user->id.'/'.$profile->avatar,
             'image_width' => '400',
@@ -123,4 +125,77 @@ class ReferralController extends Controller {
     	return view('members/referral/register', compact('promo', 'refer', 'user', 'profile', 'meta'));
 	}
 
+    /*
+     *  Email Referral
+     */
+    public function send_email(Request $request)
+    {
+
+
+        $input = \Input::all();
+        //Custom validator in laravel to validate comma separated emails.
+        //https://gist.github.com/technoknol/d52eb295608d18b86e25663107663204
+        \Validator::extend("emails", function($attribute, $values, $parameters) {
+            $value = explode(',', $values);
+            $rules = [
+                'email' => 'required|email',
+            ];
+            if ($value) {
+                foreach ($value as $email) {
+                    $data = [
+                        'email' => $email
+                    ];
+                    $validator = \Validator::make($data, $rules);
+                    if ($validator->fails()) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        });
+        
+        //validation of new custom ule
+        $rules = array(
+            'emails' => 'required',            
+        );
+
+        $validator = \Validator::make($input, $rules, array('emails' => ':input must have valid email addresses.'));
+
+        if ($validator->fails()) {          
+            $message = 'Please fill out all required fields';
+            return  Redirect::to(\URL::previous() . "#form")
+                ->with('alert-danger', $message)
+                ->withErrors($validator)
+                ->withInput(\Input::except('password'));
+                ;   
+        }
+     
+        $id = $request->user_id;
+        $user = User::find($id);  
+
+        $subject = 'Your friend, ' . $user->full_name. ', wants you to join the Texas Racquetball Association. It is FREE to join!';
+
+        // Send to each friend
+        $emails = $request->emails;
+        $emails = explode(',', $emails);
+        foreach ($emails as $friend_email) {
+
+            \Mail::send(
+                'emails.referrals.send', 
+                ['subject' => $subject, 'user' => \Auth::user()], 
+                function ($m) use ($user, $friend_email, $subject)
+                    {
+                        $m->from(env('MAIL_FROM_EMAIL'), $user->full_name );
+                        $m->to($friend_email, $friend_email)->subject($subject);
+                    }
+                );
+        }
+
+        //Send confirmation
+
+        $message = 'Successfully sent. Thank you!';
+        
+        return  Redirect::to(\URL::previous() . "#form")
+            ->with('alert-success', $message);
+    }
 }

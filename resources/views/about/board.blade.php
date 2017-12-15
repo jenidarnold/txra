@@ -309,7 +309,7 @@
 									<div class="box1 box-default">
 										<div class="box-icon-title">
 											<img class="img-responsive" src="{{ asset('images/board/tom_doughty.png')}}" alt="" />
-											<h2>Tom Doughtry</h2>
+											<h2>Tom Doughty</h2>
 											<small>BOARD MEMBER</small>
 										</div>
 									</div>
@@ -317,7 +317,7 @@
 
 								<div class="back">
 									<div class="box2 box-info">
-										<h4 class="nomargin">Tom Doughtry</h4>
+										<h4 class="nomargin">Tom Doughty</h4>
 										<ul>
 											<li>Governance</li>
 											<li>Communications</li>
@@ -333,7 +333,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="{{ route('contact',array('to' => 'Tom Doughtry'))}}" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Tom Doughty'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>

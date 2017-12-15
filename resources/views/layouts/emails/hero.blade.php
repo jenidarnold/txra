@@ -1374,7 +1374,7 @@ section.dark #portfolio h3 {
 
                             <h6>Connect With Us:</h6>
 
-                            <table class="tiny-button facebook">
+                            <table class="tiny-button facebook" style="width:100px">
                               <tr>
                                 <td>
                                   <a href="https://www.facebook.com/TXRA-Texas-Racquetball-Association-187625447927010/">Facebook</a>
@@ -1384,7 +1384,7 @@ section.dark #portfolio h3 {
 
                             <br>
 
-                            <table class="tiny-button twitter">
+                            <table class="tiny-button twitter" style="width:100px">
                               <tr>
                                 <td>
                                   <a href="https://twitter.com/TXRballAssoc">Twitter</a>

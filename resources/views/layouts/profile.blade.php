@@ -58,7 +58,7 @@
 				<div class="margin-bottom-30 text-center alert alert-info">
 					<h5 class="text-success">
 						Complete your profile to be elibile for the<br/> 
-						<a href="/sweepstakes" target="new">PICK-YOUR-TOURNEY-SWEEPSTAKES</a>
+						<a href="/sweepstakes" target="new">PICK-A-FREE-TOURNEY-SWEEPSTAKES</a>
 					</h5>
 					<h6>
 						<a class="text-info" href="{{ route('members.edit', array('id' => $user->id))}}" title="Goto My Settings to complete profile">
@@ -75,10 +75,10 @@
 						<h5 class="text-success">
 							Congratulations!<br/> 
 							You have been entered into the<br/> 
-							<a href="/sweepstakes" target="new">PICK-YOUR-TOURNEY-SWEEPSTAKES!</a>
+							<a href="/sweepstakes" target="new">PICK-A-FREE-TOURNEY SWEEPSTAKES!</a>
 						</h5>
 						<h6>
-							<a href="{{ route('refer.show', array('id' => $user->id))}}" class="text-info text-left">Refer-a-Friend for more chances to win!</a>
+							<a href="{{ route('refer.show', array('id' => $user->id))}}" class="text-left">Refer-a-Friend for more chances to win!</a>
 						</h6>
 					</div>
 				@endif

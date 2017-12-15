@@ -271,7 +271,7 @@
 									@endif							
 									<!-- /USER OPTIONS -->	
 
-									<li><a href="{{ url('/survey') }}">SURVEY</a></li>							
+									{{-- <li><a href="{{ url('/survey') }}">SURVEY</a></li> --}}							
 									<li class="dropdown">
 									<!-- PLAY -->
 										<a class="dropdown-toggle" href="#">

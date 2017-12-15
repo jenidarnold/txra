@@ -23,9 +23,7 @@
 			</div> --}}
 			@endif
 			{{-- <h4 class="text-center">Earn {{$promo->credit}} points for every friend that signs up!</h4> --}}
-			<h4 class="text-center">For every {{$promo->credit}} friends that sign up, earn an extra ticket into the<br/> 
-				<a class="text-success" href="/PICK-A-FREE-TOURNEY">TXRA PICK-A-FREE-TOURNEY SWEEPSTAKES</a>
-			</h4>
+			<h3 class="text-center">Invite your friends to join TXRA.org</a></h3>
 		</div>
 		<div class="panel-body text-center">	
 			<div class="row margin-bottom-20">	
@@ -72,11 +70,12 @@
 			  	</div>
 			</div>
 			<div class="row">
-				<h4>Invite your friends by email</h4>
+				<h4>Share by email</h4>
 				<form action="{{ route('refer.email', $refer->user_id) }}" method="post">
 				    {{ csrf_field() }}
+				    <input type="hidden" name="user_id" value="{{$refer->user_id}}">
     				<div class="input-group col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-				    	<input id="email" type="text" class="form-control" name="email" placeholder="Enter email addresses separated by commas">
+				    	<input id="emails" type="text" class="form-control" name="emails" placeholder="Enter email addresses separated by commas">
 				    	<span class="input-group-addon">
 				    		<button class="btn btn-xs btn-secondary " type="submit">
 				    			<i class="glyphicon glyphicon-envelope"></i>
@@ -88,30 +87,50 @@
 
 		</div>
 		<div class="panel-footer">
-			<div class ="row countTo-md text-center box-blue">
+			<div class="row">
+				<h4 class="text-center text-primary">For every {{$promo->credit}} friends that sign up, earn an extra ticket into the<br/> 
+				<a class="" href="/PICK-A-FREE-TOURNEY">TXRA PICK-A-FREE-TOURNEY SWEEPSTAKES</a>
+				</h4>
+			</div>
+			<div class ="row countTo-sm text-center box-blue">
 				<div class="col-xs-6 col-sm-3 col-sm-offset-2 well well-sm">
 					<i class="fa fa-share-alt text-info"></i>
+					<br/>			
 					<span class="countTo" data-speed="3000">{{$referrals->count()}}</span>
-					<h5 class="text-white bold">REFERRALS</h5>
+					<h5 class="text-white bold">MY REFERRALS</h5>
 				</div>
 
 				<div class="col-xs-6 col-sm-3 col-sm-offset-2 well well-sm">
 					<i class="fa fa-ticket text-warning"></i>
-					<span class="countTo" data-speed="3000">{{$referrals->count() / $promo->credit}}</span>
-					<h5 class="text-white bold">TICKETS</h5>
+					<br/>
+					<span class="countTo" data-speed="3000">{{$referrals->sum('completed') / $promo->credit}}</span>
+					<h5 class="text-white bold">EXTRA TICKETS</h5>
 				</div>
 			</div>
 			@if($referrals->count()>0)
 			<div class="row margin-top-10">
 				<div class="col-xs-12 col-sm-offset-2 col-sm-8"> 
-					<h4 class="">Friends that accepted my referral:</h4>
-					<ul class="list-unstyled list-icons text-left">
-						@foreach ($referrals as $r)						
-							<li class="text-primary"><i class="fa fa-user text-primary"></i>
-								<a href="{{ route('members.show', $r->user_accept_id)}}" target="member">{{$r->accepter()->first()->full_name}}</a> accepted on {{$r->created_at->format('m/d/Y')}}
-							</li>
+					<h4 class="text-center">Friends that accepted my referral:</h4>
+					<h6 class="text-info text-center">Only profiles that are completed 100% will count towards extra tickets</h6>
+					<table class="table table-condensed table-striped">
+						<tr>
+							<th>Friend</th>
+							<th>Accepted</th>
+							<th class="text-right">Profile %</th>
+						</tr>						
+							@foreach ($referrals as $r)						
+								<td class="text-primary">
+									<a href="{{ route('members.show', $r->user_accept_id)}}" target="member">{{$r->accepter()->first()->full_name}}</a>
+								</td>
+								<td>
+									{{$r->created_at->format('m/d/Y')}}
+								</td>
+								<td class="text-right">
+									{{$r->progress}}%
+								</td>
+						</tr>
 						@endforeach
-					</ul>
+					</table>
 				</div>
 			</div>
 			@endif			

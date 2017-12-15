@@ -197,19 +197,8 @@
                     <div class="row margin-top-10">
 
                         <!-- Sweepstakes -->
-                        <div class="col-sm-4 col-md-3 box-color text-center margin-bottom-0">
-                            <a href="/sweepstakes">                         
-                                <div class="box-icon box-danger box-icon-center box-icon-round margin-bottom-10 box-icon-transparent box-icon-large box-icon-content">
-                                    <div class="box-icon-title">
-                                        <i class="fa fa-gift text-danger"></i>
-                                        <h2 class="text-white margin-bottom-0">SIGN UP TO</h2>
-                                    </div>
-                                        <span class="h1 bold">WIN</span><br/>
-                                        <span class="h3">FREE ENTRY TOURNAMENT</span><br/>
-                                        <span class="h5">and other great prizes</span><br/>         
-                                </div>
-                            </a>
-                            <h6 class="text-muted small"><a href="/sweepstakes">Read Sweepstakes Details</a></h6>
+                        <div class="col-sm-4 col-md-3">
+                            @include('includes.promos.promo_box', array('show_link' => true))
                         </div>
                         <!-- /Sweepstakes-->
 
@@ -255,18 +244,18 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <!-- POST ITEM -->
+                       <!-- POST ITEM -->
                         <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:10px; padding-bottom:10px; border-bottom:none">
-                            @include('includes.blogslider', array('title' => 'TRENDING', 'icon'=>'fa-line-chart text-success', 'post' => $trending))  
-                        </div>
+                            {{-- @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $tip))  --}}
+                            @include('includes.blogslider', array('title' => 'LATEST NEWS', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $recent))
+                        </div>                        
                         <!-- POST ITEM -->
                         <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:10px; padding-bottom:10px; border-bottom:none">
                             @include('includes.blogslider', array('title' => 'PLAYER SPOTLIGHT', 'icon'=>'fa-star-o text-info', 'post' => $spotlight))  
                         </div>
-                        <!-- POST ITEM -->
+                         <!-- POST ITEM -->
                         <div class="blog-post-item col-md-4 col-sm-4 col-xs-12" style="margin-bottom:10px; padding-bottom:10px; border-bottom:none">
-                            {{-- @include('includes.blogslider', array('title' => 'TIP OF THE DAY', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $tip))  --}}
-                            @include('includes.blogslider', array('title' => 'LATEST NEWS', 'icon'=>'fa-lightbulb-o text-warning', 'post' => $recent))
+                            @include('includes.blogslider', array('title' => 'TRENDING', 'icon'=>'fa-line-chart text-success', 'post' => $trending))  
                         </div>
                     </div>
                 </div>
@@ -284,5 +273,7 @@
 
 @section('script')
 
-<script>(function(t,e,o,c){var n,s,i;t.SMCX=t.SMCX||[],e.getElementById(c)||(n=e.getElementsByTagName(o),s=n[n.length-1],i=e.createElement(o),i.type="text/javascript",i.async=!0,i.id=c,i.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/oKmSXYVoKifWEf8IgqcCcwqalWbJ_2BSObRYhMbnyBMPhPLrNxC_2BXhJctQdljWmoub.js"].join(""),s.parentNode.insertBefore(i,s))})(window,document,"script","smcx-sdk");</script>
+/* Survey Monkey Pop-up */
+/*<script>(function(t,e,o,c){var n,s,i;t.SMCX=t.SMCX||[],e.getElementById(c)||(n=e.getElementsByTagName(o),s=n[n.length-1],i=e.createElement(o),i.type="text/javascript",i.async=!0,i.id=c,i.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/oKmSXYVoKifWEf8IgqcCcwqalWbJ_2BSObRYhMbnyBMPhPLrNxC_2BXhJctQdljWmoub.js"].join(""),s.parentNode.insertBefore(i,s))})(window,document,"script","smcx-sdk");
+</script>*/
 @stop
