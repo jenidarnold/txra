@@ -25,6 +25,9 @@ Route::get('/PICK-A-FREE-TOURNEY', function () {
 Route::get('/sweepstakes', function () {
     return view('promos/free_tourney/index');
 });
+Route::get('/promo-terms', function () {
+    return view('promos/free_tourney/terms');
+});
 
 Route::get('/', 'WelcomeController@index' );
 Route::get('/welcome', 'WelcomeController@index' );

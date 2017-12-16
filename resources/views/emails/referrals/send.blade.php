@@ -24,7 +24,7 @@
 		    	<tr>			    			   
 			      	<td>
 				      	<h5>
-				      		{{$user->full_name}} invites you to create an account on <a href="http://texasracquetball.org" target="new">texasracquetball.org</a>
+				      		{{$user->full_name}} invites you to sign up  <a href="http://texasracquetball.org" target="new">texasracquetball.org</a>. A free account is your portal to your racquetball events, stats, ranking, and more.
 				      	</h5>
 				      	<br/>
 				      	<p>You and {{$user->first_name}} have a chance to win the <a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes</a>
@@ -67,8 +67,8 @@
 			<li class="text-primary"><i class="fa fa-star text-warning"></i>Create a TXRA account, and complete your profile. 
 			<li class="text-primary"><i class="fa fa-star text-warning"></i>If you already have an account, just complete your profile.
 			<li class="text-primary"><i class="fa fa-star text-warning"></i>All eligible profiles will be entered in to a drawing for a chance to win a FREE ENTRY into a TXRA sanctioned tournament of your choice.
-			<li class="text-primary"><i class="fa fa-star text-warning text-bold"></i>One Grand Prize Winner will receive two free divisions.
-			<li class="text-primary"><i class="fa fa-star text-warning"></i>Two runner-ups will receive one free division.
+			<li class="text-primary"><i class="fa fa-star text-warning text-bold"></i>The Grand Prize Winner will receive two free divisions.
+			<li class="text-primary"><i class="fa fa-star text-warning"></i>Two Runners-up will receive one free division.
 			<li class="text-primary"><i class="fa fa-star text-warning"></i>Use our <a href="/refer">Refer-a-Friend</a> program to earn more chances to win.
 			<li class="text-danger"><i class="fa fa-star text-warning text-bold"></i>Sweepstakes ends February 1, 2018.
 			<li class="text-primary"><i class="fa fa-star text-warning"></i>Winners will be announced on February 7th, 2018 by email, on our website, and on the <a href="https://www.facebook.com/TXRA-Texas-Racquetball-Association-187625447927010/" target="facebook">TXRA Facebook Page</a>.

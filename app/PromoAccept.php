@@ -34,7 +34,7 @@ class PromoAccept extends Model
      * @return [integer]           [description]
      */
     public function getCompletedAttribute(){
-        if ($this->accepter->profile->progress > 100){
+        if ($this->accepter->profile->progress >= 100){
             return 1;
         }
         else{
