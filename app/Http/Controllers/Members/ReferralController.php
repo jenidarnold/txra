@@ -182,7 +182,7 @@ class ReferralController extends Controller {
 
             \Mail::send(
                 'emails.referrals.send', 
-                ['subject' => $subject, 'user' => \Auth::user()], 
+                ['subject' => $subject,'friend_email' => $friend_email, 'user' => \Auth::user()], 
                 function ($m) use ($user, $friend_email, $subject)
                     {
                         $m->from(env('MAIL_FROM_EMAIL'), $user->full_name );
