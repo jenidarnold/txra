@@ -272,8 +272,8 @@
 @stop
 
 @section('script')
-
+{{-- 
 /* Survey Monkey Pop-up */
-/*<script>(function(t,e,o,c){var n,s,i;t.SMCX=t.SMCX||[],e.getElementById(c)||(n=e.getElementsByTagName(o),s=n[n.length-1],i=e.createElement(o),i.type="text/javascript",i.async=!0,i.id=c,i.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/oKmSXYVoKifWEf8IgqcCcwqalWbJ_2BSObRYhMbnyBMPhPLrNxC_2BXhJctQdljWmoub.js"].join(""),s.parentNode.insertBefore(i,s))})(window,document,"script","smcx-sdk");
-</script>*/
+<script>(function(t,e,o,c){var n,s,i;t.SMCX=t.SMCX||[],e.getElementById(c)||(n=e.getElementsByTagName(o),s=n[n.length-1],i=e.createElement(o),i.type="text/javascript",i.async=!0,i.id=c,i.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/oKmSXYVoKifWEf8IgqcCcwqalWbJ_2BSObRYhMbnyBMPhPLrNxC_2BXhJctQdljWmoub.js"].join(""),s.parentNode.insertBefore(i,s))})(window,document,"script","smcx-sdk");
+</script> --}}
 @stop
