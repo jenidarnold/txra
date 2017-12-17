@@ -76,7 +76,7 @@
 			<li class="text-primary"><i class="fa fa-star text-warning"></i>Winners will be announced on February 7th, 2018 by email, on our website, and on the <a href="https://www.facebook.com/TXRA-Texas-Racquetball-Association-187625447927010/" target="facebook">TXRA Facebook Page</a>.
 		</ul>
 		<center>
-		<a href="http://txra.org/promo-terms" class="text-muted">* Read complete contest rules. Terms and conditions apply.</a>
+		<a href="http://txra.org/contest-rules" class="text-muted">* Read complete contest rules. Terms and conditions apply.</a>
 		</center>
 @stop
 

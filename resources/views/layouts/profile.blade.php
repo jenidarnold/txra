@@ -53,36 +53,38 @@
 				</div>
 					
 				<!-- Show Profile Progress if this profile belongs to current Auth -->
-				@if ((Auth::id() == $user->id) && ($profile->progress < 100))
+				@if (Auth::id() == $user->id)
 
-				<div class="margin-bottom-30 text-center alert alert-info">
-					<h5 class="text-info">
-						Complete your profile to be elibile for the<br/> 
-						<a href="/sweepstakes" class="text-success" target="sweepstakes"><u>PICK-A-FREE-TOURNEY SWEEPSTAKES!</u></a>
-					</h5>
-					<h6>
-						<a class="text-info" href="{{ route('members.edit', array('id' => $user->id))}}" title="Goto My Settings to complete profile">
-							<i class="fa fa-info-circle"></i> Profile {{ $profile->progress}}% completed
-						</a>
-					</h6>
-					<div class="progress progress-xs">
-						<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ $profile->progress}}" aria-valuemin="0" aria-valuemax="100" style="{{'width:' . $profile->progress . '%; min-width: 2em;'}}"></div>
-					</div>
-				</div>
-				@else
-					<!-- Show Eligbile for Sweepstakes if date < Promo-end date-->
-					<div class="margin-bottom-30 text-center alert alert-success">
-						<h4 class="text-success">
-							Congratulations!</h4>
-						<h5 class="text-success">
-							You have been entered into the<br/> 
+					@if($profile->progress < 100)
+					<div class="margin-bottom-30 text-center alert alert-info">
+						<h5 class="text-info">
+							Complete your profile to be elibile for the<br/> 
 							<a href="/sweepstakes" class="text-success" target="sweepstakes"><u>PICK-A-FREE-TOURNEY SWEEPSTAKES!</u></a>
 						</h5>
-						<h4>
-							<a href="{{ route('refer.show', array('id' => $user->id))}}" class="text-primary text-left"><u>Refer-a-Friend</u></a>
-						<br/>
-						<small>for more chances to win!</a></small></h4>
+						<h6>
+							<a class="text-info" href="{{ route('members.edit', array('id' => $user->id))}}" title="Goto My Settings to complete profile">
+								<i class="fa fa-info-circle"></i> Profile {{ $profile->progress}}% completed
+							</a>
+						</h6>
+						<div class="progress progress-xs">
+							<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ $profile->progress}}" aria-valuemin="0" aria-valuemax="100" style="{{'width:' . $profile->progress . '%; min-width: 2em;'}}"></div>
+						</div>
 					</div>
+					@else
+						<!-- Show Eligbile for Sweepstakes if date < Promo-end date-->
+						<div class="margin-bottom-30 text-center alert alert-success">
+							<h4 class="text-success">
+								Congratulations!</h4>
+							<h5 class="text-success">
+								You have been entered into the<br/> 
+								<a href="/sweepstakes" class="text-success" target="sweepstakes"><u>PICK-A-FREE-TOURNEY SWEEPSTAKES!</u></a>
+							</h5>
+							<h4>
+								<a href="{{ route('refer.show', array('id' => $user->id))}}" class="text-primary text-left"><u>Refer-a-Friend</u></a>
+							<br/>
+							<small>for more chances to win!</a></small></h4>
+						</div>
+					@endif
 				@endif
 
 				<!-- SIDE NAV -->

@@ -39,6 +39,6 @@
 
 <div class="row text-center margin-top-20">
 	<div class="col-xs-12">
-		<h6><a href="promo-terms" class="text-muted">* Read complete contest rules. Terms and conditions apply.</a></h6>
+		<h6><a href="/contest-rules" class="text-muted">* Read complete contest rules. Terms and conditions apply.</a></h6>
 	</div>
 </div>

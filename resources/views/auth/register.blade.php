@@ -25,9 +25,11 @@
 										<i class="fa fa-gift text-danger"></i>
 										<h2 class="text-white margin-bottom-0">SIGN UP TO</h2>
 									</div>
-										<span class="h1 bold">WIN</span><br/>
-										<span class="h3">FREE ENTRY TOURNAMENT</span><br/>
-										<span class="h5">and other great prizes</span><br/>			
+									 	<span class="h1 bold">WIN</span><br/>
+						                <span class="h3">FREE ENTRY</span><br/>
+						                <span class="h6">INTO</span><br/>
+						                <span class="h3">TOURNAMENT</span><br/>
+						                <span class="h6">of your choice*</span>
 								</div>
 							</a>
 							<h6 class="text-muted small"><a href="/sweepstakes">Read Sweepstakes Details</a></h6>

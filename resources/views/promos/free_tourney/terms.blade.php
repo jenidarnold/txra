@@ -13,6 +13,12 @@
 			<h1><i class="et-trophy text-warning"></i> PICK-A-FREE-TOURNEY SWEEPSTAKES</h1>
 			<h3 class="margin-bottom-0">CONTEST RULES</h3>
 			<small>Last updated: Dec 17, 2017</small>
+
+				<!-- breadcrumbs -->
+			<ol class="breadcrumb">
+				<li><a href="/sweepstakes">Sweepstakes</a></li>
+				<li class="active">Contest Rules</li>
+			</ol><!-- /breadcrumbs -->
 		</div>
 	</section>
 	<!-- /PAGE HEADER -->
