@@ -651,8 +651,6 @@
             	{{--*/ Session::set('loadModReferral', 'false') /*--}}  
             @endif
                  
-            {{--*/ $loadModReferral = 'false' /*--}}
-
             <div id="modReferral" class="modal fade" data-autoload="{{$loadModReferral}}" data-autoload-delay="2000">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
