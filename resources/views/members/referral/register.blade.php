@@ -21,7 +21,7 @@
 					<div class="row">
 						<!-- Left Side -->
 						<!-- LEFT -->
-						<div class="well col-lg-3 col-md-4 col-sm-5">				
+						<div class="well col-xs-12 col-lg-3 col-md-4 col-sm-5">				
 							<div class="col-xs-12 text-center">
 								@if((true)) 	
 									<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt="" />
@@ -44,7 +44,7 @@
 						</div>
 
 						<!-- register form -->
-						<div class="col-sm-7 col-md-6 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+						<div class="col-xs-12 col-sm-7 col-md-6 form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
 							<form class="nomargin sky-form boxed" action="{{ url('/register') }}" method="post">
 							 {{ csrf_field() }}
