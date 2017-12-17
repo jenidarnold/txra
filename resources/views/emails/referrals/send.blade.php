@@ -41,7 +41,7 @@
 	    	<tr>
 		    	<td style="padding-top:45px; padding-right:15px">
 		    		<a target="member" href='{{route('members.show', $user->id)}}'>
-		    		<img name="imgProfile" id="imgProfile" style="height:229px" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt=""  />
+		    		<img name="imgProfile" id="imgProfile" style="height:229px" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$user->profile->avatar)}}' alt=""  />
 		    		</a>
 		    	</td>	
 
