@@ -24,13 +24,8 @@
 		    	<tr>			    			   
 			      	<td>
 				      	<h5>
-				      		{{$user->full_name}} invites you to sign up  <a href="http://texasracquetball.org" target="new">texasracquetball.org</a>. A free account is your portal to your racquetball events, stats, ranking, and more.
-				      	</h5>
-				      	<br/>
-				      	<p>You and {{$user->first_name}} have a chance to win the <a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes</a>
-				      	Click the <b>Sign Up Now</b> button below, so we know that {{$user->first_name}} sent you.
-				      	</p>
-
+				      		{{$user->full_name}} invites you to sign up for an account on <a href="http://texasracquetball.org" target="new">texasracquetball.org</a>. A free account is your portal to your racquetball events, stats, ranking, and more.
+				      	</h5>				      
 		        	</td>
 			      	<td class="expander"></td>
 			    </tr>
@@ -41,12 +36,12 @@
 @stop
 
 @section('hero')
-	<table class="ten columns">
+	<table class="twlenve columns">
 	    <tbody>
 	    	<tr>
-		    	<td style="padding-top:50px; padding-right:15px">
+		    	<td style="padding-top:45px; padding-right:15px">
 		    		<a target="member" href='{{route('members.show', $user->id)}}'>
-		    		<img name="imgProfile" id="imgProfile" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt=""  />
+		    		<img name="imgProfile" id="imgProfile" style="height:229px" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$profile->avatar)}}' alt=""  />
 		    		</a>
 		    	</td>	
 
@@ -54,6 +49,13 @@
 			    	<img name="imgPromo" id="imgPromo" class="user-avatar thumbnail img-responsive" src='{{ asset('images/promos/free_entry.png')}}' alt="free-entry-sweepstakes" />
 			    </td>
 				<td class="expander"></td>
+		    </tr>
+		    <tr>
+		    	<td colspan="2">
+				      	<p>You and {{$user->first_name}} have a chance to win the <a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a>
+				      	Click the <b>Sign Up Now</b> button below, so we know that {{$user->first_name}} sent you.
+				      	</p>
+		    	</td>
 		    </tr>
 	 	 </tbody>
   	</table>	  	
