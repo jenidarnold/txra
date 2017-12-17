@@ -175,6 +175,8 @@ class ReferralController extends Controller {
 
         $subject = 'Your friend, ' . $user->full_name. ', wants you to join the Texas Racquetball Association. It is FREE to join!';
 
+        $refer_link = $request->refer_link;
+        
         // Send to each friend
         $emails = $request->emails;
         $emails = explode(',', $emails);
@@ -182,7 +184,11 @@ class ReferralController extends Controller {
 
             \Mail::send(
                 'emails.referrals.send', 
-                ['subject' => $subject,'friend_email' => $friend_email, 'user' => \Auth::user()], 
+                [
+                    'subject' => $subject,
+                    'friend_email' => $friend_email, 
+                    'refer_link' => $refer_link,
+                    'user' => \Auth::user()], 
                 function ($m) use ($user, $friend_email, $subject)
                     {
                         $m->from(env('MAIL_FROM_EMAIL'), $user->full_name );

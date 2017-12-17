@@ -58,6 +58,7 @@
 				<form action="{{ route('refer.email', $refer->user_id) }}" method="post">
 				    {{ csrf_field() }}
 				    <input type="hidden" name="user_id" value="{{$refer->user_id}}">
+				    <input type="hidden" name="refer_link" value="{{route('refer.register', $refer->token) }}">
     				<div class="input-group col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 				    	<input id="emails" type="text" class="form-control" name="emails" placeholder="Enter email addresses separated by commas">
 				    	<span class="input-group-addon">
