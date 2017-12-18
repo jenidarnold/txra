@@ -110,9 +110,11 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::delete('/clubs/{id}/', 			array('as' => 'admin.clubs.delete', 	'uses' => 'ClubController@delete'));	
 	Route::post('/clubs/{id}/', 			array('as' => 'admin.clubs.update', 	'uses' => 'ClubController@update'));
 
-
 	/*rankings*/
 	Route::get('/rankings', 				array('as' => 'admin.rankings', 			'uses' => 'AdminController@rankings'));
+
+	/*nominations*/
+	Route::get('/nominations', 				array('as' => 'admin.nominations', 			'uses' => 'AdminController@nominations'));
 
 	/*instructors*/
 	Route::get('/instructors', 				array('as' => 'admin.instructors', 			'uses' => 'InstructorController@index'));

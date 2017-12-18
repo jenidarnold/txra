@@ -19,7 +19,7 @@
 		        <br/> --}}
 		    </div>
      		<div class="row">
-		        <div class="col-sm-12">
+		        <div class="table-responsive col-sm-12">
 		        	<table class="table table-stripedX table-condensed">
 		        		<tr>
 		        			<th></th>

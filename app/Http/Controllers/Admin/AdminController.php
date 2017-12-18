@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Invite;
+use App\nomination;
 
 class AdminController extends Controller {
 
@@ -275,5 +276,26 @@ class AdminController extends Controller {
 	public function rankings()
 	{	
 		return view('admin.rankings.index');
+	}
+
+		/**
+	 *
+	 * @return Response
+	 */
+	public function nominations()
+	{	
+		$nominations = Nomination::orderBy('category_id')
+			->orderBy('id','desc')
+        	->paginate(40);
+
+
+        $date_since = \Carbon\Carbon::today()->subDays(7);
+
+        $stats = collect();
+
+        $stats->total = Nomination::count();
+        $stats->new = Nomination::where('created_at', '>=', $date_since)->count();
+
+		return view('admin.nominations.index', compact('nominations', 'stats'));
 	}
 }

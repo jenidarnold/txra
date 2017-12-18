@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\AwardType;
 
 class Nomination extends Model
 {
@@ -32,5 +33,16 @@ class Nomination extends Model
      */
     public function getNomineeFullNameAttribute() {
         return $this->nominee_first_name . ' ' . $this->nominee_last_name;
+    }
+
+    public function getCategoryAttribute(){
+
+        /*awards*/
+        if ($this->type_id ==1){
+            $award = AwardType::where('id', '=', $this->category_id)
+            ->first();
+             
+            return $award->title;
+        }
     }
 }
