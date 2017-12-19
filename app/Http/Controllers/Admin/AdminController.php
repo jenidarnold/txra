@@ -3,7 +3,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Invite;
-use App\nomination;
+use App\Nomination;
 
 class AdminController extends Controller {
 
