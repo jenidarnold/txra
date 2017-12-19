@@ -151,6 +151,7 @@ Route::get('/logout', function () {
 
 /* Play */
 Route::get('/map', array('as' => 'play.map', 'uses' => 'Play\PlayController@map'));	
+Route::get('/checkin', array('as' => 'play.checkin', 'uses' => 'Play\PlayController@mylocation'));	
 Route::get('/instructors', array('as' => 'play.instructors', 'uses' => 'Play\PlayController@instructors'));
 Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 {
@@ -159,6 +160,10 @@ Route::group(['namespace' => 'Play', 'prefix' =>'play'], function()
 	Route::get('levels', array('as' => 'play.levels', 'uses' => 'PlayController@levels'));	
 	Route::get('instructors', array('as' => 'play.instructors', 'uses' => 'PlayController@instructors'));	
 	Route::get('map', array('as' => 'play.map', 'uses' => 'PlayController@map'));	
+	
+	Route::get('checkin', array('as' => 'play.mylocation', 'uses' => 'PlayController@mylocation'));	
+	Route::post('checkin', array('as' => 'play.checkin', 'uses' => 'PlayController@checkin'));	
+
 	Route::get('leagues', array('as' => 'play.leagues.index', 'uses' => 'LeaguesController@index'));	
 });
 

@@ -114,5 +114,43 @@ class PlayController extends Controller {
 
 		return view('play/map', compact('clubs'));
 	}
+
+
+/**
+	 * Display map of locations .
+	 *
+	 * @return Response
+	 */
+	public function mylocation(Request $request)
+	{
+
+        //$clubs =  (object) [ 
+        //  'position' =>  '{lat: 32.7098963, lng: -97.1373552 }',           
+        //];
+
+		$clubs = Club::where('lat', '>', 0)
+				->orderBy('name')
+				->get()
+			;
+
+		$i = 1;
+		foreach($clubs as $club) {
+			$club->ico = $club->get_map_icon($i);
+			$club->info = "<div class='clubInfo'>"
+			        ."<h6>".$club->name . "</h6>"
+                    ."<address>"
+                    . $club->address . "<br/>"
+                    . $club->city .", " . $club->state . " " . $club->zip. "<br/>"
+                    . $club->phone . "<br/>"
+                    ."Courts: " . $club->courts . "<br/>"
+                    ."Players Checked in now: 12<br/>"
+                    ."<a href='/checkin' method='post' class='btn btn-sm btn-success' target='new'>Checkin</a><br/>"
+                    ."</div>"
+			;
+			$i++;
+		}	
+
+		return view('play/checkin', compact('clubs'));
+	}
 	
 }

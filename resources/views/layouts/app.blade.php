@@ -234,7 +234,6 @@
 								<ul id="topMain" class="nav nav-pills nav-main">	
 
 								<!-- USER OPTIONS -->
-
 									
 									{{-- <li><a href="{{ url('/survey') }}">SURVEY</a></li> --}}							
 									<li class="dropdown hidden-xs hidden-sm">
@@ -245,6 +244,12 @@
 									<li class="dropdown hidden-md hidden-lg label-danger">
 										<a class="dropdown" href="/sweepstakes">
 											SWEEPSTAKES
+										</a>
+									</li>
+									
+									<li class="dropdown hidden-md hidden-lg label-warning">
+										<a class="dropdown" href="/checkin">
+											CHECKIN
 										</a>
 									</li>
 
@@ -309,6 +314,11 @@
 													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
 													{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}
 													<li><a href="{{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>
+													<li class="dropdown hidden-xs hidden-sm">
+														<a class="dropdown hidden-xs hidden-sm" href="/checkin">
+															CHECKIN
+														</a>	
+													</li>
 												</ul>
 											</li>
 
