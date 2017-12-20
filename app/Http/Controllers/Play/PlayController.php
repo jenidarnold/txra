@@ -135,20 +135,22 @@ class PlayController extends Controller {
 
 		$i = 1;
 		foreach($clubs as $club) {
+
+			//$checkins = Checkin::where('club_id', '=', $club->id );
+
 			$club->ico = $club->get_map_icon($i);
-			$club->info = "<div class='clubInfo'>"
-			        ."<h6>".$club->name . "</h6>"
-                    ."<address>"
-                    . $club->address . "<br/>"
-                    . $club->city .", " . $club->state . " " . $club->zip. "<br/>"
-                    . $club->phone . "<br/>"
-                    ."Courts: " . $club->courts . "<br/>"
-                    ."Players Checked in now: 12<br/>"
-                    ."<a href='/checkin' method='post' class='btn btn-sm btn-success' target='new'>Checkin</a><br/>"
-                    ."</div>"
-			;
+			// $club->info = "<div class='clubInfo'>"
+			//         ."<h6>".$club->name . "</h6>"
+   //                  ."<address>"
+   //                  . $club->address . "<br/>"
+   //                  . $club->city .", " . $club->state . " " . $club->zip. "<br/>"
+   //                  . $club->phone . "<br/>"
+   //                  ."Courts: " . $club->courts . "<br/>"
+   //                  ."</div>"
+   //		;
 			$i++;
 		}	
+		//      ."<a href='/checkin' method='post' class='btn btn-sm btn-success' target='new'>Checkin</a><br/>"
 
 		return view('play/checkin', compact('clubs'));
 	}

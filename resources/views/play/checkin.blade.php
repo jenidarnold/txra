@@ -172,9 +172,11 @@
  		var map;
  		var infoWindow;
  		var geocoder;
-
+ 		
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
+			var clubs = {!! json_encode($clubs->toArray()) !!};
+        	var mypos = {lat: 0, lng: 0 };
 
         	map = new google.maps.Map(document.getElementById('map'), {
           		zoom: 13,
@@ -187,29 +189,82 @@
 
     		geocoder = new google.maps.Geocoder();
     
-			var clubs = {!! json_encode($clubs->toArray()) !!};
+    		// Try HTML5 geolocation.
+	        // https://google-developers.appspot.com/maps/documentation/javascript/geolocation
+	        if (navigator.geolocation) {
+	          navigator.geolocation.getCurrentPosition(function(position) {
+	            mypos = {
+	              lat: position.coords.latitude,
+	              lng: position.coords.longitude
+	            };
 
-			// Create markers.
-	    	clubs.forEach(function(club) {
-	    		var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
-	    		var ico = club.ico;
-	    		var data = club.info;
-	    		var infowindow = new google.maps.InfoWindow({
-      				content: data
-    			});
-	     	    var marker = new google.maps.Marker({
-	     	       position: c,
+	    		var ico = '../images/mapicons/sports/racquet.png';	    		
+	            var marker = new google.maps.Marker({
+	     	       position: mypos,
 	     	      //icon: icons[feature.type].icon,
 	     	       map: map,
 	     	       icon: ico,
-	     	       title: club.name
-	     	    });	   
+	     	       title: "You are here"
+	     	    });	 
+	       
+	            infoWindow.setPosition(mypos);
+	            infoWindow.setContent('You are here');
+	            infoWindow.open(map);
+	            map.setCenter(mypos);
 
-	     	    google.maps.event.addListener(marker, 'click', function() {
-      				infowindow.open(map,marker);
-    			});
+    			// Create markers.
+		    	clubs.forEach(function(club) {
+		    		var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
+		    		var ico = club.ico;	     	    		     	   
 
-	     	});
+		    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
+	    			var myCord = new google.maps.LatLng(mypos.lat, mypos.lng);
+		     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles		
+
+		    		club.info = "<div class='clubInfo'>"
+				        + "<h6>" + club.name + "</h6>"
+	                    + "<address>"
+	                    + club.address + "<br/>"
+	                    + club.city + ", " + club.state + " " + club.zip + "<br/>"
+	                    + club.phone + "<br/>"
+	                    + "Courts: " + club.courts + "<br/>"
+	                    + "Distance: " + club.dist.toFixed(2) + " mi.<br/>"
+	                    + "</div>";
+
+		    		var clubWindow = new google.maps.InfoWindow({
+	      				content: club.info
+	    			});
+
+	    		    var marker = new google.maps.Marker({
+		     	       position: c,
+		     	      //icon: icons[feature.type].icon,
+		     	       map: map,
+		     	       icon: ico,
+		     	       title: club.name
+		     	    });	   	     	   
+
+					//open marker if club within current location
+					     	    		     	  
+		     	    var minDist = 0.5;		     	    
+		     	    if(club.dist <= minDist) {
+		     	    	clubWindow.open(map,marker);
+		     	    }	
+		     	
+		     	    google.maps.event.addListener(marker, 'click', function() {
+	      				clubWindow.open(map,marker);
+	    			});
+
+		     	});
+
+	          }, function() {
+	            handleLocationError(true, infoWindow, map.getCenter());
+	          });
+	        } else {
+	          // Browser doesn't support Geolocation
+	          handleLocationError(false, infoWindow, map.getCenter());
+
+
+	        }
 
 
 	    	// Create Legend	
@@ -244,40 +299,7 @@
 
 
 	  	    var search = document.getElementById('search');	
-    		map.controls[google.maps.ControlPosition.LEFT_TOP].push(search);
-
-
-	        // Try HTML5 geolocation.
-	        // https://google-developers.appspot.com/maps/documentation/javascript/geolocation
-	        if (navigator.geolocation) {
-	          navigator.geolocation.getCurrentPosition(function(position) {
-	            var pos = {
-	              lat: position.coords.latitude,
-	              lng: position.coords.longitude
-	            };
-
-	    		var ico = '../images/mapicons/sports/racquet.png';
-	    		
-	            var marker = new google.maps.Marker({
-	     	       position: pos,
-	     	      //icon: icons[feature.type].icon,
-	     	       map: map,
-	     	       icon: ico,
-	     	       title: "You are here"
-	     	    });	 
-	       
-	            infoWindow.setPosition(pos);
-	            infoWindow.setContent('Location found.');
-	            infoWindow.open(map);
-	            map.setCenter(pos);
-	          }, function() {
-	            handleLocationError(true, infoWindow, map.getCenter());
-	          });
-	        } else {
-	          // Browser doesn't support Geolocation
-	          handleLocationError(false, infoWindow, map.getCenter());
-	        }
-
+    		map.controls[google.maps.ControlPosition.LEFT_TOP].push(search);	       
 	     			   
 	    }
 
@@ -315,7 +337,8 @@
 	      }
 
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap">
+    <!-- script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap"></script -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap&sensor=false&v=3&libraries=geometry">
 	</script>
 
 

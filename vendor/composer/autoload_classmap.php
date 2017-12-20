@@ -21,6 +21,7 @@ return array(
     'CreateAdminsTable' => $vendorDir . '/serverfireteam/panel/src/database/migrations/2014_11_16_205658_create_admins_table.php',
     'CreateAwardTypesTable' => $baseDir . '/database/migrations/2017_12_08_053432_create_award_types_table.php',
     'CreateBlogTable' => $vendorDir . '/serverfireteam/blog/src/database/migrations/2014_12_15_124028_create_blog_table.php',
+    'CreateCheckinsTable' => $baseDir . '/database/migrations/2017_12_20_024435_create_checkins_table.php',
     'CreateClubsTable' => $baseDir . '/database/migrations/2017_06_05_030855_create_clubs_table.php',
     'CreateCreditsTable' => $baseDir . '/database/migrations/2017_11_26_070452_create_credits_table.php',
     'CreateInstructorsTable' => $baseDir . '/database/migrations/2017_07_06_211124_create_instructors_table.php',
