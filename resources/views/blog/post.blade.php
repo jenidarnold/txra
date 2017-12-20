@@ -2,8 +2,8 @@
 @section('style')
     <style type="text/css">
         .content {
-            font-size: 10pt !important;
-        }
+            font-size: 10pt !important;        
+        }     
     </style>
 @stop
 @section('body')
@@ -26,7 +26,23 @@
         </figure>
     @endif
 
-    
+
+{{--         <!-- 
+            STICKY SIDE ICONS             
+                sticky-side-left    - left side
+                sticky-side-right   - right side
+        -->       
+        <div class="sticky-side sticky-side-right visible-sm visible-md visible-lg">
+            <a href="#" class="social-icon social-icon-light  social-facebook">
+                <i class="icon-facebook"></i>
+                <i class="icon-facebook"></i>
+            </a>
+            <a href="#" class="social-icon social-icon-light  social-twitter">
+                <i class="icon-twitter"></i>
+                <i class="icon-twitter"></i>
+            </a>
+        </div>
+     --}}
     <h1 class="blog-post-title" style="color:{{$post['color']}}">{{$post['title']}}</h1>   
     <ul class="blog-post-info list-inline">
             <li>
@@ -57,19 +73,16 @@
                 </a>
                 @endif
             </li>
-           {{--  <li>
-                <a href="#">
-                   //<i class="fa fa-share-alt"></i> 
-                    <div
-                      class="fb-like"
-                      data-share="true"
-                      data-width="450"
-                      data-show-faces="false">
-                    </div>
-                    <span class="font-lato">{{$post['socialPoint']}} shared</span>
+            <li>
+                <a target="new" href="https://www.facebook.com/sharer/sharer.php?u={{$post->getUrl() }}&amp;src=sdkpreparse" class="social-icon social-icon-sm social-facebook" style="margin:0px" data-toggle="tooltip" data-placement="top" title="Facebook">
+                    <i class="icon-facebook"></i>
+                    <i class="icon-facebook"></i>
                 </a>
+            </li>
+            <li>                               
+                <span class="font-lato">{{$post['socialPoint']}} shares</span>                
             </li> 
-            --}}
+           
             <!-- Only Julie operations -->
             @if(Auth::check() && Auth::user()->id == 1 )
                 <li>
@@ -102,7 +115,6 @@
                 </li>
             @endif
         </ul>
-
 
         <!-- article content -->
         <p class="dropcap">{!! $post['content'] !!}</p>
