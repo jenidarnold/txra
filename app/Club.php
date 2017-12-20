@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Checkin;
 
 class Club extends Model
 {
@@ -21,7 +22,35 @@ class Club extends Model
     {
         return $this->belongsToMany('App\TournamentLocation', 'club_id', 'tournament_id');       
     }
+
+
+    public function checkins()
+    {
+        return $this->hasMany('App\Checkin', 'club_id', 'id');       
+    }
   
+
+    public function getCheckinsTotalAttribute()
+    {
+        return $this->checkins()->count();
+    }
+
+    public function checkins_hour($hour)
+    {
+        return $this->checkins();
+    }
+
+    public function getCheckinsRecentAttribute()
+    {
+        $date = \Carbon\Carbon::now('America/Chicago');
+        
+        $date->modify('-1 hours');
+        $formatted_date = $date->format('Y-m-d H:i:s');
+
+        return $this->checkins()
+            ->where('created_at', '>=', $formatted_date)
+            ->count();
+    }
 
     public function get_map_icon($i = 1) {
 

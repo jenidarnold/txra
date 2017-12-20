@@ -7,6 +7,7 @@ use Redirect;
 use App\Club;
 use App\Instructor;
 use App\OpenGraph;
+use App\Checkin;
 
 class PlayController extends Controller {
 
@@ -116,8 +117,8 @@ class PlayController extends Controller {
 	}
 
 
-/**
-	 * Display map of locations .
+	/**
+	 * Display map with my location.
 	 *
 	 * @return Response
 	 */
@@ -139,15 +140,9 @@ class PlayController extends Controller {
 			//$checkins = Checkin::where('club_id', '=', $club->id );
 
 			$club->ico = $club->get_map_icon($i);
-			// $club->info = "<div class='clubInfo'>"
-			//         ."<h6>".$club->name . "</h6>"
-   //                  ."<address>"
-   //                  . $club->address . "<br/>"
-   //                  . $club->city .", " . $club->state . " " . $club->zip. "<br/>"
-   //                  . $club->phone . "<br/>"
-   //                  ."Courts: " . $club->courts . "<br/>"
-   //                  ."</div>"
-   //		;
+			$club->checkins_total = $club->checkins_total;
+			$club->checkins_recent = $club->checkins_recent;
+
 			$i++;
 		}	
 		//      ."<a href='/checkin' method='post' class='btn btn-sm btn-success' target='new'>Checkin</a><br/>"
@@ -155,4 +150,25 @@ class PlayController extends Controller {
 		return view('play/checkin', compact('clubs'));
 	}
 	
+
+	/**
+	 *  Checkin club
+	 */
+	
+	public function checkin(Request $request)
+	{
+
+		$checkin = new Checkin;
+
+		$checkin->club_id = $request->club_id;
+		$checkin->save();
+
+
+		$message = "Checkin Successful";
+
+		return  Redirect::to(\URL::previous())
+			->with('alert-success', $message);
+	}
+
+
 }

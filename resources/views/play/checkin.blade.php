@@ -179,7 +179,7 @@
         	var mypos = {lat: 0, lng: 0 };
 
         	map = new google.maps.Map(document.getElementById('map'), {
-          		zoom: 13,
+          		zoom: 15,
           		center: mav
 	    	});       	
 
@@ -220,16 +220,29 @@
 		    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
 	    			var myCord = new google.maps.LatLng(mypos.lat, mypos.lng);
 		     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles		
-
+  
+  					var minDist = 0.5;		
 		    		club.info = "<div class='clubInfo'>"
 				        + "<h6>" + club.name + "</h6>"
-	                    + "<address>"
+	                    + "<address style='margin-bottom:10px'>"
 	                    + club.address + "<br/>"
 	                    + club.city + ", " + club.state + " " + club.zip + "<br/>"
 	                    + club.phone + "<br/>"
 	                    + "Courts: " + club.courts + "<br/>"
-	                    + "Distance: " + club.dist.toFixed(2) + " mi.<br/>"
-	                    + "</div>";
+	                    + "</address>"
+	                    + "<span class='text-danger bold'>Miles Away: " + club.dist.toFixed(2) + "</span><br/>"
+	                    + "<span class='text-primary bold'>Total Checkins: " + club.checkins_total + "</span><br/>"
+	                    + "<span class='text-success bold'>Checkins Last Hour: " + club.checkins_recent + "<span>"
+	                    ;
+
+	                if(club.dist <= minDist) {
+	                	club.info += "<form action='{{route('play.checkin')}}' method='POST'>"
+	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
+							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"
+				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-sm btn-success margin-top-10'>Checkin</button><br/>"
+				            + "</form>"
+	                }
+	                club.info += "</div>";
 
 		    		var clubWindow = new google.maps.InfoWindow({
 	      				content: club.info
@@ -243,9 +256,7 @@
 		     	       title: club.name
 		     	    });	   	     	   
 
-					//open marker if club within current location
-					     	    		     	  
-		     	    var minDist = 0.5;		     	    
+					//open marker if club within current location					     	    			     	   
 		     	    if(club.dist <= minDist) {
 		     	    	clubWindow.open(map,marker);
 		     	    }	
