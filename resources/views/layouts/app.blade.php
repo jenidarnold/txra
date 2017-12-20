@@ -247,12 +247,12 @@
 										</a>
 									</li>
 									
-									<li class="dropdown hidden-md hidden-lg label-warning">
+									{{-- <li class="dropdown hidden-md hidden-lg label-warning">
 										<a class="dropdown" href="/checkin">
 											CHECKIN
 										</a>
 									</li>
-
+ --}}
 									@if( Auth::guest())
 									<li class="dropdown hidden-md hidden-lg">
 										<a class="dropdown" href="/login">
@@ -314,11 +314,11 @@
 													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
 													{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}
 													<li><a href="{{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>
-													<li class="dropdown hidden-xs hidden-sm">
+													{{-- <li class="dropdown hidden-xs hidden-sm">
 														<a class="dropdown hidden-xs hidden-sm" href="/checkin">
 															CHECKIN
 														</a>	
-													</li>
+													</li> --}}
 												</ul>
 											</li>
 
