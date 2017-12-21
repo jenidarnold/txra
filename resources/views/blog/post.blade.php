@@ -74,7 +74,7 @@
                 @endif
             </li>
             <li>
-                <a target="new" href="https://www.facebook.com/sharer/sharer.php?u={{$post->getUrl() }}&amp;src=sdkpreparse" class="social-icon social-icon-sm social-facebook" style="margin:0px" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <a target="new" href="{{route('news.share', array('id' => $post['id'], 'social' => 'facebook'))}}&amp;src=sdkpreparse" class="social-icon social-icon-sm social-facebook" style="margin:0px" data-toggle="tooltip" data-placement="top" title="Facebook">
                     <i class="icon-facebook"></i>
                     <i class="icon-facebook"></i>
                 </a>
