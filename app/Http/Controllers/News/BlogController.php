@@ -181,7 +181,7 @@ class BlogController extends BaseController {
     public function getShare($id,$social)
     {
         $url = '';
-        $post = News::find($id);
+        $post = Post::find($id);
         if($post == NULL){
             App::abort(404);
         }
