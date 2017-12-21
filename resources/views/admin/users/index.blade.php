@@ -13,6 +13,8 @@
 		        	<button type="button" class="btn btn-sm btn-primary">Total <span class="badge">{{ $stats->total}}</span></button>
 		        	<button type="button" class="btn btn-sm btn-success">New <span class="badge">{{ $stats->new}}</span></button>
 		        	<button type="button" class="btn btn-sm btn-warning">Not Linked <span class="badge">{{ $stats->not_linked}}</span></button>
+		        	<button type="button" class="btn btn-sm btn-info">Prof Comp<span class="badge">{{ $stats->profile_comp}}</span></button>
+	        		<button type="button" class="btn btn-sm btn-info">Prof Avg <span class="badge">{{ round($stats->profile_avg,1 )}}</span></button>
 		        </div>
 		        <br/>
 		    </div>		 
@@ -26,6 +28,7 @@
 		        			<th>Last Name</th>
 		        			<th>First Name</th>
 		        			<th>Email</th>
+		        			<th>Prof%</th>
 		        			<th>Disabled</th>
 		        			<th>Created At</th>
 		        		</tr>
@@ -43,7 +46,12 @@
 		        			<td>{{$user->usar_id}}</td>
 		        			<td>{{$user->last_name}}</td>
 		        			<td>{{$user->first_name}}</td>
-		        			<td>{{$user->email}}</td>	
+		        			<td>{{$user->email}}</td>		        			
+		        			<td>
+		        			@if($user->profile() !== null)
+		        				{{\App\UserProfile::find($user->profile['id'])['progress']}}
+		        			@endif
+		        			</td>		
 		        			<td>{{$user->disabled}}</td>
 		        			<td>{{$user->created_at}}</td>
 		        		</tr>

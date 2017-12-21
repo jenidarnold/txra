@@ -111,7 +111,7 @@ class PageController extends BaseController {
             }
 
             // redirect
-            \Session::flash('message', 'Successfully created Post!');
+            \Session::flash('message', 'Successfully submitted article!');
             return \Redirect::to('news/');
         //}
     }

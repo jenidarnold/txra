@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\UserProfile;
 use App\Invite;
 use App\Nomination;
 
@@ -47,6 +48,12 @@ class AdminController extends Controller {
         $stats->new = User::where('created_at', '>=', $date_since)->count();
         $stats->not_linked = User::where('usar_id', '=', 0)->count();
 
+
+        $profiles = new UserProfile;
+
+
+        $stats->profile_comp = $profiles->getTotalCompleted();
+        $stats->profile_avg = $profiles->getAvgCompleted();
 
 		return view('admin.users.index', compact('users', 'stats'));
 	}

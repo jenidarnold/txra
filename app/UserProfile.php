@@ -57,4 +57,37 @@ class UserProfile extends Model
 
         return $progress;
     }
+
+    /**
+     * The number of profiles completed
+     *
+     * @var array
+     */
+    public function getTotalCompleted(){
+
+        $profiles = UserProfile::where('gender', '<>', '')
+            ->where('city', '<>', '')
+            ->where('skill', '<>', '')
+            ->where('racquet', '<>', '')
+            ->where('dominant_hand', '<>', '')
+            ->where('bio', '<>', '')
+            ->get();
+
+        return $profiles->count();
+    }
+
+    /**
+     * The number of profiles completed
+     *
+     * @var array
+     */
+    public function getAvgCompleted(){
+
+        $profiles = new UserProfile;
+        $tot = $profiles->count();
+        $comp =  $profiles->getTotalCompleted();
+        $avg = $comp / $tot * 100;
+
+        return $avg;
+    }
 }
