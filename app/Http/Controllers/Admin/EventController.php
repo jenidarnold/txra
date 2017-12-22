@@ -35,7 +35,7 @@ class EventController extends Controller {
 	 */
 	public function create($id)
 	{	
-		return view('admin.tournaments.create');
+		return view('admin.events.create');
 	}
 
 	 /**
@@ -79,7 +79,7 @@ class EventController extends Controller {
 		   // redirect
             \Session::flash('message', 'Successfully created tournament');
 
-			return  redirect()->route('admin.tournaments')
+			return  redirect()->route('admin.events')
 				->with('flash-message','message');  
 		}
 	}
@@ -92,7 +92,7 @@ class EventController extends Controller {
 
         $tournament = Tournament::find($id);
 
-		return view('admin.tournaments.edit', compact('tournament'));
+		return view('admin.events.edit', compact('tournament'));
 	}
 
 	/**
@@ -102,12 +102,15 @@ class EventController extends Controller {
 	public function update(Request $request, $id)
 	{	
        
-		//validate
+	//validate
        //read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'first_name'       => 'required',
-            'last_name'       => 'required',
-        	'email' => 'required|email',
+            'name'       => 'required',
+            'usar_id'    => 'required',
+        	'url' => 'required',
+        	'logo' => 'required',
+        	'start_date' => 'required',
+        	'end_date' => 'required',
         );
         $validator = \Validator::make(\Input::all(), $rules);
 
@@ -123,24 +126,19 @@ class EventController extends Controller {
             
 			$tournament = tournament::find($id);
 
-			$tournament->name = \Input::get('first_name');
-			$tournament->last_name = \Input::get('last_name');
-			$tournament->email = \Input::get('email');
+			$tournament->name = \Input::get('name');
 			$tournament->usar_id = \Input::get('usar_id');
-			$tournament->level = \Input::get('level');
-			$tournament->date_certified = \Input::get('date_certified');
-			$tournament->valid_until = \Input::get('valid_until');
-			$tournament->city = \Input::get('city');
-			$tournament->state = \Input::get('state');
-			$tournament->phone = \Input::get('phone');
-			//$tournament->logo = \Input::get('logo');
+			$tournament->logo = \Input::get('logo');
+			$tournament->url = \Input::get('url');
+			$tournament->start_date = \Input::get('start_date');
+			$tournament->end_date = \Input::get('end_date');
 
 			$tournament->save();
 
 		   // redirect
             \Session::flash('message', 'Successfully updated tournament');
 
-			return  redirect()->route('admin.tournaments')
+			return  redirect()->route('admin.events')
 				->with('flash-message','message');  
 		}
 	}

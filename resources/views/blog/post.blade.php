@@ -77,10 +77,14 @@
                 <span class="font-lato"><span class="badge">{{$post['socialPoint']}}</span> shares</span>                
             </li> 
             <li>
-                <a target="new" href="{{route('news.share', array('id' => $post['id'], 'social' => 'facebook'))}}" class="social-icon social-icon-sm social-facebook" style="margin:0px" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <a target="new" href="{{route('news.share', array('id' => $post['id'], 'social' => 'facebook', 'ismobile' => 'false' ))}}" class="hide-mobile social-icon social-icon-sm social-facebook" style="margin:0px" data-toggle="tooltip" data-placement="top" title="Facebook">
                     <i class="icon-facebook"></i>
                     <i class="icon-facebook"></i>
-                </a>
+                </a>  
+                <a target="new" href="{{route('news.share', array('id' => $post['id'], 'social' => 'facebook', 'ismobile' => 'true' ))}}" class="show-mobile social-icon social-icon-sm social-facebook" style="margin:0px" data-toggle="tooltip" data-placement="top" title="Facebook">
+                    <i class="icon-facebook"></i>
+                    <i class="icon-facebook"></i>
+                </a>                
             </li>
            
             <!-- Only Julie operations -->

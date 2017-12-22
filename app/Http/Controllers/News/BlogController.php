@@ -178,7 +178,7 @@ class BlogController extends BaseController {
      * 
      * 
      */ 
-    public function getShare($id,$social)
+    public function getShare($id,$social, $ismobile)
     {
         $url = '';
         $post = Post::find($id);
@@ -197,7 +197,13 @@ class BlogController extends BaseController {
                 $url .= $post['title'] . ' ' . $post->getUrl();
             break;
             case 'facebook' :
-                $url  = 'https://www.facebook.com/sharer/sharer.php?u=';
+                
+                if($ismobile == 'true'){
+                    $url = 'fb-messenger://share/?link=';
+                }else
+                {
+                    $url  = 'https://www.facebook.com/sharer/sharer.php?u=';
+                }
                 $url .=  $post->getUrl();
             break;
             case 'googlePlus' :
