@@ -37,7 +37,7 @@
 						<li><a href="{{route('admin.instructors')}}">Instructors</a></li>
 						<li><a href="{{route('admin.invites')}}">Invites</a></li>
 						<li><a href="{{route('admin.nominations')}}">Nominations</a></li>
-						<li><a href="{{route('admin.promo')}}">Promos</a></li>
+						{{-- <li><a href="{{route('admin.promo')}}">Promos</a></li> --}}
 						<li><a href="{{route('admin.rankings')}}">Rankings</a></li>
 						<li><a href="{{route('admin.referees')}}">Referees</a></li>
 						<li><a href="{{route('admin.users')}}">Users</a></li>
