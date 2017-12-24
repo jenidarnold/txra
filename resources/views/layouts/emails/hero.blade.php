@@ -1256,8 +1256,11 @@ section.dark #portfolio h3 {
 }
 
 
+
   </style>
   <!-- /Smarty -->
+
+  @yield('style')
 
 </head>
 <body>

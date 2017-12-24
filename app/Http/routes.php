@@ -338,8 +338,13 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	Route::get('/emails/awards/reply', function () {
 	    return view('emails.awards.replynomination');
 	});
+
 	Route::get('/emails/referrals/send', function () {
 	    return view('emails.referrals.send');
+	});
+
+	Route::get('/emails/promos/pick-a-free/send', function () {
+	    return view('emails.promos.pick-a-free.send');
 	});
 });
 

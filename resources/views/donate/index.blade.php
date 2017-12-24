@@ -126,7 +126,7 @@
 
 	<!-- Donate Modal -->
 	<div class="modal fade" id="modDonate" tabindex="-1" role="dialog" aria-labelledby="myDonateLabel" aria-hidden="true">
-		<div class="modal-dialog modal-md">
+		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 
 				<!-- header modal -->
@@ -159,7 +159,7 @@
 
 	<!-- Juniors Modal -->
 	<div class="modal fade" id="modJuniors" tabindex="-1" role="dialog" aria-labelledby="myJuniorsLabel" aria-hidden="true">
-		<div class="modal-dialog modal-md">
+		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 
 				<!-- header modal -->
@@ -197,7 +197,7 @@
 
 	<!-- Amazon Smile Modal -->
 	<div class="modal fade" id="modAmazon" tabindex="-1" role="dialog" aria-labelledby="myAmazonLabel" aria-hidden="true">
-		<div class="modal-dialog modal-md">
+		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 
 				<!-- header modal -->

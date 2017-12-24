@@ -58,6 +58,35 @@ class UserProfile extends Model
         return $progress;
     }
 
+    public function getMissingAttribute(){
+
+        $progress = 0;
+        $num_fields = 6;
+
+        if ($this->gender <> '')  {
+            $progress +=1;
+        }
+        if ($this->city <> '')  {
+            $progress +=1;
+        }
+        if ($this->skill <> '')  {
+            $progress +=1;
+        }
+        if ($this->racquet <> '')  {
+            $progress +=1;
+        }
+        if ($this->dominant_hand <> '')  {
+            $progress +=1;
+        }
+        if ($this->bio <> '')  {
+            $progress +=1;
+        }
+
+        $missing = $num_fields - $progress;
+
+        return $missing;
+    }
+
     /**
      * The number of profiles completed
      *
