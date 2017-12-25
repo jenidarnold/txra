@@ -48,7 +48,7 @@
     /*width: 250px;*/
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -1000px;
     height: 100vh;
     z-index: 1000;
     background: #fff;
@@ -153,6 +153,10 @@ a[aria-expanded="true"]::before {
     content: '\e260';
 }
 
+ul {
+
+	margin-bottom: 0px;
+}
 
 ul ul a {
     font-size: 0.85em !important;
@@ -452,7 +456,6 @@ ul ul a {
 				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success'>Checkin</button>"
 				            + "</form>";
 	                }
-	                //club.info += "<div id='chart_" + club.id  + "' class='chart_div' style='width: 300px; height: 100px;'></div>";
 	                club.info += "</div>";
 	                
 		    		var clubWindow = new google.maps.InfoWindow({
@@ -470,21 +473,15 @@ ul ul a {
 					//open marker if club within current location					     	    			     	   
 		     	    if(club.dist <= minDist) {
 		     	    	clubWindow.open(map,marker);
-		     	    	//$('#sidebar').addClass('active');
 		     	    	showClub(club);
-		     	    	//loadClubSidePanel(club);
 		     	    }	
 		     		
 		     	    google.maps.event.addListener(marker, 'click', function() {
 	      				clubWindow.open(map,marker);
-		     	    	//$('#sidebar').addClass('active');
 		     	    	showClub(club);
-	      				//loadClubSidePanel(club);
 	    			});
 
-	    			//google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_' + club.id)});
-	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_sidebar')});
-	    			//google.maps.event.addListener(clubWindow, 'domready', function() {loadClubSidePanel(club)});
+	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadChart(club.checkin_data)});
 		     	   
 		     	});
 
@@ -552,7 +549,6 @@ ul ul a {
 		        var lat = document.getElementById('lat');
 		        var lng = document.getElementById('lng');
 
-		        console.log(results[0].geometry.location.lat());
 		        lat.value = results[0].geometry.location.lat();
 		        lng.value =results[0].geometry.location.lng();
 		        
@@ -578,34 +574,55 @@ ul ul a {
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script>
 
-		function loadHistogram(chart_div){
-			var chart_id = document.getElementById(chart_div); 
+		function loadChart(checkin_data){
+			var chart_id = document.getElementById('chart_sidebar'); 
 
 		 	google.charts.load("current", {packages:["corechart"]});
 		    google.charts.setOnLoadCallback(drawChart);
+
 	      	function drawChart() {
-		        var data = google.visualization.arrayToDataTable([
-		          ['Dinosaur', 'Length'],
-		          ['Acrocanthosaurus (top-spined lizard)', 12.2],
-		          ['Albertosaurus (Alberta lizard)', 9.1],
-		          ['Allosaurus (other lizard)', 12.2],
-		          ['Apatosaurus (deceptive lizard)', 22.9],
-		          ['Archaeopteryx (ancient wing)', 0.9],
-		          ['Argentinosaurus (Argentina lizard)', 36.6],
-		          ['Baryonyx (heavy claws)', 9.1],
-		          ['Brachiosaurus (arm lizard)', 30.5],
-		          ['Ceratosaurus (horned lizard)', 6.1],
-		          ['Coelophysis (hollow form)', 2.7],
-		          ['Compsognathus (elegant jaw)', 0.9],
-		          ]
-		          );
+		        var data = new google.visualization.DataTable();
+			      data.addColumn('timeofday', 'Time of Day');
+			      data.addColumn('number', '# players');
+			      //data.addColumn('number', 'Energy Level');
+
+			      data.addRows([
+			      	[{v: [6, 0, 0], f: '8 am'}, checkin_data[6] ],
+			      	[{v: [7, 0, 0], f: '7 am'}, checkin_data[7] ],
+			        [{v: [8, 0, 0], f: '8 am'}, checkin_data[8]  ],
+			        [{v: [9, 0, 0], f: '9 am'}, checkin_data[9]  ],
+			        [{v: [10, 0, 0], f:'10 am'}, checkin_data[10] ],
+			        [{v: [11, 0, 0], f: '11 am'}, checkin_data[11] ],
+			        [{v: [12, 0, 0], f: '12 pm'}, checkin_data[12] ],
+			        [{v: [13, 0, 0], f: '1 pm'}, checkin_data[13] ],
+			        [{v: [14, 0, 0], f: '2 pm'}, checkin_data[14] ],
+			        [{v: [15, 0, 0], f: '3 pm'}, checkin_data[15] ],
+			        [{v: [16, 0, 0], f: '4 pm'}, checkin_data[16] ],
+			        [{v: [17, 0, 0], f: '5 pm'}, checkin_data[17] ],
+			        [{v: [18, 0, 0], f: '6 pm'}, checkin_data[18] ],
+			        [{v: [19, 0, 0], f: '7 pm'}, checkin_data[19] ],
+			        [{v: [20, 0, 0], f: '8 pm'}, checkin_data[20] ],
+			        [{v: [21, 0, 0], f: '9 pm'}, checkin_data[21] ],
+			        [{v: [22, 0, 0], f: '10 pm'}, checkin_data[22] ],
+			      ]);
 
 		        var options = {
-		          title: '',
-		          legend: { position: 'none' },
+		          	title: '',
+		          	legend: { position: 'none' },
+		            hAxis: {
+			          	title: 'Time of Day',
+			          	format: 'h a',
+			          	viewWindow: {
+			            	min: [6, 00, 0],
+			            	max: [22, 00, 0]
+			        	}
+		          	},
+					vAxis: {
+			          title: ''
+			        }				   
 		        };
 
-	       		var chart = new google.visualization.Histogram(chart_id);
+	       		var chart = new google.visualization.ColumnChart(chart_id);
 				chart.draw(data, options);
 			}
 		}
@@ -644,6 +661,8 @@ ul ul a {
 			else{
 				$('#btnCheckin').addClass('hide');
 			}
+
+			loadChart(club.checkin_data);
 		}
 
 	</script>
@@ -689,7 +708,7 @@ ul ul a {
 			$('#sidebar').addClass('active');
 			$('#club_div').toggleClass('hide');
 			$('#menu_div').toggleClass('hide');
-			loadClubSidePanel(club);
+			loadClubSidePanel(club);			
 		}		
 	</script>
 @stop

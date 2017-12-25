@@ -142,7 +142,7 @@ class PlayController extends Controller {
 			$club->ico = $club->get_map_icon($i);
 			$club->checkins_total = $club->checkins_total;
 			$club->checkins_recent = $club->checkins_recent;
-
+			$club->checkin_data = $club->checkin_data;
 			$i++;
 		}	
 		//      ."<a href='/checkin' method='post' class='btn btn-sm btn-success' target='new'>Checkin</a><br/>"

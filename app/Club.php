@@ -52,6 +52,25 @@ class Club extends Model
             ->count();
     }
 
+    public function getCheckinDataAttribute()
+    {
+
+        $data = [];
+
+        for($x = 6; $x <=22; $x++){
+
+            $cnt = \DB::table('checkins')
+                ->where('club_id', '=', $this->id)
+                ->where(\DB::raw('HOUR(created_at)'), '>', $x-1)
+                ->where(\DB::raw('HOUR(created_at)'), '<=',$x)
+                ->count();
+
+            $data[$x] = $cnt;
+        }
+
+        return $data;
+    }
+
     public function get_map_icon($i = 1) {
 
         $path = $this->get_map_icon_path($this->map_icon);
