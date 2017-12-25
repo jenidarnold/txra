@@ -33,20 +33,24 @@
 			overflow-y: auto;
 		}
 
-		//.wrapper {
+		.wrapper {
 		    display: block;
+		}
+
+		#frmCheckin {
+			margin: 0px;
 		}
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 #sidebar {
-    width: 250px;
+    /*width: 250px;*/
     position: fixed;
     top: 0;
     left: -250px;
     height: 100vh;
-    z-index: 999;
+    z-index: 1000;
     background: #fff;
     color: #000;
     transition: all 0.3s;
@@ -185,19 +189,20 @@ ul ul a {
 		<div class="container-fluid">
 			
 			<!-- Sidebar Holder -->
-            <nav id="sidebar" class="col-xs-12 col-sm-5 col-md-4 col-lg-3" style="z-index:99999">
+            <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
                 <div id="dismiss" class="btn btn-default btn-xs">
                     <i class="glyphicon glyphicon-arrow-left"></i>
                 </div>
 
                 <div id="menu_div" class="">
                 	<div class="sidebar-header">
-	                    <div>CLubs & Facilities</div>
+	                    <h4 class="text-white">Clubs & Facilities</h4>
+	                    <a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="text-white"> Add to the map</a>	                    
 	                </div>
 
 		        	@foreach($clubs as $club)
-						<div class="portfolio-item col-sm-12 club_detail mix {{$club->map_icon}}">
-							<div class="item-box">
+						<div class=" col-sm-12  {{$club->map_icon}}">
+							<div class="itembox">
 								<div style="float:left; padding-right:2px">
 									<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} ); map.setZoom(17); map.panTo({{ $club->lat }}, {{ $club->lng }} ); return false;" > 
 										<img style="height:28px" src={{asset($club->ico)}} />	
@@ -207,19 +212,25 @@ ul ul a {
 									<a href="#"  data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 										{{  $club->name }}
 									</a>
-									<address style="padding-left:28px">
-										{{ $club->address }} <br/>
-										{{ $club->city }}  {{ $club->zip}} <br/>
-										<i class="fa fa-phone"></i> {{ $club->phone }} <br/>
-										@if($club->url <> '')
-											<a href="{{ $club->url}}" target="new" class="text-info" ><i class="fa fa-globe"></i> 
-											{{ substr( explode("//", $club->url)[1], 0, 31) }}
-											@if(strlen($club->url) > 31)
-											...
-											@endif
-											</a>
-										@endif
-									</address>
+					
+									<ul class="list-unstyled components">                   
+					                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }} </div></li>
+							            <li><div id=""><i class="fa fa-phone"></i></i> {{ $club->phone }}</div></li>
+							            <li><div id=""> 
+								            	@if($club->url <> '')
+												<a href="{{ $club->url}}" style="padding:0px" target="new" class="text-info" ><i class="fa fa-globe"></i>
+												{{ substr( explode("//", $club->url)[1], 0, 20) }}
+												@if(strlen($club->url) > 31)
+												...
+												@endif
+												</a>
+												@endif
+							            	</div></li>
+							            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
+					                    <li><div id=""></div></li>
+					                    <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} checkins total</div></li>  
+					                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} checkins last hour</div></li>
+				                    </ul>
 								</div>
 							</div>
 						</div>
@@ -228,10 +239,8 @@ ul ul a {
 
                 <div id="club_div" class="hide">
 	                <div class="sidebar-header">
-	                    <div id="club_name"></div>
-	                </div>
-	                <div class="">
-	                	<button type="button" class="btn btn-link" onclick="listClubs(); return false;">Back to Lists of Clubs</button>
+	                    <div id="club_name" class="h4 text-white"></div>	                    
+	                	<a href="#" onclick="listClubs(); return false;" class="text-white">Back to Lists of Clubs</a>
 	                </div>
 	                <ul class="list-unstyled components">                   
 	                    <li><div id="club_addr"></div></li>
@@ -437,10 +446,10 @@ ul ul a {
 				        + "<span class='h6'>" + club.name + "</span>";
 
 	                if(club.dist <= minDist) {
-	                	club.info += "<form action='{{route('play.checkin')}}' method='POST'>"
+	                	club.info += "<form id='frmCheckin' action='{{route('play.checkin')}}' method='POST'>"
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
 							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"
-				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success margin-top-10'>Checkin</button>"
+				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success'>Checkin</button>"
 				            + "</form>";
 	                }
 	                //club.info += "<div id='chart_" + club.id  + "' class='chart_div' style='width: 300px; height: 100px;'></div>";
@@ -621,7 +630,6 @@ ul ul a {
 			rec_chk.innerHTML = '<i class="fa fa-clock-o"></i> ' + club.checkins_recent + ' checkins last hour';
 
 			if (club.dist == undefined) {
-				console.log(user_pos);
 				var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
 	    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
     			var myCord = new google.maps.LatLng(user_pos.lat, user_pos.lng);
@@ -631,7 +639,10 @@ ul ul a {
 			dist.innerHTML = '<i class="fa fa-car"></i> ' + club.dist.toFixed(2) + ' mi away';			
 
 			if (club.dist <= .5) {
-				$('#btnCheckin').toggleClass('show');	
+				$('#btnCheckin').removeClass('hide');
+			}
+			else{
+				$('#btnCheckin').addClass('hide');
 			}
 		}
 
