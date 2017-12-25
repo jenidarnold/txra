@@ -312,13 +312,13 @@
 												</a>
 												<ul class="dropdown-menu">
 													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
-													{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}
-													<li><a href="{{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>
 													<li class="dropdown hidden-xs hidden-sm">
 														<a class="dropdown hidden-xs hidden-sm" href="/checkin">
-															CHECKIN
+															CHECKIN <span class="btn btn-xs btn-warning">BETA</span>
 														</a>	
 													</li>
+													{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}
+													<li><a href="{{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>												
 												</ul>
 											</li>
 
