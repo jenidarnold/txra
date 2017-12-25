@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('style')
    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+   	<link href="{{asset('plugins/slider.swiper/dist/css/swiper.min.css')}}" rel="stylesheet" type="text/css" />
     <style type="text/css">
     	 #map {
         	height: 600px;
@@ -265,9 +266,20 @@ ul ul a {
 
 	                <ul class="list-unstyled components">
 	                	Popular Times
-	                   <div id="chart_sidebar">
 
-	                   </div>
+						<div class="swiper-container" data-effect="slide" data-autoplay="false">
+							<div class="swiper-wrapper">
+		                    @for($day = 1; $day <=7; $day++)
+			                   <div id="chart_sidebar_{{$day}}" class="swiper-slide"></div>
+		                    @endfor
+		                    </div>
+		                    <!-- Swiper Pagination -->
+							<div class="swiper-pagination"></div>
+
+							<!-- Swiper Arrows -->
+							<div class="swiper-button-next"><i class="icon-angle-right"></i></div>
+							<div class="swiper-button-prev"><i class="icon-angle-left"></i></div>
+		                </div>
 	                </ul>
 	            </div>
             </nav>
@@ -387,6 +399,8 @@ ul ul a {
 @stop
 
 @section('script')
+	<script type="text/javascript" src="{{asset('plugins/slider.swiper/dist/js/swiper.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/view/demo.swiper_slider.js')}}"></script>
  	<script>
  		var map;
  		var infoWindow;
@@ -575,55 +589,75 @@ ul ul a {
 	<script>
 
 		function loadChart(checkin_data){
-			var chart_id = document.getElementById('chart_sidebar'); 
+			var chart_id_1 = document.getElementById('chart_sidebar_1'); 
+			var chart_id_2 = document.getElementById('chart_sidebar_2'); 
+			var chart_id_3 = document.getElementById('chart_sidebar_3'); 
+			var chart_id_4 = document.getElementById('chart_sidebar_4'); 
+			var chart_id_5 = document.getElementById('chart_sidebar_5'); 
+			var chart_id_6 = document.getElementById('chart_sidebar_6');  
+			var chart_id_7 = document.getElementById('chart_sidebar_7'); 
+
+			var charts = [];
+			charts.push({title: 'Sunday', 		div: chart_id_1});
+			charts.push({title: 'Monday', 		div: chart_id_2});		
+			charts.push({title: 'Tuesday', 		div: chart_id_3});
+			charts.push({title: 'Wednesday', 	div: chart_id_4});
+			charts.push({title: 'Thursday', 	div: chart_id_5});
+			charts.push({title: 'Friday', 		div: chart_id_6});
+			charts.push({title: 'Saturday',		div: chart_id_7});
 
 		 	google.charts.load("current", {packages:["corechart"]});
 		    google.charts.setOnLoadCallback(drawChart);
 
 	      	function drawChart() {
-		        var data = new google.visualization.DataTable();
-			      data.addColumn('timeofday', 'Time of Day');
-			      data.addColumn('number', '# players');
-			      //data.addColumn('number', 'Energy Level');
 
-			      data.addRows([
-			      	[{v: [6, 0, 0], f: '8 am'}, checkin_data[6] ],
-			      	[{v: [7, 0, 0], f: '7 am'}, checkin_data[7] ],
-			        [{v: [8, 0, 0], f: '8 am'}, checkin_data[8]  ],
-			        [{v: [9, 0, 0], f: '9 am'}, checkin_data[9]  ],
-			        [{v: [10, 0, 0], f:'10 am'}, checkin_data[10] ],
-			        [{v: [11, 0, 0], f: '11 am'}, checkin_data[11] ],
-			        [{v: [12, 0, 0], f: '12 pm'}, checkin_data[12] ],
-			        [{v: [13, 0, 0], f: '1 pm'}, checkin_data[13] ],
-			        [{v: [14, 0, 0], f: '2 pm'}, checkin_data[14] ],
-			        [{v: [15, 0, 0], f: '3 pm'}, checkin_data[15] ],
-			        [{v: [16, 0, 0], f: '4 pm'}, checkin_data[16] ],
-			        [{v: [17, 0, 0], f: '5 pm'}, checkin_data[17] ],
-			        [{v: [18, 0, 0], f: '6 pm'}, checkin_data[18] ],
-			        [{v: [19, 0, 0], f: '7 pm'}, checkin_data[19] ],
-			        [{v: [20, 0, 0], f: '8 pm'}, checkin_data[20] ],
-			        [{v: [21, 0, 0], f: '9 pm'}, checkin_data[21] ],
-			        [{v: [22, 0, 0], f: '10 pm'}, checkin_data[22] ],
-			      ]);
+		        for (var day = 1; day <= 7; day++) {	
+			        var data = new google.visualization.DataTable();
+				      data.addColumn('timeofday', 'Time of Day');
+				      data.addColumn('number', '# players');
+				      //data.addColumn('number', 'Energy Level');
 
-		        var options = {
-		          	title: '',
-		          	legend: { position: 'none' },
-		            hAxis: {
-			          	title: 'Time of Day',
-			          	format: 'h a',
-			          	viewWindow: {
-			            	min: [6, 00, 0],
-			            	max: [22, 00, 0]
-			        	}
-		          	},
-					vAxis: {
-			          title: ''
-			        }				   
-		        };
+				      data.addRows([
+				      	[{v: [6, 0, 0], f: '6 am'}, checkin_data[day][6] ],
+				      	[{v: [7, 0, 0], f: '7 am'}, checkin_data[day][7] ],
+				        [{v: [8, 0, 0], f: '8 am'}, checkin_data[day][8]  ],
+				        [{v: [9, 0, 0], f: '9 am'}, checkin_data[day][9]  ],
+				        [{v: [10, 0, 0], f:'10 am'}, checkin_data[day][10] ],
+				        [{v: [11, 0, 0], f: '11 am'}, checkin_data[day][11] ],
+				        [{v: [12, 0, 0], f: '12 pm'}, checkin_data[day][12] ],
+				        [{v: [13, 0, 0], f: '1 pm'}, checkin_data[day][13] ],
+				        [{v: [14, 0, 0], f: '2 pm'}, checkin_data[day][14] ],
+				        [{v: [15, 0, 0], f: '3 pm'}, checkin_data[day][15] ],
+				        [{v: [16, 0, 0], f: '4 pm'}, checkin_data[day][16] ],
+				        [{v: [17, 0, 0], f: '5 pm'}, checkin_data[day][17] ],
+				        [{v: [18, 0, 0], f: '6 pm'}, checkin_data[day][18] ],
+				        [{v: [19, 0, 0], f: '7 pm'}, checkin_data[day][19] ],
+				        [{v: [20, 0, 0], f: '8 pm'}, checkin_data[day][20] ],
+				        [{v: [21, 0, 0], f: '9 pm'}, checkin_data[day][21] ],
+				        [{v: [22, 0, 0], f: '10 pm'}, checkin_data[day][22] ],
+				      ]);
 
-	       		var chart = new google.visualization.ColumnChart(chart_id);
-				chart.draw(data, options);
+			        var options = {
+			          	title: '',
+			          	legend: { position: 'none' },
+			            hAxis: {
+				          	title: charts[day-1]['title'],
+				          	format: 'h a',
+				          	viewWindow: {
+				            	min: [, 00, 0],
+				            	max: [23, 00, 0]
+				        	}
+			          	},
+						vAxis: {
+				          title: ''
+				        }				   
+			        };
+
+
+      				console.log(charts[day-1]['title']);
+	       			var chart = new google.visualization.ColumnChart(charts[day-1]['div']);
+					chart.draw(data, options);
+				};
 			}
 		}
 

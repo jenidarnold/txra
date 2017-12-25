@@ -57,15 +57,19 @@ class Club extends Model
 
         $data = [];
 
-        for($x = 6; $x <=22; $x++){
+        //Get number of checkins per hour per day of the week
+        for($d = 1; $d <=7; $d++){
+            for($x = 6; $x <=22; $x++){
 
-            $cnt = \DB::table('checkins')
-                ->where('club_id', '=', $this->id)
-                ->where(\DB::raw('HOUR(created_at)'), '>', $x-1)
-                ->where(\DB::raw('HOUR(created_at)'), '<=',$x)
-                ->count();
+                $cnt = \DB::table('checkins')
+                    ->where('club_id', '=', $this->id)
+                    ->where(\DB::raw('DAYOFWEEK(created_at)'), '=', $d)
+                    ->where(\DB::raw('HOUR(created_at)'), '>', $x-1)
+                    ->where(\DB::raw('HOUR(created_at)'), '<=',$x)
+                    ->count();
 
-            $data[$x] = $cnt;
+                $data[$d][$x] = $cnt;
+            }
         }
 
         return $data;
