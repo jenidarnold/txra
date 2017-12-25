@@ -98,7 +98,7 @@
 }
 #sidebar ul.components {
     padding: 20px 0 10px;
-    margin-left: 0px;
+    margin-left: 5px;
     border-bottom: 1px solid #47748b;
 }
 
@@ -127,6 +127,10 @@
 	color: #4285F4;
 	margin-right: 5px;
 	min-width: 16px;
+}
+
+#menu_div #club_div {
+	padding-left: 5px;
 }
 
 a[data-toggle="collapse"] {
@@ -179,57 +183,103 @@ ul ul a {
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
 		<div class="container-fluid">
-			 
+			
 			<!-- Sidebar Holder -->
-            <nav id="sidebar" class="col-xs-12 col-sm-4 col-md-3" style="z-index:99999">
+            <nav id="sidebar" class="col-xs-12 col-sm-5 col-md-4 col-lg-3" style="z-index:99999">
                 <div id="dismiss" class="btn btn-default btn-xs">
                     <i class="glyphicon glyphicon-arrow-left"></i>
                 </div>
 
-                <div class="sidebar-header">
-                    <div id="club_name"></div>
+                <div id="menu_div" class="">
+                	<div class="sidebar-header">
+	                    <div>CLubs & Facilities</div>
+	                </div>
+
+		        	@foreach($clubs as $club)
+						<div class="portfolio-item col-sm-12 club_detail mix {{$club->map_icon}}">
+							<div class="item-box">
+								<div style="float:left; padding-right:2px">
+									<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} ); map.setZoom(17); map.panTo({{ $club->lat }}, {{ $club->lng }} ); return false;" > 
+										<img style="height:28px" src={{asset($club->ico)}} />	
+									</a>
+								</div>
+								<div>
+									<a href="#"  data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
+										{{  $club->name }}
+									</a>
+									<address style="padding-left:28px">
+										{{ $club->address }} <br/>
+										{{ $club->city }}  {{ $club->zip}} <br/>
+										<i class="fa fa-phone"></i> {{ $club->phone }} <br/>
+										@if($club->url <> '')
+											<a href="{{ $club->url}}" target="new" class="text-info" ><i class="fa fa-globe"></i> 
+											{{ substr( explode("//", $club->url)[1], 0, 31) }}
+											@if(strlen($club->url) > 31)
+											...
+											@endif
+											</a>
+										@endif
+									</address>
+								</div>
+							</div>
+						</div>
+					@endforeach
                 </div>
 
-                <ul class="list-unstyled components">                   
-                    <li><div id="club_addr"></div></li>
-		            <li><div id="club_phone"></div></li>
-		            <li><div id="club_url"></div></li>
-		            <li><div id="club_courts"></div></li>
-                    <li><div id="club_dist"></div></li>
-                    <li><div id="club_checkin_total"></div></li>  
-                    <li><div id="club_checkin_recent"></div></li>
-		            <li>
-		            	<form action='{{route('play.checkin')}}' method='POST'>
-	                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
-							<input type='hidden' name='club_id' value=' + club.id + '>
-				            <button id="btnCheckin" type='submit' action='{{route('play.checkin')}}' method='post' class='hide btn btn-sm btn-success margin-top-10'>Checkin</button>
-				        </form>
-		            </li>                  
-                </ul>
+                <div id="club_div" class="hide">
+	                <div class="sidebar-header">
+	                    <div id="club_name"></div>
+	                </div>
+	                <div class="">
+	                	<button type="button" class="btn btn-link" onclick="listClubs(); return false;">Back to Lists of Clubs</button>
+	                </div>
+	                <ul class="list-unstyled components">                   
+	                    <li><div id="club_addr"></div></li>
+			            <li><div id="club_phone"></div></li>
+			            <li><div id="club_url"></div></li>
+			            <li><div id="club_courts"></div></li>
+	                    <li><div id="club_dist"></div></li>
+	                    <li><div id="club_checkin_total"></div></li>  
+	                    <li><div id="club_checkin_recent"></div></li>
+			            <li>
+			            	<form action='{{route('play.checkin')}}' method='POST'>
+		                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
+								<input type='hidden' name='club_id' value=' + club.id + '>
+					            <button id="btnCheckin" type='submit' action='{{route('play.checkin')}}' method='post' class='hide btn btn-sm btn-success margin-top-10'>Checkin</button>
+					        </form>
+			            </li>                  
+	                </ul>
 
-                <ul class="list-unstyled components">
-                	Popular Times
-                   <div id="chart_sidebar">
+	                <ul class="list-unstyled components">
+	                	Popular Times
+	                   <div id="chart_sidebar">
 
-                   </div>
-                </ul>
+	                   </div>
+	                </ul>
+	            </div>
             </nav>
 
 
             <!--Map -->
 			<div class="row">
 				<div class="col-sm-12 clearfix margin-bottom-30">
-					<button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" tooltip="Expand side panel">
+					{{-- <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" tooltip="Expand side panel">
 		                <i class="fa fa-chevron-right"></i>
-		            </button>
+		            </button> --}}
 					<div id="map" class="thumbnail"></div>
 					<div id="search" class="searchbox">					
-						<button class="btn" data-toggle="modal" data-target="#modClubs">
-							<i class="fa fa-bars"></i> <span class="small">List Clubs</span>
-						</button>
-						
+						{{-- <button class="btn" data-toggle="modal" data-target="#modClubs">
+							<i class="fa fa-bars"></i> <span class="small">List Menu</span>
+						</button> --}}
+						<button type="button" id="sidebarCollapse" class="btn btn-sm btn-danger" tooltip="Expand Menu">
+		                	<i class="fa fa-bars"> Menu</i>
+		            	</button>
 					</div>
 					{{-- <div id="legend"><h4>Legend</h4></div> --}}
+					<div id="mylocation">
+						<button class="btn btn-xs btn-default text-center" onclick="map.setCenter(user_pos); return false;" tooltip="Your Location">
+						<i class="fa fa-crosshairs fa-lg" style="padding:0px"></i></button>
+					</div>
 				</div>				
 			</div>
 		</div>
@@ -328,7 +378,8 @@ ul ul a {
  		var map;
  		var infoWindow;
  		var geocoder;
- 		
+ 		var user_pos;
+
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
 			var clubs = {!! json_encode($clubs->toArray()) !!};
@@ -336,7 +387,8 @@ ul ul a {
 
         	map = new google.maps.Map(document.getElementById('map'), {
           		zoom: 15,
-          		center: mav
+          		center: mav,
+          		mapTypeControl: false,
 	    	});       	
 
         	infoWindow = new google.maps.InfoWindow({
@@ -354,6 +406,8 @@ ul ul a {
 	              lng: position.coords.longitude
 	            };
 
+	            user_pos = mypos;
+
 	    		var ico = '../images/mapicons/sports/racquet.png';	    		
 	            var marker = new google.maps.Marker({
 	     	       position: mypos,
@@ -368,6 +422,7 @@ ul ul a {
 	            infoWindow.open(map);
 	            map.setCenter(mypos);
 
+
     			// Create markers.
 		    	clubs.forEach(function(club) {
 		    		var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
@@ -379,18 +434,7 @@ ul ul a {
   
   					var minDist = 0.5;		
 		    		club.info = "<div class='clubInfo'>"
-				        + "<span class='h6'>" + club.name + "</span>"
-	                    // + "<address style='margin-bottom:10px'>"
-	                    // + club.address + "<br/>"
-	                    // + club.city + ", " + club.state + " " + club.zip + "<br/>"
-	                    // + club.phone + "<br/>"
-	                    // + "Courts: " + club.courts + "<br/>"
-	                    // + "</address>"
-	                    // + "<span class='text-danger bold'>Miles Away: " + club.dist.toFixed(2) + "</span><br/>"
-	                    // + "<span class='text-primary bold'>Total Checkins: " + club.checkins_total + "</span><br/>"
-	                    // + "<span class='text-success bold'>Checkins Last Hour: " + club.checkins_recent + "<span>"
-	                    ;
-
+				        + "<span class='h6'>" + club.name + "</span>";
 
 	                if(club.dist <= minDist) {
 	                	club.info += "<form action='{{route('play.checkin')}}' method='POST'>"
@@ -417,14 +461,16 @@ ul ul a {
 					//open marker if club within current location					     	    			     	   
 		     	    if(club.dist <= minDist) {
 		     	    	clubWindow.open(map,marker);
-		     	    	$('#sidebar').addClass('active');
-		     	    	loadClubSidePanel(club);
+		     	    	//$('#sidebar').addClass('active');
+		     	    	showClub(club);
+		     	    	//loadClubSidePanel(club);
 		     	    }	
 		     		
 		     	    google.maps.event.addListener(marker, 'click', function() {
 	      				clubWindow.open(map,marker);
-		     	    	$('#sidebar').addClass('active');
-	      				loadClubSidePanel(club);
+		     	    	//$('#sidebar').addClass('active');
+		     	    	showClub(club);
+	      				//loadClubSidePanel(club);
 	    			});
 
 	    			//google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_' + club.id)});
@@ -476,7 +522,9 @@ ul ul a {
 
 
 	  	    var search = document.getElementById('search');	
-    		map.controls[google.maps.ControlPosition.LEFT_TOP].push(search);	       
+	  	    var mylocation = document.getElementById('mylocation');	
+    		map.controls[google.maps.ControlPosition.LEFT_TOP].push(search);
+    		map.controls[google.maps.ControlPosition.TOP_CENTER].push(mylocation);	       
 	     			   
 	    }
 
@@ -569,9 +617,18 @@ ul ul a {
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
 			url.innerHTML = '<i class="fa fa-globe"></i> ' + club.url;
 			courts.innerHTML = '<i class="fa fa-cube"></i> ' + club.courts + ' court(s)';
-			dist.innerHTML = '<i class="fa fa-car"></i> ' + club.dist.toFixed(2) + ' mi away';
 			tot_chk.innerHTML = '<i class="fa fa-male"></i> ' + club.checkins_total + ' checkins total';
 			rec_chk.innerHTML = '<i class="fa fa-clock-o"></i> ' + club.checkins_recent + ' checkins last hour';
+
+			if (club.dist == undefined) {
+				console.log(user_pos);
+				var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
+	    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
+    			var myCord = new google.maps.LatLng(user_pos.lat, user_pos.lng);
+	     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles				
+			}
+			
+			dist.innerHTML = '<i class="fa fa-car"></i> ' + club.dist.toFixed(2) + ' mi away';			
 
 			if (club.dist <= .5) {
 				$('#btnCheckin').toggleClass('show');	
@@ -590,19 +647,38 @@ ul ul a {
 		    // when opening the sidebar
 		    $('#sidebarCollapse').on('click', function () {
 		        // open sidebar
-		        $('#sidebar').addClass('active');
-		        // fade in the overlay
-		        $('.collapse.in').toggleClass('in');
-		        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+		        //$('#sidebar').addClass('active');		  
+				listClubs();
 		    });
 
 		   
 		    // if dismiss or overlay was clicked
 		    $('#dismiss, .overlay').on('click', function () {
+
+			  	listClubs();
+		      	// hide the sidebar
+		      	$('#sidebar').removeClass('active');		
+		    });
+
+		     // if dismiss or overlay was clicked
+		    $('#dismiss_menu, .overlay').on('click', function () {
 		      // hide the sidebar
-		      $('#sidebar').removeClass('active');
-		
+		      $('#sidebar_menu').removeClass('active');		
 		    });
 	    });
+
+    	function listClubs(){
+    		console.log("list clubs");
+			$('#sidebar').addClass('active');
+			$('#menu_div').toggleClass('hide');
+			$('#club_div').toggleClass('hide');
+		}	
+
+		function showClub(club){
+			$('#sidebar').addClass('active');
+			$('#club_div').toggleClass('hide');
+			$('#menu_div').toggleClass('hide');
+			loadClubSidePanel(club);
+		}		
 	</script>
 @stop
