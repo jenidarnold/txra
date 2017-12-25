@@ -57,13 +57,12 @@
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
 		<div class="container">
-			{{-- <div class="row">
+			<div class="row">
 				<div class="col-md-12 margin-bottom-20">
-					This map consists of Racquetball Clubs and Facilities in Texas that sanction and support events with <b>USA Racquetball</b> and the <b>Texas Racquetball Association</b>. <br/>Please use this map as a guide to find and play at clubs that support racquetball in Texas. 
-					<cite class="text small">[Verified by Bob Sullins, 2017]
+					<div id="test_div"></div>
 				</div>
 			</div>
- --}}
+
 
 
 			<div class="row">
@@ -240,10 +239,11 @@
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
 							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"
 				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-sm btn-success margin-top-10'>Checkin</button><br/>"
-				            + "</form>"
+				            + "</form>";
 	                }
+	                club.info += "<div id='chart_" + club.id  + "' class='chart_div' style='width: 300px; height: 100px;'></div>";
 	                club.info += "</div>";
-
+	                
 		    		var clubWindow = new google.maps.InfoWindow({
 	      				content: club.info
 	    			});
@@ -260,11 +260,13 @@
 		     	    if(club.dist <= minDist) {
 		     	    	clubWindow.open(map,marker);
 		     	    }	
-		     	
+		     		
 		     	    google.maps.event.addListener(marker, 'click', function() {
 	      				clubWindow.open(map,marker);
 	    			});
 
+	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_' + club.id)});
+		     	   
 		     	});
 
 	          }, function() {
@@ -351,6 +353,42 @@
     <!-- script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap"></script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap&sensor=false&v=3&libraries=geometry">
 	</script>
+	<!--Charts-->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
 
+		function loadHistogram(chart_div){
+			var chart_id = document.getElementById(chart_div); 
 
+			console.log(chart_div);
+
+		 	google.charts.load("current", {packages:["corechart"]});
+		    google.charts.setOnLoadCallback(drawChart);
+	      	function drawChart() {
+		        var data = google.visualization.arrayToDataTable([
+		          ['Dinosaur', 'Length'],
+		          ['Acrocanthosaurus (top-spined lizard)', 12.2],
+		          ['Albertosaurus (Alberta lizard)', 9.1],
+		          ['Allosaurus (other lizard)', 12.2],
+		          ['Apatosaurus (deceptive lizard)', 22.9],
+		          ['Archaeopteryx (ancient wing)', 0.9],
+		          ['Argentinosaurus (Argentina lizard)', 36.6],
+		          ['Baryonyx (heavy claws)', 9.1],
+		          ['Brachiosaurus (arm lizard)', 30.5],
+		          ['Ceratosaurus (horned lizard)', 6.1],
+		          ['Coelophysis (hollow form)', 2.7],
+		          ['Compsognathus (elegant jaw)', 0.9],
+		          ]
+		          );
+
+		        var options = {
+		          title: 'Lengths of dinosaurs, in meters',
+		          legend: { position: 'none' },
+		        };
+
+	       		var chart = new google.visualization.Histogram(chart_id);
+				chart.draw(data, options);
+			}
+		}
+	</script
 @stop
