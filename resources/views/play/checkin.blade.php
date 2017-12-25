@@ -93,9 +93,12 @@
    color: #fff;
 }
 
+#sidebar {
+	padding: 0px;
+}
 #sidebar ul.components {
     padding: 20px 0 10px;
-    margin-left: 10px;
+    margin-left: 0px;
     border-bottom: 1px solid #47748b;
 }
 
@@ -122,6 +125,8 @@
 
 #sidebar .fa {
 	color: #4285F4;
+	margin-right: 5px;
+	min-width: 16px;
 }
 
 a[data-toggle="collapse"] {
@@ -152,7 +157,7 @@ ul ul a {
 @stop
 @section('content')		
 
-	<section class="page-header page-header-xs hidden-xs">
+	{{-- <section class="page-header page-header-xs hidden-xs">
 		<div class="container">
 
 			<h1>TEXAS CLUBS & FACILITIES</h1>
@@ -161,46 +166,43 @@ ul ul a {
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
 				<li class="active">Clubs</li>
-				{{-- <li><a href="{{ route('play.leagues.index')}}">Leagues</a></li> --}}
+				
 				<li><a href="{{ route('events.index', array('type' =>'future'))}}">Tournaments</a></li>
 
 			</ol><!-- /breadcrumbs -->
 
 		</div>
-	</section>
+	</section> --}}
 	<!-- /PAGE HEADER -->
 
 	<!-- Find Google Maps coordinates - fast and easy! -->
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
-		<div class="container">
+		<div class="container-fluid">
 			 
 			<!-- Sidebar Holder -->
-            <nav id="sidebar" style="z-index:99999">
-                <div id="dismiss" class="btn btn-default btn-sm">
+            <nav id="sidebar" class="col-xs-12 col-sm-4 col-md-3" style="z-index:99999">
+                <div id="dismiss" class="btn btn-default btn-xs">
                     <i class="glyphicon glyphicon-arrow-left"></i>
                 </div>
 
                 <div class="sidebar-header">
-                    club.name
+                    <div id="club_name"></div>
                 </div>
 
                 <ul class="list-unstyled components">                   
-                    <li>
-                    	<span><i class="fa fa-map"></i> club.address club.city, club.state  club.zip</span>
-
-                    </li>
-		            <li><span><i class="fa fa-phone"></i>club.phone</span></li>
-		            <li><span><i class="fa fa-globe"></i>club.web</span></li>
-		            <li><span><i class="fa fa-map"></i>Courts:   club.courts</span></li>
-                    <li><span><i class="fa fa-car"></i>Miles Away:   club.dist.toFixed(2)</span></li>
-                    <li>Total Checkins:   club.checkins_total  
-		            <li>Checkins Last Hour:   club.checkins_recent</li>
+                    <li><div id="club_addr"></div></li>
+		            <li><div id="club_phone"></div></li>
+		            <li><div id="club_url"></div></li>
+		            <li><div id="club_courts"></div></li>
+                    <li><div id="club_dist"></div></li>
+                    <li><div id="club_checkin_total"></div></li>  
+                    <li><div id="club_checkin_recent"></div></li>
 		            <li>
 		            	<form action='{{route('play.checkin')}}' method='POST'>
 	                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
 							<input type='hidden' name='club_id' value=' + club.id + '>
-				            <button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-sm btn-success margin-top-10'>Checkin</button>
+				            <button id="btnCheckin" type='submit' action='{{route('play.checkin')}}' method='post' class='hide btn btn-sm btn-success margin-top-10'>Checkin</button>
 				        </form>
 		            </li>                  
                 </ul>
@@ -377,16 +379,16 @@ ul ul a {
   
   					var minDist = 0.5;		
 		    		club.info = "<div class='clubInfo'>"
-				        + "<h6>" + club.name + "</h6>"
-	                    + "<address style='margin-bottom:10px'>"
-	                    + club.address + "<br/>"
-	                    + club.city + ", " + club.state + " " + club.zip + "<br/>"
-	                    + club.phone + "<br/>"
-	                    + "Courts: " + club.courts + "<br/>"
-	                    + "</address>"
-	                    + "<span class='text-danger bold'>Miles Away: " + club.dist.toFixed(2) + "</span><br/>"
-	                    + "<span class='text-primary bold'>Total Checkins: " + club.checkins_total + "</span><br/>"
-	                    + "<span class='text-success bold'>Checkins Last Hour: " + club.checkins_recent + "<span>"
+				        + "<span class='h6'>" + club.name + "</span>"
+	                    // + "<address style='margin-bottom:10px'>"
+	                    // + club.address + "<br/>"
+	                    // + club.city + ", " + club.state + " " + club.zip + "<br/>"
+	                    // + club.phone + "<br/>"
+	                    // + "Courts: " + club.courts + "<br/>"
+	                    // + "</address>"
+	                    // + "<span class='text-danger bold'>Miles Away: " + club.dist.toFixed(2) + "</span><br/>"
+	                    // + "<span class='text-primary bold'>Total Checkins: " + club.checkins_total + "</span><br/>"
+	                    // + "<span class='text-success bold'>Checkins Last Hour: " + club.checkins_recent + "<span>"
 	                    ;
 
 
@@ -394,7 +396,7 @@ ul ul a {
 	                	club.info += "<form action='{{route('play.checkin')}}' method='POST'>"
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
 							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"
-				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-sm btn-success margin-top-10'>Checkin</button><br/>"
+				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success margin-top-10'>Checkin</button>"
 				            + "</form>";
 	                }
 	                //club.info += "<div id='chart_" + club.id  + "' class='chart_div' style='width: 300px; height: 100px;'></div>";
@@ -414,17 +416,20 @@ ul ul a {
 
 					//open marker if club within current location					     	    			     	   
 		     	    if(club.dist <= minDist) {
-		     	    	var m
 		     	    	clubWindow.open(map,marker);
+		     	    	$('#sidebar').addClass('active');
+		     	    	loadClubSidePanel(club);
 		     	    }	
 		     		
 		     	    google.maps.event.addListener(marker, 'click', function() {
 	      				clubWindow.open(map,marker);
+		     	    	$('#sidebar').addClass('active');
+	      				loadClubSidePanel(club);
 	    			});
 
 	    			//google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_' + club.id)});
 	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_sidebar')});
-	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadClubInfo('chart_sidebar')});
+	    			//google.maps.event.addListener(clubWindow, 'domready', function() {loadClubSidePanel(club)});
 		     	   
 		     	});
 
@@ -547,6 +552,32 @@ ul ul a {
 				chart.draw(data, options);
 			}
 		}
+
+		function loadClubSidePanel(club){
+
+			var name = document.getElementById('club_name');
+			var addr = document.getElementById('club_addr');
+			var phone = document.getElementById('club_phone');
+			var url = document.getElementById('club_url');
+			var courts = document.getElementById('club_courts');
+			var dist = document.getElementById('club_dist');
+			var tot_chk = document.getElementById('club_checkin_total');
+			var rec_chk = document.getElementById('club_checkin_recent');
+			
+			name.innerHTML = club.name;
+			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
+			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
+			url.innerHTML = '<i class="fa fa-globe"></i> ' + club.url;
+			courts.innerHTML = '<i class="fa fa-cube"></i> ' + club.courts + ' court(s)';
+			dist.innerHTML = '<i class="fa fa-car"></i> ' + club.dist.toFixed(2) + ' mi away';
+			tot_chk.innerHTML = '<i class="fa fa-male"></i> ' + club.checkins_total + ' checkins total';
+			rec_chk.innerHTML = '<i class="fa fa-clock-o"></i> ' + club.checkins_recent + ' checkins last hour';
+
+			if (club.dist <= .5) {
+				$('#btnCheckin').toggleClass('show');	
+			}
+		}
+
 	</script>
 <!-- Scrollbar Custom CSS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> 
