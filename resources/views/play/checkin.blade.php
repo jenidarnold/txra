@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('style')
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <style type="text/css">
     	 #map {
         	height: 600px;
@@ -31,6 +32,122 @@
 			height: 500px;
 			overflow-y: auto;
 		}
+
+		//.wrapper {
+		    display: block;
+		}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    z-index: 999;
+    background: #fff;
+    color: #000;
+    transition: all 0.3s;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#dismiss {
+
+    /*width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;*/
+    /*background: #7386D5;*/
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#dismiss:hover {
+    background: #fff;
+    color: #7386D5;
+}
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    display: none;
+}
+
+#sidebar .sidebar-header {
+   padding: 10px;
+   background: #4285F4;
+   color: #fff;
+}
+
+#sidebar ul.components {
+    padding: 20px 0 10px;
+    margin-left: 10px;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+    z-index: 99999 !important;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 0.85em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+#sidebar .fa {
+	color: #4285F4;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+ul ul a {
+    font-size: 0.85em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+
     </style>
 @stop
 @section('content')		
@@ -57,16 +174,52 @@
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12 margin-bottom-20">
-					<div id="test_div"></div>
-				</div>
-			</div>
+			 
+			<!-- Sidebar Holder -->
+            <nav id="sidebar" style="z-index:99999">
+                <div id="dismiss" class="btn btn-default btn-sm">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
+                </div>
+
+                <div class="sidebar-header">
+                    club.name
+                </div>
+
+                <ul class="list-unstyled components">                   
+                    <li>
+                    	<span><i class="fa fa-map"></i> club.address club.city, club.state  club.zip</span>
+
+                    </li>
+		            <li><span><i class="fa fa-phone"></i>club.phone</span></li>
+		            <li><span><i class="fa fa-globe"></i>club.web</span></li>
+		            <li><span><i class="fa fa-map"></i>Courts:   club.courts</span></li>
+                    <li><span><i class="fa fa-car"></i>Miles Away:   club.dist.toFixed(2)</span></li>
+                    <li>Total Checkins:   club.checkins_total  
+		            <li>Checkins Last Hour:   club.checkins_recent</li>
+		            <li>
+		            	<form action='{{route('play.checkin')}}' method='POST'>
+	                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
+							<input type='hidden' name='club_id' value=' + club.id + '>
+				            <button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-sm btn-success margin-top-10'>Checkin</button>
+				        </form>
+		            </li>                  
+                </ul>
+
+                <ul class="list-unstyled components">
+                	Popular Times
+                   <div id="chart_sidebar">
+
+                   </div>
+                </ul>
+            </nav>
 
 
-
+            <!--Map -->
 			<div class="row">
 				<div class="col-sm-12 clearfix margin-bottom-30">
+					<button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" tooltip="Expand side panel">
+		                <i class="fa fa-chevron-right"></i>
+		            </button>
 					<div id="map" class="thumbnail"></div>
 					<div id="search" class="searchbox">					
 						<button class="btn" data-toggle="modal" data-target="#modClubs">
@@ -79,6 +232,8 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Modal add Clubs -->
 	<div class="modal fade" id="modAddClub" role="dialog">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -234,6 +389,7 @@
 	                    + "<span class='text-success bold'>Checkins Last Hour: " + club.checkins_recent + "<span>"
 	                    ;
 
+
 	                if(club.dist <= minDist) {
 	                	club.info += "<form action='{{route('play.checkin')}}' method='POST'>"
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
@@ -241,7 +397,7 @@
 				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-sm btn-success margin-top-10'>Checkin</button><br/>"
 				            + "</form>";
 	                }
-	                club.info += "<div id='chart_" + club.id  + "' class='chart_div' style='width: 300px; height: 100px;'></div>";
+	                //club.info += "<div id='chart_" + club.id  + "' class='chart_div' style='width: 300px; height: 100px;'></div>";
 	                club.info += "</div>";
 	                
 		    		var clubWindow = new google.maps.InfoWindow({
@@ -250,14 +406,15 @@
 
 	    		    var marker = new google.maps.Marker({
 		     	       position: c,
-		     	      //icon: icons[feature.type].icon,
 		     	       map: map,
 		     	       icon: ico,
 		     	       title: club.name
 		     	    });	   	     	   
 
+
 					//open marker if club within current location					     	    			     	   
 		     	    if(club.dist <= minDist) {
+		     	    	var m
 		     	    	clubWindow.open(map,marker);
 		     	    }	
 		     		
@@ -265,7 +422,9 @@
 	      				clubWindow.open(map,marker);
 	    			});
 
-	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_' + club.id)});
+	    			//google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_' + club.id)});
+	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadHistogram('chart_sidebar')});
+	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadClubInfo('chart_sidebar')});
 		     	   
 		     	});
 
@@ -360,8 +519,6 @@
 		function loadHistogram(chart_div){
 			var chart_id = document.getElementById(chart_div); 
 
-			console.log(chart_div);
-
 		 	google.charts.load("current", {packages:["corechart"]});
 		    google.charts.setOnLoadCallback(drawChart);
 	      	function drawChart() {
@@ -382,7 +539,7 @@
 		          );
 
 		        var options = {
-		          title: 'Lengths of dinosaurs, in meters',
+		          title: '',
 		          legend: { position: 'none' },
 		        };
 
@@ -390,5 +547,31 @@
 				chart.draw(data, options);
 			}
 		}
-	</script
+	</script>
+<!-- Scrollbar Custom CSS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function () {
+		  $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+		    // when opening the sidebar
+		    $('#sidebarCollapse').on('click', function () {
+		        // open sidebar
+		        $('#sidebar').addClass('active');
+		        // fade in the overlay
+		        $('.collapse.in').toggleClass('in');
+		        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+		    });
+
+		   
+		    // if dismiss or overlay was clicked
+		    $('#dismiss, .overlay').on('click', function () {
+		      // hide the sidebar
+		      $('#sidebar').removeClass('active');
+		
+		    });
+	    });
+	</script>
 @stop
