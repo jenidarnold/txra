@@ -781,7 +781,7 @@ ul ul a {
 				url = club.url.split("//")[1];
 
 				if(url.length > 30){
-					url = urlsubstring(0,29) + "...";
+					url = url.substring(0,29) + "...";
 				}
 
 				url.innerHTML = '<a href=' + club.url + ' target="new" style="padding:0px"><i class="fa fa-globe"></i> ' + url + '</a>';
