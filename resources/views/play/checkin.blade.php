@@ -692,7 +692,7 @@ ul ul a {
 					chart.draw(data, options);
 				};
 
-				//Clones
+				//Cloned Divs for wrapping chart slider
 				var chart_id_1c = document.getElementById('chart_sidebar_1_clone'); 
 				var chart_id_7c = document.getElementById('chart_sidebar_7_clone'); 
 
@@ -732,6 +732,7 @@ ul ul a {
 				var d = new Date();
 				var currDay = d.getDay() - 1;
 
+				console.log('Today is ' + currDay);
 				changeSlide(currDay);
 				console.log('Current Slide ' + currSlide);					
 			}
