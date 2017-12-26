@@ -487,8 +487,7 @@ ul ul a {
 	                	club.info += "<form id='frmCheckin' action='{{route('play.checkin')}}' method='POST'>"
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
 							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"
-				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success' 
-				            	title='Check-ins are allowed when you are within 0.5 miles of a club'>Check In</button>"
+				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success'	title='Check-ins are allowed when you are within 0.5 miles of a club'>Check In</button>"
 				            + "</form>";
 	                }
 	                club.info += "</div>";
