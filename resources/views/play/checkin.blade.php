@@ -164,8 +164,20 @@ ul ul a {
     padding-left: 30px !important;
     background: #6d7fcc;
 }
+/*----------------------
+	FLEX SLIDER STYLE
+-----------------------*/
+	.flex-control-nav{
+		display: none !important; 
+	}
 
+	.flex-direction-nav li a {
+		padding: 0px !important;
+	}
 
+	.flex-next, .flex-prev {
+		font-size: 34px !important;
+	}
     </style>
 @stop
 @section('content')		
@@ -245,7 +257,7 @@ ul ul a {
                 <div id="club_div" class="hide">
 	                <div class="sidebar-header">
 	                    <div id="club_name" class="h4 text-white"></div>	                    
-	                	<a href="#" onclick="listClubs(); return false;" class="text-white">Back to Lists of Clubs</a>
+	                	<a href="#" onclick="listClubs(); return false;" class="text-white">Back to lists of clubs</a>
 	                </div>
 	                <ul class="list-unstyled components">                   
 	                    <li><div id="club_addr"></div></li>
@@ -265,20 +277,27 @@ ul ul a {
 	                </ul>
 
 	                <ul class="list-unstyled components">
-	                	Popular Times
+	                	<center>
+	                		Popular Times
+	                		<select>
+	                			<option value="0">Sunday</option>
+	                			<option value="1">Monday</option>
+	                			<option value="2">Tuesday</option>
+	                			<option value="3">Wednesday</option>
+	                			<option value="4">Thursday</option>
+	                			<option value="5">Friday</option>
+	                			<option value="6">Saturday</option>
+	                		</select>
 
-						<div class="swiper-container" data-effect="slide" data-autoplay="false">
-							<div class="swiper-wrapper">
+	                	</center>
+						<div  class="flexslider" data-slideshowSpeed="900000">
+							<ul class="slides">
 		                    @for($day = 1; $day <=7; $day++)
-			                   <div id="chart_sidebar_{{$day}}" class="swiper-slide"></div>
+			                  	<li>
+			                   		<div id="chart_sidebar_{{$day}}" class="swiper-slide"></div>
+			                   	</li>
 		                    @endfor
-		                    </div>
-		                    <!-- Swiper Pagination -->
-							<div class="swiper-pagination"></div>
-
-							<!-- Swiper Arrows -->
-							<div class="swiper-button-next"><i class="icon-angle-right"></i></div>
-							<div class="swiper-button-prev"><i class="icon-angle-left"></i></div>
+		                    </ul>
 		                </div>
 	                </ul>
 	            </div>
@@ -495,7 +514,9 @@ ul ul a {
 		     	    	showClub(club);
 	    			});
 
-	    			google.maps.event.addListener(clubWindow, 'domready', function() {loadChart(club.checkin_data)});
+	    			google.maps.event.addListener(clubWindow, 'domready', function() {
+	    				//loadChart(club.checkin_data);	    				
+	    			});
 		     	   
 		     	});
 
@@ -584,6 +605,7 @@ ul ul a {
     <!-- script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap"></script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap&sensor=false&v=3&libraries=geometry">
 	</script>
+	
 	<!--Charts-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script>
@@ -595,7 +617,7 @@ ul ul a {
 			var chart_id_4 = document.getElementById('chart_sidebar_4'); 
 			var chart_id_5 = document.getElementById('chart_sidebar_5'); 
 			var chart_id_6 = document.getElementById('chart_sidebar_6');  
-			var chart_id_7 = document.getElementById('chart_sidebar_7'); 
+			var chart_id_7 = document.getElementById('chart_sidebar_7');  
 
 			var charts = [];
 			charts.push({title: 'Sunday', 		div: chart_id_1});
@@ -616,6 +638,7 @@ ul ul a {
 				      data.addColumn('timeofday', 'Time of Day');
 				      data.addColumn('number', '# players');
 				      //data.addColumn('number', 'Energy Level');
+
 
 				      data.addRows([
 				      	[{v: [6, 0, 0], f: '6 am'}, checkin_data[day][6] ],
@@ -644,20 +667,36 @@ ul ul a {
 				          	title: charts[day-1]['title'],
 				          	format: 'h a',
 				          	viewWindow: {
-				            	min: [, 00, 0],
+				            	min: [5, 00, 0],
 				            	max: [23, 00, 0]
 				        	}
 			          	},
 						vAxis: {
-				          title: ''
+				          	title: '',
+				          	format: '0',
+				          	viewWindow: {
+				            	min: [0],
+				        	}
 				        }				   
 			        };
 
-
-      				console.log(charts[day-1]['title']);
 	       			var chart = new google.visualization.ColumnChart(charts[day-1]['div']);
 					chart.draw(data, options);
 				};
+
+				//Clones
+				var chart_id_1c = document.getElementById('chart_sidebar_1_clone'); 
+				var chart_id_7c = document.getElementById('chart_sidebar_7_clone'); 
+
+				chart_id_1c.innerHTML = chart_id_1.innerHTML;
+				chart_id_7c.innerHTML = chart_id_7.innerHTML;
+
+				var d = new Date();
+				var currDay = d.getDay();
+				//Goto current Day
+				for (var day = 0; day < currDay; day++) {
+			    	$('.flex-next i').trigger('click');
+			    }
 			}
 		}
 
@@ -697,16 +736,19 @@ ul ul a {
 			}
 
 			loadChart(club.checkin_data);
+
+			//Goto current Day
+		    //$('.flex-next i').trigger('click'); // Also Works
 		}
 
 	</script>
-<!-- Scrollbar Custom CSS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> 
+	<!-- Scrollbar Custom CSS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> 
 	<script type="text/javascript">
 		$(document).ready(function () {
 		  $("#sidebar").mCustomScrollbar({
-                    theme: "minimal"
-                });
+                theme: "minimal"
+            });
 
 		    // when opening the sidebar
 		    $('#sidebarCollapse').on('click', function () {
@@ -722,17 +764,11 @@ ul ul a {
 			  	listClubs();
 		      	// hide the sidebar
 		      	$('#sidebar').removeClass('active');		
-		    });
-
-		     // if dismiss or overlay was clicked
-		    $('#dismiss_menu, .overlay').on('click', function () {
-		      // hide the sidebar
-		      $('#sidebar_menu').removeClass('active');		
-		    });
+		    });		   	   
+		
 	    });
 
     	function listClubs(){
-    		console.log("list clubs");
 			$('#sidebar').addClass('active');
 			$('#menu_div').toggleClass('hide');
 			$('#club_div').toggleClass('hide');
@@ -742,7 +778,7 @@ ul ul a {
 			$('#sidebar').addClass('active');
 			$('#club_div').toggleClass('hide');
 			$('#menu_div').toggleClass('hide');
-			loadClubSidePanel(club);			
+			loadClubSidePanel(club);
 		}		
 	</script>
 @stop
