@@ -314,7 +314,7 @@
 													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
 													<li class="dropdown hidden-xs hidden-sm">
 														<a class="dropdown hidden-xs hidden-sm" href="/checkin">
-															CHECK_INS <span class="btn btn-xs btn-warning">BETA</span>
+															CHECK-INS <span class="btn btn-xs btn-warning">BETA</span>
 														</a>	
 													</li>
 													{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}

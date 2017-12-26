@@ -89,10 +89,6 @@ class PlayController extends Controller {
 	public function map(Request $request)
 	{
 
-        //$clubs =  (object) [ 
-        //  'position' =>  '{lat: 32.7098963, lng: -97.1373552 }',           
-        //];
-
 		$clubs = Club::where('lat', '>', 0)
 				->orderBy('name')
 				->get()
@@ -116,7 +112,6 @@ class PlayController extends Controller {
 		return view('play/map', compact('clubs'));
 	}
 
-
 	/**
 	 * Display map with my location.
 	 *
@@ -125,10 +120,6 @@ class PlayController extends Controller {
 	public function mylocation(Request $request)
 	{
 
-        //$clubs =  (object) [ 
-        //  'position' =>  '{lat: 32.7098963, lng: -97.1373552 }',           
-        //];
-
 		$clubs = Club::where('lat', '>', 0)
 				->orderBy('name')
 				->get()
@@ -136,31 +127,35 @@ class PlayController extends Controller {
 
 		$i = 1;
 		foreach($clubs as $club) {
-
-			//$checkins = Checkin::where('club_id', '=', $club->id );
-
 			$club->ico = $club->get_map_icon($i);
 			$club->checkins_total = $club->checkins_total;
 			$club->checkins_recent = $club->checkins_recent;
 			$club->checkin_data = $club->checkin_data;
 			$i++;
 		}	
-		//      ."<a href='/checkin' method='post' class='btn btn-sm btn-success' target='new'>Checkin</a><br/>"
 
 		return view('play/checkin', compact('clubs'));
 	}
 	
-
 	/**
-	 *  Checkin club
-	 */
-	
+	 *  Insert Checkin club
+	 */	
 	public function checkin(Request $request)
 	{
 
-		$checkin = new Checkin;
+		/*set client's time*/
+		$date = \Carbon\Carbon::now();   
 
+		/*offset should be negative*/
+        $date->addMinutes(-$request->gtz_offset);
+        $formatted_date = $date->format('Y-m-d H:i:s');
+
+		$client_time =  $formatted_date;
+
+		/*create new checkin*/
+		$checkin = new Checkin;
 		$checkin->club_id = $request->club_id;
+		$checkin->checkin_at = $client_time;
 		$checkin->save();
 
 
@@ -169,8 +164,6 @@ class PlayController extends Controller {
 		return  Redirect::to(\URL::previous())
 			->with('alert-success', $message);
 		//return  redirect()->route('play.checkin');
-		
 	}
-
 
 }

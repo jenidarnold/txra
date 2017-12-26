@@ -14,7 +14,7 @@ class Checkin extends Model
      * @var array
      */
     protected $fillable = [
-        'club_id', 'device_id', 'user_id'
+        'club_id', 'device_id', 'user_id', 'checkin_at'
     ];
 
 }

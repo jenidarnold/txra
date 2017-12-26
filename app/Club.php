@@ -35,20 +35,16 @@ class Club extends Model
         return $this->checkins()->count();
     }
 
-    public function checkins_hour($hour)
-    {
-        return $this->checkins();
-    }
-
     public function getCheckinsRecentAttribute()
     {
+        /*TODO need to use client's timezone */
         $date = \Carbon\Carbon::now('America/Chicago');
         
         $date->modify('-1 hours');
         $formatted_date = $date->format('Y-m-d H:i:s');
 
         return $this->checkins()
-            ->where('created_at', '>=', $formatted_date)
+            ->where('checkin_at', '>=', $formatted_date)
             ->count();
     }
 
@@ -58,14 +54,14 @@ class Club extends Model
         $data = [];
 
         //Get number of checkins per hour per day of the week
-        for($d = 1; $d <=7; $d++){
+        for($d = 0; $d <=6; $d++){
             for($x = 6; $x <=22; $x++){
 
                 $cnt = \DB::table('checkins')
                     ->where('club_id', '=', $this->id)
-                    ->where(\DB::raw('DAYOFWEEK(created_at)'), '=', $d)
-                    ->where(\DB::raw('HOUR(created_at)'), '>', $x-1)
-                    ->where(\DB::raw('HOUR(created_at)'), '<=',$x)
+                    ->where(\DB::raw('WEEKDAY(checkin_at)'), '=', $d)
+                    ->where(\DB::raw('HOUR(checkin_at)'), '>', $x-1)
+                    ->where(\DB::raw('HOUR(checkin_at)'), '<=',$x)
                     ->count();
 
                 $data[$d][$x] = $cnt;

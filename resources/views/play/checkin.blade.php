@@ -105,7 +105,7 @@
     padding: 20px 0 10px;
     margin-left: 15px;
     margin-right: 15px;
-    border-bottom: 1px solid #47748b;
+    border-bottom: none !important;
 }
 
 #sidebar ul p {
@@ -220,21 +220,21 @@ ul ul a {
 
 		        	@foreach($clubs as $club)
 						<div class=" col-sm-12  {{$club->map_icon}}">
-							<div class="itembox">
+							<div class="itembox" >								
 								<div style="float:left; padding-right:2px">
-									<a href="#" class="h5" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} ); map.setZoom(17); map.panTo({{ $club->lat }}, {{ $club->lng }} ); return false;" > 
-										<img style="height:28px" src={{asset($club->ico)}} />	
+									<a href="#" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
+										<img style="height:28px" src={{asset($club->ico)}} />
 									</a>
 								</div>
 								<div>
-									<a href="#"  data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
+									<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 										{{  $club->name }}
 									</a>
 					
 									<ul class="list-unstyled components">                   
 					                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }} </div></li>
-							            <li><div id=""><i class="fa fa-phone"></i></i> {{ $club->phone }}</div></li>
-							            <li><div id=""> 
+							           {{--  <li><div id=""><i class="fa fa-phone"></i></i> {{ $club->phone }}</div></li> --}}
+							           {{--  <li><div id=""> 
 								            	@if($club->url <> '')
 													<a href="{{ $club->url}}" style="padding:0px" target="new" class="text-info" ><i class="fa fa-globe"></i>
 													{{ substr( explode("//", $club->url)[1], 0, 20) }}
@@ -243,14 +243,15 @@ ul ul a {
 														@endif
 													</a>
 												@endif
-							            	</div></li>
+							            	</div></li> --}}
 							            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
 					                    <li><div id=""></div></li>
-					                    <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>  
+					                    {{-- <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>   --}}
 					                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
 				                    </ul>
-								</div>
+								</div>								
 							</div>
+							<hr/>
 						</div>
 					@endforeach
                 </div>
@@ -272,6 +273,7 @@ ul ul a {
 			            	<form action='{{route('play.checkin')}}' method='POST'>
 		                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
 								<input type='hidden' id="club_id" name='club_id' value="">
+								<input type='hidden' id="gtz_offset" name='gtz_offset' value="">
 					            <button id="btnCheckin" type='submit' title="Check-ins are allowed when you are within 0.5 miles of a club" class='btn btn-sm btn-success margin-top-10'>Check In</button>
 					        </form>
 			            </li>                  
@@ -281,13 +283,13 @@ ul ul a {
 	                	<center>
 	                		Popular Times
 	                		<select id="dayofweek" class="input input-sm">
-	                			<option value="0">Sunday</option>
-	                			<option value="1">Monday</option>
-	                			<option value="2">Tuesday</option>
-	                			<option value="3">Wednesday</option>
-	                			<option value="4">Thursday</option>
-	                			<option value="5">Friday</option>
-	                			<option value="6">Saturday</option>
+	                			<option value="6">Sunday</option>
+	                			<option value="0">Monday</option>
+	                			<option value="1">Tuesday</option>
+	                			<option value="2">Wednesday</option>
+	                			<option value="3">Thursday</option>
+	                			<option value="4">Friday</option>
+	                			<option value="5">Saturday</option>
 	                		</select>
 
 	                	</center>
@@ -484,9 +486,14 @@ ul ul a {
 				        + "<span class='h6'>" + club.name + "</span>";
 
 	                if(club.dist <= minDist) {
+
+	                	var d = new Date();
+						var gtz_offset= d.getTimezoneOffset();
+
 	                	club.info += "<form id='frmCheckin' action='{{route('play.checkin')}}' method='POST'>"
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
-							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"
+							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"							
+							+ "<input type='hidden' name='gtz_offset' value='" + gtz_offset + "'>"
 				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success'	title='Check-ins are allowed when you are within 0.5 miles of a club'>Check In</button>"
 				            + "</form>";
 	                }
@@ -621,13 +628,13 @@ ul ul a {
 			var chart_id_7 = document.getElementById('chart_sidebar_7');  
 
 			var charts = [];
-			charts.push({title: 'Sunday', 		div: chart_id_1});
-			charts.push({title: 'Monday', 		div: chart_id_2});		
-			charts.push({title: 'Tuesday', 		div: chart_id_3});
-			charts.push({title: 'Wednesday', 	div: chart_id_4});
-			charts.push({title: 'Thursday', 	div: chart_id_5});
-			charts.push({title: 'Friday', 		div: chart_id_6});
-			charts.push({title: 'Saturday',		div: chart_id_7});
+			charts.push({title: 'Monday', 		div: chart_id_1});		
+			charts.push({title: 'Tuesday', 		div: chart_id_2});
+			charts.push({title: 'Wednesday', 	div: chart_id_3});
+			charts.push({title: 'Thursday', 	div: chart_id_4});
+			charts.push({title: 'Friday', 		div: chart_id_5});
+			charts.push({title: 'Saturday',		div: chart_id_6});
+			charts.push({title: 'Sunday', 		div: chart_id_7});
 
 		 	google.charts.load("current", {packages:["corechart"]});
 		    google.charts.setOnLoadCallback(drawChart);
@@ -635,7 +642,7 @@ ul ul a {
 
 	      	function drawChart() {
 
-		        for (var day = 1; day <= 7; day++) {	
+		        for (var day = 0; day <= 6; day++) {	
 			        var data = new google.visualization.DataTable();
 				      data.addColumn('timeofday', 'Time of Day');
 				      data.addColumn('number', '# players');
@@ -665,7 +672,7 @@ ul ul a {
 			          	title: '',
 			          	legend: { position: 'none' },
 			            hAxis: {
-				          	title: charts[day-1]['title'],
+				          	title: charts[day]['title'],
 				          	format: 'h a',
 				          	viewWindow: {
 				            	min: [5, 00, 0],
@@ -681,7 +688,7 @@ ul ul a {
 				        }				   
 			        };
 
-	       			var chart = new google.visualization.ColumnChart(charts[day-1]['div']);
+	       			var chart = new google.visualization.ColumnChart(charts[day]['div']);
 					chart.draw(data, options);
 				};
 
@@ -723,7 +730,7 @@ ul ul a {
 				}		
 				
 				var d = new Date();
-				var currDay = d.getDay();
+				var currDay = d.getDay() - 1;
 
 				changeSlide(currDay);
 				console.log('Current Slide ' + currSlide);					
@@ -760,15 +767,23 @@ ul ul a {
 			var tot_chk = document.getElementById('club_checkin_total');
 			var rec_chk = document.getElementById('club_checkin_recent');
 			
-			console.log(club.id);
+			var d = new Date();
+			var gtz_offset = d.getTimezoneOffset();
+			
 			$("input[id=club_id]").val(club.id);
-			console.log($('#club_id').val());
-
+			$("input[id=gtz_offset]").val(gtz_offset);
+			
 			name.innerHTML = club.name;
 			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
 			if (club.url != ''){
-				url.innerHTML = '<a href=' + club.url + ' target="new" style="padding:0px"><i class="fa fa-globe"></i> ' + club.url + '</a>';
+				url = club.url.split("//")[1];
+
+				if(url.length > 30){
+					url = urlsubstring(0,29) + "...";
+				}
+
+				url.innerHTML = '<a href=' + club.url + ' target="new" style="padding:0px"><i class="fa fa-globe"></i> ' + url + '</a>';
 			}
 			courts.innerHTML = '<i class="fa fa-cube"></i> ' + club.courts + ' court(s)';
 			tot_chk.innerHTML = '<i class="fa fa-male"></i> ' + club.checkins_total + ' check-ins total';
