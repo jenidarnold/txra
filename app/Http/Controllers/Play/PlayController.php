@@ -168,6 +168,8 @@ class PlayController extends Controller {
 
 		return  Redirect::to(\URL::previous())
 			->with('alert-success', $message);
+		//return  redirect()->route('play.checkin');
+		
 	}
 
 

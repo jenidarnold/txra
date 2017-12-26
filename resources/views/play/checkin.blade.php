@@ -103,7 +103,8 @@
 }
 #sidebar ul.components {
     padding: 20px 0 10px;
-    margin-left: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
     border-bottom: 1px solid #47748b;
 }
 
@@ -235,18 +236,18 @@ ul ul a {
 							            <li><div id=""><i class="fa fa-phone"></i></i> {{ $club->phone }}</div></li>
 							            <li><div id=""> 
 								            	@if($club->url <> '')
-												<a href="{{ $club->url}}" style="padding:0px" target="new" class="text-info" ><i class="fa fa-globe"></i>
-												{{ substr( explode("//", $club->url)[1], 0, 20) }}
-												@if(strlen($club->url) > 31)
-												...
-												@endif
-												</a>
+													<a href="{{ $club->url}}" style="padding:0px" target="new" class="text-info" ><i class="fa fa-globe"></i>
+													{{ substr( explode("//", $club->url)[1], 0, 20) }}
+														@if(strlen($club->url) > 31)
+														...
+														@endif
+													</a>
 												@endif
 							            	</div></li>
 							            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
 					                    <li><div id=""></div></li>
-					                    <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} checkins total</div></li>  
-					                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} checkins last hour</div></li>
+					                    <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>  
+					                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
 				                    </ul>
 								</div>
 							</div>
@@ -270,13 +271,13 @@ ul ul a {
 			            <li>
 			            	<form action='{{route('play.checkin')}}' method='POST'>
 		                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
-								<input type='hidden' name='club_id' value=' + club.id + '>
-					            <button id="btnCheckin" type='submit' action='{{route('play.checkin')}}' method='post' class='hide btn btn-sm btn-success margin-top-10'>Checkin</button>
+								<input type='hidden' id="club_id" name='club_id' value="">
+					            <button id="btnCheckin" type='submit' title="Check-ins are allowed when you are within 0.5 miles of a club" class='btn btn-sm btn-success margin-top-10'>Check In</button>
 					        </form>
 			            </li>                  
 	                </ul>
 
-	                <ul class="list-unstyled components">
+	                <ul class="list-unstyled">
 	                	<center>
 	                		Popular Times
 	                		<select id="dayofweek" class="input input-sm">
@@ -486,7 +487,8 @@ ul ul a {
 	                	club.info += "<form id='frmCheckin' action='{{route('play.checkin')}}' method='POST'>"
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
 							+ "<input type='hidden' name='club_id' value='" + club.id + "'>"
-				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success'>Checkin</button>"
+				            + "<button type='submit' action='{{route('play.checkin')}}' method='post' class='btn btn-block btn-success' 
+				            	title='Check-ins are allowed when you are within 0.5 miles of a club'>Check In</button>"
 				            + "</form>";
 	                }
 	                club.info += "</div>";
@@ -759,28 +761,34 @@ ul ul a {
 			var tot_chk = document.getElementById('club_checkin_total');
 			var rec_chk = document.getElementById('club_checkin_recent');
 			
+			console.log(club.id);
+			$("input[id=club_id]").val(club.id);
+			console.log($('#club_id').val());
+
 			name.innerHTML = club.name;
 			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
-			url.innerHTML = '<i class="fa fa-globe"></i> ' + club.url;
+			if (club.url != ''){
+				url.innerHTML = '<a href=' + club.url + ' target="new" style="padding:0px"><i class="fa fa-globe"></i> ' + club.url + '</a>';
+			}
 			courts.innerHTML = '<i class="fa fa-cube"></i> ' + club.courts + ' court(s)';
-			tot_chk.innerHTML = '<i class="fa fa-male"></i> ' + club.checkins_total + ' checkins total';
-			rec_chk.innerHTML = '<i class="fa fa-clock-o"></i> ' + club.checkins_recent + ' checkins last hour';
+			tot_chk.innerHTML = '<i class="fa fa-male"></i> ' + club.checkins_total + ' check-ins total';
+			rec_chk.innerHTML = '<i class="fa fa-clock-o"></i> ' + club.checkins_recent + ' check-ins in the last hour';
 
 			if (club.dist == undefined) {
 				var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
 	    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
     			var myCord = new google.maps.LatLng(user_pos.lat, user_pos.lng);
-	     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles				
+	     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles			
 			}
 			
 			dist.innerHTML = '<i class="fa fa-car"></i> ' + club.dist.toFixed(2) + ' mi away';			
 
 			if (club.dist <= .5) {
-				$('#btnCheckin').removeClass('hide');
+				$('#btnCheckin').removeClass('disabled');
 			}
 			else{
-				$('#btnCheckin').addClass('hide');
+				$('#btnCheckin').addClass('disabled');
 			}
 
 			loadChart(club.checkin_data);
