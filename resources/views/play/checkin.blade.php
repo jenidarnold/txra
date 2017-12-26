@@ -221,7 +221,7 @@ ul ul a {
 						<div class=" col-sm-12  {{$club->map_icon}}">
 							<div class="itembox">
 								<div style="float:left; padding-right:2px">
-									<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} ); map.setZoom(17); map.panTo({{ $club->lat }}, {{ $club->lng }} ); return false;" > 
+									<a href="#" class="h5" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} ); map.setZoom(17); map.panTo({{ $club->lat }}, {{ $club->lng }} ); return false;" > 
 										<img style="height:28px" src={{asset($club->ico)}} />	
 									</a>
 								</div>
