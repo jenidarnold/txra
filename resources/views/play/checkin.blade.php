@@ -279,7 +279,7 @@ ul ul a {
 	                <ul class="list-unstyled components">
 	                	<center>
 	                		Popular Times
-	                		<select>
+	                		<select id="dayofweek" class="input input-sm">
 	                			<option value="0">Sunday</option>
 	                			<option value="1">Monday</option>
 	                			<option value="2">Tuesday</option>
@@ -631,6 +631,7 @@ ul ul a {
 		 	google.charts.load("current", {packages:["corechart"]});
 		    google.charts.setOnLoadCallback(drawChart);
 
+
 	      	function drawChart() {
 
 		        for (var day = 1; day <= 7; day++) {	
@@ -638,7 +639,6 @@ ul ul a {
 				      data.addColumn('timeofday', 'Time of Day');
 				      data.addColumn('number', '# players');
 				      //data.addColumn('number', 'Energy Level');
-
 
 				      data.addRows([
 				      	[{v: [6, 0, 0], f: '6 am'}, checkin_data[day][6] ],
@@ -691,15 +691,63 @@ ul ul a {
 				chart_id_1c.innerHTML = chart_id_1.innerHTML;
 				chart_id_7c.innerHTML = chart_id_7.innerHTML;
 
+
+				//Initialize events next, prev and dropdown of chart
+				//Needs to be inside of this loadChart function because of the CallBack
+				if(initSlide == false){
+					initSlide = true;
+					$('.flex-prev').on('click', function(){
+						currSlide = currSlide -1;
+						if (currSlide< 0) {
+							currSlide = 6;
+						}
+						$("#dayofweek option[value=" + currSlide +"]").attr('selected','selected');	
+						console.log('  clicked prev. Current Slide ' + currSlide);
+					});
+
+					$('.flex-next').on('click', function(){
+						currSlide = currSlide +1;
+						if (currSlide > 6) {
+							currSlide = 0;
+						}
+						$("#dayofweek option[value=" + currSlide +"]").attr('selected','selected');	
+						console.log('  clicked next. Current Slide' + currSlide);
+					});
+
+					$("#dayofweek").on("change", function(){
+						slide = $(this).val();
+						console.log('  change day. Current Slide' + currSlide);
+						changeSlide(slide);
+					});
+				}		
+				
 				var d = new Date();
 				var currDay = d.getDay();
-				//Goto current Day
-				for (var day = 0; day < currDay; day++) {
-			    	$('.flex-next i').trigger('click');
-			    }
+
+				changeSlide(currDay);
+				console.log('Current Slide ' + currSlide);					
+			}
+
+			function changeSlide(slide){
+				//Goto slide
+				if(currSlide > slide){
+					while (currSlide > slide ) 
+					{
+				    	$('.flex-prev i').trigger('click');		    	
+				    	console.log('trigger prev '  + currSlide);	    	
+				    }
+				}else{
+					while (currSlide < slide ) 
+					{
+				    	$('.flex-next i').trigger('click');
+				    	console.log('trigger next '  + currSlide);		 
+				    }
+				}	
+				$("#dayofweek option[value=" + currSlide +"]").attr('selected','selected');		
 			}
 		}
 
+		
 		function loadClubSidePanel(club){
 
 			var name = document.getElementById('club_name');
@@ -736,15 +784,16 @@ ul ul a {
 			}
 
 			loadChart(club.checkin_data);
-
-			//Goto current Day
-		    //$('.flex-next i').trigger('click'); // Also Works
 		}
 
 	</script>
 	<!-- Scrollbar Custom CSS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> 
 	<script type="text/javascript">
+
+		currSlide = 0;
+		var initSlide = false;
+
 		$(document).ready(function () {
 		  $("#sidebar").mCustomScrollbar({
                 theme: "minimal"
@@ -756,16 +805,13 @@ ul ul a {
 		        //$('#sidebar').addClass('active');		  
 				listClubs();
 		    });
-
 		   
-		    // if dismiss or overlay was clicked
-		    $('#dismiss, .overlay').on('click', function () {
-
-			  	listClubs();
-		      	// hide the sidebar
+		    // if dismiss was clicked
+		    $('#dismiss').on('click', function () {
+		    	// hide the sidebar
 		      	$('#sidebar').removeClass('active');		
-		    });		   	   
-		
+		    });			   
+						
 	    });
 
     	function listClubs(){
@@ -778,7 +824,7 @@ ul ul a {
 			$('#sidebar').addClass('active');
 			$('#club_div').toggleClass('hide');
 			$('#menu_div').toggleClass('hide');
-			loadClubSidePanel(club);
+			loadClubSidePanel(club);				
 		}		
 	</script>
 @stop
