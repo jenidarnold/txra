@@ -231,7 +231,7 @@ ul ul a {
 									</a>
 								</div>
 								<div class="row" style="margin-bottom:0px">									
-									<div class="col-xs-12 col-sm-7 club-padding" style="margin-bottom:0px">
+									<div class="col-xs-10 col-sm-7 club-padding" style="margin-bottom:0px">
 										<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 											{{  $club->name }}
 										</a>
