@@ -276,7 +276,7 @@ ul ul a {
 	                    <li><div id="club_dist"></div></li>
 	                    <li><div id="club_checkin_total"></div></li>  
 	                    <li><div id="club_checkin_recent"></div></li>
-			            <li>
+			            <li lass="text-center">
 			            	<form action='{{route('play.checkin')}}' method='POST'>
 		                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
 								<input type='hidden' id="club_id" name='club_id' value="">
@@ -325,14 +325,14 @@ ul ul a {
 						{{-- <button class="btn" data-toggle="modal" data-target="#modClubs">
 							<i class="fa fa-bars"></i> <span class="small">List Menu</span>
 						</button> --}}
-						<button type="button" id="sidebarCollapse" class="btn btn-sm btn-danger" tooltip="Expand Menu">
+						<button type="button" id="sidebarCollapse" class="btn btn-md btn-danger" tooltip="Expand Menu">
 		                	<i class="fa fa-bars"> Menu</i>
 		            	</button>
 					</div>
 					{{-- <div id="legend"><h4>Legend</h4></div> --}}
 					<div id="mylocation">
-						<button class="btn btn-xs btn-default text-center" onclick="getCurrPos(); map.setCenter(user_pos); return false;" tooltip="Your Location">
-						<i class="fa fa-crosshairs fa-lg" style="padding:0px"></i></button>
+						<button class="btn btn-sm btn-danger text-center" onclick="getCurrPos(); map.setCenter(user_pos); return false;" title="Re-center map to your Location">
+						<i class="fa fa-crosshairs fa-wx" style="padding:0px"></i></button>
 					</div>
 				</div>				
 			</div>
