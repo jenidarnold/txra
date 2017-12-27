@@ -231,20 +231,20 @@ ul ul a {
 									</a>
 								</div>
 								<div class="row" style="margin-bottom:0px">									
-									<div class="col-xs-10 col-sm-7 club-padding" style="margin-bottom:0px">
+									<div class="col-xs-10 col-sm-8 club-padding" style="margin-bottom:0px">
 										<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 											{{  $club->name }}
 										</a>
 						
 										<ul class="list-unstyled components">                   
-						                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }} </div></li>	
+						                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }}, {{ $club->city }}</div></li>	
 								            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
 						                    <li><div id=""></div></li>
 						                    {{-- <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>   --}}
 						                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
 					                    </ul>
 					                </div>
-					                <div class="col-sm-3  hidden-xs club-padding">
+					                <div class="col-sm-2  hidden-xs club-padding">
 					                @if($club->image != '')
 										<img src="{{ $club->image }}" class="img-responsive" />					                	
 									@endif
