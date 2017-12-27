@@ -72,7 +72,7 @@
     /*background: #7386D5;*/
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
     cursor: pointer;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -101,7 +101,7 @@
 #sidebar .sidebar-image {
    /*height: 100px;
    overflow: hidden;
-   */
+   */  
 }
 
 #sidebar {
@@ -109,7 +109,7 @@
 }
 
 #sidebar ul.components {
-    padding: 10px 0 10px;
+    padding: 10px 0 0px;
     margin-left: 5px;
     margin-right: 5px;
     border-bottom: none !important;
@@ -163,7 +163,6 @@ a[aria-expanded="true"]::before {
 }
 
 ul {
-
 	margin-bottom: 0px;
 }
 
@@ -179,7 +178,11 @@ ul ul a {
 }
 
 .club-image {
-	width: 100%;
+	/*position: relative; 
+  	top: -42px;
+  	left: 0px;*/
+  	width: 100%;
+  	/*height: 283px;*/
 }
 
 /*----------------------
@@ -269,7 +272,9 @@ ul ul a {
 					                    </ul>
 					                </div>
 					                <div class="col-xs-3 club-padding">
+					                @if($club->image != 'null')
 										<img src="{{ $club->image }}" class="img-responsive" />
+									@endif
 									</div>
 								</div>								
 							</div>
@@ -303,7 +308,7 @@ ul ul a {
 					        </form>
 			            </li>                  
 	                </ul>
-
+	                <hr style="margin:0px;">
 	                <ul class="list-unstyled">
 	                	<center>
 	                		Popular Times
@@ -798,7 +803,9 @@ ul ul a {
 			$("input[id=club_id]").val(club.id);
 			$("input[id=gtz_offset]").val(gtz_offset);
 			
-			image.innerHTML = '<img class="club-image" src="' + club.image + '" />';
+			if(club.image != 'null'){
+				image.innerHTML = '<img class="club-image" src="' + club.image + '" />';
+			}
 			name.innerHTML = club.name;
 			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
