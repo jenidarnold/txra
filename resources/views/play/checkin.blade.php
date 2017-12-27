@@ -203,24 +203,6 @@ ul ul a {
 @stop
 @section('content')		
 
-	{{-- <section class="page-header page-header-xs hidden-xs">
-		<div class="container">
-
-			<h1>TEXAS CLUBS & FACILITIES</h1>
-			
-			<!-- breadcrumbs -->
-			<ol class="breadcrumb">
-				<li><a href="/">Home</a></li>
-				<li class="active">Clubs</li>
-				
-				<li><a href="{{ route('events.index', array('type' =>'future'))}}">Tournaments</a></li>
-
-			</ol><!-- /breadcrumbs -->
-
-		</div>
-	</section> --}}
-	<!-- /PAGE HEADER -->
-
 	<!-- Find Google Maps coordinates - fast and easy! -->
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
@@ -238,33 +220,24 @@ ul ul a {
 	                    <a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="text-white"> Add to the map</a>	                    
 	                </div>
 
+	                @php ($i=0)
 		        	@foreach($clubs as $club)
-						<div class=" col-sm-12  {{$club->map_icon}}">
+		        		@php ($i+=1)
+						<div class=" col-sm-12  ">
 							<div class="itembox" >								
 								<div style="float:left; padding-right:2px">
 									<a href="#" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 										<img style="height:28px" src={{asset($club->ico)}} />
 									</a>
 								</div>
-								<div class="row">									
+								<div class="row" style="margin-bottom:0px">									
 									<div class="col-xs-7 club-padding">
 										<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 											{{  $club->name }}
 										</a>
 						
 										<ul class="list-unstyled components">                   
-						                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }} </div></li>
-								           {{--  <li><div id=""><i class="fa fa-phone"></i></i> {{ $club->phone }}</div></li> --}}
-								           {{--  <li><div id=""> 
-									            	@if($club->url <> '')
-														<a href="{{ $club->url}}" style="padding:0px" target="new" class="text-info" ><i class="fa fa-globe"></i>
-														{{ substr( explode("//", $club->url)[1], 0, 20) }}
-															@if(strlen($club->url) > 31)
-															...
-															@endif
-														</a>
-													@endif
-								            	</div></li> --}}
+						                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }} </div></li>	
 								            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
 						                    <li><div id=""></div></li>
 						                    {{-- <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>   --}}
@@ -504,8 +477,12 @@ ul ul a {
 
     			// Create markers.
 		    	clubs.forEach(function(club) {
+		    	
 		    		var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
-		    		var ico = club.ico;	     	    		     	   
+
+		    		var i = 1;
+		    		var ico = club.ico;	 
+		    		i +=1;    	    		     	   
 
 		    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
 	    			var myCord = new google.maps.LatLng(mypos.lat, mypos.lng);

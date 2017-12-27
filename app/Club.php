@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Checkin;
+use App\OpenGraphFree;
 
 class Club extends Model
 {
@@ -18,11 +19,31 @@ class Club extends Model
         'name', 'city', 'state', 'zip', 'phone', 'lat', 'lng', 'type', 'courts', 'info', 'url', 'map_icon'
     ];
 
+    /**
+     *  The accessors getFooAttribute that are appended to the Response so that they can be used in javascript
+     */
+    protected $appends = array('checkins_total', 'checkins_recent', 'checkin_data');
+
     public function locations()
     {
         return $this->belongsToMany('App\TournamentLocation', 'club_id', 'tournament_id');       
     }
 
+
+    public function get_og_image($url){
+
+        $opengraph = OpenGraphFree::fetch($url);
+
+        if (!isset($opengraph->image)) {
+             $image = "";
+         }
+         else {
+             $image = $opengraph->image;
+         }   
+
+        return $image;
+        
+    }
 
     public function checkins()
     {
