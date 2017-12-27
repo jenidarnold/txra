@@ -231,7 +231,7 @@ ul ul a {
 									</a>
 								</div>
 								<div class="row" style="margin-bottom:0px">									
-									<div class="col-xs-7 club-padding">
+									<div class="col-xs-12 col-sm-7 club-padding" style="margin-bottom:0px">
 										<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 											{{  $club->name }}
 										</a>
@@ -244,7 +244,7 @@ ul ul a {
 						                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
 					                    </ul>
 					                </div>
-					                <div class="col-xs-3 club-padding">
+					                <div class="col-sm-3  hidden-xs club-padding">
 					                @if($club->image != '')
 										<img src="{{ $club->image }}" class="img-responsive" />					                	
 									@endif
@@ -780,6 +780,7 @@ ul ul a {
 			$("input[id=club_id]").val(club.id);
 			$("input[id=gtz_offset]").val(gtz_offset);
 			
+			//club.image = need ajax call Club::get_og_image
 			if(club.image != undefined){
 				if (club.image !=''){
 					image.innerHTML = '<img class="club-image" src="' + club.image + '" />';

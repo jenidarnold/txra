@@ -30,7 +30,7 @@ class Club extends Model
     }
 
 
-    public function get_og_image($url){
+    static function get_og_image($url){
 
         $opengraph = OpenGraphFree::fetch($url);
 
