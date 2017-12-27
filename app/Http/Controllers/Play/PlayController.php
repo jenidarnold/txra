@@ -128,11 +128,11 @@ class PlayController extends Controller {
 				->get()
 			;
 
-		$i = 1;
-		foreach ($clubs as $club) {
-			$club->ico = $club->get_map_icon($i);
-			$i++;
-		}
+		// $i = 1;
+		// foreach ($clubs as $club) {
+		// 	$club->ico = $club->get_map_icon($i);
+		// 	$i++;
+		// }
 		return view('play/checkin', compact('clubs'));
 	}
 	

@@ -185,6 +185,9 @@ ul ul a {
   	/*height: 283px;*/
 }
 
+.fa-map-marker {
+	color: #F75448 !important; 
+}
 /*----------------------
 	FLEX SLIDER STYLE
 -----------------------*/
@@ -223,17 +226,18 @@ ul ul a {
 	                @php ($i=0)
 		        	@foreach($clubs as $club)
 		        		@php ($i+=1)
+		        		@php ($club->num = $i)
 						<div class=" col-sm-12  ">
 							<div class="itembox" >								
-								<div style="float:left; padding-right:2px">
+								{{-- <div style="float:left; padding-right:2px">
 									<a href="#" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 										<img style="height:28px" src={{asset($club->ico)}} />
 									</a>
-								</div>
+								</div> --}}
 								<div class="row" style="margin-bottom:0px">									
-									<div class="col-xs-10 col-sm-8 club-padding" style="margin-bottom:0px">
-										<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
-											{{  $club->name }}
+									<div class="col-xs-10 col-sm-12 col-md-9 club-padding " style="margin-bottom:0px">
+										<a href="#" class="text-danger" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
+											<span class='btn btn-xs btn-danger'>{{$i}}</span> {{ $club->name }}
 										</a>
 						
 										<ul class="list-unstyled components">                   
@@ -244,7 +248,7 @@ ul ul a {
 						                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
 					                    </ul>
 					                </div>
-					                <div class="col-sm-2  hidden-xs club-padding">
+					                <div class="col-md-2  hidden-xs hidden-sm club-padding">
 					                @if($club->image != '')
 										<img src="{{ $club->image }}" class="img-responsive" />					                	
 									@endif
@@ -258,7 +262,7 @@ ul ul a {
 
                 <div id="club_div" class="hide">
                 	<div id="club_image" class="sidebar-image"></div>
-	                <div class="sidebar-header">
+	                <div class="sidebar-header">	               
 	                    <div id="club_name" class="h4 text-white"></div>	                    
 	                	<a href="#" onclick="listClubs(); return false;" class="text-white">
 	                		<i class="fa fa-chevron-left text-white"></i> Back to lists of clubs
@@ -357,70 +361,7 @@ ul ul a {
 	        </div>
         </div>
     </div>
-	 <!-- Modal List Clubs-->
-	<div class="modal fade" id="modClubs" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		          	<h3 class="modal-title text-center">Racquetball Clubs & Facilities Directory</h3>
-		          	<h5 class="text-primary text-center">
-		          		If you don't see a club or facility on our map, please help us out. 
-		          		<a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="btn btn-xs btn-success"> Add to the map.</a>
-	          		</h5>
-          		</div>
-	        	<div class="modal-body">
-				<div class="navbar-collapse nav-filter-collapse">
-						<ul class="nav nav-pills mix-filter margin-bottom-10">
-							<li data-filter="all" class="filter active"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('all') }}"/> All</a></li>
-							<li data-filter="support" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('support') }}"/> Supports USAR</a></li>
-							<li data-filter="college" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('college')  }}"/> College</a></li>
-							<li data-filter="club" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('club')  }}"/> Club</a></li>
-							<li data-filter="military" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('military') }}"/> Military</a></li>
-							<li data-filter="rec" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('rec') }}"/> Rec Center</a></li>
-							<li data-filter="ymca" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('ymca') }}"/> YMCA</a></li>
-						</ul>
-						<hr/>
-						<div id="portfolio" class="clearfix fullwidth portfolio-gutter">
-						<div class="mix-grid">	
-							@foreach($clubs as $club)
-								<div class="portfolio-item col-sm-6 club_detail mix {{$club->map_icon}}">
-									<div class="item-box">
-										<div style="float:left; padding-right:2px">
-											<a href="#" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} ); map.setZoom(17); map.panTo({{ $club->lat }}, {{ $club->lng }} ); return false;" > 
-												<img style="height:28px" src={{asset($club->ico)}} />	
-											</a>
-										</div>
-										<div>
-											<a href="#"  data-dismiss="modal" onclick="map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
-												{{  $club->name }}
-											</a>
-											<address style="padding-left:28px">
-												{{ $club->address }} <br/>
-												{{ $club->city }}  {{ $club->zip}} <br/>
-												<i class="fa fa-phone"></i> {{ $club->phone }} <br/>
-												@if($club->url <> '')
-													<a href="{{ $club->url}}" target="new" class="text-info" ><i class="fa fa-globe"></i> 
-													{{ substr( explode("//", $club->url)[1], 0, 31) }}
-													@if(strlen($club->url) > 31)
-													...
-													@endif
-													</a>
-												@endif
-											</address>
-										</div>
-									</div>
-								</div>
-							@endforeach
-						</div>
-						</div>
-					</div>				 						
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	
 @stop
 
 @section('script')
@@ -431,6 +372,7 @@ ul ul a {
  		var infoWindow;
  		var geocoder;
  		var user_pos;
+ 		var club_num =1;
 
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
@@ -474,16 +416,15 @@ ul ul a {
 	            infoWindow.open(map);
 	            map.setCenter(mypos);
 
+	            var club_num = 0;     	  
 
     			// Create markers.
 		    	clubs.forEach(function(club) {
-		    	
+		    		 	   
+	    		    club_num +=1;
+
 		    		var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
-
-		    		var i = 1;
-		    		var ico = club.ico;	 
-		    		i +=1;    	    		     	   
-
+		    		
 		    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
 	    			var myCord = new google.maps.LatLng(mypos.lat, mypos.lng);
 		     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles		
@@ -510,13 +451,15 @@ ul ul a {
 	      				content: club.info
 	    			});
 
+		    		club.label = club_num.toString();
+		    		
 	    		    var marker = new google.maps.Marker({
 		     	       position: c,
+		     	       animation: google.maps.Animation.DROP,
 		     	       map: map,
-		     	       icon: ico,
+		     	       label: club.label,
 		     	       title: club.name
-		     	    });	   	     	   
-
+		     	    });	   	      
 
 					//open marker if club within current location					     	    			     	   
 		     	    if(club.dist <= minDist) {
@@ -541,8 +484,6 @@ ul ul a {
 	        } else {
 	          // Browser doesn't support Geolocation
 	          handleLocationError(false, infoWindow, map.getCenter());
-
-
 	        }
 
 
@@ -786,7 +727,7 @@ ul ul a {
 					image.innerHTML = '<img class="club-image" src="' + club.image + '" />';
 				}
 			}
-			name.innerHTML = club.name;
+			name.innerHTML = '<span class="btn btn-xs btn-danger">' + club.num + '</span> ' + club.name ;
 			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
 
@@ -815,9 +756,11 @@ ul ul a {
 
 			if (club.dist <= .5) {
 				$('#btnCheckin').removeClass('disabled');
+				$('#btnCheckin').prop('disabled');
 			}
 			else{
 				$('#btnCheckin').addClass('disabled');
+				$('#btnCheckin').prop('disabled');
 			}
 
 			loadChart(club.checkin_data);
