@@ -144,7 +144,13 @@ class PlayController extends Controller {
 				//var_dump($club->opengraph->keys());
 				//var_dump($club->opengraph->schema);
 				//dd($club->opengraph->image);
-				$club->image = $club->opengraph->image;
+				
+				if (!isset($club->opengraph->image)) {
+					$club->image = "";
+				}
+				else {
+					$club->image = $club->opengraph->image;
+				}
 				
 			}
 

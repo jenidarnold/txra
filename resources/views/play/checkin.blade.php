@@ -272,8 +272,8 @@ ul ul a {
 					                    </ul>
 					                </div>
 					                <div class="col-xs-3 club-padding">
-					                @if($club->image != 'null')
-										<img src="{{ $club->image }}" class="img-responsive" />
+					                @if($club->image != '')
+										<img src="{{ $club->image }}" class="img-responsive" />					                	
 									@endif
 									</div>
 								</div>								
@@ -803,8 +803,10 @@ ul ul a {
 			$("input[id=club_id]").val(club.id);
 			$("input[id=gtz_offset]").val(gtz_offset);
 			
-			if(club.image != 'null'){
-				image.innerHTML = '<img class="club-image" src="' + club.image + '" />';
+			if(club.image != undefined){
+				if (club.image !=''){
+					image.innerHTML = '<img class="club-image" src="' + club.image + '" />';
+				}
 			}
 			name.innerHTML = club.name;
 			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
