@@ -72,7 +72,7 @@
     /*background: #7386D5;*/
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     cursor: pointer;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -98,13 +98,20 @@
    color: #fff;
 }
 
+#sidebar .sidebar-image {
+   /*height: 100px;
+   overflow: hidden;
+   */
+}
+
 #sidebar {
 	padding: 0px;
 }
+
 #sidebar ul.components {
-    padding: 20px 0 10px;
-    margin-left: 15px;
-    margin-right: 15px;
+    padding: 10px 0 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     border-bottom: none !important;
 }
 
@@ -165,6 +172,16 @@ ul ul a {
     padding-left: 30px !important;
     background: #6d7fcc;
 }
+
+.club-padding {
+	padding-left: 5px !important;
+	padding-right: 0px !important;
+}
+
+.club-image {
+	width: 100%;
+}
+
 /*----------------------
 	FLEX SLIDER STYLE
 -----------------------*/
@@ -209,7 +226,7 @@ ul ul a {
 			<!-- Sidebar Holder -->
             <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
                 <div id="dismiss" class="btn btn-default btn-xs">
-                    <i class="glyphicon glyphicon-arrow-left"></i>
+                    <i class="fa fa-chevron-left"></i>
                 </div>
 
                 <div id="menu_div" class="">
@@ -226,29 +243,34 @@ ul ul a {
 										<img style="height:28px" src={{asset($club->ico)}} />
 									</a>
 								</div>
-								<div>
-									<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
-										{{  $club->name }}
-									</a>
-					
-									<ul class="list-unstyled components">                   
-					                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }} </div></li>
-							           {{--  <li><div id=""><i class="fa fa-phone"></i></i> {{ $club->phone }}</div></li> --}}
-							           {{--  <li><div id=""> 
-								            	@if($club->url <> '')
-													<a href="{{ $club->url}}" style="padding:0px" target="new" class="text-info" ><i class="fa fa-globe"></i>
-													{{ substr( explode("//", $club->url)[1], 0, 20) }}
-														@if(strlen($club->url) > 31)
-														...
-														@endif
-													</a>
-												@endif
-							            	</div></li> --}}
-							            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
-					                    <li><div id=""></div></li>
-					                    {{-- <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>   --}}
-					                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
-				                    </ul>
+								<div class="row">									
+									<div class="col-xs-7 club-padding">
+										<a href="#" class="bold text-primary" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
+											{{  $club->name }}
+										</a>
+						
+										<ul class="list-unstyled components">                   
+						                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }} </div></li>
+								           {{--  <li><div id=""><i class="fa fa-phone"></i></i> {{ $club->phone }}</div></li> --}}
+								           {{--  <li><div id=""> 
+									            	@if($club->url <> '')
+														<a href="{{ $club->url}}" style="padding:0px" target="new" class="text-info" ><i class="fa fa-globe"></i>
+														{{ substr( explode("//", $club->url)[1], 0, 20) }}
+															@if(strlen($club->url) > 31)
+															...
+															@endif
+														</a>
+													@endif
+								            	</div></li> --}}
+								            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
+						                    <li><div id=""></div></li>
+						                    {{-- <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>   --}}
+						                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
+					                    </ul>
+					                </div>
+					                <div class="col-xs-3 club-padding">
+										<img src="{{ $club->image }}" class="img-responsive" />
+									</div>
 								</div>								
 							</div>
 							<hr/>
@@ -257,11 +279,14 @@ ul ul a {
                 </div>
 
                 <div id="club_div" class="hide">
+                	<div id="club_image" class="sidebar-image"></div>
 	                <div class="sidebar-header">
 	                    <div id="club_name" class="h4 text-white"></div>	                    
-	                	<a href="#" onclick="listClubs(); return false;" class="text-white">Back to lists of clubs</a>
+	                	<a href="#" onclick="listClubs(); return false;" class="text-white">
+	                		<i class="fa fa-chevron-left text-white"></i> Back to lists of clubs
+                		</a>
 	                </div>
-	                <ul class="list-unstyled components">                   
+	                <ul class="list-unstyled components">  
 	                    <li><div id="club_addr"></div></li>
 			            <li><div id="club_phone"></div></li>
 			            <li><div id="club_url"></div></li>
@@ -757,6 +782,7 @@ ul ul a {
 		
 		function loadClubSidePanel(club){
 
+			var image = document.getElementById('club_image');
 			var name = document.getElementById('club_name');
 			var addr = document.getElementById('club_addr');
 			var phone = document.getElementById('club_phone');
@@ -772,6 +798,7 @@ ul ul a {
 			$("input[id=club_id]").val(club.id);
 			$("input[id=gtz_offset]").val(gtz_offset);
 			
+			image.innerHTML = '<img class="club-image" src="' + club.image + '" />';
 			name.innerHTML = club.name;
 			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;

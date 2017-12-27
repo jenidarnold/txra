@@ -46,7 +46,7 @@ class Club extends Model
         return $this->checkins()
             ->where('checkin_at', '>=', $formatted_date)
             ->count();
-    }
+    }    
 
     public function getCheckinDataAttribute()
     {

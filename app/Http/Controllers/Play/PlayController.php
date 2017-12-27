@@ -7,6 +7,7 @@ use Redirect;
 use App\Club;
 use App\Instructor;
 use App\OpenGraph;
+use App\OpenGraphFree;
 use App\Checkin;
 
 class PlayController extends Controller {
@@ -120,6 +121,9 @@ class PlayController extends Controller {
 	public function mylocation(Request $request)
 	{
 
+		//$og = New OpenGraph;
+		$og = New OpenGraphFree;
+
 		$clubs = Club::where('lat', '>', 0)
 				->orderBy('name')
 				->get()
@@ -131,6 +135,19 @@ class PlayController extends Controller {
 			$club->checkins_total = $club->checkins_total;
 			$club->checkins_recent = $club->checkins_recent;
 			$club->checkin_data = $club->checkin_data;
+
+			if(strlen($club->url) > 0 ){
+				//$club->opengraph = $og->get_info($club->url);
+
+				//$club->url = 'https://trufitathleticclubs.com/';
+				$club->opengraph = OpenGraphFree::fetch($club->url);
+				//var_dump($club->opengraph->keys());
+				//var_dump($club->opengraph->schema);
+				//dd($club->opengraph->image);
+				$club->image = $club->opengraph->image;
+				
+			}
+
 			$i++;
 		}	
 
