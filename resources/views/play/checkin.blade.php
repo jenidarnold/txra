@@ -729,12 +729,10 @@ ul ul a {
 					});
 				}		
 				
+				//set chart to current day
 				var d = new Date();
 				var currDay = d.getDay() - 1;
-
-				console.log('Today is ' + currDay);
-				changeSlide(currDay);
-				console.log('Current Slide ' + currSlide);					
+				changeSlide(currDay);					
 			}
 
 			function changeSlide(slide){
@@ -777,14 +775,16 @@ ul ul a {
 			name.innerHTML = club.name;
 			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
-			if (club.url != ''){
-				url = club.url.split("//")[1];
 
-				if(url.length > 30){
-					url = url.substring(0,29) + "...";
+			if (club.url != ''){
+
+				var u = club.url.split("//")[1];
+
+				if(u.length > 30){
+					u = u.substring(0,29) + "...";
 				}
 
-				url.innerHTML = '<a href=' + club.url + ' target="new" style="padding:0px"><i class="fa fa-globe"></i> ' + url + '</a>';
+				url.innerHTML = '<a href=' + club.url + ' target="new" style="padding:0px"><i class="fa fa-globe"></i> ' + u + '</a>';
 			}
 			courts.innerHTML = '<i class="fa fa-cube"></i> ' + club.courts + ' court(s)';
 			tot_chk.innerHTML = '<i class="fa fa-male"></i> ' + club.checkins_total + ' check-ins total';
@@ -839,14 +839,14 @@ ul ul a {
 
     	function listClubs(){
 			$('#sidebar').addClass('active');
-			$('#menu_div').toggleClass('hide');
-			$('#club_div').toggleClass('hide');
+			$('#menu_div').removeClass('hide');
+			$('#club_div').addClass('hide');
 		}	
 
 		function showClub(club){
 			$('#sidebar').addClass('active');
-			$('#club_div').toggleClass('hide');
-			$('#menu_div').toggleClass('hide');
+			$('#club_div').removeClass('hide');
+			$('#menu_div').addClass('hide');
 			loadClubSidePanel(club);				
 		}		
 	</script>
