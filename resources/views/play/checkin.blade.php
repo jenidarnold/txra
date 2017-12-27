@@ -324,7 +324,7 @@ ul ul a {
 					</div>
 					{{-- <div id="legend"><h4>Legend</h4></div> --}}
 					<div id="mylocation">
-						<button class="btn btn-xs btn-default text-center" onclick="map.setCenter(user_pos); return false;" tooltip="Your Location">
+						<button class="btn btn-xs btn-default text-center" onclick="map.setCenter(setCurrPos()); return false;" tooltip="Your Location">
 						<i class="fa fa-crosshairs fa-lg" style="padding:0px"></i></button>
 					</div>
 				</div>				
@@ -807,6 +807,19 @@ ul ul a {
 			}
 
 			loadChart(club.checkin_data);
+		}
+
+		function setCurrPos(){
+		 	if (navigator.geolocation) {
+	          	navigator.geolocation.getCurrentPosition(function(position) {
+		            mypos = {
+		              lat: position.coords.latitude,
+		              lng: position.coords.longitude
+		            };
+
+            	user_pos = mypos;
+				});
+			}
 		}
 
 	</script>
