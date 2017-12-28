@@ -453,7 +453,7 @@ ul ul a {
 
 		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
 		  var myico = '../images/mapicons/sports/racquet.png';	
-		  var ico = '../images/mapicons/sports/letters/letter_r.png';	
+		  var ico = '../images/mapicons/letters/letter_r.png';	
 
 		  if(uuid == myUuid){
 		  	ico = myico;
