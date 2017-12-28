@@ -443,7 +443,7 @@ ul ul a {
 		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
 		  var myico = '../images/mapicons/sports/racquet-green.png';	
 		  var ico = '../images/mapicons/sports/racquet-purple.png';	
-		  var title ='Friend is here;'
+		  var title ='Friend is here';
 		  if(uuid == myUuid){
 		  	ico = myico;
 		  	title = 'You are here';

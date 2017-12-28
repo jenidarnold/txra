@@ -174,7 +174,7 @@
 			<div id="header" class="dark transparent clearfix">
 				<!-- TOP NAV -->
 				<header id="topNav">
-					<div class="containerX">
+					<div class="container">
 
 						<!-- Mobile Menu Button -->
 						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
@@ -290,53 +290,84 @@
 									@endif							
 									<!-- /USER OPTIONS -->	
 
-									<li class="dropdown">
+									<li class="dropdown mega-menu">
 									<!-- PLAY -->
 										<a class="dropdown-toggle" href="#">
 											PLAY
 										</a>
 										<ul class="dropdown-menu">
-											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													HOW TO PLAY
-												</a>
-												<ul class="dropdown-menu">
-													<li><a href="{{ route('play.basics')}}">THE BASICS</a></li>
-													<li><a href="{{ route('play.rules')}}">THE RULES</a></li>
-													<li><a href="{{ route('play.levels')}}">SKILL LEVELS</a></li>
-												</ul>
-											</li>
-											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													WHERE TO PLAY
-												</a>
-												<ul class="dropdown-menu">
-													<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
-													<li class="dropdown hidden-xs hidden-sm">
-														<a class="dropdown hidden-xs hidden-sm" href="/checkin">
-															CHECK-INS <span class="btn btn-xs btn-warning">BETA</span>
-														</a>	
-													</li>
-													{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}
-													<li><a href="{{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>												
-												</ul>
-											</li>
+											<li>
+												<div class="row">
+													<div class="col-md-3">
+														<ul class="list-unstyled">
+															<li><span>WHO</span></li>
+															<li><a href="{{ route('members.listing')}}">MEMBER PROFILES</a></li>
+															<li>
+																<a class="dropdown" href="{{route('members.rankings')}}">
+																	PLAYER RANKINGS
+																</a>
+															</li>	
+															<li><a href="{{ route('play.instructors')}}">INSTRUCTORS</a></li>	
+															<li><a href="{{ route('referees')}}">REFEREES</a></li>		
+														</ul>
+													</div>
+													<div class="col-md-3">
+														<ul class="list-unstyled">
+															<li><span>WHAT</span></li>
+															<ul class="list-unstyled">
+																<li class="">
+																	<a class="dropdown" href="{{ route('events.index', array('type' =>'live'))}}">
+																		LIVE EVENTS
+																	</a>
+																</li>
+																<li class="">
+																	<a class="dropdown" href="{{ route('events.index', array('type' =>'future'))}}">
+																		FUTURE EVENTS
+																	</a>
+																</li>
+																<li class="">
+																	<a class="dropdown" href="{{ route('events.index', array('type' =>'recent'))}}">
+																		RECENT EVENTS
+																	</a>
+																</li>
+																<li class="">
+																	<a class="dropdown" href="{{ route('events.index', array('type' =>'past'))}}">
+																		PAST EVENTS
+																	</a>
+																</li>
+																<li class="">
+																	<a class="dropdown" href="{{ route('events.index', array('type' =>'ladder'))}}">
+																		LADDERS
+																	</a>
+																</li>
+															</ul>
+														</ul>
+													</div>
+													<div class="col-md-3">
+														<ul class="list-unstyled">
+															<li><span>WHERE</span></li>
+															<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
+															<li class="dropdown hidden-xs hidden-sm">
+																<a class="dropdown hidden-xs hidden-sm" href="/checkin">
+																CHECK-INS <span class="btn btn-xs btn-warning">BETA</span>
+																</a>	
+															</li>
+															{{-- <li><a href="{{ route('play.leagues.index')}}">LEAGUES</a></li> --}}
+															<li><a href="{{ route('events.index', array('type' =>'future'))}}">TOURNAMENTS</a></li>								
 
-											<li class="dropdown">
-												<a href="{{ route('play.instructors')}}">INSTRUCTORS</a>
-												<!--
-												<a class="dropdown-toggle" href="#">
-													IMPROVE YOUR GAME
-												</a>
-												<ul class="dropdown-menu">
-													<li><a href="{{ route('play.instructors')}}">INSTRUCTORS</a></li>
-													<li><a href="page-services-2.html">CLINICS</a></li>
-												</ul>
-												-->
-											</li>	
-											<li class="dropdown">
-												<a href="{{ route('referees')}}">REFEREES</a>
-											</li>										
+														</ul>
+													</div>
+													
+													<div class="col-md-3">
+														<ul class="list-unstyled">
+															<li><span>HOW</span></li>
+															<li><a href="{{ route('play.basics')}}">THE BASICS</a></li>
+															<li><a href="{{ route('play.rules')}}">THE RULES</a></li>
+															<li><a href="{{ route('play.levels')}}">SKILL LEVELS</a></li>
+														</ul>
+													</div>
+												</div>												
+											</li>							
 										</ul>
 									</li>
 									<li class="dropdown"><!-- PROGRAMS -->
@@ -389,30 +420,19 @@
 									</li>
 									<li class="dropdown"><!-- MEMBERS -->
 										<a class="dropdown-toggle" href="#">
-											MEMBERS
+											JOIN
 										</a>
 										<ul class="dropdown-menu">
 											<li class="dropdown">
-												<a href="{{route('members.listing')}}">PROFILES</a>
+												<a href="/register">TXRA.org</a>
 											</li>
+																					
 											<li class="dropdown">
-												<a class="dropdown" href="{{route('members.rankings')}}">
-													RANKINGS
-												</a>
-											</li>											
-											<li class="dropdown">
-												<a href="{{route('members.membership')}}">MEMBERSHIPS</a>
-												<!--
-												<ul class="dropdown-menu">
-													<li><a href="portfolio-single-parallax.html">MEMBER BENEFITS</a></li>
-													<li><a href="portfolio-single-parallax.html">FREE e-Membership</a></li>
-													<li><a href="{{route('members.membership')}}">COMPETITVE MEMBERSHIPS</a></li>
-												</ul>
-												-->
+												<a href="{{route('members.membership')}}">USAR</a>												
 											</li>
 										</ul>
 									</li>
-									<li class="dropdown"><!-- EVENTS -->
+{{-- 									<li class="dropdown"><!-- EVENTS -->
 										<a class="dropdown-toggle" href="#">
 											EVENTS
 										</a>
@@ -443,8 +463,8 @@
 												</a>
 											</li>
 										</ul>
-									</li>
-									<li class="dropdown"><!-- EVENTS -->
+									</li> --}}
+									<li class="dropdown"><!-- NEWS -->
 										<a class="dropdown-toggle" href="#">
 											NEWS
 										</a>
