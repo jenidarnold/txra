@@ -438,25 +438,15 @@ ul ul a {
 		var markersRef = firebase.database().ref('maps/' + mapId);
 		var markers = {};
 
-		// // Current position is stored under `myUuid` node
-		// navigator.geolocation.watchPosition(function(position) {
-		//   markersRef.child(myUuid).set({
-		//     coords: {
-		//       latitude: position.coords.latitude,
-		//       longitude: position.coords.longitude,
-		//     },
-		//     timestamp: Math.floor(Date.now() / 1000)
-		//   })
-		// })
-
 		function addPoint(uuid, position) {
 
 		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-		  var myico = '../images/mapicons/sports/racquet.png';	
-		  var ico = '../images/mapicons/letters/letter_r.png';	
-
+		  var myico = '../images/mapicons/sports/racquet-green.png';	
+		  var ico = '../images/mapicons/sports/racquet-purple.png';	
+		  var title ='Friend is here;'
 		  if(uuid == myUuid){
 		  	ico = myico;
+		  	title = 'You are here';
 		  }
 
 		  var marker = new google.maps.Marker({
@@ -464,11 +454,12 @@ ul ul a {
 	     	      //icon: icons[feature.type].icon,
 	     	       map: map,
 	     	       icon: ico,
-	     	       title: "You are here"
+	     	       title: title,
 	     	    });	 
 
 		  markers[uuid] = marker;
 
+			console.log('addPoint:'  + uuid);
 		}
 
 		function removePoint(uuid) {
@@ -478,8 +469,8 @@ ul ul a {
 		function updatePoint(uuid, position) {
 		  var marker = markers[uuid];
 
-			console.log('updatePoint');
-			console.log(position);
+			console.log('updatePoint:'  + uuid);
+			//console.log(position);
 
 		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
 		  marker.setPosition(pos);
