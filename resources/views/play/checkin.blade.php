@@ -435,7 +435,7 @@ ul ul a {
 		  // Get a reference to the database service
 		var database = firebase.database();
 
-		var markersRef = firebase.database.ref;
+		var markersRef = firebase.database().ref('maps/' + mapId);
 		var markers = {};
 
 		// // Current position is stored under `myUuid` node
@@ -451,9 +451,13 @@ ul ul a {
 
 		function addPoint(uuid, position) {
 
+			console.log('addPoint');
+			console.log(position);
+
+		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
 		  var ico = '../images/mapicons/sports/racquet.png';	
 		  var marker = new google.maps.Marker({
-	     	       position: position,
+	     	       position: pos,
 	     	      //icon: icons[feature.type].icon,
 	     	       map: map,
 	     	       icon: ico,
@@ -465,13 +469,22 @@ ul ul a {
 		}
 
 		function removePoint(uuid) {
-		  map.removeLayer(markers[uuid])
-		  //markers[uuid] = null
+
+			console.log('removePoint');
+			console.log(uuid);
+		  markers[uuid].setMap(null);
+		  
 		}
 
 		function updatePoint(uuid, position) {
-		  var marker = markers[uuid]
-		  marker.setLatLng([position.coords.latitude, position.coords.longitude])
+		  var marker = markers[uuid];
+
+
+			console.log('updatePoint');
+			console.log(position);
+
+		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+		  marker.setPosition(pos);
 		}
 
 		function putPoint(uuid, position) {
@@ -497,63 +510,22 @@ ul ul a {
           		mapTypeControl: false,
 	    	});       	
 
-   //      	var watchPositionId;
-			// map.on('ready', function() {
-			//   function successCoords(position) {
-			//     if (!position.coords) return
+         	var watchPositionId;
 
-			//     database.ref('maps/'+ mapId + '/'+ myUuid).set({
-			//       coords: {
-			//         latitude: position.coords.latitude,
-			//         longitude: position.coords.longitude,
-			//       },
-			//       timestamp: Math.floor(Date.now() / 1000)
-			//     })
+			// Remove old markers
+			setInterval(function() {
+			  // markersRef.limitToFirst(100).once('value', function(snap) {
+			  //   var now = Math.floor(Date.now() / 1000)
 
-			//     // map.panTo([position.coords.latitude, position.coords.longitude])
-			//   }
-
-			//   function errorCoords() {
-			//     console.log('Unable to get current position')
-			//   }
-
-			//   watchPositionId = navigator.geolocation.watchPosition(successCoords, errorCoords);
-
-			//   markersRef.on('child_added', function(childSnapshot) {
-			//     var uuid = childSnapshot.key()
-			//     var position = childSnapshot.val()
-
-			//     addPoint(uuid, position)
-			//   })
-
-			//   markersRef.on('child_changed', function(childSnapshot) {
-			//     var uuid = childSnapshot.key()
-			//     var position = childSnapshot.val()
-
-			//     putPoint(uuid, position)
-			//   })
-
-			//   markersRef.on('child_removed', function(oldChildSnapshot) {
-			//     var uuid = oldChildSnapshot.key()
-
-			//     removePoint(uuid)
-			//   })
-			// });
-
-			// // Remove old markers
-			// setInterval(function() {
-			//   markersRef.limitToFirst(100).once('value', function(snap) {
-			//     var now = Math.floor(Date.now() / 1000)
-
-			//     snap.forEach(function(childSnapshot) {
-			//       var uuid = childSnapshot.key()
-			//       if (childSnapshot.val().timestamp < now - 60 * 30) {
-			//         markersRef.child(uuid).set(null)
-			//         //markers[uuid] = null
-			//       }
-			//     })
-			//   })
-			// }, 5000);
+			  //   snap.forEach(function(childSnapshot) {
+			  //     var uuid = childSnapshot.key()
+			  //     if (childSnapshot.val().timestamp < now - 60 * 30) {
+			  //       markersRef.child(uuid).set(null)
+			  //       //markers[uuid] = null
+			  //     }
+			  //   })
+			  // })
+			}, 5000);
 
 			/* Google Map Stuff */
         	infoWindow = new google.maps.InfoWindow({
@@ -642,12 +614,56 @@ ul ul a {
 	      				clubWindow.open(map,marker);
 		     	    	showClub(club);
 	    			});
+		     	}); /* end forecah club */
 
-	    			google.maps.event.addListener(clubWindow, 'domready', function() {
-	    				//loadChart(club.checkin_data);	    				
-	    			});
-		     	   
-		     	});
+
+				google.maps.event.addListener(map, 'domready', function() {
+
+	    		});
+
+				function successCoords(position) {
+				    if (!position.coords) return
+
+				    database.ref('maps/'+ mapId + '/'+ myUuid).set({
+				      coords: {
+				        latitude: position.coords.latitude,
+				        longitude: position.coords.longitude,
+				      },
+				      timestamp: Math.floor(Date.now() / 1000)
+				    })
+
+				  }
+
+				  function errorCoords() {
+				    console.log('Unable to get current position')
+				  }
+
+				  //Need to clearthe watch position id so it starts up again tracking. probably set clear on Checkin.
+				  
+				  navigator.geolocation.clearWatch(1);
+				  watchPositionId = navigator.geolocation.watchPosition(successCoords);
+				 
+				  markersRef.on('child_added', function(childSnapshot) {
+				    var uuid = childSnapshot.key;
+				    var position = childSnapshot.val();
+
+				    console.log( 'markersRef.on( child_added:' + uuid);
+				    addPoint(uuid, position);
+				  })
+
+				  markersRef.on('child_changed', function(childSnapshot) {
+				    var uuid = childSnapshot.key;
+				    var position = childSnapshot.val();
+
+				    console.log( 'markersRef.on( child_changed:' + uuid);
+				    putPoint(uuid, position);
+				  })
+
+				  markersRef.on('child_removed', function(oldChildSnapshot) {
+				    var uuid = oldChildSnapshot.key;
+
+				    removePoint(uuid);
+				  })  	
 
 	          }, function() {
 	            handleLocationError(true, infoWindow, map.getCenter());
@@ -656,38 +672,6 @@ ul ul a {
 	          // Browser doesn't support Geolocation
 	          handleLocationError(false, infoWindow, map.getCenter());
 	        }
-
-
-	    	// Create Legend	
-	    	
-	    	var iconBase = '../images/mapicons/';
-	        var icons = {
-	          support: {
-	            name: 'Supports USAR',
-	            icon: iconBase + 'sports/racquet.png'
-	          },
-	          club: {
-	            name: 'Club',
-	            icon: iconBase + 'numbers/number_1.png'
-	          },
-	          college: {
-	            name: 'College',
-	            icon: iconBase + 'letters/letter_c.png'
-	          },
-	          military: {
-	            name: 'Military',
-	            icon: iconBase + 'letters/letter_m.png'
-	          },
-	          rec: {
-	            name: 'Rec Center',
-	            icon: iconBase + 'letters/letter_r.png'
-	          },
-	          ymca: {
-	            name: 'YMCA',
-	            icon: iconBase + 'letters/letter_y.png'
-	          }
-	        };
-
 
 	  	    var search = document.getElementById('search');	
 	  	    var mylocation = document.getElementById('mylocation');	
@@ -829,7 +813,7 @@ ul ul a {
 							currSlide = 6;
 						}
 						$("#dayofweek option[value=" + currSlide +"]").attr('selected','selected');	
-						console.log('  clicked prev. Current Slide ' + currSlide);
+						//console.log('  clicked prev. Current Slide ' + currSlide);
 					});
 
 					$('.flex-next').on('click', function(){
@@ -838,12 +822,12 @@ ul ul a {
 							currSlide = 0;
 						}
 						$("#dayofweek option[value=" + currSlide +"]").attr('selected','selected');	
-						console.log('  clicked next. Current Slide' + currSlide);
+						//console.log('  clicked next. Current Slide' + currSlide);
 					});
 
 					$("#dayofweek").on("change", function(){
 						slide = $(this).val();
-						console.log('  change day. Current Slide' + currSlide);
+						//console.log('  change day. Current Slide' + currSlide);
 						changeSlide(slide);
 					});
 				}		
@@ -860,13 +844,13 @@ ul ul a {
 					while (currSlide > slide ) 
 					{
 				    	$('.flex-prev i').trigger('click');		    	
-				    	console.log('trigger prev '  + currSlide);	    	
+				    	//console.log('trigger prev '  + currSlide);	    	
 				    }
 				}else{
 					while (currSlide < slide ) 
 					{
 				    	$('.flex-next i').trigger('click');
-				    	console.log('trigger next '  + currSlide);		 
+				    	//console.log('trigger next '  + currSlide);		 
 				    }
 				}	
 				$("#dayofweek option[value=" + currSlide +"]").attr('selected','selected');		
