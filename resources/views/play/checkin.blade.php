@@ -392,7 +392,7 @@ ul ul a {
 
 		// If not set generate a new one
 		if (!mapId) {
-		  mapId = (Math.random() + 1).toString(36).substring(2, 12);
+		  mapId = 'tx'; //(Math.random() + 1).toString(36).substring(2, 12);
 		  location.hash = mapId;
 		}
 
@@ -451,11 +451,14 @@ ul ul a {
 
 		function addPoint(uuid, position) {
 
-			console.log('addPoint');
-			console.log(position);
-
 		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-		  var ico = '../images/mapicons/sports/racquet.png';	
+		  var myico = '../images/mapicons/sports/racquet.png';	
+		  var ico = '../images/mapicons/sports/letters/letter_r.png';	
+
+		  if(uuid == myUuid){
+		  	ico = myico;
+		  }
+
 		  var marker = new google.maps.Marker({
 	     	       position: pos,
 	     	      //icon: icons[feature.type].icon,
@@ -469,16 +472,11 @@ ul ul a {
 		}
 
 		function removePoint(uuid) {
-
-			console.log('removePoint');
-			console.log(uuid);
-		  markers[uuid].setMap(null);
-		  
+		  	markers[uuid].setMap(null);		  
 		}
 
 		function updatePoint(uuid, position) {
 		  var marker = markers[uuid];
-
 
 			console.log('updatePoint');
 			console.log(position);
@@ -543,21 +541,21 @@ ul ul a {
 	              lng: position.coords.longitude
 	            };
 
-	            user_pos = mypos;
+	      	user_pos = mypos;
 
-	    		var ico = '../images/mapicons/sports/racquet.png';	    		
-	            var marker = new google.maps.Marker({
-	     	       position: mypos,
-	     	      //icon: icons[feature.type].icon,
-	     	       map: map,
-	     	       icon: ico,
-	     	       title: "You are here"
-	     	    });	 
+    		// var ico = '../images/mapicons/sports/racquet.png';	    		
+	      	//       var marker = new google.maps.Marker({
+	     	//        position: mypos,
+	     	//       //icon: icons[feature.type].icon,
+	     	//        map: map,
+	     	//        icon: ico,
+	     	//        title: "You are here"
+	     	//     });	 
 	       
-	            infoWindow.setPosition(mypos);
-	            infoWindow.setContent('You are here');
-	            infoWindow.open(map);
-	            map.setCenter(mypos);
+	            // infoWindow.setPosition(mypos);
+	            // infoWindow.setContent('You are here');
+	            // infoWindow.open(map);
+	            // map.setCenter(mypos);
 
 	            var club_num = 0;     	  
 
@@ -932,9 +930,7 @@ ul ul a {
             	user_pos = mypos;
 				});
 			}
-			console.log('user position ...');
-			console.log(user_pos);
-
+			
 			return user_pos;
 		}
 
