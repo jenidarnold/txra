@@ -367,13 +367,92 @@ ul ul a {
 @section('script')
 	<script type="text/javascript" src="{{asset('plugins/slider.swiper/dist/js/swiper.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('js/view/demo.swiper_slider.js')}}"></script>
- 	<script>
+
+	<!-- Firebase --> 
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+	<script>
+
+	/**
+    * Data object to be written to Firebase.
+    */
+      var data = {
+        sender: null,
+        timestamp: null,
+        lat: null,
+        lng: null
+      };
+
+ 		// Read the current hash
+		var mapId = location.hash.replace(/^#/, '');
+
+		// If not set generate a new one
+		if (!mapId) {
+		  mapId = (Math.random() + 1).toString(36).substring(2, 12);
+		  location.hash = mapId;
+		}
+
+		// Get current UUID
+		var myUuid = localStorage.getItem('myUuid');
+
+		// Create a new one for newcomers
+		if (!myUuid) {
+		  myUuid = guid();
+		  localStorage.setItem('myUuid', myUuid);
+		}
+
+		console.log('mapId:' + mapId);
+		console.log('localStorage:' + myUuid);
+
+		function guid() {
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+				var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+				return v.toString(16);
+			});
+		}
+	/*
+	* Reference to Firebase database.
+    * @const
+    */
+
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBYR5pSYCjxwrZFqySEGKl8iHpuKtbXh4I",
+	    authDomain: "txra-171117.firebaseapp.com",
+	    databaseURL: "https://txra-171117.firebaseio.com",
+	    projectId: "txra-171117",
+	    storageBucket: "txra-171117.appspot.com",
+	    messagingSenderId: "431463891872"
+	  };
+	  
+	  firebase.initializeApp(config);
+	  var markersRef  = firebase.database().ref();
+	  // Get a reference to the database service
+	  var database = firebase.database();
+
+	  console.log(markersRef);
+
+	  //console.log(markersRef);
+
+		// Current position is stored under `myUuid` node
+		navigator.geolocation.watchPosition(function(position) {
+		  database.ref('maps/'+ myUuid).set({
+		    coords: {
+		      latitude: position.coords.latitude,
+		      longitude: position.coords.longitude,
+		    },
+		    timestamp: Math.floor(Date.now() / 1000)
+		  })
+		})
+
+    /*
+    * Map Stuff 
+    */
  		var map;
  		var infoWindow;
  		var geocoder;
  		var user_pos;
  		var club_num =1;
-
+ 		
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
 			var clubs = {!! json_encode($clubs->toArray()) !!};
@@ -823,5 +902,7 @@ ul ul a {
 			$('#menu_div').addClass('hide');
 			loadClubSidePanel(club);				
 		}		
+
+
 	</script>
 @stop
