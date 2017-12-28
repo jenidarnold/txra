@@ -372,15 +372,20 @@ ul ul a {
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 	<script>
 
-	/**
-    * Data object to be written to Firebase.
-    */
-      var data = {
-        sender: null,
-        timestamp: null,
-        lat: null,
-        lng: null
-      };
+ 		var map;
+ 		var infoWindow;
+ 		var geocoder;
+ 		var user_pos;
+ 		var club_num =1;
+		/**
+	    * Data object to be written to Firebase.
+	    */
+      	var data = {
+	        sender: null,
+	        timestamp: null,
+	        lat: null,
+	        lng: null
+      	};
 
  		// Read the current hash
 		var mapId = location.hash.replace(/^#/, '');
@@ -403,55 +408,83 @@ ul ul a {
 		console.log('mapId:' + mapId);
 		console.log('localStorage:' + myUuid);
 
+		//Utility functions
 		function guid() {
 			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 				var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
 				return v.toString(16);
 			});
 		}
-	/*
-	* Reference to Firebase database.
-    * @const
-    */
+		/*
+		* Reference to Firebase database.
+	    * @const
+	    */
 
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyBYR5pSYCjxwrZFqySEGKl8iHpuKtbXh4I",
-	    authDomain: "txra-171117.firebaseapp.com",
-	    databaseURL: "https://txra-171117.firebaseio.com",
-	    projectId: "txra-171117",
-	    storageBucket: "txra-171117.appspot.com",
-	    messagingSenderId: "431463891872"
-	  };
-	  
-	  firebase.initializeApp(config);
-	  var markersRef  = firebase.database().ref();
-	  // Get a reference to the database service
-	  var database = firebase.database();
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyBYR5pSYCjxwrZFqySEGKl8iHpuKtbXh4I",
+		    authDomain: "txra-171117.firebaseapp.com",
+		    databaseURL: "https://txra-171117.firebaseio.com",
+		    projectId: "txra-171117",
+		    storageBucket: "txra-171117.appspot.com",
+		    messagingSenderId: "431463891872"
+		  };
+		  
+		  firebase.initializeApp(config);
+		  //var markersRef  = firebase.database().ref();
+		  // Get a reference to the database service
+		var database = firebase.database();
 
-	  console.log(markersRef);
+		var markersRef = firebase.database.ref;
+		var markers = {};
 
-	  //console.log(markersRef);
+		// // Current position is stored under `myUuid` node
+		// navigator.geolocation.watchPosition(function(position) {
+		//   markersRef.child(myUuid).set({
+		//     coords: {
+		//       latitude: position.coords.latitude,
+		//       longitude: position.coords.longitude,
+		//     },
+		//     timestamp: Math.floor(Date.now() / 1000)
+		//   })
+		// })
 
-		// Current position is stored under `myUuid` node
-		navigator.geolocation.watchPosition(function(position) {
-		  database.ref('maps/'+ myUuid).set({
-		    coords: {
-		      latitude: position.coords.latitude,
-		      longitude: position.coords.longitude,
-		    },
-		    timestamp: Math.floor(Date.now() / 1000)
-		  })
-		})
+		function addPoint(uuid, position) {
+
+		  var ico = '../images/mapicons/sports/racquet.png';	
+		  var marker = new google.maps.Marker({
+	     	       position: position,
+	     	      //icon: icons[feature.type].icon,
+	     	       map: map,
+	     	       icon: ico,
+	     	       title: "You are here"
+	     	    });	 
+
+		  markers[uuid] = marker;
+
+		}
+
+		function removePoint(uuid) {
+		  map.removeLayer(markers[uuid])
+		  //markers[uuid] = null
+		}
+
+		function updatePoint(uuid, position) {
+		  var marker = markers[uuid]
+		  marker.setLatLng([position.coords.latitude, position.coords.longitude])
+		}
+
+		function putPoint(uuid, position) {
+		  if (markers[uuid])
+		    updatePoint(uuid, position)
+		  else
+		    addPoint(uuid, position)
+		}		
 
     /*
     * Map Stuff 
     */
- 		var map;
- 		var infoWindow;
- 		var geocoder;
- 		var user_pos;
- 		var club_num =1;
+
  		
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
@@ -464,6 +497,65 @@ ul ul a {
           		mapTypeControl: false,
 	    	});       	
 
+   //      	var watchPositionId;
+			// map.on('ready', function() {
+			//   function successCoords(position) {
+			//     if (!position.coords) return
+
+			//     database.ref('maps/'+ mapId + '/'+ myUuid).set({
+			//       coords: {
+			//         latitude: position.coords.latitude,
+			//         longitude: position.coords.longitude,
+			//       },
+			//       timestamp: Math.floor(Date.now() / 1000)
+			//     })
+
+			//     // map.panTo([position.coords.latitude, position.coords.longitude])
+			//   }
+
+			//   function errorCoords() {
+			//     console.log('Unable to get current position')
+			//   }
+
+			//   watchPositionId = navigator.geolocation.watchPosition(successCoords, errorCoords);
+
+			//   markersRef.on('child_added', function(childSnapshot) {
+			//     var uuid = childSnapshot.key()
+			//     var position = childSnapshot.val()
+
+			//     addPoint(uuid, position)
+			//   })
+
+			//   markersRef.on('child_changed', function(childSnapshot) {
+			//     var uuid = childSnapshot.key()
+			//     var position = childSnapshot.val()
+
+			//     putPoint(uuid, position)
+			//   })
+
+			//   markersRef.on('child_removed', function(oldChildSnapshot) {
+			//     var uuid = oldChildSnapshot.key()
+
+			//     removePoint(uuid)
+			//   })
+			// });
+
+			// // Remove old markers
+			// setInterval(function() {
+			//   markersRef.limitToFirst(100).once('value', function(snap) {
+			//     var now = Math.floor(Date.now() / 1000)
+
+			//     snap.forEach(function(childSnapshot) {
+			//       var uuid = childSnapshot.key()
+			//       if (childSnapshot.val().timestamp < now - 60 * 30) {
+			//         markersRef.child(uuid).set(null)
+			//         //markers[uuid] = null
+			//       }
+			//     })
+			//   })
+			// }, 5000);
+
+			/* Google Map Stuff */
         	infoWindow = new google.maps.InfoWindow({
         		pixelOffset: new google.maps.Size(0, -30)
         	});

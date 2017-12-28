@@ -92,7 +92,7 @@ class PlayController extends Controller {
 
 		$clubs = Club::where('lat', '>', 0)
 				->orderBy('name')
-				//->get()
+				->get()
 			;
 
 		$i = 1;
