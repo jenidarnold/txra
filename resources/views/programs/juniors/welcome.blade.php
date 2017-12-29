@@ -31,7 +31,8 @@
 								</h1>
 								<br/>
 								<h2 class="weight-300 text-white wow fadeInUp" data-wow-delay="0.8s">the next generation of racquetball greats</h2>
-								<a class="btn btn-success btn-lg wow fadeInUp" data-wow-delay="1s" href="{{route('juniors.index')}}">GET INVOLVED</a>
+								{{-- <a class="btn btn-success btn-lg wow fadeInUp" data-wow-delay="1s" href="{{route('juniors.index')}}">GET INVOLVED</a> --}}
+								<a class="btn btn-success btn-lg wow fadeInUp" data-wow-delay="1s" href="/contact">CONTACT US </a>
 							</div>				
 						</div>
 						<div class='credit'>

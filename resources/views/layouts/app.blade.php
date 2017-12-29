@@ -370,52 +370,54 @@
 											</li>							
 										</ul>
 									</li>
-									<li class="dropdown"><!-- PROGRAMS -->
+									<li class="dropdown mega-menu"><!-- PROGRAMS -->
 										<a class="dropdown-toggle" href="#">
 											PROGRAMS
 										</a>
 										<ul class="dropdown-menu">
-											{{-- <li class="dropdown">
-												<a href="{{route('juniors.welcome')}}">JUNIORS</a>												
-											</li> --}}
-											{{-- <li class="dropdown">
-												<a href="{{route('collegiate.welcome')}}">
-													COLLEGIATE
-												</a>
-											</li> --}}
-											<li class="dropdown">
-												<a class="dropdown" href="{{ route('referee.index')}}">
-													REFEREE CERTIFICATION
-												</a>
+											<li>
+												<div class="row">
+													<div class="col-md-4">
+														<ul class="list-unstyled">
+															<li><span>YOUTH PROGRAMS</span></li>
+															<li>
+																<a href="{{route('juniors.welcome')}}">JUNIORS PROGRAM</a>												
+															</li>
+															<li>
+																<a target="new" href="https://www.teamusa.org/usa-racquetball/programs/college-racquetball">
+																	COLLEGE RACQUETBALL
+																</a>
+															</li>
+														</ul>
+													</div>
+													<div class="col-md-4">
+														<ul class="list-unstyled">
+															<li><span>CERTIFICATIONS</span></li>
+															<li class="dropdown">
+																<a class="dropdown" href="{{ route('referee.index')}}">
+																	REFEREE CERTIFICATION
+																</a>
+															</li>
+															<li class="dropdown">
+																<a href="{{ route('programs.instructors')}}">
+																	TEXAS INSTRUCTOR PROGRAM
+																</a>
+															</li>
+														</ul>
+													</div>
+													<div class="col-md-4">
+														<ul class="list-unstyled">
+															<li><span>ANNUAL AWARDS</span></li>
+															<li>
+																<a href="{{route('awards.index')}}">Gallery</a>
+															</li>
+															<li>
+																<a href="{{route('awards.nominate')}}">Nominate</a>
+															</li>		
+														</ul>
+													</div>
+												</div>
 											</li>
-											<li class="dropdown">
-												<a href="{{ route('programs.instructors')}}">
-													TEXAS INSTRUCTOR PROGRAM
-												</a>
-											</li>
-											<!--li class="dropdown" style="display:none">
-												<a class="dropdown-toggle" href="#">
-													AMBASSADOR PROGRAM
-												</a>
-											</li-->											
-											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													ANNUAL AWARDS
-												</a>
-												<ul class="dropdown-menu">
-													<li>
-														<a href="{{route('awards.index')}}">Gallery</a>
-													</li>
-													<li>
-														<a href="{{route('awards.nominate')}}">Nominate</a>
-													</li>													
-												</ul>
-											</li>
-											{{-- <li class="dropdown">
-												<a class="dropdown" href="{{ route('rewards.index')}}">
-													REWARDS PROGRAM
-												</a>
-											</li> --}}
 										</ul>
 									</li>
 									
