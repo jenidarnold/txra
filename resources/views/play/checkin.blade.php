@@ -470,9 +470,11 @@ ul ul a {
 
 			//Fit marker to bounds
 			if(uuid == myUuid){
+				var zoom = map.getZoom();
 			 	var bounds = new google.maps.LatLngBounds();
 			 	bounds.extend(pos);
-				map.fitBounds(bounds);
+				map.fitBounds(bounds); 
+				map.setZoom(zoom);
 			}
 			//Add to collection
 		  	markers[uuid] = marker;
