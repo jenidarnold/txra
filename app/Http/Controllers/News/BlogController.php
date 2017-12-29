@@ -16,7 +16,6 @@ class BlogController extends BaseController {
      */
     public function __construct()
     {
-        //$this->middleware('auth');
         $this->middleware('admin_user', ['only' => 'delete_image']);
     }
 
@@ -28,6 +27,8 @@ class BlogController extends BaseController {
 	 */
 	public function getIndex()
 	{
+
+
         $mostRecommended = Post::mostRecommended();
         $last            = Post::lastPosts();
         $last = $last

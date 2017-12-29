@@ -41,7 +41,8 @@
             @if(isset($category)) 
                 <i class="fa fa-chevron-right fa-sm"></i> {{$category}}
             @endif
-            </h1>                   
+            </h1> 
+                        
         </div>
     </section>
 
@@ -49,7 +50,26 @@
     <section>
         <div class="container">
 
-            <!--h3 class="text-muted">{!! Html::link('/blog',\Config::get('blog.title')) !!}</h3-->
+            <!-- Flash Message -->
+            <div class="flash-message">
+                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                  @if(Session::has('alert-' . $msg))
+
+                  <div class="alert alert-{{ $msg }}">
+                    {{ Session::get('alert-' . $msg) }}             
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @if($errors->has())
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        </ul>
+                    @endif
+                  </div>
+                  @endif
+                @endforeach
+            </div> 
+            <!-- end .flash-message -->     
             <div class="row">
 
                 <!-- LEFT -->
@@ -88,7 +108,7 @@
                                     </a>
                                 </li>
                              @endforeach
-                             @if(Auth::check() && Auth::user()->id = 1) 
+                             @if(Auth::check() && Auth::user()->id == 1) 
                              <li class="list-group-item"><a href="{{ route('news.drafts')}}">DRAFTS <span class="badge ">{{$drafts->count()}}</span></a> 
                              </li>
                              @endif

@@ -18,7 +18,7 @@ class PageController extends BaseController {
     public function __construct()
     {
         //$this->middleware('auth');
-        $this->middleware('admin_user');
+        $this->middleware('admin_user',  ['except' => ['create', 'store']]);
     }
 
     /**
@@ -35,8 +35,10 @@ class PageController extends BaseController {
         if(\Auth::check()){
             $author = \Auth::user();        
         } else {
-            \Session::flash('message', 'You must be logged in to create Post!');
-            return \Redirect::to('news/');
+            $message = 'You must be logged in to submit an article.';
+            return \Redirect::to('news/')
+                ->with('alert-danger', $message)
+                ;
         }
 
 
@@ -111,8 +113,10 @@ class PageController extends BaseController {
             }
 
             // redirect
-            \Session::flash('message', 'Successfully submitted article!');
-            return \Redirect::to('news/');
+            $message = 'Thank you for your article. We will contact you within 7 days to with our decision to publish.';
+            return \Redirect::to('news/')
+                ->with('alert-success', $message)
+                ;
         //}
     }
 

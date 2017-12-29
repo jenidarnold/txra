@@ -249,7 +249,7 @@
 									
 									<li class="dropdown hidden-md hidden-lg label-warning">
 										<a class="dropdown" href="/checkin">
-											CHECK-INS
+											CLUB CHECK-INS
 										</a>
 									</li>
 
@@ -348,7 +348,7 @@
 															<li><span>WHERE</span></li>
 															<li><a href="{{ route('play.map')}}">CLUBS & FACILITIES</a></li>
 															<li class="dropdown hidden-xs hidden-sm">
-																<a class="dropdown hidden-xs hidden-sm" href="/checkin">
+																<a class="dropdown" href="/checkin">
 																CHECK-INS <span class="btn btn-xs btn-warning">BETA</span>
 																</a>	
 															</li>
@@ -418,128 +418,119 @@
 											</li> --}}
 										</ul>
 									</li>
+									
+									<li class="dropdown mega-menu"><!-- NEWS -->
+										<a class="dropdown-toggle" href="#">
+											NEWS
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="row">
+													<div class="col-md-5th">														
+														<ul class="list-unstyled">
+															<li><span>QUICK LINKS</span></li>
+															<li><a href="{{ route('news.index')}}">LATEST NEWS</a></li>
+															<li><a href="{{ route('news.index')}}">TRENDING</a></li>
+															<li><a href="{{ route('news.category', array('id' =>3, 'category' => 'Tip of the Day'))}}">TIP OF THE DAY</a></li>
+														</ul>
+													</div>
+													<div class="col-md-5th">														
+														<ul class="list-unstyled">
+															<li><span>OPINION</span></li>
+															<li><a href="{{ route('news.category', array('id' =>10, 'category' => 'OP-ED'))}}">OP-ED</a></li>
+															<li><a href="{{ route('news.category', array('id' =>13, 'category' => 'Social Commentary'))}}">SOCIAL COMMENTARY</a></li>	
+														</ul>
+													</div>
+													<div class="col-md-5th">														
+														<ul class="list-unstyled">
+															<li><span>PLAYERS</span></li>
+															<li><a href="{{ route('news.category', array('id' =>2, 'category' => 'Player Spotlight') )}}">PLAYER SPOTLIGHT</a></li>
+															<li><a href="{{ route('news.category', array('id' =>6, 'category' => 'Events'))}}">TOURNAMENTS & EVENTS</a></li>
+															<li><a href="{{ route('news.category', array('id' =>11, 'category' => 'Post-Match') )}}">POST-MATCH</a></li>
+														</ul>
+													</div>
+													<div class="col-md-5th">														
+														<ul class="list-unstyled">
+															<li><span>BUSINESS</span></li>
+															<li><a href="{{ route('news.category', array('id' =>9, 'category' => 'Board Minutes'))}}">BOARD MINUTES</a></li>
+															<li><a href="{{ route('news.category', array('id' =>14, 'category' => 'Financial Reports'))}}">FINACIAL REPORTS</a></li>
+														</ul>
+													</div>
+													<div class="col-md-5th">														
+														<ul class="list-unstyled">
+															<li><span class="">CONTRIBUTE</span></li>
+															<li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li>
+														</ul>
+													</div>
+												</div>
+											</li>
+										</ul>										
+									</li>
+									<li class="dropdown mega-menu"><!-- ABOUT -->
+										<a class="dropdown-toggle" href="#">
+											ABOUT
+										</a>
+										<ul class="dropdown-menu">											
+											<li>
+												<div class="row">
+													<div class="col-md-3">														
+														<ul class="list-unstyled">
+															<li><span>ORGANIZATION</span></li>
+															<li><a href="{{ route('board.index')}}">BOARD OF DIRECTORS</a></li>
+															<li><a href="{{ route('committees.index')}}">COMMITTEES</a></li>
+														</ul>
+													</div>
+													<div class="col-md-3">														
+														<ul class="list-unstyled">
+															<li><span>POLICIES</span></li>
+															<li><a href="/about/bylaws">BY LAWS</a></li>
+															<li><a href="{{ route('election.index')}}" >ELECTION PROCEDURE</a></li>
+															{{-- <li><a href="{{ route('about.mission')}}">MISSION STATEMENT</a></li>
+															<li><a href="{{ route('about.ethics')}}" >CODE OF ETHICS</a></li> --}}
+														</ul>
+													</div>
+													<div class="col-md-3">
+														<ul class="list-unstyled">
+															<li><span>PARTICIPATE</span></li>
+															<li><a href="/donate">DONATE</a></li>
+															<li><a href="/about/committees#join">VOLUNTEER</a></li>
+														</ul>
+													</div>
+													<div class="col-md-3">
+														<ul class="list-unstyled">
+															<li><span>REPORTS</span></li>
+															<li><a href="{{ route('news.category', array('id' =>9, 'category' => 'Board Minutes'))}}">BOARD MINUTES</a></li>
+															<li><a href="{{ route('news.category', array('id' =>12, 'category' => 'Financial Reports'))}}">FINANCIAL REPORTS</a></li>
+														</ul>
+													</div>
+												</div>
+											</li>								
+										</ul>
+									</li>
+									<li><!-- CONTACT US -->
+										<li><a href="{{route('contact')}}">CONTACT US</a>
+									</li>						
 									<li class="dropdown"><!-- MEMBERS -->
 										<a class="dropdown-toggle" href="#">
 											JOIN
 										</a>
 										<ul class="dropdown-menu">
+											@if( Auth::guest())
 											<li class="dropdown">
-												<a href="/register">TXRA.org</a>
-											</li>
-																					
+												<a href="/register">TXRA.ORG</a>
+											</li>	
+											@endif							
 											<li class="dropdown">
-												<a href="{{route('members.membership')}}">USAR</a>												
-											</li>
-										</ul>
-									</li>
-{{-- 									<li class="dropdown"><!-- EVENTS -->
-										<a class="dropdown-toggle" href="#">
-											EVENTS
-										</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown">
-												<a class="dropdown" href="{{ route('events.index', array('type' =>'live'))}}">
-													LIVE EVENTS
-												</a>
-											</li>
-											<li class="dropdown">
-												<a class="dropdown" href="{{ route('events.index', array('type' =>'future'))}}">
-													FUTURE EVENTS
-												</a>
-											</li>
-											<li class="dropdown">
-												<a class="dropdown" href="{{ route('events.index', array('type' =>'recent'))}}">
-													RECENT EVENTS
-												</a>
-											</li>
-											<li class="dropdown">
-												<a class="dropdown" href="{{ route('events.index', array('type' =>'past'))}}">
-													PAST EVENTS
-												</a>
-											</li>
-											<li class="dropdown">
-												<a class="dropdown" href="{{ route('events.index', array('type' =>'ladder'))}}">
-													LADDERS
-												</a>
-											</li>
-										</ul>
-									</li> --}}
-									<li class="dropdown"><!-- NEWS -->
-										<a class="dropdown-toggle" href="#">
-											NEWS
-										</a>
-										<ul class="dropdown-menu">
-											<li><a href="{{ route('news.index')}}">LATEST</a></li>
-											<li><a href="{{ route('news.category', array('id' =>2, 'category' => 'Player Spotlight') )}}">PLAYER SPOTLIGHT</a></li>
-											<li><a href="{{ route('news.category', array('id' =>3, 'category' => 'Tip of the Day'))}}">TIP OF THE DAY</a></li>
-											<li><a href="{{ route('news.category', array('id' =>6, 'category' => 'Events'))}}">EVENTS</a></li>
-											<li><a href="{{ route('news.category', array('id' =>9, 'category' => 'Board Minutes'))}}">BOARD MINUTES</a></li>
-											{{-- <li><a href="{{ route('news.create')}}" >SUBMIT ARTICLE</a></li> --}}
-											<!--li><a href="{ { route('news .edit')}}">MY POSTS</a></li-->
-										</ul>										
-									</li>
-									<li class="dropdown"><!-- ABOUT -->
-										<a class="dropdown-toggle" href="#">
-											ABOUT
-										</a>
-										<ul class="dropdown-menu">											
-											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													LEADERSHIP
-												</a>
-												<ul class="dropdown-menu">
-													<li><a href="{{ route('board.index')}}">THE BOARD OF DIRECTORS</a></li>
-													<li><a href="{{ route('committees.index')}}" >COMMITTEES</a></li>
-													<li><a href="{{ route('election.index')}}" >ELECTION PROCEDURE</a></li>
-												</ul>
-											</li>
-											{{-- <li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													MISSION & VALUES
-												</a>
-												<ul class="dropdown-menu">
-													<li><a href="{{ route('about.mission')}}">MISSION STATEMENT</a></li>
-													<li><a href="{{ route('about.ethics')}}" >CODE OF ETHICS</a></li>
-												</ul>
-											</li>	 --}}										
-											{{-- <li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													FINANCIALS
-												</a>
-												<ul class="dropdown-menu">
-													<li><a href="blog-single-default.html">BUDGET</a></li>	
-													<li><a href="blog-single-default.html"></a></li>													
-												</ul>
-											</li> --}}
-											<li class="dropdown">
-												<a class="dropdown" href="/about/bylaws">
-													BY LAWS
-												</a>
-											</li>
-											<li class="dropdown">
-												<a class="dropdown" href="{{route('contact')}}">
-													CONTACT US
-												</a>												
+												<a href="{{route('members.membership')}}">USAR MEMBERSHIPS</a>												
 											</li>
 										</ul>
 									</li>
-									<li class="dropdown"><!-- DONATE -->
-										<a class="dropdown" href="/donate">
-											DONATIONS
-										</a>
-									</li>									
-
 									<!-- USER OPTIONS -->
 									@if( Auth::guest())
 									<li class="dropdown hidden-xs hidden-sm">
 										<a class="dropdown hidden-xs hidden-sm" href="/login">
 											<span class="btn btn-sm btn-primary">LOGIN</span>
-										</a>								
-									<!--li class="dropdown">
-										<a class="dropdown" href="/register">
-											<span class="btn btn-sm btn-default">REGISTER</span>
-										</a>
-									</li-->
+										</a>																
 									@else
 									<li class="dropdown hidden-xs hidden-sm">
 										<a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -555,7 +546,6 @@
 											@if( Auth::user()->id == 1 )
 												<li class="divider"></li>	
 												<li><a href="{{ route('admin.index')}}"><i class="fa fa-lock"></i> ADMIN</a></li>
-												<li><a href="{{ route('news.create')}}"><i class="fa fa-pencil"></i> SUBMIT ARTICLE</a></li>
 											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->

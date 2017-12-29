@@ -6,7 +6,7 @@
         </div>
     @else
   
-        <div class="row">
+        <div class="row">           
             @foreach($last as $post)
             <!-- POST ITEM -->
             <div class="blog-post-item col-sm-12 col-md-12">
