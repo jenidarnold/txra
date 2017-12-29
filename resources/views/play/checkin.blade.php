@@ -421,7 +421,7 @@ ul ul a {
 	    */
 
 		  // Initialize Firebase
-		  var config = {
+		var config = {
 		    apiKey: "AIzaSyBYR5pSYCjxwrZFqySEGKl8iHpuKtbXh4I",
 		    authDomain: "txra-171117.firebaseapp.com",
 		    databaseURL: "https://txra-171117.firebaseio.com",
@@ -430,9 +430,8 @@ ul ul a {
 		    messagingSenderId: "431463891872"
 		  };
 		  
-		  firebase.initializeApp(config);
-		  //var markersRef  = firebase.database().ref();
-		  // Get a reference to the database service
+		firebase.initializeApp(config);
+		// Get a reference to the database service
 		var database = firebase.database();
 
 		var markersRef = firebase.database().ref('maps/' + mapId);
@@ -440,26 +439,43 @@ ul ul a {
 
 		function addPoint(uuid, position) {
 
-		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-		  var myico = '../images/mapicons/sports/racquet-green.png';	
-		  var ico = '../images/mapicons/sports/racquet-purple.png';	
-		  var title ='Friend is here';
-		  if(uuid == myUuid){
-		  	ico = myico;
-		  	title = 'You are here';
-		  }
+		  	console.log('addPoint:'  + uuid);
 
-		  var marker = new google.maps.Marker({
-	     	       position: pos,
-	     	      //icon: icons[feature.type].icon,
-	     	       map: map,
-	     	       icon: ico,
-	     	       title: title,
-	     	    });	 
+		  	var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+			var myico = '../images/mapicons/sports/racquet-green.png';	
+			var ico = '../images/mapicons/sports/racquet-purple.png';	
+			var title ='Friend is here';			
+			var myWindow = new google.maps.InfoWindow({
+	    			pixelOffset: new google.maps.Size(0, -30)
+    			});
 
-		  markers[uuid] = marker;
+			//Current User's Icon
+			if(uuid == myUuid){
+			  	map.setCenter(pos);
 
-			console.log('addPoint:'  + uuid);
+		  	    myWindow.setPosition(pos);
+            	myWindow.setContent('You are here');
+            	myWindow.open(map);
+
+			  	ico = myico;
+			  	title = 'You are here';
+			}
+
+			var marker = new google.maps.Marker({
+     	        position: pos,
+     	       	map: map,
+     	       	icon: ico,
+     	       	title: title,
+     	    });	 
+
+			//Fit marker to bounds
+			if(uuid == myUuid){
+			 	var bounds = new google.maps.LatLngBounds();
+			 	bounds.extend(pos);
+				map.fitBounds(bounds);
+			}
+			//Add to collection
+		  	markers[uuid] = marker;
 		}
 
 		function removePoint(uuid) {
@@ -467,26 +483,38 @@ ul ul a {
 		}
 
 		function updatePoint(uuid, position) {
-		  var marker = markers[uuid];
-
 			console.log('updatePoint:'  + uuid);
-			//console.log(position);
 
-		  var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-		  marker.setPosition(pos);
+		  	var marker = markers[uuid];
+		  	var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+		  	marker.setPosition(pos);
 		}
 
 		function putPoint(uuid, position) {
-		  if (markers[uuid])
-		    updatePoint(uuid, position)
-		  else
-		    addPoint(uuid, position)
-		}		
+		  	if (markers[uuid])
+		    	updatePoint(uuid, position)
+		  	else
+		    	addPoint(uuid, position)
+		}	
+
+		// Remove old markers
+		setInterval(function() {
+		  markersRef.limitToFirst(100).once('value', function(snap) {
+		    var now = Math.floor(Date.now() / 1000)
+
+		    snap.forEach(function(childSnapshot) {
+		      var uuid = childSnapshot.key;
+		      if (childSnapshot.val().timestamp < now - 60 * 30) {
+		        markersRef.child(uuid).set(null)
+		        //markers[uuid] = null
+		      }
+		    })
+		  })
+		}, 5000);	
 
     /*
     * Map Stuff 
     */
-
  		
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
@@ -501,53 +529,20 @@ ul ul a {
 
          	var watchPositionId;
 
-			// Remove old markers
-			setInterval(function() {
-			  // markersRef.limitToFirst(100).once('value', function(snap) {
-			  //   var now = Math.floor(Date.now() / 1000)
-
-			  //   snap.forEach(function(childSnapshot) {
-			  //     var uuid = childSnapshot.key()
-			  //     if (childSnapshot.val().timestamp < now - 60 * 30) {
-			  //       markersRef.child(uuid).set(null)
-			  //       //markers[uuid] = null
-			  //     }
-			  //   })
-			  // })
-			}, 5000);
-
 			/* Google Map Stuff */
-        	infoWindow = new google.maps.InfoWindow({
-        		pixelOffset: new google.maps.Size(0, -30)
-        	});
-
+        
     		geocoder = new google.maps.Geocoder();
     
     		// Try HTML5 geolocation.
 	        // https://google-developers.appspot.com/maps/documentation/javascript/geolocation
 	        if (navigator.geolocation) {
-	          navigator.geolocation.getCurrentPosition(function(position) {
-	            mypos = {
-	              lat: position.coords.latitude,
-	              lng: position.coords.longitude
+	          	navigator.geolocation.getCurrentPosition(function(position) {
+	            	mypos = {
+	              		lat: position.coords.latitude,
+	              		lng: position.coords.longitude
 	            };
 
-	      	user_pos = mypos;
-
-    		// var ico = '../images/mapicons/sports/racquet.png';	    		
-	      	//       var marker = new google.maps.Marker({
-	     	//        position: mypos,
-	     	//       //icon: icons[feature.type].icon,
-	     	//        map: map,
-	     	//        icon: ico,
-	     	//        title: "You are here"
-	     	//     });	 
-	       
-	            // infoWindow.setPosition(mypos);
-	            // infoWindow.setContent('You are here');
-	            // infoWindow.open(map);
-	            // map.setCenter(mypos);
-
+	      		user_pos = mypos;
 	            var club_num = 0;     	  
 
     			// Create markers.
@@ -620,39 +615,38 @@ ul ul a {
 				      },
 				      timestamp: Math.floor(Date.now() / 1000)
 				    })
+				}
 
-				  }
-
-				  function errorCoords() {
+				function errorCoords() {
 				    console.log('Unable to get current position')
-				  }
+				}
 
-				  //Need to clearthe watch position id so it starts up again tracking. probably set clear on Checkin.
-				  
-				  navigator.geolocation.clearWatch(1);
-				  watchPositionId = navigator.geolocation.watchPosition(successCoords);
+				//Need to clear the watch position id so it starts up again tracking. probably set clear on Checkin.				 
+				navigator.geolocation.clearWatch(1);
+
+				watchPositionId = navigator.geolocation.watchPosition(successCoords, errorCoords);
 				 
-				  markersRef.on('child_added', function(childSnapshot) {
+				markersRef.on('child_added', function(childSnapshot) {
 				    var uuid = childSnapshot.key;
 				    var position = childSnapshot.val();
 
 				    console.log( 'markersRef.on( child_added:' + uuid);
 				    addPoint(uuid, position);
-				  })
+				})
 
-				  markersRef.on('child_changed', function(childSnapshot) {
+				markersRef.on('child_changed', function(childSnapshot) {
 				    var uuid = childSnapshot.key;
 				    var position = childSnapshot.val();
 
 				    console.log( 'markersRef.on( child_changed:' + uuid);
 				    putPoint(uuid, position);
-				  })
+				})
 
-				  markersRef.on('child_removed', function(oldChildSnapshot) {
+				markersRef.on('child_removed', function(oldChildSnapshot) {
 				    var uuid = oldChildSnapshot.key;
 
 				    removePoint(uuid);
-				  })  	
+				})  	
 
 	          }, function() {
 	            handleLocationError(true, infoWindow, map.getCenter());
