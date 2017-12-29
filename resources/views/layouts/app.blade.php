@@ -430,7 +430,7 @@
 														<ul class="list-unstyled">
 															<li><span>QUICK LINKS</span></li>
 															<li><a href="{{ route('news.index')}}">LATEST NEWS</a></li>
-															<li><a href="{{ route('news.index')}}">TRENDING</a></li>
+															{{-- <li><a href="{{ route('news.index')}}">TRENDING</a></li> --}}
 															<li><a href="{{ route('news.category', array('id' =>3, 'category' => 'Tip of the Day'))}}">TIP OF THE DAY</a></li>
 														</ul>
 													</div>

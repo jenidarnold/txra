@@ -36,7 +36,7 @@ class BlogController extends BaseController {
             ->paginate(4)
             ;
 
-        $categories = PostCategory::all();
+        $categories = PostCategory::orderBy('category')->get();
 
         $drafts = Post::where('public', 0)->get();
 

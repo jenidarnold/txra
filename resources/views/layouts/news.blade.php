@@ -104,7 +104,7 @@
                                 <li class="list-group-item"><a href="{{ route('news.category' , array('id' => $c->id, 'category' => $c->category)) }}">
                                     <!--span class="size-11 text-muted pull-right">({{$c->count}})</span--> 
                                     {{$c->category}}   
-                                    <span class="badge">{{$c->posts()->count()}}</span> 
+                                    {{-- <span class="badge">{{$c->posts()->count()}}</span>  --}}
                                     </a>
                                 </li>
                              @endforeach
