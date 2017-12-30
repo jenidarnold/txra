@@ -219,141 +219,167 @@ ul ul a {
 						  
 
 			<!-- Sidebar Holder -->
-            <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
-                <div id="dismiss" class="btn btn-default btn-xs">
-                    <i class="fa fa-chevron-left fa-nomargin"></i>
-                </div>
-
-                <div id="menu_div" class="">
-                	<div class="sidebar-header">
-	                	<div class="row">
-	                		<div class="col-lg-11">
-							    <div class="input-group">
-							      <input type="text" class="form-control" placeholder="Search for Clubs">
-							      <span class="input-group-btn">
-							        <button class="btn btn-secondary btn-default" type="button"><i class="fa fa-search fa-lg fa-nomargin"></i></button>
-							      </span>
-							    </div>
-							  </div>
-					  	</div>                  
+			<div id="vueClubs">
+	            <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
+	                <div id="dismiss" class="btn btn-default btn-xs">
+	                    <i class="fa fa-chevron-left fa-nomargin"></i>
 	                </div>
-	                <!---Menu -->
-	                <div class="row">
-						<div class="btn-group col-lg-12  text-center">
-						  	<button  type="button" class="btn text-center">
-						  		<a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal">
-						  			<i class="fa fa-building text-success fa-nomargin"></i><br>Add a Club
-						  		</a>
-						  	</button>
-						  	<button type="button" class="btn text-info"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button>
-						  	<button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button>
-						</div>	
-					</div>
-					<hr/>
 
-	                 <!--Vue -->
-	                <div id="vueClubs" class=" col-sm-12 ">
-	                	<div class=" col-sm-12" v-for="(index, club) in clubs" v-bind:key="club.id" v-bind:dist="club.dist">
-					  		<div class="itembox">					     		
-								<div class="row" style="margin-bottom:0px">									
-									<div class="col-xs-10 col-sm-12 col-md-12 club-padding " style="margin-bottom:0px">
-										<a href="#" class="text-danger" data-dismiss="modal" v-on:click="showClub(club, index + 1)" > 
-											<span class='btn btn-xs btn-danger'> @{{ index + 1 }} </span> @{{ club.name }}
-										</a>
-						
-										<ul class="list-unstyled components">                   
-						                    <li><div id=""><i class="fa fa-map-marker text-danger"></i> @{{ club.address }}, @{{ club.city }}</div></li>	
-								            <li><div id=""><i class="fa fa-cube"></i> @{{ club.courts }} court(s)</div></li>
-						                    <li><div id=""><i class="fa fa-car"></i> @{{ club.dist }} mi. away</div></li>
-						                    <li><div id=""><i class="fa fa-male"></i> @{{ club.checkins_total }} check-ins total</div></li>
-						                    <li><div id=""><i class="fa fa-clock-o"></i> @{{ club.checkins_recent }} check-ins in the last hour</div></li>
-					                    </ul>
-					                </div>
-								</div>			
-					   		</div>
-					   		<hr/>
-					  	</div>
-					  	
-						<div class="row" v-show = "debug">
-							   <pre>@{{ $data | json }} </pre> 
-						</div>
-					</div>
-                </div>
-
-                <div id="club_div" class="hide">
-                	<div id="club_image" class="sidebar-image"></div>
-	                <div class="sidebar-header">	               
-	                    <div id="club_name" class="h4 text-white"></div>	                    
-	                	<a href="#" onclick="listClubs(); return false;" class="text-white">
-	                		<i class="fa fa-chevron-left text-white"></i> Back to lists of clubs
-                		</a>
-	                </div>
-	                <ul class="list-unstyled components">  
-	                    <li><div id="club_addr"></div></li>
-			            <li><div id="club_phone"></div></li>
-			            <li><div id="club_url"></div></li>
-			            <li><div id="club_courts"></div></li>
-	                    <li><div id="club_dist"></div></li>
-	                    <li><div id="club_checkin_total"></div></li>  
-	                    <li><div id="club_checkin_recent"></div></li>
-			            <li lass="text-center">
-			            	<form action='{{route('play.checkin')}}' method='POST'>
-		                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
-								<input type='hidden' id="club_id" name='club_id' value="">
-								<input type='hidden' id="gtz_offset" name='gtz_offset' value="">
-					            <button id="btnCheckin" type='submit' title="Check-ins are allowed when you are within 0.5 miles of a club" class='btn btn-sm btn-success margin-top-10'>Check In</button>
-					        </form>
-			            </li>                  
-	                </ul>
-	                <hr style="margin:0px;">
-	                <ul class="list-unstyled">
-	                	<center>
-	                		Popular Times
-	                		<select id="dayofweek" class="input input-sm">
-	                			<option value="6">Sunday</option>
-	                			<option value="0">Monday</option>
-	                			<option value="1">Tuesday</option>
-	                			<option value="2">Wednesday</option>
-	                			<option value="3">Thursday</option>
-	                			<option value="4">Friday</option>
-	                			<option value="5">Saturday</option>
-	                		</select>
-
-	                	</center>
-						<div  class="flexslider" data-slideshowSpeed="900000">
-							<ul class="slides">
-		                    @for($day = 1; $day <=7; $day++)
-			                  	<li>
-			                   		<div id="chart_sidebar_{{$day}}" class="swiper-slide"></div>
-			                   	</li>
-		                    @endfor
-		                    </ul>
+	                <div id="menu_div" class="">
+	                	<div class="sidebar-header">
+		                	<div class="row">
+		                		<div class="col-lg-11">
+		                			<div id="clubSearch">
+									    <div class="input-group">
+										      	<input name="query" type="text" class="form-control" placeholder="Search for Clubs" v-model="searchQuery" />
+										      	<span class="input-group-btn">
+										        	<button class="btn btn-secondary btn-default" type="button"><i class="fa fa-search fa-lg fa-nomargin"></i></button>
+										      	</span>
+									    </div>
+							      	</div>
+							  	</div>                
+		                	</div>
 		                </div>
-	                </ul>
-	            </div>
-            </nav>
+		               
+		                <!---Menu -->
+		                <div class="row">
+							<div class="btn-group col-lg-12  text-center">
+							  	<button  type="button" class="btn text-center">
+							  		<a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal">
+							  			<i class="fa fa-building text-success fa-nomargin"></i><br>Add a Club
+							  		</a>
+							  	</button>
+							  	<button type="button" class="btn text-info"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button>
+							  	<button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button>
+							</div>	
+						</div>
+						<hr/>
 
-            <!--Map -->
-			<div class="row">
-				<div class="col-sm-12 clearfix margin-bottom-30">
-					{{-- <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" tooltip="Expand side panel">
-		                <i class="fa fa-chevron-right"></i>
-		            </button> --}}
-					<div id="map" class="thumbnail"></div>
-					<div id="search" class="searchbox">					
-						{{-- <button class="btn" data-toggle="modal" data-target="#modClubs">
-							<i class="fa fa-bars"></i> <span class="small">List Menu</span>
-						</button> --}}
-						<button type="button" id="sidebarCollapse" class="btn btn-md btn-danger" tooltip="Expand Menu">
-		                	<i class="fa fa-bars"> Menu</i>
-		            	</button>
-					</div>
-					{{-- <div id="legend"><h4>Legend</h4></div> --}}
-					<div id="mylocation">
-						<button class="btn btn-sm btn-danger text-center" onclick="getCurrPos(); map.setCenter(user_pos); return false;" title="Re-center map to your Location">
-						<i class="fa fa-crosshairs fa-wx" style="padding:0px"></i></button>
-					</div>
-				</div>				
+		                 <!--Vue -->
+		                <div class=" col-sm-12 ">
+		                	<div class="row">
+			                	<div class="col-lg-11">		                	
+								  <demo-grid
+								    :data="clubs"
+								    :columns="gridColumns"
+								    :filter-key="searchQuery">
+								  </demo-grid>
+							  </div>
+			                </div>
+
+		                	{{-- <div class=" col-sm-12" v-for="(index, club) in clubs" v-bind:key="club.id" v-bind:dist="club.dist">
+						  		<div class="itembox">					     		
+									<div class="row" style="margin-bottom:0px">									
+										<div class="col-xs-10 col-sm-12 col-md-12 club-padding " style="margin-bottom:0px">
+											<a href="#" class="text-danger" data-dismiss="modal" v-on:click="showClub(club, index + 1)" > 
+												<span class='btn btn-xs btn-danger'> @{{ index + 1 }} </span> @{{ club.name }}
+											</a>
+							
+											<ul class="list-unstyled components">                   
+							                    <li><div id=""><i class="fa fa-map-marker text-danger"></i> @{{ club.address }}, @{{ club.city }}</div></li>	
+									            <li><div id=""><i class="fa fa-cube"></i> @{{ club.courts }} court(s)</div></li>
+							                    <li><div id=""><i class="fa fa-car"></i> @{{ club.dist }} mi. away</div></li>
+							                    <li><div id=""><i class="fa fa-male"></i> @{{ club.checkins_total }} check-ins total</div></li>
+							                    <li><div id=""><i class="fa fa-clock-o"></i> @{{ club.checkins_recent }} check-ins in the last hour</div></li>
+						                    </ul>
+						                </div>
+									</div>			
+						   		</div>
+						   		<hr/>
+						  	</div> --}}
+						  	
+							<div class="row" v-show = "debug">
+								   <pre>@{{ $data | json }} </pre> 
+							</div>
+						</div>
+	                </div>
+
+	                <div id="club_div" class="hide">
+	                	<div id="club_image" class="sidebar-image"></div>
+		                <div class="sidebar-header">	               
+		                    <div id="club_name" class="h4 text-white"></div>	                    	                	
+		                </div>
+		                 <!---Menu -->
+		                <div class="row">
+							<div class="btn-group col-lg-12  text-center">
+							  	<button  type="button" class="btn text-info">
+							  		<a href="#" onclick="listClubs(); return false;">
+				                		<i class="fa fa-chevron-left text-info fa-nomargin"></i><br/>Back to list
+			                		</a>
+							  	</button>
+							  	<button type="button" class="btn text-info"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button>
+							  	<button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button>
+							</div>	
+						</div>
+						<hr/>
+
+		                <ul class="list-unstyled components">  
+		                    <li><div id="club_addr"></div></li>
+				            <li><div id="club_phone"></div></li>
+				            <li><div id="club_url"></div></li>
+				            <li><div id="club_courts"></div></li>
+		                    <li><div id="club_dist"></div></li>
+		                    <li><div id="club_checkin_total"></div></li>  
+		                    <li><div id="club_checkin_recent"></div></li>
+				            <li lass="text-center">
+				            	<form action='{{route('play.checkin')}}' method='POST'>
+			                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
+									<input type='hidden' id="club_id" name='club_id' value="">
+									<input type='hidden' id="gtz_offset" name='gtz_offset' value="">
+						            <button id="btnCheckin" type='submit' title="Check-ins are allowed when you are within 0.5 miles of a club" class='btn btn-sm btn-success margin-top-10'>Check In</button>
+						        </form>
+				            </li>                  
+		                </ul>
+		                <hr style="margin:0px;">
+		                <ul class="list-unstyled">
+		                	<center>
+		                		Popular Times
+		                		<select id="dayofweek" class="input input-sm">
+		                			<option value="6">Sunday</option>
+		                			<option value="0">Monday</option>
+		                			<option value="1">Tuesday</option>
+		                			<option value="2">Wednesday</option>
+		                			<option value="3">Thursday</option>
+		                			<option value="4">Friday</option>
+		                			<option value="5">Saturday</option>
+		                		</select>
+
+		                	</center>
+							<div  class="flexslider" data-slideshowSpeed="900000">
+								<ul class="slides">
+			                    @for($day = 1; $day <=7; $day++)
+				                  	<li>
+				                   		<div id="chart_sidebar_{{$day}}" class="swiper-slide"></div>
+				                   	</li>
+			                    @endfor
+			                    </ul>
+			                </div>
+		                </ul>
+		            </div>
+	            </nav>
+
+	            <!--Map -->
+				<div class="row">
+					<div class="col-sm-12 clearfix margin-bottom-30">
+						{{-- <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" tooltip="Expand side panel">
+			                <i class="fa fa-chevron-right"></i>
+			            </button> --}}
+						<div id="map" class="thumbnail"></div>
+						<div id="search" class="searchbox">					
+							{{-- <button class="btn" data-toggle="modal" data-target="#modClubs">
+								<i class="fa fa-bars"></i> <span class="small">List Menu</span>
+							</button> --}}
+							<button type="button" id="sidebarCollapse" class="btn btn-md btn-danger" tooltip="Expand Menu">
+			                	<i class="fa fa-bars"> Menu</i>
+			            	</button>
+						</div>
+						{{-- <div id="legend"><h4>Legend</h4></div> --}}
+						<div id="mylocation">
+							<button class="btn btn-sm btn-danger text-center" onclick="getCurrPos(); map.setCenter(user_pos); return false;" title="Re-center map to your Location">
+							<i class="fa fa-crosshairs fa-wx" style="padding:0px"></i></button>
+						</div>
+					</div>				
+				</div>
 			</div>
 		</div>
 	</section>
@@ -381,6 +407,55 @@ ul ul a {
         </div>
     </div>
 	
+ <!-- Vue Templates -->
+ <!-- component template -->
+	<script type="text/x-template" id="club-template-demo">
+	  <table>
+	    <thead>
+	      <tr>
+	        <th v-for="key in columns"
+	          @click="sortBy(key)"
+	          :class="{ active: sortKey == key }">
+	          @{{ key | capitalize }}
+	          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+	          </span>
+	        </th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr v-for="entry in filteredData">
+	        <td v-for="key in columns">
+	          @{{entry[key]}}
+	        </td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</script>	
+
+	<script type="text/x-template" id="club-template">
+
+		<div class=" col-sm-12" v-for="(index, club) in filteredData">
+	  		<div class="itembox">					     		
+				<div class="row" style="margin-bottom:0px">									
+					<div class="col-xs-10 col-sm-12 col-md-12 club-padding " style="margin-bottom:0px">
+						<a href="#" class="text-danger" data-dismiss="modal" v-on:click="showClub(club, index + 1)" > 
+							<span class='btn btn-xs btn-danger'> @{{ index + 1 }} </span> @{{ club.name }}
+						</a>
+		
+						<ul class="list-unstyled components">                   
+		                    <li><div id=""><i class="fa fa-map-marker text-danger"></i> @{{ club.address }}, @{{ club.city }}</div></li>	
+				            <li><div id=""><i class="fa fa-cube"></i> @{{ club.courts }} court(s)</div></li>
+		                    <li><div id=""><i class="fa fa-car"></i> @{{ club.dist }} mi. away</div></li>
+		                    <li><div id=""><i class="fa fa-male"></i> @{{ club.checkins_total }} check-ins total</div></li>
+		                    <li><div id=""><i class="fa fa-clock-o"></i> @{{ club.checkins_recent }} check-ins in the last hour</div></li>
+	                    </ul>
+	                </div>
+				</div>			
+	   		</div>
+	   		<hr/>
+	  	</div>
+
+	</script>
 @stop
 
 @section('script')
@@ -1006,7 +1081,68 @@ ul ul a {
 
 	<!-- Vue Stuff -->
 
+
 	<script>
+		// register the grid component
+			Vue.component('demo-grid', {
+			  template: '#club-template',
+			  props: {
+			    data: Array,
+			    columns: Array,
+			    filterKey: String
+			  },
+			  data: function () {
+			    var sortOrders = {}
+			    this.columns.forEach(function (key) {
+			      sortOrders[key] = 1
+			    })
+			    return {
+			      sortKey: '',
+			      sortOrders: sortOrders
+			    }
+			  },
+			  computed: {
+			    filteredData: function () {
+			      var sortKey = this.sortKey
+			      var filterKey = this.filterKey && this.filterKey.toLowerCase()
+			      var order = this.sortOrders[sortKey] || 1
+			      var data = this.data
+			      if (filterKey) {
+			        data = data.filter(function (row) {
+			          return Object.keys(row).some(function (key) {
+			            return String(row[key]).toLowerCase().indexOf(filterKey) > -1
+			          })
+			        })
+			      }
+			      if (sortKey) {
+			        data = data.slice().sort(function (a, b) {
+			          a = a[sortKey]
+			          b = b[sortKey]
+			          return (a === b ? 0 : a > b ? 1 : -1) * order
+			        })
+			      }
+			      return data
+			    }
+			  },
+			  filters: {
+			    capitalize: function (str) {
+			      return str.charAt(0).toUpperCase() + str.slice(1)
+			    }
+			  },
+			  methods: {
+			    sortBy: function (key) {
+			      this.sortKey = key
+			      this.sortOrders[key] = this.sortOrders[key] * -1
+			    },
+			    showClub: function(c, i){
+                	c.num = i;
+                	showClub(c); 
+			       	map.setCenter(new google.maps.LatLng(c.lat, c.lng )); return false
+                }
+			  }
+			})
+
+
 		Vue.config.debug = false;
 		
 		var vm = new Vue({
@@ -1014,6 +1150,8 @@ ul ul a {
 		  	data: {	
 		  		debug: false,
 		  		clubs: [],
+		  		searchQuery: '',
+			    gridColumns: ['name', 'address', 'city', 'zip'],			   
 		  	},
 
 			ready: function() {
