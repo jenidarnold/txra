@@ -467,15 +467,7 @@ ul ul a {
      	       	icon: ico,
      	       	title: title,
      	    });	 
-
-			//Fit marker to bounds
-			if(uuid == myUuid){
-				var zoom = map.getZoom();
-			 	var bounds = new google.maps.LatLngBounds();
-			 	bounds.extend(pos);
-				map.fitBounds(bounds); 
-				map.setZoom(zoom);
-			}
+			
 			//Add to collection
 		  	markers[uuid] = marker;
 		}
@@ -489,7 +481,17 @@ ul ul a {
 
 		  	var marker = markers[uuid];
 		  	var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-		  	marker.setPosition(pos);
+		  	marker.setPosition(pos);//Fit marker to bounds
+
+
+		  	//Fit marker to bounds
+			if(uuid == myUuid){
+				if (!map.getBounds().contains(marker.getPosition())) {
+    			// marker is outside of map bounds
+				map.setCenter(pos);
+				}
+			}
+
 		}
 
 		function putPoint(uuid, position) {
