@@ -210,7 +210,8 @@ ul ul a {
 	<!-- http://www.mapcoordinates.net/en -->
 	<section>
 		<div class="container-fluid">
-			
+						  
+
 			<!-- Sidebar Holder -->
             <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
                 <div id="dismiss" class="btn btn-default btn-xs">
@@ -223,17 +224,52 @@ ul ul a {
 	                    <a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="text-white"> Add to the map</a>	                    
 	                </div>
 
+	                 <!--Vue -->
+	                <div id="vueClubs" class=" col-sm-12 ">
+	                	<div class=" col-sm-12" v-for="club in clubs">
+					  		<div class="itembox">					     		
+								<div class="row" style="margin-bottom:0px">									
+									<div class="col-xs-10 col-sm-12 col-md-9 club-padding " style="margin-bottom:0px">
+										<a href="#" class="text-danger" data-dismiss="modal" v-on:click="showClub(club)" > 
+											<span class='btn btn-xs btn-danger'> 1 </span> @{{ club.name }}
+										</a>
+						
+										<ul class="list-unstyled components">                   
+						                    <li><div id=""><i class="fa fa-map-marker"></i> @{{ club.address }}, @{{ club.city }}</div></li>	
+								            <li><div id=""><i class="fa fa-cube"></i> @{{ club.courts }} court(s)</div></li>
+						                    <li><div id=""></div></li>
+						                    <li><div id=""><i class="fa fa-male"></i> @{{ club.checkins_total }} check-ins total</div></li>
+						                    <li><div id=""><i class="fa fa-clock-o"></i> @{{ club.checkins_recent }} check-ins in the last hour</div></li>
+					                    </ul>
+					                </div>
+					                <div class="col-md-2  hidden-xs hidden-sm club-padding">
+					               
+									</div>
+								</div>			
+					   		</div>
+					   		<hr/>
+					  	</div>
+					  	
+						<div class="row" v-show = "debug">
+							   <pre>@{{ $data | json }} </pre> 
+						</div>
+
+					</div>
+
+
+					{{-- 
+					<!-- PHP -->
 	                @php ($i=0)
 		        	@foreach($clubs as $club)
 		        		@php ($i+=1)
 		        		@php ($club->num = $i)
-						<div class=" col-sm-12  ">
+						<div id="{{'club_div_'.$club->num}}"  class=" col-sm-12 ">
 							<div class="itembox" >								
-								{{-- <div style="float:left; padding-right:2px">
+								{ {-- <div style="float:left; padding-right:2px">
 									<a href="#" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
 										<img style="height:28px" src={{asset($club->ico)}} />
 									</a>
-								</div> --}}
+								</div> --} }
 								<div class="row" style="margin-bottom:0px">									
 									<div class="col-xs-10 col-sm-12 col-md-9 club-padding " style="margin-bottom:0px">
 										<a href="#" class="text-danger" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
@@ -244,7 +280,7 @@ ul ul a {
 						                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }}, {{ $club->city }}</div></li>	
 								            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
 						                    <li><div id=""></div></li>
-						                    {{-- <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>   --}}
+						                    <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>
 						                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
 					                    </ul>
 					                </div>
@@ -258,6 +294,7 @@ ul ul a {
 							<hr/>
 						</div>
 					@endforeach
+					 --}}
                 </div>
 
                 <div id="club_div" class="hide">
@@ -313,7 +350,6 @@ ul ul a {
 	            </div>
             </nav>
 
-
             <!--Map -->
 			<div class="row">
 				<div class="col-sm-12 clearfix margin-bottom-30">
@@ -367,11 +403,14 @@ ul ul a {
 @section('script')
 	<script type="text/javascript" src="{{asset('plugins/slider.swiper/dist/js/swiper.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('js/view/demo.swiper_slider.js')}}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.1/vue.js"></script>	
 
 	<!-- Firebase --> 
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 	<script>
 
+		
  		var map;
  		var infoWindow;
  		var geocoder;
@@ -453,9 +492,9 @@ ul ul a {
 			if(uuid == myUuid){
 			  	map.setCenter(pos);
 
-		  	    myWindow.setPosition(pos);
-            	myWindow.setContent('You are here');
-            	myWindow.open(map);
+  	    // 		myWindow.setPosition(pos);
+     	//    	myWindow.setContent('You are here');
+        //    	myWindow.open(map);
 
 			  	ico = myico;
 			  	title = 'You are here';
@@ -966,4 +1005,46 @@ ul ul a {
 
 
 	</script>
+
+	<!-- Vue Stuff -->
+
+	<script>
+		Vue.config.debug = false;
+		
+		var vm = new Vue({
+			el: '#vueClubs',
+		  	data: {	
+		  		debug: false,
+		  		clubs: [],
+		  	},
+
+			ready: function() {
+				//ajax functions
+                this.getClubs();
+            },		
+			methods: {
+				getClubs: function() {
+                    $.ajax({
+                        context: this,
+                        url: "/api/clubs/get",
+                        success: function (result) {
+                            this.$set("clubs", result);
+                        },
+						error:function(x,e) {
+							console.log("error getting clubs: " + e.message);
+						}
+                    });
+                },
+
+                showClub: function(c){
+                	console.log('Show Club');
+                	showClub(c); 
+			       	map.setCenter(new google.maps.LatLng(c.lat, c.lng )); return false
+                }
+            }		  
+		});
+
+	
+
+    </script>
 @stop

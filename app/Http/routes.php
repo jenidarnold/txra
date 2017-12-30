@@ -67,6 +67,8 @@ Route::controllers([
 //   //  \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 // }
 
+/* API */
+Route::get('/api/clubs/get', array('uses' => 'Play\MapController@getClubs'));
 
 
 /* Admin */
