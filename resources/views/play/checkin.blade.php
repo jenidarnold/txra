@@ -186,8 +186,14 @@ ul ul a {
 }
 
 .fa-map-marker {
-	color: #F75448 !important; 
+	/*color: #F75448 !important; */
 }
+
+.fa-nomargin {
+	margin:0px !important; 
+	padding:0px !important; 
+}
+
 /*----------------------
 	FLEX SLIDER STYLE
 -----------------------*/
@@ -215,18 +221,39 @@ ul ul a {
 			<!-- Sidebar Holder -->
             <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
                 <div id="dismiss" class="btn btn-default btn-xs">
-                    <i class="fa fa-chevron-left"></i>
+                    <i class="fa fa-chevron-left fa-nomargin"></i>
                 </div>
 
                 <div id="menu_div" class="">
                 	<div class="sidebar-header">
-	                    <h4 class="text-white">Clubs & Facilities</h4>
-	                    <a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal" class="text-white"> Add to the map</a>	                    
+	                	<div class="row">
+	                		<div class="col-lg-11">
+							    <div class="input-group">
+							      <input type="text" class="form-control" placeholder="Search for Clubs">
+							      <span class="input-group-btn">
+							        <button class="btn btn-secondary btn-default" type="button"><i class="fa fa-search fa-lg fa-nomargin"></i></button>
+							      </span>
+							    </div>
+							  </div>
+					  	</div>                  
 	                </div>
+	                <!---Menu -->
+	                <div class="row">
+						<div class="btn-group col-lg-12  text-center">
+						  	<button  type="button" class="btn text-center">
+						  		<a href="#" data-toggle="modal" data-target="#modAddClub" data-dismiss="modal">
+						  			<i class="fa fa-building text-success fa-nomargin"></i><br>Add a Club
+						  		</a>
+						  	</button>
+						  	<button type="button" class="btn text-info"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button>
+						  	<button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button>
+						</div>	
+					</div>
+					<hr/>
 
 	                 <!--Vue -->
 	                <div id="vueClubs" class=" col-sm-12 ">
-	                	<div class=" col-sm-12" v-for="(index, club) in clubs">
+	                	<div class=" col-sm-12" v-for="(index, club) in clubs" v-bind:key="club.id" v-bind:dist="club.dist">
 					  		<div class="itembox">					     		
 								<div class="row" style="margin-bottom:0px">									
 									<div class="col-xs-10 col-sm-12 col-md-12 club-padding " style="margin-bottom:0px">
@@ -235,16 +262,13 @@ ul ul a {
 										</a>
 						
 										<ul class="list-unstyled components">                   
-						                    <li><div id=""><i class="fa fa-map-marker"></i> @{{ club.address }}, @{{ club.city }}</div></li>	
+						                    <li><div id=""><i class="fa fa-map-marker text-danger"></i> @{{ club.address }}, @{{ club.city }}</div></li>	
 								            <li><div id=""><i class="fa fa-cube"></i> @{{ club.courts }} court(s)</div></li>
-						                    <li><div id=""></div></li>
+						                    <li><div id=""><i class="fa fa-car"></i> @{{ club.dist }} mi. away</div></li>
 						                    <li><div id=""><i class="fa fa-male"></i> @{{ club.checkins_total }} check-ins total</div></li>
 						                    <li><div id=""><i class="fa fa-clock-o"></i> @{{ club.checkins_recent }} check-ins in the last hour</div></li>
 					                    </ul>
 					                </div>
-					                {{-- <div class="col-md-2  hidden-xs hidden-sm club-padding">
-					               
-									</div> --}}
 								</div>			
 					   		</div>
 					   		<hr/>
@@ -485,8 +509,17 @@ ul ul a {
 		  	//Fit marker to bounds
 			if(uuid == myUuid){
 				if (!map.getBounds().contains(marker.getPosition())) {
-    			// marker is outside of map bounds
-				map.setCenter(pos);
+    				// marker is outside of map bounds
+					map.setCenter(pos);
+
+					//update club distances
+					vm.clubs.forEach(function(club) {
+	                	var clubCord = new google.maps.LatLng(club.lat, club.lng);
+						var myCord = new google.maps.LatLng(pos.lat, pos.lng);
+	 	    			club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles	
+	 	    			club.dist = club.dist.toFixed(2) ;	 	    			
+	 	    			//vm.$set(club, 'dist', club.dist);
+	            	});
 				}
 			}
 
@@ -872,7 +905,7 @@ ul ul a {
 				}
 			}
 			name.innerHTML = '<span class="btn btn-xs btn-danger">' + club.num + '</span> ' + club.name ;
-			addr.innerHTML = '<i class="fa fa-map-marker"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
+			addr.innerHTML = '<i class="fa fa-map-marker text-danger"></i> ' + club.address + ' ' + club.city + ', ' + club.state + ' ' + club.zip;
 			phone.innerHTML = '<i class="fa fa-phone"></i> ' + club.phone;
 
 			if (club.url != ''){
@@ -893,10 +926,11 @@ ul ul a {
 				var c = {lat: parseFloat(club.lat), lng:  parseFloat(club.lng) };
 	    		var clubCord = new google.maps.LatLng(c.lat, c.lng);
     			var myCord = new google.maps.LatLng(user_pos.lat, user_pos.lng);
-	     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles			
+	     	    club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles	
+	     	    club.dist = club.dist.toFixed(2);		
 			}
-			
-			dist.innerHTML = '<i class="fa fa-car"></i> ' + club.dist.toFixed(2) + ' mi away';			
+			console.log(club.dist);
+			dist.innerHTML = '<i class="fa fa-car"></i> ' + club.dist + ' mi away';			
 
 			if (club.dist <= .5) {
 				$('#btnCheckin').removeClass('disabled');
@@ -993,6 +1027,15 @@ ul ul a {
                         url: "/api/clubs/get",
                         success: function (result) {
                             this.$set("clubs", result);
+
+                            vm.clubs.forEach(function(club) {
+                            	var mypos = getCurrPos();
+                            	var clubCord = new google.maps.LatLng(club.lat, club.lng);
+	    						var myCord = new google.maps.LatLng(mypos.lat, mypos.lng);
+		     	    			club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles	
+		     	    			club.dist = club.dist.toFixed(2) ;
+                            });
+
                         },
 						error:function(x,e) {
 							console.log("error getting clubs: " + e.message);
