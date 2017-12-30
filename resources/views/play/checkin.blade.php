@@ -226,12 +226,12 @@ ul ul a {
 
 	                 <!--Vue -->
 	                <div id="vueClubs" class=" col-sm-12 ">
-	                	<div class=" col-sm-12" v-for="club in clubs">
+	                	<div class=" col-sm-12" v-for="(index, club) in clubs">
 					  		<div class="itembox">					     		
 								<div class="row" style="margin-bottom:0px">									
-									<div class="col-xs-10 col-sm-12 col-md-9 club-padding " style="margin-bottom:0px">
-										<a href="#" class="text-danger" data-dismiss="modal" v-on:click="showClub(club)" > 
-											<span class='btn btn-xs btn-danger'> 1 </span> @{{ club.name }}
+									<div class="col-xs-10 col-sm-12 col-md-12 club-padding " style="margin-bottom:0px">
+										<a href="#" class="text-danger" data-dismiss="modal" v-on:click="showClub(club, index + 1)" > 
+											<span class='btn btn-xs btn-danger'> @{{ index + 1 }} </span> @{{ club.name }}
 										</a>
 						
 										<ul class="list-unstyled components">                   
@@ -242,9 +242,9 @@ ul ul a {
 						                    <li><div id=""><i class="fa fa-clock-o"></i> @{{ club.checkins_recent }} check-ins in the last hour</div></li>
 					                    </ul>
 					                </div>
-					                <div class="col-md-2  hidden-xs hidden-sm club-padding">
+					                {{-- <div class="col-md-2  hidden-xs hidden-sm club-padding">
 					               
-									</div>
+									</div> --}}
 								</div>			
 					   		</div>
 					   		<hr/>
@@ -253,48 +253,7 @@ ul ul a {
 						<div class="row" v-show = "debug">
 							   <pre>@{{ $data | json }} </pre> 
 						</div>
-
 					</div>
-
-
-					{{-- 
-					<!-- PHP -->
-	                @php ($i=0)
-		        	@foreach($clubs as $club)
-		        		@php ($i+=1)
-		        		@php ($club->num = $i)
-						<div id="{{'club_div_'.$club->num}}"  class=" col-sm-12 ">
-							<div class="itembox" >								
-								{ {-- <div style="float:left; padding-right:2px">
-									<a href="#" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
-										<img style="height:28px" src={{asset($club->ico)}} />
-									</a>
-								</div> --} }
-								<div class="row" style="margin-bottom:0px">									
-									<div class="col-xs-10 col-sm-12 col-md-9 club-padding " style="margin-bottom:0px">
-										<a href="#" class="text-danger" data-dismiss="modal" onclick="showClub({{$club}}); map.setCenter(new google.maps.LatLng({{ $club->lat }}, {{ $club->lng }} )); return false" > 
-											<span class='btn btn-xs btn-danger'>{{$i}}</span> {{ $club->name }}
-										</a>
-						
-										<ul class="list-unstyled components">                   
-						                    <li><div id=""><i class="fa fa-map-marker"></i> {{ $club->address }}, {{ $club->city }}</div></li>	
-								            <li><div id=""><i class="fa fa-cube"></i> {{ $club->courts }} court(s)</div></li>
-						                    <li><div id=""></div></li>
-						                    <li><div id=""><i class="fa fa-male"></i> {{ $club->checkins_total }} check-ins total</div></li>
-						                    <li><div id=""><i class="fa fa-clock-o"></i> {{ $club->checkins_recent }} check-ins in the last hour</div></li>
-					                    </ul>
-					                </div>
-					                <div class="col-md-2  hidden-xs hidden-sm club-padding">
-					                @if($club->image != '')
-										<img src="{{ $club->image }}" class="img-responsive" />					                	
-									@endif
-									</div>
-								</div>								
-							</div>
-							<hr/>
-						</div>
-					@endforeach
-					 --}}
                 </div>
 
                 <div id="club_div" class="hide">
@@ -558,12 +517,15 @@ ul ul a {
     /*
     * Map Stuff 
     */
+   	
+   		var clubMarkers = [];
  		
       	function initMap() {
         	var mav = {lat: 32.7098963, lng: -97.1373552 };
 			var clubs = {!! json_encode($clubs->toArray()) !!};
+			//var clubs = vm.clubs;
         	var mypos = {lat: 0, lng: 0 };
-
+        	
         	map = new google.maps.Map(document.getElementById('map'), {
           		zoom: 15,
           		center: mav,
@@ -621,6 +583,7 @@ ul ul a {
 	      				content: club.info
 	    			});
 
+		    		club.num = club_num;
 		    		club.label = club_num.toString();
 		    		
 	    		    var marker = new google.maps.Marker({
@@ -630,6 +593,8 @@ ul ul a {
 		     	       label: club.label,
 		     	       title: club.name
 		     	    });	   	      
+
+	    		    clubMarkers[club.id]= marker;
 
 					//open marker if club within current location					     	    			     	   
 		     	    if(club.dist <= minDist) {
@@ -739,9 +704,7 @@ ul ul a {
 	      }
 
     </script>
-    <!-- script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap"></script -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap&sensor=false&v=3&libraries=geometry">
-	</script>
+
 	
 	<!--Charts-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -1000,7 +963,8 @@ ul ul a {
 			$('#sidebar').addClass('active');
 			$('#club_div').removeClass('hide');
 			$('#menu_div').addClass('hide');
-			loadClubSidePanel(club);				
+			loadClubSidePanel(club);
+			map.setZoom(14);				
 		}		
 
 
@@ -1036,15 +1000,16 @@ ul ul a {
                     });
                 },
 
-                showClub: function(c){
-                	console.log('Show Club');
+                showClub: function(c, i){
+                	c.num = i;
                 	showClub(c); 
 			       	map.setCenter(new google.maps.LatLng(c.lat, c.lng )); return false
                 }
             }		  
 		});
 
-	
-
     </script>
+
+       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap&sensor=false&v=3&libraries=geometry">
+	</script>
 @stop

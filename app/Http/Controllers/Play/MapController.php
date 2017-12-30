@@ -30,7 +30,11 @@ class MapController extends Controller {
 	 */
 	public function getClubs()
 	{
-		return response()->json(Club::get());
+		$clubs = Club::where('lat', '>', 0)
+			->orderBy('name')
+			->get()
+		;
+		return response()->json($clubs);
 	}
 
 
