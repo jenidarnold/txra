@@ -438,12 +438,12 @@ ul ul a {
       	};
 
  		// Read the current hash
-		var mapId = location.hash.replace(/^#/, '');
+		var mapId = 'tx'; //location.hash.replace(/^#/, '');
 
 		// If not set generate a new one
 		if (!mapId) {
 		  mapId = 'tx'; //(Math.random() + 1).toString(36).substring(2, 12);
-		  location.hash = mapId;
+		  //location.hash = mapId;
 		}
 
 		// Get current UUID
