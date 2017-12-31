@@ -288,10 +288,22 @@ section div.row>div {
 		                <div class="row">
 							<div class="btn-group col-lg-12  text-center">
 							  	<button  type="button" class="btn text-info">
-							  		<a href="#" onclick="listClubs(); return false;">
+							  		<a href="#" onclick="listClubs(); return false;" class="text-info">
 				                		<i class="fa fa-chevron-left text-info fa-nomargin"></i><br/>Back to list
 			                		</a>
 							  	</button>
+							  	<button  type="button" class="btn text-success">
+							  		<a href="#" v-on:click="checkin();" class="text-info">
+				                		<i class="fa fa-sign-in text-info fa-nomargin"></i><br/>Check-in
+			                		</a>
+							  	</button>
+
+							  {{-- 	<form action='{{route('play.checkin')}}' method='POST'>
+				                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
+										<input type='hidden' id="club_id" name='club_id' value="">
+										<input type='hidden' id="gtz_offset" name='gtz_offset' value="">
+							            <button id="btnCheckin" type='submit' title="Check-ins are allowed when you are within 0.5 miles of a club" class='btn btn-sm btn-success margin-top-10'>Check In</button>
+							    </form>   --}}  
 							  	{{-- <button type="button" class="btn text-info" onclick="vm.searchQuery='miles=10'; return false;"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button> --}}
 							  	{{-- <button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button> --}}
 							</div>	
@@ -299,6 +311,8 @@ section div.row>div {
 						<hr/>
 						<!-- Club Detail -->
 						<div class="">
+							<input type='hidden' id="club_id" name='club_id' value="">
+							<input type='hidden' id="gtz_offset" name='gtz_offset' value="">
 			                <ul class="list-unstyled components text-muted">  
 			                    <li><div id="club_addr"></div></li>
 					            <li><div id="club_phone"></div></li>
@@ -306,15 +320,7 @@ section div.row>div {
 					            <li><div id="club_courts"></div></li>
 			                    <li><div id="club_dist"></div></li>
 			                    <li><div id="club_checkin_total"></div></li>  
-			                    <li><div id="club_checkin_recent"></div></li>
-					            <li lass="text-center">
-					            	<form action='{{route('play.checkin')}}' method='POST'>
-				                	    <input type='hidden' name='_token' value='{{csrf_token()}}'>
-										<input type='hidden' id="club_id" name='club_id' value="">
-										<input type='hidden' id="gtz_offset" name='gtz_offset' value="">
-							            <button id="btnCheckin" type='submit' title="Check-ins are allowed when you are within 0.5 miles of a club" class='btn btn-sm btn-success margin-top-10'>Check In</button>
-							        </form>
-					            </li>                  
+			                    <li><div id="club_checkin_recent"></div></li>					            					            	     
 			                </ul>
 			            </div>
 		                <hr style="margin:0px;">
@@ -636,6 +642,8 @@ section div.row>div {
 
 	                	var d = new Date();
 						var gtz_offset= d.getTimezoneOffset();
+
+						club.gtz_offset = gtz_offset;
 
 	                	club.info += "<form id='frmCheckin' action='{{route('play.checkin')}}' method='POST'>"
 	                	    + "<input type='hidden' name='_token' value='{{csrf_token()}}'>"
@@ -1029,7 +1037,9 @@ section div.row>div {
 			$('#club_div').removeClass('hide');
 			$('#menu_div').addClass('hide');
 			loadClubSidePanel(club);
-			map.setZoom(14);			
+			map.setZoom(14);	
+
+			vm.club_id = club.id;	
 		}		
 
 		function track(bool){
@@ -1162,6 +1172,7 @@ section div.row>div {
 			el: '#vueClubs',
 		  	data: {	
 		  		debug: false,
+		  		club_id: 0,
 		  		clubs: [],
 		  		searchQuery: '',
 			    gridColumns: ['name', 'address', 'city', 'zip', 'dist', 'courts'],			   
@@ -1219,7 +1230,38 @@ section div.row>div {
                 	c.num = i;
                 	showClub(c); 
 			       	map.setCenter(new google.maps.LatLng(c.lat, c.lng )); return false
-                },                
+                },       
+
+                checkin: function(club_id) {  
+
+					var d = new Date();
+					var gtz_offset= d.getTimezoneOffset();
+
+					this.gtz_offset = gtz_offset;
+					
+                	$.ajaxPrefilter(function(options, originalOptions, xhr) { // this will run before each request
+				        var token = $('input[name="_token"]').attr("value"); // or _token, whichever you are using
+				        if (token) {
+				            return xhr.setRequestHeader('X-CSRF-TOKEN', token); // adds directly to the XmlHttpRequest Object
+				        }
+				    });
+                    $.ajax({
+                        context: this,
+                        type: "POST",
+                        data: {
+                        	club_id: this.club_id,
+                        	gtz_offset: this.gtz_offset
+                        },
+                        url: "/api/clubs/checkin",
+                        success: function (result) {
+                            this.$set("clubs", result);
+                            console.log('saved checkin');
+                        },
+						error:function(x,e) {
+							console.log("error saving checkin: " + e.message);
+						}
+                    });
+                },		         
             }		  
 		});
 
