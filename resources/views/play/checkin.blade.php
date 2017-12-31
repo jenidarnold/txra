@@ -320,7 +320,7 @@ section div.row>div {
 		                <hr style="margin:0px;">
 		                <ul class="list-unstyled">
 		                	<center>
-		                		Popular Times
+		                		<span class="text-muted">Popular Times</span>
 		                		<select id="dayofweek" class="input input-sm">
 		                			<option value="6">Sunday</option>
 		                			<option value="0">Monday</option>
@@ -330,7 +330,6 @@ section div.row>div {
 		                			<option value="4">Friday</option>
 		                			<option value="5">Saturday</option>
 		                		</select>
-
 		                	</center>
 							<div  class="flexslider" data-slideshowSpeed="900000">
 								<ul class="slides">
@@ -362,7 +361,7 @@ section div.row>div {
 						</div>
 						{{-- <div id="legend"><h4>Legend</h4></div> --}}
 						<div id="mylocation">
-							<button class="btn btn-sm btn-danger text-center" onclick="getCurrPos(); map.setCenter(user_pos); return false;" title="Re-center map to your Location">
+							<button id="btnTrackMe" class="btn btn-sm btn-success text-center" onclick="track(true); return false;" title="Re-center to my location">
 							<i class="fa fa-crosshairs fa-wx" style="padding:0px"></i></button>
 						</div>
 					</div>				
@@ -434,6 +433,7 @@ section div.row>div {
  		var geocoder;
  		var user_pos;
  		var club_num =1;
+ 		var trackMe = true;
 		/**
 	    * Data object to be written to Firebase.
 	    */
@@ -542,18 +542,20 @@ section div.row>div {
 
 
 		  	//Fit marker to bounds
-			if(uuid == myUuid){
-				if (!map.getBounds().contains(marker.getPosition())) {
-    				// marker is outside of map bounds
-					map.setCenter(pos);
+		  	if(trackMe == true){
+				if(uuid == myUuid){
+					if (!map.getBounds().contains(marker.getPosition())) {
+	    				// marker is outside of map bounds
+						map.setCenter(pos);
 
-					//update club distances
-					vm.clubs.forEach(function(club) {
-	                	var clubCord = new google.maps.LatLng(club.lat, club.lng);
-						var myCord = new google.maps.LatLng(pos.lat, pos.lng);
-	 	    			club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles	
-	 	    			club.dist = club.dist.toFixed(2) ;	 	    				 	    			
-	            	});
+						//update club distances
+						vm.clubs.forEach(function(club) {
+		                	var clubCord = new google.maps.LatLng(club.lat, club.lng);
+							var myCord = new google.maps.LatLng(pos.lat, pos.lng);
+		 	    			club.dist = google.maps.geometry.spherical.computeDistanceBetween (clubCord, myCord) * 0.000621371; // meters to miles	
+		 	    			club.dist = club.dist.toFixed(2) ;	 	    				 	    			
+		            	});
+					}
 				}
 			}
 
@@ -573,7 +575,7 @@ section div.row>div {
 
 		    snap.forEach(function(childSnapshot) {
 		      var uuid = childSnapshot.key;
-		      if (childSnapshot.val().timestamp < now - 60 * 30) {
+		      if (childSnapshot.val().timestamp < now - 60 * 60) {
 		        markersRef.child(uuid).set(null)
 		        //markers[uuid] = null
 		      }
@@ -972,7 +974,6 @@ section div.row>div {
 			}
 
 			loadChart(club.checkin_data);
-			console.log('done loadClubSidePanel');
 		}
 
 		function getCurrPos(){
@@ -1023,13 +1024,26 @@ section div.row>div {
 		}	
 
 		function showClub(club){
-			console.log('JS show club');	
+			track(false);	
 			$('#sidebar').addClass('active');
 			$('#club_div').removeClass('hide');
 			$('#menu_div').addClass('hide');
 			loadClubSidePanel(club);
 			map.setZoom(14);			
 		}		
+
+		function track(bool){
+			trackMe = bool;
+			if(trackMe){
+				$('#btnTrackMe').removeClass('btn-danger');
+				$('#btnTrackMe').addClass('btn-success');
+				getCurrPos(); 
+				map.setCenter(user_pos); 
+			}else{				
+				$('#btnTrackMe').addClass('btn-danger');
+				$('#btnTrackMe').removeClass('btn-success');
+			}
+		}
 	</script>
 
    <!-- Vue Stuff -->
