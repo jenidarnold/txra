@@ -24,12 +24,12 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 
-			<h1><i class="fa fa-credit-card"></i> Memberships</h1>
+			<h1><i class="fa fa-credit-card"></i> USAR & ALLIED ORGANIZATIONS</h1>
 
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<li><a href="/">Home</a></li>
-				<li><a href="{{route('members.listing')}}">Members</a></li>
+				<li><a href="{{route('members.listing')}}">Join</a></li>
 				<li class="active">Memberships</li>
 			</ol><!-- /breadcrumbs -->
 

@@ -511,22 +511,43 @@
 									</li>
 									<li><!-- CONTACT US -->
 										<li><a href="{{route('contact')}}">CONTACT US</a>
-									</li>						
-									<li class="dropdown"><!-- MEMBERS -->
+									</li>			
+
+									<li class="dropdown mega-menu"><!-- MEMBERSHIPS-->
 										<a class="dropdown-toggle" href="#">
 											JOIN
 										</a>
-										<ul class="dropdown-menu">
-											@if( Auth::guest())
-											<li class="dropdown">
-												<a href="/register">TXRA.ORG</a>
-											</li>	
-											@endif							
-											<li class="dropdown">
-												<a href="{{route('members.membership')}}">USAR MEMBERSHIPS</a>												
+										<ul class="dropdown-menu">											
+											<li>
+												<div class="row">
+													<div class="col-md-6">														
+														<ul class="list-unstyled">
+															<li><span>TEXAS RACQUETBALL ASSOCIATION</span></li>
+															<li><a href="/register">
+																FREE E-Membership with TXRA
+																</a>
+															</li>
+															<li>
+																<a href="{{route('members.membership')}}">
+																Become a TXRA member when you purchase a USAR Competitive License mebership
+																</a>
+															</li>
+														</ul>
+													</div>
+													<div class="col-md-6">														
+														<ul class="list-unstyled">
+															<li><span>USA RACQUETBALL</span></li>
+															<li><a  target="usar" href="https://www.teamusa.org/usa-racquetball/emembership">FREE E-Membership with USAR</a></li>
+															<li class="dropdown">
+																<a href="{{route('members.membership')}}">Competitive License Membership</a>	
+															</li>
+														</ul>
+													</div>
+												</div>
 											</li>
 										</ul>
 									</li>
+
 									<!-- USER OPTIONS -->
 									@if( Auth::guest())
 									<li class="dropdown hidden-xs hidden-sm">
