@@ -162,8 +162,12 @@ a[aria-expanded="true"]::before {
     content: '\e260';
 }
 
+hr {
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
 ul {
-	margin-bottom: 0px;
+	margin-bottom: 0px !important;
 }
 
 ul ul a {
@@ -877,8 +881,13 @@ section div.row>div {
 				
 				//set chart to current day
 				var d = new Date();
-				var currDay = d.getDay() - 1;
-				changeSlide(currDay);					
+				var currDay = d.getDay() ;
+				if (currDay == 0){
+					changeSlide(6);	
+				}
+				else{
+					changeSlide(currDay - 1);	
+				}
 			}
 
 			function changeSlide(slide){
@@ -887,13 +896,13 @@ section div.row>div {
 					while (currSlide > slide ) 
 					{
 				    	$('.flex-prev i').trigger('click');		    	
-				    	//console.log('trigger prev '  + currSlide);	    	
+				    	console.log('trigger prev '  + currSlide);	    	
 				    }
 				}else{
 					while (currSlide < slide ) 
 					{
 				    	$('.flex-next i').trigger('click');
-				    	//console.log('trigger next '  + currSlide);		 
+				    	console.log('trigger next '  + currSlide);		 
 				    }
 				}	
 				$("#dayofweek option[value=" + currSlide +"]").attr('selected','selected');		
@@ -963,6 +972,7 @@ section div.row>div {
 			}
 
 			loadChart(club.checkin_data);
+			console.log('done loadClubSidePanel');
 		}
 
 		function getCurrPos(){
@@ -1013,11 +1023,12 @@ section div.row>div {
 		}	
 
 		function showClub(club){
+			console.log('JS show club');	
 			$('#sidebar').addClass('active');
 			$('#club_div').removeClass('hide');
 			$('#menu_div').addClass('hide');
 			loadClubSidePanel(club);
-			map.setZoom(14);				
+			map.setZoom(14);			
 		}		
 	</script>
 
@@ -1121,7 +1132,9 @@ section div.row>div {
 			      this.sortKey = key
 			      this.sortOrders[key] = this.sortOrders[key] * -1
 			    },
-			    showClub: function(c){                	
+			    showClub: function(c){    
+
+					console.log('Vue Comp show club');	            	
                 	showClub(c); 
 			       	map.setCenter(new google.maps.LatLng(c.lat, c.lng )); return false
                 },                    
@@ -1187,6 +1200,8 @@ section div.row>div {
                 },
 
                 showClub: function(c, i){
+
+					console.log('Vue show club');	
                 	c.num = i;
                 	showClub(c); 
 			       	map.setCenter(new google.maps.LatLng(c.lat, c.lng )); return false
