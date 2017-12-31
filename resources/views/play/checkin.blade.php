@@ -71,15 +71,15 @@
     text-align: center;*/
     /*background: #7386D5;*/
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 15px;
     cursor: pointer;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 #dismiss:hover {
-    background: #fff;
+    /*background: #fff*/;
     color: #7386D5;
 }
 
@@ -228,8 +228,8 @@ section div.row>div {
 			<!-- Sidebar Holder -->
 			<div id="vueClubs">
 	            <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
-	                <div id="dismiss" class="btn btn-default btn-xs">
-	                    <i class="fa fa-chevron-left fa-nomargin"></i>
+	                <div id="dismiss">
+	                    <i class="fa fa-chevron-left text-white fa-md fa-nomargin"></i>
 	                </div>
 
 	                <div id="menu_div" class="">
@@ -240,7 +240,8 @@ section div.row>div {
 									    <div class="input-group">
 										      	<input id="query" name="query" type="text" class="form-control" placeholder="Search for Clubs" v-model="searchQuery" />
 										      	<span class="input-group-btn">
-										        	<button class="btn btn-secondary btn-default" type="button"><i class="fa fa-search fa-lg fa-nomargin"></i></button>
+										        	<button class="btn btn-secondary btn-default" type="button"><i class="fa fa-search fa-md fa-nomargin"></i></button>
+										        	<button class="btn btn-secondary btn-default" type="button" onclick="vm.searchQuery=''" title="Clear Search"><i class="fa fa-times fa-md fa-nomargin"></i></button>
 										      	</span>
 									    </div>
 							      	</div>
@@ -249,8 +250,8 @@ section div.row>div {
 		                </div>
 		               
 		                <!---Menu -->
-		                <div class="row">
-							<div class="btn-group col-xs-12  text-center">
+		                <div class="row margin-bottom-5px">
+							<div class="btn-group col-xs-12  text-center" style="margin-bottom:10px">
 							  	<button type="button" class="btn text-info" onclick="vm.searchQuery='miles=10'; return false;"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button>
 
 							  	{{-- <button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button> --}}
@@ -1097,7 +1098,7 @@ section div.row>div {
 			      		console.log('Filter miles within '+ within)
 			      		data = data.filter(function (row) {
 				          return Object.keys(row).some(function (key) {
-			            	return parseFloat(row['dist']) <= parseFloat(within)
+			            	return Math.floor(parseFloat(row['dist'])) <= parseFloat(within)
 				          })
 				        })
 			      	}else //normal searchelse //normal search
@@ -1238,7 +1239,7 @@ section div.row>div {
 					var gtz_offset= d.getTimezoneOffset();
 
 					this.gtz_offset = gtz_offset;
-					
+
                 	$.ajaxPrefilter(function(options, originalOptions, xhr) { // this will run before each request
 				        var token = $('input[name="_token"]').attr("value"); // or _token, whichever you are using
 				        if (token) {
