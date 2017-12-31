@@ -194,6 +194,9 @@ ul ul a {
 	padding:0px !important; 
 }
 
+section div.row>div {
+    margin-bottom: 0px !important;
+}
 /*----------------------
 	FLEX SLIDER STYLE
 -----------------------*/
@@ -228,7 +231,7 @@ ul ul a {
 	                <div id="menu_div" class="">
 	                	<div class="sidebar-header">
 		                	<div class="row">
-		                		<div class="col-lg-11">
+		                		<div class="col-xs-11">
 		                			<div id="clubSearch">
 									    <div class="input-group">
 										      	<input id="query" name="query" type="text" class="form-control" placeholder="Search for Clubs" v-model="searchQuery" />
@@ -243,7 +246,7 @@ ul ul a {
 		               
 		                <!---Menu -->
 		                <div class="row">
-							<div class="btn-group col-lg-12  text-center">
+							<div class="btn-group col-xs-12  text-center">
 							  	<button type="button" class="btn text-info" onclick="vm.searchQuery='miles=10'; return false;"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button>
 
 							  	{{-- <button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button> --}}
