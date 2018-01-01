@@ -165,7 +165,11 @@ a[aria-expanded="true"]::before {
 hr {
 	margin-top: 5px !important;
 	margin-bottom: 5px !important;
+	/*	border: 1px  !important;
+		background-image: none !important;
+	*/
 }
+
 ul {
 	margin-bottom: 0px !important;
 }
@@ -250,8 +254,8 @@ section div.row>div {
 		                </div>
 		               
 		                <!---Menu -->
-		                <div class="row margin-bottom-5px">
-							<div class="btn-group col-xs-12  text-center" style="margin-bottom:10px">
+		                <div class="row">
+							<div class="btn-group col-xs-12  text-center" style="padding-bottom:20px">
 							  	<button type="button" class="btn text-info" onclick="vm.searchQuery='miles=10'; return false;"><i class="fa fa-map-marker text-info fa-nomargin"></i><br>Nearby</button>
 
 							  	{{-- <button type="button" class="btn text-info"><i class="fa fa-share-alt fa-nomargin"></i><br>Share</button> --}}
@@ -267,11 +271,11 @@ section div.row>div {
 		                <div class=" col-sm-12 ">
 		                	<div class="row">
 			                	<div class="col-lg-11">		                	
-								  <demo-grid
+								  <club-list
 								    :data="clubs"
 								    :columns="gridColumns"
 								    :filter-key="searchQuery">
-								  </demo-grid>
+								  </club-list>
 							  </div>
 			                </div>
 							<div class="row" v-show = "debug">
@@ -280,6 +284,7 @@ section div.row>div {
 						</div>
 	                </div>
 
+	                <!-- Club Detail -->
 	                <div id="club_div" class="hide">
 	                	<div id="club_image" class="sidebar-image"></div>
 		                <div class="sidebar-header">	               
@@ -287,7 +292,7 @@ section div.row>div {
 		                </div>
 		                 <!---Menu -->
 		                <div class="row">
-							<div class="btn-group col-lg-12  text-center">
+							<div class="btn-group col-lg-12  text-center"  style="padding-bottom:20px">
 							  	<button  type="button" class="btn text-info">
 							  		<a href="#" onclick="listClubs(); return false;" class="text-info">
 				                		<i class="fa fa-chevron-left text-info fa-nomargin"></i><br/>Back to list
@@ -377,6 +382,17 @@ section div.row>div {
 		</div>
 	</section>
 
+	<!-- Modal Checkin Message -->
+	<div class="modal fade" id="modCheckin" role="dialog" data-delay="2">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+		        <div class="modal-body alert alert-success text-center" style="height:53px">	          		
+		         	
+		        </div>
+	        </div>
+        </div>
+    </div>
+
 	<!-- Modal add Clubs -->
 	<div class="modal fade" id="modAddClub" role="dialog">
 		<div class="modal-dialog modal-lg">
@@ -406,7 +422,7 @@ section div.row>div {
 		<div class=" col-sm-12" v-for="(index, club) in filteredData">
 	  		<div class="itembox">					     		
 				<div class="row" style="margin-bottom:0px">									
-					<div class="col-xs-10 col-sm-12 col-md-12 club-padding " style="margin-bottom:0px">
+					<div class="col-xs-12 col-sm-12 col-md-12 club-padding " style="margin-bottom:0px">
 						<a href="#" class="text-danger" data-dismiss="modal" v-on:click="showClub(club)" > 
 							@{{ club.name }}
 						</a>		
@@ -1060,7 +1076,7 @@ section div.row>div {
    <!-- Vue Stuff -->
 	<script>
 		// register the grid component
-			Vue.component('demo-grid', {
+			Vue.component('club-list', {
 			  template: '#club-template',
 			  props: {
 			    data: Array,
@@ -1232,6 +1248,9 @@ section div.row>div {
                 	showClub(c); 
 			       	map.setCenter(new google.maps.LatLng(c.lat, c.lng )); return false
                 },       
+                hideClub: function(){
+                	$('#sidebar').removeClass('active');
+                },
 
                 checkin: function(club_id) {  
 
@@ -1239,6 +1258,7 @@ section div.row>div {
 					var gtz_offset= d.getTimezoneOffset();
 
 					this.gtz_offset = gtz_offset;
+                    $('#sidebar').removeClass('active');
 
                 	$.ajaxPrefilter(function(options, originalOptions, xhr) { // this will run before each request
 				        var token = $('input[name="_token"]').attr("value"); // or _token, whichever you are using
@@ -1256,10 +1276,24 @@ section div.row>div {
                         url: "/api/clubs/checkin",
                         success: function (result) {
                             this.$set("clubs", result);
-                            console.log('saved checkin');
+                            var delayModal = $("#modCheckin").attr("data-delay");
+
+                            var html = "<button type='button' class='close' data-dismiss='modal'>&times;</button>"
+                            html += "Checked In!";
+
+                            $('#modCheckin .modal-body').html(html);                            
+                            $('#modCheckin').modal('show');
+						  	setTimeout(function(e){
+							     $('#modCheckin').modal('hide');
+							  }, parseInt(delayModal)*1000);
                         },
 						error:function(x,e) {
 							console.log("error saving checkin: " + e.message);
+
+                            var html = "<button type='button' class='close' data-dismiss='modal'>&times;</button>"
+                            html += "Unable to check-in right now";
+                            $('#modCheckin .modal-body').html(html);                            
+                            $('#modCheckin').modal('show');
 						}
                     });
                 },		         
