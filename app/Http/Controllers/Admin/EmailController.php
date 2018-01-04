@@ -7,7 +7,7 @@ use App\Events\AccountWasCreated;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
-class InviteController extends Controller {
+class EmailController extends Controller {
 
 	/**
 	 * Create a new screen scrape controller instance.
@@ -23,29 +23,56 @@ class InviteController extends Controller {
     // show the user a form with an email field to invite a new user
     public function index()
     {
-       return view('forms.email.create');
+
+        $users = User::orderBy('last_name')
+            ->orderBy('first_name')
+            ->paginate(100);
+
+
+
+       return view('admin.email.index', compact('users'));
     }
 
     // process the form submission and send the invite by email
-    public function blast(Request $request)
+    public function send(Request $request)
     {
               
-        $users = User::all();
-
+        //TODO get all users from array of checked box
+        
         $subject = $request->subject;
         $view = $request->view;
 
-        foreach ($users as $user) {
-               $this->send($user->id, $subject);
+        //validate
+       //read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'first_name'       => 'required',
+            'last_name'       => 'required',
+            'email' => 'required|email',
+        );
+        $validator = \Validator::make(\Input::all(), $rules);
+
+        if ($validator->fails()) {
+
+            $message = 'Failed to update user.';
+            return redirect()->back()
+                ->with('alert-danger', $message)
+                ->withErrors($validator)
+                ->withInput(\Input::except('password'));
+        } else {
+
+            foreach ($users as $user) {
+                   $this->send_per_user($user->id, $subject);
+            }
+            
         }
-        
+
         // redirect back where we came from
         return redirect()
             ->back();
     }
 
 
-    public function send($id, $view,  $subject){
+    public function send_per_user($id, $view,  $subject){
 
         $user = User::find($id);
 

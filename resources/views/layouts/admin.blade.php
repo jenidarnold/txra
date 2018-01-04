@@ -33,6 +33,7 @@
 					<ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">			
 						<li><a href="/admin">Index</a></li>
 						<li><a href="{{route('admin.clubs')}}">Clubs</a></li>
+						<li><a href="{{route('admin.email')}}">Email</a></li>
 						<li><a href="{{route('admin.events')}}">Events</a></li>
 						<li><a href="{{route('admin.instructors')}}">Instructors</a></li>
 						<li><a href="{{route('admin.invites')}}">Invites</a></li>

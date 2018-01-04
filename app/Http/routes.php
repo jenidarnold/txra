@@ -113,6 +113,10 @@ Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
 	Route::delete('/clubs/{id}/', 			array('as' => 'admin.clubs.delete', 	'uses' => 'ClubController@delete'));	
 	Route::post('/clubs/{id}/', 			array('as' => 'admin.clubs.update', 	'uses' => 'ClubController@update'));
 
+	/*email*/
+	Route::get('/email',					array('as' => 'admin.email', 				'uses' => 'EmailController@index'));
+	Route::post('/email',					array('as' => 'admin.email.send', 			'uses' => 'EmailController@send'));
+
 	/*rankings*/
 	Route::get('/rankings', 				array('as' => 'admin.rankings', 			'uses' => 'AdminController@rankings'));
 

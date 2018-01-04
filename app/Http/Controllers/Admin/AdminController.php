@@ -37,7 +37,7 @@ class AdminController extends Controller {
 	{	
 
         $users = User::orderBy('id','desc')
-        	->paginate(40);
+        	->paginate(100);
 
 
         $date_since = \Carbon\Carbon::today()->subDays(7);

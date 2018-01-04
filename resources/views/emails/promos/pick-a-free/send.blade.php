@@ -6,7 +6,7 @@
 @stop
 
 @if(!isset($user))
-	@php ($user = \App\User::find(1))
+	@php ($user = \App\User::find(300))
 	@php ($profile = \App\UserProfile::find($user->profile->id))
 	@php ($promo = \App\Promo::find(1))	
 @endif
@@ -42,7 +42,7 @@
 								<h6>
 									Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.<br/>
 									<br/>
-				      				All you have to do to qualify is login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account and complete {{$profile->missing}} item(s) on your profile. 
+				      				All you have to do to qualify is complete {{$profile->missing}} item(s) on your profile. Login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account, and click on the link "My Settings" to update your profile.
 				      				<span style="color:darkgreen">Your profile is {{$progress}}% complete!</span>
 				      			</h6>
 				      							      		
