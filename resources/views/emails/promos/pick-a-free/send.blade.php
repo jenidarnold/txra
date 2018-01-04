@@ -25,25 +25,24 @@
 			      	<td>
 				      	<h5>
 				      		@if($progress == 100)
-				      			<h5>Congratulations! You are pre-qualified in the <br/>
+				      			<h5>Congratulations! You have been entered into the <br/>
 				      				<a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a><br/>
 				      			</h5>
 				      			<br/>
 				      			<h6>
-				      				Eligible profiles will be entered into a drawing for a chance to win a FREE ENTRY into a TXRA sanctioned tournament of your choice.
-				      				You earned this chance because you completed 100% of your profile on <a href="http://texasracquetball.org" target="new">txra.org</a><br/>
-				      				<br/>
+				      				You are eligible because you completed 100% of your profile on <a href="http://texasracquetball.org" target="new">txra.org</a>.<br/>
+				      				We want to thank you for being a part of our online racquetball community. So we have entered your name into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.
 				      				<a href="/refer">Refer-a-Friend</a> to earn more chances to win.
 				      			</h6>
 				      		@else
-				      			<h5>You can be a our big winner in the <br>
+				      			<h5>You can be a our Grand Prize Winner in the <br>
 				      				<a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a><br/>
 								</h5>
 								<br/>
 								<h6>
-									Eligible profiles will be entered into a drawing for a chance to win a FREE ENTRY into a TXRA sanctioned tournament of your choice.<br/>
+									Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.<br/>
 									<br/>
-				      				All you have to do is login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account and complete {{$profile->missing}} item(s) on your profile. 
+				      				All you have to do to qualify is login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account and complete {{$profile->missing}} item(s) on your profile. 
 				      				<span style="color:darkgreen">Your profile is {{$progress}}% complete!</span>
 				      			</h6>
 				      							      		
@@ -69,10 +68,14 @@
 	<table class="tweleve columns">
 	    <tbody>
 	    	<tr>
-		    	<td style="padding-top:5px; padding-right:15px">
+		    	<td style="padding-top:5px; padding-right:15px;text-align:center; font-weight:bold">
 		    		<a target="member" href='{{route('members.show', $user->id)}}'>
 		    		<img name="imgProfile" id="imgProfile" style="height:229px" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$user->profile->avatar)}}' alt=""  />
 		    		</a>
+		    		@if(!$user->profile->is_avatar_unique)
+		    			<br/>
+		    			<span style="color:red">Missing Profile Picture</span>
+		    		@endif
 		    	</td>	
 		    </tr>
 		    <tr>
@@ -92,7 +95,7 @@
 			    		<tr>
 			    			<th style="padding-right:5px;"><b>Gender</b></th>
 			    			<th style="padding-right:5px;">
-			    			@if($user->profile->gender == '')
+			    			@if (($user->profile->gender == '') || ($user->profile->gender == 'none'))
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    				{{$user->profile->gender}}&nbsp;
@@ -102,7 +105,7 @@
 			    		<tr>
 			    			<th style="padding-right:5px;"><b>Hand</b></th>
 			    			<th style="padding-right:5px;">
-			    			@if($user->profile->dominant_hand == '')
+			    			@if(($user->profile->dominant_hand == '') || ($user->profile->dominant_hand == 'none'))
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    				{{$user->profile->dominant_hand}}&nbsp;
@@ -112,7 +115,7 @@
 			    		<tr>
 			    			<th style="padding-right:5px;"><b>Skill</b></th>
 			    			<th style="padding-right:5px;">
-			    			@if($user->profile->skill == '')
+			    			@if(($user->profile->skill == '')|| ($user->profile->skill == 'none'))
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    			{{$user->profile->skill}}&nbsp;

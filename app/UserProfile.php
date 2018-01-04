@@ -31,28 +31,9 @@ class UserProfile extends Model
 
     public function getProgressAttribute(){
 
-        $progress = 0;
-        $num_fields = 6;
-
-        if ($this->gender <> '')  {
-            $progress +=1;
-        }
-        if ($this->city <> '')  {
-            $progress +=1;
-        }
-        if ($this->skill <> '')  {
-            $progress +=1;
-        }
-        if ($this->racquet <> '')  {
-            $progress +=1;
-        }
-        if ($this->dominant_hand <> '')  {
-            $progress +=1;
-        }
-        if ($this->bio <> '')  {
-            $progress +=1;
-        }
-
+        $num_fields = 7;
+        
+        $progress = $num_fields - $this->missing;
         $progress =  round($progress / $num_fields * 100);
 
         return $progress;
@@ -61,24 +42,28 @@ class UserProfile extends Model
     public function getMissingAttribute(){
 
         $progress = 0;
-        $num_fields = 6;
+        $num_fields = 7;
 
-        if ($this->gender <> '')  {
+        if (($this->gender <> '') && ($this->gender <> 'none')) {
             $progress +=1;
         }
-        if ($this->city <> '')  {
+        if ($this->city <> '') {
             $progress +=1;
         }
-        if ($this->skill <> '')  {
+        if (($this->skill <> '') && ($this->skill <> 'none')) {
             $progress +=1;
         }
-        if ($this->racquet <> '')  {
+        if (($this->racquet <> '')  && ($this->racquet <> 'none')){
             $progress +=1;
         }
-        if ($this->dominant_hand <> '')  {
+        if (($this->dominant_hand <> '')  && ($this->dominant_hand <> 'none')) {
             $progress +=1;
         }
         if ($this->bio <> '')  {
+            $progress +=1;
+        }
+
+        if ($this->is_avatar_unique){
             $progress +=1;
         }
 
@@ -88,21 +73,49 @@ class UserProfile extends Model
     }
 
     /**
+     *  The Avatar cksum
+     *  
+     */
+    public function getIsAvatarUniqueAttribute(){
+
+        $file = "images/members/$this->user_id/$this->avatar";
+        $cksum = md5_file($file,false);
+
+        if ($cksum == "1b272bbdcaf773fe50e398c50a3eb164" ){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    /**
      * The number of profiles completed
-     *
      * @var array
      */
     public function getTotalCompleted(){
 
         $profiles = UserProfile::where('gender', '<>', '')
+            ->where('gender', '<>', 'none')
             ->where('city', '<>', '')
             ->where('skill', '<>', '')
+            ->where('skill', '<>', 'none')
             ->where('racquet', '<>', '')
+            ->where('racquet', '<>', 'none')
             ->where('dominant_hand', '<>', '')
+            ->where('dominant_hand', '<>', 'none')
             ->where('bio', '<>', '')
             ->get();
 
-        return $profiles->count();
+        $cnt=0;   
+        foreach ($profiles as $profile) {
+
+            if ($profile->is_avatar_unique){
+                $cnt++;
+            }        
+        }
+
+        return $cnt;
     }
 
     /**

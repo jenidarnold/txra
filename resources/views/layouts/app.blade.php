@@ -455,7 +455,7 @@
 														<ul class="list-unstyled">
 															<li><span>BUSINESS</span></li>
 															<li><a href="{{ route('news.category', array('id' =>9, 'category' => 'Board Minutes'))}}">BOARD MINUTES</a></li>
-															<li><a href="{{ route('news.category', array('id' =>14, 'category' => 'Financial Reports'))}}">FINACIAL REPORTS</a></li>
+															<li><a href="{{ route('news.category', array('id' =>14, 'category' => 'Financial Reports'))}}">FINANCIAL REPORTS</a></li>
 														</ul>
 													</div>
 													<div class="col-md-5th">														
