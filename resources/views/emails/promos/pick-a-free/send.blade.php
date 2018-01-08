@@ -6,7 +6,7 @@
 @stop
 
 @if(!isset($user))
-	@php ($user = \App\User::find(300))
+	@php ($user = \App\User::find(1))
 	@php ($profile = \App\UserProfile::find($user->profile->id))
 	@php ($promo = \App\Promo::find(1))	
 @endif
@@ -23,21 +23,20 @@
 		    <tbody>
 		    	<tr>			    			   
 			      	<td>
-				      	<h5>
 				      		@if($progress == 100)
-				      			<h5>Congratulations! You have been entered into the <br/>
-				      				<a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a><br/>
-				      			</h5>
+				      			<h6>Congratulations! You have been entered into the: <br/>
+				      				<center><a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a></center>
+				      			</h6>
 				      			<br/>
 				      			<h6>
 				      				You are eligible because you completed 100% of your profile on <a href="http://texasracquetball.org" target="new">txra.org</a>.<br/>
-				      				We want to thank you for being a part of our online racquetball community. So we have entered your name into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.
+				      				We want to thank you for being a part of our online racquetball community. Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.
 				      				<a href="/refer">Refer-a-Friend</a> to earn more chances to win.
 				      			</h6>
 				      		@else
-				      			<h5>You can be a our Grand Prize Winner in the <br>
-				      				<a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a><br/>
-								</h5>
+				      			<h6>You can be our Grand Prize Winner in the: <br>
+				      				<center><a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a></center>
+				      			</h6>
 								<br/>
 								<h6>
 									Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.<br/>
@@ -49,7 +48,6 @@
 				      		@endif
 				      		<br/>
 				      		<h6>Here's a look at your profile:</h6>
-				      	</h5>				      
 		        	</td>
 			      	<td class="expander"></td>
 			    </tr>
@@ -67,7 +65,7 @@
 
 	<table class="tweleve columns">
 	    <tbody>
-	    	<tr>
+	    	<tr>	    		
 		    	<td style="padding-top:5px; padding-right:15px;text-align:center; font-weight:bold">
 		    		<a target="member" href='{{route('members.show', $user->id)}}'>
 		    		<img name="imgProfile" id="imgProfile" style="height:229px" class="user-avatar thumbnail img-responsive" src='{{ asset('images/members/'. $user->id  .'/' .$user->profile->avatar)}}' alt=""  />
@@ -77,76 +75,77 @@
 		    			<span style="color:red">Missing Profile Picture</span>
 		    		@endif
 		    	</td>	
-		    </tr>
-		    <tr>
+	    	</tr>
+		    <tr> 
 		    	<td>
 			    	{{-- <img name="imgPromo" id="imgPromo" class="user-avatar thumbnail img-responsive" src='{{ asset('images/promos/free_entry.png')}}' alt="free-entry-sweepstakes" /> --}}		   	
 			    	<table class="info" width="100%">
 			    		<tr>
-			    			<th style="padding-right:5px;"><b>Hometown</b></th>
-			    			<th style="padding-right:5px;">
+			    			<th style="padding-right:5px;width:40%"><b>Hometown:</b></th>
+			    			<td style="padding-right:5px;">
 			    			@if($user->profile->city == '')
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    				{{$user->profile->city}}&nbsp;
 			    			@endif
-			    			</th>
+			    			</td>
 			    		</tr>
 			    		<tr>
-			    			<th style="padding-right:5px;"><b>Gender</b></th>
-			    			<th style="padding-right:5px;">
+			    			<th style="padding-right:5px;"><b>Gender:</b></th>
+			    			<td style="padding-right:5px;">
 			    			@if (($user->profile->gender == '') || ($user->profile->gender == 'none'))
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    				{{$user->profile->gender}}&nbsp;
 			    			@endif
-		    				</th>
+		    				</td>
 			    		</tr>
 			    		<tr>
-			    			<th style="padding-right:5px;"><b>Hand</b></th>
-			    			<th style="padding-right:5px;">
+			    			<th style="padding-right:5px;"><b>Hand:</b></th>
+			    			<td style="padding-right:5px;">
 			    			@if(($user->profile->dominant_hand == '') || ($user->profile->dominant_hand == 'none'))
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    				{{$user->profile->dominant_hand}}&nbsp;
 			    			@endif
-			    			</th>
+			    			</td>
 			    		</tr>
 			    		<tr>
-			    			<th style="padding-right:5px;"><b>Skill</b></th>
-			    			<th style="padding-right:5px;">
+			    			<th style="padding-right:5px;"><b>Skill:</b></th>
+			    			<td style="padding-right:5px;">
 			    			@if(($user->profile->skill == '')|| ($user->profile->skill == 'none'))
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    			{{$user->profile->skill}}&nbsp;
 			    			@endif
-			    			</th>
+			    			</td>
 			    		</tr>
 			    		<tr>
-			    			<th style="padding-right:5px;"><b>Racquet</b></th>
-			    			<th style="padding-right:5px;">
+			    			<th style="padding-right:5px;"><b>Racquet:</b></th>
+			    			<td style="padding-right:5px;">
 			    			@if($user->profile->racquet == '')
 			    				<span style="color:red">Missing Info</span>
 			    			@else
 			    				{{$user->profile->racquet}}&nbsp;
 			    			@endif
-		    				</th>
-			    		</tr>
-			    		<tr>
-			    			<th style="padding-right:5px;"><b>Bio</b></th>
-			    			<th style="padding-right:5px;">
-			    			@if($user->profile->bio == '')
-			    				<span style="color:red">Missing Info</span>
-			    			@else
-			    				{{$user->profile->bio}}&nbsp;
-			    			@endif
-		    				</th>
+		    				</td>
 			    		</tr>
 			    	</table>
-			    </td>
-				<td class="expander"></td>
-		    </tr>
-		    
+		    	</td>
+	    	</tr>
+    		<tr>
+    			<th style="padding-right:5px;"><b>About Me:</b></th>
+    		</tr>
+    		<tr>
+    			<td colspan="2" style="padding-right:5px;">
+    			@if($user->profile->bio == '')
+    				<span style="color:red">Missing Info</span>
+    			@else
+    				{{$user->profile->bio}}&nbsp;
+    			@endif
+				</td>
+    		</tr>
+			<td class="expander"></td>	       
 	 	 </tbody>
   	</table>	
 		
