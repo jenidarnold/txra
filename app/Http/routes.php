@@ -315,6 +315,10 @@ Route::resource('subscribe', 'SubscribeController');
 /* Email Previews */
 Route::group(['middleware' => ['auth', 'admin_user']], function () {
 
+	Route::get('/tmp/draft', function () {
+	    return view('tmp.draft');
+	});
+
 	Route::get('/emails/invites/send', function () {
 	    return view('emails.invites.send');
 	});

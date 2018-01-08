@@ -42,7 +42,7 @@
 								<h6>
 									Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.<br/>
 									<br/>
-				      				All you have to do to qualify is complete {{$profile->missing}} item(s) on your profile. Login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account, and click on the link "My Settings" to update your profile.
+				      				All you have to do to qualify is complete {{$user->profile->missing}} item(s) on your profile. Login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account, and click on the link "My Settings" to update your profile.
 				      				<span style="color:darkgreen">Your profile is {{$progress}}% complete!</span>
 				      			</h6>
 				      							      		

@@ -26,58 +26,118 @@ class EmailController extends Controller {
 
         $users = User::orderBy('last_name')
             ->orderBy('first_name')
-            ->paginate(100);
+            ->paginate(1000);
 
 
+        $directory =  resource_path() . "/views/emails";
 
-       return view('admin.email.index', compact('users'));
+        $files = \File::allFiles($directory);
+
+        $pages = [];
+        foreach ($files as $file) {
+
+            $filename = realPath($file);
+            $filename = str_replace(resource_path() . "/views/", '', $filename);
+            $filename = str_replace('.blade.php', '', $filename);
+            $filename = str_replace("/", ".", $filename);
+            $pages[$filename] = $filename;
+        }
+
+       // dd($pages);
+       return view('admin.email.index', compact('users', 'pages'));
     }
 
-    // process the form submission and send the invite by email
+    /**
+     * process the form submission and send the invite by email
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function send(Request $request)
     {
-              
-        //TODO get all users from array of checked box
+                      
+        $input = \Input::all();
+        //Custom validator in laravel to validate comma separated emails.
+        //https://gist.github.com/technoknol/d52eb295608d18b86e25663107663204
+        \Validator::extend("emails", function($attribute, $values, $parameters) {
+            $value = explode(',', $values);
+            $rules = [
+                'email' => 'required|email',
+            ];
+            if ($value) {
+                foreach ($value as $email) {
+                    $data = [
+                        'email' => $email
+                    ];
+                    $validator = \Validator::make($data, $rules);
+                    if ($validator->fails()) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        });
         
-        $subject = $request->subject;
-        $view = $request->view;
-
-        //validate
-       //read more on validation at http://laravel.com/docs/validation
+        //validation of new custom ule
         $rules = array(
-            'first_name'       => 'required',
-            'last_name'       => 'required',
-            'email' => 'required|email',
+            'recipients' => 'required',            
         );
-        $validator = \Validator::make(\Input::all(), $rules);
 
-        if ($validator->fails()) {
+        $validator = \Validator::make($input, $rules, array('recipients' => ':input must have valid email addresses.'));
 
-            $message = 'Failed to update user.';
-            return redirect()->back()
+        if ($validator->fails()) {          
+            $message = 'Please fill out all required fields';
+            return  \Redirect::to(\URL::previous() . "#form")
                 ->with('alert-danger', $message)
                 ->withErrors($validator)
                 ->withInput(\Input::except('password'));
-        } else {
+                ;   
+        }
+             
+        // Send to each email address
+        $emails = $request->recipients;
+        $emails = explode(',', $emails);
+        $subject = $request->subject;
+        $page = $request->pages;
 
-            foreach ($users as $user) {
-                   $this->send_per_user($user->id, $subject);
+        $errors = [];
+        foreach ($emails as $email) {
+            try {
+                $this->send_per_user(trim($email), $subject, $page);
             }
-            
+           catch (\Exception $e) {
+                 $errors[] = $email . ': ' . $e->getMessage();
+            }
+        }
+                
+        if (count($errors) > 0) {
+        return  \Redirect::to(\URL::previous())
+                ->with('alert-danger', "Errors encountered:")
+                ->withErrors($errors)
+                ->withInput(\Input::except('password'));
+        }
+        else{
+            return  \Redirect::to(\URL::previous())
+                ->with('alert-success', "Successfully sent emails")
+                ->withErrors($errors)
+                ->withInput(\Input::except('password'));
         }
 
-        // redirect back where we came from
-        return redirect()
-            ->back();
     }
 
+    /**
+     * Get user by email then Send email
+     * @param  [type] $id      [description]
+     * @param  [type] $subject [description]
+     * @param  [type] $page    [description]
+     * @return [type]          [description]
+     */
+    public function send_per_user($email, $subject, $page){
 
-    public function send_per_user($id, $view,  $subject){
-
-        $user = User::find($id);
+        $user = User::where('email','=', $email)
+            ->first();
 
        // send the email
-        \Mail::send($email_view, ['user' => $user], function ($m) use ($user) {
+        \Mail::send($page, ['user' => $user], function ($m) use ($user, $subject) {
             $m->from(env('MAIL_FROM_EMAIL'), 'Texas Racquetball Association');
             $m->to($user->email, $user->full_name)->subject($subject);
         });
