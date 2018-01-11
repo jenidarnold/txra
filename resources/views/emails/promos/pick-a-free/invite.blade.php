@@ -11,7 +11,7 @@
 	@php ($invite->token = "unk")
 @endif
 
-@php ($tournaments = App\Tournament::future()->where('name', 'not like', '%Ladder')->limit(4)->get())
+@php ($tournaments = App\Tournament::future()->where('name', 'not like', '%Ladder')->limit(6)->get())
 @section('greeting')
 	Hello, {{ $invite->full_name}}
 @stop
@@ -87,7 +87,7 @@
 			      <td>
 					<center>
 						<figure>
-							<a class="ico-rounded" href="{{ $t->url }}" target="tournament">
+							<a class="ico-rounded" href="https://texasracquetball.org/events/future" target="tournament">
 								<img class="img-responsive" style="float:none" src="{{$t->logo }}" width="100" alt="">
 							</a>	
 						</figure>
@@ -98,7 +98,7 @@
 			      <td>
 					<center>
 						<!-- div info -->
-						<h6 style="text-align:center"><a href="{{ $t->url }}" target="tournament"> {{ $t->name }}</a></h6>
+						<h6 style="text-align:center"><a href="https://texasracquetball.org/events/future" target="tournament"> {{ $t->name }}</a></h6>
 								
 						<span class="text-info">
 							{{$t->start}} - {{$t->end}}
