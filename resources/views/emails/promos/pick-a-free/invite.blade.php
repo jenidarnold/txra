@@ -29,7 +29,7 @@
 	<table class="twelve columns">
 	    <tbody>
 	    	<tr>
-	    		<td><a href="http://txra.org/sweepstakes"><img src="{{asset('images/promos/free_entry_600.png')}}"></a></td>	    	
+	    		<td><a href="http://txra.org/sweepstakes"><img src="http://txra.org/images/promos/free_entry_600.png')}}"></a></td>	    	
 	    	</tr>
 	    	<tr>
 		      	<td>

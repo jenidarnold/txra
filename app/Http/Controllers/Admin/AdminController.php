@@ -149,7 +149,7 @@ class AdminController extends Controller {
         	->orderBy('invites.accepted_at', 'desc')
         	->orderBy('sent')
         	->orderBy('invites.created_at', 'desc')
-        	->paginate(50);
+        	->paginate(100);
 
 
 
@@ -158,8 +158,13 @@ class AdminController extends Controller {
         $stats->total = Invite::count();
         $stats->sent = Invite::where('sent', 1)->count();
         $stats->unsent = Invite::where('sent', 0)->count();
+
+        //$stats->sent = Invite::whereDate('sent', '>', date('2018-01-01'))->count();
+        //$stats->unsent = $stats->total - $stats->sent;
+
         $stats->accepted = Invite::where('accepted', 1)->count();
         $stats->pending = Invite::where('sent', 1)->where('accepted', 0)->count();
+        //$stats->pending = Invite::where('sent', '>', '1/1/2018')->where('accepted', 0)->count();
 
 		return view('admin.invites.index', compact('invites', 'stats'));
 	}
