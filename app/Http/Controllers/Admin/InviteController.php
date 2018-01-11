@@ -51,9 +51,11 @@ class InviteController extends Controller {
         $invite = Invite::find($id);
 
        // send the email
-        \Mail::send('emails.invites.send', ['invite' => $invite], function ($m) use ($invite) {
+        //\Mail::send('emails.invites.send', ['invite' => $invite], function ($m) use ($invite) {
+        \Mail::send('emails.promo.invite', ['invite' => $invite], function ($m) use ($invite) {
             $m->from(env('MAIL_FROM_EMAIL'), 'Texas Racquetball Association');
-            $m->to($invite->email, $invite->full_name)->subject('Your New TXRA Account is Ready!');
+            //$m->to($invite->email, $invite->full_name)->subject('Your New TXRA Account is Ready!');
+            $m->to($invite->email, $invite->full_name)->subject('Racquetball Sweepstakes! A chance to win a FREE ENTRY into your next tournament!');
         });
 
         $invite->sent=1;

@@ -20,40 +20,40 @@
 @section('lead')
 	
 	<table class="twelve columns">
-		    <tbody>
-		    	<tr>			    			   
-			      	<td>
-				      		@if($progress == 100)
-				      			<h6>Congratulations! You have been entered into the: <br/>
-				      				<center><a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a></center>
-				      			</h6>
-				      			<br/>
-				      			<h6>
-				      				You are eligible because you completed 100% of your profile on <a href="http://texasracquetball.org" target="new">txra.org</a>.<br/>
-				      				We want to thank you for being a part of our online racquetball community. Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.
-				      				<a href="/refer">Refer-a-Friend</a> to earn more chances to win.
-				      			</h6>
-				      		@else
-				      			<h6>You can be our Grand Prize Winner in the: <br>
-				      				<center><a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a></center>
-				      			</h6>
-								<br/>
-								<h6>
-									Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.<br/>
-									<br/>
-				      				All you have to do to qualify is complete {{$user->profile->missing}} item(s) on your profile. Login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account, and click on the link "My Settings" to update your profile.
-				      				<span style="color:darkgreen">Your profile is {{$progress}}% complete!</span>
-				      			</h6>
-				      							      		
-				      		@endif
-				      		<br/>
-				      		<h6>Here's a look at your profile:</h6>
-		        	</td>
-			      	<td class="expander"></td>
-			    </tr>
-			    
-		 	 </tbody>
-	  	</table>	  	
+	    <tbody>
+	    	<tr>			    			   
+		      	<td>
+		      		@if($progress == 100)
+		      			<h6>Congratulations! You have been entered into the: <br/>
+		      				<center><a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a></center>
+		      			</h6>
+		      			<br/>
+		      			<h6>
+		      				You are eligible because you completed 100% of your profile on <a href="http://texasracquetball.org" target="new">txra.org</a>.<br/>
+		      				We want to thank you for being a part of our online racquetball community. Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.
+		      				<a href="/refer">Refer-a-Friend</a> to earn more chances to win.
+		      			</h6>
+		      		@else
+		      			<h6>You can be our Grand Prize Winner in the: <br>
+		      				<center><a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a></center>
+		      			</h6>
+						<br/>
+						<h6>
+							Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.<br/>
+							<br/>
+		      				All you have to do to qualify is complete {{$user->profile->missing}} item(s) on your profile. Login to your <a href="http://texasracquetball.org" target="new">txra.org</a> account, and click on the link "My Settings" to update your profile.
+		      				<span style="color:darkgreen">Your profile is {{$progress}}% complete!</span>
+		      			</h6>
+		      							      		
+		      		@endif
+		      		<br/>
+		      		<h6>Here's a look at your profile:</h6>
+	        	</td>
+		      	<td class="expander"></td>
+		    </tr>
+		    
+	 	 </tbody>
+  	</table>	  	
 @stop
 
 @section('hero')

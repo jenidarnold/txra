@@ -358,6 +358,9 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	Route::get('/emails/promos/pick-a-free/send', function () {
 	    return view('emails.promos.pick-a-free.send');
 	});
+	Route::get('/emails/promos/pick-a-free/invite', function () {
+	    return view('emails.promos.pick-a-free.invite');
+	});
 });
 
 
