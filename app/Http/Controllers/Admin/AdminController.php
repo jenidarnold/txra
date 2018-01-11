@@ -146,8 +146,9 @@ class AdminController extends Controller {
     	$invites = Invite::leftjoin('users as u', 'u.email', '=', 'invites.email')
         	->whereNull('u.email')
         	->select('invites.*')
-        	->orderBy('invites.accepted_at', 'desc')
+        	//->orderBy('invites.accepted_at', 'desc')
         	->orderBy('sent')
+        	->orderBy('invites.last_name')
         	->orderBy('invites.created_at', 'desc')
         	->paginate(100);
 
