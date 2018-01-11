@@ -17,9 +17,9 @@
 @stop
 
 @section('lead')
-	<h6>You can be our Grand Prize Winner in: <br>
+	<h5>You can be our Grand Prize Winner in: <br>
 		<center><a href="http://txra.org/sweepstakes">TXRA PICK-A-FREE-TOURNEY Sweepstakes!</a></center>
-	</h6>
+	</h5>
 	<br/>
 	Your name will be entered into a drawing for a chance to win a free entry into a TXRA sanctioned tournament of your choice.
 	<br/>
@@ -76,7 +76,7 @@
 @stop
 
 @section('content')
-	<h6>Upcoming Events!</h6>
+	<h5>Upcoming Events!</h5>
 	<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-3">
 
 		@foreach($tournaments as $t)
@@ -98,7 +98,7 @@
 			      <td>
 					<center>
 						<!-- div info -->
-						<h6 style="text-align:center"><a href="https://texasracquetball.org/events/future" target="tournament"> {{ $t->name }}</a></h6>
+						<h5 style="text-align:center"><a href="https://texasracquetball.org/events/future" target="tournament"> {{ $t->name }}</a></h5>
 								
 						<span class="text-info">
 							{{$t->start}} - {{$t->end}}
