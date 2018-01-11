@@ -147,7 +147,7 @@ class AdminController extends Controller {
         	->whereNull('u.email')
         	->select('invites.*')
         	//->orderBy('invites.accepted_at', 'desc')
-        	->orderBy('sent')
+        	->orderBy('invites.updated_at', 'desc')
         	->orderBy('invites.last_name')
         	->orderBy('invites.created_at', 'desc')
         	->paginate(100);
