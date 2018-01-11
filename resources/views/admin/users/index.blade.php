@@ -24,12 +24,13 @@
 		        		<tr>
 		        			<th></th>
 		        			<th>ID</th>
-		        			<th>USAR ID</th>
-		        			<th>Last Name</th>
-		        			<th>First Name</th>
+		        			<th>USAR</th>
+		        			<th>Last</th>
+		        			<th>First</th>
 		        			<th>Email</th>
 		        			<th>Prof%</th>
-		        			<th>Disabled</th>
+		        			{{-- <th>Disabled</th> --}}
+		        			<th>Updated At</th>
 		        			<th>Created At</th>
 		        		</tr>
 		        		@foreach($users as $user)
@@ -52,7 +53,8 @@
 		        				{{\App\UserProfile::find($user->profile['id'])['progress']}}
 		        			@endif
 		        			</td>		
-		        			<td>{{$user->disabled}}</td>
+		        			{{-- <td>{{$user->disabled}}</td> --}}
+		        			<td>{{$user->updated_at}}</td>
 		        			<td>{{$user->created_at}}</td>
 		        		</tr>
 		        		@endforeach

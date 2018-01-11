@@ -79,7 +79,13 @@ class UserProfile extends Model
     public function getIsAvatarUniqueAttribute(){
 
         $file = "images/members/$this->user_id/$this->avatar";
-        $cksum = md5_file($file,false);
+        if (file_exists($file))
+        {
+            $cksum = md5_file($file,false);
+        }        
+        else {
+            $cksum = "";
+        }
 
         if ($cksum == "1b272bbdcaf773fe50e398c50a3eb164" ){
             return false;

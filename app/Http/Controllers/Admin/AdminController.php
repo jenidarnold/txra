@@ -36,7 +36,7 @@ class AdminController extends Controller {
 	public function users()
 	{	
 
-        $users = User::orderBy('id','desc')
+        $users = User::orderBy('updated_at', 'desc')
         	->paginate(100);
 
 

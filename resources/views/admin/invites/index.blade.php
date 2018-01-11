@@ -28,6 +28,7 @@
 		        			<th>Email</th>
 		        			<th>Sent</th>
 		        			<th>Accepted</th>
+		        			<th>Updated</th>
 		        			{{-- <th>Token</th> --}}
 		        			<th></th>
 		        		</tr>
@@ -49,6 +50,7 @@
 		        			<td title="{{$invite->token}}">{{$invite->email}}</td>	
 		        			<td>{{$invite->sent_at}}</td>
 		        			<td>{{$invite->accepted_at}}</td>
+		        			<td>{{$invite->updated_at}}</td>
 		        			{{-- <td>{{$invite->token}}</td> --}}
 		        		</tr>
 		        	@endforeach
