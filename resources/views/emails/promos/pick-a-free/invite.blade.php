@@ -37,7 +37,7 @@
 			          	<tbody>
 				          	<tr>
 				             	<td>
-				             		<a href="{{ route('invite.accept', $invite->token) }}">Activate Your Account Now</a>
+				             		<a href="{{ route('invite.accept', $invite->token) }}">Click here to ACTIVATE your account NOW</a>
 			             		</td>
 				          	</tr>
 			        	</tbody>
