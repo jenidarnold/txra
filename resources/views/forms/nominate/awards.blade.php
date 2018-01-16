@@ -26,11 +26,10 @@
 
 	<!-- -->
 	<section>
-		<div class="container">
-
-	        <h3>@php echo date("Y"); @endphp Annual Awards <span class='small'>(presented in @php echo date("Y", strtotime('+1 year')); @endphp)</span></h3>
-			<p class="lead">These awards are for the period of <span class='dates'>January 1, @php echo date("Y"); @endphp </span>, to <span class='dates'>December 31, @php echo date("Y"); @endphp </span><br/>
-				Awards will be presented at Regional’s Competition  <span class='dates'>April, @php echo date("Y", strtotime('+1 year')); @endphp </span> in San Antonio, Texas. <a href="#form">Nominate Now!</a></p> 
+		<div class="container">		   
+	        <h3>2017 Annual Awards <span class='small'>(presented in 2018)</span></h3>
+			<p class="lead">These awards are for the period of <span class='dates'>January 1, 2017 </span>to <span class='dates'>December 31, 2017 </span><br/>
+				Awards will be presented at the <a target="new" class="text-primary" href="http://www.r2sports.com/tourney/home.asp?TID=23558">Regional’s Competition</a> in <span class='dates'>April 21, 2018 </span> in San Antonio, Texas. <a href="#form">Nominate Now!</a></p> 
 			
 
 			<div class="divider divider-center divider-color"><!-- divider -->
