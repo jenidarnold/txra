@@ -77,10 +77,12 @@
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
-										{{-- <a href="#" class="social-icon social-icon-sm social-google">
+										@if($i->phone != '')
+										<a href="{{ 'tel:'.$i->phone}}" class="social-icon social-icon-sm social-google">
 											<i class="fa fa-phone"></i>
 											<i class="fa fa-phone"></i>
-										</a> --}}
+										</a>
+										@endif
 									</div>
 								</div>
 							</div>

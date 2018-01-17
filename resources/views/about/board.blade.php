@@ -536,7 +536,7 @@
 										<ul>
 											<li>Awards</li>
 											<li>Communications</li>
-											<li></li>
+											<li>TIP Coordinator</li>
 										</ul>
 										<hr/>
 
