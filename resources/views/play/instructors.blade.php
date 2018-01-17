@@ -117,4 +117,20 @@
 		</div>
 	</section>
 	<!-- / -->
+	<!-- / -->
+	<section>
+		<div class="callout alert alert-info noborder margin-top-60 margin-bottom-60">
+			<div class="text-center">
+
+				<p class="font-lato size-30">
+					If you are interested in becoming a certified instructor
+				</p>
+				<h3>Contact Mike Sorenson at <strong>+469-233-4803</strong> or <strong>instructors@mg.texasracquetball.org</h3>
+							
+				<a href="{{ route('programs.instructors')}}" class="btn btn-info btn-lg margin-top-30">GET CERTIFIED</a>
+
+			</div>
+
+		</div>
+	</section>
 @stop

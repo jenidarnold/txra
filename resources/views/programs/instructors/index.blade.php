@@ -181,6 +181,7 @@
 											<address>
 												<b>Coordinator</b><br/>
 												<a href="/play/instructors" target="new" class="text-primary">Mike Sorensen</a><br/>
+												instructors@mg.texasracquetball.org<br/>
 												(469) 233-4803 												
 											</address>
 										</div>										
