@@ -143,22 +143,22 @@
 									<div class="toggle-content">
 										
 										<span class="clearfix">
-											<span class="pull-right">$220.00</span>
+											<span class="pull-right"><strike>$120</strike> $0</span>
 											<span class="pull-left">Three Year Instructor Certification Designation</span>
 										</span>
 										<span class="clearfix">
-											<span class="pull-right">$75.00</span>
+											<span class="pull-right">$75</span>
 											<span class="pull-left">One Year USAR-IP Membership</span>
 										</span>
 										<span class="clearfix">
-											<span class="pull-right">($150.00)</span>
+											<span class="pull-right">($150)</span>
 											<span class="pull-left">Texas Instruction Program Reimbursement</span>
 										</span>
 
 										<hr />
 
 										<span class="clearfix">
-											<span class="pull-right size-20">$145.00</span>
+											<span class="pull-right size-20">($75.00)</span>
 											<strong class="pull-left">TOTAL</strong>
 										</span>
 
@@ -180,15 +180,11 @@
 										<div class="col-md-6">
 											<cite>
 												Coordinator
-												<span>Sean Arnold</a></span>
+												<span><a href="/play/instructors" target="new" class="text-primary">Mike Sorensen</a><br/>
+												(469) 233-4803 
+												</span>
 											</cite>
-										</div>
-										<div class="col-md-6">
-											<cite>
-												Coordinator
-												<span>Mike Grisz</a></span>
-											</cite>
-										</div>
+										</div>										
 									</div>
 								</div>
 								
