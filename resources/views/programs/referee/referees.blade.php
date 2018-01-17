@@ -122,9 +122,12 @@
 			<div class="text-center">
 
 				<p class="font-lato size-30">
-					If you are interested in becoming a Level 1 nationally certified referee
+					If you are interested in becoming a certified referee, contact:
 				</p>
-				<h3>Contact Johnny Boyd at <strong>+903-268-6622</strong> or <strong>referees@mg.texasracquetball.org</h3>
+				<h4>Johnny Boyd<br/>
+					+903-268-6622<br/>
+					referees@mg.texasracquetball.org
+				</h4>
 							
 				<a href="{{ route('referee.index')}}" class="btn btn-info btn-lg margin-top-30">GET CERTIFIED</a>
 

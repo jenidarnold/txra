@@ -123,9 +123,12 @@
 			<div class="text-center">
 
 				<p class="font-lato size-30">
-					If you are interested in becoming a certified instructor
+					If you are interested in becoming a certified instructor, contact:
 				</p>
-				<h3>Contact Mike Sorenson at <strong>+469-233-4803</strong> or <strong>instructors@mg.texasracquetball.org</h3>
+				<h4>Mike Sorensen<br/>
+					+469-233-4803<br/> 
+					instructors@mg.texasracquetball.org
+				</h4>
 							
 				<a href="{{ route('programs.instructors')}}" class="btn btn-info btn-lg margin-top-30">GET CERTIFIED</a>
 
