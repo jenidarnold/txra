@@ -178,12 +178,11 @@
 										<p>In order to receive reimbursement, the racquetball instructor <strong>must be a current member of USAR and a Texas resident</strong> and submit to the Texas Instructor Program Coordinator evidence of successful completion of the certification clinic, a personal image suitable for publishing on the TXRA website and a brief explanation of how the instructor intends to utilize the education to the benefit of racquetball in Texas. Upon meeting these requirements the racquetball instructor will be issued the reimbursement funds and be granted the right to use the TIP designation in conjunction with their racquetball activities.</p>
 
 										<div class="col-md-6">
-											<cite>
-												Coordinator
-												<span><a href="/play/instructors" target="new" class="text-primary">Mike Sorensen</a><br/>
-												(469) 233-4803 
-												</span>
-											</cite>
+											<address>
+												<b>Coordinator</b><br/>
+												<a href="/play/instructors" target="new" class="text-primary">Mike Sorensen</a><br/>
+												(469) 233-4803 												
+											</address>
 										</div>										
 									</div>
 								</div>
