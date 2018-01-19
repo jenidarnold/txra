@@ -20,9 +20,13 @@
             @endforeach                             
         </div>
         <!-- /OWL SLIDER -->
-    @else
+    @elseif ($post->image_count() == 1)
         <figure class="margin-bottom-20 ">
             <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
+        </figure>
+    @else
+        <figure class="margin-bottom-20 ">
+            <img class="thumbnail img-responsive1"  style="max-height:100px" src="{{asset('images/logos/txra_full_logo_og.png')}}" alt="{{$post['title']}} " >
         </figure>
     @endif
 

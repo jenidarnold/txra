@@ -151,13 +151,19 @@ class BlogController extends BaseController {
                App::abort(404);
             }
 
+            if (strpos($post['image'], ".")) {
+                $image_type = 'image/'. explode('.',$post['image'],2)[1];
+            }else {
+                 $image_type = '';
+            }
+
             $meta = [
                 'title' => $post['title'],
                 'description' => substr(strip_tags($post['content']), 0, 300),
                 'image' => '/images/blog/'.$id.'/'.$post['image'],
                 'image_width' => '200',
                 'image_height' => '200',
-                'image_type'    => 'image/'. explode('.',$post['image'],2)[1],
+                'image_type'    => $image_type,
                 'url' => $post->getUrl(),                
             ];
 

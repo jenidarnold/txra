@@ -74,7 +74,11 @@ class PageController extends BaseController {
             $post->content     = \Input::get('editor1');
             $post->author_id   = \Input::get('author_id');
 
-            $post->image       = '0_'. $_FILES["images"]["name"][0];            
+            if ($_FILES["images"]["name"][0] != '') {
+                $post->image   = '0_'. $_FILES["images"]["name"][0];            
+            }else {
+                $post->image   = "";
+            }
 
             $post->public      = 0;
             $post->save();
@@ -91,6 +95,17 @@ class PageController extends BaseController {
             // http://php.net/manual/en/features.file-upload.post-method.php
             $i = 0;
             $limit = 12; //Limit to 12 files
+
+            if (!file_exists("images/blog/$post->id")) {
+                mkdir("images/blog/$post->id", 0777, true);
+            }else {
+                $post->image   = "";
+            }
+
+            if ($_FILES["images"]["name"][0] != '') {
+                $post->image   = '0_'. $_FILES["images"]["name"][0];            
+            }
+
             foreach ($_FILES["images"]["error"] as $key => $error) {
                 if ($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["images"]["tmp_name"][$key];
@@ -100,10 +115,7 @@ class PageController extends BaseController {
                     //append display order numner
                     $order = $i.'_';
                     $name = $order . basename($_FILES["images"]["name"][$key]);
-
-                    if (!file_exists("images/blog/$post->id")) {
-                        mkdir("images/blog/$post->id", 0777, true);
-                    }
+                   
                     move_uploaded_file($tmp_name, "images/blog/$post->id/$name");
                     $i++;
                     if ($i== $limit) {
@@ -133,7 +145,7 @@ class PageController extends BaseController {
         
             $post->title       = \Input::get('title');
             $post->content     = \Input::get('editor1');
-            //$post->author_id   = \Input::get('author_id');
+            $post->author_id   = \Input::get('author_id');
 
 
             //$post->image       = '0_'. $_FILES["images"]["name"][0];            
