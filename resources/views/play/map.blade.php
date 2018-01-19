@@ -145,7 +145,12 @@
 												<i class="fa fa-phone"></i> {{ $club->phone }} <br/>
 												@if($club->url <> '')
 													<a href="{{ $club->url}}" target="new" class="text-info" ><i class="fa fa-globe"></i> 
-													{{ substr( explode("//", $club->url)[1], 0, 31) }}
+													@if(strpos($club->url, '//')
+														{{ substr( explode("//", $club->url)[1], 0, 31) }}
+													@else
+														{{ substr( $club->url, 0, 31) }}
+													@endif
+
 													@if(strlen($club->url) > 31)
 													...
 													@endif
