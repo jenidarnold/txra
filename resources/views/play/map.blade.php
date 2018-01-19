@@ -116,7 +116,7 @@
 	        	<div class="modal-body">
 				<div class="navbar-collapse nav-filter-collapse">
 						<ul class="nav nav-pills mix-filter margin-bottom-10">
-							<li data-filter="all" class="filter active"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('all') }}"/> All</a></li>
+							<li data-filter="all" class="filter active"><a href="#"><img src="{{ asset('images/mapicons/letters/letter_a.png') }}"/> All</a></li>
 							<li data-filter="support" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('support') }}"/> Supports USAR</a></li>
 							<li data-filter="college" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('college')  }}"/> College</a></li>
 							<li data-filter="club" class="filter"><a href="#"><img src="{{ \App\Club::get_map_icon_legend('club')  }}"/> Club</a></li>
