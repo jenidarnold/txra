@@ -1,4 +1,4 @@
-@extends('layouts.emails.contact')
+@extends('layouts.emails.hero')
 @section('style')
 	<style type="text/css">
 
@@ -19,17 +19,18 @@
 
 @section('lead')	
 	<div style="margin-top:20px; margin-bottom:0px;">
-		Thank you for submitting the following article for publication.
-		We will contact you within 7 days to with our decision to publish.
+		Thank you for submitting your article for publication.		
+	</div> 
+@stop
+
+@section('callout')
+	We will contact you within 7 days to with our decision to publish.
 		{{--You can edit your article with this link: <a href=""><a target="txra_news" href='{{ env("APP_URL") . "/news/edit/$post->id/DRAFT-$post->title"}}'>EDIT MY ARTICLE</a>
 		--}}
-        <br/>
-	</div>
- 
 @stop
 
 @section('content')
-	<hr/>
+
 	<p style="align-left">
 		<b>{{$post->title}}</b>
 		<br/><br/>
@@ -37,15 +38,13 @@
 		{!!html_entity_decode($post->content)!!}
 	
 	</p>
-	<hr/>
-@stop
-
-@section('footer')
-	Sincerely,<br/>
-	TXRA Communications Committee
 @stop
 
 @section('contact')
+	Sincerely,<br/>
+	TXRA Communications Committee
+
+
 	Name: {{$post->author->full_name}}<br/>
 	Email: {{$post->author->email}}<br/>
 	Phone: {{$post->author->phone}}<br/>
