@@ -351,6 +351,14 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	    return view('emails.awards.replynomination');
 	});
 
+	Route::get('/emails/blog/send', function () {
+	    return view('emails.blog.send');
+	});
+
+	Route::get('/emails/blog/reply', function () {
+	    return view('emails.blog.reply');
+	});
+
 	Route::get('/emails/referrals/send', function () {
 	    return view('emails.referrals.send');
 	});
@@ -363,9 +371,10 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	});
 });
 
-
-
-
+Route::controller('datatables', 'DatatablesController', [
+    'anyData'  => 'datatables.data',
+    'getIndex' => 'datatables',
+]);
 
 /* must be last? */
 Route::auth();

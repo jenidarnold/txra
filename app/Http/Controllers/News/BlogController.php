@@ -148,7 +148,7 @@ class BlogController extends BaseController {
             $post = Post::find($id);
 
             if($post == NULL){
-               App::abort(404);
+               \App::abort(404);
             }
 
             if (strpos($post['image'], ".")) {

@@ -32,7 +32,7 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost:8886'),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -138,6 +138,7 @@ return [
         Serverfireteam\Blog\BlogServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------

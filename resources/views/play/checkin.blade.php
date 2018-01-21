@@ -42,6 +42,7 @@
 			margin: 0px;
 		}
 
+		#map {background: transparent url(images/playing.gif) no-repeat center center;}
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -228,7 +229,6 @@ section div.row>div {
 	<section>
 		<div class="container-fluid">
 						  
-
 			<!-- Sidebar Holder -->
 			<div id="vueClubs">
 	            <nav id="sidebar" class="col-xs-12 col-sm-6 col-md-5 col-lg-4" style="z-index:1000">
@@ -822,7 +822,7 @@ section div.row>div {
 		        for (var day = 0; day <= 6; day++) {	
 			        var data = new google.visualization.DataTable();
 				      data.addColumn('timeofday', 'Time of Day');
-				      data.addColumn('number', '# players');
+				      data.addColumn('number', ' players');
 				      //data.addColumn('number', 'Energy Level');
 
 				      data.addRows([
@@ -858,7 +858,7 @@ section div.row>div {
 			          	},
 						vAxis: {
 				          	title: '',
-				          	format: '0',
+				          	format: '0',				          	
 				          	viewWindow: {
 				            	min: [0],
 				        	}
@@ -1302,4 +1302,5 @@ section div.row>div {
 
     </script>
  	
+ 	{{-- // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6YuE9N29YCCwalloHjU9SgpH3vUZFSBk&callback=initMap" async defer></script> --}}
 @stop

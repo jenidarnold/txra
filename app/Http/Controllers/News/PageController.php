@@ -18,7 +18,7 @@ class PageController extends BaseController {
     public function __construct()
     {
         //$this->middleware('auth');
-        $this->middleware('admin_user',  ['except' => ['create', 'store']]);
+        $this->middleware('admin_user',  ['except' => ['create', 'store', 'update']]);
     }
 
     /**
@@ -35,7 +35,7 @@ class PageController extends BaseController {
         if(\Auth::check()){
             $author = \Auth::user();        
         } else {
-            $message = 'You must be logged in to submit an article.';
+            $message = 'You must be logged in to submit an post.';
             return \Redirect::to('news/')
                 ->with('alert-danger', $message)
                 ;
@@ -124,6 +124,41 @@ class PageController extends BaseController {
                 }
             }
 
+
+            $txra = new User;
+            $txra->email = env('MAIL_TO_EMAIL'); 
+            $txra->full_name = env('MAIL_TO_NAME');
+
+            $subject = "TXRA: Article Submission";
+
+            $author = User::find( $post->author_id);
+            $post->author = $author;
+
+            // Send to TXRA
+            Mail::send(
+                        'emails.blog.send', 
+                        ['subject' => $subject, 'post' => $post ], 
+                        function ($m) use ($post, $txra, $subject)
+                            {
+                                $m->from(env('MAIL_FROM_EMAIL'), $post->author->full_name );
+                                $m->to($txra->email, $txra->full_name)->subject($subject);
+                            }
+                        );
+
+            //Reply Article Sent
+            Mail::send(
+                        'emails.blog.reply', 
+                        ['post' => $post], 
+                        function($m) use ($post, $txra) 
+                            {
+                                $subject = 'Thank you for your article Submission!';
+                                $m->from(env('MAIL_FROM_EMAIL'), $txra->full_name);
+                                $m->to($post->proposer_email, $post->author->full_name)->subject($subject);
+                            }
+                        );
+
+ 
+
             // redirect
             $message = 'Thank you for your article. We will contact you within 7 days to with our decision to publish.';
             return \Redirect::to('news/')
@@ -147,6 +182,13 @@ class PageController extends BaseController {
             $post->content     = \Input::get('editor1');
             $post->author_id   = \Input::get('author_id');
 
+
+            //Check that current user is Admni or Author
+            if(\Auth::user()->id != 1) {
+                if (!\Auth::check() || \Auth::user()->id != $post->author_id) {                         
+                    abort(401, 'Unauthorized.');       
+                }   
+            }
 
             //$post->image       = '0_'. $_FILES["images"]["name"][0];            
 
@@ -196,7 +238,7 @@ class PageController extends BaseController {
 
             // redirect
             \Session::flash('message', 'Successfully updated Post!');
-            return \Redirect::to('news/');
+            return \Redirect::to("news/post/$post->id/$post->title");
         //}
     }
 
