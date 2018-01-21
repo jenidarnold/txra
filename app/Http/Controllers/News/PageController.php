@@ -135,7 +135,7 @@ class PageController extends BaseController {
             $post->author = $author;
 
             // Send to TXRA
-            Mail::send(
+            \Mail::send(
                         'emails.blog.send', 
                         ['subject' => $subject, 'post' => $post ], 
                         function ($m) use ($post, $txra, $subject)
@@ -146,21 +146,21 @@ class PageController extends BaseController {
                         );
 
             //Reply Article Sent
-            Mail::send(
+            \Mail::send(
                         'emails.blog.reply', 
                         ['post' => $post], 
                         function($m) use ($post, $txra) 
                             {
                                 $subject = 'Thank you for your article Submission!';
                                 $m->from(env('MAIL_FROM_EMAIL'), $txra->full_name);
-                                $m->to($post->proposer_email, $post->author->full_name)->subject($subject);
+                                $m->to($post->author->email, $post->author->full_name)->subject($subject);
                             }
                         );
 
  
 
             // redirect
-            $message = 'Thank you for your article. We will contact you within 7 days to with our decision to publish.';
+            $message = 'Thank you for your article. A confirmation has been emailed to you at the address we have on file for your account. We will contact you within 7 days with our decision to publish.';
             return \Redirect::to('news/')
                 ->with('alert-success', $message)
                 ;
