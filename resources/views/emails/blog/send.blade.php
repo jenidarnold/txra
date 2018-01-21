@@ -25,9 +25,9 @@
 	<p style="align-left">
 		<a target="txra_news" href='{{ env("APP_URL") . "/news/post/$post->id/DRAFT-$post->title"}}'><b>{{$post->title}}</b></a>
 		<br/><br/>
-
-		{{$post->content}}
 	</p>
+		{!!html_entity_decode($post->content)!!}
+	
 	<hr/>
 @stop
 

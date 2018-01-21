@@ -34,7 +34,8 @@
 		<b>{{$post->title}}</b>
 		<br/><br/>
 
-		{{$post->content}}
+		{!!html_entity_decode($post->content)!!}
+	
 	</p>
 	<hr/>
 @stop
