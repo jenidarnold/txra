@@ -151,7 +151,7 @@ class PageController extends BaseController {
                         ['post' => $post], 
                         function($m) use ($post, $txra) 
                             {
-                                $subject = 'Thank you for your article Submission!';
+                                $subject = 'Thank you for your article submission to TXRA.org!';
                                 $m->from(env('MAIL_FROM_EMAIL'), $txra->full_name);
                                 $m->to($post->author->email, $post->author->full_name)->subject($subject);
                             }

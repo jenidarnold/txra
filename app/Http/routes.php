@@ -226,7 +226,8 @@ Route::group(['namespace' => 'Members', 'prefix' =>'members'], function()
 	//Route::get('gallery', array('as' => 'members.gallery.index', 'uses' => 'GalleryController@index'));
 	Route::put('addphoto', array('as' => 'members.gallery.create', 'uses' => 'GalleryController@create'));	
 
-	Route::get('membership', array('as' => 'members.membership', 'uses' => 'MemberController@membership'));		
+	Route::get('membership', array('as' => 'members.membership', 'uses' => 'MemberController@membership'));	
+	Route::post('dowload/members/', array('as' => 'scrape.members', 'uses' => 'MemberController@r2_emails'));		
 
 
 	Route::get('rankings/', array('as' => 'members.rankings', 'uses' => 'RankingsController@index'));
@@ -368,6 +369,10 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	});
 	Route::get('/emails/promos/pick-a-free/invite', function () {
 	    return view('emails.promos.pick-a-free.invite');
+	});
+
+	Route::get('/files/{page}', function () {
+	    return view('files.{page}');
 	});
 });
 

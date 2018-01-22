@@ -35,6 +35,8 @@ class ScreenScrapeController extends Controller {
 	{	
 		return view('admin.home');
 	}
+
+
 	/**
 	 * Show the application welcome screen to the user.
 	 *
@@ -148,4 +150,5 @@ class ScreenScrapeController extends Controller {
 		$match = Match::where('player2_id', '=', $match_player_id)->get();
 		return redirect('admin/scraper');
 	}
+
 }

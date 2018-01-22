@@ -10,6 +10,7 @@ use App\UsarMember;
 use App\Referral;
 use App\PromoAccept;
 use App\Credit;
+use App\Scraper;
 
 class MemberController extends Controller {
 
@@ -20,7 +21,6 @@ class MemberController extends Controller {
 	 */
 	public function __construct()
 	{
-		//$this->middleware('auth');
 		$this->middleware('current_user', ['except' => ['index', 'show', 'search', 'membership', 'rankings', 'home', 'matches']]);
 	}
 		
@@ -635,5 +635,23 @@ class MemberController extends Controller {
 
 		return  redirect()->back()->with('flash-message','message');  
 	}
+
+
+	/**Download Members from R2Sports Email Listing
+	 *
+	 * @return Response
+	 */
+	public function r2_emails(Request $request)
+	{	
+		$import_date = \Carbon\Carbon::today();
+		$page = $request->input('page');
+		$ss = new Scraper();
+		$ss->get_r2_emails($page);
+
+
+		$users = User::where('created_at' ,'>', $import_date)->get();
+		return redirect('admin/scraper');
+	}
+
 
 }

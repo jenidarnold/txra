@@ -106,7 +106,23 @@
 		          </div>
 		        </div>
      		 </div>     
-
+     		 <!-- Scrape from R2Sprts -->
+     		 <div class="row">
+		        <div class="col-md-8">
+		          <div class="row">
+		            <form action="{{route('scrape.members')}}" method="post" enctype="multipart/form-data">
+		              <div class="col-md-6 col-sm-8">
+		                {{csrf_field()}}
+		                <div class="sky-form nomargin">
+							<label class="h4">Scrape R2 Members</label> 
+							<input type="text" name="page" />							
+							<button class="btn btn-primary" type="submit">Scrape</button>
+						</div>	
+		              </div>		            
+		            </form>
+		          </div>
+		        </div>
+     		 </div>   
 	</section>
 @stop
 

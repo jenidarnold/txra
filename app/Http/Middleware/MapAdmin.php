@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CurrentUser
+class MapAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,7 @@ class CurrentUser
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->id == 1) {
-            return  $next($request);
-        }
-        if (!Auth::check() || Auth::user()->id != $request->id) {
+         if (!Auth::check() || (Auth::user()->id != 1 && Auth::user()->id != 520))  {
             //return response('Unauthorized.', 401);   
             abort(401, 'Unauthorized.');       
         }

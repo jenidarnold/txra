@@ -7,6 +7,34 @@ use App\Rank;
 
 class Scraper {
  
+	public function get_r2_emails($page)
+	{
+		$cc = new CopyCat;
+	 	$cc->setCurl(array(
+	 		CURLOPT_RETURNTRANSFER => 1,
+	 		CURLOPT_CONNECTTIMEOUT => 2,
+	 		CURLOPT_HTTPHEADER, "Content-Type: text/html; charset=iso-8859-1",
+	 		CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17',
+	 	));
+
+	 	if(env("APP_ENV") == "production") {
+	 		$url_emails = env("APP_URL") . "/files/r2_txra_emails_page_$page.html";
+		}else
+		{
+			$url_emails = env("APP_URL") . ":8886/files/$page";
+		}
+	 	//dd($url_emails);
+	 	$cc->matchAll(
+ 				array(
+ 					'full_name' => '/<td >(.*?), (.*)/g',
+ 					'email' => 'mailto:(.*?)"/ms',			 						 								
+ 				))
+ 			->URLS($url_emails);	 		
+	 	$result = $cc->get();	
+
+	 	dd($result);
+	}
+
  	/*
  	 * Get Players from R2Sports.com
  	 * https://github.com/gidlov/copycat

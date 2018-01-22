@@ -12,8 +12,7 @@ class ClubController extends Controller {
 	 */
 	public function __construct()
 	{
-	   $this->middleware('auth');
-       $this->middleware('admin_user', ['except' => ['store']]);
+	   $this->middleware(['map_admin'], ['except' => ['store']]);
 	}
 
 	/**
@@ -86,8 +85,7 @@ class ClubController extends Controller {
 		   // redirect
             \Session::flash('message', 'Successfully created club');
 
-			return  redirect()
-				->back()
+			return  redirect()->route('admin.clubs')
 				->with('flash-message','message');  
 		}
 	}

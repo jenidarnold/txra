@@ -57,7 +57,7 @@ class ImportController extends Controller {
 	}
 
 	/**
-	 * Import Users
+	 * Import Invites
 	 *
 	 * @return Response
 	 */
@@ -92,4 +92,5 @@ class ImportController extends Controller {
         }
         return back();
 	}
+
 }

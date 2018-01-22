@@ -32,7 +32,7 @@
 @section('content')
 
 	<p style="align-left">
-		<b>{{$post->title}}</b>
+		<h5>{{$post->title}}</h5>
 		<br/><br/>
 
 		{!!html_entity_decode($post->content)!!}
