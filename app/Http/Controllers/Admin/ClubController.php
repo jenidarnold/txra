@@ -85,8 +85,10 @@ class ClubController extends Controller {
 		   // redirect
             \Session::flash('message', 'Successfully created club');
 
-			return  redirect()->route('admin.clubs')
-				->with('flash-message','message');  
+            //Store isused by Play Map and Admin.
+			return  redirect()->back()->with('flash-message','message'); 
+			// return  redirect()->route('admin.clubs')
+			// 	->with('flash-message','message');  
 		}
 	}
 	/**
