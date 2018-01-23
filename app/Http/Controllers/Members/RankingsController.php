@@ -223,7 +223,7 @@ class RankingsController extends Controller {
 
 		//Move to Admin
 		//$location_id =  1; //"Texas"; //Location::find($location_id)->location;
-		$maxRank = 300;
+		$maxRank = 500;
 
 		$lastRank = Rank::where('group_id', '=', $group_id)
 			->where('location_id', '=', $location_id)
