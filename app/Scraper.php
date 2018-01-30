@@ -13,17 +13,19 @@ class Scraper {
 	 	$cc->setCurl(array(
 	 		CURLOPT_RETURNTRANSFER => 1,
 	 		CURLOPT_CONNECTTIMEOUT => 2,
+	 		CURLOPT_SSL_VERIFYPEER => 0,
+			CURLOPT_SSL_VERIFYHOST => 2,
 	 		CURLOPT_HTTPHEADER, "Content-Type: text/html; charset=iso-8859-1",
 	 		CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17',
 	 	));
 
-	 	if(env("APP_ENV") == "production") {
-	 		$url_emails = env("APP_URL") . "/files/r2_txra_emails_page_$page.html";
-		}else
-		{
-			$url_emails = env("APP_URL") . ":8886/files/$page";
-		}
-	 	//dd($url_emails);
+	 	//if(env("APP_ENV") == "production") {
+	 		$url_emails = "https://texasracquetball.org/files/r2_txra_emails_page_C.html";
+		//}else
+		//{
+		//	$url_emails = env("APP_URL") . ":8886/files/r2_txra_emails_page_$page.html";
+		//}
+
 	 	$cc->matchAll(
  				array(
  					'full_name' => '/<td >(.*?), (.*)/g',
@@ -33,6 +35,27 @@ class Scraper {
 	 	$result = $cc->get();	
 
 	 	dd($result);
+
+	 	$i = 0;
+	 	//Save Player to database
+	 	foreach ($result as $member_info) {
+
+				$member = array(
+				'player_id' =>  $uid,
+				'first_name' => $player_info["first_name"],
+				'last_name' => $player_info["last_name"],
+				'gender' => $player_info["gender"],
+				'home' => $player_info["home"],
+				'skill_level' => $player_info["skill_level"],
+				'img_profile' => $player_info["img_profile"],
+			);
+			//Save to database							
+			//$ss->create_invite$members);
+			array_push($members, $member);
+		}
+		
+		dd($members);
+	 	return $members;
 	}
 
  	/*

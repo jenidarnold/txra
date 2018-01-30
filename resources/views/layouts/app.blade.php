@@ -687,15 +687,15 @@
                 localstorage use the ID to hide the modal, if used checked "Don't show this popup again"
             -->
            @if(Session::has('loadModReferral'))
-            	{{--*/ $loadModReferral = 'false' /*--}}    
-            	{{--*/ Session::set('loadModReferral', 'false') /*--}}        	
+            	{{ $loadModReferral = 'false' }}    
+            	{{ Session::set('loadModReferral', 'false') }}        	
             @else
-            	{{--*/ $loadModReferral = 'true' /*--}}
-            	{{--*/ Session::set('loadModReferral', 'false') /*--}}  
+            	{{ $loadModReferral = 'true' }}
+            	{{ Session::set('loadModReferral', 'false') }}  
             @endif
                  
             
-            {{--*/ $loadModReferral = 'false' /*--}}
+            {{-- $loadModReferral = 'false' --}}
             <div id="modReferral" class="modal fade" data-autoload="{{$loadModReferral}}" data-autoload-delay="2000">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">

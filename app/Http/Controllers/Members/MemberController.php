@@ -648,7 +648,7 @@ class MemberController extends Controller {
 		$ss = new Scraper();
 		$ss->get_r2_emails($page);
 
-
+		dd($ss);
 		$users = User::where('created_at' ,'>', $import_date)->get();
 		return redirect('admin/scraper');
 	}
