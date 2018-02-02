@@ -95,7 +95,7 @@
 			
 
 		</div>
-		<div class="panel-footer">
+		{{-- <div class="panel-footer">
 			<div class="row">
 				<div class="col-xs-12 margin-bottom-10">
 					<h4 class="text-center text-primary">For every {{$promo->credit}} friends that sign up, earn an extra ticket into the<br/> 
@@ -143,7 +143,7 @@
 				</div>
 			</div>
 			@endif			
-		</div>
+		</div> --}}
 	</div>
 	
 @section('script')

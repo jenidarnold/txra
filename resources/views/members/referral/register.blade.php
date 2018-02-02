@@ -34,9 +34,9 @@
 				      			</small>
 				      			</h4>
 				      		</div>
-			      			<div class="col-xs-12">
+			      			{{-- <div class="col-xs-12">
 				      			@include('includes.promos.promo_box', array('show_link' => true)) 
-			      			</div>
+			      			</div> --}}
 							{{-- <div>
 								<h3 class="text-primary"><a target="member" href='{{route('members.show', $user->id)}}'>{{$user->full_name}}</a> <small>invites you to join <span class="bold">TXRA</span>.&nbsp;&nbsp;Sign up now, and you both will receive <em class="bold text-success">{{$promo->credit}} </em> <a href="#" target="rewards" class="bold text-primary">TXRA Reward Points</span></a></em>.&nbsp;&nbsp;Earn even more  <a href="#" target="rewards" class="bold text-primary">points</a> by referring your friends! But first, let's get you registered. </small>
 								</h3>

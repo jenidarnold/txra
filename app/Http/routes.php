@@ -20,10 +20,12 @@ Route::get('/sitemap.xml', 'SitemapController@index');
 
 
 Route::get('/PICK-A-FREE-TOURNEY', function () {
+	//return view('promos/free_tourney/terms');
     return view('promos/free_tourney/index');
 });
 Route::get('/sweepstakes', function () {
-    return view('promos/free_tourney/index');
+    //return view('promos/free_tourney/index');
+    return view('promos/free_tourney/terms');
 });
 Route::get('/contest-rules', function () {
     return view('promos/free_tourney/terms');

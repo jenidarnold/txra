@@ -57,10 +57,10 @@
 
 					@if($profile->progress < 100)
 					<div class="margin-bottom-30 text-center alert alert-info">
-						<h5 class="text-info">
+						{{-- <h5 class="text-info">
 							Complete your profile to be elibile for the<br/> 
 							<a href="/sweepstakes" class="text-success" target="sweepstakes"><u>PICK-A-FREE-TOURNEY SWEEPSTAKES!</u></a>
-						</h5>
+						</h5> --}}
 						<h6>
 							<a class="text-info" href="{{ route('members.edit', array('id' => $user->id))}}" title="Goto My Settings to complete profile">
 								<i class="fa fa-info-circle"></i> Profile {{ $profile->progress}}% completed
@@ -71,7 +71,7 @@
 						</div>
 					</div>
 					@else
-						<!-- Show Eligbile for Sweepstakes if date < Promo-end date-->
+						{{-- <!-- Show Eligbile for Sweepstakes if date < Promo-end date-->
 						<div class="margin-bottom-30 text-center alert alert-success">
 							<h4 class="text-success">
 								Congratulations!</h4>
@@ -83,7 +83,7 @@
 								<a href="{{ route('refer.show', array('id' => $user->id))}}" class="text-primary text-left"><u>Refer-a-Friend</u></a>
 							<br/>
 							<small>for more chances to win!</a></small></h4>
-						</div>
+						</div> --}}
 					@endif
 				@endif
 

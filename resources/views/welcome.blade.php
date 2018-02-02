@@ -196,21 +196,21 @@
                     </div>
                     <div class="row margin-top-10">
 
-                        <!-- Sweepstakes -->
+                       {{--  <!-- Sweepstakes -->
                         <div class="col-sm-4 col-md-3">
                             @include('includes.promos.promo_box', array('show_link' => true))
                         </div>
-                        <!-- /Sweepstakes-->
+                        <!-- /Sweepstakes--> --}}
 
-                        <div class="col-sm-8 text-center margin-top-30">
-                            <div class="col-sm-12 col-xs-12 text-center">                    
+                        <div class="col-sm-12 text-center margin-top-30">
+                            <div class="col-sm-6 col-xs-12 text-center">                    
                                 <a href="{{ url('/register')}}" rel="nofollow" class="btn btn-info btn-lg btn-block">JOIN FOR FREE</a>
                                 <h5>Create a free TXRA account & profile 
                                 {{-- & earn
                                     <a href="/rewards"> Rewards Points. </a> --}}
                                 </h5>    
                             </div>                   
-                            <div class="col-sm-12 col-xs-12 text-center">
+                            <div class="col-sm-6 col-xs-12 text-center">
                                 <a href="{{ url('/members/membership')}}" rel="nofollow" class="btn btn-primary btn-lg btn-block">PAY TO PLAY</a> 
                                 <h5>Get your USAR membership to play in sanctioned tournaments. </h5>               
                             </div>

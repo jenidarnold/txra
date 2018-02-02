@@ -45,6 +45,7 @@
 		        			<th>Last</th>
 		        			<th>First</th>
 		        			<th>Email</th>
+		        			<th>Hometown</th>
 		        			<th>Prof%</th>
 		        			{{-- <th>Disabled</th> --}}
 		        			<th>Updated At</th>
@@ -64,7 +65,12 @@
 		        			<td>{{$user->usar_id}}</td>
 		        			<td>{{$user->last_name}}</td>
 		        			<td>{{$user->first_name}}</td>
-		        			<td>{{$user->email}}</td>		        			
+		        			<td>{{$user->email}}</td>
+		        			<td>
+		        			@if($user->profile() !== null)
+		        				{{\App\UserProfile::find($user->profile['id'])['city']}}
+		        			@endif
+		        			</td>		        			
 		        			<td>
 		        			@if($user->profile() !== null)
 		        				{{\App\UserProfile::find($user->profile['id'])['progress']}}

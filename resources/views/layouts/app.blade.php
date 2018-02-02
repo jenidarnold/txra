@@ -236,7 +236,7 @@
 								<!-- USER OPTIONS -->
 									
 									{{-- <li><a href="{{ url('/survey') }}">SURVEY</a></li> --}}							
-									<li class="dropdown hidden-xs hidden-sm">
+									{{-- <li class="dropdown hidden-xs hidden-sm">
 										<a class="dropdown hidden-xs hidden-sm" href="/sweepstakes">
 											<span class="btn btn-sm btn-danger">SWEEPSTAKES</span>
 										</a>	
@@ -245,13 +245,13 @@
 										<a class="dropdown" href="/sweepstakes">
 											SWEEPSTAKES
 										</a>
-									</li>
+									</li> --}}
 									
-									<li class="dropdown hidden-md hidden-lg label-warning">
+									{{-- <li class="dropdown hidden-md hidden-lg label-warning">
 										<a class="dropdown" href="/checkin">
 											CLUB CHECK-INS
 										</a>
-									</li>
+									</li> --}}
 
 									@if( Auth::guest())
 									<li class="dropdown hidden-md hidden-lg">

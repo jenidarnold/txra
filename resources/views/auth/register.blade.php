@@ -19,7 +19,7 @@
 					<div class="row">
 
 						<div class="col-sm-4 col-md-3 box-color text-center margin-bottom-0">
-							<a href="/sweepstakes">							
+							{{-- <a href="/sweepstakes">							
 								<div class="box-icon box-danger box-icon-center box-icon-round margin-bottom-10 box-icon-transparent box-icon-large box-icon-content">
 									<div class="box-icon-title">
 										<i class="fa fa-gift text-danger"></i>
@@ -32,7 +32,7 @@
 						                <span class="h6">of your choice*</span>
 								</div>
 							</a>
-							<h6 class="text-muted small"><a href="/sweepstakes">Read Sweepstakes Details</a></h6>
+							<h6 class="text-muted small"><a href="/sweepstakes">Read Sweepstakes Details</a></h6> --}}
 						</div>
 
 						<!-- LOGIN -->
