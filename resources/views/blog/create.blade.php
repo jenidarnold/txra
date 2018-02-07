@@ -142,13 +142,7 @@
 										<div class="form-group">
 											<div class="col-md-12">
 												<label for="editor1">Content</label>
-												 <textarea name="editor1" id="editor1" rows="10" cols="80">
-									            </textarea>
-									            <script>
-									                // Replace the <textarea id="editor1"> with a CKEditor
-									                // instance, using default configuration.
-									                CKEDITOR.replace( 'editor1' );
-									            </script>
+												 <textarea name="editor1" id="editor1"></textarea>
 											</div>
 										</div>
 									</div>
@@ -172,6 +166,21 @@
 			<!-- / -->
 @stop
 
-@section('script')
-		
+
+@section('page-js-files')
+	<!-- include summernote css/js -->
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
+@stop
+
+@section('page-js-script')
+<script type="text/javascript">
+    $(document).ready(function() {
+       	 $('#editor1').summernote(
+       	 	{
+        		tabsize: 2,
+        		height: 100
+    		})
+      	});
+</script>
 @stop

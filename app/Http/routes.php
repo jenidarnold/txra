@@ -197,6 +197,7 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 	Route::get('rewards', array('as' => 'rewards.index', 'uses' => 'RewardsController@index'));
 	Route::get('rewards/{id}', array('as' => 'rewards.show', 'uses' => 'RewardsController@show'));
 });
+Route::get('/awards', array('as' => 'awards.index', 'uses' => 'AwardsController@index'));	
 
 
 Route::get('rewards', array('as' => 'rewards.index', 'uses' => 'Programs\RewardsController@index'));
@@ -271,6 +272,9 @@ Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 	Route::get('ethics', array('as' => 'about.ethics', 'uses' => 'LeadershipController@ethics'));	
 	Route::get('mission', array('as' => 'about.mission', 'uses' => 'LeadershipController@mission'));	
 });
+
+Route::get('/election', array('as' => 'election.index', 'uses' => 'LeadershipController@election'));	
+
 
 /* DONTATE */
 Route::group(['namespace' => 'Donate', 'prefix' =>'donate'], function()

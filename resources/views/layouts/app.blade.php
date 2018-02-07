@@ -755,7 +755,9 @@
 		<script type="text/javascript" src="{{asset('plugins/slider.revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
 		<script type="text/javascript" src="{{asset('js/view/demo.revolution_slider.js')}}"></script>
 
-		<!-- SCRIPTS -->
+		@yield('page-js-files')
+
+		<!-- GLOABAL SCRIPTS -->
 		<script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -899,5 +901,7 @@
 		        }
 		    })
 		</script>
+
+		@yield('page-js-script')
 	</body>
 </html>

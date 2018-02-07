@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('head')	
-	<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script> 	
+	<!--script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script> 	
+
+	<!-- include libraries(jQuery, bootstrap) -->
+	<!--link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"-->
+	<!--script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script--> 
+	<!--script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script--> 
 @stop
 @section('content')
 <section class="page-header page-header-xs">
@@ -104,14 +109,9 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-12">
-												<textarea name="editor1" id="editor1" rows="10" cols="80">
+												<textarea name="editor1" id="editor1" name="editor1">
 												{{ $post['content'] }}
-									            </textarea>
-									            <script>
-									                // Replace the <textarea id="editor1"> with a CKEditor
-									                // instance, using default configuration.
-									                CKEDITOR.replace( 'editor1' );
-									            </script>
+									            </textarea>									            
 											</div>
 										</div>
 									</div>
@@ -134,7 +134,21 @@
 			<!-- / -->
 @stop
 
-@section('script')
+@section('page-js-files')
+	<!-- include summernote css/js -->
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
 @stop
 
+@section('page-js-script')
+<script type="text/javascript">
+    $(document).ready(function() {
+       	 $('#editor1').summernote(
+       	 	{
+        		tabsize: 2,
+        		height: 100
+    		})
+      	});
+</script>
+@stop
 
