@@ -288,6 +288,7 @@ Route::group(['namespace' => 'Faq', 'prefix' =>'faq'], function()
 Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 {
 	Route::get('election/nominate', array('as' => 'election.nominate', 'uses' => 'NominationController@election'));	
+	Route::post('election/nominate', array('as' => 'election.nominate', 'uses' => 'NominationController@sendElection'));	
 	Route::get('awards/nominate', array('as' => 'awards.nominate', 'uses' => 'NominationController@awards'));	
 	Route::post('awards/nominate', array('as' => 'awards.nominate', 'uses' => 'NominationController@sendAward'));	
 	Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));	
@@ -352,6 +353,14 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 
 	Route::get('/emails/awards/reply', function () {
 	    return view('emails.awards.replynomination');
+	});
+
+	Route::get('/emails/election/send', function () {
+	    return view('emails.election.sendnomination');
+	});
+
+	Route::get('/emails/election/reply', function () {
+	    return view('emails.election.replynomination');
 	});
 
 	Route::get('/emails/blog/send', function () {

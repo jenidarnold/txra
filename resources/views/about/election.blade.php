@@ -17,14 +17,13 @@
 	<section class="page-header page-header-xs">
 		<div class="container">
 			<br/>
-			<h1><i class="fa fa-check-square-o"></i> TXRA Board of Directors Election Process</h1>
+			<h1><i class="fa fa-check-square-o"></i> Board of Directors Election Process</h1>
 		
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
-				<li><a href="/">Home</a></li>
 				<li><a href="/about/board">Directors</a></li>
-				<li><a href="/about/committees">Commitees</a></li>
-				<li class="active">Elections</a></li>
+				<li class="active">Process</a></li>
+				<li><a href='{{route('election.nominate')}}'>Nominate</a></li>
 			</ol><!-- /breadcrumbs -->
 
 
@@ -55,30 +54,26 @@
 								<li>
 									<a href="#">
 										<i class="fa fa-clock-o"></i> 
-										<span class="font-lato">Jun 01, 2017</span>
+										<span class="font-lato">Feb 06, 2018</span>
 									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-comment-o"></i> 
-										<span class="font-lato">28 Comments</span>
-									</a>
-								</li>								
+								</li>							
 								<li>
 									<a href="#">
 										<i class="fa fa-user"></i> 
-										<span class="font-lato">Sean Arnold</span>
+										<span class="font-lato">John O'Neil</span>
 									</a>
 								</li>
 							</ul>
 
-							<p>The 2018 Election will have two (2) open positions for a three (3) year term.<p/>
+							<p>The 2018 Election will have four (4) open positions for a three (3) year term.<p/>
 
-							<p>Current Board members are Michael Kaplan, Wendy Akins, Sean Arnold, Mike Griz, Lance Gilliam, Tom Doughtry, Dale Gosser, Mitchell McCoy, Julienne Arnold, Mike Sorensen, Brad Giezentanner, and John O'Niel.</p>
+							<p>Current Board member postions expiring are Wendy Akins, Sean Arnold, Michael Kaplan, Mike Sorensen, and Terry Wenetschlaeger.
+							</p>
 
 							<p>
-								If you are interested in running or would like to nominate someone, fill out the <a href='{{route('election.nominate')}}'>Nomination Form</a> or contact <a mailto:sean@arnold.net>Sean Arnold</a>, TXRA Election Committee Director.
-							</p>
+								If you are interested in running or would like to nominate someone, fill out the Nomination Form or contact John O'Neill, TXRA Election Committee Director.</p>
+
+							<p class="text-center"><a href='{{route('election.nominate')}}' class="btn btn-success">Start Nomination Form</a></p>
 
 							<h2>ELECTION PROCESS</h2>
 							<div class="hidden-xs">
@@ -106,12 +101,12 @@
 										<h4>Receive Nominiations</h4>
 										<p>The Nominating Committee appointed by the Board should solicit and receive nominations and gather the qualifications and reasons for the nominee’s candidacy. Usually this entails a photo and a short bio submitted by the nominee.</p>
 								
-										<p>The nominating committee should make their report and provide the Secretary with each nominee’s 	data by Friday March 10th, 2017.</p>
+										<p>The nominating committee should make their report and provide the Secretary with each nominee’s data by Friday March 10th, 2018.</p>
 									</div>
 
 									<div role="tabpanel" class="tab-pane" id="step2">
 										<h4>Confirm Nominees</h4>
-										A confirmation of all nominees will be completed by Friday March 10th, 2017 with an election notice email to be sent to all TXRA members.
+										A confirmation of all nominees will be completed by Friday March 9th, 2018 with an election notice email to be sent to all TXRA members.
 									</div>
 
 									<div role="tabpanel" class="tab-pane" id="step3">
@@ -119,7 +114,7 @@
 										
 										<p>The TXRA Election process will be held exclusively online via R2Sports. The election process will be simple starting with an email vote request to the TXRA membership.</p>
 
-										<p>From an online link, you will <a href="http://r2sports.com">login to R2Sports</a> with your membership username and password. A VOTE menu option will offer a quick voting process where each nominee photo and biography will be listed. You can easily review each bio and vote for up to four (4) nominees. All votes will be registered anonymously controlled to only one vote per membership number. This voting process is FREE to all members.</p>
+										From this <a target="election" href="http://www.r2sports.com/tourney/home.asp?TID=24798">online link </a>, you will login to R2Sports with your membership username and password. A VOTE menu option will offer a quick voting process where each nominee photo and biography will be listed. You can easily review each bio and vote for up to four (4) nominees. All votes will be registered anonymously controlled to only one vote per membership number. This voting process is FREE to all members.</p>
 									</div>								
 
 									<div role="tabpanel" class="tab-pane" id="step4">
@@ -150,14 +145,14 @@
 										<div class="toggle-content">
 											<p>The TXRA Election process will be held exclusively online via R2Sports. The election process will be simple starting with an email vote request to the TXRA membership.
 
-											From an online link, you will login to R2Sports with your membership username and password. A VOTE menu option will offer a quick voting process where each nominee photo and biography will be listed. You can easily review each bio and vote for up to four (4) nominees. All votes will be registered anonymously controlled to only one vote per membership number. This voting process is FREE to all members.</p>
+											From this <a target="election" href="http://www.r2sports.com/tourney/home.asp?TID=24798">online link </a>, you will login to R2Sports with your membership username and password. A VOTE menu option will offer a quick voting process where each nominee photo and biography will be listed. You can easily review each bio and vote for up to four (4) nominees. All votes will be registered anonymously controlled to only one vote per membership number. This voting process is FREE to all members.</p>
 										</div>
 									</div>
 
 									<div class="toggle">
 										<label>4. Induction</label>
 										<div class="toggle-content">
-											<p>Induct new Board of Directors at Regionals.</p>
+											<p>Induct new Board of Directors at Regionals, April 21, 2018</p>
 										</div>
 									</div>
 
@@ -171,36 +166,36 @@
 
 							<!-- timeline entry -->
 							<div class="timeline-entry rounded"><!-- .rounded = entry -->
-								03<span>Mar</span>
+								02<span>Mar</span>
 								<div class="timeline-vline"><!-- vertical line --></div>
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-								All nominations must be received by Friday, March 3rd, 2017.
+								All nominations must be received by Friday, March 2, 2018.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
 						<div class="blog-post-item">
 							<!-- timeline entry -->
 							<div class="timeline-entry rounded"><!-- .rounded = entry -->
-								10<span>Mar</span>
+								9<span>Mar</span>
 								<div class="timeline-vline"><!-- vertical line --></div>
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-								A confirmation of all nominees will be completed by Friday March 10th, 2017 with an election notice email to be sent to all TXRA members.
+								A confirmation of all nominees will be completed by Friday March 9, 2018 with an election notice email to be sent to all TXRA members.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
 						<div class="blog-post-item">
 							<!-- timeline entry -->
 							<div class="timeline-entry rounded"><!-- .rounded = entry -->
-								17<span>Mar</span>
+								12<span>Mar</span>
 								<div class="timeline-vline"><!-- vertical line --></div>
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-								An official 2017 TXRA Board of Directors election will be held between March 17th – March 31st, 2017.
+								An official 2018 TXRA Board of Directors election will be held between March 12th – March 31st, 2018.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
@@ -212,7 +207,7 @@
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-								Online Voting ends March 31st, 2017.
+								Online Voting ends March 31, 2018.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
@@ -224,13 +219,13 @@
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-							Nominees will be notified by April 3rd, 2017 of election results with a mandatory induction at the 2017 Texas Regionals held Saturday, April 22nd, 2017.
+							Nominees will be notified by April 3, 2018 of election results with a mandatory induction at the 2018 Texas Regionals held Saturday, April 21, 2018.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
 						<div class="blog-post-item">
 							<div class="timeline-entry rounded"><!-- .rounded = entry -->
-								22<span>Apr</span>
+								21<span>Apr</span>
 								<div class="timeline-vline"><!-- vertical line --></div>
 							</div>
 							<!-- /timeline entry -->
