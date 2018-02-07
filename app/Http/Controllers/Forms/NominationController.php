@@ -109,7 +109,7 @@ class NominationController extends Controller {
 
 		$txra = new User;
 		$txra->email = 'elections@mg.texasracquetball.org'; //env('MAIL_TO_EMAIL'); 
-		$txra->full_name = 'TXRA Elections Committee Director' //env('MAIL_TO_NAME');
+		$txra->full_name = 'TXRA Elections Committee Director'; //env('MAIL_TO_NAME');
 
         $subject = "TXRA: Board of Directors Nomination Form";
 
