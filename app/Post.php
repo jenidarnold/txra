@@ -75,14 +75,28 @@ class Post extends \Eloquent {
     }
 
     public function image_count() {
-        $directory = "images/blog/$this->id";
+        $directory = $this->image_path();
         $filecount = 0;
         
-        if (\File::exists("images/blog/$this->id")) {
+        if (\File::exists($directory)) {
             $fi = new \FilesystemIterator($directory, \FilesystemIterator::SKIP_DOTS);
             $filecount = iterator_count($fi);
         }
+      
         return $filecount;
+    }
+
+     public function image_path() {
+        $directory = "images/blog/$this->id/";
+        
+        if (\File::exists("images/blog/$this->id/lead")) {
+           $directory = "images/blog/$this->id/lead/";
+        }
+        elseif (\File::exists("images/blog/$this->id")) {
+            $directory = "images/blog/$this->id/";
+        }
+
+        return $directory;
     }
 
     public function image_max() {

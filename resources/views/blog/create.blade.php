@@ -94,9 +94,37 @@
 									</div>
 									<div class="row">
 										<div class="form-group">
-											<div class="col-md-6 col-sm-6">
-											  	{!! Form::label('Images') !!}
+											<div class="col-md-4 col-sm-4">
+											  	{!! Form::label('Headline Images') !!}
 											  	{!! Form::file('images[]',  
+    											  				[	
+    											  					'id'	=>	'file',
+    											  					'multiple' => 'multiple',
+    											  					'accept'	=>'image/*'
+    											  				]
+											  				) 
+										  		!!}
+												<small class="text-muted block">Max file size: 5Mb (pdf/jpg/png)</small>
+											</div>												
+										</div>
+										<div class="form-group">
+											<div class="col-md-4 col-sm-4">
+											  	{!! Form::label('Body Images') !!}
+											  	{!! Form::file('imagesBody[]',  
+    											  				[	
+    											  					'id'	=>	'file',
+    											  					'multiple' => 'multiple',
+    											  					'accept'	=>'image/*'
+    											  				]
+											  				) 
+										  		!!}
+												<small class="text-muted block">Max file size: 5Mb (pdf/jpg/png)</small>
+											</div>												
+										</div>
+										<div class="form-group">
+											<div class="col-md-4 col-sm-4">
+											  	{!! Form::label('Open Graph Images') !!}
+											  	{!! Form::file('imagesMeta[]',  
     											  				[	
     											  					'id'	=>	'file',
     											  					'multiple' => 'multiple',

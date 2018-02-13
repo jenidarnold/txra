@@ -97,7 +97,9 @@ class PageController extends BaseController {
             $limit = 12; //Limit to 12 files
 
             if (!file_exists("images/blog/$post->id")) {
-                mkdir("images/blog/$post->id", 0777, true);
+                mkdir("images/blog/$post->id/lead", 0777, true);
+                mkdir("images/blog/$post->id/body", 0777, true);
+                mkdir("images/blog/$post->id/meta", 0777, true);
             }else {
                 $post->image   = "";
             }
@@ -106,23 +108,65 @@ class PageController extends BaseController {
                 $post->image   = '0_'. $_FILES["images"]["name"][0];            
             }
 
+            //Store headline images
             foreach ($_FILES["images"]["error"] as $key => $error) {
                 if ($error == UPLOAD_ERR_OK) {
                     $tmp_name = $_FILES["images"]["tmp_name"][$key];
                     // basename() may prevent filesystem traversal attacks;
                     // further validation/sanitation of the filename may be appropriate
                     
-                    //append display order numner
+                    //append display order number
                     $order = $i.'_';
                     $name = $order . basename($_FILES["images"]["name"][$key]);
                    
-                    move_uploaded_file($tmp_name, "images/blog/$post->id/$name");
+                    move_uploaded_file($tmp_name, "images/blog/$post->id/lead/$name");
                     $i++;
                     if ($i== $limit) {
                        break;
                     }
                 }
             }
+
+            //Store body images
+            $i = 0;
+            foreach ($_FILES["imagesBody"]["error"] as $key => $error) {
+                if ($error == UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES["imagesBody"]["tmp_name"][$key];
+                    // basename() may prevent filesystem traversal attacks;
+                    // further validation/sanitation of the filename may be appropriate
+                    
+                    //append display order number
+                    $order = $i.'_';
+                    $name = $order . basename($_FILES["imagesBody"]["name"][$key]);
+                   
+                    move_uploaded_file($tmp_name, "images/blog/$post->id/body/$name");
+                    $i++;
+                    if ($i== $limit) {
+                       break;
+                    }
+                }
+            }
+
+            //Store open graph images
+             $i = 0;
+            foreach ($_FILES["imagesMeta"]["error"] as $key => $error) {
+                if ($error == UPLOAD_ERR_OK) {
+                    $tmp_name = $_FILES["imagesMeta"]["tmp_name"][$key];
+                    // basename() may prevent filesystem traversal attacks;
+                    // further validation/sanitation of the filename may be appropriate
+                    
+                    //append display order number
+                    $order = $i.'_';
+                    $name = $order . basename($_FILES["imagesMeta"]["name"][$key]);
+                   
+                    move_uploaded_file($tmp_name, "images/blog/$post->id/meta/$name");
+                    $i++;
+                    if ($i== $limit) {
+                       break;
+                    }
+                }
+            }
+        
 
 
             $txra = new User;
@@ -224,10 +268,62 @@ class PageController extends BaseController {
                         $order = $i.'_';
                         $name = $order . basename($_FILES["images"]["name"][$key]);
 
-                        if (!file_exists("images/blog/$post->id")) {
-                            mkdir("images/blog/$post->id", 0777, true);
+                        if (!file_exists("images/blog/$post->id/lead")) {
+                            mkdir("images/blog/$post->id/lead", 0777, true);
                         }
-                        move_uploaded_file($tmp_name, "images/blog/$post->id/$name");
+                        move_uploaded_file($tmp_name, "images/blog/$post->id/lead/$name");
+                        $i++;
+                        if ($i== $limit) {
+                           break;
+                        }
+                    }
+                }
+            }
+
+            // Update Body images
+            $i = 0;
+            $limit = 12; //Limit to 12 files
+            if (isset ($_FILES["imagesBody"])) {
+                foreach ($_FILES["imagesBody"]["error"] as $key => $error) {
+                    if ($error == UPLOAD_ERR_OK) {
+                        $tmp_name = $_FILES["imagesBody"]["tmp_name"][$key];
+                        // basename() may prevent filesystem traversal attacks;
+                        // further validation/sanitation of the filename may be appropriate
+                        
+                        //append display order numbner
+                        $order = $i.'_';
+                        $name = $order . basename($_FILES["imagesBody"]["name"][$key]);
+
+                        if (!file_exists("images/blog/$post->id/body")) {
+                            mkdir("images/blog/$post->id/body", 0777, true);
+                        }
+                        move_uploaded_file($tmp_name, "images/blog/$post->id/body/$name");
+                        $i++;
+                        if ($i== $limit) {
+                           break;
+                        }
+                    }
+                }
+            }
+
+            // Update OpenGraph images
+            $i = 0;
+            $limit = 12; //Limit to 12 files
+            if (isset ($_FILES["imagesMeta"])) {
+                foreach ($_FILES["imagesMeta"]["error"] as $key => $error) {
+                    if ($error == UPLOAD_ERR_OK) {
+                        $tmp_name = $_FILES["imagesMeta"]["tmp_name"][$key];
+                        // basename() may prevent filesystem traversal attacks;
+                        // further validation/sanitation of the filename may be appropriate
+                        
+                        //append display order numbner
+                        $order = $i.'_';
+                        $name = $order . basename($_FILES["imagesMeta"]["name"][$key]);
+
+                        if (!file_exists("images/blog/$post->id/meta")) {
+                            mkdir("images/blog/$post->id/meta", 0777, true);
+                        }
+                        move_uploaded_file($tmp_name, "images/blog/$post->id/meta/$name");
                         $i++;
                         if ($i== $limit) {
                            break;

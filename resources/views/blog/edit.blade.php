@@ -69,7 +69,44 @@
 									</div>
 									<div class="row">
 										<div class="form-group">
-											@foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)												 	
+											@if(file_exists("images/blog/$post->id/lead"))
+							                    @php ($imagepath = "images/blog/$post->id/lead")
+							                @else
+							                    @php ($imagepath = "images/blog/$post->id")
+							                @endif
+							                @foreach(new \DirectoryIterator($imagepath) as $fileinfo)
+								                @if (!$fileinfo->isDot())
+								                	<div class="col-md-2">
+							                        	<img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
+							                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
+						                        	</div>
+								                @endif
+								            @endforeach 
+							            </div>	
+							            <div class="row">
+											<div class="form-group">
+												@if(file_exists("images/blog/$post->id/body"))
+								                    @php ($imageBodyPath = "images/blog/$post->id/body")
+								                @else
+								                    @php ($imageBodyPath = "images/blog/$post->id")
+								                @endif
+								                @foreach(new \DirectoryIterator($imageBodyPath) as $fileinfo)
+									                @if (!$fileinfo->isDot())
+									                	<div class="col-md-2">
+								                        	<img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
+								                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
+							                        	</div>
+									                @endif
+									            @endforeach 
+								            </div>	
+							            <div class="row">
+										<div class="form-group">
+											@if(file_exists("images/blog/$post->id/meta"))
+							                    @php ($imageMetaPath = "images/blog/$post->id/meta")
+							                @else
+							                    @php ($imageMetaPath = "images/blog/$post->id")
+							                @endif
+							                @foreach(new \DirectoryIterator($imageMetaPath) as $fileinfo)
 								                @if (!$fileinfo->isDot())
 								                	<div class="col-md-2">
 							                        	<img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
@@ -84,8 +121,12 @@
 											<div class="col-md-4">
 											{{ Form::select('category', $categories, $post->categories()->first()->id, ['class' => 'form-control pointer'] ) }}						
 											</div>
-											<div class="col-md-6 col-sm-6">
-											  	{!! Form::label('Images') !!}
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-4 col-sm-4">
+											  	{!! Form::label('Headline Images') !!}
 											  	{!! Form::file('images[]',  
     											  				[	
     											  					'id'	=>	'file',
@@ -96,7 +137,32 @@
 										  		!!}
 												<small class="text-muted block">Max file size: 5Mb (pdf/jpg/png)</small>
 											</div>		
-
+											<div class="col-md-4 col-sm-4">
+											  	{!! Form::label('Body Images') !!}
+											  	{!! Form::file('imagesBody[]',  
+    											  				[	
+    											  					'id'	=>	'file',
+    											  					'multiple' => 'multiple',
+    											  					'accept'	=>'image/*'
+    											  				]
+											  				) 
+										  		!!}
+												<small class="text-muted block">Max file size: 5Mb (pdf/jpg/png)</small>
+											</div>	
+											<div class="form-group">
+												<div class="col-md-4 col-sm-4">
+												  	{!! Form::label('Open Graph Images') !!}
+												  	{!! Form::file('imagesMeta[]',  
+	    											  				[	
+	    											  					'id'	=>	'file',
+	    											  					'multiple' => 'multiple',
+	    											  					'accept'	=>'image/*'
+	    											  				]
+												  				) 
+											  		!!}
+													<small class="text-muted block">Max file size: 5Mb (pdf/jpg/png)</small>
+												</div>												
+											</div>	
 										</div>
 									</div>
 									<div class="row">

@@ -27,7 +27,12 @@
 		<!-- OWL SLIDER -->
 	<div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"items": {{$post->image_count()}}, "autoPlay": 6000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
 
-		@foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)
+	  	@if(file_exists("images/blog/$post->id/lead"))
+            @php ($imagepath = "images/blog/$post->id/lead")
+        @else
+            @php ($imagepath = "images/blog/$post->id")
+        @endif
+        @foreach(new \DirectoryIterator($imagepath) as $fileinfo)
 			@if (!$fileinfo->isDot())
 				<div>
 					<img class="thumbnail img-responsive" src="{{ asset($fileinfo->getPathname()) }}" alt="">
@@ -38,7 +43,7 @@
 	<!-- /OWL SLIDER -->
 	@else
 	  	<figure class="margin-bottom-10 ">
-            <img class="thumbnail img-responsive" src="{{asset('images/blog/'.$post->id.'/'.$post->image)}}" alt="{{$post->title}} " >
+            <img class="thumbnail img-responsive" src="{{asset($post->image_path().$post->image)}}" alt="{{$post->title}} " >
         </figure>
     @endif
 

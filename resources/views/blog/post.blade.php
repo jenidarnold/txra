@@ -10,8 +10,12 @@
     @if ($post->image_count() > 1)
         <!-- OWL SLIDER -->
         <div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items": {{$post->image_max()}}, "autoPlay": 6000, "autoHeight": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
-
-            @foreach(new \DirectoryIterator("images/blog/$post->id") as $fileinfo)
+                @if(file_exists("images/blog/$post->id/lead"))
+                    @php ($imagepath = "images/blog/$post->id/lead")
+                @else
+                    @php ($imagepath = "images/blog/$post->id")
+                @endif
+                @foreach(new \DirectoryIterator($imagepath) as $fileinfo)
                 @if (!$fileinfo->isDot())
                     <div>
                         <img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
@@ -21,8 +25,9 @@
         </div>
         <!-- /OWL SLIDER -->
     @elseif ($post->image_count() == 1)
+    
         <figure class="margin-bottom-20 ">
-            <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset('images/blog/'.$post['id'].'/'.$post['image'])}}" alt="{{$post['title']}} " >
+            <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset($post->image_path().$post['image'])}}" alt="{{$post['title']}} " >
         </figure>
     @else
         <figure class="margin-bottom-20 ">

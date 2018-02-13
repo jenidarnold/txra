@@ -157,10 +157,22 @@ class BlogController extends BaseController {
                  $image_type = '';
             }
 
+            //get meta image file
+            if (file_exists("images/blog/$post->id/meta")) {
+                foreach(new \DirectoryIterator("images/blog/$post->id/meta") as $fileinfo){
+                    if (!$fileinfo->isDot()){
+                        $meta_image = $fileinfo->getPathname();
+                        break;
+                    }
+                }
+            }else {
+                $meta_image ='/images/blog/'.$id.'/'.$post['image'];            
+            }
+
             $meta = [
                 'title' => $post['title'],
                 'description' => substr(strip_tags($post['content']), 0, 300),
-                'image' => '/images/blog/'.$id.'/'.$post['image'],
+                'image' => $meta_image,
                 'image_width' => '200',
                 'image_height' => '200',
                 'image_type'    => $image_type,
