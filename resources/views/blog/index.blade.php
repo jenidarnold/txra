@@ -30,7 +30,7 @@
            @elseif ($post->image_count() == 1)
                 <figure class="margin-bottom-20">                       
                     <!-- details -->                
-                    <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset('images/blog/'.$post['id'].'/lead/'.$post['image'])}}" alt="{{$post['title']}} " >                             
+                    <img class="thumbnail img-responsive1"  style="max-height:200px" src="{{asset($post->image_path().$post['image'])}}" alt="{{$post['title']}} " >                             
                 </figure>
             @else
                 <figure class="margin-bottom-20 ">

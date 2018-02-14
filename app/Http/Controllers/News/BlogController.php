@@ -243,10 +243,11 @@ class BlogController extends BaseController {
      *
      * @return Response
      */
-    public function delete_image($id, $file)
+    public function delete_image($id, $dir, $file)
     {
+
         //Deletes file
-        if (!unlink("images/blog/$id/$file")){
+        if (!unlink("images/blog/$id/$dir/$file")){
             \Session::flash('message', 'Error deleted image');
         }else
         {

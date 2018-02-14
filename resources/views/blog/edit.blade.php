@@ -71,14 +71,16 @@
 										<div class="form-group">
 											@if(file_exists("images/blog/$post->id/lead"))
 							                    @php ($imagepath = "images/blog/$post->id/lead")
+							                    @php ($dir = "lead")
 							                @else
 							                    @php ($imagepath = "images/blog/$post->id")
+							                    @php ($dir = "")
 							                @endif
 							                @foreach(new \DirectoryIterator($imagepath) as $fileinfo)
 								                @if (!$fileinfo->isDot())
 								                	<div class="col-md-2">
 							                        	<img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
-							                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
+							                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'dir' => $dir, 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
 						                        	</div>
 								                @endif
 								            @endforeach 
@@ -87,14 +89,17 @@
 											<div class="form-group">
 												@if(file_exists("images/blog/$post->id/body"))
 								                    @php ($imageBodyPath = "images/blog/$post->id/body")
+								                    @php ($dir = "body")
 								                @else
 								                    @php ($imageBodyPath = "images/blog/$post->id")
+								                    @php ($dir = "")
 								                @endif
 								                @foreach(new \DirectoryIterator($imageBodyPath) as $fileinfo)
 									                @if (!$fileinfo->isDot())
 									                	<div class="col-md-2">
 								                        	<img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
-								                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
+								                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'dir' => $dir, 
+								                        	'file' => $fileinfo->getFilename()] )}}" method="post" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
 							                        	</div>
 									                @endif
 									            @endforeach 
@@ -103,14 +108,16 @@
 										<div class="form-group">
 											@if(file_exists("images/blog/$post->id/meta"))
 							                    @php ($imageMetaPath = "images/blog/$post->id/meta")
+							                    @php ($dir = "meta")
 							                @else
 							                    @php ($imageMetaPath = "images/blog/$post->id")
+							                    @php ($dir = "")
 							                @endif
 							                @foreach(new \DirectoryIterator($imageMetaPath) as $fileinfo)
 								                @if (!$fileinfo->isDot())
 								                	<div class="col-md-2">
 							                        	<img class="img-responsive"  src="{{ asset($fileinfo->getPathname()) }}" alt="">
-							                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
+							                        	<a href="{{route('news.delete_image', [ 'id' => $post['id'], 'dir' => $dir, 'file' => $fileinfo->getFilename()] )}}" class="btn btn-danger btn-xs btn-block noradius"><i class="fa fa-times"></i> Remove</a>
 						                        	</div>
 								                @endif
 								            @endforeach 
