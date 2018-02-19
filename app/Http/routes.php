@@ -273,7 +273,8 @@ Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 	Route::get('mission', array('as' => 'about.mission', 'uses' => 'LeadershipController@mission'));	
 });
 
-Route::get('/election', array('as' => 'election.index', 'uses' => 'LeadershipController@election'));	
+Route::get('/election', array('as' => 'election.index', 'uses' => 'About\LeadershipController@election'));	
+Route::get('/election/nominate', array('as' => 'election.index', 'uses' => 'Forms\NominationController@election'));	
 
 
 /* DONTATE */
