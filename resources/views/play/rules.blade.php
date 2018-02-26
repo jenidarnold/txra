@@ -93,40 +93,6 @@
 				</div>					
 			</td>
 		</tr>	
-		<tr>
-	  		<td width="200px" class="hidden-xs">						
-				<a href="#">
-					<img class="img-responsive1 img-thumbnail"  width="200px" src="{{ asset('images/awards/2016/john_boyd.png') }}">
-				</a>
-			</td>
-			<td>
-				<h4><a href="#" data-toggle="modal" data-target="#contactModal">
-					Ask Johnny, National Certified Referee</a></h4>				
-				<p class="list-group-item-text"> 
-					<i class="fa fa-info-circle"></i> Texan, Johnny Boyd, has been a National Certified Referee for many years.
-					Written many articles on Rules (links). Created Videos.
-				</p>	
-				<br/>
-				<div class="row">
-					<div class="col-sm-2 col-sm-2-offset-2 col-xs-3 col-xs-offset-1" style="margin-bottom:10px">
-						<!-- Social Icons -->
-						<div class="">
-							{{-- <a href="https://www.facebook.com/johnny.boyd.507" target="new" class="social-icon social-icon-border social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
-								<i class="icon-facebook"></i>
-								<i class="icon-facebook"></i>
-							</a> --}}
-
-							<a href="#" data-toggle="modal" data-target="#contactModal" class="social-icon social-icon-border  social-call pull-left" data-placement="bottom" title="Contact Johnny Boyd">
-								<i class="fa fa-envelope"></i>
-								<i class="fa fa-envelope"></i>
-							</a>
-
-						</div>
-						<!-- /Social Icons -->					
-					</div>	
-				</div>		
-			</td>
-		</tr>	
 	</table>
 <section>
 @stop
