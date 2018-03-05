@@ -158,6 +158,7 @@ class BlogController extends BaseController {
             }
 
             //get meta image file
+            $meta_image = '';
             if (file_exists("images/blog/$post->id/meta")) {
                 foreach(new \DirectoryIterator("images/blog/$post->id/meta") as $fileinfo){
                     if (!$fileinfo->isDot()){
