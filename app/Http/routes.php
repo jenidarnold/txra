@@ -198,6 +198,7 @@ Route::group(['namespace' => 'Programs', 'prefix' =>'programs'], function()
 	Route::get('rewards/{id}', array('as' => 'rewards.show', 'uses' => 'RewardsController@show'));
 });
 Route::get('/awards', array('as' => 'awards.index', 'uses' => 'Programs\AwardsController@index'));	
+Route::get('/awards/nominate', array('as' => 'awards.nominate', 'uses' => 'Forms\NominationController@awards'));	
 
 
 Route::get('rewards', array('as' => 'rewards.index', 'uses' => 'Programs\RewardsController@index'));
