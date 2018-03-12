@@ -190,12 +190,12 @@
 						<div class="blog-post-item">
 							<!-- timeline entry -->
 							<div class="timeline-entry rounded"><!-- .rounded = entry -->
-								12<span>Mar</span>
+								15<span>Mar</span>
 								<div class="timeline-vline"><!-- vertical line --></div>
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-								An official 2018 TXRA Board of Directors election will be held between March 12th – March 31st, 2018.
+								An official 2018 TXRA Board of Directors election will be held between March 15th – March 31st, 2018.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
