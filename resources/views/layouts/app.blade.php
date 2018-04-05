@@ -488,6 +488,7 @@
 															<li><a href="/about/bylaws">BY LAWS</a></li>
 															<li><a href="{{ route('election.index')}}" >ELECTION PROCEDURE</a></li>
 															<li><a href="{{ route('election.nominate')}}" >NOMINATE FOR BOARD</a></li>
+															<li><a href="{{ route('about.sanctioning')}}" >SANCTIONING GUIDELINES</a></li>
 															{{-- <li><a href="{{ route('about.mission')}}">MISSION STATEMENT</a></li>
 															<li><a href="{{ route('about.ethics')}}" >CODE OF ETHICS</a></li> --}}
 														</ul>

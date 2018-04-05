@@ -43,6 +43,7 @@ class LeadershipController extends Controller {
 
 		return view('about/bylaws');
 	}
+
 	/**
 	 * Display member profile.
 	 *
@@ -76,6 +77,16 @@ class LeadershipController extends Controller {
 		return view('about/mission');
 	}
 
+    /**
+	 * Display sanctioning guidelines.
+	 *
+	 * @return Response
+	 */
+	public function sanctioning(Request $request)
+	{
+
+		return view('about/guidelines/sanctioning');
+	}
 	/**
 	 * Display member profile.
 	 *

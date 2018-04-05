@@ -272,6 +272,8 @@ Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 	Route::get('election/process', array('as' => 'election.index', 'uses' => 'LeadershipController@election'));	
 	Route::get('ethics', array('as' => 'about.ethics', 'uses' => 'LeadershipController@ethics'));	
 	Route::get('mission', array('as' => 'about.mission', 'uses' => 'LeadershipController@mission'));	
+
+	Route::get('sanctioning', array('as' => 'about.sanctioning', 'uses' => 'LeadershipController@sanctioning'));
 });
 
 Route::get('/election', array('as' => 'election.index', 'uses' => 'About\LeadershipController@election'));	
