@@ -135,7 +135,10 @@ class Scraper {
 		 	
 
 		 	//Variable needed for the next page of Rankings
-		 	$startMemNum = $result[0]['startMemNum'][0];
+		 	if (isset($result[0]['startMemNum'])){
+		 	 //   $startMemNum = $result[0]['startMemNum'][0];
+		 	}		 	
+		 	
 		 	//Increment for next set of rankings
 		 	$startRank = $startRank + $rankChunks;	 	
 		 	//Save Rankings to database
