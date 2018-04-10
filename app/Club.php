@@ -74,30 +74,30 @@ class Club extends Model
 
         $data = [];
 
-        //Get AVG number of checkins per hour per day of the week
-        for($d = 0; $d <=6; $d++){
-            for($x = 6; $x <=22; $x++){
+        // //Get AVG number of checkins per hour per day of the week
+        // for($d = 0; $d <=6; $d++){
+        //     for($x = 6; $x <=22; $x++){
 
-                $num_by_hour = \DB::table('checkins')
-                    ->where('club_id', '=', $this->id)
-                    ->where(\DB::raw('WEEKDAY(checkin_at)'), '=', $d)
-                    ->where(\DB::raw('HOUR(checkin_at)'), '>', $x-1)
-                    ->where(\DB::raw('HOUR(checkin_at)'), '<=',$x)
-                    ->count();
+        //         $num_by_hour = \DB::table('checkins')
+        //             ->where('club_id', '=', $this->id)
+        //             ->where(\DB::raw('WEEKDAY(checkin_at)'), '=', $d)
+        //             ->where(\DB::raw('HOUR(checkin_at)'), '>', $x-1)
+        //             ->where(\DB::raw('HOUR(checkin_at)'), '<=',$x)
+        //             ->count();
 
-                $num_by_day = \DB::table('checkins')
-                    ->where('club_id', '=', $this->id)
-                    ->where(\DB::raw('WEEKDAY(checkin_at)'), '=', $d)
-                    ->count();
+        //         $num_by_day = \DB::table('checkins')
+        //             ->where('club_id', '=', $this->id)
+        //             ->where(\DB::raw('WEEKDAY(checkin_at)'), '=', $d)
+        //             ->count();
 
-                //Average checkins per particular day
-                if ($num_by_day > 0) {
-                    $data[$d][$x] = $num_by_hour / $num_by_day *100;
-                }else {
-                    $data[$d][$x] = 0;
-                }
-            }
-        }
+        //         //Average checkins per particular day
+        //         if ($num_by_day > 0) {
+        //             $data[$d][$x] = $num_by_hour / $num_by_day *100;
+        //         }else {
+        //             $data[$d][$x] = 0;
+        //         }
+        //     }
+        // }
 
         return $data;
     }

@@ -788,7 +788,7 @@
 						</figure>
 
 						<div class="item-box-desc">
-							<h3>Korina</h3>
+							<h3>Karina Quintanilla</h3>
 							<ul class="list-inline categories nomargin">
 								<li><a href="#">2014 Female Junior Athlete (13-18)</a></li>
 							</ul>
