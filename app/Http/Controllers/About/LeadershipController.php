@@ -18,7 +18,8 @@ class LeadershipController extends Controller {
 	 */
 	public function __construct()
 	{
-		//$this->middleware('auth');
+		
+	   $this->middleware(['board_user'], ['only' => ['boardonly']]);
 	}
 		
 	/**
@@ -32,6 +33,14 @@ class LeadershipController extends Controller {
 		return view('about/board');
 	}
 
+	/**
+	 *  Display Board Only Info
+	 */
+		public function boardonly(Request $request)
+	{
+
+		return view('boardonly/index');
+	}
 		
 	/**
 	 * Display index of members.

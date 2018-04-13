@@ -54,6 +54,12 @@ Route::get('/survey',  function () {
 	Route::delete('/news/{id}', array('as' => 'news.delete', 'uses' => 'News\PageController@delete'));	
 	Route::get('/news/post/{id}/publish/{publish}', array('as' => 'news.publish', 'uses' => 'News\PageController@publish'));	
 //});
+//
+
+Route::get('board-minutes', function(){
+	$news = new App\Http\Controllers\News\BlogController;
+	return $news->getCategory(9, 'Board Minutes');
+});
 
 Route::controllers([
 //	'auth' => 'Auth\AuthController',
@@ -265,6 +271,7 @@ Route::group(['namespace' => 'Events', 'prefix' =>'events'], function()
 Route::group(['namespace' => 'About', 'prefix' =>'about'], function()
 {
 	Route::get('board', array('as' => 'board.index', 'uses' => 'LeadershipController@board'));	
+
 	Route::get('bylaws', array('as' => 'about.bylaws', 'uses' => 'LeadershipController@bylaws'));	
 	Route::get('committees', array('as' => 'committees.index', 'uses' => 'LeadershipController@committees'));
 	Route::post('committees', array('as' => 'committees.join', 'uses' => 'LeadershipController@joinCommittees'));
@@ -280,6 +287,8 @@ Route::get('/election', array('as' => 'election.index', 'uses' => 'About\Leaders
 Route::get('/election/nominate', array('as' => 'election.nominate', 'uses' => 'Forms\NominationController@election'));	
 Route::get('/elections/nominate', array('as' => 'election.nominate', 'uses' => 'Forms\NominationController@election'));	
 
+/* BOARD ONLY */
+Route::get('/boardonly', array('as' => 'boardonly.index', 'uses' => 'About\LeadershipController@boardonly'));	
 
 /* DONTATE */
 Route::group(['namespace' => 'Donate', 'prefix' =>'donate'], function()

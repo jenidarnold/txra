@@ -125,6 +125,9 @@
 	</style>
 @yield('style')
 
+<!-- PHP variables -->
+@php ($board = array(1, 644, 557, 511))
+
 	<body class="smoothscroll enable-animation grain-grey">
 
 		<!-- SLIDE TOP -->
@@ -275,11 +278,15 @@
 											<li><!-- settings -->
 												<a href="{{ route('members.edit', array('id' =>  Auth::user()->id))}}"><i class="fa fa-cogs"></i> Settings</a>
 											</li>
-											<!-- Only Julie operations -->
+											<!-- Admin Only -->
 											@if(Auth::check() && Auth::user()->id == 1 )
 												<li class="divider"></li>	
 												<li><a href="{{ route('admin.index')}}"><i class="fa fa-lock"></i> ADMIN</a></li>
-												<li><a href="{{ route('news.create')}}"><i class="fa fa-pencil"></i> SUBMIT ARTICLE</a></li>
+											@endif
+											<!-- Board Only -->											
+         									@if (Auth::check() && (in_array(Auth::user()->id, $board)))
+												<li class="divider"></li>	
+												<li><a href="{{ route('boardonly.index')}}"><i class="fa fa-lock"></i> BOARD ACCESS</a></li>
 											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->
@@ -571,6 +578,11 @@
 											@if( Auth::user()->id == 1 )
 												<li class="divider"></li>	
 												<li><a href="{{ route('admin.index')}}"><i class="fa fa-lock"></i> ADMIN</a></li>
+											@endif
+											<!-- Board Only -->
+											@if (Auth::check() && (in_array(Auth::user()->id, $board)))
+												<li class="divider"></li>	
+												<li><a href="{{ route('boardonly.index')}}"><i class="fa fa-lock"></i> BOARD ACCESS</a></li>
 											@endif
 											<li class="divider"></li>
 											<li><!-- logout -->
