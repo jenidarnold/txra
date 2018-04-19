@@ -31,12 +31,15 @@ class WelcomeController extends Controller
 
         $tournaments["live"] = Tournament::live()
             ->where('name', 'not like', '%Ladder')
+            ->where('name', 'not like', '%League')
             ->get();
         $tournaments["future"] = Tournament::future()
             ->where('name', 'not like', '%Ladder')
+            ->where('name', 'not like', '%League')
             ->get();
         $tournaments["recent"] = Tournament::past(90)
             ->where('name', 'not like', '%Ladder')
+            ->where('name', 'not like', '%League')
             ->get();
             
 

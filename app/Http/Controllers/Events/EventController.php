@@ -64,7 +64,11 @@ class EventController extends Controller {
 		}elseif (strtolower($type) =='ladder') {		
 			$tournaments = Tournament::live()
 				->where('name', 'like', '%Ladder')
-				;				
+				;		
+		}elseif (strtolower($type) =='league') {		
+			$tournaments = Tournament::live()
+				->where('name', 'like', '%League')
+				;			
 		}else {
 			$tournaments = Tournament::past();	
 		}
