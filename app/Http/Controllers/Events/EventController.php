@@ -69,10 +69,11 @@ class EventController extends Controller {
 			$tournaments = Tournament::past();	
 		}
 		
-		//Filter out Ladders
+		//Filter out Ladders & Leagues
 		if (strtolower($type) != 'ladder'){
 			$tournaments = $tournaments
 				->where('name', 'not like', '%Ladder')
+				->where('name', 'not like', '%League')
 				;
 		}
 
