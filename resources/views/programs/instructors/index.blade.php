@@ -140,8 +140,8 @@
 										
 					<h3>Reimbursement Requirements</h3>
 
-						<div class="testimonial">										
-							<div class="testimonial-content">
+						<div class="testimonialXXX">										
+							<div class="testimonial-contentXXX">
 								<p>In order to receive reimbursement, the racquetball instructor <strong>must be a current member of USAR and a Texas resident</strong> and submit to the Texas Instructor Program Coordinator evidence of successful completion of the certification clinic.
 
 								<p>Upon approval, instructors will receive $150 each quarter if they schedule at least three clinics, leagues or events or any combination of:
