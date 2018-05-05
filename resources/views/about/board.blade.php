@@ -40,7 +40,7 @@
 				<div class="container">
 					
 					<p class="lead">The TXRA Board of Directors is committed to our members and the growth of racquetball in Texas from recreational play to international competition.</p>
-					<p>Our mission is to provide racquetball opportunities for all levels of participation. We promote the sport with various marketing efforts. We expand our membership by recruiting at the grassroot level. We strive to provide many services for our members</p>
+					<p>Our mission is to provide racquetball opportunities for all levels of participation. We promote the sport with various marketing efforts. We expand our membership by recruiting at the grassroot level. We strive to provide many services for our members.</p>
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
@@ -48,101 +48,12 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/michael_kaplan.png')}}" alt="" />
-											<h2>Michael Kaplan</h2>
+											<img class="img-responsive" src="{{ asset('images/board/2018/mike_grisz.png')}}" alt="" />
+											<h2>Mike Grisz</h2>
 											<small>PRESIDENT</small>
 										</div>
 									</div>
 								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Michael Kaplan</h4>
-										<small>PRESIDENT</small>
-										<ul>
-											<li></li>
-											<li>Strategic Planning</li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/michael.kaplan1" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Michael Kaplan'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/sean_arnold.png')}}" alt="" />
-											<h2>Sean Arnold</h2>
-											<small>VICE PRESIDENT</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Sean Arnold</h4>
-										<ul>
-											<li>Governance</li>
-											<li>Strategic Planning</li>
-											<li></li>
-										</ul>
-
-										<hr>
-
-										<a target= "new" href="http://m.me/sean.arnold.5817" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Sean Arnold'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/mike_grisz.png')}}" alt="" />
-											<h2>Mike Grisz</h2>
-											<small>TREASURER</small>
-										</div>
-									</div>
-								</div>
-
 								<div class="back">
 									<div class="box2 box-info">
 										<h4 class="nomargin">Mike Grisz</h4>									
@@ -153,14 +64,14 @@
 										</ul>
 										<hr>
 
-										<a target= "new" href="http://m.me/bonnie.grisz" class="social-icon social-icon-sm social-facebook">
+										{{-- <a target= "new" href="#" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
 										<a href="#" class="social-icon social-icon-sm social-twitter">
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
-										</a>
+										</a> --}}
 										<a href="{{ route('contact',array('to' => 'Mike Grisz'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
@@ -168,149 +79,18 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 						<!-- /item -->
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
-
 							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/mitchell_mccoy.png')}}" alt="" />
-											<h2>Mitchell McCoy</h2>
-											<small>SECRETARY</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Mitchell McCoy</h4>
-										<ul>
-											<li>Finance</li>
-											<li></li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/mitchell.mcoy.52" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Mitchell McCoy'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-					
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/wendy_akins.png')}}" alt="" />
-											<h2>Wendy Akins</h2>
-											<small>JUNIOR LIASON</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Wendy Akins</h4>
-										<ul>
-											<li>Awards</li>
-											<li>Strategic Planning</li>
-											<li>Youth and Collegiate</li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/wendy.s.akins.1" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Wendy Akins'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->						
-			
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/julie_arnold.png')}}" alt="" />
-											<h2>Julienne Arnold</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Julienne Arnold</h4>
-										<ul>
-											<li>Awards</li>
-											<li>Communications (Chair)</li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/julienne.arnold"  target="_blank" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Julienne Arnold'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/tom_doughty.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2018/tom_doughty.png')}}" alt="" />
 											<h2>Tom Doughty</h2>
-											<small>BOARD MEMBER</small>
+											<small>VICE PRESIDENT</small>
 										</div>
 									</div>
 								</div>
@@ -340,7 +120,88 @@
 									</div>
 								</div>
 							</div>
+						</div>
+						<!-- /item -->
 
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2018/mitchell_mccoy.png')}}" alt="" />
+											<h2>Mitchell McCoy</h2>
+											<small>TREASURER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">Mitchell McCoy</h4>
+										<ul>
+											<li>Finance</li>
+											<li></li>
+											<li></li>
+										</ul>
+										<hr/>
+
+										<a target= "new" href="http://m.me/mitchell.mcoy.52" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="{{ route('contact',array('to' => 'Mitchell McCoy'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2018/julie_arnold.png')}}" alt="" />
+											<h2>Julienne Arnold</h2>
+											<small>SECRETARY</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">Julienne Arnold</h4>
+										<ul>
+											<li>Awards</li>
+											<li>Communications (Chair)</li>
+											<li></li>
+										</ul>
+										<hr/>
+
+										<a target= "new" href="http://m.me/julienne.arnold"  target="_blank" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="{{ route('contact',array('to' => 'Julienne Arnold'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
 						</div>
 						<!-- /item -->
 
@@ -351,7 +212,95 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/brad_giezentanner.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2018/jeff_franco.png')}}" alt="" />
+											<h2>Jeff Franco</h2>
+											<small>Board Member</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">Jeff Franco</h4>
+										{{-- <ul>
+											<li>Awards</li>
+											<li>Strategic Planning</li>
+											<li>Youth and Collegiate</li>
+										</ul> --}}
+										<hr/>
+
+										{{-- <a target= "new" href="http://m.me/wendy.s.akins.1" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a> --}}
+										<a href="{{ route('contact',array('to' => 'Jeff Franco'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->						
+											
+					
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2018/jon_friedman.png')}}" alt="" />
+											<h2>Jon Friedman</h2>
+											<small>Board Member</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">Jon Friedman</h4>
+										{{-- <ul>
+											<li>Awards</li>
+											<li>Strategic Planning</li>
+											<li>Youth and Collegiate</li>
+										</ul> --}}
+										<hr/>
+
+									{{-- 	<a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a> --}}
+										<a href="{{ route('contact',array('to' => 'Jon Friedman'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->						
+											
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2018/brad_giezentanner.png')}}" alt="" />
 											<h2>Brad Giezentanner</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -394,7 +343,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/lance_gilliam.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2018/lance_gilliam.png')}}" alt="" />
 											<h2>Lance Gilliam</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -437,7 +386,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/dale_gosser.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2018/dale_gosser.png')}}" alt="" />
 											<h2>Dale Gosser</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -480,7 +429,51 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/john_oneill.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2018/anita_pena.png')}}" alt="" />
+											<h2>Anita Johnson-Pena</h2>
+											<small>BOARD MEMBER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">Anita Johnson-Pena</h4>
+										{{-- <ul>
+											<li>Strategic Planning</li>
+											<li>Youth and Collegiate</li>
+											<li></li>
+										</ul> --}}
+										<hr/>
+
+										{{-- <a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a> --}}
+										<a href="{{ route('contact',array('to' => 'Anita Johnson-Pena'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->
+
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2018/john_oneill.png')}}" alt="" />
 											<h2>John O'Neill</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -516,6 +509,47 @@
 						</div>
 						<!-- /item -->
 
+							<!-- item -->
+						<div class="col-md-3 col-sm-6">
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2018/sandy_rios.png')}}" alt="" />
+											<h2>Sandy Rios</h2>
+											<small>BOARD MEMBER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										{{-- <h4 class="nomargin">Sandy Rios</h4>
+										<ul>
+											<li>Governance</li>
+											<li>Communications</li>
+											<li></li>
+										</ul> --}}
+										<hr/>
+
+										{{-- <a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a> --}}
+										<a href="{{ route('contact',array('to' => 'Sandy Rios'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /item -->
+
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
 
@@ -523,7 +557,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/mike_sorensen.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2018/mike_sorensen.png')}}" alt="" />
 											<h2>Mike Sorensen</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -559,49 +593,7 @@
 						</div>
 						<!-- /item -->
 
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/terry_wenetschlaeger.png')}}" alt="" />
-											<h2>Terry Wenetschlaeger</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Terry Wenetschlaeger</h4>
-										<ul>
-											<li>Strategic Planning</li>
-											<li>Youth and Collegiate</li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/terry.wenetschlaeger" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Terry Wenetschlaeger'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
+						
 				</div>
 			</section>
 			<!-- / -->
