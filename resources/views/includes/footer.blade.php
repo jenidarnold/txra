@@ -23,7 +23,7 @@
 							75205 USA<br>
 						</li>
 						<li class="footer-sprite phone">
-							Phone: 1-214-378-7400
+							Phone: 1-214-560-0510
 						</li>
 						<li class="footer-sprite email">
 							<a href="/contact" title="Contact Us">{!! env('MAIL_TO_CONTACT') !!}</a>
