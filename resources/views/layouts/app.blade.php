@@ -390,10 +390,14 @@
 															<li>
 																<a href="{{route('juniors.welcome')}}">JUNIORS PROGRAM</a>												
 															</li>
+															
 															<li>
 																<a target="new" href="https://www.teamusa.org/usa-racquetball/programs/college-racquetball">
 																	COLLEGE RACQUETBALL
 																</a>
+															</li>
+															<li>
+																<a href="/scholarships">SCHOLARSHIPS</a>	
 															</li>
 														</ul>
 													</div>

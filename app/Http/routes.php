@@ -37,6 +37,9 @@ Route::get('/survey',  function () {
     return view('survey');
 });
 	
+Route::get('/scholarships',  function () {
+    return view('/programs/juniors/scholarships');
+});	
 //Route::group(['namespace' => 'Blog', 'prefix' =>'blog'], function()
 //{
 	Route::get('/news', array('as' => 'news.index', 'uses' => 'News\BlogController@getIndex'));	
