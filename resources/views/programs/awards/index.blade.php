@@ -31,14 +31,15 @@
 			<div class="collapse navbar-collapse nav-filter-collapse">				
 				<ul id="portfolio_filter" class="nav nav-pills margin-bottom-0">
 					<li class="filter active"><a data-filter="*" href="#">All</a></li>
+					<!--li class="filter"><a data-filter=".2018" href="#">2018</a></li -->
 					<li class="filter"><a data-filter=".2017" href="#">2017</a></li>
 					<li class="filter"><a data-filter=".2016" href="#">2016</a></li>
 					<li class="filter"><a data-filter=".2015" href="#">2015</a></li>
 					<li class="filter"><a data-filter=".2014" href="#">2014</a></li>
 				</ul>
 				<ul id="portfolio_filter" class="nav nav-pills nav-filter-collapse margin-bottom-60">
-					<li class="filter"><a data-filter=".sportsmanship" href="#">A.G. Sportsmanship</a></li>
-					<li class="filter"><a data-filter=".contributor" href="#">Outstanding Contributor</a></li>
+					<li class="filter"><a data-filter=".sportsmanship" href="#">Ann Gibbons Sportsmanship</a></li>
+					<li class="filter"><a data-filter=".contributor" href="#">Bob Sullins Outstanding Contributor</a></li>
 					<li class="filter"><a data-filter=".director" href="#">Tournament Director</a></li>
 					<li class="filter"><a data-filter=".male" href="#">Male Athlete</a></li>
 					<li class="filter"><a data-filter=".female" href="#">Female Athlete</a></li>
