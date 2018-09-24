@@ -288,7 +288,7 @@
 								</span>
 							</span>
 
-							<img class="img-responsive" src="{{ asset('images/awards/2017/shane_diaz.jpg')}}" width="600" height="399" alt="">
+							<img class="img-responsive" src="{{ asset('images/awards/2017/shane.jpg')}}" width="600" height="399" alt="">
 						</figure>
 
 						<div class="item-box-desc">
