@@ -276,7 +276,7 @@
 								<span class="inner">
 
 									<!-- lightbox -->
-									<a class="ico-rounded lightbox" href="{{ asset('images/awards/2017/shane_diaz.jpg')}}" data-plugin-options='{"type":"image"}'>
+									<a class="ico-rounded lightbox" href="{{ asset('images/awards/2017/shane.jpg')}}" data-plugin-options='{"type":"image"}'>
 										<span class="fa fa-plus size-20"></span>
 									</a>
 
