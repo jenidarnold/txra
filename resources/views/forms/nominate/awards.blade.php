@@ -27,9 +27,9 @@
 	<!-- -->
 	<section>
 		<div class="container">		   
-	        <h3>2017 Annual Awards <span class='small'>(presented in 2018)</span></h3>
-			<p class="lead">These awards are for the period of <span class='dates'>January 1, 2017 </span>to <span class='dates'>December 31, 2017 </span><br/>
-				Awards will be presented at the <a target="new" class="text-primary" href="http://www.r2sports.com/tourney/home.asp?TID=23558">Regional’s Competition</a> in <span class='dates'>April 21, 2018 </span> in San Antonio, Texas. <a href="#form">Nominate Now!</a></p> 
+	        <h3>2018 Annual Awards <span class='small'>(presented in 2019)</span></h3>
+			<p class="lead">These awards are for the period of <span class='dates'>January 1, 2018 </span>to <span class='dates'>December 31, 2018 </span><br/>
+				Awards will be presented at the <a target="new" class="text-primary" href="http://www.r2sports.com/tourney/home.asp?TID=23558">Regional’s Competition</a> in <span class='dates'>April 21, 2019 </span> in San Antonio, Texas. <a href="#form">Nominate Now!</a></p> 
 			
 
 			<div class="divider divider-center divider-color"><!-- divider -->
@@ -61,7 +61,7 @@
 					<div class="toggle toggle-transparent toggle-bordered-simple">
 
 						<div class="toggle mix design alert-warning"><!-- toggle -->
-							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Outstanding Racquetball Contributor</label>
+							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Bob Sullins Outstanding Racquetball Contributor</label>
 							<div class="toggle-content">
 								<p class="clearfix">
 									Presented to a male or female that has demonstrated commitment to the sport and has volunteered time above and beyond to enhance the sport of racquetball in Texas.
