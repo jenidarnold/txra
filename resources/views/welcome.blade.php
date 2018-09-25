@@ -9,13 +9,13 @@
 
                 <div class="slider">
 
-                    <div class="layerslider" style="height:500px; width:100%;">
+                    <div class="layerslider" style="height:800px; width:100%;">
 
                         <!-- SLIDE -->
                         <div class="ls-slide" data-ls="slidedelay:8000;transition2d:75,79;">
 
                             <!-- background image -->
-                            <img src="{{ asset('images/landing/men.jpg')}} " class="ls-bg" alt="Slide background"/>
+                            <img src="{{ asset('images/landing/jansen kane.jpg')}} " class="ls-bg" alt="Slide background"/>
 
                             <span class="ls-l" style="top:250px;left:100px;font-weight: 300;height:100px; width:80px;padding-right:10px;padding-left:10px;vertical-align:center;font-size:30px;line-height:50px;color:#ffffff;background:#071935;border-radius:0px;white-space: nowrap;" data-ls="durationin:1500;delayin:300;rotatein:20;rotatexin:30;scalexin:1.5;scaleyin:1.5;transformoriginin:left 50% 0;durationout:750;rotateout:20;rotatexout:-30;scalexout:0;scaleyout:0;transformoriginout:left 50% 0;">
                                 TEXAS <br/>
@@ -164,7 +164,7 @@
                          <!-- SLIDE -->
                         <div class="ls-slide" data-ls="slidedelay:8000;transition2d:21,105;timeshift:-1000;">
 
-                            <img src="{{ asset('images/landing/diving_man.jpg') }}" class="ls-bg" alt="Slide background"/>
+                            <img src="{{ asset('images/landing/kane.jpg') }}" class="ls-bg" alt="Slide background"/>
                         </div>
                         <!-- /SLIDE-->
                     </div>
