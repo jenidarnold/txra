@@ -54,7 +54,7 @@
 								<li>
 									<a href="#">
 										<i class="fa fa-clock-o"></i> 
-										<span class="font-lato">Feb 06, 2019</span>
+										<span class="font-lato">Jan 06, 2019</span>
 									</a>
 								</li>							
 								<li>
@@ -65,7 +65,7 @@
 								</li>
 							</ul>
 
-							<p>The 2019 Election will have three (2) open positions for a three (3) year term.<p/>
+							<p>The 2019 Election will have four open positions for a three year term.<p/>
 
 							{{-- <p>Current Board member positions expiring are  Dale Gosser.</p> --}}
 
@@ -100,12 +100,12 @@
 										<h4>Receive Nominiations</h4>
 										<p>The Nominating Committee appointed by the Board should solicit and receive nominations and gather the qualifications and reasons for the nominee’s candidacy. Usually this entails a photo and a short bio submitted by the nominee.</p>
 								
-										<p>The nominating committee should make their report and provide the Secretary with each nominee’s data by Friday March 10th, 2019.</p>
+										<p>The nominating committee should make their report and provide the Secretary with each nominee’s data by March 10th, 2019.</p>
 									</div>
 
 									<div role="tabpanel" class="tab-pane" id="step2">
 										<h4>Confirm Nominees</h4>
-										A confirmation of all nominees will be completed by Friday March 9th, 2019 with an election notice email to be sent to all TXRA members.
+										A confirmation of all nominees will be completed by March 9th, 2019 with an election notice email to be sent to all TXRA members.
 									</div>
 
 									<div role="tabpanel" class="tab-pane" id="step3">
@@ -113,7 +113,7 @@
 										
 										<p>The TXRA Election process will be held exclusively online via R2Sports. The election process will be simple starting with an email vote request to the TXRA membership.</p>
 
-										From this <a target="election" href="http://www.r2sports.com/tourney/home.asp?TID=24798">online link </a>, you will login to R2Sports with your membership username and password. A VOTE menu option will offer a quick voting process where each nominee photo and biography will be listed. You can easily review each bio and vote for up to four (4) nominees. All votes will be registered anonymously controlled to only one vote per membership number. This voting process is FREE to all members.</p>
+										When the election is open for voting, you can vote from this <a target="election" href="http://www.r2sports.com/tourney/home.asp?TID=24798">online link </a>. You will login to R2Sports with your membership username and password. A VOTE menu option will offer a quick voting process where each nominee photo and biography will be listed. You can easily review each bio and vote for up to four nominees. All votes will be registered anonymously controlled to only one vote per membership number. This voting process is FREE to all members.</p>
 									</div>								
 
 									<div role="tabpanel" class="tab-pane" id="step4">
@@ -135,7 +135,7 @@
 									<div class="toggle">
 										<label>2. Confirm Nominees</label>
 										<div class="toggle-content">
-											<p>A confirmation of all nominees will be completed by Friday March 10th, 2019 with an election notice email to be sent to all TXRA members.</p>
+											<p>A confirmation of all nominees will be completed by March 10th, 2019 with an election notice email to be sent to all TXRA members.</p>
 										</div>
 									</div>
 
@@ -151,7 +151,7 @@
 									<div class="toggle">
 										<label>4. Induction</label>
 										<div class="toggle-content">
-											<p>Induct new Board of Directors at Regionals, April 21, 2019</p>
+											<p>Induct new Board of Directors at Regionals, April 27, 2019</p>
 										</div>
 									</div>
 
@@ -170,7 +170,7 @@
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-								All nominations must be received by Friday, March 2, 2019.
+								All nominations must be received by March 2, 2019.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
@@ -182,7 +182,7 @@
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-								A confirmation of all nominees will be completed by Friday March 9, 2019 with an election notice email to be sent to all TXRA members.
+								A confirmation of all nominees will be completed by March 9, 2019 with an election notice email to be sent to all TXRA members.
 							</h4>
 						</div>
 						<!-- POST ITEM -->
@@ -218,7 +218,7 @@
 							</div>
 							<!-- /timeline entry -->
 							<h4>
-							Nominees will be notified by April 3, 2019 of election results with a mandatory induction at the 2019 Texas Regionals held Saturday, April 21, 2019.
+							Nominees will be notified by April 3, 2019 of election results with a mandatory induction at the 2019 Texas Regionals held Saturday, April 27, 2019.
 							</h4>
 						</div>
 						<!-- POST ITEM -->

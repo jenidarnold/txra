@@ -139,6 +139,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        /*Cohensive\Embed\EmbedServiceProvider::class,*/
     ],
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +162,7 @@ return [
         'Copycat'  => Gidlov\Copycat\Copycat::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
+        'Embed' => Cohensive\Embed\Facades\Embed::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
@@ -187,5 +189,6 @@ return [
         'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
         'ConfigWriter' => Larapack\ConfigWriter\Repository::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
     ],
 ];

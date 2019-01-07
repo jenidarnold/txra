@@ -403,6 +403,10 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	    return view('emails.promos.pick-a-free.invite');
 	});
 
+
+	Route::get('/emails/r2sport/election/interest', function () {
+	    return view('emails.r2sport.election.interest');
+	});
 	Route::get('/files/{page}', function () {
 	    return view('files.{page}');
 	});
