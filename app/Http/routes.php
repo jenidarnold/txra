@@ -16,6 +16,10 @@
 // 	 return view('coming-soon');
 // });
 
+Route::get('/loveit', function () {
+    return Redirect::away('https://www.facebook.com/pg/texasracquetballassociation/reviews/');
+});
+
 Route::get('/sitemap.xml', 'SitemapController@index');
 
 
@@ -315,6 +319,7 @@ Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 	Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));	
 });
 
+Route::get('/support', array('as' => 'contact', 'uses' => 'Forms\ContactController@index'));	
 Route::get('/contact', array('as' => 'contact', 'uses' => 'Forms\ContactController@index'));	
 Route::post('/contact', array('as' => 'contact', 'uses' => 'Forms\ContactController@send'));
 
