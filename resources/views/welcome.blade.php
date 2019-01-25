@@ -174,11 +174,28 @@
                 </div>
 
             </section>
-            --}}
+        
             <!-- /LAYER SLIDER --> 
+
+            --}}
     <div style="padding:56.25% 0 0 0;position:relative;">
         <iframe src="https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+        <div class='col-xs-12 alert alert-danger'>
+            <p>
+                <h4 class="text-center">2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24</h4>
+                The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm. 
+
+                <a class="btn btn-danger btn-sm" href="http://www.r2sports.com/website/event-website.asp?TID=30330">More Info</a>
+            </p>
+            <h6 class="small text-muted">Match video credit: <a href="https://www.youtube.com/watch?v=yonKP2b5gXU" target="_blank">Leo Vasquez</a></h6>
+        </div>
     </div>
+{{-- For autoplay on mobile but does not do fullscreen
+<div style="padding:56.25% 0 0 0;position:relative;">
+    <div id='tssrc' style='width:100%'></div>
+</div>
+--}}
     <script src="https://player.vimeo.com/api/player.js"></script>
             @if( Auth::guest())
             <!-- GUEST CALLOUT -->
@@ -268,19 +285,20 @@
 }
 @stop
 
-    <script>
+{{-- //Cant get this to load full screen; but this code is supposed to autoplay on mobile; not verified
+ <script>
         // This is the URL of the video you want to load
-        var videoUrl = 'https://player.vimeo.com/video/292439366';
+        var videoUrl = 'https://player.vimeo.com/video/313409692';
         // This is the oEmbed endpoint for Vimeo (we're using JSON)
         // (Vimeo also supports oEmbed discovery. See the PHP example.)
         var endpoint = 'https://www.vimeo.com/api/oembed.json';
         // Tell Vimeo what function to call
         var callback = 'embedVideo';
         // Put together the URL
-        var url = endpoint + '?url=' + encodeURIComponent(videoUrl) + '&callback=' + callback + '&width=640';
+        var url = endpoint + '?url=' + encodeURIComponent(videoUrl) + '&callback=' + callback + '&autoplay=1&loop=1&title=0&byline=0&portrait=0';
         // This function puts the video on the page
         function embedVideo(video) {
-            document.getElementById('embed').innerHTML = unescape(video.html);
+            document.getElementById('tssrc').innerHTML = unescape(video.html);
         }
         // This function loads the data from Vimeo
         function init() {
@@ -291,7 +309,9 @@
         }
         // Call our init function when the page loads
         window.onload = init;
+
     </script>
+--}}
 
 @section('script')
 
