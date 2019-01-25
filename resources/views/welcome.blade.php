@@ -5,7 +5,7 @@
 @stop
 @section('content')
         <!-- LAYER SLIDER -->
-            <section id="slider">
+{{--             <section id="slider">
 
                 <div class="slider">
 
@@ -83,23 +83,19 @@
                         <div class="ls-slide" data-ls="slidedelay:4000;transition2d:21,105;timeshift:-1000;">
 
                             <!-- background -->
-                            {{-- <img src="{{ asset('images/rball-action.gif') }}" class="ls-bg" alt="Slide background"/> --}}
                             <img src="{{ asset('images/landing/tournament_players.jpg') }}" class="ls-bg" alt="Slide background"/>
 
                             
                             <!-- Can add images with the text to tile in smaller -->
-                            {{-- <img class="ls-l" data-ls="offsetxin:-100;durationin:2000;delayin:1500;offsetxout:-100;durationout:1000;parallaxlevel:-2;" style="top:30%;left:50%;width:120%;height:auto;white-space: nowrap;" src="{{asset('images/landing/outdoor.jpg')}}" alt=""> --}}
                             <p class="ls-l" style="top:47%;left:690px;font-weight: 500;font-size:35px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:2500;delayin:1500;rotateyin:-90;transformoriginin:left 50% 0;offsetxout:0;durationout:1500;showuntil:1000;rotateyout:90;transformoriginout:left 50% 0;">
                                OUTDOOR RACQUETBALL
                             </p>
 
-                            {{-- <img class="ls-l" data-ls="offsetxin:-100;durationin:2000;delayin:1500;offsetxout:-100;durationout:1000;parallaxlevel:-2;" style="top:30%;left:50%;width:120%;height:auto;white-space: nowrap;" src="{{asset('images/landing/military.jpg')}}" alt=""> --}}
-                            <p class="ls-l" style="top:27%;left:490px;font-weight: 500;font-size:35px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:1500;delayin:1500;rotateyin:90;transformoriginin:left 50% 0;offsetxout:0;durationout:1500;showuntil:1000;rotateyout:-90;transformoriginout:left 50% 0;">
+                              <p class="ls-l" style="top:27%;left:490px;font-weight: 500;font-size:35px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:1500;delayin:1500;rotateyin:90;transformoriginin:left 50% 0;offsetxout:0;durationout:1500;showuntil:1000;rotateyout:-90;transformoriginout:left 50% 0;">
                                MILITARY RACQUETBALL
                             </p>
 
-                             {{-- <img class="ls-l" data-ls="offsetxin:-100;durationin:2000;delayin:1500;offsetxout:-100;durationout:1000;parallaxlevel:-2;" style="top:30%;left:50%;width:120%;height:auto;white-space: nowrap;" src="{{asset('images/landing/masters.jpg')}}" alt=""> --}}
-                            <p class="ls-l" style="top:67%;left:290px;font-weight: 500;font-size:35px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:1500;delayin:1500;rotateyin:90;transformoriginin:right 50% 0;offsetxout:0;durationout:1500;showuntil:1000;rotateyout:-90;transformoriginout:right 50% 0;">
+                             <p class="ls-l" style="top:67%;left:290px;font-weight: 500;font-size:35px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:1500;delayin:1500;rotateyin:90;transformoriginin:right 50% 0;offsetxout:0;durationout:1500;showuntil:1000;rotateyout:-90;transformoriginout:right 50% 0;">
                                MASTER'S RACQUETBALL
                             </p>
 
@@ -109,13 +105,11 @@
                         <div class="ls-slide" data-ls="slidedelay:4000;transition2d:21,105;timeshift:-1000;">
 
                             <!-- background -->
-                            {{-- <img src="{{ asset('images/rball-action.gif') }}" class="ls-bg" alt="Slide background"/> --}}
                             <img src="{{ asset('images/landing/diva_players.jpg?v6') }}" class="ls-bg" alt="Slide background"/>
 
                             
                             <!-- Can add images with the text to tile in smaller -->
-                            {{-- <img class="ls-l" data-ls="offsetxin:-100;durationin:2000;delayin:1500;offsetxout:-100;durationout:1000;parallaxlevel:-2;" style="top:30%;left:50%;width:120%;height:auto;white-space: nowrap;" src="{{asset('images/landing/outdoor.jpg')}}" alt=""> --}}
-                            <p class="ls-l" style="top:70%;left:400px;font-weight: 500;font-size:40px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:2500;delayin:500;rotateyin:-90;transformoriginin:left 50% 0;offsetxout:0;durationout:1500;showuntil:3000;rotateyout:90;transformoriginout:left 50% 0;">
+                               <p class="ls-l" style="top:70%;left:400px;font-weight: 500;font-size:40px;color:#ffffff;white-space: nowrap;" data-ls="offsetxin:0;durationin:2500;delayin:500;rotateyin:-90;transformoriginin:left 50% 0;offsetxout:0;durationout:1500;showuntil:3000;rotateyout:90;transformoriginout:left 50% 0;">
                                WOMEN'S RACQUETBALL
                             </p>
                            
@@ -125,8 +119,7 @@
                         <div class="ls-slide" data-ls="slidedelay:8000;transition2d:21,105;timeshift:-1000;">
 
                             <!-- background -->
-                            {{-- <img src="{{ asset('images/rball-action.gif') }}" class="ls-bg" alt="Slide background"/> --}}
-                            <img src="{{ asset('images/landing/kids.png') }}" class="ls-bg" alt="Slide background"/>
+                             <img src="{{ asset('images/landing/kids.png') }}" class="ls-bg" alt="Slide background"/>
                             
                             <!-- left -->
                             <p class="ls-l" data-ls="
@@ -181,8 +174,10 @@
                 </div>
 
             </section>
-            <!-- /LAYER SLIDER -->
-
+            --}}
+            <!-- /LAYER SLIDER --> 
+    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
             @if( Auth::guest())
             <!-- GUEST CALLOUT -->
             <div class="alert alert-transparent bordered-bottom">
