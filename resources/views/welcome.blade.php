@@ -268,15 +268,6 @@
         <!-- EVENT SLIDER-->
         @include('includes.eventslider', array('event_type' => 'RECENT', 'tournaments' => $tournaments["recent"]))  
 
-
-        <div class="" id="embed">
-        </div>
-
-        <div>
-
-<iframe src="https://player.vimeo.com/video/292439366" width="640" height="358" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-        </div>
 }
 @stop
 
