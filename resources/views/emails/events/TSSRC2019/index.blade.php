@@ -12,22 +12,16 @@
 @endif
 
 @php ($tournaments = App\Tournament::future()->where('name', 'not like', '%Ladder')->limit(6)->get())
-@section('greeting')
-		<a href="http://www.r2sports.com/website/event-website.asp?TID=30330" target="_blank">2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24</a>
-@stop
+
 
 @section('lead')
+	<h4>
+		<a href="http://www.r2sports.com/website/event-website.asp?TID=30330" target="_blank">2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24</a>
+    </h4>
 	
-	<table class="twelve columns">
-	    <tbody>
-	    	<tr>
-	    		<td>
-	    			 <div style="padding:56.25% 0 0 0;position:relative;">
-				        <iframe src="https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	    		</td>	    	
-	    	</tr>
-	 	 </tbody>
-  	</table>
+	 <div style="padding:56.25% 0 0 0;position:relative;">
+	        <iframe src="https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
 @stop
 
 @section('hero')
