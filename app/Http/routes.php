@@ -20,6 +20,12 @@ Route::get('/loveit', function () {
     return Redirect::away('https://www.facebook.com/pg/texasracquetballassociation/reviews/');
 });
 
+
+Route::get('/TSSRC2019', function () {
+	//return view('promos/free_tourney/terms');
+    return view('emails.events.TSSRC2019.index');
+});
+
 Route::get('/sitemap.xml', 'SitemapController@index');
 
 
@@ -406,6 +412,10 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	});
 	Route::get('/emails/promos/pick-a-free/invite', function () {
 	    return view('emails.promos.pick-a-free.invite');
+	});
+
+	Route::get('/emails/events/TSSRC2019/email', function () {
+	    return view('emails.events.TSSRC2019.email');
 	});
 
 

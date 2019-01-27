@@ -182,9 +182,9 @@
         <iframe src="https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
         <div class='col-xs-12 alert alert-danger'>
-                <h4 class="text-center">
+                <h3 class="text-center">
                     <a href="http://www.r2sports.com/website/event-website.asp?TID=30330" target="_blank">2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24</a></h4>
-                  <div>The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm.</div>
+                  <center><div>The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm.</div></center>
             {{-- <span class="small text-muted ">Match video credit: <a style="color:gray" href="https://www.youtube.com/watch?v=yonKP2b5gXU" target="_blank">Leo Vasquez</a></span> --}}
         </div>
     </div>
