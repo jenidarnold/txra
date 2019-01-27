@@ -79,7 +79,7 @@
 			      <td>
 					<center>
 						<figure>
-							<a class="ico-rounded" href="https://texasracquetball.org/events/future" target="tournament">
+							<a class="ico-rounded" href="http://texasracquetball.org/events/future" target="tournament">
 								<img class="img-responsive" style="float:none" src="{{$t->logo }}" width="100" alt="">
 							</a>	
 						</figure>
@@ -90,7 +90,7 @@
 			      <td>
 					<center>
 						<!-- div info -->
-						<h5 style="text-align:center"><a href="https://texasracquetball.org/events/future" target="tournament"> {{ $t->name }}</a></h5>
+						<h5 style="text-align:center"><a href="http://texasracquetball.org/events/future" target="tournament"> {{ $t->name }}</a></h5>
 								
 						<span class="text-info">
 							{{$t->start}} - {{$t->end}}
@@ -98,7 +98,7 @@
 						<br/>
 						<span>
 							@if( $t->club()->lat > 0)
-								<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
+								<a href="{{ 'http://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
 									<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>
 									{{$t->club()->city }}, {{$t->club()->state }}		
 							@else

@@ -13,7 +13,7 @@
 
 @php ($tournaments = App\Tournament::future()->where('name', 'not like', '%Ladder')->limit(6)->get())
 @section('greeting')
-	Hello, {{ $invite->full_name}}
+		<a href="http://www.r2sports.com/website/event-website.asp?TID=30330" target="_blank">2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24</a>
 @stop
 
 @section('lead')
@@ -26,16 +26,6 @@
 				        <iframe src="https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	    		</td>	    	
 	    	</tr>
-	    	<tr>
-	    		<td>
-		    		<center>
-		    			<h4> 
-		    				<a href="http://www.r2sports.com/website/event-website.asp?TID=30330" target="_blank">2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24</a>
-		    			</h4>
-		    		</center>
-	    		</td>
-	    	</tr>
-	    	<tr>
 	 	 </tbody>
   	</table>
 @stop
@@ -69,7 +59,7 @@
 @stop
 
 @section('content')
-	<h5>Upcoming Events!</h5>
+	<h5><center>Upcoming Events!</center></h5>
 	<div id="portfolio" class="clearfix fullwidth portfolio-nogutter portfolio-isotope portfolio-isotope-3">
 
 		@foreach($tournaments as $t)
@@ -80,7 +70,7 @@
 			      <td>
 					<center>
 						<figure>
-							<a class="ico-rounded" href="https://texasracquetball.org/events/future" target="tournament">
+							<a class="ico-rounded" href="http://texasracquetball.org/events/future" target="tournament">
 								<img class="img-responsive" style="float:none" src="{{$t->logo }}" width="100" alt="">
 							</a>	
 						</figure>
@@ -99,7 +89,7 @@
 						<br/>
 						<span>
 							@if( $t->club()->lat > 0)
-								<a href="{{ 'https://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
+								<a href="{{ 'http://www.google.com/maps?q=' . $t->club()->lat .','. $t->club()->lng }}" target="map">
 									<i class="fa fa-map-marker text-danger"></i> {{$t->club()->name }}</a><br/>
 									{{$t->club()->city }}, {{$t->club()->state }}		
 							@else

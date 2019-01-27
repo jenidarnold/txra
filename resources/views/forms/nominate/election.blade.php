@@ -7,7 +7,7 @@
 @section('head')
 	<meta property="og:title" content="TXRA Board of Directors Nomination Form"/>
 	<meta property="og:description" content="Use this form to nominate a member or yourself for a board position" />
-   	<meta property="og:url" content="https://texasracquetball.org/election/nominate"/>
+   	<meta property="og:url" content="http://texasracquetball.org/election/nominate"/>
   	{{-- <meta property="og:image:type" content=""/>
    	<meta property="og:image:width" content=""/>
   	<meta property="og:image:height" content=""/> --}}

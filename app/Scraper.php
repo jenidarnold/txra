@@ -20,7 +20,7 @@ class Scraper {
 	 	));
 
 	 	//if(env("APP_ENV") == "production") {
-	 		$url_emails = "https://texasracquetball.org/files/r2_txra_emails_page_C.html";
+	 		$url_emails = "http://texasracquetball.org/files/r2_txra_emails_page_C.html";
 		//}else
 		//{
 		//	$url_emails = env("APP_URL") . ":8886/files/r2_txra_emails_page_$page.html";
