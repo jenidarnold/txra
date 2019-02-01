@@ -26,18 +26,16 @@
 		<section>
 			<div class="container">
 
-				<p class="">The Texas Instructor Program (TIP) is a comprehensive reimbursement program designed to assist Texas racquetball instructors in providing quality racquetball programs in their communities for Texas women, men and children.<br/>
+				<p class="">The Texas Instructor Program (TIP) is a comprehensive reimbursement program designed to encourage interested racquetball instructors to become nationally certified by reimbursing a portion of the cost of the USAR-IP certification clinics offered by USAR <a href="#TIP">(described below)</a>.<br/>
 
-				<br/> This supplemental program would provide compensation for level 2 & 3 certified USAR-IP instructors holding the Texas Instructor Program (TIP) designation each quarter for conducting adult or junior clinics, leagues and other events promoting racquetball In Texas. The purpose of this supplemental program is to assist and incentivize Texas instructors who generate grass roots racquetball interest in their community.<br/>
-					
-				<br/>This program is intended to encourage interested racquetball instructors to become nationally certified by reimbursing a portion of the cost of the <b>USAR-IP</b> certification clinics offered by USAR (described below)
+				<br/>The TIP Programming Incentive is a supplement program designed to assist Texas racquetball instructors in providing quality racquetball programs for Texas men, women and children and generating grass roots racquettball interest in their community <a href="#USAR-IP">(described below)</a>.<br/>
 				</p>
 
 				<div class="divider divider-center divider-color"><!-- divider -->
 					<i class="fa fa-chevron-down"></i>
 				</div>
 				
-				<h3 class="nomargin1">The USAR-IP (Instructors Program)</h3>
+				<h3 class="nomargin1"><a id="USAR-IP">The USAR-IP (Instructors Program)</a></h3>
 				
 				<div>
 					The USAR-IP certification clinic conveys precise knowledge, skills and abilities required to teach racquetball efficiently; developing a clear comprehension and proficiency of the 10 Benchmarks of Instruction necessary to teach and train students; delivering an avenue for continuing education and advancement to assist qualified instructors in maintaining current informational skills; providing an evaluation process that facilitates consistency and quality control for instructional programs across the nation; and developing a high level of competence and confidence relative to primary instructional techniques. <a href='http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification' class='btn btn-xs btn-reveal btn-default' target="_blank"><i class='fa fa-plus'></i> Details</a>
@@ -53,25 +51,24 @@
 							<div class="price-clean  price-clean-popular">  
 								<div class="heading">  	         
 									<h4>LEVEL 1</h4>
-									<h5 class="text-primary bold">BASIC INSTRUCTOR</h5>
+									<h5 class="text-primary bold">Instructor Certification</h5>
 								</div>
 								<hr />
 								<div class="price-body">
-									<div  class="text-left">
+									{{-- <div  class="text-left">
 										Someone that has taken the USAR‐IP test and certification, passed the Safe Sport classes and maintains their CPR and background check.
 										<span class="text-danger">Everyone must pass the Level 1 certification before they can upgrade to Level 2 or 3 certification.</span>
 									</div>
-									<hr/>
+									<hr/> --}}
 									<ul class="text-left">
-										<li>Three Year Instructor<br/>Certification Designation <span class="pull-right">$120</span>
-										</li>
-										<li>Level 1 Certification Designation Promotional<span class="pull-right">($120)</span>
-										</li>
-										<li>One Year USAR-IP Membership <span class="pull-right">$75</span>
-										</li>									
+										<li>Includes online course/course manual/certification
+										<li>Initial certification is for a three-­year period.
+										<li>Recertification is $25 every 3 years
+										<li>IP Membership also required each year of $75 to stay enrolled in program!
+										<li><span class="text-danger">Everyone must pass the Level 1 certification before they can upgrade to Level 2 or 3 certification.</span>						
 									</ul>
 									<hr>
-									<h5 class="text-primary bold">Total Cost <span class="pull-right text-primary bold">$75</span></h5>
+									<h5 class="text-primary bold">Level 2 USAR-IP Certification<span class="pull-right text-primary bold">$75</span></h5>
 								</div>
 								<hr/>
 								<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15">Sign up</a>
@@ -85,19 +82,29 @@
 							<div class="price-clean  price-clean-popular">  
 								<div class="heading">  							               
 									<h4>LEVEL 2 </h4>
-									<h5 class="text-primary bold">ADVANCED INSTRUCTOR</h5>
+									<h5 class="text-primary bold">ADVANCED Certification</h5>
 								</div>
 								<hr />
 								<div class="price-body">
-									<div  class="text-left">Someone that has achieved high open level as a player. Professional level with the USA Racquetball instructor’s Program or has been grandfathered in with same level achievement in any other organization and become a member of USAR‐IP. Professional instructors must participate in online educational requirements and mentoring with a Master Professional.</div>
-									<hr/>
+									{{-- <div  class="text-left">Someone that has achieved high open level as a player. Professional level with the USA Racquetball instructor’s Program or has been grandfathered in with same level achievement in any other organization and become a member of USAR‐IP. Professional instructors must participate in online educational requirements and mentoring with a Master Professional.</div>
+									<hr/> --}}
 									<ul class="text-left">										
-										<li>Three Year Instructor<br/>Certification Designation <span class="pull-right">$220</span></li>
-										<li>One Year USAR-IP Membership <span class="pull-right">$75</span></li>
-										<li>Texas Instruction Program Reimbursement<span class="pull-right">($150)</span></li>
+										<li>Includes online course/course manual/certification
+										<li>Initial certification is for a three-­year period.
+										<li>Recertification is $25 every 3 years
+										<li>IP Membership also required each year of $75 to stay enrolled in program!
+										<li>This program also includes:
+											<ul>
+												<li>Lectures, Discussions and Team Building
+												<li>Written and Practical Test
+												<li>Hitting Test
+												<li>Demonstration of Drills to Students
+												<li>Teaching and Lesson Plans
+											</ul>
 									</ul>
 									<hr/>
-									<h5 class="text-primary bold">Total Cost <span class="pull-right text-primary bold">$145</span></h5>
+									<h5 class="text-primary bold">Level 2 USAR-IP Certification<span class="pull-right text-primary bold">Total Cost $295</span></h5>
+									<h5 class="text-success bold">Texas Instructor Program (TIP) reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
 								</div>
 								<hr />						
 								<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15">Sign up</a>
@@ -111,19 +118,23 @@
 							<div class="price-clean  price-clean-popular">  
 								<div class="heading">              
 									<h4>LEVEL 3</h4>										
-									<h5 class="text-primary bold">ELITE INSTRUCTOR</h5>
+									<h5 class="text-primary bold">ELITE Certification</h5>
 								</div>
 								<hr />
 								<div class="price-body">
-									<div  class="text-left">Someone that has attained professional instructor status, and also offers instruction in large group settings. The professional Clinician has also attained a professional or high open playing status in their careers. They must also participate in online educational requirements or mentoring with a master professional. This person must also have participated in playing or coaching on a national or international level for at least fifteen years.</div>
-									<hr/>
+									{{-- <div  class="text-left">Someone that has attained professional instructor status, and also offers instruction in large group settings. The professional Clinician has also attained a professional or high open playing status in their careers. They must also participate in online educational requirements or mentoring with a master professional. This person must also have participated in playing or coaching on a national or international level for at least fifteen years.</div>
+									<hr/> --}}
 									<ul class="text-left">	
-										<li>Three Year Instructor<br/>Certification Designation <span class="pull-right">$220</span></li>
-										<li>One Year USAR-IP Membership <span class="pull-right">$75</span></li>
-										<li>Texas Instruction Program Reimbursement<span class="pull-right">($150)</span></li>
+										<li>Includes online course/course manual/certification
+										<li>Initial certification is for a three-­year period.
+										<li>Recertification is $25 every 3 years
+										<li>IP Membership also required each year of $75 to stay enrolled in program!
+										<li>This program also includes:
+											<ul><li>Everything in Level 2 Advanced Certification + Video Analysis Training</li></ul>
 									</ul>
 									<hr/>
-									<h5 class="text-primary bold">Total Cost <span class="pull-right text-primary bold">$145</span></h5>
+									<h5 class="text-primary bold">Level 3 USAR-IP Certification<span class="pull-right text-primary bold">Total Cost $295</span></h5>
+									<h5 class="text-success bold">Texas Instructor Program (TIP) reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
 								</div>	
 								<hr/>				
 								<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15">Sign up</a>
@@ -138,13 +149,20 @@
 
 				<div class="container">
 										
-					<h3>Reimbursement Requirements</h3>
+					<a id="TIP"><h3>Texas Instructor Program (TIP) Programming Incentive</h3></a>
 
 						<div class="testimonialXXX">										
 							<div class="testimonial-contentXXX">
-								<p>In order to receive reimbursement, the racquetball instructor <strong>must be a current member of USAR and a Texas resident</strong> and submit to the Texas Instructor Program Coordinator evidence of successful completion of the certification clinic.
+								<p>In order to receive reimbursement under this supplemental program, the racquetball instructor must:
+									<ul class="list-unstyled list-icons">
+								 		<li><i class="fa fa-check text-success"></i>Be a Texas resident
+								 		<li><i class="fa fa-check text-success"></i>A current member of USAR 
+								 		<li><i class="fa fa-check text-success"></i>and a current member of USAR-IP.
+								 	</ul>
+
 
 								<p>Upon approval, instructors will receive $150 each quarter if they schedule at least three clinics, leagues or events or any combination of:
+
 								<ul class="list-unstyled list-icons">
 									<li><i class="fa fa-check text-success"></i> One junior clinic, league or event</li>
 									<li><i class="fa fa-check text-success"></i> One women’s clinic, league or event</li>
@@ -152,7 +170,7 @@
 								</ul>
 									Each event must include at least five (5) attendees to qualify. Product demos do not qualify.
 								</p>
-								Evidence must consist of a description of the event, list of attendees, at least three digital photos of the actual event, and a brief explanation of how the instructor intends to utilize the education to the benefit of racquetball in Texas. Upon meeting these requirements the racquetball instructor will be issued the reimbursement funds and be granted the right to use the TIP designation in conjunction with their racquetball activities.</p>
+								Evidence of the events must be submitted to the TIP Coordinator and must consist of a description of the event, list of attendees, at least three digital photos of the actual event. Upon meeting these requirements the racquetball instructor will be issued the TIP Programming Incentive funds.</p>
 
 								<div class="col-md-6">
 									<address>
