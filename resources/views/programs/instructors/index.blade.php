@@ -66,7 +66,7 @@
 										<li><span class="text-danger">Everyone must pass the Level 1 certification before they can upgrade to Level 2 or 3 certification.</span>						
 									</ul>
 									<hr>
-									<h5 class="text-primary bold">Level 1 USAR-IP Certification<span class="pull-right text-primary bold">$75</span></h5>
+									<h5 class="text-danger bold">Level 1 Certification<span class="pull-right text-danger bold">Total Cost $75</span></h5>
 								</div>
 								<hr/>
 								<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15">Sign up</a>
@@ -101,7 +101,7 @@
 											</ul>
 									</ul>
 									<hr/>
-									<h5 class="text-primary bold">Level 2 USAR-IP Certification<span class="pull-right text-primary bold">Total Cost $295</span></h5>
+									<h5 class="text-danger bold">Level 2 Certification<span class="pull-right text-danger bold">Total Cost $295</span></h5>
 									<h5 class="text-success bold">TIP reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
 								</div>
 								<hr />						
@@ -131,7 +131,7 @@
 											<ul><li>Everything in Level 2 Advanced Certification + Video Analysis Training</li></ul>
 									</ul>
 									<hr/>
-									<h5 class="text-primary bold">Level 3 USAR-IP Certification<span class="pull-right text-primary bold">Total Cost $295</span></h5>
+									<h5 class="text-danger bold">Level 3 Certification<span class="pull-right text-danger bold">Total Cost $295</span></h5>
 									<h5 class="text-success bold">TIP reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
 								</div>	
 								<hr/>				
