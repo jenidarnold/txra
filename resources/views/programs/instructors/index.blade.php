@@ -38,12 +38,10 @@
 				<h3 class="nomargin1"><a id="USAR-IP">The USAR-IP (Instructors Program)</a></h3>
 				
 				<div>
-					The USAR-IP certification clinic conveys precise knowledge, skills and abilities required to teach racquetball efficiently; developing a clear comprehension and proficiency of the 10 Benchmarks of Instruction necessary to teach and train students; delivering an avenue for continuing education and advancement to assist qualified instructors in maintaining current informational skills; providing an evaluation process that facilitates consistency and quality control for instructional programs across the nation; and developing a high level of competence and confidence relative to primary instructional techniques. <a href='http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification' class='btn btn-xs btn-reveal btn-default' target="_blank"><i class='fa fa-plus'></i> Details</a>
+					The USAR-IP certification clinic conveys precise knowledge, skills and abilities required to teach racquetball efficiently; developing a clear comprehension and proficiency of the 10 Benchmarks of Instruction necessary to teach and train students; delivering an avenue for continuing education and advancement to assist qualified instructors in maintaining current informational skills; providing an evaluation process that facilitates consistency and quality control for instructional programs across the nation; and developing a high level of competence and confidence relative to primary instructional techniques. 
 				</div>
 				
-				<hr />
-
-
+				<br/>
 
 					<div class="row">
 						<!-- LEVEL 1 -->
@@ -68,7 +66,7 @@
 										<li><span class="text-danger">Everyone must pass the Level 1 certification before they can upgrade to Level 2 or 3 certification.</span>						
 									</ul>
 									<hr>
-									<h5 class="text-primary bold">Level 2 USAR-IP Certification<span class="pull-right text-primary bold">$75</span></h5>
+									<h5 class="text-primary bold">Level 1 USAR-IP Certification<span class="pull-right text-primary bold">$75</span></h5>
 								</div>
 								<hr/>
 								<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15">Sign up</a>
@@ -104,7 +102,7 @@
 									</ul>
 									<hr/>
 									<h5 class="text-primary bold">Level 2 USAR-IP Certification<span class="pull-right text-primary bold">Total Cost $295</span></h5>
-									<h5 class="text-success bold">Texas Instructor Program (TIP) reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
+									<h5 class="text-success bold">TIP reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
 								</div>
 								<hr />						
 								<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15">Sign up</a>
@@ -134,13 +132,17 @@
 									</ul>
 									<hr/>
 									<h5 class="text-primary bold">Level 3 USAR-IP Certification<span class="pull-right text-primary bold">Total Cost $295</span></h5>
-									<h5 class="text-success bold">Texas Instructor Program (TIP) reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
+									<h5 class="text-success bold">TIP reimburses 100%<span class="pull-right text-success bold">Final Cost $0</span></h5>
 								</div>	
 								<hr/>				
 								<a href="http://www.teamusa.org/USA-Racquetball/Programs/Instructor-Certification" target="usar" class="btn btn-primary btn-lg btn-block size-15">Sign up</a>
 							</div>
 						</div>
 					</div>
+
+				<br/>
+				<div class="row">
+						<div class=" col-xs-12 col-sm-8 col-sm-offset-2 alert alert-danger">In order to receive the Level 2/3 reimbursement, the racquetball instructor must be a Texas resident, a current member of USAR and a current member of USAR-IP. Reimbursement requests must be submitted to the Texas Instructor Program Coordinator along with evidence of successful completion of the certification clinic.</div>
 				</div>
 
 				<div class="divider divider-center divider-color"><!-- divider -->
@@ -150,38 +152,40 @@
 				<div class="container">
 										
 					<a id="TIP"><h3>Texas Instructor Program (TIP) Programming Incentive</h3></a>
+									
+					<div class="testimonial-contentXXX">
+						<p>
+							This supplemental program provides compensation ($150 per quarter) for level 2 & 3 certified USAR-IP instructors holding the Texas Instructor Program (TIP) designation for conducting adult or junior clinics, leagues and other events promoting racquetball in Texas.
+						</p>
 
-						<div class="testimonialXXX">										
-							<div class="testimonial-contentXXX">
-								<p>In order to receive reimbursement under this supplemental program, the racquetball instructor must:
-									<ul class="list-unstyled list-icons">
-								 		<li><i class="fa fa-check text-success"></i>Be a Texas resident
-								 		<li><i class="fa fa-check text-success"></i>A current member of USAR 
-								 		<li><i class="fa fa-check text-success"></i>and a current member of USAR-IP.
-								 	</ul>
+						<p>In order to receive reimbursement under this supplemental program, the racquetball instructor must:
+							<ul class="list-unstyled list-icons">
+						 		<li><i class="fa fa-check text-success"></i>Be a Texas resident
+						 		<li><i class="fa fa-check text-success"></i>A current member of USAR 
+						 		<li><i class="fa fa-check text-success"></i>and a current member of USAR-IP.
+						 	</ul>
 
 
-								<p>Upon approval, instructors will receive $150 each quarter if they schedule at least three clinics, leagues or events or any combination of:
+						<p>Upon approval, instructors will receive $150 each quarter if they schedule at least three clinics, leagues or events or any combination of:
 
-								<ul class="list-unstyled list-icons">
-									<li><i class="fa fa-check text-success"></i> One junior clinic, league or event</li>
-									<li><i class="fa fa-check text-success"></i> One women’s clinic, league or event</li>
-									<li><i class="fa fa-check text-success"></i> One adult clinic, league or event</li>
-								</ul>
-									Each event must include at least five (5) attendees to qualify. Product demos do not qualify.
-								</p>
-								Evidence of the events must be submitted to the TIP Coordinator and must consist of a description of the event, list of attendees, at least three digital photos of the actual event. Upon meeting these requirements the racquetball instructor will be issued the TIP Programming Incentive funds.</p>
+						<ul class="list-unstyled list-icons">
+							<li><i class="fa fa-check text-success"></i> One junior clinic, league or event</li>
+							<li><i class="fa fa-check text-success"></i> One women’s clinic, league or event</li>
+							<li><i class="fa fa-check text-success"></i> One adult clinic, league or event</li>
+						</ul>
+							Each event must include at least five (5) attendees to qualify. Product demos do not qualify.
+						</p>
+						Evidence of the events must be submitted to the TIP Coordinator and must consist of a description of the event, list of attendees, at least three digital photos of the actual event. Upon meeting these requirements the racquetball instructor will be issued the TIP Programming Incentive funds.</p>
 
-								<div class="col-md-6">
-									<address>
-										<b>Coordinator</b><br/>
-										<a href="/play/instructors" target="new" class="text-primary">Mike Sorensen</a><br/>
-										instructors@mg.texasracquetball.org<br/>
-										(469) 233-4803 												
-									</address>
-								</div>										
-							</div>
-						</div>						
+						<div class="col-md-6">
+							<address>
+								<b>Coordinator</b><br/>
+								<a href="/play/instructors" target="new" class="text-primary">Mike Sorensen</a><br/>
+								instructors@mg.texasracquetball.org<br/>
+								(469) 233-4803 												
+							</address>
+						</div>										
+					</div>				
 				</div>
 			</section>
 			<!-- / -->
