@@ -84,7 +84,19 @@ class WelcomeController extends Controller
                 ->first();
 
 
+        $video = (object)[
+                        'id' => '313409692',
+                        'src' => 'https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0',
+                        'title' => '2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24',
+                        'title_link' => 'http://www.r2sports.com/website/event-website.asp?TID=30330',
+                        'callout' =>'The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm.',
+               ];
 
-    	return view('welcome', compact('tournaments', 'trending', 'recent','spotlight','tip'));
+        $videos = collect();
+        $videos->push($video);
+
+var_dump($video);
+
+    	return view('welcome', compact('tournaments', 'trending', 'recent','spotlight','tip', 'video'));
     }
 }
