@@ -95,7 +95,6 @@ class WelcomeController extends Controller
         $videos = collect();
         $videos->push($video);
 
-var_dump($video);
 
     	return view('welcome', compact('tournaments', 'trending', 'recent','spotlight','tip', 'video'));
     }
