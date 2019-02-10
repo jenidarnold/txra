@@ -84,6 +84,8 @@ class WelcomeController extends Controller
                 ->first();
 
 
+        $videos = collect();
+        
         //State Singles 2019
         $video = (object)[
                         'id' => '313409692',
@@ -107,7 +109,6 @@ class WelcomeController extends Controller
                                         Videotaping and analysis',
                ];
 
-        $videos = collect();
         $videos->push($video);
 
 
