@@ -105,8 +105,7 @@ class WelcomeController extends Controller
                         'title_link' => 'http://www.r2sports.com/website/event-website.asp?TID=30465',
                         'callout' =>'<ul><li>3-Day Camp includes 13+ hours of instruction, court time and play the pro, 
                                        physical and mental aspects of the game, videotaping and analysis, and more.                                       
-                                       <li>Become a USAR-IP certified instructor by completing the 
-                                       for the USAR-IP Level 2-3 Certification class available March 7-8. 
+                                       <li>Also, TXRA will reimburse you 100% the cost for to become a USAR-IP certified instructor. The USAR-IP Level 2-3 Certification class is available March 7-8.
                                        <li>Go to the <b>Future Events</b> section at the bottom of the page for event details and registration links.
                                     </ul>
                                     ',
