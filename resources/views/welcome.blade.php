@@ -203,11 +203,10 @@
                     <a href="{{ $video->title_link}}" target="_blank">{{ $video->title}}
                     </a>
                 </h3>
-                <center>
+              
                     <div>
                         {{$video->callout}}
                     </div>
-                </center>
         </div>
     </div>
 

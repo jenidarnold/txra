@@ -85,7 +85,7 @@ class WelcomeController extends Controller
 
 
         $videos = collect();
-        
+
         //State Singles 2019
         $video = (object)[
                         'id' => '313409692',
@@ -101,12 +101,10 @@ class WelcomeController extends Controller
         $video = (object)[
                         'id' => '316331857',
                         'src' => 'https://player.vimeo.com/video/316331857?autoplay=1&loop=1&title=0&byline=0&portrait=0',
-                        'title' => 'Coach Fran Davis 3-Day Camp at the Landmark Club in Dallas, Tx March 8-10, 2019',
+                        'title' => 'Coach Fran Davis 3-Day Camp at the Landmark Club in Dallas, TX March 8-10, 2019',
                         'title_link' => 'http://www.r2sports.com/website/event-website.asp?TID=30465',
-                        'callout' =>'WHAT DOES A THREE-DAY CAMP INCLUDE?<br/>
-                                        13+ hours of instruction, court time and play the pro
-                                        Physical and mental aspects of the game
-                                        Videotaping and analysis',
+                        'callout' =>' 3-Day camp includes: 13+ hours of instruction, court time and play the pro, 
+                                        physical and mental aspects of the game, videotaping and analysis, and more. A USAR-IP Level 2-3 Certification class will also be available March 7-8.',
                ];
 
         $videos->push($video);
