@@ -101,10 +101,15 @@ class WelcomeController extends Controller
         $video = (object)[
                         'id' => '316331857',
                         'src' => 'https://player.vimeo.com/video/316331857?autoplay=1&loop=1&title=0&byline=0&portrait=0',
-                        'title' => 'Coach Fran Davis 3-Day Camp at the Landmark Club in Dallas, TX March 8-10, 2019',
+                        'title' => 'Coach Fran Davis 3-Day Camp at the Landmark Club in Dallas, TX March 8-10',
                         'title_link' => 'http://www.r2sports.com/website/event-website.asp?TID=30465',
-                        'callout' =>' 3-Day camp includes: 13+ hours of instruction, court time and play the pro, 
-                                        physical and mental aspects of the game, videotaping and analysis, and more. A USAR-IP Level 2-3 Certification class will also be available March 7-8.',
+                        'callout' =>'<ul><li>3-Day Camp includes 13+ hours of instruction, court time and play the pro, 
+                                       physical and mental aspects of the game, videotaping and analysis, and more.                                       
+                                       <li>Become a USAR-IP certified instructor by completing the 
+                                       for the USAR-IP Level 2-3 Certification class available March 7-8. 
+                                       <li>Go to the <b>Future Events</b> section at the bottom of the page for event details and registration links.
+                                    </ul>
+                                    ',
                ];
 
         $videos->push($video);

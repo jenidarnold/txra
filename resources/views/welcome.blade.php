@@ -205,7 +205,7 @@
                 </h3>
               
                     <div>
-                        {{$video->callout}}
+                        {!! html_entity_decode($video->callout) !!}
                     </div>
         </div>
     </div>
