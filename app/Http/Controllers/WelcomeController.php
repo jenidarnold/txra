@@ -84,7 +84,8 @@ class WelcomeController extends Controller
                 ->first();
 
 
-        $videos = collect();
+        //$videos = collect();
+        $videos = [];
 
         //State Singles 2019
         $video = (object)[
@@ -95,7 +96,8 @@ class WelcomeController extends Controller
                         'callout' =>'The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm.',
                ];
 
-        $videos->push($video);       
+        //$videos->push($video);
+        array_push($videos, $video);       
 
         //Fran Camp 2019
         $video = (object)[
@@ -111,8 +113,11 @@ class WelcomeController extends Controller
                                     ',
                ];
 
-        $videos->push($video);
-
+        //$videos->push($video);
+        array_push($videos, $video);  
+        
+        $rand_indx = rand(0,count($videos)-1);
+        $video = $videos[$rand_indx];
 
     	return view('welcome', compact('tournaments', 'trending', 'recent','spotlight','tip', 'video'));
     }

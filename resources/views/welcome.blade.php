@@ -193,7 +193,6 @@
                 </center>
         </div>
     </div> --}}
-
    
     <div style="padding:56.25% 0 0 0;position:relative;">
         <iframe src="{{ $video->src}}" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -203,10 +202,10 @@
                     <a href="{{ $video->title_link}}" target="_blank">{{ $video->title}}
                     </a>
                 </h3>
-              
-                    <div>
-                        {!! html_entity_decode($video->callout) !!}
-                    </div>
+          
+                <div>
+                    {!! html_entity_decode($video->callout) !!}
+                </div>
         </div>
     </div>
 
