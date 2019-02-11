@@ -89,7 +89,7 @@ class WelcomeController extends Controller
         //State Singles 2019
         $video = (object)[
                         'id' => '313409692',
-                        'src' => 'https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0',
+                        'src' => 'https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1',
                         'title' => '2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24',
                         'title_link' => 'http://www.r2sports.com/website/event-website.asp?TID=30330',
                         'callout' =>'The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm.',
@@ -100,7 +100,7 @@ class WelcomeController extends Controller
         //Fran Camp 2019
         $video = (object)[
                         'id' => '316331857',
-                        'src' => 'https://player.vimeo.com/video/316331857?autoplay=1&loop=1&title=0&byline=0&portrait=0',
+                        'src' => 'https://player.vimeo.com/video/316331857?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1',
                         'title' => 'Coach Fran Davis 3-Day Camp at the Landmark Club in Dallas, TX March 8-10',
                         'title_link' => 'http://www.r2sports.com/website/event-website.asp?TID=30465',
                         'callout' =>'<ul><li>3-Day Camp includes 13+ hours of instruction, court time and play the pro, 
