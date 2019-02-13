@@ -71,7 +71,7 @@
              	</tr>
              	<tr>
              		<td style="margin-top:5px">
-	             		<a href="http://www.r2sports.com/website/event-website.asp?TID=30453">Instructor Cerfification Registration</a>
+	             		<a href="http://www.r2sports.com/website/event-website.asp?TID=30453">Instructor Certification Registration</a>
              		</td>
 	          	</tr>
         	</tbody>

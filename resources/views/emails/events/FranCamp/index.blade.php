@@ -51,12 +51,12 @@
           	<tbody>
 	          	<tr>
 	             	<td>
-	             		<a href="http://www.r2sports.com/website/event-website.asp?TID=30465">3-Day Camp Registration</a>
+	             		<a href="http://www.r2sports.com/website/event-website.asp?TID=30465" target="camp">3-Day Camp Registration</a>
              		</td>
              	</tr>
              	<tr>
              		<td style="margin-top:5px">
-	             		<a href="http://www.r2sports.com/website/event-website.asp?TID=30453">Instructor Cerfification Registration</a>
+	             		<a href="http://www.r2sports.com/website/event-website.asp?TID=30453" target="cert">Instructor Certification Registration</a>
              		</td>
 	          	</tr>
         	</tbody>
