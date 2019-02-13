@@ -22,14 +22,14 @@
 	    <tbody>
 	    	<tr>
 	    		<td>
-	    			 <a href="http://txra.org/FranCamp"><img src="http://txra.org/images/tournaments/fran_camp.png" title="Play" /></a>
+	    			 <a href="http://txra.org/FranCamp"><img src="http://txra.org/images/tournaments/fran_camp.jpg" title="Play" /></a>
 	    		</td>	    	
 	    	</tr>
 	    	<tr>
 	    		<td>
 		    		<center>
 		    			<h4> 
-		    				<a href="http://www.r2sports.com/website/event-website.asp?TID=30465" target="_blank">Coach Fran Davis 3-Day Camp at the Landmark Club in Dallas, TX March 8-10</a>
+		    				<a href="http://www.r2sports.com/website/event-website.asp?TID=30465" target="_blank">Sign up for Coach Fran Davis' 3-Day Camp at the Landmark Club in Dallas, TX March 8-10</a>
 		    			</h4>
 		    		</center>
 	    		</td>
