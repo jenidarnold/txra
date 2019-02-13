@@ -119,6 +119,7 @@ class WelcomeController extends Controller
         $rand_indx = rand(0,count($videos)-1);
         $video = $videos[$rand_indx];
 
-    	return view('welcome', compact('tournaments', 'trending', 'recent','spotlight','tip', 'video'));
+        shuffle($videos);
+    	return view('welcome', compact('tournaments', 'trending', 'recent','spotlight','tip', 'video', 'videos'));
     }
 }

@@ -26,6 +26,11 @@ Route::get('/TSSRC2019', function () {
     return view('emails.events.TSSRC2019.index');
 });
 
+Route::get('/FranCamp', function () {
+	//return view('promos/free_tourney/terms');
+    return view('emails.events.FranCamp.index');
+});
+
 Route::get('/sitemap.xml', 'SitemapController@index');
 
 
@@ -418,6 +423,9 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	    return view('emails.events.TSSRC2019.email');
 	});
 
+	Route::get('/emails/events/FranCamp/email', function () {
+	    return view('emails.events.FranCamp.email');
+	});
 
 	Route::get('/emails/r2sport/election/interest', function () {
 	    return view('emails.r2sport.election.interest');

@@ -194,6 +194,7 @@
         </div>
     </div> --}}
    
+{{--@foreach($videos as $video) --}}
     <div style="padding:56.25% 0 0 0;position:relative;">
         <iframe src="{{ $video->src}}" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -208,12 +209,7 @@
                 </div>
         </div>
     </div>
-
-{{-- For autoplay on mobile but does not do fullscreen
-<div style="padding:56.25% 0 0 0;position:relative;">
-    <div id='tssrc' style='width:100%'></div>
-</div>
---}}
+    {{--@endforeach--}}
     <script src="https://player.vimeo.com/api/player.js"></script>
             @if( Auth::guest())
             <!-- GUEST CALLOUT -->

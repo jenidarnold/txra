@@ -17,11 +17,11 @@
 				<!-- Contact Address -->
 				<address>
 					<ul class="list-unstyled">
-						<li class="footer-sprite address">
+						{{-- <li class="footer-sprite address">
 							5220 McKinney Avenue, Suite 200<br>
 							Dallas, Texas<br>
 							75205 USA<br>
-						</li>
+						</li> --}}
 						<li class="footer-sprite phone">
 							Phone: 1-214-560-0510
 						</li>
