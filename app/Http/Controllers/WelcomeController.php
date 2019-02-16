@@ -96,6 +96,20 @@ class WelcomeController extends Controller
                         'callout' =>'The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm.',
                ];
 
+
+        array_push($videos, $video);  
+        //NMRA 2019
+        $video = (object)[
+                        'id' => '317720311',
+                        'src' => 'https://player.vimeo.com/video/317720311?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1',
+                        'title' => '2019 NMRA National Championships, March 6 - 9, in San Antonio',
+                        'title_link' => 'http://www.r2sports.com/website/event-website.asp?TID=30064',
+                        'callout' =>'Welcome to the 2019 NMRA National Championships, March 6 through 9, 2019. 
+                             The NMRA is excited to be in Texas again after a few years. It is going to be a great time in San Antonio at the Thousand Oaks YMCA and San Antonio College. 
+                              For all the information you need on this tournament, you can go to <a href="www.nmra.info" target="new">NMRA.info</a>',
+               ];
+
+
         //$videos->push($video);
         array_push($videos, $video);       
 

@@ -1409,7 +1409,7 @@ section.dark #portfolio h3 {
                         <tr>
                           <td class="last right-text-pad">
                             <h6>Contact Info:</h6>
-                            <p>Phone: 1.214.378.7400</p>
+                            <p>Phone: 1-214-560-0510</p>
                             <p>Email: <a href="{{url('/contact')}}" title="Contact Us">{!! env('MAIL_TO_CONTACT') !!}</a></a></p>
                           </td>
                           <td class="expander"></td>
