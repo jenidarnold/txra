@@ -109,9 +109,7 @@ class WelcomeController extends Controller
                               For all the information you need on this tournament, you can go to <a href="www.nmra.info" target="new">NMRA.info</a>',
                ];
 
-
-        //$videos->push($video);
-        array_push($videos, $video);       
+        //array_push($videos, $video);       
 
         //Fran Camp 2019
         $video = (object)[
@@ -127,8 +125,7 @@ class WelcomeController extends Controller
                                     ',
                ];
 
-        //$videos->push($video);
-        array_push($videos, $video);  
+        //array_push($videos, $video);  
         
         $rand_indx = rand(0,count($videos)-1);
         $video = $videos[$rand_indx];
