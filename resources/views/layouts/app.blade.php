@@ -427,6 +427,17 @@
 															</li>		
 														</ul>
 													</div>
+													<div class="col-md-4">
+														<ul class="list-unstyled">
+															<li><span>GRANTS</span></li>
+															<li>
+																<a href="{{route('grants.index')}}">View Submissions</a>
+															</li>
+															<li>
+																<a href="{{route('grants.create')}}">Request a Grant</a>
+															</li>		
+														</ul>
+													</div>
 												</div>
 											</li>
 										</ul>

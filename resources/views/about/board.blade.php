@@ -48,7 +48,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/mike_grisz.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/mike_grisz.png')}}" alt="" />
 											<h2>Mike Grisz</h2>
 											<small>PRESIDENT</small>
 										</div>
@@ -88,7 +88,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/tom_doughty.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/tom_doughty.png')}}" alt="" />
 											<h2>Tom Doughty</h2>
 											<small>VICE PRESIDENT</small>
 										</div>
@@ -129,7 +129,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/mitchell_mccoy.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/mitchell_mccoy.png')}}" alt="" />
 											<h2>Mitchell McCoy</h2>
 											<small>TREASURER</small>
 										</div>
@@ -170,7 +170,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/julie_arnold.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/julie_arnold.png')}}" alt="" />
 											<h2>Julienne Arnold</h2>
 											<small>SECRETARY</small>
 										</div>
@@ -212,7 +212,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/jeff_franco.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/jeff_franco.png')}}" alt="" />
 											<h2>Jeff Franco</h2>
 											<small>Board Member</small>
 										</div>
@@ -256,7 +256,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/jon_friedman.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/jon_friedman.png')}}" alt="" />
 											<h2>Jon Friedman</h2>
 											<small>Board Member</small>
 										</div>
@@ -300,7 +300,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/brad_giezentanner.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/brad_giezentanner.png')}}" alt="" />
 											<h2>Brad Giezentanner</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -343,8 +343,8 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/lance_gilliam.png')}}" alt="" />
-											<h2>Lance Gilliam</h2>
+											<img class="img-responsive" src="{{ asset('images/board/2019/bob_sullins.jpg')}}" alt="" />
+											<h2>Bob Sullins</h2>
 											<small>BOARD MEMBER</small>
 										</div>
 									</div>
@@ -352,15 +352,15 @@
 
 								<div class="back">
 									<div class="box2 box-info">
-										<h4 class="nomargin">Lance Gilliam</h4>
+										<h4 class="nomargin">Bob Sullins/h4>
 										<ul>
-											<li>Finance</li>
-											<li>Governance</li>
+											<li></li>
+											<li></li>
 											<li></li>
 										</ul>
 										<hr/>
 
-										<a target= "new" href="http://m.me/lance.a.gilliam" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/bob.sullins" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -368,7 +368,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="{{ route('contact',array('to' => 'Lance Gilliam'))}}" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Bob Sullins'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -386,7 +386,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/dale_gosser.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/dale_gosser.png')}}" alt="" />
 											<h2>Dale Gosser</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -429,7 +429,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/anita_pena.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/anita_pena.png')}}" alt="" />
 											<h2>Anita Johnson-Pena</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -473,8 +473,8 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/john_oneill.png')}}" alt="" />
-											<h2>John O'Neill</h2>
+											<img class="img-responsive" src="{{ asset('images/board/2019/jdavid_weiser.jpg')}}" alt="" />
+											<h2>David Weiser</h2>
 											<small>BOARD MEMBER</small>
 										</div>
 									</div>
@@ -482,15 +482,15 @@
 
 								<div class="back">
 									<div class="box2 box-info">
-										<h4 class="nomargin">John O'Neill</h4>
+										<h4 class="nomargin">David Weiser</h4>
 										<ul>
-											<li>Governance</li>
-											<li>Strategic Planning</li>
+											<li></li>
+											<li></li>
 											<li></li>
 										</ul>
 										<hr/>
 
-										<a target= "new" href="http://m.me/john.oneill.56211" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/davidaweiser" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -498,7 +498,7 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="{{ route('contact',array('to' => 'John O\'Neill'))}}" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'David Weider'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -515,7 +515,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/sandy_rios.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/sandy_rios.png')}}" alt="" />
 											<h2>Sandy Rios</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -557,7 +557,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2018/mike_sorensen.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/mike_sorensen.png')}}" alt="" />
 											<h2>Mike Sorensen</h2>
 											<small>BOARD MEMBER</small>
 										</div>

@@ -330,9 +330,22 @@ Route::group(['namespace' => 'Forms', 'prefix' =>'forms'], function()
 	Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));	
 });
 
+/* GRANTS */
+Route::group(['namespace' => 'Grants', 'prefix' =>'grants'], function()
+{
+	Route::get('/', array('as' => 'grants.index', 'uses' => 'GrantController@index'));	
+	Route::get('/request', array('as' => 'grants.create', 'uses' => 'GrantController@create'));	
+	Route::get('/{id}/', array('as' => 'grants.show', 'uses' => 'GrantController@show'));	
+	Route::get('/{id}/edit', array('as' => 'grants.edit', 'uses' => 'GrantController@edit'));
+	Route::post('/', array('as' => 'grants.store', 'uses' => 'GrantController@store'));
+	Route::post('/{id}', array('as' => 'grants.updtate', 'uses' => 'GrantController@update'));
+	Route::post('/{id}/send', array('as' => 'grants.send', 'uses' => 'GrantController@send'));
+});
+
 Route::get('/support', array('as' => 'contact', 'uses' => 'Forms\ContactController@index'));	
 Route::get('/contact', array('as' => 'contact', 'uses' => 'Forms\ContactController@index'));	
 Route::post('/contact', array('as' => 'contact', 'uses' => 'Forms\ContactController@send'));
+
 
 Route::get('/terms-of-use', function () {
     return view('misc.termsofuse');
