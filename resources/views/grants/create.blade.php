@@ -41,12 +41,12 @@
 						<div class="row margin-bottom-10">
 							<div class="col-lg-4 col-sm-6">
 								<label class="input">
-									<input type="text" name="first_name" placeholder="First name">
+									<input type="text" name="first_name" placeholder="First name"  value="{{$user->first_name}}" readonly>
 								</label>
 							</div>
 							<div class="col-lg-4 col-sm-6">
 								<label class="input">
-									<input type="text" name="last_name" placeholder="Last name">
+									<input type="text" name="last_name" placeholder="Last name"  value="{{$user->last_name}}" readonly>
 								</label>
 							</div>
 						</div>
@@ -55,13 +55,13 @@
 							<div class="col-lg-4 col-sm-6">
 								<label class="input margin-bottom-10">
 									<i class="ico-append fa fa-envelope"></i>
-									<input type="text" name="email" placeholder="Email address">
+									<input type="text" name="email" placeholder="Email address"  value="{{Input::old('email', $user->email)}}" >
 								</label>								
 							</div>
 							<div class="col-lg-4 col-sm-6">
 								<label class="input margin-bottom-10">
 									<i class="ico-append fa fa-phone"></i>
-									<input type="text" name="phone" placeholder="Phone Number">
+									<input type="text" name="phone" placeholder="Phone Number" value="{{Input::old('phone')}}" >
 								</label>								
 							</div>
 						</div>
@@ -84,7 +84,7 @@
 						<div class="row margin-bottom-10">
 							<div class="col-lg-4 col-sm-12">
 								<label class="input margin-bottom-10">
-									<input type="text" name="email" placeholder="Proposal Title">
+									<input type="text" name="title" placeholder="Proposal Title" value="{{Input::old('title')}}">
 								</label>								
 							</div>
 						</div>
@@ -92,13 +92,13 @@
 							<div class="col-lg-4 col-sm-6">
 								<label class="input margin-bottom-10">
 									<i class="ico-prepend fa fa-usd"></i>
-									<input type="text" name="amount" placeholder="Amount">
+									<input type="text" name="amount" placeholder="Amount" value="{{Input::old('amount')}}">
 								</label>								
 							</div>
 							<div class="col-lg-4 col-sm-6">
 								<label class="input margin-bottom-10">
 									<i class="ico-append fa fa-calendar"></i>
-									<input type="text" name="need_date" placeholder="Date Needing Grant">
+									<input type="text" name="need_date" placeholder="Date Needing Grant" value="{{Input::old('need_date')}}">
 								</label>								
 							</div>
 						</div>

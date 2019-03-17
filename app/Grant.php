@@ -19,6 +19,6 @@ class Grant extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'amount', 'title', 'body', 'need_date', 'is_member' ];
+    protected $fillable = ['user_id', 'amount', 'title', 'body', 'need_date', 'is_member' , 'phone', 'email'];
 
 }

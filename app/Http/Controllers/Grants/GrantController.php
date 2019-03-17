@@ -21,6 +21,12 @@ class GrantController extends Controller {
 	public function __construct()
 	{
 		//$this->middleware('auth');
+		
+		$this->user = new User;
+
+		if(\Auth::check()){
+            $this->user = \Auth::user();        
+        } 
 	}
 		
 	/**
@@ -31,7 +37,7 @@ class GrantController extends Controller {
 	public function index(Request $request)
 	{
 		
-        $grants = Grant::orderBy('last_name')
+        $grants = Grant::orderBy('created_at')
         	//->orderBy('first_name')
         	->paginate(20);
 
@@ -153,10 +159,10 @@ class GrantController extends Controller {
 	 */
 	public function create()
 	{	
-		$author = new User;
+		$user = $this->user;
 
         if(\Auth::check()){
-            $author = \Auth::user();        
+            $user = \Auth::user();        
         } else {
             $message = 'You must be logged in to request a grant.';
             return \Redirect::to('grants/')
@@ -164,7 +170,7 @@ class GrantController extends Controller {
                 ;
         }
 
-		return view('grants.create');
+		return view('grants.create', compact('user'));
 	}
 
 	 /**
@@ -182,6 +188,8 @@ class GrantController extends Controller {
         	'need_date'		 => 'required',
         	'body'			 => 'required',
         	'is_member'		 => 'required',
+        	'phone'			 => 'required',
+        	'email'		     => 'required',
 
         );
         $validator = \Validator::make(\Input::all(), $rules);
@@ -197,18 +205,20 @@ class GrantController extends Controller {
             // store
             
 	        $grant = new Grant;
-	        $grant->user_id= $rquest->get('user_id');
-	        $grant->is_member= $rquest->get('is_member');
+	        $grant->user_id=  $this->user->id;
+	        $grant->is_member= $request->get('is_member');
 	        $grant->need_date = $request->get('need_date');
 	        $grant->title = $request->get('title');
 	        $grant->body = $request->get('body'); 
-	        $grant->amount= $rquest->get('amount');
+	        $grant->amount= $request->get('amount');
+	        $grant->email= $request->get('email');
+	        $grant->phone= $request->get('phone');
 			$grant->save();
 
 		   // redirect
             \Session::flash('message', 'Successfully created grant');
 
-			return  redirect()->route('admin.grants')
+			return  redirect()->route('grants.index')
 				->with('flash-message','message');  
 		}
 	}

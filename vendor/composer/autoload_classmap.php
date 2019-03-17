@@ -12,6 +12,7 @@ return array(
     'AddDeleteAtToPostTable' => $baseDir . '/database/migrations/2017_09_06_131051_add_delete_at_to_post_table.php',
     'AddDisableToUsersTable' => $baseDir . '/database/migrations/2017_09_08_195024_add_disable_to_users_table.php',
     'AddDobToUsersTable' => $baseDir . '/database/migrations/2017_09_09_004240_add_dob_to_users_table.php',
+    'AddEmailToGrantsTable' => $baseDir . '/database/migrations/2019_03_17_181355_add_email_to_grants_table.php',
     'AddMapIconToClubsTable' => $baseDir . '/database/migrations/2017_10_01_035719_add_map_icon_to_clubs_table.php',
     'AddPostColorboxField' => $baseDir . '/database/migrations/2015_03_07_113306_add_colorbox_field.php',
     'AddSentToInvitesTable' => $baseDir . '/database/migrations/2017_09_16_052308_add_sent_to_invites_table.php',
