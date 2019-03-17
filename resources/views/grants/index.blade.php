@@ -8,7 +8,26 @@
 			<div class="row" style="margin-bottom:20px">
 		        <div class="col-sm-12">
 		       		<h3>Grant Applications</h3>
-		        </div>
+		       		<!-- Flash Message -->
+			          <div class="flash-message">
+						    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+						      @if(Session::has('alert-' . $msg))
+
+						      <div class="alert alert-{{ $msg }}">
+						      	{{ Session::get('alert-' . $msg) }} 	      	
+						      	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						      	@if($errors->has())
+						      		<ul>
+								   	@foreach ($errors->all() as $error)
+								      	<li>{{ $error }}</li>
+								  	@endforeach
+								  	</ul>
+								@endif
+						      </div>
+						      @endif
+						    @endforeach
+					  	</div> <!-- end .flash-message -->
+			        </div>
 		        {{-- <div class="col-sm-12">
 		        	<button type="button" class="btn btn-sm btn-primary">Total <span class="badge">{{ $stats->total}}</span></button>
 		        	<button type="button" class="btn btn-sm btn-info">Sent <span class="badge">{{ $stats->sent}}</span></button>
@@ -23,7 +42,7 @@
 		        	<table class="table table-stripedX table-condensed">
 		        		<tr>
 		        			<th></th>
-		        			<th>Subject</th>
+		        			<th>Title</th>
 		        			<th>Proposal</th>
 		        			<th>Submitter</th>
 		        			<th>Submit Date</th>
@@ -42,8 +61,8 @@
 		        				<a href="{{route('grants.show', $grant->id)}}" class="btn btn-xs btn-warning">View</a>
 		        				<a href="{{route('grants.edit', $grant->id)}}" class="btn btn-xs btn-info">Edit</a>
 		        			</td>
-		        			<td>{{$grant->subject}}</td>
-		        			<td>{{$grant->proposal}}</td>
+		        			<td>{{$grant->title}}</td>
+		        			<td>{{$grant->body}}</td>
 		        			<td>{{$grant->full_name}}</td>
 		        			<td>{{$grant->submit_date}}</td>
 		        			<td>{{$grant->status}}</td>	

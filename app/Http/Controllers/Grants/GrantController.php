@@ -31,8 +31,8 @@ class GrantController extends Controller {
 	public function index(Request $request)
 	{
 		
-        $grants = User::orderBy('last_name')
-        	->orderBy('first_name')
+        $grants = Grant::orderBy('last_name')
+        	//->orderBy('first_name')
         	->paginate(20);
 
 
@@ -153,6 +153,17 @@ class GrantController extends Controller {
 	 */
 	public function create()
 	{	
+		$author = new User;
+
+        if(\Auth::check()){
+            $author = \Auth::user();        
+        } else {
+            $message = 'You must be logged in to request a grant.';
+            return \Redirect::to('grants/')
+                ->with('alert-danger', $message)
+                ;
+        }
+
 		return view('grants.create');
 	}
 
@@ -166,15 +177,18 @@ class GrantController extends Controller {
 		//validate
        //read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'first_name'       => 'required',
-            'last_name'       => 'required',
-        	'email' => 'required|email',
+           	'title'			 => 'required|max:255',
+        	'amount'		 => 'required',
+        	'need_date'		 => 'required',
+        	'body'			 => 'required',
+        	'is_member'		 => 'required',
+
         );
         $validator = \Validator::make(\Input::all(), $rules);
 
         if ($validator->fails()) {
 
-        	$message = 'Failed to update grant.';
+        	$message = 'Failed to submit grant.';
             return redirect()->back()
 				->with('alert-danger', $message)
                 ->withErrors($validator)
@@ -182,20 +196,13 @@ class GrantController extends Controller {
         } else {
             // store
             
-	        $grant = new Instructor;
-	        $grant->first_name = $request->get('first_name');
-	        $grant->last_name = $request->get('last_name');
-	        $grant->email = $request->get('email');
-	        $grant->usar_id = $request->get('usar_id');
-	        $grant->level = $request->get('level');
-	        $grant->date_certified = $request->get('date_certified');
-	        $grant->valid_until = $request->get('valid_until');
-	        $grant->facebook = $request->get('facebook');
-	        $grant->city = $request->get('city');
-	        $grant->state = $request->get('state');
-	        $grant->phone = $request->get('phone');
-	        $grant->quote = $request->get('quote');
-	        $grant->blurb = $request->get('blurb');
+	        $grant = new Grant;
+	        $grant->user_id= $rquest->get('user_id');
+	        $grant->is_member= $rquest->get('is_member');
+	        $grant->need_date = $request->get('need_date');
+	        $grant->title = $request->get('title');
+	        $grant->body = $request->get('body'); 
+	        $grant->amount= $rquest->get('amount');
 			$grant->save();
 
 		   // redirect
@@ -227,9 +234,11 @@ class GrantController extends Controller {
 		//validate
        //read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'first_name'       => 'required',
-            'last_name'       => 'required',
-        	'email' => 'required|email',
+        	'title'			 => 'required|max:255',
+        	'amount'		 => 'required',
+        	'date_need'		 => 'required',
+        	'body'			 => 'required',
+        	'is_member'		 => 'required',
         );
         $validator = \Validator::make(\Input::all(), $rules);
 

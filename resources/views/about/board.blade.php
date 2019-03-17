@@ -129,7 +129,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/mitchell_mccoy.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/mitchell_mccoy.jpg')}}" alt="" />
 											<h2>Mitchell McCoy</h2>
 											<small>TREASURER</small>
 										</div>
@@ -204,6 +204,50 @@
 							</div>
 						</div>
 						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2019/anita_pena.png')}}" alt="" />
+											<h2>Anita Johnson-Florez</h2>
+											<small>BOARD MEMBER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">Anita Johnson-Florez</h4>
+										{{-- <ul>
+											<li>Strategic Planning</li>
+											<li>Youth and Collegiate</li>
+											<li></li>
+										</ul> --}}
+										<hr/>
+
+										{{-- <a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a> --}}
+										<a href="{{ route('contact',array('to' => 'Anita Johnson-Florez'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->
+
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
@@ -343,50 +387,7 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/bob_sullins.jpg')}}" alt="" />
-											<h2>Bob Sullins</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Bob Sullins/h4>
-										<ul>
-											<li></li>
-											<li></li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/bob.sullins" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Bob Sullins'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/dale_gosser.png')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/dale_gosser.jpg')}}" alt="" />
 											<h2>Dale Gosser</h2>
 											<small>BOARD MEMBER</small>
 										</div>
@@ -423,93 +424,6 @@
 						<!-- /item -->
 
 						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/anita_pena.png')}}" alt="" />
-											<h2>Anita Johnson-Pena</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Anita Johnson-Pena</h4>
-										{{-- <ul>
-											<li>Strategic Planning</li>
-											<li>Youth and Collegiate</li>
-											<li></li>
-										</ul> --}}
-										<hr/>
-
-										{{-- <a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a> --}}
-										<a href="{{ route('contact',array('to' => 'Anita Johnson-Pena'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
-
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/jdavid_weiser.jpg')}}" alt="" />
-											<h2>David Weiser</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">David Weiser</h4>
-										<ul>
-											<li></li>
-											<li></li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/davidaweiser" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'David Weider'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
-							<!-- item -->
 						<div class="col-md-3 col-sm-6">
 							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 								<div class="front">
@@ -593,7 +507,92 @@
 						</div>
 						<!-- /item -->
 
-						
+											<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2019/bob_sullins.jpg')}}" alt="" />
+											<h2>Bob Sullins</h2>
+											<small>BOARD MEMBER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">Bob Sullins</h4>
+										<ul>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<hr/>
+
+										<a target= "new" href="http://m.me/bob.sullins" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="{{ route('contact',array('to' => 'Bob Sullins'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->	
+
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2019/david_weiser.jpg')}}" alt="" />
+											<h2>David Weiser</h2>
+											<small>BOARD MEMBER</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										<h4 class="nomargin">David Weiser</h4>
+										<ul>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+										<hr/>
+
+										<a target= "new" href="http://m.me/davidaweiser" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="{{ route('contact',array('to' => 'David Weider'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- /item -->
 				</div>
 			</section>
 			<!-- / -->
