@@ -40,7 +40,7 @@
 
 @section('content')
 	<p style="align-left">
-	  <a href="http://txra.org/forms/awards/nominate"><img width="560px" src="http://txra.org/images/awards/txra_award_desc.PNG'}}"></a>
+	  <a href="http://txra.org/forms/awards/nominate"><img width="560px" src="http://txra.org/images/awards/txra_award_desc.PNG"></a>
 	</p>
 @stop
 
