@@ -28,10 +28,10 @@ class Authenticate
         }
 
         #logout if user email not verified
-        if(Auth::check() && !Auth::user()->hasVerifiedEmail()){
-            Auth::logout();
-            return redirect('/verify')->withErrors('Verify your email account, please.');
-        }
+        // if(Auth::check() && !Auth::user()->hasVerifiedEmail()){
+        //     Auth::logout();
+        //     return redirect('/verify')->withErrors('Verify your email account, please.');
+        // }
 
         #logout if user not active
         if(Auth::check() && Auth::user()->disabled == 1){

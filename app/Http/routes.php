@@ -412,6 +412,10 @@ Route::group(['middleware' => ['auth', 'admin_user']], function () {
 	    return view('emails.committees.replyvolunteer');
 	});
 
+	Route::get('/emails/awards/request', function () {
+	    return view('emails.awards.requestnomination');
+	});
+
 	Route::get('/emails/awards/send', function () {
 	    return view('emails.awards.sendnomination');
 	});
