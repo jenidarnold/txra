@@ -21,4 +21,8 @@ class Grant extends Model
      */
     protected $fillable = ['user_id', 'amount', 'title', 'body', 'need_date', 'is_member' , 'phone', 'email'];
 
+    public function submitter()
+    {
+		return $this->hasOne('App\User', 'id', 'user_id');
+    }
 }

@@ -22,6 +22,7 @@ class MemberController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('current_user', ['except' => ['index', 'show', 'search', 'membership', 'rankings', 'home', 'matches']]);
+		//$this->middleware('verified', ['except' => ['index', 'show', 'search', 'membership', 'rankings', 'matches']]);
 	}
 		
 	/**
@@ -164,20 +165,22 @@ class MemberController extends Controller {
 	public function home(Request $request)
 	{
 
+		#logout if not authorized
+		if(!\Auth::check()){ return view('auth/login');}
 
-		if(\Auth::check()){
-
-			$id =  \Auth::user()->id ; 
-			if (\Auth::user()->last_name == 'Member' ) {
-				return view('welcome');
-			} else {
-				return redirect()->route('members.show', ['id' =>  $id ]);
-			}
-
-		}else{			
-			return view('auth/login');
+        // #logout if user email not verified
+        // if(!\Auth::user()->hasVerifiedEmail()){
+        //     \Auth::logout();
+        //     return redirect('/verify')->withErrors('Verify your email account, please.');
+        // }
+		
+        #Redirect to member's home page
+		$id =  \Auth::user()->id ; 
+		if (\Auth::user()->last_name == 'Member' ) {
+			return view('welcome');
+		} else {
+			return redirect()->route('members.show', ['id' =>  $id ]);
 		}
-
 	}
 
 	/**

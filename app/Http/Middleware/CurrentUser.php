@@ -16,9 +16,9 @@ class CurrentUser
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->id == 1) {
-            return  $next($request);
-        }
+        //if (Auth::user()->id == 1) {
+        //    return  $next($request);
+        //}
         if (!Auth::check() || Auth::user()->id != $request->id) {
             //return response('Unauthorized.', 401);   
             abort(401, 'Unauthorized.');       

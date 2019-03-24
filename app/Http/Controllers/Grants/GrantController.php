@@ -149,7 +149,9 @@ class GrantController extends Controller {
 	 */
 	public function show($id)
 	{	
-		return view('grants.show');
+
+		$grant = Grant::find($id);
+		return view('grants.show', compact('grant'));
 	}
 
 
@@ -229,9 +231,9 @@ class GrantController extends Controller {
 	public function edit($id)
 	{	
 
-        $grant = Instructor::find($id);
+        $grant = Grant::find($id);
 
-		return view('admin.grants.edit', compact('grant'));
+		return view('grants.edit', compact('grant'));
 	}
 
 	/**

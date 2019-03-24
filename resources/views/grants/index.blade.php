@@ -63,8 +63,8 @@
 		        			</td>
 		        			<td>{{$grant->title}}</td>
 		        			<td>{{$grant->body}}</td>
-		        			<td>{{$grant->full_name}}</td>
-		        			<td>{{$grant->submit_date}}</td>
+		        			<td>{{$grant->submitter->full_name}}</td>
+		        			<td>{{$grant->created_at}}</td>
 		        			<td>{{$grant->status}}</td>	
 		        			<td>{{$grant->status_date}}</td>	
 		        		</tr>

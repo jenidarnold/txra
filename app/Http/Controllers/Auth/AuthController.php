@@ -72,7 +72,7 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-        
+       
         $this->register_by_email($request);
         $this->redirectPath = 'members/profile/'.\Auth::user()->id.'/create';
         return redirect($this->redirectPath());

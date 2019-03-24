@@ -11,7 +11,6 @@
 |
 */
 
-
 // Route::get('/', function () {
 // 	 return view('coming-soon');
 // });
@@ -363,8 +362,24 @@ Route::get('/home', 'WelcomeController@index');
 
 Route::resource('subscribe', 'SubscribeController');
 
+// Route::get('/verification/resend', function() {
+// 		return view('auth/emails/verification.resend');
+// })->name('verification.resend');;
+
+//Route::group(['middleware' => ['auth']], function () {
+	Route::get('/verify', function () {
+	    return view('/auth/verify');
+	});
+
+	Route::get('verification/resend', function() {
+		return view('auth/emails/verification.resend');
+	})->name('verification.resend');
 
 
+	Route::get('verification/notice', function() {
+		return view('auth/emails/verification.notice');
+	})->name('verification.notice');
+//});
 
 /* Email Previews */
 Route::group(['middleware' => ['auth', 'admin_user']], function () {
@@ -455,3 +470,4 @@ Route::controller('datatables', 'DatatablesController', [
 
 /* must be last? */
 Route::auth();
+//Auth::routes(['verify' => true]);
