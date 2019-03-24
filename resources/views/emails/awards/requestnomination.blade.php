@@ -22,7 +22,7 @@
 
 
 @section('greeting')
-	<h4><center>TXRA Annual Awards Nominations</center></h4>
+	<h4><center>TXRA Annual Award Nominations</center></h4>
 @stop
 
 
@@ -34,7 +34,7 @@
 @section('lead')	
 	<div style="margin-top:20px; margin-bottom:20px;">
 		
-		<p>Final Nominations for the following Awards are being requested with a <b>due date of April 6, 2019</b> which will override the deadline noted in some of the nominating instructions.</p> 
+		<p>Final nominations for the following awards are being requested with a <b>due date of April 6, 2019</b> which will override the deadline noted in some of the nominating instructions.</p> 
 	</div>
 @stop
 
