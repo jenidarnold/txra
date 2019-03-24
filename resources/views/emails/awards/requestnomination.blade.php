@@ -33,14 +33,14 @@
 
 @section('callout')
 	<h6> These awards are for the period of January 1, 2018 to December 31, 2018.  Awards will be presented at the <a href="http://http://www.r2sports.com/website/event-website.asp?TID=30301">Battle at the Alamo, Regional’s Competition</a> April 26-28, 2019 in San Antonio, Texas.</h6>
-	<h4><center><a href="http://txra.org/forms/awards/nominate">Nominate Now!</a></center></h4>
+	<h4><center><a href="http://txra.org/forms/awards/nominate#form">Nominate Now!</a></center></h4>
 @stop
 
 
 
 @section('content')
 	<p style="align-left">
-	  <a href="http://txra.org/forms/awards/nominate"><img width="560px" src="http://txra.org/images/awards/txra_award_desc.PNG"></a>
+	  <a href="http://txra.org/forms/awards/nominate#form"><img width="560px" src="http://txra.org/images/awards/txra_award_desc.PNG"></a>
 	</p>
 @stop
 
