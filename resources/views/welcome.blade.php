@@ -5,7 +5,7 @@
 @stop
 @section('content')
         <!-- LAYER SLIDER -->
-{{--             <section id="slider">
+            <section id="slider">
 
                 <div class="slider">
 
@@ -177,25 +177,9 @@
         
             <!-- /LAYER SLIDER --> 
 
-            --}}
-{{--     <div style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/313409692?autoplay=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-        <div class='col-xs-12 alert alert-danger'>
-                <h3 class="text-center">
-                    <a href="http://www.r2sports.com/website/event-website.asp?TID=30330" target="_blank">2019 Texas State Singles Racquetball Championships (TSSRC), March 22-24
-                    </a>
-                </h3>
-                <center>
-                    <div>
-                        The premiere singles tournament for racquetball, hosted at Texas A&M in College Station, Texas.  The deadline for this event will be Monday, March 18th @10pm.
-                    </div>
-                </center>
-        </div>
-    </div> --}}
-   
+ <!--- VIDEOS ---->      
 {{--@foreach($videos as $video) --}}
-    <div style="padding:56.25% 0 0 0;position:relative;">
+   {{--  <div style="padding:56.25% 0 0 0;position:relative;">
         <iframe src="{{ $video->src}}" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
         <div class='col-xs-12 alert alert-danger'>
@@ -208,8 +192,9 @@
                     {!! html_entity_decode($video->callout) !!}
                 </div>
         </div>
-    </div>
+    </div> --}}
     {{--@endforeach--}}
+    
     <script src="https://player.vimeo.com/api/player.js"></script>
             @if( Auth::guest())
             <!-- GUEST CALLOUT -->

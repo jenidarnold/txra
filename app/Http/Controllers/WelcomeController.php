@@ -97,7 +97,7 @@ class WelcomeController extends Controller
                ];
 
 
-        array_push($videos, $video);  
+        //array_push($videos, $video);  
         //NMRA 2019
         $video = (object)[
                         'id' => '317720311',
@@ -128,7 +128,7 @@ class WelcomeController extends Controller
         //array_push($videos, $video);  
         
         $rand_indx = rand(0,count($videos)-1);
-        $video = $videos[$rand_indx];
+        //$video = $videos[$rand_indx];
 
         shuffle($videos);
     	return view('welcome', compact('tournaments', 'trending', 'recent','spotlight','tip', 'video', 'videos'));
