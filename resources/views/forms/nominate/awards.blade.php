@@ -161,6 +161,20 @@
 						</div><!-- /toggle -->
 					</div>
 				</div>
+				<div class="col-md-6 margin-bottom-20">
+					<!-- TOGGLES -->
+					<div class="toggle toggle-transparent toggle-bordered-simple">
+						<div class="toggle mix design alert-warning"><!-- toggle -->
+							<label><i class="ico-color ico-rounded1 ico-hover ico-xs et-trophy" style="background-color:goldenrod"></i> Tournament Director of the Year</label> 
+							<div class="toggle-content">
+								<p class="clearfix">
+									Presented to a tournament director that has demonstrated commitment to the sport and has volunteered time above and beyond to enhance the sport of racquetball in Texas.
+								</p>
+
+							</div>
+						</div><!-- /toggle -->
+					</div>
+				</div>
 			</div>
 	</div>
 	
@@ -227,6 +241,7 @@
 											<option value="6">Junior Female Athlete of the Year – Under 13</option>
 											<option value="7">Junior Female Athlete of the Year – Age 13-18</option>
 											<option value="8">Bob Sullins Outstanding Racquetball Contributor</option>
+											<option value="8">Tournament Director of the Year</option>
 										</select>
 									</div>
 								</div>
