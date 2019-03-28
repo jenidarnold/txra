@@ -61,6 +61,7 @@ class AuthController extends Controller
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users', 
             'password' => 'required|min:4|confirmed',
+           // 'birthday' => 'required', Rule::in([''])
         ]);
     }
 
@@ -91,11 +92,20 @@ class AuthController extends Controller
 
         $validator = $this->validator($request->all());
 
+        //Check for spam bots filling this fake field
+        if ($request->birthday != ''){
+            $this->throwValidationException(
+                $request, $validator                
+            );
+        }
+
         if ($validator->fails()) {
            $this->throwValidationException(
                 $request, $validator                
             );
         }
+
+
 
         $user = $this->create($request->all());
 

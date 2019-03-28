@@ -241,7 +241,7 @@
 											<option value="6">Junior Female Athlete of the Year – Under 13</option>
 											<option value="7">Junior Female Athlete of the Year – Age 13-18</option>
 											<option value="8">Bob Sullins Outstanding Racquetball Contributor</option>
-											<option value="8">Tournament Director of the Year</option>
+											<option value="9">Tournament Director of the Year</option>
 										</select>
 									</div>
 								</div>

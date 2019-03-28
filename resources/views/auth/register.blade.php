@@ -112,7 +112,11 @@
 		                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
 		                                    </span>
 		                                @endif
-		                            </div>									
+		                            </div>		
+		                            <div style="display:none">
+		                            	<label for="birthday">Birthday</label>
+		                            	<input type="text" name="birthday" id="birthday" value="">
+		                            </div>						
 								
 									<div class="margin-top-10 margin-bottom-10 text-center">
 										<label class="nomargin text-muted small">By clicking <b>REGISTER</b>, you agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms of Service</a></label>
