@@ -312,6 +312,6 @@
     </script>
 --}}
 
-@section('script')
-
+@section('page-js-script')
+    <script src="//code.tidio.co/inc1hspdcqvpmloja98oij4ccdazstw8.js"></script>
 @stop
