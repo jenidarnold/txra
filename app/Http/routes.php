@@ -96,6 +96,9 @@ Route::controllers([
 Route::get('/api/clubs/get', array('uses' => 'Play\MapController@getClubs'));
 Route::post('/api/clubs/checkin', array('uses' => 'Play\MapController@checkin'));
 
+/* Web Hooks */
+//Route::post('/webhooks/v1/salesorder', array('uses' => 'WebhooksControllerV1@salesOrder'));
+Route::post('/webhooks/v1/salesorder', array('uses' => 'Play\MapController@salesorder'));
 
 /* Admin */
 Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function()
