@@ -191,4 +191,28 @@ class LeadershipController extends Controller {
 		return  Redirect::to(URL::previous() . "#join")
 			->with('alert-success', $message);
 	}
+
+	 
+ 	public function salesOrder()
+    {
+
+    	dd('hello');
+
+        //get the posted JSON data
+        $data = file_get_contents('php://input');
+        //decode the data
+        $decoded_data = json_decode(trim($data));
+
+        // Write to csv
+        $timestamp = Carbon::now()->format('Y-m-d-h-m');
+        $filename = "SugarSalesOrders-$timestamp.csv";
+
+        //$dataToLog = "";
+        //foreach ($request->all() as $name => $value) {
+        //    $dataToLog .= $name . ': ' . $value . "\n";
+        //}
+
+        \File::append( storage_path('logs' . DIRECTORY_SEPARATOR . $filename), $decoded_data . "\n" . str_repeat("=", 20) . "\n\n");
+
+    }
 }

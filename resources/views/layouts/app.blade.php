@@ -49,7 +49,7 @@
 	    @else
 			<meta property="og:type" content="website"/>
 		@endif
-		s
+		
 		<meta name="google-site-verification" content="9Enh646QP_zeGHqUO6QX3S0-9daB97CxpKTvTQkqvBc" />
 
 		<meta property="fb:app_id" content="1163926640418093"/>
