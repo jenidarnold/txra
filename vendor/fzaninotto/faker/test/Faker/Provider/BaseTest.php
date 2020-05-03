@@ -6,7 +6,7 @@ use Faker\Provider\Base as BaseProvider;
 use PHPUnit\Framework\TestCase;
 use Traversable;
 
-final class BaseTest extends TestCase
+class BaseTest extends TestCase
 {
     public function testRandomDigitReturnsInteger()
     {
@@ -567,6 +567,6 @@ final class BaseTest extends TestCase
     }
 }
 
-final class Collection extends \ArrayObject
+class Collection extends \ArrayObject
 {
 }

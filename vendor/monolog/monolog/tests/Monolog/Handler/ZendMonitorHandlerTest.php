@@ -10,7 +10,6 @@
 
 namespace Monolog\Handler;
 
-use Monolog\Logger;
 use Monolog\TestCase;
 
 class ZendMonitorHandlerTest extends TestCase
@@ -54,12 +53,7 @@ class ZendMonitorHandlerTest extends TestCase
 
         $zendMonitor->expects($this->once())
             ->method('writeZendMonitorCustomEvent')
-            ->with(
-                Logger::getLevelName($record['level']),
-                $record['message'],
-                $formatterResult,
-                $levelMap[$record['level']]
-            );
+            ->with($levelMap[$record['level']], $record['message'], $formatterResult);
 
         $zendMonitor->handle($record);
     }

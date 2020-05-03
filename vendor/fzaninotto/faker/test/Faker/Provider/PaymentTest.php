@@ -11,11 +11,11 @@ use Faker\Provider\Payment as PaymentProvider;
 use Faker\Provider\Person as PersonProvider;
 use PHPUnit\Framework\TestCase;
 
-final class PaymentTest extends TestCase
+class PaymentTest extends TestCase
 {
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new BaseProvider($faker));

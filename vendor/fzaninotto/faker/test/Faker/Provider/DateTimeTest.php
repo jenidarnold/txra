@@ -5,15 +5,15 @@ namespace Faker\Test\Provider;
 use Faker\Provider\DateTime as DateTimeProvider;
 use PHPUnit\Framework\TestCase;
 
-final class DateTimeTest extends TestCase
+class DateTimeTest extends TestCase
 {
-    protected function setUp()
+    public function setUp()
     {
         $this->defaultTz = 'UTC';
         DateTimeProvider::setDefaultTimezone($this->defaultTz);
     }
 
-    protected function tearDown()
+    public function tearDown()
     {
         DateTimeProvider::setDefaultTimezone();
     }

@@ -9,14 +9,14 @@ use Faker\Provider\Lorem;
 use Faker\Provider\Person;
 use PHPUnit\Framework\TestCase;
 
-final class InternetTest extends TestCase
+class InternetTest extends TestCase
 {
     /**
      * @var Generator
      */
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Lorem($faker));

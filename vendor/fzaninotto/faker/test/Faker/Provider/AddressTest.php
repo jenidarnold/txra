@@ -6,11 +6,11 @@ use Faker\Generator;
 use Faker\Provider\Address;
 use PHPUnit\Framework\TestCase;
 
-final class AddressTest extends TestCase
+class AddressTest extends TestCase
 {
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Address($faker));

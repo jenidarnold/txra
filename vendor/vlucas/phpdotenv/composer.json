@@ -11,12 +11,9 @@
         }
     ],
     "require": {
-        "php": ">=5.3.9",
-        "symfony/polyfill-ctype": "^1.9"
+        "php": ">=5.3.9"
     },
     "require-dev": {
-        "ext-filter": "*",
-        "ext-pcre": "*",
         "phpunit/phpunit": "^4.8.35 || ^5.0"
     },
     "autoload": {
@@ -24,13 +21,9 @@
             "Dotenv\\": "src/"
         }
     },
-    "suggest": {
-        "ext-filter": "Required to use the boolean validator.",
-        "ext-pcre": "Required to use most of the library."
-    },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.6-dev"
+            "dev-master": "2.5-dev"
         }
     }
 }

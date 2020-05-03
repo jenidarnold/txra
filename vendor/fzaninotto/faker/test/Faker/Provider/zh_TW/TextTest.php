@@ -4,11 +4,11 @@ namespace Faker\Test\Provider\zh_TW;
 
 use PHPUnit\Framework\TestCase;
 
-final class TextTest extends TestCase
+class TextTest extends TestCase
 {
     private $textClass;
 
-    protected function setUp()
+    public function setUp()
     {
         $this->textClass = new \ReflectionClass('Faker\Provider\zh_TW\Text');
     }
@@ -21,6 +21,7 @@ final class TextTest extends TestCase
         return $method;
     }
 
+    /** @test */
     function testItShouldExplodeTheStringToArray()
     {
         $this->assertSame(
@@ -34,6 +35,7 @@ final class TextTest extends TestCase
         );
     }
 
+    /** @test */
     function testItShouldReturnTheStringLength()
     {
         $this->assertContains(
@@ -42,6 +44,7 @@ final class TextTest extends TestCase
         );
     }
 
+    /** @test */
     function testItShouldReturnTheCharacterIsValidStartOrNot()
     {
         $this->assertTrue($this->getMethod('validStart')->invokeArgs(null, array('中')));
@@ -55,6 +58,7 @@ final class TextTest extends TestCase
         $this->assertFalse($this->getMethod('validStart')->invokeArgs(null, array('！')));
     }
 
+    /** @test */
     function testItShouldAppendEndPunctToTheEndOfString()
     {
         $this->assertSame(

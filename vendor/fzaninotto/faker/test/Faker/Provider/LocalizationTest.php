@@ -5,7 +5,7 @@ namespace Faker\Test\Provider;
 use Faker\Factory;
 use PHPUnit\Framework\TestCase;
 
-final class LocalizationTest extends TestCase
+class LocalizationTest extends TestCase
 {
     public function testLocalizedNameProvidersDoNotThrowErrors()
     {

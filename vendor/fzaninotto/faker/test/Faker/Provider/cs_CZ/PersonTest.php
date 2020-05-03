@@ -7,7 +7,7 @@ use Faker\Provider\cs_CZ\Person;
 use Faker\Provider\Miscellaneous;
 use PHPUnit\Framework\TestCase;
 
-final class PersonTest extends TestCase
+class PersonTest extends TestCase
 {
     public function testBirthNumber()
     {

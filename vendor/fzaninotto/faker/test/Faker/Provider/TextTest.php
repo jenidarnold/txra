@@ -5,65 +5,51 @@ use Faker\Provider\en_US\Text;
 use Faker\Generator;
 use PHPUnit\Framework\TestCase;
 
-final class TextTest extends TestCase
+class TextTest extends TestCase
 {
-    /**
-     * @var Generator
-     */
-    private $generator;
-
-    /**
-     * @before
-     */
-    public function buildGenerator()
+    public function testTextMaxLength()
     {
         $generator = new Generator();
         $generator->addProvider(new Text($generator));
         $generator->seed(0);
 
-        $this->generator = $generator;
+        $lengths = array(10, 20, 50, 70, 90, 120, 150, 200, 500);
+
+        foreach ($lengths as $length) {
+            $this->assertLessThan($length, $generator->realText($length));
+        }
     }
 
     /**
-     * @testWith [10]
-     *           [20]
-     *           [50]
-     *           [70]
-     *           [90]
-     *           [120]
-     *           [150]
-     *           [200]
-     *           [500]
+     * @expectedException \InvalidArgumentException
      */
-    public function testTextMaxLength($length)
-    {
-        $this->assertLessThan($length, $this->generator->realText($length));
-    }
-
     public function testTextMaxIndex()
     {
-        $this->setExpectedException('InvalidArgumentException');
-
-        $this->generator->realText(200, 11);
-
-        $this->fail('The index should be less than or equal to 5.');
+    $generator = new Generator();
+        $generator->addProvider(new Text($generator));
+        $generator->seed(0);
+    $generator->realText(200, 11);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testTextMinIndex()
     {
-        $this->setExpectedException('InvalidArgumentException');
-
-        $this->generator->realText(200, 0);
-
-        $this->fail('The index should be greater than or equal to 1.');
+    $generator = new Generator();
+        $generator->addProvider(new Text($generator));
+        $generator->seed(0);
+        $generator->realText(200, 0);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testTextMinLength()
     {
-        $this->setExpectedException('InvalidArgumentException');
-
-        $this->generator->realText(9);
-
-        $this->fail('The text should be at least 10 characters.');
+    $generator = new Generator();
+        $generator->addProvider(new Text($generator));
+        $generator->seed(0);
+        $generator->realText(9);
     }
 }

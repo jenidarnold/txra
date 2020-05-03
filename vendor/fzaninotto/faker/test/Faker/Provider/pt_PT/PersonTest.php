@@ -6,10 +6,10 @@ use Faker\Generator;
 use Faker\Provider\pt_PT\Person;
 use PHPUnit\Framework\TestCase;
 
-final class PersonTest extends TestCase
+class PersonTest extends TestCase
 {
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Person($faker));

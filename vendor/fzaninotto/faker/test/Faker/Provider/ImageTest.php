@@ -5,7 +5,7 @@ namespace Faker\Test\Provider;
 use Faker\Provider\Image;
 use PHPUnit\Framework\TestCase;
 
-final class ImageTest extends TestCase
+class ImageTest extends TestCase
 {
     public function testImageUrlUses640x680AsTheDefaultSize()
     {
@@ -27,34 +27,6 @@ final class ImageTest extends TestCase
         $this->assertRegExp('#^https://lorempixel.com/800/400/nature/Faker#', Image::imageUrl(800, 400, 'nature', false, 'Faker'));
     }
 
-    public function testImageUrlReturnsLinkToRegularImageWhenGrayIsFalse()
-    {
-        $imageUrl = Image::imageUrl(
-            800,
-            400,
-            'nature',
-            false,
-            'Faker',
-            false
-        );
-
-        $this->assertSame('https://lorempixel.com/800/400/nature/Faker/', $imageUrl);
-    }
-
-    public function testImageUrlReturnsLinkToRegularImageWhenGrayIsTrue()
-    {
-        $imageUrl = Image::imageUrl(
-            800,
-            400,
-            'nature',
-            false,
-            'Faker',
-            true
-        );
-
-        $this->assertSame('https://lorempixel.com/gray/800/400/nature/Faker/', $imageUrl);
-    }
-
     public function testImageUrlAddsARandomGetParameterByDefault()
     {
         $url = Image::imageUrl(800, 400);
@@ -74,8 +46,6 @@ final class ImageTest extends TestCase
 
     public function testDownloadWithDefaults()
     {
-        $this->markTestSkipped('Skipped due to unstable service prior 1.9.0 release');
-
         $url = "http://lorempixel.com/";
         $curlPing = curl_init($url);
         curl_setopt($curlPing, CURLOPT_TIMEOUT, 5);

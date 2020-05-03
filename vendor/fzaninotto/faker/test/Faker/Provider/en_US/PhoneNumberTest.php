@@ -6,7 +6,7 @@ use Faker\Generator;
 use Faker\Provider\en_US\PhoneNumber;
 use PHPUnit\Framework\TestCase;
 
-final class PhoneNumberTest extends TestCase
+class PhoneNumberTest extends TestCase
 {
 
     /**
@@ -14,7 +14,7 @@ final class PhoneNumberTest extends TestCase
      */
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new PhoneNumber($faker));
@@ -35,7 +35,7 @@ final class PhoneNumberTest extends TestCase
             }
 
             // 10 digits
-            $this->assertCount(10, $digits);
+            $this->assertEquals(10, count($digits));
 
             // Last two digits of area code cannot be identical
             $this->assertNotEquals($digits[1], $digits[2]);
@@ -68,7 +68,7 @@ final class PhoneNumberTest extends TestCase
             }
 
             // 10 digits
-            $this->assertCount(10, $digits);
+            $this->assertEquals(10, count($digits));
 
             $areaCode = $digits[0] . $digits[1] . $digits[2];
             $this->assertContains($areaCode, array('800', '822', '833', '844', '855', '866', '877', '888', '880', '887', '889'));

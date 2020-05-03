@@ -7,12 +7,12 @@ use Faker\Generator;
 use Faker\Provider\sv_SE\Person;
 use PHPUnit\Framework\TestCase;
 
-final class PersonTest extends TestCase
+class PersonTest extends TestCase
 {
     /** @var Generator */
     protected $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Person($faker));
@@ -50,12 +50,12 @@ final class PersonTest extends TestCase
     public function testPersonalIdentityNumberGeneratesOddValuesForMales()
     {
         $pin = $this->faker->personalIdentityNumber(null, 'male');
-        $this->assertEquals(1, $pin[9] % 2);
+        $this->assertEquals(1, $pin{9} % 2);
     }
 
     public function testPersonalIdentityNumberGeneratesEvenValuesForFemales()
     {
         $pin = $this->faker->personalIdentityNumber(null, 'female');
-        $this->assertEquals(0, $pin[9] % 2);
+        $this->assertEquals(0, $pin{9} % 2);
     }
 }

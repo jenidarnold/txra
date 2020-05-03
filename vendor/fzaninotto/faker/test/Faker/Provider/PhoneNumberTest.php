@@ -7,7 +7,7 @@ use Faker\Calculator\Luhn;
 use Faker\Provider\PhoneNumber;
 use PHPUnit\Framework\TestCase;
 
-final class PhoneNumberTest extends TestCase
+class PhoneNumberTest extends TestCase
 {
 
     /**
@@ -15,7 +15,7 @@ final class PhoneNumberTest extends TestCase
      */
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new PhoneNumber($faker));

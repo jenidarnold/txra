@@ -58,10 +58,9 @@ class FingersCrossedHandlerTest extends TestCase
      * @covers Monolog\Handler\FingersCrossedHandler::activate
      * @covers Monolog\Handler\FingersCrossedHandler::reset
      */
-    public function testHandleResetBufferingAfterReset()
+    public function testHandleRestartBufferingAfterReset()
     {
         $test = new TestHandler();
-        $test->setSkipReset(true);
         $handler = new FingersCrossedHandler($test);
         $handler->handle($this->getRecord(Logger::WARNING));
         $handler->handle($this->getRecord(Logger::DEBUG));
@@ -77,7 +76,7 @@ class FingersCrossedHandlerTest extends TestCase
      * @covers Monolog\Handler\FingersCrossedHandler::handle
      * @covers Monolog\Handler\FingersCrossedHandler::activate
      */
-    public function testHandleResetBufferingAfterBeingTriggeredWhenStopBufferingIsDisabled()
+    public function testHandleRestartBufferingAfterBeingTriggeredWhenStopBufferingIsDisabled()
     {
         $test = new TestHandler();
         $handler = new FingersCrossedHandler($test, Logger::WARNING, 0, false, false);

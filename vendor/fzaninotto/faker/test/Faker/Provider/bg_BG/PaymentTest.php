@@ -6,7 +6,7 @@ use Faker\Generator;
 use Faker\Provider\bg_BG\Payment;
 use PHPUnit\Framework\TestCase;
 
-final class PaymentTest extends TestCase
+class PaymentTest extends TestCase
 {
 
     /**
@@ -14,7 +14,7 @@ final class PaymentTest extends TestCase
      */
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Payment($faker));

@@ -5,7 +5,7 @@ namespace Faker\Test;
 use Faker\Generator;
 use PHPUnit\Framework\TestCase;
 
-final class GeneratorTest extends TestCase
+class GeneratorTest extends TestCase
 {
     public function testAddProviderGivesPriorityToNewlyAddedProvider()
     {
@@ -126,7 +126,7 @@ final class GeneratorTest extends TestCase
     }
 }
 
-final class FooProvider
+class FooProvider
 {
     public function fooFormatter()
     {
@@ -139,7 +139,7 @@ final class FooProvider
     }
 }
 
-final class BarProvider
+class BarProvider
 {
     public function fooFormatter()
     {

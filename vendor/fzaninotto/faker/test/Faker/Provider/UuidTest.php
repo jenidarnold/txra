@@ -6,7 +6,7 @@ use Faker\Generator;
 use Faker\Provider\Uuid as BaseProvider;
 use PHPUnit\Framework\TestCase;
 
-final class UuidTest extends TestCase
+class UuidTest extends TestCase
 {
     public function testUuidReturnsUuid()
     {

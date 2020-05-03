@@ -7,11 +7,11 @@ use Faker\Generator;
 use Faker\Provider\fr_FR\Company;
 use PHPUnit\Framework\TestCase;
 
-final class CompanyTest extends TestCase
+class CompanyTest extends TestCase
 {
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Company($faker));
@@ -66,7 +66,7 @@ final class CompanyTest extends TestCase
     }
 }
 
-final class TestableCompany extends Company
+class TestableCompany extends Company
 {
     public static function isCatchPhraseValid($catchPhrase)
     {

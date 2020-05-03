@@ -6,9 +6,9 @@ use Faker\Generator;
 use Faker\Provider\it_IT\Company;
 use PHPUnit\Framework\TestCase;
 
-final class CompanyTest extends TestCase
+class CompanyTest extends TestCase
 {
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Company($faker));

@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "gidlov/copycat":  "dev-master", 
-        "guzzlehttp/guzzle": "^6.0",
+        "guzzlehttp/guzzle": "dev-master",
         "fabpot/goutte": "^3.2",        
         "serverfireteam/blog": "2.*",
         "serverfireteam/panel": "1.4.*",

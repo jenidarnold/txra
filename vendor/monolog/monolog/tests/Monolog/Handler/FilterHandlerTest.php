@@ -167,12 +167,4 @@ class FilterHandlerTest extends TestCase
         );
         $handler->handle($this->getRecord(Logger::WARNING));
     }
-
-    public function testHandleEmptyBatch()
-    {
-        $test = new TestHandler();
-        $handler = new FilterHandler($test);
-        $handler->handleBatch(array());
-        $this->assertSame(array(), $test->getRecords());
-    }
 }

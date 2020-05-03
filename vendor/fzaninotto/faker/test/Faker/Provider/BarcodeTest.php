@@ -6,11 +6,11 @@ use Faker\Generator;
 use Faker\Provider\Barcode;
 use PHPUnit\Framework\TestCase;
 
-final class BarcodeTest extends TestCase
+class BarcodeTest extends TestCase
 {
     private $faker;
 
-    protected function setUp()
+    public function setUp()
     {
         $faker = new Generator();
         $faker->addProvider(new Barcode($faker));
@@ -37,7 +37,7 @@ final class BarcodeTest extends TestCase
     }
 }
 
-final class TestableBarcode extends Barcode
+class TestableBarcode extends Barcode
 {
     public static function eanChecksum($input)
     {
