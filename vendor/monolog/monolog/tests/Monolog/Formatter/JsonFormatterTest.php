@@ -114,6 +114,14 @@ class JsonFormatterTest extends TestCase
         $this->assertContextContainsFormattedException($formattedThrowable, $message);
     }
 
+    public function testDefFormatWithResource()
+    {
+        $formatter = new JsonFormatter(JsonFormatter::BATCH_MODE_JSON, false);
+        $record = $this->getRecord();
+        $record['context'] = array('field_resource' => curl_init());
+        $this->assertEquals('{"message":"test","context":{"field_resource":"[resource] (curl)"},"level":300,"level_name":"WARNING","channel":"test","datetime":'.json_encode($record['datetime']).',"extra":[]}', $formatter->format($record));
+    }
+
     /**
      * @param string $expected
      * @param string $actual
@@ -179,5 +187,41 @@ class JsonFormatterTest extends TestCase
             ($previous ? '","previous":' . $previous : '"') .
             '}';
         return $formattedException;
+    }
+
+    public function testNormalizeHandleLargeArraysWithExactly1000Items()
+    {
+        $formatter = new NormalizerFormatter();
+        $largeArray = range(1, 1000);
+
+        $res = $formatter->format(array(
+            'level_name' => 'CRITICAL',
+            'channel' => 'test',
+            'message' => 'bar',
+            'context' => array($largeArray),
+            'datetime' => new \DateTime,
+            'extra' => array(),
+        ));
+
+        $this->assertCount(1000, $res['context'][0]);
+        $this->assertArrayNotHasKey('...', $res['context'][0]);
+    }
+
+    public function testNormalizeHandleLargeArrays()
+    {
+        $formatter = new NormalizerFormatter();
+        $largeArray = range(1, 2000);
+
+        $res = $formatter->format(array(
+            'level_name' => 'CRITICAL',
+            'channel' => 'test',
+            'message' => 'bar',
+            'context' => array($largeArray),
+            'datetime' => new \DateTime,
+            'extra' => array(),
+        ));
+
+        $this->assertCount(1001, $res['context'][0]);
+        $this->assertEquals('Over 1000 items (2000 total), aborting normalization', $res['context'][0]['...']);
     }
 }

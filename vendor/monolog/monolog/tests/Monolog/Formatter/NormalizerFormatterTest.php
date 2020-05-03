@@ -92,7 +92,7 @@ class NormalizerFormatterTest extends \PHPUnit_Framework_TestCase
         }
 
         $formatter = new NormalizerFormatter('Y-m-d');
-        $e = new \SoapFault('foo', 'bar', 'hello', 'world');
+        $e = new \SoapFault('foo', 'bar', 'hello', (object) array('foo' => 'world'));
         $formatted = $formatter->format(array(
             'exception' => $e,
         ));
@@ -190,7 +190,20 @@ class NormalizerFormatterTest extends \PHPUnit_Framework_TestCase
 
         restore_error_handler();
 
-        $this->assertEquals(@json_encode(array($foo, $bar)), $res);
+        if (PHP_VERSION_ID < 50500) {
+            $this->assertEquals('[{"bar":{"foo":null}},{"foo":{"bar":null}}]', $res);
+        } else {
+            $this->assertEquals('null', $res);
+        }
+    }
+
+    public function testCanNormalizeReferences()
+    {
+        $formatter = new NormalizerFormatter();
+        $x = array('foo' => 'bar');
+        $y = array('x' => &$x);
+        $x['y'] = &$y;
+        $formatter->format($y);
     }
 
     public function testIgnoresInvalidTypes()
@@ -214,7 +227,29 @@ class NormalizerFormatterTest extends \PHPUnit_Framework_TestCase
 
         restore_error_handler();
 
-        $this->assertEquals(@json_encode(array($resource)), $res);
+        if (PHP_VERSION_ID < 50500) {
+            $this->assertEquals('[null]', $res);
+        } else {
+            $this->assertEquals('null', $res);
+        }
+    }
+
+    public function testNormalizeHandleLargeArraysWithExactly1000Items()
+    {
+        $formatter = new NormalizerFormatter();
+        $largeArray = range(1, 1000);
+
+        $res = $formatter->format(array(
+            'level_name' => 'CRITICAL',
+            'channel' => 'test',
+            'message' => 'bar',
+            'context' => array($largeArray),
+            'datetime' => new \DateTime,
+            'extra' => array(),
+        ));
+
+        $this->assertCount(1000, $res['context'][0]);
+        $this->assertArrayNotHasKey('...', $res['context'][0]);
     }
 
     public function testNormalizeHandleLargeArrays()
@@ -231,7 +266,7 @@ class NormalizerFormatterTest extends \PHPUnit_Framework_TestCase
             'extra' => array(),
         ));
 
-        $this->assertCount(1000, $res['context'][0]);
+        $this->assertCount(1001, $res['context'][0]);
         $this->assertEquals('Over 1000 items (2000 total), aborting normalization', $res['context'][0]['...']);
     }
 
@@ -278,63 +313,6 @@ class NormalizerFormatterTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @param mixed $in     Input
-     * @param mixed $expect Expected output
-     * @covers Monolog\Formatter\NormalizerFormatter::detectAndCleanUtf8
-     * @dataProvider providesDetectAndCleanUtf8
-     */
-    public function testDetectAndCleanUtf8($in, $expect)
-    {
-        $formatter = new NormalizerFormatter();
-        $formatter->detectAndCleanUtf8($in);
-        $this->assertSame($expect, $in);
-    }
-
-    public function providesDetectAndCleanUtf8()
-    {
-        $obj = new \stdClass;
-
-        return array(
-            'null' => array(null, null),
-            'int' => array(123, 123),
-            'float' => array(123.45, 123.45),
-            'bool false' => array(false, false),
-            'bool true' => array(true, true),
-            'ascii string' => array('abcdef', 'abcdef'),
-            'latin9 string' => array("\xB1\x31\xA4\xA6\xA8\xB4\xB8\xBC\xBD\xBE\xFF", '±1€ŠšŽžŒœŸÿ'),
-            'unicode string' => array('¤¦¨´¸¼½¾€ŠšŽžŒœŸ', '¤¦¨´¸¼½¾€ŠšŽžŒœŸ'),
-            'empty array' => array(array(), array()),
-            'array' => array(array('abcdef'), array('abcdef')),
-            'object' => array($obj, $obj),
-        );
-    }
-
-    /**
-     * @param int    $code
-     * @param string $msg
-     * @dataProvider providesHandleJsonErrorFailure
-     */
-    public function testHandleJsonErrorFailure($code, $msg)
-    {
-        $formatter = new NormalizerFormatter();
-        $reflMethod = new \ReflectionMethod($formatter, 'handleJsonError');
-        $reflMethod->setAccessible(true);
-
-        $this->setExpectedException('RuntimeException', $msg);
-        $reflMethod->invoke($formatter, $code, 'faked');
-    }
-
-    public function providesHandleJsonErrorFailure()
-    {
-        return array(
-            'depth' => array(JSON_ERROR_DEPTH, 'Maximum stack depth exceeded'),
-            'state' => array(JSON_ERROR_STATE_MISMATCH, 'Underflow or the modes mismatch'),
-            'ctrl' => array(JSON_ERROR_CTRL_CHAR, 'Unexpected control character found'),
-            'default' => array(-1, 'Unknown error'),
-        );
-    }
-
     public function testExceptionTraceWithArgs()
     {
         if (defined('HHVM_VERSION')) {
@@ -363,22 +341,33 @@ class NormalizerFormatterTest extends \PHPUnit_Framework_TestCase
         $record = array('context' => array('exception' => $e));
         $result = $formatter->format($record);
 
-        $this->assertRegExp(
-            '%"resource":"\[resource\] \(stream\)"%',
+        $this->assertSame(
+            __FILE__.':'.(__LINE__-10),
             $result['context']['exception']['trace'][0]
         );
+    }
 
-        if (version_compare(PHP_VERSION, '5.5.0', '>=')) {
-            $pattern = '%"wrappedResource":"\[object\] \(Monolog\\\\\\\\Formatter\\\\\\\\TestFooNorm: \)"%';
-        } else {
-            $pattern = '%\\\\"foo\\\\":null%';
+    public function testExceptionTraceDoesNotLeakCallUserFuncArgs()
+    {
+        try {
+            $arg = new TestInfoLeak;
+            call_user_func(array($this, 'throwHelper'), $arg, $dt = new \DateTime());
+        } catch (\Exception $e) {
         }
 
-        // Tests that the wrapped resource is ignored while encoding, only works for PHP <= 5.4
-        $this->assertRegExp(
-            $pattern,
+        $formatter = new NormalizerFormatter();
+        $record = array('context' => array('exception' => $e));
+        $result = $formatter->format($record);
+
+        $this->assertSame(
+            __FILE__ .':'.(__LINE__-9),
             $result['context']['exception']['trace'][0]
         );
+    }
+
+    private function throwHelper($arg)
+    {
+        throw new \RuntimeException('Thrown');
     }
 }
 
@@ -419,5 +408,13 @@ class TestToStringError
     public function __toString()
     {
         throw new \RuntimeException('Could not convert to string');
+    }
+}
+
+class TestInfoLeak
+{
+    public function __toString()
+    {
+        return 'Sensitive information';
     }
 }

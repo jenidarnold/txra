@@ -88,6 +88,36 @@ class WhatFailureGroupHandlerTest extends TestCase
     }
 
     /**
+     * @covers Monolog\Handler\WhatFailureGroupHandler::handleBatch
+     */
+    public function testHandleBatchUsesProcessors()
+    {
+        $testHandlers = array(new TestHandler(), new TestHandler());
+        $handler = new WhatFailureGroupHandler($testHandlers);
+        $handler->pushProcessor(function ($record) {
+            $record['extra']['foo'] = true;
+
+            return $record;
+        });
+        $handler->pushProcessor(function ($record) {
+            $record['extra']['foo2'] = true;
+
+            return $record;
+        });
+        $handler->handleBatch(array($this->getRecord(Logger::DEBUG), $this->getRecord(Logger::INFO)));
+        foreach ($testHandlers as $test) {
+            $this->assertTrue($test->hasDebugRecords());
+            $this->assertTrue($test->hasInfoRecords());
+            $this->assertTrue(count($test->getRecords()) === 2);
+            $records = $test->getRecords();
+            $this->assertTrue($records[0]['extra']['foo']);
+            $this->assertTrue($records[1]['extra']['foo']);
+            $this->assertTrue($records[0]['extra']['foo2']);
+            $this->assertTrue($records[1]['extra']['foo2']);
+        }
+    }
+
+    /**
      * @covers Monolog\Handler\WhatFailureGroupHandler::handle
      */
     public function testHandleException()

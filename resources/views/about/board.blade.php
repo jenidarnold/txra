@@ -48,31 +48,31 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/mike_grisz.png')}}" alt="" />
-											<h2>Mike Grisz</h2>
+											<img class="img-responsive" src="{{ asset('images/board/2020/julienne_arnold.png')}}" alt="" />
+											<h2>Julienne Arnold</h2>
 											<small>PRESIDENT</small>
+											<br/>
+											<small>2017-2020, 2020-2023</small>
 										</div>
 									</div>
 								</div>
+
 								<div class="back">
 									<div class="box2 box-info">
-										<h4 class="nomargin">Mike Grisz</h4>									
+										<h4 class="nomargin">Julienne Arnold</h4>
 										<ul>
-											<li>Finance (Chair)</li>
-											<li>Strategic Planning</li>
-											<li>Youth and Collegiate</li>
 										</ul>
-										<hr>
+										<hr/>
 
-										{{-- <a target= "new" href="#" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/julienne.arnold"  target="_blank" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
 										<a href="#" class="social-icon social-icon-sm social-twitter">
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
-										</a> --}}
-										<a href="{{ route('contact',array('to' => 'Mike Grisz'))}}" class="social-icon social-icon-sm social-linkedin">
+										</a>
+										<a href="{{ route('contact',array('to' => 'Julienne Arnold'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
@@ -84,28 +84,31 @@
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
+
 							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/tom_doughty.png')}}" alt="" />
-											<h2>Tom Doughty</h2>
+											<img class="img-responsive" src="{{ asset('images/board/2019/bob_sullins.jpg')}}" alt="" />
+											<h2>Bob Sullins</h2>
 											<small>VICE PRESIDENT</small>
+											<br/>
+											<small>2019-2022</small>
 										</div>
 									</div>
 								</div>
 
 								<div class="back">
 									<div class="box2 box-info">
-										<h4 class="nomargin">Tom Doughty</h4>
+										<h4 class="nomargin">Bob Sullins</h4>
 										<ul>
-											<li>Governance</li>
-											<li>Communications</li>
+											<li></li>
+											<li></li>
 											<li></li>
 										</ul>
 										<hr/>
 
-										<a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/bob.sullins" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -113,15 +116,18 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="{{ route('contact',array('to' => 'Tom Doughty'))}}" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Bob Sullins'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
 									</div>
 								</div>
 							</div>
+
 						</div>
-						<!-- /item -->
+						<!-- /item -->	
+
+
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
@@ -129,9 +135,11 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/mitchell_mccoy.jpg')}}" alt="" />
+											<img class="img-responsive" src="{{ asset('images/board/2019/mitchell_mccoy.png')}}" alt="" />
 											<h2>Mitchell McCoy</h2>
 											<small>TREASURER</small>
+											<br/>
+											<small>2018-2019, 2019-2022</small>
 										</div>
 									</div>
 								</div>
@@ -166,28 +174,29 @@
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
+
 							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/julie_arnold.png')}}" alt="" />
-											<h2>Julienne Arnold</h2>
-											<small>SECRETARY</small>
+											<img class="img-responsive" src="{{ asset('images/board/2020/mike_cantu.png')}}" alt="" />
+											<h2>Mike Cantu</h2>
+											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2020-2023</small>
 										</div>
 									</div>
 								</div>
 
 								<div class="back">
 									<div class="box2 box-info">
-										<h4 class="nomargin">Julienne Arnold</h4>
+										<h4 class="nomargin">Mike Cantu</h4>
 										<ul>
-											<li>Awards</li>
-											<li>Communications (Chair)</li>
-											<li></li>
+											<li>Tournament Durector Czar</li>
 										</ul>
 										<hr/>
 
-										<a target= "new" href="http://m.me/julienne.arnold"  target="_blank" class="social-icon social-icon-sm social-facebook">
+										<a target= "new" href="http://m.me/mike.cantu" class="social-icon social-icon-sm social-facebook">
 											<i class="fa fa-facebook"></i>
 											<i class="fa fa-facebook"></i>
 										</a>
@@ -195,13 +204,14 @@
 											<i class="fa fa-twitter"></i>
 											<i class="fa fa-twitter"></i>
 										</a>
-										<a href="{{ route('contact',array('to' => 'Julienne Arnold'))}}" class="social-icon social-icon-sm social-linkedin">
+										<a href="{{ route('contact',array('to' => 'Mike Cantu'))}}" class="social-icon social-icon-sm social-linkedin">
 											<i class="fa fa-envelope"></i>
 											<i class="fa fa-envelope"></i>
 										</a>
 									</div>
 								</div>
 							</div>
+
 						</div>
 						<!-- /item -->
 
@@ -215,6 +225,8 @@
 											<img class="img-responsive" src="{{ asset('images/board/2019/anita_pena.png')}}" alt="" />
 											<h2>Anita Johnson-Florez</h2>
 											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2018-2021</small>
 										</div>
 									</div>
 								</div>
@@ -223,8 +235,7 @@
 									<div class="box2 box-info">
 										<h4 class="nomargin">Anita Johnson-Florez</h4>
 										{{-- <ul>
-											<li>Strategic Planning</li>
-											<li>Youth and Collegiate</li>
+											<li>External Affairs</li>
 											<li></li>
 										</ul> --}}
 										<hr/>
@@ -259,6 +270,8 @@
 											<img class="img-responsive" src="{{ asset('images/board/2019/jeff_franco.png')}}" alt="" />
 											<h2>Jeff Franco</h2>
 											<small>Board Member</small>
+											<br/>
+											<small>2018-2021</small>
 										</div>
 									</div>
 								</div>
@@ -267,9 +280,7 @@
 									<div class="box2 box-info">
 										<h4 class="nomargin">Jeff Franco</h4>
 										{{-- <ul>
-											<li>Awards</li>
-											<li>Strategic Planning</li>
-											<li>Youth and Collegiate</li>
+											<li>League Development</li>
 										</ul> --}}
 										<hr/>
 
@@ -303,6 +314,8 @@
 											<img class="img-responsive" src="{{ asset('images/board/2019/jon_friedman.png')}}" alt="" />
 											<h2>Jon Friedman</h2>
 											<small>Board Member</small>
+											<br/>
+											<small>2018-2021</small>
 										</div>
 									</div>
 								</div>
@@ -344,52 +357,11 @@
 								<div class="front">
 									<div class="box1 box-default">
 										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/brad_giezentanner.png')}}" alt="" />
-											<h2>Brad Giezentanner</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Brad Giezentanner</h4>
-										<ul>
-											<li>Communications</li>
-											<li>Youth and Collegiate</li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/brad.giezentanner" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Brad Giezentanner'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
 											<img class="img-responsive" src="{{ asset('images/board/2019/dale_gosser.jpg')}}" alt="" />
 											<h2>Dale Gosser</h2>
 											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2016-2019, 2019-2021</small>
 										</div>
 									</div>
 								</div>
@@ -432,6 +404,8 @@
 											<img class="img-responsive" src="{{ asset('images/board/2019/sandy_rios.png')}}" alt="" />
 											<h2>Sandy Rios</h2>
 											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2018-2021</small>
 										</div>
 									</div>
 								</div>
@@ -466,6 +440,92 @@
 
 						<!-- item -->
 						<div class="col-md-3 col-sm-6">
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2020/kevin_sendry.png')}}" alt="" />
+											<h2>Kevin Sendry</h2>
+											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2020-2023</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										{{-- <h4 class="nomargin">Kevin Sendry</h4>
+										<ul>
+											<li>Governance</li>
+											<li>Communications</li>
+											<li></li>
+										</ul> --}}
+										<hr/>
+
+										{{-- <a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a> --}}
+										<a href="{{ route('contact',array('to' => 'Kevin Sendry'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
+							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
+								<div class="front">
+									<div class="box1 box-default">
+										<div class="box-icon-title">
+											<img class="img-responsive" src="{{ asset('images/board/2020/ross_smith.png')}}" alt="" />
+											<h2>Ross Smith</h2>
+											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2020-2023</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="back">
+									<div class="box2 box-info">
+										{{-- <h4 class="nomargin">Ross Smith</h4>
+										<ul>
+											<li>Governance</li>
+											<li>Communications</li>
+											<li></li>
+										</ul> --}}
+										<hr/>
+
+										{{-- <a target= "new" href="http://m.me/" class="social-icon social-icon-sm social-facebook">
+											<i class="fa fa-facebook"></i>
+											<i class="fa fa-facebook"></i>
+										</a>
+										<a href="#" class="social-icon social-icon-sm social-twitter">
+											<i class="fa fa-twitter"></i>
+											<i class="fa fa-twitter"></i>
+										</a> --}}
+										<a href="{{ route('contact',array('to' => 'Ross Smith'))}}" class="social-icon social-icon-sm social-linkedin">
+											<i class="fa fa-envelope"></i>
+											<i class="fa fa-envelope"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /item -->
+
+						<!-- item -->
+						<div class="col-md-3 col-sm-6">
 
 							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
 								<div class="front">
@@ -474,6 +534,8 @@
 											<img class="img-responsive" src="{{ asset('images/board/2019/mike_sorensen.png')}}" alt="" />
 											<h2>Mike Sorensen</h2>
 											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2017-2018, 2018-2021</small>
 										</div>
 									</div>
 								</div>
@@ -507,48 +569,6 @@
 						</div>
 						<!-- /item -->
 
-											<!-- item -->
-						<div class="col-md-3 col-sm-6">
-
-							<div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center">
-								<div class="front">
-									<div class="box1 box-default">
-										<div class="box-icon-title">
-											<img class="img-responsive" src="{{ asset('images/board/2019/bob_sullins.jpg')}}" alt="" />
-											<h2>Bob Sullins</h2>
-											<small>BOARD MEMBER</small>
-										</div>
-									</div>
-								</div>
-
-								<div class="back">
-									<div class="box2 box-info">
-										<h4 class="nomargin">Bob Sullins</h4>
-										<ul>
-											<li></li>
-											<li></li>
-											<li></li>
-										</ul>
-										<hr/>
-
-										<a target= "new" href="http://m.me/bob.sullins" class="social-icon social-icon-sm social-facebook">
-											<i class="fa fa-facebook"></i>
-											<i class="fa fa-facebook"></i>
-										</a>
-										<a href="#" class="social-icon social-icon-sm social-twitter">
-											<i class="fa fa-twitter"></i>
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="{{ route('contact',array('to' => 'Bob Sullins'))}}" class="social-icon social-icon-sm social-linkedin">
-											<i class="fa fa-envelope"></i>
-											<i class="fa fa-envelope"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<!-- /item -->	
 
 
 						<!-- item -->
@@ -561,6 +581,8 @@
 											<img class="img-responsive" src="{{ asset('images/board/2019/david_weiser.jpg')}}" alt="" />
 											<h2>David Weiser</h2>
 											<small>BOARD MEMBER</small>
+											<br/>
+											<small>2019-2022</small>
 										</div>
 									</div>
 								</div>
